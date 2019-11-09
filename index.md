@@ -2,7 +2,7 @@
 
 You can use the [editor on GitHub](https://nytimes.com) to maintain and preview the content for your website in Markdown files. **This text is in bold**. This text is not. *This text is in italics*. This text is not. This is a [link](http://nytimes.com). This is not. 
 
-# This is an <h1> tag
+# This is a header
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
