@@ -6,10 +6,13 @@ You can use the [editor on GitHub](https://nytimes.com) to maintain and preview 
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-As Kanye West said:
-
-> We're living the future so
-> the present is our past.
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
 
 ### Markdown
 
