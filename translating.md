@@ -121,7 +121,9 @@ The $x$ signals to us that to evaluate its truth, we go look for an $d$ such tha
 
 
 
-## Variables: what they cannot do. Consider again ``Anne is nice'' and ``Someone is nice''. We translate the first by ``$Na$'' and the second by ``$\exists \; x \; Nx$.'' Note that both of these sentences can, of course, be either true or false. However, consider $Nx$ all by itself. It seems that $Nx$ is not the kind of thing that can be true or false on its own. For, the $x$ just marks a spot here, and does not pick out an individual like Anne or Bill. Hence sentences with variables like $Nx$ but without quantifiers like $\exists \; x \;$  or $\forall \; x \;$ are not propositions. Our use of the word ``variable'' coincides with the use in math: $x+4=5$ is not true or false on its own, while $1+4=5$ is true and $2+4=5$ is false. Like in math, when we see $x+4=5$ or $Nx$, we might get some idea for which values of $x$ make it true (``it has got to be $x=1$!'' ``it has got to be $x=$Anne!''), but all by itself $x+4=5$ and $Nx$ are neither true nor false.
+## Variables: what they cannot do. 
+
+Consider again ``Anne is nice'' and ``Someone is nice''. We translate the first by ``$Na$'' and the second by ``$\exists \; x \; Nx$.'' Note that both of these sentences can, of course, be either true or false. However, consider $Nx$ all by itself. It seems that $Nx$ is not the kind of thing that can be true or false on its own. For, the $x$ just marks a spot here, and does not pick out an individual like Anne or Bill. Hence sentences with variables like $Nx$ but without quantifiers like $\exists \; x \;$  or $\forall \; x \;$ are not propositions. Our use of the word ``variable'' coincides with the use in math: $x+4=5$ is not true or false on its own, while $1+4=5$ is true and $2+4=5$ is false. Like in math, when we see $x+4=5$ or $Nx$, we might get some idea for which values of $x$ make it true (``it has got to be $x=1$!'' ``it has got to be $x=$Anne!''), but all by itself $x+4=5$ and $Nx$ are neither true nor false.
 
 
 
