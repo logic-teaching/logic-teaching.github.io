@@ -1,5 +1,6 @@
-layout: page
-title: "Metalogic: First-Order Languages"
+---
+title: My custom title
+---
 
 <script>
   MathJax = {
