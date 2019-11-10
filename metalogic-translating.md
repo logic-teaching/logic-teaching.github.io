@@ -1,3 +1,9 @@
+---
+title: Translating into first-order languages
+layout: template
+filename: metalogic-translating.md
+--- 
+
 # 1. Translating into first-order languages {#chap:translating}
 
 <script>
