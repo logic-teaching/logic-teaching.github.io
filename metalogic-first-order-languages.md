@@ -13,12 +13,6 @@ description: "First-order languages"
 
 
 
-# 2. First-order languages
-
-This chapter is one of the building blocks of this course. In this
-chapter we formally define a first-order language, which systemizes the
-formal languages which we were translating into in the previous chapter.
-
 # Definition of language {#para:languages:defnlanguage}
 
 The first key definition is that of language. Perhaps "language" is not the best word: as the formal
@@ -26,27 +20,23 @@ definition below makes clear, it is really more like a "fragment of a
 lexicon." Some people use the more neutral "signature" in lieu of
 "language":
 
-[\[defn:symbols\]]{#defn:symbols label="defn:symbols"} All **languages**
-we consider will have the following symbols:
-
-**variables** $v_1,\,v_2,\,v_3,\ldots$
-
-**propositional connectives**
-$\wedge, \vee, \neg, \rightarrow, \leftrightarrow$
-
-**parentheses** $($ and $)$
-
-**identity symbol** $=$
-
-**quantifiers** $\forall$ and $\exists$
-
-Further, a **language** might have some of the following symbols:
-
-**constant** symbols
-
-$n$-place **predicate** symbols, for each $n\geq 1$
-
-$n$-place **function** symbols, for each $n\geq 1$
+> **Definition** All *languages* we consider will have the following symbols:
+>
+> -*variables* $v_1,\,v_2,\,v_3,\ldots$
+>
+> -*propositional connectives* $\wedge, \vee, \neg, \rightarrow, \leftrightarrow$
+>
+> -*parentheses* $($ and $)$
+> -*identity symbol* $=$
+> -*quantifiers* $\forall$ and $\exists$
+>
+> Further, a *language* might have some of the following symbols:
+>
+> -*constant* symbols
+>
+> -$n$-place *predicate* symbols, for each $n\geq 1$
+>
+> -$n$-place *function* symbols, for each $n\geq 1$
 
 Hence, all languages have (i)-(v) but they can differ in terms of which
 of (vi)-(viii) they have. A language is thus distinguished by its
