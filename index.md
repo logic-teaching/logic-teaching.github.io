@@ -14,13 +14,13 @@ function fancyAlert(arg) {
 }
 ```
 
-
 <script type="text/javascript">
 // JavaScript example
 
 document.getElementById("demo").innerHTML = "Hello JavaScript!";
 </script>
 <p>okay</p>
+
 
 ### Markdown
 
