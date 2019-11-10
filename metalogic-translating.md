@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Metalogic: Translating into first-order languages
+title: "Metalogic: Translating into first-order languages"
 ---
 
 <script>
