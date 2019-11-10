@@ -1,3 +1,9 @@
+---
+layout: post
+title: Blogging Like a Hacker
+---
+
+
 # 1. Translating into first-order languages {#chap:translating}
 
 <script>
