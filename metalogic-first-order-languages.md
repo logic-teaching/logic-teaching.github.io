@@ -11,15 +11,20 @@ description: "First-order languages"
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   
-\(  \newcommand{\boldless}{\mathtt{\mathbin<}}
-\newcommand{\boldleq}{\mathtt{\mathbin\leq}}
-\newcommand{\notboldless}{\mathtt{\not <}}
-\newcommand{\notboldleq}{\mathtt{\not\leq}}
-\newcommand{\boldzero}{\mathtt{0}}
-\newcommand{\boldS}{\mathtt{S}}
-\newcommand{\boldplus}{\mathtt{+}}
-\newcommand{\boldtimes}{\mathtt{\cdot}} \)
-  
+window.MathJax = {
+  tex: {
+    macros: {
+      boldless: "{\mathtt{\mathbin<}}",
+      boldleq: "{\mathtt{\mathbin\leq}}",
+      notboldless: "{\mathtt{\not <}}",
+      notboldleq: "{\mathtt{\not <}}",
+      boldzero: "{\mathtt{0}}",
+      boldS: "{\mathtt{S}}",
+      boldplus: "{\mathtt{+}}",
+      \boldtimes: "{\mathtt{\cdot}}",
+    }
+  }
+};   
 
 This chapter is one of the building blocks of this course. In this chapter we formally define a first-order language, which systemizes the formal languages which we were translating into in the previous chapter. 
 
