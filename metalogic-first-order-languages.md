@@ -1,4 +1,7 @@
- <script>
+layout: page
+title: "Metalogic: First-Order Languages"
+
+<script>
   MathJax = {
     tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   };
