@@ -1,15 +1,17 @@
-  <script>
+---
+layout: page
+title: 2. Formally defining first-order languages
+
+--- 
+ 
+ <script>
   MathJax = {
     tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
----
-layout: page
-title: 2. Formally defining first-order languages
 
----
 
 This chapter is one of the building blocks of this course. In this
 chapter we formally define a first-order language, which systemizes the
