@@ -1,6 +1,5 @@
----
-title = First-order languages
----
+layout: page
+title: "Boring"
 
 <script>
   MathJax = {
