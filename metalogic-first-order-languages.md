@@ -10,6 +10,16 @@ description: "First-order languages"
   };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  
+\(  \newcommand{\boldless}{\mathtt{\mathbin<}}
+\newcommand{\boldleq}{\mathtt{\mathbin\leq}}
+\newcommand{\notboldless}{\mathtt{\not <}}
+\newcommand{\notboldleq}{\mathtt{\not\leq}}
+\newcommand{\boldzero}{\mathtt{0}}
+\newcommand{\boldS}{\mathtt{S}}
+\newcommand{\boldplus}{\mathtt{+}}
+\newcommand{\boldtimes}{\mathtt{\cdot}} \)
+  
 
 This chapter is one of the building blocks of this course. In this chapter we formally define a first-order language, which systemizes the formal languages which we were translating into in the previous chapter. 
 
@@ -105,8 +115,7 @@ The **language of identity** consisting of no constant, relation, or
 function symbols. It is called the language of *identity* because the
 only formulas in this language will concern identity statements. Similar
 to the example in
-§[\[para:translating:identity\]](#para:translating:identity){reference-type="ref"
-reference="para:translating:identity"}, one can write the following in
+[1.13](metalogic-translating#para:translating:identity), one can write the following in
 this language, expressive of their being at least two things:
 $\exists \; x \; \exists \; y \; x\neq y$.
 
@@ -116,8 +125,7 @@ applications, it will be interpreted as usual less-than-or-equal-to of
 numbers, and thus it is two-place because one is comparing the size of
 two numbers. As such, instead of $\boldleq xy$ we write $x\boldleq y$.
 Since all our languages include identity, one can write sentences such
-as
-$$\forall \; x \; \forall \; y \; ((x\boldleq y \wedge y\boldleq x)\rightarrow x=y)$$
+as $$\forall \; x \; \forall \; y \; ((x\boldleq y \wedge y\boldleq x)\rightarrow x=y)$$
 which expresses that two numbers are identical if each is
 less-than-or-equal to the other.
 
