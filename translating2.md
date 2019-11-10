@@ -232,8 +232,7 @@ might get some idea for which values of $x$ make it true ("it has got to
 be $x=1$!" "it has got to be $x=$Anne!"), but all by itself $x+4=5$ and
 $Nx$ are neither true nor false.
 
-# Some translation schemas [\[para:translation:table\]]{#para:translation:table
-label="para:translation:table"} 
+# Some translation schemas {#para:translation:table} 
 
 [(mov)](https://drive.google.com/open?id=1Lm-AZanmV1Cx4NtBkSlk03YcNmHh-mVo)
 
@@ -248,7 +247,7 @@ Here is a helpful table which summarizes and illustrates some common translation
   No $F$ are $G$.         $\neg \exists \; x \; (Fx \wedge Gx)$       No snakes are warm-blooded        $\neg (\exists \; x \; (Sx\wedge Wx))$
 
 
-# Sentences with more than one quantifier [\[para:translating:trustex\]]{#para:translating:trustex label="para:translating:trustex"} 
+# Sentences with more than one quantifier {#para:translating:trustex} 
 
 [(mov)](https://drive.google.com/open?id=1ximMD8A1mKcVlEK9v7Of7Yxuq5ymBfVT)
 
@@ -284,8 +283,7 @@ verb-phrase, insert a new variable into the noun-spot of the
 verb-phrase, translate the verb-phrase and the noun-phrase separately,
 and then combine the two translations.
 
-# Sentences with identity [\[para:translating:identity\]]{#para:translating:identity
-label="para:translating:identity"} 
+# Sentences with identity {#para:translating:identity} 
 
 [(mov)](https://drive.google.com/open?id=1c1VWKc6-cV0X9gI8xTo_4HlgStXPhLuM)
 
@@ -310,7 +308,7 @@ translations preserve is truth-conditions: the identity relation helps
 us precisely describe the circumstances in which the sentences are true
 or false.
 
-# Translating with function symbols [\[para:translating:func\]]{#para:translating:func label="para:translating:func"} 
+# Translating with function symbols {#para:translating:func} 
 
 [(mov)](https://drive.google.com/open?id=1a2_06ucg02yE7zdqTbkKvTgBtGbWbJHe)
 
@@ -329,7 +327,7 @@ is the successor of the successor of two" would be translated as
 $$3=S(2) \wedge 4=S(S(2))$$ In this example, we are using $2, 3, 4$ as
 names for numbers just like we used proper names for names of people.
 
-# Exercises {#exercises .unnumbered .unnumbered}
+# Exercises {#chap:translating:exercises}
 
 1. Translate each of the following into first-order predicate logic. Use
 the key $a=$Anne, $b=$Bill, $Wx=x$ wins, $Px=x$ is a philosophy-major,
@@ -356,7 +354,7 @@ $f(x)=$ father of $x$.
 
 11. The father of Anne is Bill. Bill's father does not win.
 
-# Solutions {#solutions .unnumbered .unnumbered}
+# Solutions {#chap:translating:solutions}
 
 1. $Wa\rightarrow \neg Wb$.
 
