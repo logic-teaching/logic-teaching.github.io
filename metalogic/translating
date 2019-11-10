@@ -238,13 +238,13 @@ $Nx$ are neither true nor false.
 
 Here is a helpful table which summarizes and illustrates some common translation schemas:
 
-  Scheme                  Translation                                 Example and ...                   ...its translation
-  ----------------------- ------------------------------------------- --------------------------------- -------------------------------------------
-  Some $F$ are $G$.       $\exists \; x \; (Fx \wedge Gx)$            Some politicians are lawyers      $\exists \; x\;  (Px \wedge Lx)$
-  Some $F$ are not $G$.   $\exists \; x \; (Fx \wedge \neg Gx)$       Some lawyers are not judges.      $\exists \; x \; Lx \wedge \neg Jx$
-  All $F$ are $G$.        $\forall \; x \; (Fx\rightarrow Gx)$        All composers are musicians.      $\forall\; x \; (Cx\rightarrow Mx)$
-  All $F$ are not $G$.    $\forall \; x \; (Fx\rightarrow \neg Gx)$   All snakes are not warm-blooded   $\forall \; x \; (Sx\rightarrow \neg Wx)$
-  No $F$ are $G$.         $\neg \exists \; x \; (Fx \wedge Gx)$       No snakes are warm-blooded        $\neg (\exists \; x \; (Sx\wedge Wx))$
+  Scheme                 | Translation                                | Example and ...                   |...its translation
+  :--:                   |  :--:                                      |  :--:                             |  :--:
+  Some $F$ are $G$.      | $\exists \; x \; (Fx \wedge Gx)$           | Some politicians are lawyers      | $\exists \; x\;  (Px \wedge Lx)$
+  Some $F$ are not $G$.  | $\exists \; x \; (Fx \wedge \neg Gx)$      | Some lawyers are not judges.      | $\exists \; x \; Lx \wedge \neg Jx$
+  All $F$ are $G$.       | $\forall \; x \; (Fx\rightarrow Gx)$       | All composers are musicians.      | $\forall\; x \; (Cx\rightarrow Mx)$
+  All $F$ are not $G$.   | $\forall \; x \; (Fx\rightarrow \neg Gx)$  | All snakes are not warm-blooded   | $\forall \; x \; (Sx\rightarrow \neg Wx)$
+  No $F$ are $G$.        | $\neg \exists \; x \; (Fx \wedge Gx)$      | No snakes are warm-blooded        | $\neg (\exists \; x \; (Sx\wedge Wx))$
 
 
 # Sentences with more than one quantifier {#para:translating:trustex} 
