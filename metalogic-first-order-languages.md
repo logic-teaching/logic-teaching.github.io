@@ -1,6 +1,4 @@
----
-title: First-Order Languages
----
+# 2. First-order languages
 
 <script>
   MathJax = {
