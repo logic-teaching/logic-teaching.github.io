@@ -5,7 +5,7 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
-# Translating into first-order languages {#chap:translating}
+# 1. Translating into first-order languages {#chap:translating}
 
 
 This current chapter is a primer of translating into the language of first-order
@@ -19,7 +19,7 @@ natural language, we can often gain a certain amount of intuition about
 the logical problems at hand.
 
 
-# Motivation for predicate logic 
+# 1.1 Motivation for predicate logic 
 
 [(mov)](https://drive.google.com/open?id=12mXOwVegewyZLOKyS7FnzsaIkxT7J_fC)
 
@@ -34,7 +34,7 @@ further analyze "Claire is a student" as $Sc$ and analyze "Dave is a
 student" as $Sd$. So we translate "Claire is a student and Dave is a
 student" as as $Sc\wedge Sd$. That is the idea. Why do this?
 
-# Motivation for predicate logic, continued
+# 1.2 Motivation for predicate logic, continued
 
 One reason is that "Claireis a student" and "Dave is a student" seem to have a common structure.
 Someone could not understand the one without understanding the other.
@@ -46,7 +46,7 @@ analysis lets us see a further consequence of the claim, namely that
 there is some $z$ such that $Sz\wedge Mz$. We would not be able to see
 this further consequence if we just stuck to propositional logic.
 
-# Examples of translating
+# 1.3 Examples of translating
 
 [(mov)](https://drive.google.com/open?id=1CvYIVGW1q15DMOAgnZekyex0TTW1epEb)
 
@@ -105,7 +105,7 @@ propositional logic, we translate with the symbols $\vee$ and
 $\rightarrow$. Thus you can apply everything you learned in translating
 propositional logic to these examples.
 
-#The recipe for translating.
+# 1.4 The recipe for translating.
 
 The general method behind the examples goes like this:
 
@@ -124,7 +124,7 @@ $\wedge, \vee, \rightarrow, \leftrightarrow$ Do the same for negation
 $\neg$.
 
 
-# FAQs about translating.
+# 1.5 FAQs about translating.
 
 Here are some commonly asked questions about
 translating and their answers:
@@ -148,7 +148,7 @@ Chapter [\[chap:manysorted\]](#chap:manysorted){reference-type="ref"
 reference="chap:manysorted"} which can handle this).
 
 
-# A common mistake in translating.
+# 1.6 A common mistake in translating.
 
 One common mistake in translating is
 to use multiple symbols for one and the same natural language word. For
@@ -162,7 +162,7 @@ translation is incorrect because the truth of the whole only depends on
 how things stand with Claire, Dave and studying, and not on some other
 property.
 
-# Quantifiers: surface grammar vs. truth-conditions.
+# 1.7 Quantifiers: surface grammar vs. truth-conditions.
 
 [(mov)](https://drive.google.com/open?id=1WfIfazEP7FGFHUESRIA9-RfWHKO7fH2K)
 
@@ -185,7 +185,7 @@ the differences, we should also see that the truth conditions for B and
 C are somehow based on those of A: each involves looking, in different
 ways, at the list of people and checking for niceness.
 
-# The existential and universal quantifier
+# 1.8 The existential and universal quantifier
 
 Our solution is to translate these as follows:
 
@@ -199,7 +199,7 @@ least one $d$ such that $Fd$. The rule for the truth of
 $\forall \; x \; Fx$: it is true exactly when $Fd$ holds for each
 individual $d$.
 
-# Variables: the role they play
+# 1.9 Variables: the role they play
 
 ([mov](https://drive.google.com/open?id=1DwGY_HFKA0_r2r5KvYMMuQ1Xdhj6nuo8))
 
@@ -214,7 +214,7 @@ truth, we go look for an $d$ such that $Ydc$ as opposed to $Ycd$. The
 two instances of $x$ together tell you how to go about applying the rule
 for truth.
 
-# Variables: what they cannot do
+# 1.10 Variables: what they cannot do
 
 [(mov)](https://drive.google.com/open?id=1RV_bpq0nvoJLyHt6fwfVC0kIlkMKQnVx)
 
@@ -232,7 +232,7 @@ might get some idea for which values of $x$ make it true ("it has got to
 be $x=1$!" "it has got to be $x=$Anne!"), but all by itself $x+4=5$ and
 $Nx$ are neither true nor false.
 
-# Some translation schemas {#para:translation:table} 
+# 1.11 Some translation schemas {#para:translation:table} 
 
 [(mov)](https://drive.google.com/open?id=1Lm-AZanmV1Cx4NtBkSlk03YcNmHh-mVo)
 
@@ -247,7 +247,7 @@ Here is a helpful table which summarizes and illustrates some common translation
   No $F$ are $G$.        | $\neg \exists \; x \; (Fx \wedge Gx)$      | No snakes are warm-blooded        | $\neg (\exists \; x \; (Sx\wedge Wx))$
 
 
-# Sentences with more than one quantifier {#para:translating:trustex} 
+# 1.12 Sentences with more than one quantifier {#para:translating:trustex} 
 
 [(mov)](https://drive.google.com/open?id=1ximMD8A1mKcVlEK9v7Of7Yxuq5ymBfVT)
 
@@ -283,7 +283,7 @@ verb-phrase, insert a new variable into the noun-spot of the
 verb-phrase, translate the verb-phrase and the noun-phrase separately,
 and then combine the two translations.
 
-# Sentences with identity {#para:translating:identity} 
+# 1.13 Sentences with identity {#para:translating:identity} 
 
 [(mov)](https://drive.google.com/open?id=1c1VWKc6-cV0X9gI8xTo_4HlgStXPhLuM)
 
@@ -308,7 +308,7 @@ translations preserve is truth-conditions: the identity relation helps
 us precisely describe the circumstances in which the sentences are true
 or false.
 
-# Translating with function symbols {#para:translating:func} 
+# 1.14 Translating with function symbols {#para:translating:func} 
 
 [(mov)](https://drive.google.com/open?id=1a2_06ucg02yE7zdqTbkKvTgBtGbWbJHe)
 
