@@ -8,14 +8,14 @@ description: "First-order languages"
   MathJax = {
     tex: {inlineMath: [['$', '$'], ['\\(', '\\)']],  
       macros: {
-      boldless: "{\\mathtt{\mathbin<}}",
-      boldleq: "{\\mathtt{\mathbin\leq}}",
-      notboldless: "{\\mathtt{\not <}}",
-      notboldleq: "{\\mathtt{\not <}}",
+      boldless: "{\\mathtt{\\<}}",
+      boldleq: "{\\mathtt{\\leq}}",
+      notboldless: "{\\mathtt{\\not <}}",
+      notboldleq: "{\\mathtt{\\not <}}",
       boldzero: "{\\mathtt{0}}",
       boldS: "{\\mathtt{S}}",
       boldplus: "{\\mathtt{+}}",
-      boldtimes: "{\\mathtt{\cdot}}"
+      boldtimes: "{\\mathtt{\\cdot}}"
     }}
   };
   </script>
