@@ -1,14 +1,19 @@
-Formally defining first-order languages {#chap:languages}
+  <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
+# Formally defining first-order languages {#chap:languages}
 
 This chapter is one of the building blocks of this course. In this
 chapter we formally define a first-order language, which systemizes the
 formal languages which we were translating into in the previous chapter.
 
-Definition of language*.
-[\[para:languages:defnlanguage\]]{#para:languages:defnlanguage
-label="para:languages:defnlanguage"}The first key definition is that of
-language. Perhaps "language" is not the best word: as the formal
+# Definition of language {#para:languages:defnlanguage}
+
+The first key definition is that of language. Perhaps "language" is not the best word: as the formal
 definition below makes clear, it is really more like a "fragment of a
 lexicon." Some people use the more neutral "signature" in lieu of
 "language":
