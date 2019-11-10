@@ -1,5 +1,6 @@
 layout: page
-title: "Boring"
+title: "boring"
+permalink: /about/contact/
 
 <script>
   MathJax = {
