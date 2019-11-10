@@ -173,10 +173,6 @@ with the key $Dx=$"$x$ is deserves a prize" and $b=$Bill.
 
 In these two examples, the basic idea is that the identity relation just lets us declare that certain things we are talking about are distinct. Note that the identity relation is not explicit in the surface grammar: hence our translations do not preserve surface grammar. What our translations preserve is truth-conditions: the identity relation helps us precisely describe the circumstances in which the sentences are true or false.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ## Translating with function symbols
 
