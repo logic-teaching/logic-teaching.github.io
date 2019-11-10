@@ -5,7 +5,7 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
-Translating into first-order languages {#chap:translating}
+# Translating into first-order languages {#chap:translating}
 ======================================
 
 This chapter is a primer of translating into the language of first-order
@@ -18,8 +18,12 @@ language arguments, and by translating back into (slight extensions) of
 natural language, we can often gain a certain amount of intuition about
 the logical problems at hand.
 
-N[(mov)](https://drive.google.com/open?id=12mXOwVegewyZLOKyS7FnzsaIkxT7J_fC)
-*Motivation for predicate logic*. In propositional logic, we take as our
+
+# Motivation for predicate logic 
+
+[(mov)](https://drive.google.com/open?id=12mXOwVegewyZLOKyS7FnzsaIkxT7J_fC)
+
+In propositional logic, we take as our
 basic unit the proposition, something that can be true or false. By
 taking it as the basic unit, we mean we do not subject it to any further
 analysis. For instance, while we translate "Claire is a student and Dave
@@ -30,8 +34,9 @@ further analyze "Claire is a student" as $Sc$ and analyze "Dave is a
 student" as $Sd$. So we translate "Claire is a student and Dave is a
 student" as as $Sc\wedge Sd$. That is the idea. Why do this?
 
-N*Motivation for predicate logic, continued*. One reason is that "Claire
-is a student" and "Dave is a student" seem to have a common structure.
+# Motivation for predicate logic, continued
+
+One reason is that "Claireis a student" and "Dave is a student" seem to have a common structure.
 Someone could not understand the one without understanding the other.
 And there is a common way to evaluate them: look at the list of
 students! So translating as $Sc$ and $Sd$ reveals this common structure.
@@ -41,11 +46,15 @@ analysis lets us see a further consequence of the claim, namely that
 there is some $z$ such that $Sz\wedge Mz$. We would not be able to see
 this further consequence if we just stuck to propositional logic.
 
-N[(mov)](https://drive.google.com/open?id=1CvYIVGW1q15DMOAgnZekyex0TTW1epEb)
+# Examples of translating
+
+[(mov)](https://drive.google.com/open?id=1CvYIVGW1q15DMOAgnZekyex0TTW1epEb)
+
 [(con't)](https://drive.google.com/open?id=1DOzZ4PG1fp_AZ0aM8IDkfevt3soB26_6)
-[(con't
-con't)](https://drive.google.com/open?id=13TxA9ISO1JTQc5HrkfGYwKcP4EGA3XEM)
-*Examples of translating*. The easiest way to learn logic is by doing
+
+[(con't con't)](https://drive.google.com/open?id=13TxA9ISO1JTQc5HrkfGYwKcP4EGA3XEM)
+
+The easiest way to learn logic is by doing
 examples. Here we consider four examples of translations from natural
 language into logic.
 
@@ -96,8 +105,9 @@ propositional logic, we translate with the symbols $\vee$ and
 $\rightarrow$. Thus you can apply everything you learned in translating
 propositional logic to these examples.
 
-N*The recipe for translating*. The general method behind the examples
-goes like this:
+#The recipe for translating.
+
+The general method behind the examples goes like this:
 
 Step 1. Identify the smallest components of the example which can be
 true or false.
@@ -113,7 +123,10 @@ Step 3. Look for components that are connected by "and", "or", "if
 $\wedge, \vee, \rightarrow, \leftrightarrow$ Do the same for negation
 $\neg$.
 
-N*FAQs about translating*. Here are some commonly asked questions about
+
+# FAQs about translating.
+
+Here are some commonly asked questions about
 translating and their answers:
 
 Q: How do I know what letters to use?
@@ -134,7 +147,10 @@ A: First-order predicate logic is very limited, and cannot treat $LaH$.
 Chapter [\[chap:manysorted\]](#chap:manysorted){reference-type="ref"
 reference="chap:manysorted"} which can handle this).
 
-N*A common mistake in translating*. One common mistake in translating is
+
+# A common mistake in translating.
+
+One common mistake in translating is
 to use multiple symbols for one and the same natural language word. For
 instance, consider "Claire studies and Claire works." The correct
 translation is $Sc\wedge Wc$. An incorrect translation is $Sc\wedge Wd$.
@@ -146,9 +162,11 @@ translation is incorrect because the truth of the whole only depends on
 how things stand with Claire, Dave and studying, and not on some other
 property.
 
-N[(mov)](https://drive.google.com/open?id=1WfIfazEP7FGFHUESRIA9-RfWHKO7fH2K)
-*Quantifiers: surface grammar vs. truth-conditions*. So now we turn to
-quantifiers. Consider the following three sentences.
+# Quantifiers: surface grammar vs. truth-conditions.
+
+[(mov)](https://drive.google.com/open?id=1WfIfazEP7FGFHUESRIA9-RfWHKO7fH2K)
+
+So now we turn to quantifiers. Consider the following three sentences.
 
 1.  A. Anne is nice. B. Someone is nice. C. Everyone is nice.
 
@@ -167,8 +185,9 @@ the differences, we should also see that the truth conditions for B and
 C are somehow based on those of A: each involves looking, in different
 ways, at the list of people and checking for niceness.
 
-N*The existential and universal quantifier*. Our solution is to
-translate these as follows:
+# The existential and universal quantifier
+
+Our solution is to translate these as follows:
 
 1.  A. $Na$. B. $\exists \; x \; Nx$. C. $\forall \; x \; Nx$.
 
@@ -180,9 +199,11 @@ least one $d$ such that $Fd$. The rule for the truth of
 $\forall \; x \; Fx$: it is true exactly when $Fd$ holds for each
 individual $d$.
 
-N([mov](https://drive.google.com/open?id=1DwGY_HFKA0_r2r5KvYMMuQ1Xdhj6nuo8))
-*Variables: the role they play*. Thus we translate "someone is nice" by
-"$\exists \; x \; Nx$." Note that we add something which has no analogue
+# Variables: the role they play
+
+([mov](https://drive.google.com/open?id=1DwGY_HFKA0_r2r5KvYMMuQ1Xdhj6nuo8))
+
+Thus we translate "someone is nice" by "$\exists \; x \; Nx$." Note that we add something which has no analogue
 in the English sentence, namely the $x$. This $x$ is a variable. Note
 $x$ is used twice in sentence "$\exists \; x \; Nx$." Its instance in
 "$\exists \; x$" is a signal: go look for $d$ such that $Nd$, where you
@@ -193,9 +214,11 @@ truth, we go look for an $d$ such that $Ydc$ as opposed to $Ycd$. The
 two instances of $x$ together tell you how to go about applying the rule
 for truth.
 
-N[(mov)](https://drive.google.com/open?id=1RV_bpq0nvoJLyHt6fwfVC0kIlkMKQnVx)
-*Variables: what they cannot do*. Consider again "Anne is nice" and
-"Someone is nice". We translate the first by "$Na$" and the second by
+# Variables: what they cannot do
+
+[(mov)](https://drive.google.com/open?id=1RV_bpq0nvoJLyHt6fwfVC0kIlkMKQnVx)
+
+Consider again "Anne is nice" and "Someone is nice". We translate the first by "$Na$" and the second by
 "$\exists \; x \; Nx$." Note that both of these sentences can, of
 course, be either true or false. However, consider $Nx$ all by itself.
 It seems that $Nx$ is not the kind of thing that can be true or false on
@@ -209,11 +232,12 @@ might get some idea for which values of $x$ make it true ("it has got to
 be $x=1$!" "it has got to be $x=$Anne!"), but all by itself $x+4=5$ and
 $Nx$ are neither true nor false.
 
-N[(mov)](https://drive.google.com/open?id=1Lm-AZanmV1Cx4NtBkSlk03YcNmHh-mVo)
-*Some translation
-schemas*.[\[para:translation:table\]]{#para:translation:table
-label="para:translation:table"} Here is a helpful table which summarizes
-and illustrates some common translation schemas:
+# Some translation schemas [\[para:translation:table\]]{#para:translation:table
+label="para:translation:table"} 
+
+[(mov)](https://drive.google.com/open?id=1Lm-AZanmV1Cx4NtBkSlk03YcNmHh-mVo)
+
+Here is a helpful table which summarizes and illustrates some common translation schemas:
 
   Scheme                  Translation                                 Example and ...                   ...its translation
   ----------------------- ------------------------------------------- --------------------------------- -------------------------------------------
@@ -223,14 +247,13 @@ and illustrates some common translation schemas:
   All $F$ are not $G$.    $\forall \; x \; (Fx\rightarrow \neg Gx)$   All snakes are not warm-blooded   $\forall \; x \; (Sx\rightarrow \neg Wx)$
   No $F$ are $G$.         $\neg \exists \; x \; (Fx \wedge Gx)$       No snakes are warm-blooded        $\neg (\exists \; x \; (Sx\wedge Wx))$
 
-\normalsize
-N[(mov)](https://drive.google.com/open?id=1ximMD8A1mKcVlEK9v7Of7Yxuq5ymBfVT)
-*Sentences with more than one quantifier*.
-[\[para:translating:trustex\]]{#para:translating:trustex
-label="para:translating:trustex"} We have been translating
-someone/something by the existential quantifier and everyone/everything
-by the universal quantifier. But some examples contain both of these
-things at once:
+
+# Sentences with more than one quantifier [\[para:translating:trustex\]]{#para:translating:trustex label="para:translating:trustex"} 
+
+[(mov)](https://drive.google.com/open?id=1ximMD8A1mKcVlEK9v7Of7Yxuq5ymBfVT)
+
+We have been translating someone/something by the existential quantifier and everyone/everything
+by the universal quantifier. But some examples contain both of these things at once:
 
 Consider the sentence "Everyone trusts someone." This is true in a
 situation in which each person trusts at least one other person. To
@@ -261,10 +284,12 @@ verb-phrase, insert a new variable into the noun-spot of the
 verb-phrase, translate the verb-phrase and the noun-phrase separately,
 and then combine the two translations.
 
-N[(mov)](https://drive.google.com/open?id=1c1VWKc6-cV0X9gI8xTo_4HlgStXPhLuM)
-*Sentences with identity*.
-[\[para:translating:identity\]]{#para:translating:identity
-label="para:translating:identity"} The identity relation is simply
+# Sentences with identity [\[para:translating:identity\]]{#para:translating:identity
+label="para:translating:identity"} 
+
+[(mov)](https://drive.google.com/open?id=1c1VWKc6-cV0X9gI8xTo_4HlgStXPhLuM)
+
+The identity relation is simply
 written as $x=y$. We abbreviate its negation $\neg (x=y)$ as $x\neq y$.
 We can use this to translate the following examples:
 
@@ -285,10 +310,11 @@ translations preserve is truth-conditions: the identity relation helps
 us precisely describe the circumstances in which the sentences are true
 or false.
 
-N[(mov)](https://drive.google.com/open?id=1a2_06ucg02yE7zdqTbkKvTgBtGbWbJHe)
-*Translating with function symbols*.
-[\[para:translating:func\]]{#para:translating:func
-label="para:translating:func"} Often we will have a function symbol
+# Translating with function symbols [\[para:translating:func\]]{#para:translating:func label="para:translating:func"} 
+
+[(mov)](https://drive.google.com/open?id=1a2_06ucg02yE7zdqTbkKvTgBtGbWbJHe)
+
+Often we will have a function symbol
 which takes one object (or a finite collection of objects) to another
 object. For instance, we might have a function $m(x)$ for "the mother of
 $x$" and a function $k(x,y)$ for "the first-born child of $x$ and $y$."
@@ -303,58 +329,54 @@ is the successor of the successor of two" would be translated as
 $$3=S(2) \wedge 4=S(S(2))$$ In this example, we are using $2, 3, 4$ as
 names for numbers just like we used proper names for names of people.
 
-\newpage
-Exercises {#exercises .unnumbered .unnumbered}
----------
+# Exercises {#exercises .unnumbered .unnumbered}
 
-Translate each of the following into first-order predicate logic. Use
+1. Translate each of the following into first-order predicate logic. Use
 the key $a=$Anne, $b=$Bill, $Wx=x$ wins, $Px=x$ is a philosophy-major,
 $Gx=x$ is a geology-major, $Hx=x$ is happy, $Rxy=x$ respects $y$, and
 $f(x)=$ father of $x$.
 
-If Anne wins, then Bill does not win.
+2. If Anne wins, then Bill does not win.
 
-Someone wins. Not everyone wins.
+3. Someone wins. Not everyone wins.
 
-If someone wins, then Anne wins.
+4. If someone wins, then Anne wins.
 
-All philosopher-majors are happy.
+5. All philosopher-majors are happy.
 
-No geology-major is happy.
+6. No geology-major is happy.
 
-Everyone is respected by someone.
+7. Everyone is respected by someone.
 
-Someone is not respected by everyone.
+8. Someone is not respected by everyone.
 
-Everyone besides Anne does not win.
+9. Everyone besides Anne does not win.
 
-At least three people do not win.
+10. At least three people do not win.
 
-The father of Anne is Bill. Bill's father does not win.
+11. The father of Anne is Bill. Bill's father does not win.
 
-\newpage
-Solutions {#solutions .unnumbered .unnumbered}
----------
+# Solutions {#solutions .unnumbered .unnumbered}
 
-$Wa\rightarrow \neg Wb$.
+1. $Wa\rightarrow \neg Wb$.
 
-$\exists \; x \; Wx$. $\neg \; \forall \; x \; Wx$.
+2. $\exists \; x \; Wx$. $\neg \; \forall \; x \; Wx$.
 
-$(\exists \; x \; Wx)\rightarrow Wa$.
+3. $(\exists \; x \; Wx)\rightarrow Wa$.
 
-$\forall \; x \; (Px\rightarrow Hx)$.
+4. $\forall \; x \; (Px\rightarrow Hx)$.
 
-$\neg \; \exists \; x \; (Gx \wedge Hx)$.
+5. $\neg \; \exists \; x \; (Gx \wedge Hx)$.
 
-$\forall \; y \; \exists \; x \; Rxy$.
+6. $\forall \; y \; \exists \; x \; Rxy$.
 
-$\exists \; y \; \forall \; x \; \neg Rxy$. Another equally good
+7. $\exists \; y \; \forall \; x \; \neg Rxy$. Another equally good
 solution might be: $\exists \; y \; \neg \forall \; x \; Rxy$. It
 depends on whether you are parsing the verb-phrase as "not-respected by
 everyone" or "not respected-by-everyone."
 
-$\forall \; x \; (x\neq a\rightarrow \neg Wx)$.
+8. $\forall \; x \; (x\neq a\rightarrow \neg Wx)$.
 
-$\exists \; x \; \exists \; y \; \exists \; z \; x\neq y \wedge y\neq z \wedge x\neq z \wedge \neg Wx \wedge \neg Wy \wedge \neg Wz$.
+9. $\exists \; x \; \exists \; y \; \exists \; z \; x\neq y \wedge y\neq z \wedge x\neq z \wedge \neg Wx \wedge \neg Wy \wedge \neg Wz$.
 
-$f(a)=b$. $\neg W(f(b))$.
+10. $f(a)=b$. $\neg W(f(b))$.
