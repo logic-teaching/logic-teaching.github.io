@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Metalogic: First-Order Languages
+title: "Metalogic: First-Order Languages"
 ---
 
 <script>
