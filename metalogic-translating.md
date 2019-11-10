@@ -12,9 +12,6 @@ description: "Translating"
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
 
-# 1. Translating into first-order languages {#chap:translating}
-
-
 This current chapter is a primer of translating into the language of first-order
 predicate logic. It is assumed that one has seen propositional logic
 before. One reason why translation is important is that we can only
