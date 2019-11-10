@@ -1,3 +1,4 @@
 theme: jekyll-theme-minimal
 title: Welcome to the Logic Teaching Page! 
 description: This is a teaching page for logic.
+markdown: kramdown
