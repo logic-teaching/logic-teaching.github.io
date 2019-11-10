@@ -21,7 +21,7 @@ window.MathJax = {
       boldzero: "{\mathtt{0}}",
       boldS: "{\mathtt{S}}",
       boldplus: "{\mathtt{+}}",
-      \boldtimes: "{\mathtt{\cdot}}"
+      boldtimes: "{\mathtt{\cdot}}"
     }
   }
 };   
