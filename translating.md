@@ -4,15 +4,10 @@
   };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-  
-  window.MathJax = {
-  tex: {
-    tags: 'ams'
-  }
-};
 
 
-# Translating into first-order languages <h>
+
+# Translating into first-order languages
 
 
 This chapter is a primer of translating into the language of first-order predicate logic. It is assumed that one has seen propositional logic before. One reason why translation is important is that we can only apply the logical apparatus to evaluate natural language arguments if we have translated them into logic. Another reason why translation is important is that we are in general much quicker at working with natural language arguments, and by translating back into (slight extensions) of natural language, we can often gain a certain amount of intuition about the logical problems at hand.
