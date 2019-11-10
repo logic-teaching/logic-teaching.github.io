@@ -21,7 +21,7 @@ the logical problems at hand.
 
 # 1.1 Motivation for predicate logic 
 
-[(mov)](https://drive.google.com/open?id=12mXOwVegewyZLOKyS7FnzsaIkxT7J_fC)
+[(*Video*)](https://drive.google.com/open?id=12mXOwVegewyZLOKyS7FnzsaIkxT7J_fC)
 
 In propositional logic, we take as our
 basic unit the proposition, something that can be true or false. By
@@ -48,11 +48,7 @@ this further consequence if we just stuck to propositional logic.
 
 # 1.3 Examples of translating
 
-[(mov)](https://drive.google.com/open?id=1CvYIVGW1q15DMOAgnZekyex0TTW1epEb)
-
-[(con't)](https://drive.google.com/open?id=1DOzZ4PG1fp_AZ0aM8IDkfevt3soB26_6)
-
-[(con't con't)](https://drive.google.com/open?id=13TxA9ISO1JTQc5HrkfGYwKcP4EGA3XEM)
+[(*Video Part 1*)](https://drive.google.com/open?id=1CvYIVGW1q15DMOAgnZekyex0TTW1epEb) [(*Video Part 2*)](https://drive.google.com/open?id=1DOzZ4PG1fp_AZ0aM8IDkfevt3soB26_6) [(*Video Part 3*)](https://drive.google.com/open?id=13TxA9ISO1JTQc5HrkfGYwKcP4EGA3XEM)
 
 The easiest way to learn logic is by doing
 examples. Here we consider four examples of translations from natural
@@ -164,32 +160,36 @@ property.
 
 # 1.7 Quantifiers: surface grammar vs. truth-conditions.
 
-[(mov)](https://drive.google.com/open?id=1WfIfazEP7FGFHUESRIA9-RfWHKO7fH2K)
+[(*Video*)](https://drive.google.com/open?id=1WfIfazEP7FGFHUESRIA9-RfWHKO7fH2K)
 
 So now we turn to quantifiers. Consider the following three sentences.
 
-1.  A. Anne is nice. B. Someone is nice. C. Everyone is nice.
+1.  Anne is nice. 
+2. Someone is nice. 
+3. Everyone is nice.
 
 There is an obvious sense in which all of these sentences are formed by
-plugging different words into the "$\_\_\_\_$ is nice." This is an
+plugging different words into the the blank in "___ is nice." This is an
 important perspective. But the aim of our translations is to display the
 way in which the truth of the whole depends on the truth of the parts.
 How the truth of the whole depends on the truth of the parts differs
-between A-C. For, observe that when we are trying to figure out whether
+between 1-3. For, observe that when we are trying to figure out whether
 "Anne is nice" is true, we go look at Anne and see whether she is nice.
 By contrast, to see whether "someone is nice" is true, we go searching
 for someone (perhaps Bill?) who is nice. Finally, for "everyone is
 nice", we need to make sure that Anne is nice, Bill is nice, etc. Not
 only do the truth-conditions differ drastically, but while recognizing
-the differences, we should also see that the truth conditions for B and
-C are somehow based on those of A: each involves looking, in different
+the differences, we should also see that the truth conditions for 2 and
+3 are somehow based on those of 1: each involves looking, in different
 ways, at the list of people and checking for niceness.
 
 # 1.8 The existential and universal quantifier
 
 Our solution is to translate these as follows:
 
-1.  A. $Na$. B. $\exists \; x \; Nx$. C. $\forall \; x \; Nx$.
+1.  $Na$. 
+2. $\exists \; x \; Nx$. 
+3. $\forall \; x \; Nx$.
 
 where we follow the key: $N=$nice, $a=$Anne. We pronounce
 "$\exists \; x \; Fx$" as "there is $x$ such that $Fx$." We pronounce
@@ -201,7 +201,7 @@ individual $d$.
 
 # 1.9 Variables: the role they play
 
-([mov](https://drive.google.com/open?id=1DwGY_HFKA0_r2r5KvYMMuQ1Xdhj6nuo8))
+([*Video*](https://drive.google.com/open?id=1DwGY_HFKA0_r2r5KvYMMuQ1Xdhj6nuo8))
 
 Thus we translate "someone is nice" by "$\exists \; x \; Nx$." Note that we add something which has no analogue
 in the English sentence, namely the $x$. This $x$ is a variable. Note
@@ -216,7 +216,7 @@ for truth.
 
 # 1.10 Variables: what they cannot do
 
-[(mov)](https://drive.google.com/open?id=1RV_bpq0nvoJLyHt6fwfVC0kIlkMKQnVx)
+[(*Video*)](https://drive.google.com/open?id=1RV_bpq0nvoJLyHt6fwfVC0kIlkMKQnVx)
 
 Consider again "Anne is nice" and "Someone is nice". We translate the first by "$Na$" and the second by
 "$\exists \; x \; Nx$." Note that both of these sentences can, of
@@ -234,7 +234,7 @@ $Nx$ are neither true nor false.
 
 # 1.11 Some translation schemas {#para:translation:table} 
 
-[(mov)](https://drive.google.com/open?id=1Lm-AZanmV1Cx4NtBkSlk03YcNmHh-mVo)
+[(*Video*)](https://drive.google.com/open?id=1Lm-AZanmV1Cx4NtBkSlk03YcNmHh-mVo)
 
 Here is a helpful table which summarizes and illustrates some common translation schemas:
 
@@ -249,7 +249,7 @@ Here is a helpful table which summarizes and illustrates some common translation
 
 # 1.12 Sentences with more than one quantifier {#para:translating:trustex} 
 
-[(mov)](https://drive.google.com/open?id=1ximMD8A1mKcVlEK9v7Of7Yxuq5ymBfVT)
+[(*Video*)](https://drive.google.com/open?id=1ximMD8A1mKcVlEK9v7Of7Yxuq5ymBfVT)
 
 We have been translating someone/something by the existential quantifier and everyone/everything
 by the universal quantifier. But some examples contain both of these things at once:
@@ -285,7 +285,7 @@ and then combine the two translations.
 
 # 1.13 Sentences with identity {#para:translating:identity} 
 
-[(mov)](https://drive.google.com/open?id=1c1VWKc6-cV0X9gI8xTo_4HlgStXPhLuM)
+[(*Video*)](https://drive.google.com/open?id=1c1VWKc6-cV0X9gI8xTo_4HlgStXPhLuM)
 
 The identity relation is simply
 written as $x=y$. We abbreviate its negation $\neg (x=y)$ as $x\neq y$.
@@ -310,7 +310,7 @@ or false.
 
 # 1.14 Translating with function symbols {#para:translating:func} 
 
-[(mov)](https://drive.google.com/open?id=1a2_06ucg02yE7zdqTbkKvTgBtGbWbJHe)
+[(*Video*)](https://drive.google.com/open?id=1a2_06ucg02yE7zdqTbkKvTgBtGbWbJHe)
 
 Often we will have a function symbol
 which takes one object (or a finite collection of objects) to another
