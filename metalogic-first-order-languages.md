@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 2. Formally defining first-order languages
+title: Formally defining first-order languages
 
 --- 
  
