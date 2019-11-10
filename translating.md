@@ -57,12 +57,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcounter{parnum}
-\newcommand{\N}{%
-   \vspace{2mm}\noindent\refstepcounter{parnum}%
+\newcommand{\N}{\vspace{2mm}\noindent\refstepcounter{parnum}
     \makebox[1.2cm][l]{{\bf \arabic{chapter}.\arabic{parnum}.}}}
-% Use a generous paragraph indent so numbers can be fit inside the
-% indentation space.
-\setlength{\parindent}{2em}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
