@@ -8,7 +8,7 @@
 # Translating into first-order languages {#chap:translating}
 
 
-This chapter is a primer of translating into the language of first-order
+This current chapter is a primer of translating into the language of first-order
 predicate logic. It is assumed that one has seen propositional logic
 before. One reason why translation is important is that we can only
 apply the logical apparatus to evaluate natural language arguments if we
