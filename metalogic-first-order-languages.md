@@ -1,9 +1,3 @@
----
-layout: page
-title: Formally defining first-order languages
-
---- 
- 
  <script>
   MathJax = {
     tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
