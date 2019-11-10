@@ -13,7 +13,7 @@ description: "First-order languages"
 
 This chapter is one of the building blocks of this course. In this chapter we formally define a first-order language, which systemizes the formal languages which we were translating into in the previous chapter. 
 
-## Definition of language {#para:languages:defnlanguage}
+## 2.1 Definition of language {#para:languages:defnlanguage}
 
 The first key definition is that of language. Perhaps "language" is not the best word: as the formal
 definition below makes clear, it is really more like a "fragment of a
@@ -27,7 +27,9 @@ lexicon." Some people use the more neutral "signature" in lieu of
 > -**propositional connectives** $\wedge, \vee, \neg, \rightarrow, \leftrightarrow$
 >
 > -**parentheses** $($ and $)$
+>
 > -**identity symbol** $=$
+>
 > -**quantifiers** $\forall$ and $\exists$
 >
 > Further, a **language** might have some of the following symbols:
@@ -44,7 +46,7 @@ constant, predicate, and relation symbols, and hence we will think of a
 first-order language as the set of these. We will see some examples
 shortly.
 
-## Notational remarks {#para:first:notation:variables}
+## 2.2 Notational remarks {#para:first:notation:variables}
 
 Before turning to examples, we make some brief notational remarks:
 
@@ -80,14 +82,14 @@ letter '$L$' reminds us of "language". The cursive is conventional and
 helps distinguish from circumstances where one might like to use $L$ for
 a relation symbol.
 
-# Four examples {#para:languages:fourexamples}
+# 2.3 Four examples {#para:languages:fourexamples}
 
 [(Video)](https://drive.google.com/open?id=1q0vL9j2IBlEEmVVkemQ1_E4_3G6LFxAI)
 
 The **language of trust** consisting of three constants $a,b,c$ and one
 two-place relation $T$. It is well-suited to describethe trust examples
 from
-[the earlier paragraph](#para:translating:trustex). For instance, in addition to
+[1.12](metalogic-translating#para:translating:trustex). For instance, in addition to
 $\forall \; x \; \exists \; y \; Txy$ and
 $\exists \; y \; \forall \; x \; Txy$, one can write sentences such as
 $Tab$ and $\forall \; x \; Txa$ in this language.
