@@ -1,6 +1,6 @@
 ## Welcome to the Logic Teaching Page
 
-You can use the [editor on GitHub](https://nytimes.com) to maintain and preview the content for your website in Markdown files. **This text is in bold**. This text is not. *This text is in italics*. This text is not. This is a [link](http://nytimes.com). This is not. 
+You can use the [editor on GitHub](https://nytimes.com) to maintain and preview the content for your website in Markdown files. **This text is in bold**. This text is not. *This text is in italics*. This text is not. This is a [link](http://nytimes.com). This is not. $$\int_5^10 x^2 dx$$. 
 
 # This is a header
 
