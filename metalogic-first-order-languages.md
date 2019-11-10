@@ -6,14 +6,8 @@ description: "First-order languages"
 
 <script>
   MathJax = {
-    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-  };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-  
-window.MathJax = {
-  tex: {
-    macros: {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']],  
+      macros: {
       boldless: "{\mathtt{\mathbin<}}",
       boldleq: "{\mathtt{\mathbin\leq}}",
       notboldless: "{\mathtt{\not <}}",
@@ -22,9 +16,11 @@ window.MathJax = {
       boldS: "{\mathtt{S}}",
       boldplus: "{\mathtt{+}}",
       boldtimes: "{\mathtt{\cdot}}"
-    }
-  }
-};   
+    }}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  
 
 This chapter is one of the building blocks of this course. In this chapter we formally define a first-order language, which systemizes the formal languages which we were translating into in the previous chapter. 
 
