@@ -1,4 +1,4 @@
-
+# 1. Translating into first-order languages {#chap:translating}
 
 <script>
   MathJax = {
@@ -7,7 +7,7 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
-# 1. Translating into first-order languages {#chap:translating}
+
 
 
 This current chapter is a primer of translating into the language of first-order
