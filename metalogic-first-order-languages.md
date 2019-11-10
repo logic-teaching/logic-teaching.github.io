@@ -11,32 +11,32 @@ description: "First-order languages"
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
+This chapter is one of the building blocks of this course. In this chapter we formally define a first-order language, which systemizes the formal languages which we were translating into in the previous chapter. 
 
-
-# Definition of language {#para:languages:defnlanguage}
+## Definition of language {#para:languages:defnlanguage}
 
 The first key definition is that of language. Perhaps "language" is not the best word: as the formal
 definition below makes clear, it is really more like a "fragment of a
 lexicon." Some people use the more neutral "signature" in lieu of
 "language":
 
-> **Definition** All *languages* we consider will have the following symbols:
+> *Definition.* All **languages** we consider will have the following symbols:
 >
-> -*variables* $v_1,\,v_2,\,v_3,\ldots$
+> -**variables** $v_1,\,v_2,\,v_3,\ldots$
 >
-> -*propositional connectives* $\wedge, \vee, \neg, \rightarrow, \leftrightarrow$
+> -**propositional connectives** $\wedge, \vee, \neg, \rightarrow, \leftrightarrow$
 >
-> -*parentheses* $($ and $)$
-> -*identity symbol* $=$
-> -*quantifiers* $\forall$ and $\exists$
+> -**parentheses** $($ and $)$
+> -**identity symbol** $=$
+> -**quantifiers** $\forall$ and $\exists$
 >
-> Further, a *language* might have some of the following symbols:
+> Further, a **language** might have some of the following symbols:
 >
-> -*constant* symbols
+> -**constant** symbols
 >
-> -$n$-place *predicate* symbols, for each $n\geq 1$
+> -$n$-place **predicate** symbols, for each $n\geq 1$
 >
-> -$n$-place *function* symbols, for each $n\geq 1$
+> -$n$-place **function** symbols, for each $n\geq 1$
 
 Hence, all languages have (i)-(v) but they can differ in terms of which
 of (vi)-(viii) they have. A language is thus distinguished by its
@@ -44,10 +44,9 @@ constant, predicate, and relation symbols, and hence we will think of a
 first-order language as the set of these. We will see some examples
 shortly.
 
-Notational remarks*.
-[\[para:first:notation:variables\]]{#para:first:notation:variables
-label="para:first:notation:variables"} Before turning to examples, we
-make some brief notational remarks:
+## Notational remarks {#para:first:notation:variables}
+
+Before turning to examples, we make some brief notational remarks:
 
 First, a synonym for "predicate symbol" is "**relation symbol**". A
 synonym for "one-place" is "**unary**", a synonym for "two-place" is
@@ -76,21 +75,19 @@ as well as as typewriter-scripted, subscripted, and superscripted
 versions thereof.
 
 Finally, we use letters like
-$\mathcal{L}, \mathcal{L}_i, \mathcal{L}^{\prime}$ for languages. The
+$\mathcal{L}$, $\mathcal{L}_i$, $\mathcal{L}^{\prime}$ for languages. The
 letter '$L$' reminds us of "language". The cursive is conventional and
 helps distinguish from circumstances where one might like to use $L$ for
 a relation symbol.
 
-N[(mov)](https://drive.google.com/open?id=1q0vL9j2IBlEEmVVkemQ1_E4_3G6LFxAI)
-*Four examples*.
-[\[para:languages:fourexamples\]]{#para:languages:fourexamples
-label="para:languages:fourexamples"}
+# Four examples {#para:languages:fourexamples}
+
+[(Video)](https://drive.google.com/open?id=1q0vL9j2IBlEEmVVkemQ1_E4_3G6LFxAI)
 
 The **language of trust** consisting of three constants $a,b,c$ and one
 two-place relation $T$. It is well-suited to describethe trust examples
 from
-§[\[para:translating:trustex\]](#para:translating:trustex){reference-type="ref"
-reference="para:translating:trustex"}. For instance, in addition to
+[the earlier paragraph](#para:translating:trustex). For instance, in addition to
 $\forall \; x \; \exists \; y \; Txy$ and
 $\exists \; y \; \forall \; x \; Txy$, one can write sentences such as
 $Tab$ and $\forall \; x \; Txa$ in this language.
