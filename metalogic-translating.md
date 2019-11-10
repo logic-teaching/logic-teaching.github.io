@@ -1,4 +1,6 @@
-  <script>
+title = First-order lanugages
+
+<script>
   MathJax = {
     tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   };
