@@ -7,5 +7,5 @@
 
 # Metalogic
 
-1. [Translating](metalogic-translating.md)
-2. [First-order languages](metalogic-first-order-languages.md)
+1. [Translating](metalogic-translating)
+2. [First-order languages](metalogic-first-order-languages)
