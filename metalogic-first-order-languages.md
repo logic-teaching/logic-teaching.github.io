@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ASOL
+title: Metalogic: First-Order Languages
 ---
 
 <script>
