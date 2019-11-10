@@ -1,4 +1,6 @@
-title = First-order lanugages
+---
+title = First-order languages
+---
 
 <script>
   MathJax = {
