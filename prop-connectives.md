@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Propositional Logic"
+description: "Propositional Connectives"
+---
+
 <script>
   MathJax = {
     tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
