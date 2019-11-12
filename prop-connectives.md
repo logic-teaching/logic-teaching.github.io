@@ -11,8 +11,7 @@ description: "Propositional Connectives"
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
-<iframe src="demo-page.html" name="myFrame"></iframe>
-<p><a href="https://www.tutorialrepublic.com" target="myFrame">Open TutorialRepublic.com</a></p>
+
 
 # Propositional connectives and truth-tables
 
@@ -78,3 +77,6 @@ ConjunctionTable P/\Q
 |   F F T
 |   F F F
 ~~~
+
+<iframe src="demo-page.html" name="myFrame"></iframe>
+<p><a href="https://carnap.io/shared/walsh@g.ucla.edu/Week01-exc" target="myFrame">Open Exercise</a></p>
