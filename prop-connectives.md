@@ -78,4 +78,4 @@ ConjunctionTable P/\Q
 |   F F F
 ~~~
 
-<iframe src="https://carnap.io/shared/walsh@g.ucla.edu/Week01-exc" width="500" height="500"></iframe>
+<iframe src="https://carnap.io/shared/walsh@g.ucla.edu/Week01-exc" style="position:absolute; width:100%; height: 100%"></iframe>
