@@ -78,5 +78,4 @@ ConjunctionTable P/\Q
 |   F F F
 ~~~
 
-<iframe src="demo-page.html" name="myFrame"></iframe>
-<p><a href="https://carnap.io/shared/walsh@g.ucla.edu/Week01-exc" target="myFrame">Open Exercise</a></p>
+<iframe src="https://carnap.io/shared/walsh@g.ucla.edu/Week01-exc"></iframe>
