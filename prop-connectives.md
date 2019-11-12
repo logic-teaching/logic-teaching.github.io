@@ -11,7 +11,8 @@ description: "Propositional Connectives"
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
-<iframe src="https://www.nytimes.com" style="border: none;"></iframe>
+<iframe src="demo-page.html" name="myFrame"></iframe>
+<p><a href="https://www.tutorialrepublic.com" target="myFrame">Open TutorialRepublic.com</a></p>
 
 # Propositional connectives and truth-tables
 
