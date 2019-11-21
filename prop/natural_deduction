@@ -1,0 +1,220 @@
+
+
+<script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+# Natural Deduction for Propositional Logic
+
+In this section, we introduce the natural deduction proof system, focusing first on the connectives $\wedge$ and $\rightarrow$.
+
+Then we look at several examples of proofs in a natural deduction system.
+
+## Motivations for Natural Deduction
+
+Natural deduction is a proof system in which proofs go from premises to conclusions by means of rules tailored to the connectives.
+
+It turns out that all valid arguments have proofs, and only valid arguments have proofs.
+
+This is useful because it is basically impossible to look at arguments with more than three propositional letters. By contrast, it is comparatively easy to look at proofs with many letters.
+
+## What is a proof?
+
+Natural deduction is a proof system in which proofs go from premises to conclusions by
+means of rules tailored to the connectives.
+
+What is a proof? It is a list of formulas or sentences, and everything on the list is an assumption or follows from things earlier on the list by a finite fixed number of rules.
+
+Here is a simple example derivation. As one can see: it is a list , some lines are assumptions, the other lines follow from earlier lines by rules.
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p->q, p->r, p :|-: q/\r
+|p->q :assumption
+|p->r :assumption
+|p :assumption
+|q :E->1,3
+|r :E->2,3
+|q/\r :I/\4,5
+```
+
+![Gif of this exercise](INSERT)
+
+## Rules for conjunction and implication
+
+For the moment, we focus on the rules for conjunction $\wedge$ and $\rightarrow$.
+
+One just has to memorize these rules, just like one memorized the rules for the truth-tables for the connectives.
+
+Like with the truth-tables for the connectives, the motivation will not be clear at first, but will emerge with practice.
+
+For each of the propositional connectives, there are two rules.
+
+One is called the *introduction rule* and the other is called the *elimination rule*. For conjunction $\wedge$, these are designated respectively as $I\wedge$ and $E\wedge$. For arrow, they are designated as $I\rightarrow$ and $E\rightarrow$.
+
+## Introduction rule for conjunction
+
+The rule is: if you have $\varphi$ on a line $\ell_1$, and you have $\psi$ on line $\ell_2$, then you may write $\varphi \wedge \psi$ on any subsequent line $\ell> \ell_1, \ell_2$.
+
+This rule is abbreviated as $I\wedge$, where the 'I' is for *introduction*.
+
+In terms of a picture, the rule is:
+
+  - $\ell_1$. $\varphi$
+  - $\ell_2$. $\psi$
+  - $\ell$. $\varphi \wedge \psi$ :$I\wedge \ell_1, \ell_2$
+
+In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
+
+Here's an example which contains two applications of $I\wedge$:
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p,q,r :|-: p/\(r/\q)
+|p            :assumption
+|q            :assumption
+|r            :assumption
+|r/\q         :I/\3,2
+|p/\(r/\q)    :I/\1,4
+```
+
+
+
+## Elimination rule for conjunction
+
+The rule is: if you have $\varphi \wedge psi$ on line $\ell_1$, then you may write $\varphi$ on any subsequent line $\ell>\ell_1$, and likewise you may write $\psi$ on any subsequent line $\ell>\ell_1$.
+
+In terms of a picture, the rule is one of the following:
+
+- $\ell_1$. $\varphi \wedge \psi$
+- $\ell$. $\varphi$ :$E\wedge\ell_1$
+
+
+- $\ell_1$. $\varphi \wedge \psi$.
+- $\ell$. $\psi$ :$E\wedge\ell_1$
+
+Here's an example:
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p/\(r/\q) :|-: r
+|p/\(r/\q)    :assumption
+|r/\q         :E/\1
+|r            :E/\2
+```
+
+## Elimination rule for implication
+
+The rule is: if you have $\varphi$ on line $\ell_1$, and you have $\varphi\rightarrow \psi$ on line $\ell_2$, then you may write $\psi$ on any subsequent line $\ell>\ell_1, \ell_2$.
+
+In terms of a picture, the rule is:
+
+- $\ell_1$. $\varphi\rightarrow \psi$
+- $\ell_2$. $\varphi$
+- $\ell$. $\psi$ :$E\rightarrow{\ell_1},{\ell_2})$
+
+In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
+
+Here's an example:
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ (p->q)/\(p->r), p :|-: q/\r
+|(p->q)/\(p->r)   :assumption
+|p                :assumption
+|(p->q)           :E/\1
+|(p->r)           :E/\1
+|q                :E->2,3
+|r                :E->2,4
+|q/\r             :I/\5,6
+```
+
+
+## Motivating the introduction rule for implication
+
+The introduction rule for implication should give you some way of first coming to assert $\varphi\rightarrow \psi$, a formula whose main connective is the implication sign.
+
+The basic idea of the introduction rule for implication is that there is a proof of the consequent from the *hypothetical* assumption of the antecedent.
+
+Consider my reasoning from "if Miami is the capital of Florida, then the capital of Florida is on the beach." One natural way to think of this is that the speaker has the following simple argument in mind: "If we hypothetically suppose that Miami is the capital of Florida, then since we all know that Miami is on the beach, we can conclude that the captial of Florida is on the beach."
+
+## The introduction rule for implication
+
+The rule is: suppose that consecutive lines $\ell_1-\ell_n$ constitute a proof with premise $\varphi$ and conclusion $\psi$. Then one may introduce $\varphi\rightarrow \psi$ at any subsequent line $\ell>\ell_n$, so long as one brackets off $\ell_1-\ell_n$ and never appeals to them again.
+
+Here are a couple of more examples:
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p->(q/\r) :|-: p->(r/\q)
+|p->(q/\r)   :assumption
+| p          :assumption
+| q/\r       :E->1,2
+| q          :E/\3
+| r          :E/\3
+| r/\q       :I/\4,5
+|p->(r/\q)   :I->
+```
+
+## Examples of introduction rule for implication
+
+Here are a couple more example:
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p->q :|-: p->(p/\q)
+|p->q        :assumption
+| p          :assumption
+| q          :E->1,2
+| p/\q       :I/\2,3
+|p->(p/\q)   :I->
+```
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p/\q :|-: p->q
+|p/\q        :assumption
+| p          :assumption
+| q          :E/\1
+|p->q        :I->
+```
+
+## Nested example of implication introduction
+
+In this example, we need to do an arrow introduction within the arrow introduction.
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p->(q->r) :|-: (q->(p->r))
+|p->(q->r)      :assumption
+| q             :assumption
+|  p            :assumption
+|  q->r         :E->1,3
+|  r            :E->2,4
+| p->r          :I->
+|q->(p->r)     :I->
+```
+
+## Conventions on brackets
+
+The conventions on brackets are as follows:
+
+1.  If you’re trying to apply implication introduction to get $\varphi\rightarrow \psi$, then you start with a line that has $\varphi$ in it and is marked *assumption*, and then you apply rules until you get $\psi$.
+
+2. At that point when you have obtained $\psi$, you write $\varphi\rightarrow \psi$ and explicitly indicate that you applied the rule $I\rightarrow$.
+
+3. Further, you draw brackets around the lines starting at $\varphi$ and ending at $\psi$, and you make sure that you never appeal to things within the brackets.
+
+The reason for this last point is that we draw the brackets to remind us not to appeal to things inside the brackets. The mnemonic is: stay outside the brackets once you've drawn the brackets.
+
+## What goes wrong if you ignore the conventions on brackets
+
+Here’s what goes wrong if you ignore this. You should not be able to argue from $p\wedge q$ to $r$, since they have nothing in common with each other. But consider the following *incorrect* proof:
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p/\q :|-: r
+|p/\q           :assumption
+| q/\r          :assumption
+| r             :E/\2
+| p             :E/\1
+|(q/\r)->p     :I->
+|r             :E/\3
+```
+
+As one can see, our proof checker does not accept this as a proof. What went wrong here? We appealed to something inside the brackets at the line 5 which occurs after the brackets close. Hence, be sure to stay outside the brackets once you've drawn the brackets.
