@@ -1,0 +1,271 @@
+
+
+# Natural Deduction for Propositional Logic
+
+In this section, we introduce the natural deduction proof system, focusing first on the connectives $\wedge$ and $\rightarrow$.
+
+Then we look at several examples of proofs in a natural deduction system.
+
+<br/>
+<br/>
+
+## Motivations for Natural Deduction
+
+Natural deduction is a proof system in which proofs go from premises to conclusions by means of rules tailored to the connectives.
+
+It turns out that all valid arguments have proofs, and only valid arguments have proofs.
+
+This is useful because it is hard to evaluate arguments via truth-tables when they have more than three letters. By contrast, it is comparatively easy to look at proofs with many letters.
+
+<br/>
+<br/>
+
+## What is a proof?
+
+Natural deduction is a proof system in which proofs go from premises to conclusions by
+means of rules tailored to the connectives.
+
+What is a proof? It is a list of formulas or sentences, and everything on the list is an assumption or follows from things earlier on the list by a finite fixed number of rules.
+
+Here is a simple worked-out example. As one can see: it is a list , some lines are assumptions, the other lines follow from earlier lines by rules.
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_00_example_proof.gif" alt="Gif of this exercise" width="400"/>
+
+You can get a feel for the proof checker by trying to emulate these steps:
+
+```{.ProofChecker .GamutPND submission="none"}
+ p->q, p->r, p :|-: q/\r
+|p->q :assumption
+|p->r :assumption
+|p :assumption
+```
+
+Of course, we will be learning these rules as we go along, and so feel free to come back to this one.
+
+<br/>
+<br/>
+
+## Rules for conjunction and implication
+
+For the moment, we focus on the rules for conjunction $\wedge$ and $\rightarrow$.
+
+One just has to memorize these rules, just like one memorized the rules for the truth-tables for the connectives.
+
+Like with the truth-tables for the connectives, the motivation will not be clear at first, but will emerge with practice.
+
+For each of the propositional connectives, there are two rules.
+
+One is called the *introduction rule* and the other is called the *elimination rule*.
+
+For conjunction $\wedge$, these are designated respectively as $I\wedge$ and $E\wedge$. For arrow, they are designated as $I\rightarrow$ and $E\rightarrow$. This pattern persists: 'I' is for 'Introduction' and 'E' is for 'Elimination'.
+
+<br/>
+<br/>
+
+## Introduction rule for conjunction
+
+The rule is: if you have $\varphi$ on a line $\ell_1$, and you have $\psi$ on line $\ell_2$, then you may write $\varphi \wedge \psi$ on any subsequent line $\ell> \ell_1, \ell_2$.
+
+This rule is abbreviated as $I\wedge$, where the 'I' is for *introduction*.
+
+In terms of a picture, the rule is:
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_01_and_intro.gif" alt="Gif of this exercise" width="400"/>
+
+In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
+
+Here's a worked-out example which contains two applications of $I\wedge$:
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_02_ex_and_intro.gif" alt="Gif of this exercise" width="400"/>
+
+You can emulate this proof here, or come back to it later to practice:
+
+```{.ProofChecker .GamutPND submission="none"}
+ p,q,r :|-: p/\(r/\q)
+|p            :assumption
+|q            :assumption
+|r            :assumption
+```
+
+<br/>
+<br/>
+
+## Elimination rule for conjunction
+
+The rule is: if you have $\varphi \wedge \psi$ on line $\ell_1$, then you may write $\varphi$ on any subsequent line $\ell>\ell_1$, and likewise you may write $\psi$ on any subsequent line $\ell>\ell_1$.
+
+In terms of a picture, the rule is either of the following:
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_03_and_elim1.gif" alt="Gif of this exercise" width="400"/> <img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_04_and_elim2.gif" alt="Gif of this exercise" width="400"/>
+
+
+Here's a worked-out example:
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_05_ex_and_elim.gif" alt="Gif of this exercise" width="400"/>
+
+You can try it out here, or come back to this later to practice:
+
+```{.ProofChecker .GamutPND submission="none"}
+ p/\(r/\q) :|-: r
+|p/\(r/\q)    :assumption
+```
+
+<br/>
+<br/>
+
+## Elimination rule for implication
+
+The rule is: if you have $\varphi$ on line $\ell_1$, and you have $\varphi\rightarrow \psi$ on line $\ell_2$, then you may write $\psi$ on any subsequent line $\ell>\ell_1, \ell_2$.
+
+In terms of a picture, the rule is:
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_06_arrow_elim.gif" alt="Gif of this exercise" width="400"/>
+
+In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
+
+This rule is often called *modus ponens*.
+
+Here's a worked-out example. The blue higlighting is just the result of selecting the text and then cutting and pasting, which sometimes speeds things up.
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_07_ex_arrow_elim.gif" alt="Gif of this exercise" width="400"/>
+
+Again, to practice, you can input it here:
+
+```{.ProofChecker .GamutPND submission="none"}
+ (p->q)/\(p->r), p :|-: q/\r
+```
+
+<br/>
+<br/>
+
+## Motivating the introduction rule for implication
+
+The introduction rule for implication should give you some way of first coming to assert $\varphi\rightarrow \psi$, a formula whose main connective is the implication sign.
+
+The basic idea of the introduction rule for implication is that there is a proof of the consequent from the *hypothetical* assumption of the antecedent.
+
+Consider my reasoning from "if Miami is the capital of Florida, then the capital of Florida is on the beach." One natural way to think of this is that the speaker has the following simple argument in mind: "If we hypothetically suppose that Miami is the capital of Florida, then since we all know that Miami is on the beach, we can conclude that the capital of Florida is on the beach."
+
+<br/>
+<br/>
+
+## The introduction rule for implication
+
+The rule is: suppose that consecutive lines $\ell_1-\ell_n$ constitute a proof with premise $\varphi$ and conclusion $\psi$. Then one may introduce $\varphi\rightarrow \psi$ at line $\ell_n+1$, so long as one brackets off $\ell_1-\ell_n$ and never appeals to them again.
+
+In a picture, it is:
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_08_arrow_intro.gif" alt="Gif of this exercise" width="400"/>
+
+In the proof checker, to get the bracket one puts a space before the formulas:
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_09_arrow_intro_ex.gif" alt="Gif of this exercise" width="400"/>
+
+Further as one can see from the last line of the example, we don't need to input the range $\ell_1-\ell_n$, since it is implicit in the closing-off of the brackets.
+
+It is recommended that you try to emulate this example, to get the hang of the convention on how the brackets are created by a space:
+
+```{.ProofChecker .GamutPND submission="none"}
+ p->(q/\r) :|-: p->(r/\q)
+```
+
+<br/>
+<br/>
+
+## Another example, proof-sketches by hand
+
+Since the proofs can get complex, it is advisable to try to sketch them out by hand before putting them into the proof checker. The reason for doing the sketches by hand is that it allows you to see what both the top and the bottom of the proof are supposed to look like which will help you to fill in the middle. In particular, when trying to prove something with $I\rightarrow$, just sketch out a space with the antecedent at the top and the consequent at the bottom, and try to figure out how to get from the antecedent to the consequent. At first, we do rather complete sketches by hand. Later, once one gets the hang of it, the sketches can be less complete and essentially just be an outline of the proof.
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_10_more_complex_1_by_hand.gif" alt="Gif of this exercise" width="400"/>
+
+Now that we have done the proof by hand, we can put it into the proof-checker.
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_11_more_complex_1.gif" alt="Gif of this exercise" width="400"/>
+
+You should try it for yourself to get used to inputting into the proof-checker:
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p->q :|-: p->(p/\q)
+```
+
+<br/>
+<br/>
+
+## Yet another example
+
+Here's another example, which we first do by hand:
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_12_more_complex_2_by_hand.gif" alt="Gif of this exercise" width="400"/>
+
+And then we put it into the proof-checker to check our work:
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_13_more_complex_2.gif" alt="Gif of this exercise" width="400"/>
+
+You can put it into the proof-checker as well:
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p/\q :|-: p->q
+```
+
+<br/>
+<br/>
+
+## Nested example of implication introduction
+
+In this example, we need to do an arrow introduction within an arrow introduction.
+
+First we do a sketch by hand:
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_14_nested_by_hand.gif" alt="Gif of this exercise" width="400"/>
+
+Then we input our solution into the proof-checker to make sure its right:
+
+<img src="https://logic-teaching.github.io/prop/gif/natural_deduction_and_arrow_15_nested.gif" alt="Gif of this exercise" width="400"/>
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p->(q->r) :|-: (q->(p->r))
+|p->(q->r)      :assumption
+```
+
+<br/>
+<br/>
+
+## Conventions on brackets
+
+The conventions on brackets are as follows:
+
+1.  If you’re trying to apply implication introduction to get $\varphi\rightarrow \psi$, then you start with a line that has $\varphi$ in it and is marked *assumption*, and then you apply rules until you get $\psi$.
+
+2. At that point when you have obtained $\psi$, you write $\varphi\rightarrow \psi$ and explicitly indicate that you applied the rule $I\rightarrow$.
+
+3. Further, you draw brackets around the lines starting at $\varphi$ and ending at $\psi$, and you make sure that you never appeal to things within the brackets.
+
+The reason for this last point is that we draw the brackets to remind us not to appeal to things inside the brackets. The mnemonic is: stay outside the brackets once you've drawn the brackets.
+
+<br/>
+<br/>
+
+## What goes wrong if you ignore the conventions on brackets
+
+Here’s what goes wrong if you ignore this. You should not be able to argue from $p\wedge q$ to $r$, since they have nothing in common with each other. But consider the following *incorrect* proof:
+
+```{.ProofChecker .GamutPND init="now" submission="none"}
+ p/\q :|-: r
+|p/\q           :assumption
+| q/\r          :assumption
+| r             :E/\2
+| p             :E/\1
+|(q/\r)->p     :I->
+|r             :E/\3
+```
+
+As one can see, our proof checker does not accept this as a proof. What went wrong here? We appealed to something inside the brackets at the line 6 which occurs after the brackets close. Hence, be sure to stay outside the brackets once you've drawn the brackets.
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+These are lecture notes written by [Sean Walsh](https://philosophy.ucla.edu/person/sean-walsh/), for Philosophy 31 at UCLA in Winter 2020. It is run on the Carnap software due to:
+
+
