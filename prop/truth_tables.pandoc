@@ -84,8 +84,8 @@ In the first two examples, at the last step we handled the negation. In this, we
 
 We can apply this truth-table by thinking about its two rows as two rules governing negation:
 
-- *First rule governing negation*: If $\phi$ is true, then $\neg \phi$ is false.
-- *Second rule governing negation*: If $\phi$ is false, then $\neg \phi$ is true.
+- If $p$ is true, then $\neg p$ is false.
+- If $p$ is false, then $\neg p$ is true.
 
 Hence, in the second example, we apply these rules *four* times, to the proposition $\phi$ which is $p\wedge q$. Play the following part of it again:
 
