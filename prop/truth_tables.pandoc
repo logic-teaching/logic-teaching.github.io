@@ -1,7 +1,6 @@
 <br/>
 <br/>
 
-
 # Truth tables of more complex propositions
 
 Now we develop a method for assigning a truth-table to the complex propositions, by reference to a number of examples, and a running commentary on the examples.
@@ -24,7 +23,7 @@ Now we develop a method for assigning a truth-table to the complex propositions,
 
 The basic question is: how is the truth-value of a complex proposition a function of the truth-values of its corresponding parts? More specifically, we can ask: Consider $p\rightarrow (q\vee r)$. Suppose you knew that $r$ is false while $p,q$ are true. Is $p\rightarrow (q\vee r)$ true or false?
 
-We develop a general method for answering these questions. This is important for two reasons.  First, often the sentences whose truth we’re interested in are complex, and so the method gives us a way to determine truth/falsity based on prior knowledge of truth/ falsity of smaller components. Second, truth is one aspect of meaning, and so here we are illustrating how the meaning of the whole depends on the meaning of the parts.
+We develop a general method for answering these questions. This is important for two reasons.  This is useful since often the sentences whose truth we’re interested in are complex, and so the method gives us a way to determine truth/falsity based on prior knowledge of truth/ falsity of smaller components.
 
 <br/>
 <br/>
@@ -85,8 +84,8 @@ In the first two examples, at the last step we handled the negation. In this, we
 
 We can apply this truth-table by thinking about its two rows as two rules governing negation:
 
-- *First rule governing negation*: If $\phi$ is true, then $\phi$ is false.
-- *Second rule governing negation*: If $\phi$ is false, then $\phi$ is true.
+- *First rule governing negation*: If $\phi$ is true, then $\neg \phi$ is false.
+- *Second rule governing negation*: If $\phi$ is false, then $\neg \phi$ is true.
 
 Hence, in the second example, we apply these rules *four* times, to the proposition $\phi$ which is $p\wedge q$. Play the following part of it again:
 
