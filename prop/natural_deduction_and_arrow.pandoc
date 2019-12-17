@@ -1,7 +1,7 @@
 <br/>
 <br/>
 
-# Natural Deduction for Propositional Logic
+# Natural deduction for propositional logic
 
 In this section, we introduce the natural deduction proof system, focusing first on the connectives $\wedge$ and $\rightarrow$.
 
@@ -24,7 +24,7 @@ Then we look at several examples of proofs in a natural deduction system.
 <br/>
 <br/>
 
-## Motivations for Natural Deduction
+## Motivations for natural deduction
 
 Natural deduction is a proof system in which proofs go from premises to conclusions by means of rules tailored to the connectives.
 
@@ -44,7 +44,7 @@ What is a proof? It is a list of formulas or sentences, and everything on the li
 
 Here is a simple worked-out example. As one can see: it is a list , some lines are assumptions, the other lines follow from earlier lines by rules.
 
-<video controls width="400" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_00_example_proof.mp4"/> </video>
+<video controls width="400" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_00_example_proof.mp4#t=10,15"/> </video>
 
 You can get a feel for the proof checker by trying to emulate these steps:
 
@@ -159,7 +159,7 @@ The introduction rule for implication should give you some way of first coming t
 
 The basic idea of the introduction rule for implication is that there is a proof of the consequent from the *hypothetical* assumption of the antecedent.
 
-Consider my reasoning from "if Miami is the capital of Florida, then the capital of Florida is on the beach." One natural way to think of this is that the speaker has the following simple argument in mind: "If we hypothetically suppose that Miami is the capital of Florida, then since we all know that Miami is on the beach, we can conclude that the capital of Florida is on the beach."
+Consider my reasoning for "if Miami is the capital of Florida, then the capital of Florida is on the beach." One natural way to think of this is that the speaker has the following simple argument in mind: "If we hypothetically suppose that Miami is the capital of Florida, then since we all know that Miami is on the beach, we can conclude that the capital of Florida is on the beach."
 
 <br/>
 <br/>
