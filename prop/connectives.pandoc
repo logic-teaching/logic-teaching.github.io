@@ -12,6 +12,7 @@ The aim of this lecture is to introduce propositions and the propositional conne
 - [Disjunction](#disjunction)
 - [Negation](#negation)
 - [Implication](#implication)
+- [Motivation for the truth-table for implication](#motivation-for-the-truth-table-for-implication)
 
 <br/>
 <br/>
@@ -20,9 +21,15 @@ The aim of this lecture is to introduce propositions and the propositional conne
 
 Propositional logic is a logic which takes as its most primitive unit *the proposition*. A proposition is something that can be true or false, like "The apple is red" or "Jerry Brown was the governor of California." The parts of speech which make up propositions like apple and red are not propositions-- they are objects or properties, but not the kinds of thing that can be true or false. To take propositions as a primitive means that, within this logic, there are some propositions which we regard as not having any further logical structure.
 
+<br/>
+<br/>
+
 ## Logical structure
 
 Contrast "The apple is red" to "The apple is red *or* the apple is *not* red." Likewise, contrast "Jerry Brown was the governor of California" to "*If* Jerry Brown was the governor of California *then* he lived in Sacramento." These latter propositions seem to be built up from smaller propositions by means of logical operations such as *or*, *not*, *and*, *if . . . then.* In propositional logic, the idea is to take some propositions as basic -- having no further structure-- and looking at the way in which we build further propositions with these logical operations. Today we go over the logical operations.
+
+<br/>
+<br/>
 
 ## Conjunction
 
@@ -35,6 +42,9 @@ If both $p$ and $q$ are propositions, then "$p$ and $q$" is a third proposition.
 | FFT
 | FFF
 ~~~
+
+<br/>
+<br/>
 
 ## How to read the rows and columns
 
@@ -52,6 +62,9 @@ In situations where the apple is green or the banana is brown, the idea is that 
 
 Other synonyms for "situation" might be "world" or the more technical term "valuation," whose sense comes from the idea that the situations or worlds provide a means of evaluating the propositions for truth or falsity.
 
+<br/>
+<br/>
+
 ## Disjunction
 
 If both $p$ and $q$ are propositions, then "$p$ or $q$" is a third proposition. The symbol for "or" is $\vee$. Another word for "or" is "disjunction." Hence we write "$p$ or $q$" as "$p\vee q$." In this situation, $p$ and $q$ are called the two *disjuncts*. Later when we start writing formulas ourselves on the keyboard we form the disjunction symbol $\vee$ by writing `\/`. The following table records when the disjunction is true ($T$) or false ($F$).
@@ -68,10 +81,14 @@ As one can see from the first row, we count a disjunction as true when both disj
 
 One has to quickly memorize the truth-tables for conjunction and disjunction, and for this purpose it is helpful to keep in mind the following memory-aid: it is hard to make a conjunction true, while it is easy to make a disjunction true. In particular, there is only one row where the conjunction is true, but there are three rows where disjunction is true. We can see this clearly if we put the conjunction and disjunction tables side-by-side and highlight the places they are true in green and the places they are false in pink. Try to see if you can spot these places before we highlight them in the video.
 
-<video controls width="600" src="https://logic-teaching.github.io/prop/vid/conjunctiondisjunction_contrast.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/connectives_conjunctcontrast.mp4"/> </video>
 
+<br/>
+<br/>
 
 ## Negation
+
+If $p$ is a proposition, then "not $p$" is a proposition. The symbol for "not" is $\neg$. On the keyboard we type `~`. The following table simply says that $\neg p$ is true precisely when $p$ is false. That is, $p$ and $\neg p$ always have opposite truth-values.
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
  ~p
@@ -79,8 +96,14 @@ One has to quickly memorize the truth-tables for conjunction and disjunction, an
 | TF
 ~~~
 
+Note that in our formalism, the negation symbol in $\neg p$ occurs right in front of the proposition $p$. But in natural language, negation symbols more often appear close to the main verb. For instance, take our earlier proposition $p$="The apple is red." How would we express $\neg p$ in English? We could say the cumbersome thing "It is not the case that the apple is red." However, it is more likely that we would just say ``The apple is not red.'' One can go the other way as well. Suppose that someone believes that "Jerry Brown was not the governor of California." We could translate this as $\neg q$, where $q$="Jerry Brown not the governor of California." In general, the translation procedure for negation works by moving the negation symbol to the outside the proposition that one wants to negate.
+
+<br/>
+<br/>
 
 ## Implication
+
+The final symbol that we will do is implication, which is sometimes also called the conditional, or the material conditional. This is the symbol by which we translate "if . . . then . . . " statements. We use an arrow $\rightarrow$ for this, and on the keyboard we type `->`. The truth-table for this is the following:
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
  p->q
@@ -89,6 +112,27 @@ One has to quickly memorize the truth-tables for conjunction and disjunction, an
 | FTT
 | FTF
 ~~~
+
+We pronounce $p\rightrarrow q$ out loud as any one of the following:
+
+- if $p$ then $q$
+- if $p$, $q$
+- $p$ implies $q$
+- $p$ materially implies $q$
+- $p$ arrow $q$
+
+In the context $p\rightarrow q$, we say that $p$ is the *antecedent* and $q$ is the *consequent*. In this terminology, $p\rightarrow q$ says that the antecedent $p$ materially implies $q$.
+
+The way to memorize the truth-table for implication is as follows: an implication is false in precisely one circumstance, namely when the antecedent is true and the consequent is false. This is just drawing our attention to the fact that in one and only one of the four rows is the implication statement false.
+
+
+<br/>
+<br/>
+
+
+## Motivation for the truth-table for implication
+
+
 
 
 <br/>
