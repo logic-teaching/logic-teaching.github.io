@@ -44,17 +44,17 @@ Finally, we say that nothing else is a well-formed formula besides what can be g
 
 ## Comments on the definition
 
-- Obviously the phrase "well-formed formula" is cumbersome. Hence, as a synonym, one will find people saying shorter things like: "formula", "proposition", or "wff".
+Obviously the phrase "well-formed formula" is cumbersome. Hence, as a synonym, one will find people saying shorter things like: "formula", "proposition", or "wff".
 
-- The basic propositional formulas are sometimes called "atomic propositions" or "sentential letters". In general, a synonym for "propositional logic" is "sentential logic".
+The basic propositional formulas are sometimes called "atomic propositions" or "sentential letters". In general, a synonym for "propositional logic" is "sentential logic".
 
-- There is some variance on how people like to write atomic propositions. Some like lower-case Roman letters $a,b,c, . . . , p,q,r . . . " and some like upper case Roman letters $A, B, C, . . . , P, Q, R, . . ."
+There is some variance on how people like to write atomic propositions. Some like lower-case Roman letters $a,b,c, . . . , p,q,r . . . " and some like upper case Roman letters $A, B, C, . . . , P, Q, R, . . ."
 
 <br/>
 
 ## More comments on the definition
 
-- The letter $\phi$ is a Greek letter phi, which is said out loud as "fī". It is sometimes also written as $\varphi$. The letter $\psi$ is the Greek letter psi, which is said out loud as "(p)sī." Another one we sometimes use is $\chi$, the Greek letter chi, which is said out loud as "kī."
+The letter $\phi$ is a Greek letter phi, which is said out loud as "fī". It is sometimes also written as $\varphi$. The letter $\psi$ is the Greek letter psi, which is said out loud as "(p)sī." Another one we sometimes use is $\chi$, the Greek letter chi, which is said out loud as "kī."
 
 We use Greek letters to range over well-formed formulas. We have to use something besides Roman letters because of the above conventions about using Roman letters for the basic propositional formulas. If you have never seen them before, take a minute and practice writing them:
 
