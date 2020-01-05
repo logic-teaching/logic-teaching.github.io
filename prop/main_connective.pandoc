@@ -1,0 +1,38 @@
+<br/>
+<br/>
+
+[Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=1)
+
+# Main connectives, definition of formulas, ambiguity.
+
+Today we focus on defining formulas, identifying main connectives of formulas, and identifying and handling ambiguity.
+
+
+<br/>
+<br/>
+
+~~~{.SynChecker .Match submission="none" options="parseAtoms"}
+1.1 (P /\ (Q /\ R))
+~~~
+
+~~~{.SynChecker .Match system="gamutPND" submission="none" options="parseAtoms"}
+1.2 (p /\ (q /\ r))
+~~~
+
+<br/>
+<br/>
+
+~~~{.Translate .Prop submission="none"}
+3.1 P/\Q : People want to know what's going on and questions are unavoidable
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+3.1 p/\q : People want to know what's going on and questions are unavoidable
+~~~
+
+<br/>
+<br/>
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=1). It is run on the Carnap software, which is an:
+
+
