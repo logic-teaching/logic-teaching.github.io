@@ -51,7 +51,7 @@ Since we are going to be spending a lot of time with the truth-tables, it is imp
 The first row is the row where $p$ is true and $q$ is true. This is hence trying to describe the following kind of situation or world:
 
 <center>
-<img src="https://logic-teaching.github.io/prop/images/conjuncts_both_true.png" alt="Both conjuncts true" width="200"/> &nbsp; <img src="https://logic-teaching.github.io/prop/images/1F34E_color.png" alt="Apple red" width="100"/><img src="https://logic-teaching.github.io/prop/images/1F34C_color.png" alt="Banana yellow" width="100"/></center>
+<img src="https://logic-teaching.github.io/prop/images/conjuncts_all_true.png" alt="Both conjuncts true" width="200"/> &nbsp; <img src="https://logic-teaching.github.io/prop/images/1F34E_color.png" alt="Apple red" width="100"/><img src="https://logic-teaching.github.io/prop/images/1F34C_color.png" alt="Banana yellow" width="100"/></center>
 
 In such a world, $p\wedge q$ is true, that is ``The apple is red and the banana is yellow'' is true. And hence the first row records a symbol for true $T$ right below the conjunction.
 
