@@ -29,14 +29,14 @@ As we will see, in our formal language, we use parentheses to disambiguate betwe
 
 We solve both of these problems by defining the notion of *well-formed formula*.
 
-We start with a basic list of basic propositional formulas $a,b,c, . . . . p,q,r, . . . $. They are basic in that they do not have any further structure.
+We start with a basic list of basic propositional formulas $a,b,c, \ldots, p,q,r, \ldots$. They are basic in that they do not have any further structure.
 
 Then we give some rules how to generate more complex well-formed formulas from simpler well-formed formulas, and we say what the *main connective* is of the complex well-formed formula:
 
   - If $\phi$ is a proposition, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$.
   - If $\phi$ and $\psi$ are propositions, then $(\phi \wedge \psi)$ is a well-formed formula and its main connective is the conjunction symbols $\wedge$.
   - If $\phi$ and $\psi$ are propositions, then $(\phi \vee \psi)$ is a well-formed formula and its main connective is the disjunction symbol $\vee$.
-  - If $\phi$ and $\psi$ are propositions, then $(\phi \rightarrow \psi)$ is a well-formed formula and its main connective is the implication symbol~$\rightarrow$.
+  - If $\phi$ and $\psi$ are propositions, then $(\phi \rightarrow \psi)$ is a well-formed formula and its main connective is the implication symbol $\rightarrow$.
 
 Finally, we say that nothing else is a well-formed formula besides what can be generated in the way described above.
 
@@ -48,7 +48,7 @@ Obviously the phrase "well-formed formula" is cumbersome. Hence, as a synonym, o
 
 The basic propositional formulas are sometimes called "atomic propositions" or "sentential letters". In general, a synonym for "propositional logic" is "sentential logic".
 
-There is some variance on how people like to write atomic propositions. Some like lower-case Roman letters $a,b,c, . . . , p,q,r . . . " and some like upper case Roman letters $A, B, C, . . . , P, Q, R, . . ."
+There is some variance on how people like to write atomic propositions. Some like lower-case Roman letters $a,b,c, \ldots, p,q,r, \ldots$ and some like upper case Roman letters $A,B,C, \ldots, P,Q,R, \ldots$
 
 <br/>
 
@@ -68,6 +68,14 @@ We use Greek letters to range over well-formed formulas. We have to use somethin
 
 <br/>
 <br/>
+
+```{.SynChecker .Match system="gamutPND"}
+1.1 p\/q
+```
+
+```{.SynChecker .Match system="gamutPND"}
+1.2 p<->q
+```
 
 ~~~{.SynChecker .Match submission="none" options="parseAtoms"}
 1.1 (P /\ (Q /\ R))
