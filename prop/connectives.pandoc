@@ -1,0 +1,76 @@
+<br/>
+<br/>
+
+# Propositions, connectives, and their truth-tables
+
+The aim of this lecture is to introduce propositions and the propositional connectives. We also describe the truth-tables for the propositional connectives and their interpretation.
+
+- [Propositions](#propositions)
+- [Logical structure](#logical-structure)
+- [Conjunction](#conjunction)
+- [How to read the tables](#how-to-read-the-tables)
+- [Disjunction](#disjunction)
+- [Negation](#negation)
+- [Implication](#implication)
+
+<br/>
+<br/>
+
+## Propositions
+
+Propositional logic is a logic which takes as its most primitive unit *the proposition*. A proposition is something that can be true or false, like "The apple is red" or "Jerry Brown was the governor of California." The parts of speech which make up propositions like apple and red are not propositions-- they are objects or properties, but not the kinds of thing that can be true or false. To take propositions as a primitive means that, within this logic, there are some propositions which we regard as not having any further logical structure.
+
+## Logical structure
+
+Contrast "The apple is red" to "The apple is red *or* the apple is *not* red." Likewise, contrast "Jerry Brown was the governor of California" to "*If* Jerry Brown was the governor of California *then* he lived in Sacramento." These latter propositions seem to be built up from smaller propositions by means of logical operations such as *or*, *not*, *and*, *if . . . then.* In propositional logic, the idea is to take some propositions as basic -- having no further structure-- and looking at the way in which we build further propositions with these logical operations. Today we go over the logical operations.
+
+## Conjunction
+
+If both $p$ and $q$ are propositions, then "$p$ and $q$" is a third proposition. the symbol for "and" is $\wedge$. Another word for "and" is "conjunction." Hence we write "$p$ and $q$" as "$p\wedge q$." In this situation, $p$ and $q$ are called the two conjuncts. Later when we start writing formulas ourselves on the keyboard we form the conjunction symbol $\wedge$ by writing `/\`, `&`, or just `and`. For instance, take $p$="the apple is red" and $q$="the banana is yellow." The following table records when the conjunction is true. It is hence called a "truth table."
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p/\q
+| TTT
+| TFF
+| FFT
+| FFF
+~~~
+
+## How to read the tables
+
+Since we are going to be spending a lot of time with the truth-tables, it is important to be clear about how to read them. The vertical columns are 
+
+## Disjunction
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p\/q
+| TTT
+| TTF
+| FTT
+| FFF
+~~~
+
+## Negation
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ ~p
+| FT
+| TF
+~~~
+
+
+## Implication
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p->q
+| TTT
+| TFF
+| FTT
+| FTF
+~~~
+
+
+<br/>
+<br/>
+
+These are lecture notes written by [Sean Walsh](https://philosophy.ucla.edu/person/sean-walsh/), for Philosophy 31 at UCLA in Winter 2020. It is run on the Carnap software, which is an:
