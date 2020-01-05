@@ -13,6 +13,7 @@ The aim of this lecture is to introduce propositions and the propositional conne
 - [Negation](#negation)
 - [Implication](#implication)
 - [Partial confirmation of the truth-table for implication](#partial-confirmation-of-the-truth-table-for-implication)
+- [The graphical representation of truth-tables](#The graphical representation of truth-tables])
 
 <br/>
 <br/>
@@ -138,9 +139,25 @@ However, a recurrent theme in this course is going to be that the material condi
 
 ## The graphical representation of truth-tables
 
-But the graphical representation of truth-tables actually comes quite late. One of the first places is in a key text of early analytic philosophy, Wittgenstein's *Tractatus Logico-Philosophicus* from 1922. (A very nice edition is on [this site](https://people.umass.edu/klement/tlp/).) Wittgenstein experiemented with a number of graphical representations of the truth-table, and one of them is very much like the one we use nowadays, and which we use in this course.
+But the graphical representation of truth-tables actually comes quite late. One of the first places is in a key text of early analytic philosophy, Wittgenstein's *Tractatus Logico-Philosophicus* from 1922. (A very nice edition is on [this site](https://people.umass.edu/klement/tlp/).) Wittgenstein experimented with a number of graphical representations of the truth-table, and one of them is very much like the one we use nowadays, and which we use in this course.
 
-<img src="http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20113-114.png" alt="Apple green" width="700"/>
+<center> <img src="logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_4.442.png" alt="Tractatus 4.442" width="300"/> &nbsp; &nbsp; &nbsp; <img src="logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_6.1203.png" alt="Tractatus 6.1203" width="300"/>  </center>
+
+<center> <img src="logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_5.101.png" alt="Tractatus 5.101" width="300"/>  </center>
+
+<br/>
+<br/>
+
+## Wittgenstein on the meaning of the propositional connectives
+
+One idea of Wittgenstein's *Tractatus* is that the truth-table of the propositional connectives is closely tied to their meaning. One beginning point here is the connection between understanding a sentence and understanding what circumstances it make it true or false (its truth-conditions):
+
+<img src="logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_4.023.png" alt="Tractatus 4.023" width="300"/>
+
+Right before he introduces the graphical representation of truth-tables, Wittengstein suggests that at least for certain simple sentences built-up out of elementary propositions like $p,q$, the truth-conditions just are very much like the truth-trables.
+
+<img src="logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_4.431 " alt="Tractatus 4.023" width="300"/>
+
 
 <br/>
 <br/>
