@@ -14,9 +14,10 @@ The aim of this lecture is to introduce propositions and the propositional conne
 - [Disjunction](#disjunction)
 - [Negation](#negation)
 - [Implication](#implication)
-- [Partial confirmation of the truth-table for implication](#partial-confirmation-of-the-truth-table-for-implication)
+- [History of truth-table for implication and partial confirmation](#history-of-truth-table-for-implication-and-partial-confirmation)
 - [The graphical representation of truth-tables](#the-graphical-representation-of-truth-tables)
 - [Wittgenstein on the meaning of the propositional connectives](#wittgenstein-on-the-meaning-of-the-propositional-connectives)
+- [Biconditional](#biconditional)
 - [Practice memorizing the truth-tables](#practice-memorizing-the-truth-tables)
 - [Practice memorizing the truth-tables via substitution](#practice-memorizing-the-truth-tables-via-substitution)
 
@@ -30,7 +31,7 @@ Propositional logic is a logic which takes as its most primitive unit *the propo
 
 ## Logical structure
 
-Contrast "The apple is red" to "The apple is red *or* the apple is *not* red." Likewise, contrast "Jerry Brown was the governor of California" to "*If* Jerry Brown was the governor of California *then* he lived in Sacramento." These latter propositions seem to be built up from smaller propositions by means of logical operations such as *or*, *not*, *and*, *if . . . then.* In propositional logic, the idea is to take some propositions as basic -- having no further structure-- and to look at the way in which we build further propositions up via these logical operations. Today we introduce the basic logical operations, the so-called *propositional connectives*.
+Contrast "The apple is red" to "The apple is red *or* the apple is *not* red." Likewise, contrast "Jerry Brown was the governor of California" to "*If* Jerry Brown was the governor of California *then* he lived in Sacramento." These latter propositions seem to be built up from smaller propositions by means of logical operations such as *or*, *not*, *and*, *if . . . then.* In propositional logic, the idea is to take some propositions as basic -- having no further structure-- and to look at the way in which we build further propositions up via these logical operations. Today we introduce the basic logical operations, the *propositional connectives*.
 
 <br/>
 
@@ -97,13 +98,13 @@ If $p$ is a proposition, then "not $p$" is a proposition. The symbol for "not" i
 | TF
 ~~~
 
-Note that in our formalism, the negation symbol in $\neg p$ occurs right in front of the proposition $p$. But in natural language, negation symbols more often appear close to the main verb. For instance, take our earlier proposition $p$="The apple is red." How would we express $\neg p$ in English? We could say the cumbersome thing "It is not the case that the apple is red." However, it is more likely that we would just say "The apple is not red." One can go the other way as well. Suppose that someone believes that "Jerry Brown was not the governor of California." We could translate this as $\neg q$, where $q$="Jerry Brown not the governor of California." In general, the translation procedure for negation works by moving the negation symbol to the immediate left of the proposition that one wants to negate.
+Note that in our formalism, the negation symbol in $\neg p$ occurs right in front of the proposition $p$. But in natural language, negation symbols more often appear close to the main verb. For instance, take our earlier proposition $p$="The apple is red." How would we express $\neg p$ in English? We could say the cumbersome thing "It is not the case that the apple is red." However, it is more likely that we would just say "The apple is not red." Likewise, suppose that someone believes that "Jerry Brown was not the governor of California." We could translate this as $\neg q$, where $q$="Jerry Brown not the governor of California." In general, the translation procedure for negation works by moving the negation symbol to the immediate left of the proposition that one wants to negate.
 
 <br/>
 
 ## Implication
 
-The final symbol that we will do is implication, which is sometimes also called the *conditional* or the *material conditional*. This is the symbol by which we translate "if . . . then . . . " statements. We use an arrow $\rightarrow$ for this, and on the keyboard we type `->`. The truth-table for this is the following:
+The next symbol that we will do is implication, which is sometimes also called the *conditional* or the *material conditional*. This is the symbol by which we translate "if . . . then . . . " statements. We use an arrow $\rightarrow$ for this, and on the keyboard we type `->`. The truth-table for this is the following:
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
  p->q
@@ -116,7 +117,7 @@ The final symbol that we will do is implication, which is sometimes also called 
 We pronounce $p\rightarrow q$ out loud as any one of the following:
 
 - if $p$ then $q$
-- if $p$, $q$
+- if $p$, $q$ (when said out loud, the comma would mark some kind of short pause)
 - $p$ implies $q$
 - $p$ materially implies $q$
 - $p$ arrow $q$
@@ -127,23 +128,29 @@ The way to memorize the truth-table for implication is as follows: an implicatio
 
 <br/>
 
-## Partial confirmation of the truth-table for implication
+## History of truth-table for implication and partial confirmation
 
-We can point out examples where it might *seem* to be right. The earliest known indication of the truth-table for implication is from the ancient Greeks, in particular the Stoic logician Philo. Here is the record of his views which the skeptic Sextus Empiricus tells us about in his *Against the Logicians* ([p. 112 in this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)):
+We can point out examples where the truth-table for implication *seems* to be right. The earliest known indication of the truth-table for implication is from the ancient Greeks, in particular the Stoic logician Philo. Here is the record of his views which the skeptic Sextus Empiricus tells us about in his *Against the Logicians* ([p. 112 in this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)):
 
 &nbsp; &nbsp; &nbsp;   <img src="http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20113-114.png" alt="Apple green" width="700"/>
 
-However, a recurrent theme in this course is going to be that the material conditional fails to get our use of "if . . . then" statements right in a large number of cases.
+However, a recurrent theme in this course is going to be that the material conditional fails to get our use of "if . . . then" statements right in many cases.
 
 ## The graphical representation of truth-tables
 
-But the graphical representation of truth-tables actually comes quite late. One of the first places is in a key text of early analytic philosophy, Wittgenstein's *Tractatus Logico-Philosophicus* from 1922. (A very nice edition is on [this site](https://people.umass.edu/klement/tlp/).) Wittgenstein experimented with a number of graphical representations of the truth-table, and the one to the below left is very much like the one we use nowadays. The one on the below right becomes clear if you see it as indicating that the material conditional $p\rightarrow q$ is true in three situations and false in one.
+But the graphical representation of truth-tables actually comes quite late. One of the first places is in a key text of early analytic philosophy, Wittgenstein's *Tractatus Logico-Philosophicus* from 1922. (A very nice edition is on [this site](https://people.umass.edu/klement/tlp/).) Wittgenstein experimented with a number of graphical representations of the truth-table, and the one to the below left is very much like the one we use nowadays. The idea for the one on the below right becomes clear if you see it as indicating that the material conditional $p\rightarrow q$ is true in three situations and false in one (i.e. there are three lines going to the bottom "T", and there is just one line going to the top "F").
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_4.442.png" alt="Tractatus 4.442" width="300"/> &nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_6.1203.png" alt="Tractatus 6.1203" width="300"/>
 
-He also developed the following linear notation, which never really caught on:
+Wittgenstein also developed the following linear notation, which never really caught on:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_5.101-and.png" alt="Tractatus 5.101" width="400"/>
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_5.101-or.png" alt="Tractatus 5.101" width="400"/>
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_5.101.png" alt="Tractatus 5.101" width="400"/>
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_5.101-bicond.png" alt="Tractatus 5.101" width="400"/>
 
 <br/>
 
@@ -159,9 +166,24 @@ Right before he introduces the graphical representation of truth-tables, Witteng
 
 <br/>
 
+## Biconditional
+
+The final connective is the biconditional. This is the symbol by which we translate ". . . if and only if . . . " statements. We use an arrow $\leftrightarrow$ for this, and on the keyboard we type `<->`. The truth-table for this is the following:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p<->q
+| TTT
+| TFF
+| FFT
+| FTF
+~~~
+
+We pronounce $p\leftrightarrow q$ out loud as "$p$ if and only if $q$". One might also say something like "$p$ holds when and only when $q$ holds" or "$p$ is true precisely when $q$ is true." The idea, as expressed in the truth-table, is that the biconditional $p\leftrightarrow q$ is true when the truth-values of $p,q$ are the same, and it is false otherwise.
+
+
 ## Practice memorizing the truth-tables
 
-It is very important to memorize the truth-tables very soon. To this end, here are the four truth-tables with the entries blank. Memorize the truth-tables by trying to fill these in:
+It is very important to memorize the truth-tables very soon. To this end, here are the four truth-tables with the entries blank. Memorize the truth-tables by trying to fill these in. You can check your answer by pressing the 'check' button.
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  p/\q
@@ -177,6 +199,10 @@ It is very important to memorize the truth-tables very soon. To this end, here a
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  p->q
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p<->q
 ~~~
 
 ## Practice memorizing the truth-tables via substitution
@@ -203,6 +229,12 @@ A particularly challenging substitution which we sometimes meet in practice is w
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  q->p
+~~~
+
+The biconditional is easier to handle under such a "switch" since there is a symmetry in the biconditional:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ q<->p
 ~~~
 
 <br/>

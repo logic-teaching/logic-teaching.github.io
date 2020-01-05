@@ -82,7 +82,7 @@ We can apply this truth-table by thinking about its two rows as two rules govern
 - If $p$ is true, then $\neg p$ is false.
 - If $p$ is false, then $\neg p$ is true.
 
-Hence, in the second example, we apply these rules *four* times, to the proposition $\phi$ which is $p\wedge q$. Play the following part of it again:
+Hence, in the second example, we apply these rules *four* times, to the proposition $p\wedge q$. Play the following part of it again:
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/truth_tables_example2.mp4#t=10,21"/> </video>
 
