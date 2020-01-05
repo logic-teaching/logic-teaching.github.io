@@ -51,27 +51,27 @@ Since we are going to be spending a lot of time with the truth-tables, it is imp
 The first row is the row where $p$ is true and $q$ is true. This is hence trying to describe the following kind of situation or world:
 
 <center>
-<img src="https://logic-teaching.github.io/images/conjuncts_both_true.png" alt="Both conjuncts true" width="100"/><img src="https://logic-teaching.github.io/images/1F34E_color.png" alt="Apple red" width="100"/><img src="https://logic-teaching.github.io/images/1F34C_color.png" alt="Banana yellow" width="100"/></center>
+<img src="https://logic-teaching.github.io/prop/images/conjuncts_both_true.png" alt="Both conjuncts true" width="100"/><img src="https://logic-teaching.github.io/prop/images/1F34E_color.png" alt="Apple red" width="100"/><img src="https://logic-teaching.github.io/prop/images/1F34C_color.png" alt="Banana yellow" width="100"/></center>
 
 In such a world, $p\wedge q$ is true, that is ``The apple is red and the banana is yellow'' is true. And hence the first row records a symbol for true $T$ right below the conjunction.
 
 The second row is the row where $p$ is true and $q$ is false. This is hence trying to describe the following kind of situation or world:
 
-<center><img src="https://logic-teaching.github.io/images/conjuncts_only_first_true.png" alt="Only first conjunct true" width="100"/><img src="https://logic-teaching.github.io/images/1F34E_color.png" alt="Apple red" width="100"/><img src="https://logic-teaching.github.io/images/1F34C_color.png" alt="Banana yellow" width="100"/></center>
+<center><img src="https://logic-teaching.github.io/prop/images/conjuncts_only_first_true.png" alt="Only first conjunct true" width="100"/><img src="https://logic-teaching.github.io/prop/images/1F34E_color.png" alt="Apple red" width="100"/><img src="https://logic-teaching.github.io/prop/images/1F34C_color.png" alt="Banana yellow" width="100"/></center>
 
 In such a world, $p\wedge q$ is false, that is ``The apple is red and the banana is yellow'' is false. And hence the second row records a symbol for false $F$ right below the conjunction.
 
 The third row is the row where $p$ is false and $q$ is true. This is hence trying to describe the following kind of situation or world:
 
-<center><img src="https://logic-teaching.github.io/images/conjuncts_only_second_true.png" alt="Only second conjunct true" width="100"/>
-<img src="https://logic-teaching.github.io/images/1F34F_color.png" alt="Apple green" width="100"/><img src="https://logic-teaching.github.io/images/1F34C_color.png" alt="Banana yellow" width="100"/></center>
+<center><img src="https://logic-teaching.github.io/prop/images/conjuncts_only_second_true.png" alt="Only second conjunct true" width="100"/>
+<img src="https://logic-teaching.github.io/prop/images/1F34F_color.png" alt="Apple green" width="100"/><img src="https://logic-teaching.github.io/prop/images/1F34C_color.png" alt="Banana yellow" width="100"/></center>
 
 In such a world, $p\wedge q$ is false, that is ``The apple is red and the banana is yellow'' is false. And hence the third row records a symbol for false $F$ right below the conjunction.
 
 The fourth row is the row where $p$ is false and $q$ is false. This is hence trying to describe the following kind of situation or world:
 
-<center><img src="https://logic-teaching.github.io/images/conjuncts_both_false.png" alt="Both conjuncts false" width="100"/>
-<img src="https://logic-teaching.github.io/images/1F34F_color.png" alt="Apple green" width="100"/><img src="https://logic-teaching.github.io/images/1F34C_color_modified.png" alt="Banana brown" width="100"/></center>
+<center><img src="https://logic-teaching.github.io/prop/images/conjuncts_both_false.png" alt="Both conjuncts false" width="100"/>
+<img src="https://logic-teaching.github.io/prop/images/1F34F_color.png" alt="Apple green" width="100"/><img src="https://logic-teaching.github.io/prop/images/1F34C_color_modified.png" alt="Banana brown" width="100"/></center>
 
 In such a world, $p\wedge q$ is false, that is ``The apple is red and the banana is yellow'' is false. And hence the fourth row records a symbol for false $F$ right below the conjunction.
 
