@@ -8,7 +8,7 @@ The aim of this lecture is to introduce propositions and the propositional conne
 - [Propositions](#propositions)
 - [Logical structure](#logical-structure)
 - [Conjunction](#conjunction)
-- [How to read the tables](#how-to-read-the-tables)
+- [How to read the tables](#how-to-read-the-rows-and-columns)
 - [Disjunction](#disjunction)
 - [Negation](#negation)
 - [Implication](#implication)
@@ -26,7 +26,7 @@ Contrast "The apple is red" to "The apple is red *or* the apple is *not* red." L
 
 ## Conjunction
 
-If both $p$ and $q$ are propositions, then "$p$ and $q$" is a third proposition. the symbol for "and" is $\wedge$. Another word for "and" is "conjunction." Hence we write "$p$ and $q$" as "$p\wedge q$." In this situation, $p$ and $q$ are called the two conjuncts. Later when we start writing formulas ourselves on the keyboard we form the conjunction symbol $\wedge$ by writing `/\`, `&`, or just `and`. The following table records when the conjunction is true ($T$) or false ($F$). It is hence called a "truth table."
+If both $p$ and $q$ are propositions, then "$p$ and $q$" is a third proposition. the symbol for "and" is $\wedge$. Another word for "and" is "conjunction." Hence we write "$p$ and $q$" as "$p\wedge q$." In this situation, $p$ and $q$ are called the two *conjuncts*. Later when we start writing formulas ourselves on the keyboard we form the conjunction symbol $\wedge$ by writing `/\`. The following table records when the conjunction is true ($T$) or false ($F$). It is hence called a "truth table."
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
  p/\q
@@ -36,21 +36,25 @@ If both $p$ and $q$ are propositions, then "$p$ and $q$" is a third proposition.
 | FFF
 ~~~
 
-## How to read the tables
+## How to read the rows and columns
 
 Since we are going to be spending a lot of time with the truth-tables, it is important to be clear about how to read them. Each of the horizontal rows describes a situation, and each of the vertical columns is devoted to a given propositions, and the cells record whether the proposition in the column-header is true at the situation in the row-header.
 
-<video controls width="400" src="https://logic-teaching.github.io/prop/vid/connectives_columnsrows.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/connectives_columnsrows.mp4"/> </video>
 
 In the conjunction example above, there are four rows since there are two propositions ($p$, $q$) and two truth-values (true $T$, false $F$). And each of these four rows describes a situation. There are three propositions displayed in the columns: $p$, $q$, and $p\wedge q$. The column for $p\wedge q$ is right under the conjunction sign.
 
 What are situations? Well, they are ways things might be. For instance, take $p$="the apple is red" and $q$="the banana is yellow." Then the four rows might be describing the following four situations:
 
-<video controls width="400" src="https://logic-teaching.github.io/prop/vid/connectives_fourworlds.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/connectives_fourworlds.mp4"/> </video>
+
+In situations where the apple is green or the banana is brown, the idea is that "the apple is red and the banana is yellow" is false.
 
 Other synonyms for "situation" might be "world" or the more technical term "valuation," whose sense comes from the idea that the situations or worlds provide a means of evaluating the propositions for truth or falsity.
 
 ## Disjunction
+
+If both $p$ and $q$ are propositions, then "$p$ or $q$" is a third proposition. The symbol for "or" is $\vee$. Another word for "or" is "disjunction." Hence we write "$p$ or $q$" as "$p\vee q$." In this situation, $p$ and $q$ are called the two *disjuncts*. Later when we start writing formulas ourselves on the keyboard we form the disjunction symbol $\vee$ by writing `\/`. The following table records when the disjunction is true ($T$) or false ($F$).
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
  p\/q
@@ -59,6 +63,13 @@ Other synonyms for "situation" might be "world" or the more technical term "valu
 | FTT
 | FFF
 ~~~
+
+As one can see from the first row, we count a disjunction as true when both disjuncts are true. Hence, this disjunction is sometimes called *inclusive* disjunction, since it permits the possibility that both disjunctions are true. Often when we use "or," we might have the *exclusive* disjunction in mind, which precludes the possibility that both disjuncts are true. For instance, when we say "it is to the left or it is to the right," presumably we have ruled out in advance that it could be both to the left and to the right. As we will see later, it is easy to "define" exclusive disjunction in terms of our inclusive disjunction. For the moment, just keep in mind that the formal disjunction symbol $\vee$ is the inclusive disjunction.
+
+One has to quickly memorize the truth-tables for conjunction and disjunction, and for this purpose it is helpful to keep in mind the following memory-aid: it is hard to make a conjunction true, while it is easy to make a disjunction true. In particular, there is only one row where the conjunction is true, but there are three rows where disjunction is true. We can see this clearly if we put the conjunction and disjunction tables side-by-side and highlight the places they are true in green and the places they are false in pink. Try to see if you can spot these places before we highlight them in the video.
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/conjunctiondisjunction_contrast.mp4"/> </video>
+
 
 ## Negation
 
