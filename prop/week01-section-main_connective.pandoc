@@ -33,7 +33,7 @@ We start with a basic list of basic propositional formulas $a,b,c, . . . . p,q,r
 
 Then we give some rules how to generate more complex well-formed formulas from simpler well-formed formulas, and we say what the *main connective* is of the complex well-formed formula:
 
-  - If $\phi$ is a proposition, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol~$\neg$.
+  - If $\phi$ is a proposition, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$.
   - If $\phi$ and $\psi$ are propositions, then $(\phi \wedge \psi)$ is a well-formed formula and its main connective is the conjunction symbols $\wedge$.
   - If $\phi$ and $\psi$ are propositions, then $(\phi \vee \psi)$ is a well-formed formula and its main connective is the disjunction symbol $\vee$.
   - If $\phi$ and $\psi$ are propositions, then $(\phi \rightarrow \psi)$ is a well-formed formula and its main connective is the implication symbol~$\rightarrow$.
@@ -54,11 +54,12 @@ There is some variance on how people like to write atomic propositions. Some lik
 
 ## More comments on the definition
 
-The letter $\phi$ is a Greek letter phi, which is said out loud as "fī". It is sometimes also written as $\varphi$. The letter $\psi$ is the Greek letter psi, which is said out loud as "(p)sī." Another one we sometimes use is $\chi$, the Greek letter chi, which is said out loud as "kī."
+The letter $\phi$ is a Greek letter phi, which is said out loud as "fī". It is sometimes also written as ![](https://logic-teaching.github.io/prop/images/23px-Greek_phi_Didot.svg.png)
+. The letter $\psi$ is the Greek letter psi, which is said out loud as "(p)sī." Another one we sometimes use is $\chi$, the Greek letter chi, which is said out loud as "kī."
 
 We use Greek letters to range over well-formed formulas. We have to use something besides Roman letters because of the above conventions about using Roman letters for the basic propositional formulas. If you have never seen them before, take a minute and practice writing them:
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/main_connective_greek.mp4"/> </video>
+<video controls width="500" src="https://logic-teaching.github.io/prop/vid/main_connective_greek.mp4"/> </video>
 
 <br/>
 
