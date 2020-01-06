@@ -1,0 +1,67 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 1, Lecture 2, Handout.
+
+<br>
+
+## Example 1
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ~(p\/q)
+~~~
+
+<br>
+
+## Example 2
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ~(p/\q)
+~~~
+
+<br>
+
+## Example 3
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (~p/\~q)
+~~~
+
+<br>
+
+## Example 4
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (~p\/~q)
+~~~
+
+<br>
+
+## Example 5
+
+~~~{.TruthTable .Simple system="gamutPND"  options="nodash nocounterexample autoAtoms" submission="none"}
+ (p->~q)
+~~~
+
+<br>
+
+## Example 6
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ((p/\q)\/(p\/q))
+~~~
+
+<br>
+
+## Example 7
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (p->(q\/r))
+~~~
+
+<br>
+
+These is a handout written for Logic, First Course, Winter 2020. It is run on the Carnap software, which is an:
+

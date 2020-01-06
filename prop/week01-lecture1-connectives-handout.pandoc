@@ -1,0 +1,111 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 1, Lecture 1, Handout.
+
+## Conjunction
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p/\q
+| TTT
+| TFF
+| FFT
+| FFF
+~~~
+
+## Disjunction
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p\/q
+| TTT
+| TTF
+| FTT
+| FFF
+~~~
+
+## Negation
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ ~p
+| FT
+| TF
+~~~
+
+## Implication
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p->q
+| TTT
+| TFF
+| FTT
+| FTF
+~~~
+
+## Biconditional
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p<->q
+| TTT
+| TFF
+| FFT
+| FTF
+~~~
+
+## Practice memorizing the truth-tables
+
+It is very important to memorize the truth-tables very soon. To this end, here are the four truth-tables with the entries blank. Memorize the truth-tables by trying to fill these in. You can check your answer by pressing the 'check' button.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p/\q
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/q
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ~p
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p<->q
+~~~
+
+## Practice memorizing the truth-tables via substitution
+
+One way to make sure that you have memorized the truth-tables is if you are able to substitute different letters in for the two propositions. Try the following variation on the previous ones but with the letters changed from the way we first saw them.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ r/\s
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ a\/b
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ~r
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ a->c
+~~~
+
+A particularly challenging substitution which we sometimes meet in practice is when we switch the antecedent and consequent in e.g. $p\rightarrow q$ to $q\rightarrow p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ q->p
+~~~
+
+The biconditional is easier to handle under such a "switch" since there is a symmetry in the biconditional:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ q<->p
+~~~
+
+These is a handout written for Logic, First Course, Winter 2020. It is run on the Carnap software, which is an:

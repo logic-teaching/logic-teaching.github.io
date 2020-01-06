@@ -1,0 +1,30 @@
+<br>
+<br>
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"}
+1.16 a/\(b/\~c)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"}
+1.17 ~(a->(~b->~c))
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"}
+1.18 (f/\(g/\h))<->(h->g)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"}
+1.19 ~(p->q) /\ (r->(p->q))
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"}
+1.20 ~(p/\q) <-> (~p\/~q)
+~~~
+
+
+<br>
+<br>
+
+This is a homework set for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=1). It is run on the Carnap software, which is an:
+
+

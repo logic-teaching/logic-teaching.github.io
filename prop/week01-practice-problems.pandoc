@@ -162,7 +162,7 @@ Before you try the next problem, note that the $e$ column is listed before the $
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
 1.21 w->e
 | T-T
-| TFF
+| TTF
 | F-T
 | FTF
 ~~~
@@ -183,48 +183,10 @@ These next problems only presuppose [Week 1, Section Meeting](https://carnap.io/
 
 Prior to starting the next set of problems, perhaps consider reviewing [how to type the connectives on the keyboard](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#typing-the-connectives-on-the-keyboard).
 
-<table>
-<thead>
-<tr>
-<th>Connective name</th>
-<th>&nbsp; &nbsp; &nbsp;By hand</th>
-<th>&nbsp; &nbsp; &nbsp; On keyboard</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>conjunction</td>
-<td>&nbsp; &nbsp; &nbsp;$\wedge$</td>
-<td>&nbsp; &nbsp; &nbsp; `/\`</td>
-</tr>
-<tr>
-<td>disjunction</td>
-<td>&nbsp; &nbsp; &nbsp;$\vee$</td>
-<td>&nbsp; &nbsp; &nbsp; `\/`</td>
-</tr>
-<tr>
-<td>negation</td>
-<td>&nbsp; &nbsp; &nbsp;$\neg$</td>
-<td>&nbsp; &nbsp; &nbsp; `~`</td>
-</tr>
-<tr>
-<td>conditional</td>
-<td>&nbsp; &nbsp; &nbsp;$\rightarrow$</td>
-<td>&nbsp; &nbsp; &nbsp; `->`</td>
-</tr>
-<tr>
-<td>biconditional</td>
-<td>&nbsp; &nbsp; &nbsp;$\leftrightarrow$</td>
-<td>&nbsp; &nbsp; &nbsp; `<->`</td>
-</tr>
-</tbody>
-</table>
+In the following problems we successively find the main connectives of the formulas, starting with the big formulas and breaking them into smaller parts. Press return after you have entered in the main connective to get to the next level. Ignore the "You may now submit your solution" remark after you finish. In the actual homeworks, there will actually be a "submit your solution" button- this is just practice.
 
 <br>
 
-Note that for conjunction and disjunction, you actually have to press two keys on your keyboard to form the symbol: they formed by putting the two slash buttons `/` and `\` side by side.
-
-Finally, note that you can also just cut and paste the main connective instead of typing it. Second, ignore the "You may now submit your solution" remark after you finish. In the actual homeworks, there will actually be a "submit your solution" button. This is just practice.
 
 ```{.SynChecker .Match system="gamutPND" submission="none"}
 1.23 (~p -> (q/\r))

@@ -1,0 +1,67 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 1, Section Meeting, Handout.
+
+<br>
+
+## Definition of well-formed formula
+
+We start with a basic list of basic propositional formulas $a,b,c, \ldots, p,q,r, \ldots$. They are basic in that they do not have any further structure.
+
+Then we give some rules how to generate more complex well-formed formulas from simpler well-formed formulas, and we say what the *main connective* is of the complex well-formed formula:
+
+  - If $\phi$ is a proposition, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$.
+  - If $\phi$ and $\psi$ are propositions, then $(\phi \wedge \psi)$ is a well-formed formula and its main connective is the conjunction symbol $\wedge$.
+  - If $\phi$ and $\psi$ are propositions, then $(\phi \vee \psi)$ is a well-formed formula and its main connective is the disjunction symbol $\vee$.
+  - If $\phi$ and $\psi$ are propositions, then $(\phi \rightarrow \psi)$ is a well-formed formula and its main connective is the implication symbol $\rightarrow$.
+  - If $\phi$ and $\psi$ are propositions, then $(\phi \leftrightarrow \psi)$ is a well-formed formula and its main connective is the biconditional symbol $\leftrightarrow$.
+
+Finally, we say that nothing else is a well-formed formula besides what can be generated in the way described above.
+
+<br>
+
+## Practice finding the main connectives
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ((p/\q)->(~q\/r))
+```
+
+<br>
+
+<br>
+
+<br>
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (q->((~p\/r)/\s))
+```
+
+<br>
+
+<br>
+
+<br>
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ((p/\~q) \/ (q<->r))
+```
+
+<br>
+
+<br>
+
+<br>
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ((p->(q/\~r))->(s\/~t))
+```
+<br>
+
+<br>
+
+<br>
+
+These is a handout written for Logic, First Course, Winter 2020. It is run on the Carnap software, which is an:
+
+
