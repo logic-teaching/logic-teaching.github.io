@@ -3,9 +3,9 @@
 
 Logic, First Course, Winter 2020. Week 1, Homework (due Monday 11:59pm of the beginning of Week 2). [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=1).
 
-# Homework problems
+# Week 1, Homework
 
-The homework problems fall into four groups:
+The homework problems in this set fall into four groups:
 
 - [Memorizing truth-tables](#memorizing-truth-tables)
 
@@ -14,6 +14,12 @@ The homework problems fall into four groups:
 - [Finding the main connectives](#finding-the-main-connectives)
 
 - [More complex truth-tables](#more-complex-truth-tables)
+
+There are 20 problems total, each equally weighted. Submitted problems received on time receive 5 points each, and late submissions receive 2 points each. Hence, there are 80 possible points.
+
+You can check your answer with the "Check" button next to each problem. After you have checked your answer, **you must press the "Submit" button** next to the problem. If you do not do this, you will **not** get credit for the problem. Once you have submitted your answer, your points are recorded. You can always check your points by going to the "user home" at the top right. You must be signed in in order to submit your answers.
+
+If you want to do some problems at one point in time and other problems at another point in time, you can do that by just coming back to this assignment page. Once submitted, your points are permanently recorded. If you return to this page later or refresh this page, it won't display your previously recorded answers, but again your points are permanently recorded. If you have forgotten which ones you still need to do, you can check your points by going to the "user home" at the top right.
 
 <br>
 
@@ -44,7 +50,7 @@ These problems only presuppose [Week 1, Lecture 1](https://carnap.io/shared/logi
 ~~~
 
 ~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms"}
-1.05 p\/p
+1.05 p\/q
 | T - F
 ~~~
 
@@ -53,7 +59,7 @@ These problems only presuppose [Week 1, Lecture 1](https://carnap.io/shared/logi
 
 ## More memorizing truth-tables
 
-In the following, we introduce a minor variation on the previous problems by having one fill in two rows of a truth-table. We further add on biconditional and negation, and use different propositional letters.
+In the following, we introduce a minor variation on the previous problems by having one fill in two rows of a truth-table. We further add on biconditional, and use different propositional letters.
 
 These problems only presuppose [Week 1, Lecture 1](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc).
 
@@ -136,7 +142,7 @@ In the following problems we successively find the main connectives of the formu
 
 ## More complex truth-tables
 
-Now we focus on completing the truth-tables of more complex propositions. These problems presuppose [Week 1, Lecture 2](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture2-truth_tables.pandoc). For these last five problems, it might be wise to first work them out by hand, either by printing them out or working on a tablet by hand (click [here for a nice pdf of them](http://logic)). 
+Now we focus on completing the truth-tables of more complex propositions. These problems presuppose [Week 1, Lecture 2](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture2-truth_tables.pandoc). For these last five problems, it might be wise to first work them out by hand, either by printing them out or working on a tablet by hand (click [here for a nice pdf of them](https://logic-teaching.github.io/prop/week01-homework-handout.pdf)).
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"}
 1.16 a/\(b/\~c)
