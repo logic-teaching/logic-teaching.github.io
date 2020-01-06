@@ -136,7 +136,7 @@ In the following problems we successively find the main connectives of the formu
 
 ## More complex truth-tables
 
-Now we focus on completing the truth-tables of more complex propositions. These problems presuppose [Week 1, Lecture 2](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture2-truth_tables.pandoc).
+Now we focus on completing the truth-tables of more complex propositions. These problems presuppose [Week 1, Lecture 2](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture2-truth_tables.pandoc). For these last five problems, it might be wise to first work them out by hand, either by printing them out or working on a tablet by hand (click [here for a nice pdf of them](http://logic)). 
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"}
 1.16 a/\(b/\~c)
