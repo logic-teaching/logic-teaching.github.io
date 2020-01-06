@@ -1,5 +1,7 @@
-<br/>
-<br/>
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 1, Lecture 1.
 
 [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=1)
 
@@ -21,19 +23,19 @@ The aim of this lecture is to introduce propositions and the propositional conne
 - [Practice memorizing the truth-tables](#practice-memorizing-the-truth-tables)
 - [Practice memorizing the truth-tables via substitution](#practice-memorizing-the-truth-tables-via-substitution)
 
-<br/>
+<br>
 
 ## Propositions
 
 Propositional logic is a logic which takes as its most primitive unit *the proposition*. A proposition is something that can be true or false, like "The apple in front of me is red" or "Jerry Brown was the governor of California." The parts of speech which make up the propositions -- like "apple" and "red"-- are not themselves propositions, since they are not the kinds of thing that can be true or false. To take propositions as a primitive means that, within this logic, there are some propositions which we regard as not having any further logical structure.
 
-<br/>
+<br>
 
 ## Logical structure
 
 Contrast "The apple is red" to "The apple is red *or* the apple is *not* red." Likewise, contrast "Jerry Brown was the governor of California" to "*If* Jerry Brown was the governor of California *then* he lived in Sacramento." These latter propositions seem to be built up from smaller propositions by means of logical operations such as *or*, *not*, *and*, *if . . . then.* In propositional logic, the idea is to take some propositions as basic -- having no further structure-- and to look at the way in which we build further propositions up via these logical operations. Today we introduce the basic logical operations, the *propositional connectives*.
 
-<br/>
+<br>
 
 ## Conjunction
 
@@ -47,7 +49,7 @@ If both $p$ and $q$ are propositions, then "$p$ and $q$" is a third proposition.
 | FFF
 ~~~
 
-<br/>
+<br>
 
 ## How to read the rows and columns
 
@@ -65,7 +67,7 @@ In situations where the apple is green or the banana is brown, one has that "the
 
 Other synonyms for "situation" might be "world" or the more technical term "valuation," whose sense comes from the idea that the situations or worlds provide a means of *evaluating* the propositions for truth or falsity.
 
-<br/>
+<br>
 
 ## Disjunction
 
@@ -85,8 +87,8 @@ One has to quickly memorize the truth-tables for conjunction and disjunction, an
 
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/connectives_conjunctcontrast.mp4"/> </video>
 
-<br/>
-<br/>
+<br>
+<br>
 
 ## Negation
 
@@ -100,7 +102,7 @@ If $p$ is a proposition, then "not $p$" is a proposition. The symbol for "not" i
 
 Note that in our formalism, the negation symbol in $\neg p$ occurs right in front of the proposition $p$. But in natural language, negation symbols more often appear close to the main verb. For instance, take our earlier proposition $p$="The apple is red." How would we express $\neg p$ in English? We could say the cumbersome thing "It is not the case that the apple is red." However, it is more likely that we would just say "The apple is not red." Likewise, suppose that someone believes that "Jerry Brown was not the governor of California." We could translate this as $\neg q$, where $q$="Jerry Brown not the governor of California." In general, the translation procedure for negation works by moving the negation symbol to the immediate left of the proposition that one wants to negate.
 
-<br/>
+<br>
 
 ## Implication
 
@@ -126,7 +128,7 @@ In the context $p\rightarrow q$, we say that $p$ is the *antecedent* and $q$ is 
 
 The way to memorize the truth-table for implication is as follows: an implication is false in precisely one circumstance, namely when the antecedent is true and the consequent is false. This is just drawing our attention to the fact that in one and only one of the four rows is the implication statement false.
 
-<br/>
+<br>
 
 ## History of truth-table for implication and partial confirmation
 
@@ -152,7 +154,7 @@ Wittgenstein also developed the following linear notation, which never really ca
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_5.101-bicond.png" alt="Tractatus 5.101" width="400"/>
 
-<br/>
+<br>
 
 ## Wittgenstein on the meaning of the propositional connectives
 
@@ -160,11 +162,11 @@ One lasting philosophical idea of Wittgenstein's *Tractatus* is that the truth-t
 
 &nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_4.023.png" alt="Tractatus 4.023" width="300"/>
 
-Right before he introduces the graphical representation of truth-tables, Wittengstein suggests that at least for certain simple sentences built-up out of elementary propositions like $p,q$, the truth-conditions just are very much like the truth-tables.
+Right before he introduces the graphical representation of truth-tables, Wittgenstein suggests that at least for certain simple sentences built-up out of elementary propositions like $p,q$, the truth-conditions just are very much like the truth-tables.
 
 &nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_4.431.png" alt="Tractatus 4.023" width="300"/>
 
-<br/>
+<br>
 
 ## Biconditional
 
@@ -237,7 +239,7 @@ The biconditional is easier to handle under such a "switch" since there is a sym
  q<->p
 ~~~
 
-<br/>
+<br>
 
 These are lecture notes written for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=1). It is run on the Carnap software, which is an:
 
