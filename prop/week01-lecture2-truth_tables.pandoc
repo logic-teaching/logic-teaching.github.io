@@ -16,7 +16,7 @@ Now we develop a method for assigning a truth-table to the complex propositions,
 - [Example 4](#example-4)
 - [Example 5](#example-5)
 - [Example 6](#example-6)
-- [Example 7](#example-7)
+- [Example 7 and alternative format](#example-7-and-alternative-format)
 
 <br>
 
@@ -140,7 +140,7 @@ In this example, we have three connectives: reading from left-to-right, we see o
 
 <br>
 
-## Example 7
+## Example 7 and alternative format
 
 This last example has three propositional letters $p,q,r$. Since there are three lettters and each letter can take two truth-values (true, false), there are $3\times 2 = 8$ possible combinations of truth-values. Hence there are eight rows we need to consider. Try it out yourself, or watch the video first and then give it a go.
 
@@ -152,8 +152,12 @@ This last example has three propositional letters $p,q,r$. Since there are three
 
 Recall that in the section [Determining truth-values](#determining-truth-values) we had asked: if you knew that $r$ is false while $p,q$ are true, then $p\rightarrow (q\vee r)$ true or false? The second row of our truth-table contains the answer to this question, namely, in this circumstance, $p\rightarrow (q\vee r)$ is true. But our truth-table also contains much more information than this: it contains information which tells us when the larger propositions is true or false, given any distribution of the truth-values of the smaller propositions.
 
+The Gamut textbook presents this truth-table in the following way, again using 1 for "true" and 0 for "false":
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Gamut1991-bigtable2.png" alt="Tractatus 5.101" width="500"/>
+
+Note that the Gamut text orders the columns differently, and that the column for the biggest proposition is all the way towards the right.  
 
 <br>
 
 These are lecture notes written for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=1). It is run on the Carnap software, which is an:
-
