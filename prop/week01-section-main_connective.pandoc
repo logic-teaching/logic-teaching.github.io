@@ -101,7 +101,9 @@ Negation always "hugs" the formula to its immediate right. Consider the followin
 - $\neg p \wedge \neg q$
 - $\neg (p \wedge \neg q)$
 
-In the first, we are saying that two things happen: not-$p$, as well as not-$q$. In the second, we are saying that the following does not happen: both $p$ and $q$. A common mistake is for beginnings to blend these two together. We avoid this mistake by remembering that negation always clings to the formula to its immediate right.
+In the first, we are saying that two things happen: not-$p$, as well as not-$q$. In the second, we are saying that the following does not happen: both $p$ and $\neg q$.[^2] A common mistake is for beginnings to blend these two together. We avoid this mistake by remembering that negation always clings to the formula to its immediate right.
+
+[^2]: An earlier posted version of this had a typo and omitted the negation on the $q$.
 
 <br>
 
@@ -182,8 +184,8 @@ As we have seen, parentheses are crucial for the avoidance of ambiguity in our w
 <br>
 <br>
 
-These are lecture notes written for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=1).[^2]
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=1).[^3]
 
 
-[^2]:It is run on the Carnap software, which is
+[^3]:It is run on the Carnap software, which is
 
