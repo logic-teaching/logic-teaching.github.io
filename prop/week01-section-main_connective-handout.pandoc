@@ -11,11 +11,11 @@ We start with a basic list of basic propositional formulas $a,b,c, \ldots, p,q,r
 
 Then we give some rules how to generate more complex well-formed formulas from simpler well-formed formulas, and we say what the *main connective* is of the complex well-formed formula:
 
-  - If $\phi$ is a proposition, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$.
-  - If $\phi$ and $\psi$ are propositions, then $(\phi \wedge \psi)$ is a well-formed formula and its main connective is the conjunction symbol $\wedge$.
-  - If $\phi$ and $\psi$ are propositions, then $(\phi \vee \psi)$ is a well-formed formula and its main connective is the disjunction symbol $\vee$.
-  - If $\phi$ and $\psi$ are propositions, then $(\phi \rightarrow \psi)$ is a well-formed formula and its main connective is the implication symbol $\rightarrow$.
-  - If $\phi$ and $\psi$ are propositions, then $(\phi \leftrightarrow \psi)$ is a well-formed formula and its main connective is the biconditional symbol $\leftrightarrow$.
+  - If $\phi$ is a well-formed formula, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$.
+  - If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \wedge \psi)$ is a well-formed formula and its main connective is the conjunction symbol $\wedge$.
+  - If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \vee \psi)$ is a well-formed formula and its main connective is the disjunction symbol $\vee$.
+  - If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \rightarrow \psi)$ is a well-formed formula and its main connective is the implication symbol $\rightarrow$.
+  - If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \leftrightarrow \psi)$ is a well-formed formula and its main connective is the biconditional symbol $\leftrightarrow$.
 
 Finally, we say that nothing else is a well-formed formula besides what can be generated in the way described above.
 
