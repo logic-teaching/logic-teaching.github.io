@@ -154,7 +154,7 @@ Recall that in the section [Determining truth-values](#determining-truth-values)
 
 The Gamut textbook presents this truth-table in the following way, again using 1 for "true" and 0 for "false":
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Gamut1991-bigtable2.png" alt="Gamut truth-table" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Gamut1991-bigtable2.png" alt="Gamut truth-table" width="700"/>
 
 Note that the Gamut text orders the columns differently, and that the column for the biggest proposition is all the way towards the right.
 
