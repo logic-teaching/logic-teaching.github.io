@@ -1,0 +1,70 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 2, Lecture 1. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=3)
+
+# Translating conditional statements
+
+In this lecture, we describe how to translate between natural language and propositional logic.
+
+- [Compositional structure](#compositional-structure)
+- [A simple example](#a-simple-example)
+
+<br>
+
+## Translating conditionals
+
+Natural language abounds with numerous ways to say things that have the same truth-conditions as "if $p$, then $q$." Consider the following sentence, where perhaps one puts emphasis on the italicized words when one says it out loud: "Anthony attends the meeting *only if* Briana attends the meeting." When would this be false? It would be false if the meeting starts with Anthony being there but Briana not being there. And since this is the only outcome in which it would be false, it has the same truth-conditions as "if Anthony attends the meeting then Briana attends the meeting." In general, we translate any of the following by $p\rightarrow q$:
+
+1. If $p$ then $q$.
+
+2. If $p$, $q$.
+
+3. $q$, if $p$.
+
+4. $p$ only if $q$.
+
+5. $q$ is a necessary condition for $p$.
+
+6. $q$ is necessary for $p$.
+
+7. In order for $p$, it is necessary that $q$.
+
+8. $p$ is a sufficient condition for $q$.
+
+9. $p$ suffices for $q$.
+
+Note that while we translate all of these by $p\rightarrow q$, in 3, 5, 6 the consequent $q$ occurs in the English sentence after the antecedent $p$. Likewise, note that in 4, the "if" in the larger phrase "only if" occurs right before the consequent $q$.
+
+Often we use the phrase "$q$ is a necessary but not sufficient condition for $p$" to mean indicate that we think that both $(p\rightarrow q) \wedge \neg (q\rightarrow p)$. That is, it is a way of saying that one thinks the arrow goes one way and does not go the other way. For instance, consider "regulation is necessary but not sufficient for ensuring high-quality nursing home care." This person is saying both that if the nursing home care is to be high quality, then there is going to have to be regulation in place, and that it is not the case that the mere existence of regulation implies that the nursing home care is high quality.
+
+<br>
+
+## Examples of translating conditionals
+
+https://www.english-corpora.org/coca/
+
+Email notifications are only sent only if there are new matching items.
+
+They found that modeled winds at high latitudes can be reliable if and only if an accurate representation of the actual drivers prevailing at the time can be identified.
+
+If everyone sticks with his party, Gore would win only if the Florida court is able to order state officials -- including Bush's brother Jeb -- to " certify " a Gore victory by the time the electors are scheduled to cast their ballots next week.
+
+Filing for bankruptcy is be a necessary condition for correcting course, but it is not be sufficient for alleviating distress.
+
+One necessary condition for a recession to end is for businesses to have renewed confidence in the economy.
+
+A necessary condition for achieving this efficiency result is that all resources be owned exclusively by private individuals.
+
+In this framework, reproductive isolation is not a sufficient condition for a population to be considered distinct.
+
+In order to be to use the knowledge base flexibly, it is necessary that it is applied and evaluated repeatedly within practical cases.
+
+
+<br>
+
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]
+
+
+[^2]:It is run on the Carnap software, which is

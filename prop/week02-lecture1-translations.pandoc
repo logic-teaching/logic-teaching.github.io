@@ -7,15 +7,20 @@ Logic, First Course, Winter 2020. Week 2, Lecture 1. [Back to course website](ht
 
 In this lecture, we describe how to translate between natural language and propositional logic.
 
-- [Compositional structure](#compositional-structure)
+- [Structure](#structure)
 - [A simple example](#a-simple-example)
+- [Another simple example](#another-simple-example)
+- [A recipe for translation](#a-recipe-for-translation)
+- [An example following the recipe](#an-example-following-the-recipe)
+- [The recipe applied to negation](#the-recipe-applied-to-negation)
+- [Example of recipe for negation](#example-of-recipe-for-negation)
+- [Translating conditionals](#translating-conditionals)
 
 <br>
 
-## Compositional structure
+## Structure
 
-Whenever we are translating, something is preserved and something is lost between sentences and their translations.
-What are we trying to preserve in translating between natural language and propositional logic? We are trying to preserve the compositional structure of the sentence: the way in which the truth of the whole depends on the truth of the parts.
+Whenever we are translating, something is preserved and something is lost. What are we trying to preserve in translating between natural language and propositional logic? We are trying to preserve the structure of the sentence that shows the way in which the truth of the whole depends on the truth of the parts. Truth is one aspect of meaning, and the more general point about meaning (or "sense") was described by Carnap in his 1947 book: "the sense of the whole expression is a function of the senses of the names occurring in it."
 
 <br>
 
@@ -35,7 +40,7 @@ Consider the following example:
 
 *Example 2*: "If the weather is worse, then there will be low unemployment. Therefore, if the weather is worse, then people will be happy."
 
-We would end up translating this one exactly the same way. For, the two examples have a common compositional structure: they are "if . . . then . . ." statements organized in the same way: the premise says that an antecedent implies a consequent, and it is concluded from this that the very same antecedent implies a different consequent. This sameness of compositional structure holds even though Example 2 has a false premise whereas Example 1 has a true premise. Hence, compositional structure is different from the truth-value of the premises; and it is likewise different than the truth-value of the conclusions.
+We would end up translating this one exactly the same way. For, the two examples have a common structure: they are "if . . . then . . ." statements organized in the same way: the premise says that an antecedent implies a consequent, and it is concluded from this that the very same antecedent implies a different consequent. This sameness of structure holds even though Example 2 has a false premise whereas Example 1 has a true premise. Hence, the relevant kind of structure is different from the truth-value of the premises; and it is likewise different than the truth-value of the conclusions.
 
 <br>
 
@@ -51,9 +56,7 @@ In symbols, translation is:
 
 <p style="margin-left: 40px"> "$p\vee \neg p$. $p\rightarrow r$. $\neg p \rightarrow s$." </p>
 
-This translation preserves compositional structure in the relevant sense.
-
-Suppose alternatively, you had translated as follows:
+This translation preserves structure in the relevant sense. But suppose alternatively, you had translated as follows:
 
 <p style="margin-left: 40px"> "$p$ or $n$. If $p$, then $r$. If $n$, then $s$." </p>
 
@@ -68,9 +71,7 @@ Step 1. Identify the smallest sub-sentences of the example which can be true or 
 
 Step 2. Assign arbitrary propositional letters to these, and rewrite using them in place of originals.
 
-Step 3.  Look for propositional letters that are connected by "and", "or", as well as "if . . . then. . ." and "if and only if" Then translate via the symbols $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$. Do the same for negation.
-
-Step 4. Continue step 3 until there is nothing left to translate!
+Step 3.  Look for propositional letters that are connected by "and", "or", as well as "if . . . then. . ." and "if and only if." Then translate via the symbols $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$. Do the same for negation.
 
 <br>
 
@@ -95,7 +96,7 @@ Step 3: Look for propositional letters that are connected by "and", "or", as wel
 
 <p style="margin-left: 40px"> $a\leftrightarrow b$. $b\rightarrow (c\wedge d)$ </p>
 
-The translation checker presumes that the assignment of propositional letters has already been done. Hence, it only asks for Step 3. Further, the translation checker only works sentence by sentence. Since Example 4 involved two sentences, it would be split into two parts in the translation checker:
+The translation-checker presumes that the assignment of propositional letters has already been done; and in the problems, the assignment will be given. Hence, the translation-checker only asks for Step 3. Further, the translation-checker only works sentence by sentence. Since Example 4 involved two sentences, it would be split into two parts in the translation-checker:
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  a<->b : Anthony attends the meeting if and only if Briana stays at the office.
@@ -105,10 +106,84 @@ The translation checker presumes that the assignment of propositional letters ha
  b->(c/\d) : If Briana stays at the office, then Cynthia attends the meeting and Dylan checks his email.
 ~~~
 
-These problems presuppose that you remember how to type the logical symbols. Hence, consider reviewing [how to type the connectives on the keyboard](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#typing-the-connectives-on-the-keyboard). Also, one presses **return** to check one's answer.
+Three quick notes about the translation-checker:
 
+1. It assume that you remember how to type the logical symbols. If you need a refreshed on this, consider reviewing [how to type the connectives on the keyboard](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#typing-the-connectives-on-the-keyboard).
+
+2. It recopies the English sentence in question into the place where you are supposed to type your translation into propositional logic. Hence, you will first have to first  the English sentence before inputting your answer. Doing a "select all" (usually a command A), and then hitting "delete" is fast.
+
+3. Press **return** to check your answer.
 
 <br>
+
+## The recipe applied to negation
+
+Applying the recipe to negation is tricky because of the variability of where "not" can occur within the sentence. For instance, consider: 
+
+- Dylan does not drive. 
+- It’s not the case that Dylan drives 
+- It’s not true that Dylan drives
+
+Intuitively, these are all true precisely when "Dylan drives” is false. Hence we would translate each by $~p$, where $p =$ Dylan drives.
+
+Hence, when you’re applying the recipe to negation, you have to look at the various "not" ’s occurring in the sentence and see them as negating some other sentence.
+
+<br>
+
+## Example of recipe for negation
+
+*Example 5*. If Anthony attends the meeting, then Briana stays at the office. If Briana does not stay at the office, then Anthony does not attend the meeting.
+
+Again, the idea is that you have to look at the various *not*'s occurring in the sentence and see them as negating some other sentence.
+
+Consider "Briana does not stay at the office." Looks like this negates "Briana stays at the office.”
+Similarly, consider “Anthony does not attend the meeting.” Looks like this negates “Anthony attends the meeting.”
+Hence we should translate as:
+
+<p style="margin-left: 40px"> "if $a$, then $b$. If not $b$, then not $a$.” </p>
+
+where we still use the abbreviations:
+
+<p style="margin-left: 40px"> $a$ = Anthony attends the meeting</p>
+<p style="margin-left: 40px"> $b$ = Briana stays at the office</p>
+
+Finally, we translate the logical words:
+
+<p style="margin-left: 40px"> $a\rightarrow b$. $\neg b\rightarrow \neg a$. </p>
+
+Again, the translation-checker does this sentence by sentence. Try it out:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a->b : If Anthony attends the meeting, then Briana stays at the office
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~b->~a : If Briana does not stay at the office, then Anthony does not attend the meeting.
+~~~
+
+<br>
+
+## More complex examples
+
+In the following examples, we use the abbreviations:
+
+<p style="margin-left: 40px"> $a$ = Anthony attends </p>
+<p style="margin-left: 40px"> $b$ = Briana attends </p>
+<p style="margin-left: 40px"> $c$ = Cynthia attends </p>
+<p style="margin-left: 40px"> $d$ = Dylan attends </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a\/b)->(c/\d) : If Anthony attends or Briana attends then Cynthia attends and Dylan attends.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a/\b)->(c\/d) : If Anthony attends and Briana attends then Cynthia attends or Dylan attends.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a->b)/\(c->d) : If Anthony attends then Briana attends, and if Claire attends then Dylan attends.
+~~~
+
 
 
 These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]
