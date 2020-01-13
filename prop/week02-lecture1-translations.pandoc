@@ -7,24 +7,21 @@ Logic, First Course, Winter 2020. Week 2, Lecture 1. [Back to course website](ht
 
 In this lecture, we describe how to translate between natural language and propositional logic.
 
-- [Structure](#structure)
-- [A simple example](#a-simple-example)
+- [Translating and a simple example](#translating-and-a-simple example)
 - [Another simple example](#another-simple-example)
 - [A recipe for translation](#a-recipe-for-translation)
 - [An example following the recipe](#an-example-following-the-recipe)
 - [The recipe applied to negation](#the-recipe-applied-to-negation)
 - [Example of recipe for negation](#example-of-recipe-for-negation)
-- [Translating conditionals](#translating-conditionals)
+- [Further examples](#further-examples)
+- [Principle of compositionality](#principle-of-compositionality)
+- [Solutions to further examples](#solutions-to-further-examples)
 
 <br>
 
-## Structure
+## Translating and a simple example
 
-Whenever we are translating, something is preserved and something is lost. What are we trying to preserve in translating between natural language and propositional logic? We are trying to preserve the structure of the sentence that shows the way in which the truth of the whole depends on the truth of the parts. Truth is one aspect of meaning, and the more general point about meaning (or "sense") was described by Carnap in his 1947 book: "the sense of the whole expression is a function of the senses of the names occurring in it."
-
-<br>
-
-## A simple example
+Whenever we are translating, something is preserved and something is lost. What are we trying to preserve in translating between natural language and propositional logic? We are trying to preserve the structure of the sentence that shows the way in which the truth of the whole depends on the truth of the parts.
 
 *Example 1*: "If the economy prospers, then there will be low unemployment. Therefore, if the economy prospers, then people will be happy."
 
@@ -163,7 +160,7 @@ Again, the translation-checker does this sentence by sentence. Try it out:
 
 <br>
 
-## More complex examples
+## Further examples
 
 In the following examples, we use the abbreviations:
 
@@ -184,6 +181,83 @@ In the following examples, we use the abbreviations:
  (a->b)/\(c->d) : If Anthony attends then Briana attends, and if Claire attends then Dylan attends.
 ~~~
 
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (~a->b): If Anthony does not attend then Briana attends.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~(a->b) : It is not the case that if Anthony attends then Briana attends.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a<->~b) : Anthony attends if and only if Briana does not attend.
+~~~
+
+Try these out for yourself. If you cannot get the answer, the solutions are down at the bottom under ["Solutions to further examples."](#solutions-to-further-examples)
+
+<br>
+
+## Principle of compositionality
+
+Earlier we said that in translating, we are trying to preserve the structure of the sentence that illustrates the way in which the truth of the whole depends on the truth of the parts. Truth is one aspect of meaning, and the more general point about meaning (or "sense") was described by Carnap in his 1947 book *Meaning and Necessity* (this quotation is [section 28, p. 121](http://logic-teaching.github.io/prop/texts/Carnap%201956%20-%20Meaning%20and%20necessity%20-%20Section%2028.pdf)):
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Carnap-Meaning-Necessity-p.121.png" alt="Carnap, Meaning and Necessity p. 121" width="400"/>
+
+Applied to our setting, one is thinking of the little $p$'s and $q$'s as names of English sentences and of the relevant facet of being just being the truth-value of these smaller atomic propositions. The more general principle is sometimes called the *principle of compositionality*: the meaning of the larger linguistic units is a function of the meaning of the smaller linguistic units out of which it is composed. In short, the meaning of the larger units is determined by the meaning of the smaller units out of which it is composed.[^1]
+
+[^1]: The history of the principle of compositionality is studied by [Janssen, Theo M. V. 2012. “Compositionality: Its Historic Context.” In Oxford Handbook of Compositionality, edited by Wolfram Hinzen, Edouard Machery, and Markus Werning, 19–46.](http://logic-teaching.github.io/prop/texts/Janssen%202012%20-%20Compositionality%20-%20its%20historic%20context.pdf)
+
+However, in some cases, there is a more pronounced dependence in the opposite direction, so that the meaning of the smaller linguistic units is determined by the meaning of the larger linguistic units. For instance, take something non-empirical and abstract like "number." One natural thought is that number-claims like "7+5=12" and "there are infinitely many prime numbers" are not true just taken one by one, but that their truth is somehow dependent on either the basic axioms which pin down their use, or on the larger practice of our usage with number words. Examples like this prompted Wittgenstein (who we mentioned in Week 1) to say things like the following:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_3.3.png" alt="Tractatus 3.3" width="400"/>
+
+This kind of principle is sometimes called "the context principle."
+
+<br>
+
+## Solutions to further examples
+
+This section contains the solution to the examples in ["Further Examples"](#further-examples).
+
+Recall that we used the abbreviations:
+
+<p style="margin-left: 40px"> $a$ = Anthony attends </p>
+<p style="margin-left: 40px"> $b$ = Briana attends </p>
+<p style="margin-left: 40px"> $c$ = Cynthia attends </p>
+<p style="margin-left: 40px"> $d$ = Dylan attends </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a\/b)->(c/\d) : If Anthony attends or Briana attends then Cynthia attends and Dylan attends.
+| (a\/b)->(c/\d)
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a/\b)->(c\/d) : If Anthony attends and Briana attends then Cynthia attends or Dylan attends.
+| (a/\b)->(c\/d)
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a->b)/\(c->d) : If Anthony attends then Briana attends, and if Claire attends then Dylan attends.
+| (a->b)/\(c->d)
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (~a->b): If Anthony does not attend then Briana attends.
+| (~a->b)
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~(a->b) : It is not the case that if Anthony attends then Briana attends.
+| ~(a->b)
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a<->~b) : Anthony attends if and only if Briana does not attend.
+| (a<->~b)
+~~~
+
+
+<br>
 
 
 These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]
