@@ -23,26 +23,92 @@ What are we trying to preserve in translating between natural language and propo
 
 *Example 1*: "If the economy prospers, then there will be low unemployment. Therefore, if the economy prospers, then people will be happy."
 
-We take each sentence and translate it into propositional logic as follows: "If $p$, then $q$. Therefore, if $p$, then $r$." If we replace "if . . . then . . ." by the arrow connective, we have "$p\rightarrow q$. Therefore, $p\rightarrow r$." We can input this into the following translation checker as well:
+We take each sentence and translate it into propositional logic as follows:
+
+<p style="margin-left: 40px"> "If $p$, then $q$. Therefore, if $p$, then $r$." </p>
+
+If we replace "if . . . then . . ." by the arrow connective, we have
+
+<p style="margin-left: 40px"> "$p\rightarrow q$. Therefore, $p\rightarrow r$." </p>
 
 Consider the following example:
 
 *Example 2*: "If the weather is worse, then there will be low unemployment. Therefore, if the weather is worse, then people will be happy."
 
-We would end up translating this one exactly the same way. For, the two examples have a common compositional structure: they are "if . . . then . . ." statements organized in the same way. This is the case even though obviously Example 2 has a false premise, whereas Example 1 has a true premise.
+We would end up translating this one exactly the same way. For, the two examples have a common compositional structure: they are "if . . . then . . ." statements organized in the same way: the premise says that an antecedent implies a consequent, and it is concluded from this that the very same antecedent implies a different consequent. This sameness of compositional structure holds even though Example 2 has a false premise whereas Example 1 has a true premise. Hence, compositional structure is different from the truth-value of the premises; and it is likewise different than the truth-value of the conclusions.
 
 <br>
 
+## Another simple example
 
-~~~{.Translate .Prop system="gamutPND"}
- p->q : If the economy prospers, then there will be low unemployment.
-| p->q
+*Example 3*: "It is raining or it's not raining. If it is raining, then I am staying inside. If it’s not raining, then I’m going to the beach."
+
+We translate this as:
+
+<p style="margin-left: 40px"> "$p$ or not $p$. If $p$, then $r$. If not $p$, then $s$." </p>
+
+In symbols, translation is:
+
+<p style="margin-left: 40px"> "$p\vee \neg p$. $p\rightarrow r$. $\neg p \rightarrow s$." </p>
+
+This translation preserves compositional structure in the relevant sense.
+
+Suppose alternatively, you had translated as follows:
+
+<p style="margin-left: 40px"> "$p$ or $n$. If $p$, then $r$. If $n$, then $s$." </p>
+
+On this alternative translation, the truth-value of “If it’s not raining, then I’m going to the beach” does not depend on the truth-value of “it is raining.”
+However, pre-theoretically, there is such a dependence.
+
+<br>
+
+## A recipe for translation
+
+Step 1. Identify the smallest sub-sentences of the example which can be true or false.
+
+Step 2. Assign arbitrary propositional letters to these, and rewrite using them in place of originals.
+
+Step 3.  Look for propositional letters that are connected by "and", "or", as well as "if . . . then. . ." and "if and only if" Then translate via the symbols $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$. Do the same for negation.
+
+Step 4. Continue step 3 until there is nothing left to translate!
+
+<br>
+
+## An example following the recipe
+
+*Example 4*. Anthony attends the meeting if and only if Briana stays at the office. If Briana stays at the office, then Cynthia attends the meeting and Dylan checks his email.
+
+Step 1: Identify the smallest sub-sentences of the example which can be true or false:
+
+Step 2: Assign arbitrary propositional letters to these
+
+<p style="margin-left: 40px"> $a$ = Anthony attends the meeting </p>
+<p style="margin-left: 40px"> $b$ = Briana stays at the office </p>
+<p style="margin-left: 40px"> $c$ = Cynthia attends the meeting </p>
+<p style="margin-left: 40px"> $d$ = Dylan checks his email </p>
+
+and then rewrite the sentence using them in place of originals:
+
+<p style="margin-left: 40px"> $a$ if and only if $b$. If $b$, then $c$  and $d$. </p>
+
+Step 3: Look for propositional letters that are connected by "and", "or", as well as “if . . . then. . . .” and “iff.” Then translate via the symbols $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$:
+
+<p style="margin-left: 40px"> $a\leftrightarrow b$. $b\rightarrow (c\wedge d)$ </p>
+
+The translation checker presumes that the assignment of propositional letters has already been done. Hence, it only asks for Step 3. Further, the translation checker only works sentence by sentence. Since Example 4 involved two sentences, it would be split into two parts in the translation checker:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a<->b : Anthony attends the meeting if and only if Briana stays at the office.
 ~~~
 
-~~~{.Translate .Prop system="gamutPND"}
- p->r : If the economy prospers, then people will be happy.
-| p->r
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ b->(c/\d) : If Briana stays at the office, then Cynthia attends the meeting and Dylan checks his email.
 ~~~
+
+These problems presuppose that you remember how to type the logical symbols. Hence, consider reviewing [how to type the connectives on the keyboard](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#typing-the-connectives-on-the-keyboard). Also, one presses **return** to check one's answer.
+
+
+<br>
 
 
 These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]
