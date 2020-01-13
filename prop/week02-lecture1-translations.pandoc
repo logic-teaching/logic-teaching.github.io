@@ -1,0 +1,51 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 2, Lecture 1. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=3)
+
+# Translating between natural language and propositional logic
+
+In this lecture, we describe how to translate between natural language and propositional logic.
+
+- [Compositional structure](#compositional-structure)
+- [A simple example](#a-simple-example)
+
+<br>
+
+## Compositional structure
+
+Whenever we are translating, something is preserved and something is lost between sentences and their translations.
+What are we trying to preserve in translating between natural language and propositional logic? We are trying to preserve the compositional structure of the sentence: the way in which the truth of the whole depends on the truth of the parts.
+
+<br>
+
+## A simple example
+
+*Example 1*: "If the economy prospers, then there will be low unemployment. Therefore, if the economy prospers, then people will be happy."
+
+We take each sentence and translate it into propositional logic as follows: "If $p$, then $q$. Therefore, if $p$, then $r$." If we replace "if . . . then . . ." by the arrow connective, we have "$p\rightarrow q$. Therefore, $p\rightarrow r$." We can input this into the following translation checker as well:
+
+Consider the following example:
+
+*Example 2*: "If the weather is worse, then there will be low unemployment. Therefore, if the weather is worse, then people will be happy."
+
+We would end up translating this one exactly the same way. For, the two examples have a common compositional structure: they are "if . . . then . . ." statements organized in the same way. This is the case even though obviously Example 2 has a false premise, whereas Example 1 has a true premise.
+
+<br>
+
+
+~~~{.Translate .Prop system="gamutPND"}
+ p->q : If the economy prospers, then there will be low unemployment.
+| p->q
+~~~
+
+~~~{.Translate .Prop system="gamutPND"}
+ p->r : If the economy prospers, then people will be happy.
+| p->r
+~~~
+
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
