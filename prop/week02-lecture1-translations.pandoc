@@ -12,10 +12,13 @@ In this lecture, we describe how to translate between natural language and propo
 - [A recipe for translation](#a-recipe-for-translation)
 - [An example following the recipe](#an-example-following-the-recipe)
 - [The recipe applied to negation](#the-recipe-applied-to-negation)
-- [Example of recipe for negation](#example-of-recipe-for-negation)
+- [Example with negation](#example-with-negation)
 - [Further examples](#further-examples)
+- [Translations and ambiguity](#translations-and-ambiguity)
+- [More practice with translation and ambiguity](#more-practice-with-translation-and-ambiguity)
 - [Principle of compositionality](#principle-of-compositionality)
 - [Solutions to further examples](#solutions-to-further-examples)
+- [Solutions to more practice with translation and ambiguity](#solutions-to-more-practice-with-translation-and-ambiguity)
 
 <br>
 
@@ -33,6 +36,8 @@ If we replace "if . . . then . . ." by the arrow connective, we have
 
 <p style="margin-left: 40px"> "$p\rightarrow q$. Therefore, $p\rightarrow r$." </p>
 
+Note that we do not, at this point, translate the "therefore." We will see later on in the course how to handle this.
+
 Consider the following example:
 
 *Example 2*: "If the weather is worse, then there will be low unemployment. Therefore, if the weather is worse, then people will be happy."
@@ -49,7 +54,7 @@ We translate this as:
 
 <p style="margin-left: 40px"> "$p$ or not $p$. If $p$, then $r$. If not $p$, then $s$." </p>
 
-In symbols, translation is:
+In symbols, the translation is:
 
 <p style="margin-left: 40px"> "$p\vee \neg p$. $p\rightarrow r$. $\neg p \rightarrow s$." </p>
 
@@ -64,11 +69,13 @@ However, pre-theoretically, there is such a dependence.
 
 ## A recipe for translation
 
-Step 1. Identify the smallest sub-sentences of the example which can be true or false.
+Here is an easy three-step recipe for translating:
 
-Step 2. Assign arbitrary propositional letters to these, and rewrite using them in place of originals.
+1. Identify the smallest sub-sentences of the example which can be true or false.
 
-Step 3.  Look for propositional letters that are connected by "and", "or", as well as "if . . . then. . ." and "if and only if." Then translate via the symbols $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$. Do the same for negation.
+2. Assign arbitrary propositional letters to these, and rewrite using them in place of originals.
+
+3. Look for propositional letters that are connected by "and", "or", as well as "if . . . then. . ." and "if and only if." Then translate via the symbols $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$. Do the same for negation.
 
 <br>
 
@@ -76,9 +83,9 @@ Step 3.  Look for propositional letters that are connected by "and", "or", as we
 
 *Example 4*. Anthony attends the meeting if and only if Briana stays at the office. If Briana stays at the office, then Cynthia attends the meeting and Dylan checks his email.
 
-Step 1: Identify the smallest sub-sentences of the example which can be true or false:
+First we identify the smallest sub-sentences of the example which can be true or false. It is the various claims about the actions of the individual agents, taken one by one.
 
-Step 2: Assign arbitrary propositional letters to these
+Second we assign arbitrary propositional letters to these:
 
 <p style="margin-left: 40px"> $a$ = Anthony attends the meeting </p>
 <p style="margin-left: 40px"> $b$ = Briana stays at the office </p>
@@ -89,11 +96,11 @@ and then rewrite the sentence using them in place of originals:
 
 <p style="margin-left: 40px"> $a$ if and only if $b$. If $b$, then $c$  and $d$. </p>
 
-Step 3: Look for propositional letters that are connected by "and", "or", as well as “if . . . then. . . .” and “iff.” Then translate via the symbols $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$:
+Finally, we for propositional letters that are connected by "and", "or", as well as “if . . . then. . . .” and “iff.” Then translate via the symbols $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$:
 
 <p style="margin-left: 40px"> $a\leftrightarrow b$. $b\rightarrow (c\wedge d)$ </p>
 
-The translation-checker presumes that the assignment of propositional letters has already been done; and in the problems, the assignment will be given. Hence, the translation-checker only asks for Step 3. Further, the translation-checker only works sentence by sentence. Since Example 4 involved two sentences, it would be split into two parts in the translation-checker:
+The translation-checker presumes that the assignment of propositional letters has already been done; and in the problems, the assignment will be given. Hence, the translation-checker only asks for the third and final step. Further, the translation-checker only works sentence by sentence. Since Example 4 involved two sentences, it would be split into two parts in the translation-checker:
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  a<->b : Anthony attends the meeting if and only if Briana stays at the office.
@@ -105,11 +112,15 @@ The translation-checker presumes that the assignment of propositional letters ha
 
 Three quick notes about the translation-checker:
 
-1. It assume that you remember how to type the logical symbols. If you need a refreshed on this, consider reviewing [how to type the connectives on the keyboard](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#typing-the-connectives-on-the-keyboard).
+1. It assumes that you remember how to type the logical symbols. If you need a refreshed on this, consider reviewing [how to type the connectives on the keyboard](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#typing-the-connectives-on-the-keyboard).
 
-2. It recopies the English sentence in question into the place where you are supposed to type your translation into propositional logic. Hence, you will first have to first  the English sentence before inputting your answer. Doing a "select all" (usually a command A), and then hitting "delete" is fast.
+2. It recopies the English sentence in question into the place where you are supposed to type your translation into propositional logic. Hence, you will first have to delete the English sentence before inputting your answer. Doing a "select all" (usually a command A), and then hitting "delete" is fast.
 
 3. Press **return** to check your answer.
+
+Here is a video which illustrates 2-3 with regard to the first example above:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/translations-selecta-delete.mp4"/> </video>
 
 <br>
 
@@ -121,13 +132,13 @@ Applying the recipe to negation is tricky because of the variability of where "n
 - It’s not the case that Dylan drives 
 - It’s not true that Dylan drives
 
-Intuitively, these are all true precisely when "Dylan drives” is false. Hence we would translate each by $~p$, where $p =$ Dylan drives.
+Intuitively, these are all true precisely when "Dylan drives” is false. Hence we would translate each by $\neg p$, where $p =$ Dylan drives.
 
 Hence, when you’re applying the recipe to negation, you have to look at the various "not" ’s occurring in the sentence and see them as negating some other sentence.
 
 <br>
 
-## Example of recipe for negation
+## Example with negation
 
 *Example 5*. If Anthony attends the meeting, then Briana stays at the office. If Briana does not stay at the office, then Anthony does not attend the meeting.
 
@@ -144,7 +155,7 @@ where we still use the abbreviations:
 <p style="margin-left: 40px"> $a$ = Anthony attends the meeting</p>
 <p style="margin-left: 40px"> $b$ = Briana stays at the office</p>
 
-Finally, we translate the logical words:
+Finally, we translate the propositional connectives:
 
 <p style="margin-left: 40px"> $a\rightarrow b$. $\neg b\rightarrow \neg a$. </p>
 
@@ -197,17 +208,92 @@ Try these out for yourself. If you cannot get the answer, the solutions are down
 
 <br>
 
+## Translations and ambiguity
+
+We had previously spoken about [ambiguity](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#ambiguity-and-formulas), and we learned that in our formal system we handle ambiguity by the use of parentheses.
+
+Take the following example. When we say a list of three conjunctions in English, we cannot translate it as e.g. $a\wedge b\wedge c$ since this is ambiguous between the well-formed formula $(a\wedge b)\wedge c$ and the well-formed formula $a\wedge (b\wedge c)$. The translation checker only accepts well-formed formulas, and so it will not accept $a\wedge b\wedge c$, but it will accept either $(a\wedge b)\wedge c$ or $a\wedge (b\wedge c)$, as you can see for yourself:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a/\(b/\c)), ((a/\b)/\c) : Anthony attends and Briana attends and Cynthia attends.
+~~~
+
+This raises a natural question about our translations in general: since the translations into propositional logic make more distinctions than we make in natural language, aren't the translations inaccurate in a certain respect? One way we can handle this is with a notion of logical equivalence which we will study soon. Logical equivalence roughly means: has the same truth-conditions. In short, while $(a\wedge b)\wedge c$ and $a\wedge (b\wedge c)$ are different well-formed formulas, it turns out that they are logically equivalent.
+
+But other types of ambiguities do not involve such equivalence. For instance, take $a\wedge b \vee c$. This is ambiguous between $(a\wedge b) \vee c$ and $a\wedge (b \vee c)$, and it turns out that these have different truth-conditions. For instance, only from the second can you infer $a$. As we mentioned in our earlier discussion of [ambiguity](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#ambiguity-and-formulas), in natural language we typically handle this by adding extra words or emphases or commas. Based on this earlier discussion, you should have no problem solving the following:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a/\b)\/c : Either both Anthony attends and Briana attends, or Cynthia attends
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a/\(b\/c) : Anthony attends, and either Briana attends or Cynthia attends
+~~~
+
+Again, the parentheses in our translations serve many of the same roles that extra words like "either" in the phrase "either . . . or" or the grammatical commas.
+
+<br>
+
+## More practice with translation and ambiguity
+
+In this set of examples, we use the following abbreviations:
+
+<p style="margin-left: 40px"> $f=$ The $f$oreign minister supports the bill </p>
+<p style="margin-left: 40px"> $o=$ The $o$pposition leader supports the bill </p>
+<p style="margin-left: 40px"> $p=$ The $p$rime minister supports the bill </p>
+<p style="margin-left: 40px"> $c=$ The bill is $c$ontentious </p>
+<p style="margin-left: 40px"> $a=$ The bill p$a$sses </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~p\/(o\/f), (~p\/o)\/f : The prime minister does not support the bill or the opposition leader supports the bill or the foreign minister supports the bill.
+~~~
+
+The following is tricky only because you have to think to use a propositional connective to handle the "and in addition":
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (p->o)/\f : If the prime minister supports the bill then the opposition leader supports the bill; and in addition the foreign minister supports the bill.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (p->(o/\f)) : If the prime minister supports the bill then both the opposition leader supports the bill and the foreign minister supports the bill.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ c/\(p\/f) : The bill is contentious and either the prime minister supports the bill or the foreign minister supports the bill.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (c/\p)\/f : Either the bill is contentious and the prime minister supports the bill, or the foreign minister supports the bill.
+~~~
+
+Before you try this next one, remember that the key was "$a=$ The bill p$a$sses" (we had already used $p$ for the claim about the $p$rime minister).
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a->(o\/p) : If the bill passes, then either the opposition leader supports the bill or the prime minister supports the bill.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ((a->o)\/p) : Either the opposition leader supports the bill if it the bill passes, or the prime minister supports the bill.
+~~~
+
+This last example is tricky because the of the placement of the "if". We will practice more with such placement later.
+
+Try these out for yourself. If you cannot get the answer, the solutions are down at the bottom under [Solutions to more practice with translation and ambiguity](#solutions-to-more-practice-with-translation-and-ambiguity).
+
+
+<br>
+
 ## Principle of compositionality
 
 Earlier we said that in translating, we are trying to preserve the structure of the sentence that illustrates the way in which the truth of the whole depends on the truth of the parts. Truth is one aspect of meaning, and the more general point about meaning (or "sense") was described by Carnap in his 1947 book *Meaning and Necessity* (this quotation is [section 28, p. 121](http://logic-teaching.github.io/prop/texts/Carnap%201956%20-%20Meaning%20and%20necessity%20-%20Section%2028.pdf)):
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Carnap-Meaning-Necessity-p.121.png" alt="Carnap, Meaning and Necessity p. 121" width="400"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Carnap-Meaning-Necessity-p.121.png" alt="Carnap, Meaning and Necessity p. 121" width="600"/>
 
-Applied to our setting, one is thinking of the little $p$'s and $q$'s as names of English sentences and of the relevant facet of being just being the truth-value of these smaller atomic propositions. The more general principle is sometimes called the *principle of compositionality*: the meaning of the larger linguistic units is a function of the meaning of the smaller linguistic units out of which it is composed. In short, the meaning of the larger units is determined by the meaning of the smaller units out of which it is composed.[^1]
+Applied to our setting, one is thinking of the little $p$'s and $q$'s as names of English sentences and of the relevant facet of meaning being just being the truth-value of these smaller atomic propositions. The more general principle is sometimes called the *principle of compositionality*: the meaning of the larger linguistic units is a function of the meaning of the smaller linguistic units out of which it is composed. In short, the meaning of the larger units is determined by the meaning of the smaller units out of which it is structurally composed.[^1]
 
 [^1]: The history of the principle of compositionality is studied by [Janssen, Theo M. V. 2012. “Compositionality: Its Historic Context.” In Oxford Handbook of Compositionality, edited by Wolfram Hinzen, Edouard Machery, and Markus Werning, 19–46.](http://logic-teaching.github.io/prop/texts/Janssen%202012%20-%20Compositionality%20-%20its%20historic%20context.pdf)
 
-However, in some cases, there is a more pronounced dependence in the opposite direction, so that the meaning of the smaller linguistic units is determined by the meaning of the larger linguistic units. For instance, take something non-empirical and abstract like "number." One natural thought is that number-claims like "7+5=12" and "there are infinitely many prime numbers" are not true just taken one by one, but that their truth is somehow dependent on either the basic axioms which pin down their use, or on the larger practice of our usage with number words. Examples like this prompted Wittgenstein (who we mentioned in Week 1) to say things like the following:
+However, in some cases, there is a more pronounced dependence in the opposite direction, so that the meaning of the smaller linguistic units is determined by the meaning of the larger linguistic units. For instance, take a non-empirical and abstract concept like "number." One natural thought is that number-claims like "7+5=12" and "there are infinitely many prime numbers" are not true just taken one by one, but that their truth is somehow dependent on either the basic axioms which pin down their use, or on the larger practice of our usage with number words. Examples like this prompted Wittgenstein (who [we mentioned in Week 1](***)) and his predecessors to say things like the following:
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_3.3.png" alt="Tractatus 3.3" width="400"/>
 
@@ -256,8 +342,59 @@ Recall that we used the abbreviations:
 | (a<->~b)
 ~~~
 
-
 <br>
+
+## Solutions to more practice with translation and ambiguity
+
+This section contains the solution to the examples in [More practice with translation and ambiguity](#more-practice-with-translation-and-ambiguity). Recall we used the abbreviations:
+
+<p style="margin-left: 40px"> $f=$ The $f$oreign minister supports the bill </p>
+<p style="margin-left: 40px"> $o=$ The $o$pposition leader supports the bill </p>
+<p style="margin-left: 40px"> $p=$ The $p$rime minister supports the bill </p>
+<p style="margin-left: 40px"> $c=$ The bill is $c$ontentious </p>
+<p style="margin-left: 40px"> $a=$ The bill p$a$sses </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~p\/(o\/f), (~p\/o)\/f : The prime minister does not support the bill or the opposition leader supports the bill or the foreign minister supports the bill.
+| ~p\/(o\/f)
+~~~
+
+This one has another solution, namely:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~p\/(o\/f), (~p\/o)\/f : The prime minister does not support the bill or the opposition leader supports the bill or the foreign minister supports the bill.
+| (~p\/o)\/f
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (p->o)/\f : If the prime minister supports the bill then the opposition leader supports the bill; and in addition the foreign minister supports the bill.
+| (p->o)/\f
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (p->(o/\f)) : If the prime minister supports the bill then both the opposition leader supports the bill and the foreign minister supports the bill.
+| (p->(o/\f))
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ c/\(p\/f) : The bill is contentious and either the prime minister supports the bill or the foreign minister supports the bill.
+| c/\(p\/f)
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (c/\p)\/f : Either the bill is contentious and the prime minister supports the bill, or the foreign minister supports the bill.
+| (c/\p)\/f
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a->(o\/p) : If the bill passes, then either the opposition leader supports the bill or the prime minister supports the bill.
+| a->(o\/p)
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ((a->o)\/p) : Either the opposition leader supports the bill if it the bill passes, or the prime minister supports the bill.
+| ((a->o)\/p)
+~~~
 
 
 These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]

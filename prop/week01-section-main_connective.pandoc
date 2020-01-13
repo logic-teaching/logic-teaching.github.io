@@ -26,7 +26,7 @@ In lecture we have been learning about propositions and their truth-tables, and 
 
 ## Ambiguity and formulas
 
-One kind of ambiguity is when one word has two different meanings, such as "bank" as in "river bank" versus "bank" as in "financial institution." Another type of ambiguity is when a string of symbols can be interpreted in two different ways. For instance, consider $a=$"Alex attends" and $b=$"Brenda attends" and $c=$"Chris attends". And consider $a\wedge b \vee c$. Can you infer from this that Brenda attends? If we tried to say in natural language and we knew how things stood with the people and the meeting, we would insert commas or spacing or extra words to disambiguate. We would say one of the following:
+One kind of ambiguity is when one word has two different meanings, such as "bank" as in "river bank" versus "bank" as in "financial institution." Another type of ambiguity is when a string of symbols can be interpreted in two different ways. For instance, consider $a=$"Alex attends" and $b=$"Brenda attends" and $c=$"Chris attends". And consider $a\wedge b \vee c$. Can you infer from this that Alex attends? If we tried to say in natural language and we knew how things stood with the people and the meeting, we would insert commas or spacing or extra words to disambiguate. We would say one of the following:
 
 - "Either both Alex attends and Brenda attends, or Chris attends"
 - "Alex attends, and either Brenda attends or Chris attends"

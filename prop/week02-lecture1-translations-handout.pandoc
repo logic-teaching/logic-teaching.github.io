@@ -1,0 +1,130 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 2, Lecture 1, Handout.
+
+<br>
+
+## Translating and a simple example
+
+*Example 1*: "If the economy prospers, then there will be low unemployment. Therefore, if the economy prospers, then people will be happy."
+
+<br>
+
+*Example 2*: "If the weather is worse, then there will be low unemployment. Therefore, if the weather is worse, then people will be happy."
+
+<br>
+
+## Another simple example
+
+*Example 3*: "It is raining or it's not raining. If it is raining, then I am staying inside. If it’s not raining, then I’m going to the beach."
+
+<br>
+
+## An example following the recipe
+
+*Example 4*. Anthony attends the meeting if and only if Briana stays at the office. If Briana stays at the office, then Cynthia attends the meeting and Dylan checks his email.
+
+<br>
+
+## Example with negation
+
+*Example 5*. If Anthony attends the meeting, then Briana stays at the office. If Briana does not stay at the office, then Anthony does not attend the meeting.
+
+<br>
+
+## Further examples
+
+In the following examples, we use the abbreviations:
+
+<p style="margin-left: 40px"> $a$ = Anthony attends </p>
+<p style="margin-left: 40px"> $b$ = Briana attends </p>
+<p style="margin-left: 40px"> $c$ = Cynthia attends </p>
+<p style="margin-left: 40px"> $d$ = Dylan attends </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a\/b)->(c/\d) : If Anthony attends or Briana attends then Cynthia attends and Dylan attends.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a/\b)->(c\/d) : If Anthony attends and Briana attends then Cynthia attends or Dylan attends.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a->b)/\(c->d) : If Anthony attends then Briana attends, and if Claire attends then Dylan attends.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (~a->b): If Anthony does not attend then Briana attends.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~(a->b) : It is not the case that if Anthony attends then Briana attends.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a<->~b) : Anthony attends if and only if Briana does not attend.
+~~~
+
+<br>
+
+## Translations and ambiguity
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a/\(b/\c)), ((a/\b)/\c) : Anthony attends and Briana attends and Cynthia attends.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a/\b)\/c : Either both Anthony attends and Briana attends, or Cynthia attends
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a/\(b\/c) : Anthony attends, and either Briana attends or Cynthia attends
+~~~
+
+<br>
+
+## More practice with translation and ambiguity
+
+In this set of examples, we use the following abbreviations:
+
+<p style="margin-left: 40px"> $f=$ The $f$oreign minister supports the bill </p>
+<p style="margin-left: 40px"> $o=$ The $o$pposition leader supports the bill </p>
+<p style="margin-left: 40px"> $p=$ The $p$rime minister supports the bill </p>
+<p style="margin-left: 40px"> $c=$ The bill is $c$ontentious </p>
+<p style="margin-left: 40px"> $a=$ The bill p$a$sses </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~p\/(o\/f), (~p\/o)\/f : The prime minister does not support the bill or the opposition leader supports the bill or the foreign minister supports the bill.
+~~~
+
+The following is tricky only because you have to think to use a propositional connective to handle the "and in addition":
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (p->o)/\f : If the prime minister supports the bill then the opposition leader supports the bill; and in addition the foreign minister supports the bill.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (p->(o/\f)) : If the prime minister supports the bill then both the opposition leader supports the bill and the foreign minister supports the bill.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ c/\(p\/f) : The bill is contentious and either the prime minister supports the bill or the foreign minister supports the bill.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (c/\p)\/f : Either the bill is contentious and the prime minister supports the bill, or the foreign minister supports the bill.
+~~~
+
+Before you try this next one, remember that the key was "$a=$ The bill p$a$sses" (we had already used $p$ for the claim about the $p$rime minister).
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a->(o\/p) : If the bill passes, then either the opposition leader supports the bill or the prime minister supports the bill.
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ((a->o)\/p) : Either the opposition leader supports the bill if it the bill passes, or the prime minister supports the bill.
+~~~
+
+
+These is a handout written for Logic, First Course, Winter 2020. It is run on the Carnap software, which is an:
