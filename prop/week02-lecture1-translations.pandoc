@@ -11,6 +11,7 @@ In this lecture, we describe how to translate between natural language and propo
 - [Another simple example](#another-simple-example)
 - [A recipe for translation](#a-recipe-for-translation)
 - [An example following the recipe](#an-example-following-the-recipe)
+- [Three quick notes about the translation-checker](#three-quick-notes-about-the-translation-checker)
 - [The recipe applied to negation](#the-recipe-applied-to-negation)
 - [Example with negation](#example-with-negation)
 - [Further examples](#further-examples)
@@ -110,7 +111,9 @@ The translation-checker presumes that the assignment of propositional letters ha
  b->(c/\d) : If Briana stays at the office, then Cynthia attends the meeting and Dylan checks his email.
 ~~~
 
-Three quick notes about the translation-checker:
+<br>
+
+## Three quick notes about the translation-checker
 
 1. It assumes that you remember how to type the logical symbols. If you need a refreshed on this, consider reviewing [how to type the connectives on the keyboard](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#typing-the-connectives-on-the-keyboard).
 

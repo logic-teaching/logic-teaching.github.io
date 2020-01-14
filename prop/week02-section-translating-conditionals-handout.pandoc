@@ -1,50 +1,7 @@
 <br>
 <br>
 
-Logic, First Course, Winter 2020. Week 2, Section Meeting. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=3)
-
-# Translating conditional statements
-
-In section, we focus on translating conditional statements.
-
-- [Translating conditionals](#translating-conditionals)
-- [Examples of translating conditionals](#examples-of-translating-conditionals)
-- [Conditionals with disjunctions in the antecedent or consequent](#conditionals-with-disjunctions-in-the-antecedent-or-consequent)
-- [Necessary and sufficient conditions](#necessary-and-sufficient-conditions)
-- [Propositional consequences of universal statements and rules](#propositional-consequences-of-universal-statements-and-rules)
-
-<br>
-
-## Translating conditionals
-
-Natural language abounds with numerous ways to say things that have the same truth-conditions as "if $p$, then $q$." Consider the following sentence, where perhaps one puts emphasis on the italicized words when one says it out loud: "Anthony attends the meeting *only if* Briana attends the meeting." When would this be false? It would be false if the meeting starts with Anthony being there but Briana not being there. And since this is the only outcome in which it would be false, it has the same truth-conditions as "if Anthony attends the meeting then Briana attends the meeting." In general, we translate any of the following by $p\rightarrow q$:
-
-1. If $p$ then $q$.
-
-2. If $p$, $q$.
-
-3. $q$, if $p$.
-
-4. $p$ only if $q$.
-
-5. $q$ is a necessary condition for $p$.
-
-6. $q$ is necessary for $p$.
-
-7. In order for $p$, it is necessary that $q$.
-
-8. $p$ is a sufficient condition for $q$.
-
-9. $p$ suffices for $q$.
-
-Note that while we translate all of these by $p\rightarrow q$, in 3, 5, 6 the consequent $q$ occurs in the English sentence before the antecedent $p$. Likewise, note that in 4, the "if" in the larger phrase "only if" occurs right before the consequent $q$. Let us focus first on 1-4, and turn later to 5-9.
-
-<br>
-
-
-## Examples of translating conditionals
-
-Here we practice with translating conditional statements, using examples from the [Corpus of Contemporary American English](https://www.english-corpora.org/coca/). For each problem, we first introduce the relevant abbreviations of the propositional letters. We mix in some other propositional connectives for practice.
+Logic, First Course, Winter 2020. Week 2, Section Meeting, Handout.
 
 *Example 1*.
 
@@ -54,8 +11,6 @@ Here we practice with translating conditional statements, using examples from th
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  e->n : Email notifications are sent only if there are new matching items.
 ~~~
-
-If solving this problem seems hard to you, first consider reviewing [Three quick notes about the translation-checker](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-lecture1-translations.pandoc#three-quick-notes-about-the-translation-checker) and [Typing the connectives on the keyboard](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#typing-the-connectives-on-the-keyboard).
 
 *Example 2*.
 
@@ -87,12 +42,6 @@ If solving this problem seems hard to you, first consider reviewing [Three quick
 ~~~
 
 
-<br>
-
-## Conditionals with disjunctions in the antecedent or consequent
-
-Consider the following example, which should be straightforward:
-
 *Example 5*
 
 <p style="margin-left: 40px"> $v$ = the $v$ariable dips too low </p>
@@ -102,8 +51,6 @@ Consider the following example, which should be straightforward:
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (v\/c)->h : If the variable dips too low or the cabinets lose power, he gets barraged by automatic emails and texts.
 ~~~
-
-Note that when you say the sentence out loud, you can naturally include a second "if", which we boldface: "If the variable dips too low or **if** the cabinets lose power, he gets barraged by automatic emails and texts." We saw up above that instead of "if $p$ then $q$", one can write "$q$, if $p$." This would lead one to suspect instead of "if $p$ or if $r$, then $q$" one can write "$q$, if $p$ or if $r$". Use this to translate the following two examples:
 
 *Example 6*
 
@@ -125,10 +72,6 @@ Note that when you say the sentence out loud, you can naturally include a second
  (f\/d)->l : Local coaches agree it is often similar to running a mini-marathon if four or more games are required, or if doubleheaders are scheduled.
 ~~~
 
-You might have the intuition that each of these three previous examples is really a conjunction statement, since the speaker is saying in each that there are two ways to get to the consequent. As we will see, $(l\vee f)\rightarrow d$ is logically equivalent to the conjunction $(l\rightarrow d)\wedge (f\rightarrow d)$. If you type the conjunctions into the three previous problems, the computer system will tell you that you have something logically equivalent to the correct solutions.
-
-Finally, we close with one where the placement of the disjunction is in a different place, and one where there is a conjunction instead of a disjunction:
-
 *Example 8*
 
 <p style="margin-left: 40px"> $l$ = you're $l$ying </p>
@@ -148,12 +91,6 @@ Finally, we close with one where the placement of the disjunction is in a differ
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  a->(h/\s) : A showdown will happen only if both the house passes its health care bill and the senate passes its health care bill.
 ~~~
-
-<br>
-
-## Necessary and sufficient conditions
-
-One way to remember the necessary and sufficient terminology is as follows: a *necessary* condition for $p$ is something which *has* to happen when $p$ happens, or which *must* happen when $p$ happens. A *sufficient* condition for $p$ by contrast is something that gives you $p$ all by itself-- *it suffices*, nothing is else is required. The familiar directionality of causes and effects can help one to remember the difference between sufficient conditions and necessary conditions. Just as a given event (like fire) has various causes (matches, lighters) and various effects (smoke, heat), so a given proposition (like there being fire) has various sufficient conditions (a match being lit, a lighter being lit) and various necessary conditions (there being smoke, there being heat).
 
 *Example 10*
 
@@ -211,14 +148,6 @@ Note that if $p$ has the form "subject verb" then "necessary condition for $p$" 
  ~(w->a) : the acceptance of emissions caps are not a necessary condition for the system to work.
 ~~~
 
-<br>
-
-## Asserting necessary but not sufficient
-
-Often we use the phrase "$q$ is a necessary but not sufficient condition for $p$" to indicate that we think that both $(p\rightarrow q) \wedge \neg (q\rightarrow p)$. That is, it is a way of saying that one thinks the arrow goes one way and does not go the other way. As we will see later, maybe it is even a way of saying that it is a logical truth that the arrow goes one way but not the other, or that one has very good reasons for thinking the arrow goes one way but not the other.
-
-For instance, consider "regulation is necessary but not sufficient for ensuring high-quality nursing home care." This person is saying both that if the nursing home care is to be high quality, then there is going to have to be regulation in place, and that it is not the case that the mere existence of regulation implies that the nursing home care is high quality.
-
 *Example 16*
 
 <p style="margin-left: 40px"> $m$ = there is $m$ore science </p>
@@ -238,17 +167,6 @@ For instance, consider "regulation is necessary but not sufficient for ensuring 
  (c->b)/\~(b->a) : You filing for bankruptcy is a necessary condition for you correcting course, but it is not sufficient for your alleviating your distress.
 ~~~
 
-If you are having problems with this one, try to think about what propositional connective "but" is most like in terms of its truth-conditions. For instance, take "$p$, but $q$". Is it possible for this to be true when one of $p$ or $q$ is false?
-
-<br>
-
-## Propositional consequences of universal statements and rules
-
-Propositional logic is easy to work with because it is so simple. But, the sentences one might be interested in may be a little more complicated than what can be expressed in propositional logic *per se*. However, sometimes the *consequences* of these sentences which one cares about can be so expressed.
-
-For example take "All history majors are fun." We cannot translate this into propositional logic since there is no "all" symbol in propositional logic (there is, of course, such a symbol in richer logics, such as predicate logic). But specializing this sentence to an arbitrary individual, we can get a consequence formalizable in propositional logic, such as "if you are a history major, then you are fun" or "if she is a history major then she is fun."
-
-There is a similar thing with rules, such as "Passengers must check in with the ticket-desk." This is because this is an all-statement of the form "All passengers are such that they must check in with the ticket-desk." Hence it has consequences such as "if you are a passenger, then you must check in with the ticket-desk" or "if he is a passenger, then he must check in with the ticket-desk."
 
 *Example 18*
 
@@ -281,11 +199,6 @@ There is a similar thing with rules, such as "Passengers must check in with the 
  p->b : Insert a propositional consequence of "Only biology majors are permitted to enroll in this course."
 ~~~
 
-In trying to solve this problem, think through the truth-conditions of this rule about biology majors, and think through what would make it true or false.
 
+These is a handout written for Logic, First Course, Winter 2020. It is run on the Carnap software, which is an:
 
-
-These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]
-
-
-[^2]:It is run on the Carnap software, which is
