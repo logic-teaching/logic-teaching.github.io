@@ -109,6 +109,8 @@ Experience suggests that the distribution laws are harder to memorize than other
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-distribution-secondlaw.mp4"/> </video>
 
+<br>
+
 Finally, we have the *DeMorgan Laws* which show how negation acts on conjunction and disjunctions:
 
 *DeMorgan Law, part 1*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.
@@ -123,7 +125,7 @@ These are comparatively easy to remember since one just visualizes the negation 
 
 The fact that tautologies are always true makes them a compelling object of study since it affords assurance that certain premises of our reasoning cannot be wrong, and thus lets us focus our energies on other premises for which we might have to, so to speak, look to the world to see whether it is true or false. However, it is hard to verify that a given formula with many letters is a tautology, since the truth-tables can become long very quickly. How can we come to recognize tautologies quickly, or quickly convince ourself that something is a tautology? There is a similar set of points and a similar question about equivalences.
 
-One method is substitution. Given any tautology, if we replace the propositional letters uniformly throughout the formula by other formulas, we still get a tautology. This is because aa tautology is true all for any combination of the truth-values of the propositional letters, and a uniform replacement will just make us focus in on some of the combinations. For instance, take the law of excluded middle, which we recopy here:
+One method is substitution. Given any tautology, if we replace the propositional letters uniformly throughout the formula by other formulas, we still get a tautology. This is because a tautology is true all for any combination of the truth-values of the propositional letters, and when we do a uniform replacement we are just focusing in on certain of the combinations, perhaps with repetition. For instance, take the law of excluded middle, which we recopy here:
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p\/~p
@@ -131,7 +133,7 @@ One method is substitution. Given any tautology, if we replace the propositional
 | FTTF
 ~~~
 
-The following is also a tautology, which is obtained by replacing $p$ by $(q\vee r)$:
+The following is also a tautology, which is obtained by replacing $p$ by $(q\vee r)$ in the law of the excluded middle:
 ```{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  (q\/r)\/~(q\/r)
 | TTTTFTTT
@@ -139,11 +141,11 @@ The following is also a tautology, which is obtained by replacing $p$ by $(q\vee
 | FTTTFFTT
 | FFFTTFFF
 ```
+As we can see, this too is a tautology. Its first, second, and third rows are rows where $(q\vee r)$ is true, and hence correspond to the first row in the law of the excluded middle as displayed above, where $p$ is true. Its fourth row is where $(q\vee r)$ is false, and this corresponds to the second row in the law of the excluded middle, where $p$ is false.
 
-As we can see, this too is a tautology.
+We can do substitutions with equivalences as well. For instance, in the *DeMorgan Law, part 1, replace $r$ uniformly by $q/\r$. Then we get the following equivalence:
 
-
-
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-demorgan-substitution.mp4"/> </video>
 
 
 ## Tradition of algebraic logic
