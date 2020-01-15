@@ -145,7 +145,7 @@ As we can see, this too is a tautology. Its first, second, and third rows are ro
 
 We can do substitutions with equivalences as well. For instance, in the *DeMorgan Law, part 1, replace $r$ uniformly by $q/\r$. Then we get the following equivalence:
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-demorgan-substitution.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-demorgan-substitutionv2.mp4"/> </video>
 
 
 ## Tradition of algebraic logic
