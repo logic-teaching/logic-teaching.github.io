@@ -1,0 +1,428 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 2, Lecture 2. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=3)
+
+# Tautologies and equivalences
+
+In this lecture, we learn about tautologies and equivalences, as well as examples and non-examples, and how to tell the difference.
+
+- [Definitions and law of excluded middle](#definition-and-law-of-excluded-middle)
+- [Associativity and commutativity and distributivity](#associativity-and-commutativity-and-distributivity)
+- [Recognizing tautologies and equivalences quickly](#recognizing-tautologies-and-equivalences-quickly)
+- [Tradition of algebraic logic](#tradition-of-algebraic-logic)
+- [Tautologies and equivalences involving arrow](#tautologies-and-equivalences-involving-arrow)
+- [Efficiently recognizing non-tautologies involving arrow](#efficiently-recognizing-non-tautologies-involving-arrow)
+- [List of named tautologies and equivalences](#list-of-named-tautologies-and-equivalences)
+- [List of named tautologies and equivalences with tables filled out](#list-of-named-tautologies-and-equivalences-with-tables-filled-out)
+- [List of named tautologies and equivalences without tables filled out](#list-of-named-tautologies-and-equivalences-without-tables-filled-out)
+
+<br>
+
+## Definitions and law of excluded middle
+
+A *tautology* is a well-formed formula that is always true. That is, when you look at its truth-table, you see all true's in the column under the main connective. The most famous example of a tautology is called the
+
+*Law of excluded middle*: $p\vee \neg p$ is a tautology.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/~p
+| TTFT
+| FTTF
+~~~
+
+Again, it is a tautology because there are all trues under the main connective (the "or"). A related tautology is called the *law of non-contradiction*, because it says that a proposition and its negation cannot both be true:
+
+*Law of non-contradiction*: $\neg (p\wedge q)$ is a tautology.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ~(p/\~p)
+| TTFFT
+| TFFTF
+~~~
+
+An *equivalence* is just two formulas $\phi$ and $\psi$ such that their biconditional $\phi\leftrightarrow \psi$ is a tautology. Equivalence are then useful because they are true or false in precisely the same circumstances. A famous equivalence related to the two previous tautologies is called *the law of double-negation*, which says that $p$ and $\neg \neg p$ have the same truth-values:
+
+*The law of double-negation*: $p$ is equivalent to $\neg \neg p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p, ~~p
+| TTFT
+| FFTF
+~~~
+
+(Note that the 'check' button is merely checking that the table is filled in correctly, rather than checking that it is an equivalence-- more on this later).
+
+This is an equivalence because for each row, the truth-values of the two formulas separated by a comma are the same. By definition, this means that $p\leftrightarrow \neg \neg p$ is a tautology, as you can see here:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p <-> ~~p
+| TTTFT
+| FTFTF
+~~~
+
+Given the definitional connection between equivalences and tautologies whose main connective is a biconditional, one might ask why introduce the notion of equivalence at all. In short, doing so saves us from having to do a bunch of extra last steps in our truth-tables with biconditional. That said, it is harder to see just by looking that something is an equivalence, because you have to do a row-by-row comparison of two columns. A generic name for "tautology or equivalence" in this part of logic is "law" and we will use this appellation here.
+
+It is important to memorize these tautologies and equivalences by their names. They will be on the exam, in the form of a question giving you the name and asking you to provide the tautology, or vice-versa. At the end of this lecture is a section of lists, along with the ability to practice more with truth-tables by inputting them in.
+
+<br>
+
+## Commutativity and associativity and distributivity
+
+The next set of equivalences pertain to conjunction and disjunction and their interaction. The first law is called *commutativity* and it says that the order in which you list the two conjuncts in a conjunction does not matter and the order in which you list the two disjuncts in a disjunction does not matter:
+
+*Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p/\q, q/\p
+| TTTTTT
+| TFFFFT
+| FFFTFF
+| FFFFFF
+~~~
+
+*Law of commutativity for disjunction*: $p\vee q$ is equivalent to $q\vee p$
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/q, q\/p
+| TTTTTT
+| TTFFTT
+| FTTTTF
+| FFFFFF
+~~~
+
+The next laws are the *associative* laws, which say that if you have just two conjunctions it does not matter where you put the parentheses, and likewise if you have just two disjunctions it does not matter where you put the parentheses. Since the truth-tables become very long, we omit the truth-tables here and just state them (see the lists at the end for the truth-tables themselves).
+
+*Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$.
+
+*Law of associativity for disjunction*: $(p\vee q)\vee r$ is equivalent to $p\vee (q\vee r)$.
+
+The next set of laws in this group is the *distribution laws*. It says how conjunction and disjunction interact. There are two parts of the law, depending on whether conjunction or disjunction comes first.
+
+*Law of distribution, part 1*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$
+
+*Law of distribution, part 2*: $p\vee (q\wedge r)$ is equivalent to $(p\vee q)\wedge (p\vee r)$
+
+Experience suggests that the distribution laws are harder to memorize than other laws. One way to practice memorize is to practice writing them out from left-to-right, following the memory aids indicated by the colors and text in the below videos:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-distribution-firstlaw.mp4"/> </video>
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-distribution-secondlaw.mp4"/> </video>
+
+Finally, we have the *DeMorgan Laws* which show how negation acts on conjunction and disjunctions:
+
+*DeMorgan Law, part 1*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.
+
+*DeMorgan Law, part 2*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$.
+
+These are comparatively easy to remember since one just visualizes the negation flying from left-to-right and attaching to each of the inner formulas and flipping the conjunctions to disjunctions and vice-versa.
+
+<br>
+
+## Recognizing tautologies and equivalences quickly
+
+The fact that tautologies are always true makes them a compelling object of study since it affords assurance that certain premises of our reasoning cannot be wrong, and thus lets us focus our energies on other premises for which we might have to, so to speak, look to the world to see whether it is true or false. However, it is hard to verify that a given formula with many letters is a tautology, since the truth-tables can become long very quickly. How can we come to recognize tautologies quickly, or quickly convince ourself that something is a tautology? There is a similar set of points and a similar question about equivalences.
+
+One method is substitution. Given any tautology, if we replace the propositional letters uniformly throughout the formula by other formulas, we still get a tautology. This is because aa tautology is true all for any combination of the truth-values of the propositional letters, and a uniform replacement will just make us focus in on some of the combinations. For instance, take the law of excluded middle, which we recopy here:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/~p
+| TTFT
+| FTTF
+~~~
+
+The following is also a tautology, which is obtained by replacing $p$ by $(q\vee r)$:
+```{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ (q\/r)\/~(q\/r)
+| TTTTFTTT
+| TTFTFTTF
+| FTTTFFTT
+| FFFTTFFF
+```
+
+As we can see, this too is a tautology.
+
+
+
+
+
+## Tradition of algebraic logic
+
+
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p/\p, p
+~~~
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/p, p
+~~~
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p/\(p\/q), p
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/(p/\q), p
+~~~
+
+
+
+<br>
+
+
+
+## Tautologies and equivalences involving arrow
+
+
+
+<br>
+
+
+
+
+
+## Efficiently recognizing non-tautologies involving arrow
+
+<br>
+
+
+
+
+<br>
+
+## List of named tautologies and equivalences
+
+In this section, we provide a list of all the named tautologies and equivalences. It might be useful to have as a reference, or to memorize from and study with.
+
+1. *Law of excluded middle*: $p\vee \neg p$ is a tautology.
+2. *Law of non-contradiction*: $\neg (p\wedge q)$ is a tautology.
+3. *The law of double-negation*: $p$ is equivalent to $\neg \neg p$.
+4. *Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$.
+5. *Law of commutativity for disjunction*: $p\vee q$ is equivalent to $q\vee p$.
+6. *Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$.
+7. *Law of associativity for disjunction*: $(p\vee q)\vee r$ is equivalent to $p\vee (q\vee r)$.
+8. *Law of distribution, part 1*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$.
+9. *Law of distribution, part 2*: $p\vee (q\wedge r)$ is equivalent to $(p\vee q)\wedge (p\vee r)$.
+10. *DeMorgan Law, part 1*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.
+11. *DeMorgan Law, part 2*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$.
+
+<br>
+
+## List of named tautologies and equivalences with tables filled out
+
+*Law of excluded middle*: $p\vee \neg p$ is a tautology.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/~p
+| TTFT
+| FTTF
+~~~
+
+*Law of non-contradiction*: $\neg (p\wedge q)$ is a tautology.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ~(p/\~p)
+| TTFFT
+| TFFTF
+~~~
+
+*The law of double-negation*: $p$ is equivalent to $\neg \neg p$.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p, ~~p
+| TTFT
+| FFTF
+~~~
+
+*Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p/\q, q/\p
+| TTTTTT
+| TFFFFT
+| FFFTFF
+| FFFFFF
+~~~
+
+*Law of commutativity for disjunction*: $p\vee q$ is equivalent to $q\vee p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/q, q\/p
+| TTTTTT
+| TTFFTT
+| FTTTTF
+| FFFFFF
+~~~
+
+*Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ (p/\q)/\r, p/\(q/\r)
+| TTTTTTTTTT
+| TTTFFTFTFF
+| TFFFTTFFFT
+| TFFFFTFFFF
+| FFTFTFFTTT
+| FFTFFFFTFF
+| FFFFTFFFFT
+| FFFFFFFFFF
+~~~
+
+*Law of associativity for disjunction*: $(p\vee q)\vee r$ is equivalent to $p\vee (q\vee r)$.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ (p\/q)\/r, p\/(q\/r)
+| TTTTTTTTTT
+| TTTTFTTTTF
+| TTFTTTTFTT
+| TTFTFTTFFF
+| FTTTTFTTTF
+| FTTTFFTTTF
+| FFFTTFTFTT
+| FFFFFFFFFF
+~~~
+
+*Law of distribution, part 1*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p/\(q\/r), (p/\q)\/(p/\r)
+| TTTTTTTTTTTT
+| TTTTFTTTTTFF
+| TTFTTTFFTTTT
+| TFFFFTFFFTFF
+| FFTTTFFTFFFT
+| FFTTFFFTFFFF
+| FFFTTFFFFFFT
+| FFFFFFFFFFFF
+~~~
+
+*Law of distribution, part 2*: $p\vee (q\wedge r)$ is equivalent to $(p\vee q)\wedge (p\vee r)$.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/(q/\r), (p\/q)/\(p\/r)
+| TTTTTTTTTTTT
+| TTTFFTTTTTTF
+| TTFFTTTFTTTT
+| TTFFFTTFTTTF
+| FTTTTFTTTFTT
+| FFTFFFTTFFFF
+| FFFFTFFFFFTT
+| FFFFFFFFFFFF
+~~~
+
+*DeMorgan Law, part 1*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ~(p/\q), ~p\/~q
+| FTTTFTFFT
+| TTFFFTTTF
+| TFFTTFTFT
+| TFFFTFTTF
+~~~
+
+*DeMorgan Law, part 2*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ~(p\/q), ~p/\~q
+| FTTTFTFFT
+| FTTFFTFTF
+| FFTTTFFFT
+| TFFFTFTTF
+~~~
+
+<br>
+
+## List of named tautologies and equivalences without tables filled out
+
+<br>
+
+ We also provide the ability for you to practice with truth-tables by completing the truth-table. In the case of tautologies (the ones with just one formula), what you will see is that they have all true's under the column associated to their main connective. In the case of equivalences (the ones with two formulas, separated by a comma), you will find that for each row the two formulas have the same truth-value.
+
+*Law of excluded middle*: $p\vee \neg p$ is a tautology.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/~p
+~~~
+
+*Law of non-contradiction$: $\neg (p\wedge q)$ is a tautology.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ~(p/\~p)
+~~~
+
+*The law of double-negation*: $p$ is equivalent to $\neg \neg p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p, ~~p
+~~~
+
+*Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p/\q, q/\p
+~~~
+
+*Law of commutativity for disjunction*: $p\vee q$ is equivalent to $q\vee p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/q, q\/p
+~~~
+
+*Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ (p/\q)/\r, p/\(q/\r)
+~~~
+
+*Law of associativity for disjunction*: $(p\vee q)\vee r$ is equivalent to $p\vee (q\vee r)$.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ (p\/q)\/r, p\/(q\/r)
+~~~
+
+*Law of distribution, part 1*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p/\(q\/r), (p/\q)\/(p/\r)
+~~~
+
+*Law of distribution, part 2*: $p\vee (q\wedge r)$ is equivalent to $(p\vee q)\wedge (p\vee r)$.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/(q/\r), (p\/q)/\(p\/r)
+~~~
+
+*DeMorgan Law, part 1*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ~(p/\q), ~p\/~q
+~~~
+
+*DeMorgan Law, part 2*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ~(p\/q), ~p/\~q
+~~~
+
+<br>
+
+
+
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=3).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
