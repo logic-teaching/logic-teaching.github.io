@@ -68,32 +68,46 @@ The first five problems come from the [Corpus of American Soap Operas](https://w
 (h\/t)->n   : If you try to hurt my mom or if you try to take Johnny away from her, no one is going to keep me quiet
 ~~~
 
-The following five problems relate to the following Brexit flowchart. 
+The following five problems relate to the following Brexit flowchart[^1], which you can download and print [here](https://logic-teaching.github.io/prop/vid/MeaningfulVoteOptions1point2-selection.png).
+
+[^1]: This is a selection from the lower-left hand corner of [Jon Worth's December 1, 2019 diagram](https://jonworth.eu/wp-content/uploads/2019/01/MeaningfulVoteOptions1point2.png), featured on [his site](https://jonworth.eu/brexit-where-now-the-flow-diagrams/), which was discussed in [this New York times article](https://www.nytimes.com/2019/03/29/world/europe/brexit-flowchart-confusion.html).
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/vid/MeaningfulVoteOptions1point2-selection.png" alt="Brexit flowchart" width="700"/>
 
+The following five problems use a single key, which is also marked on the diagram, and where the enumeration is alphabetical
+
+<p style="margin-left: 40px"> $a$ = May says she $a$ims for No Deal Brexit  </p>
+<p style="margin-left: 40px"> $c$ = The No $C$onfidence Vote Fails  </p>
+<p style="margin-left: 40px"> $d$ = Parliament $d$emands People's Vote  </p>
+<p style="margin-left: 40px"> $f$ = the Vote $f$ails  </p>
+<p style="margin-left: 40px"> $h$ = Britain $h$eads for No Deal  </p>
+<p style="margin-left: 40px"> $m$ = Further $M$eaningful Vote on an amended deal happens </p>
+<p style="margin-left: 40px"> $n$ = $N$o Deal Brexit happens  </p>
+<p style="margin-left: 40px"> $o$ = $O$fficial Opposition (Labour) brings No Confidence Vote  </p>
+<p style="margin-left: 40px"> $p$ = $P$arliament demands changes to Deal  </p>
+<p style="margin-left: 40px"> $s$ = Parliament seeks to $s$abotage this where it can  </p>
+<p style="margin-left: 40px"> $u$ = Parliament p$u$ts criteria on passing any deal  </p>
+
+You do not *need* to consult the diagram to solve these problems, although it *might* be helpful. The diagram is where the sentences are coming from.
+
 *Problem 6*
 
-<p style="margin-left: 40px">   </p>
 
 ~~~{.Translate .Prop system="gamutPND"}
- p/\q  : sentence
+ h->(s\/n)  : If Britain heads for No Deal then either Parliament seeks to sabotage this where it can or no Deal Brexit happens.
 ~~~
 
 *Problem 7*
 
-<p style="margin-left: 40px">   </p>
 
 ~~~{.Translate .Prop system="gamutPND"}
- p/\q  : sentence
+ p->(m->f)  : If Parliament demands changes to Deal, then if further Meaningful Vote on an amended deal happens then the Vote fails.
 ~~~
 
 *Problem 8*
 
-<p style="margin-left: 40px">   </p>
-
 ~~~{.Translate .Prop system="gamutPND"}
- p/\q  : sentence
+ (f\/s)->o  : If the Vote fails or if Parliament seeks to sabotage this where it can, official Opposition (Labour) brings No Confidence Vote.
 ~~~
 
 *Problem 9*
@@ -101,7 +115,7 @@ The following five problems relate to the following Brexit flowchart.
 <p style="margin-left: 40px">   </p>
 
 ~~~{.Translate .Prop system="gamutPND"}
- p/\q  : sentence
+ (f/\a)->h  : if the Vote fails and May says she aims for No Deal Brexit, Britain heads for No Deal.
 ~~~
 
 *Problem 10*
@@ -109,7 +123,7 @@ The following five problems relate to the following Brexit flowchart.
 <p style="margin-left: 40px">   </p>
 
 ~~~{.Translate .Prop system="gamutPND"}
- p/\q  : sentence
+ (c/\u)->(p\/d)  : if the No confidence Vote Fails and if Parliament puts criteria on passing any deal, then parliament demands changes to Deal or Parliament demands People's Vote.
 ~~~
 
 <br>
