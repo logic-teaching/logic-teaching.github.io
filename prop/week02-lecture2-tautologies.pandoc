@@ -169,8 +169,9 @@ In the first step, we apply De Morgan, part 1 to the conjuncts $p$ and $q\wedge 
 
 ## Tradition of algebraic logic
 
+The named tautologies that we have been learning today were first isolated by George Boole in his 1854 book *An Investigation of the Laws of Thought.* In the early 19th Century, algebra became increasingly sophisticated, and Boole and others in the tradition of algebraic logic (like DeMorgan) thought that this was a fruitful analogy to be explored:
 
-
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_3.3.png" alt="Tractatus 3.3" width="400"/>
 
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
