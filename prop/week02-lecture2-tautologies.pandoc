@@ -149,7 +149,7 @@ We can do substitutions with equivalences as well. For instance, in the DeMorgan
 
 A second method is *replacement* of equivalents with equivalents. If two formulas are equivalent, then you can replace the one with the other in any formula and not change the truth-value. For instance, take the formula $p\wedge q$. Since $p$ is equivalent to $\neg \neg q$, we have that $p\wedge q$ is equivalent to $\neg \neg p \wedge q$:
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-replacement.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-replacementv2.mp4"/> </video>
 
 A third method is *chaining*. If a first formula $\phi$ is the same as a second formula $\psi$ in terms of truth-values and the second formula $\psi$ is the same as a third formula $\xi$ in terms of truth-values, then the first formula $\phi$ is the same as the third formula $\phi$ in terms of truth-values. To illustrate, let us apply De Morgan, part 1 twice-over to figure out how to show equivalence of $\neg (p\wedge (q\wedge r))$ and $\neg (\neg p\vee (\neg q\vee \neg r))$:
 
