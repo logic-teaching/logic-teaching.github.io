@@ -1,9 +1,9 @@
-<br>
+idempotentdefendant<br>
 <br>
 
-Logic, First Course, Winter 2020. Week 2, Practice Problems. [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=3)
+Logic, First Course, Winter 2020. Week 2, Practice Problems with Solutions. [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=3)
 
-# Practice problems
+# Practice problems with Solutions
 
 The practice problems fall into four groups:
 
@@ -12,7 +12,7 @@ The practice problems fall into four groups:
 - [Tautologies](#tautologies)
 - [Equivalences](#equivalences)
 
-For a sheet with the solutions on it, [click here](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-practice-problems-solutions.pandoc). 
+This sheet is just like the practice problems sheet for this week, but it has solutions. For the first two groups (on translations), the solutions are written into the box where you type the solution. For the second two groups (using truth-tables) the solution is written briefly in prose at the end of the problem.
 
 <br>
 
@@ -27,6 +27,7 @@ The first five problems come from the [Corpus of American Soap Operas](https://w
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  i->y  : I am leaving only if you get out of my way.
+|i->y
 ~~~
 
 *Problem 2*
@@ -36,6 +37,7 @@ The first five problems come from the [Corpus of American Soap Operas](https://w
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  i->h  : I'll accept Bess only if her middle name is Charlotte
+|i->h
 ~~~
 
 *Problem 3*
@@ -46,6 +48,7 @@ The first five problems come from the [Corpus of American Soap Operas](https://w
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  d<->(e/\d)  : A decision like that is supposed to be made if and only if all of us who love Eric Forrester are going to gather together and all of us including Donna are going to gather together.
+|d<->(e/\d)
 ~~~
 
 *Problem 4*
@@ -57,6 +60,7 @@ The first five problems come from the [Corpus of American Soap Operas](https://w
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  i<->(y/\(h/\w))  : I could find a way to generate income for you if and only if you leave Chad Harris alone and you never bother him and you never bother Whitney again.
+|i<->(y/\(h/\w))
 ~~~
 
 
@@ -68,6 +72,7 @@ The first five problems come from the [Corpus of American Soap Operas](https://w
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (h\/t)->n   : If you try to hurt my mom or if you try to take Johnny away from her, no one is going to keep me quiet
+|(h\/t)->n
 ~~~
 
 The following five problems relate to the following Brexit flowchart,[^1] which you can download and print/view [here](https://logic-teaching.github.io/prop/vid/MeaningfulVoteOptions1point2-selection.png) (to print/view, perhaps do a "save image as" and then print/view).
@@ -97,6 +102,7 @@ You do not *need* to consult the diagram to solve these problems, although it *m
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  h->(s\/n)  : If Britain heads for No Deal then either Parliament seeks to sabotage this where it can or no Deal Brexit happens.
+|h->(s\/n)
 ~~~
 
 *Problem 7*
@@ -104,12 +110,14 @@ You do not *need* to consult the diagram to solve these problems, although it *m
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  p->(m->f)  : If Parliament demands changes to Deal, then if further Meaningful Vote on an amended deal happens then the Vote fails.
+|p->(m->f)
 ~~~
 
 *Problem 8*
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (f\/s)->o  : If the Vote fails or if Parliament seeks to sabotage this where it can, official Opposition (Labour) brings No Confidence Vote.
+|(f\/s)->o
 ~~~
 
 *Problem 9*
@@ -118,6 +126,7 @@ You do not *need* to consult the diagram to solve these problems, although it *m
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (f/\a)->h  : If the Vote fails and May says she aims for No Deal Brexit, Britain heads for No Deal.
+|(f/\a)->h
 ~~~
 
 *Problem 10*
@@ -126,6 +135,7 @@ You do not *need* to consult the diagram to solve these problems, although it *m
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (c/\u)->(p\/d)  : if the No confidence Vote Fails and if Parliament puts criteria on passing any deal, then parliament demands changes to Deal or Parliament demands People's Vote.
+|(c/\u)->(p\/d)
 ~~~
 
 <br>
@@ -141,6 +151,7 @@ The following examples come from the [Corpus of US Supreme Court Opinions](https
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  i->l  :  The occurrence of "a local activity, delivery of goods within the State upon their purchase for consumption" was a necessary condition for the tax being imposed.
+|i->l
 ~~~
 
 *Problem 12*
@@ -150,6 +161,7 @@ The following examples come from the [Corpus of US Supreme Court Opinions](https
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  i->l  : A necessary condition for the tax being imposed was the occurrence of "a local activity, delivery of goods within the State upon their purchase for consumption."
+|i->l
 ~~~
 
 Note that the way that "is" statements sometimes allow for symmetry ends up making "$q$ is a necessary condition for $p$" and "a necessary condition for $p$ is $q$." We translate *both* of these by $p->q$. It is similar to the symmetry between "History major Brianna is an honors student" and "An honors student is history major Brianna." One might feel a little more natural to you, but both have the same truth-conditions. This symmetry was *not* mentioned in the initial presentation in [Translating conditionals](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-section-translating-conditionals.pandoc#translating-conditionals), but it is something useful to be aware of.
@@ -161,6 +173,7 @@ Note that the way that "is" statements sometimes allow for symmetry ends up maki
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  t->b  : The vote of the board occurring is a necessary condition for the transaction being valid.
+|t->b
 ~~~
 
 
@@ -171,6 +184,7 @@ Note that the way that "is" statements sometimes allow for symmetry ends up maki
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  t->b  : a necessary condition for the transaction being valid is the vote of the board occurring.
+|t->b
 ~~~
 
 
@@ -181,6 +195,7 @@ Note that the way that "is" statements sometimes allow for symmetry ends up maki
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  i->e  : the defendant being cognitively incapacitated is a sufficient condition for a defense of insanity to be established.
+|i->e
 ~~~
 
 *Problem 16*
@@ -190,6 +205,7 @@ Note that the way that "is" statements sometimes allow for symmetry ends up maki
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  i->e  : A sufficient condition for a defense of insanity to be established is for the defendant to be cognitively incapacitated.
+|i->e
 ~~~
 
 
@@ -200,6 +216,7 @@ Note that the way that "is" statements sometimes allow for symmetry ends up maki
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (e->b)/\~(b->e)   : To be a federal officer is a necessary but not sufficient condition for the exercise of federal judicial power.
+|(e->b)/\~(b->e)
 ~~~
 
 Hint: on problems 17-19, remember from [Asserting necessary but not sufficient](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-section-translating-conditionals.pandoc#asserting-necessary-but-not-sufficient) that the main connectives of these are conjunctions, and that one of the conjuncts is a negated conditional while the other is just a plain conditional.
@@ -211,6 +228,7 @@ Hint: on problems 17-19, remember from [Asserting necessary but not sufficient](
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (d->p)/\~(p->d)   : there being proof of prejudice is generally a necessary but not sufficient condition for a person submitting a due process claim
+|(d->p)/\~(p->d)
 ~~~
 
 *Problem 19*
@@ -220,6 +238,7 @@ Hint: on problems 17-19, remember from [Asserting necessary but not sufficient](
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (s->e)/\~(e->s)   : an aid program being run evenhandedly is a necessary but not a sufficient condition for it to satisfy constitutional scrutiny.
+|(s->e)/\~(e->s)
 ~~~
 
 *Problem 20*
@@ -229,6 +248,7 @@ Hint: on problems 17-19, remember from [Asserting necessary but not sufficient](
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  c<->d, (c->d)/\(d->c)   : A necessary and sufficient condition for bringing the compulsory commitment provision into play is that the defendant be found not guilty of the crime with which he is charged because of insanity " at the time of its commission."
+|(c->d)/\(d->c)
 ~~~
 
 Hint: this one is asserting both a necessary and sufficient condition. Hence, it is asserting two things. What connective would you use to handle that?
@@ -259,6 +279,8 @@ Then determine whether the formula is a tautology:
  (p\/q)->(p/\q)
 ~~~
 
+**Solution to Problem 21**: this one is not a tautology. For instance, the second or third rows (TF or FT) show that it is not a tautology. This is because the disjunction is true there but the conjunction is false there.
+
 *Problem 22*
 
 Practice parsing the formula:
@@ -274,6 +296,9 @@ Then determine whether the formula is a tautology:
  (p/\q)->(p\/q)
 ~~~
 
+**Solution to Problem 22**: this one is a tautology. This is because if both are true, then at least one is true. The full solution involves, in this context, of course filling out the entire table.
+
+
 *Problem 23*
 
 Practice parsing the formula:
@@ -287,6 +312,8 @@ Then determine whether the formula is a tautology:
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
  (p->q)->(q->p)
 ~~~
+
+**Solution to Problem 23**: this one is not a tautology. The third row FT results in the antecedent $p\rightarrow q$ being true but the consequent $q->p$ being false.
 
 *Problem 24*
 
@@ -302,6 +329,9 @@ Then determine whether the formula is a tautology:
  (p<->q)->(q->p)
 ~~~
 
+**Solution to Problem 24**: this one is a tautology. This is because if the biconditional is true in a row, then that row cannot be a place where the antecedent is true and the consequent is false. The full solution involves, in this context, of course filling out the entire table.
+
+
 *Problem 25*
 
 Practice parsing the formula:
@@ -314,6 +344,8 @@ Then determine whether the formula is a tautology:
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
  ((~(p/\(q/\r))/\p)/\q)->~r
 ~~~
+
+**Solution to Problem 25**: this one is a tautology. This is because if the triple conjunction is false but the first two conjuncts are true, then the last disjunct has to be false. The full solution involves, in this context, of course filling out the entire table.
 
 *Problem 26*
 
@@ -328,6 +360,8 @@ Then determine whether the formula is a tautology:
  (p->q)\/(q->p)
 ~~~
 
+**Solution to Problem 26**: this one is a tautology. If $p$ is true then $q\rightarrow p$ is true. If $p$ is false then $p\rightarrow q$ is true. Hence, in either case one is true and so the disjunction is true. The full solution involves, in this context, of course filling out the entire table. It should be noted that the fact that this one is a tautology should seem strange, and not in accord with how we typically use "if . . . then . . . " sentences. This is in fact one of the so-called paradoxes of the material conditional.
+
 *Problem 27*
 
 Practice parsing the formula:
@@ -340,6 +374,8 @@ Then determine whether the formula is a tautology:
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
  (p<->q)\/(q<->p)
 ~~~
+
+**Solution to Problem 27**: this one is not a tautology. Take row TF or FT. In this case there is imbalance in both disjuncts and so both disjuncts are false.
 
 *Problem 28*
 
@@ -354,6 +390,8 @@ Then determine whether the formula is a tautology:
  p->(q->p)
 ~~~
 
+**Solution to Problem 28**: this one is a tautology. If $p$ is true, then $q\rightarrow p$ is true. The full solution involves, in this context, of course filling out the entire table.
+
 *Problem 29*
 
 Practice parsing the formula:
@@ -366,6 +404,8 @@ Then determine whether the formula is a tautology:
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
  p->(q->(p\/q))
 ~~~
+
+**Solution to Problem 29**: this one is a tautology. If $p$ is true and if $q$  is true, then both are true and so $p\vee q$ is true.
 
 *Problem 30*
 
@@ -380,6 +420,7 @@ Then determine whether the formula is a tautology:
  (p/\(q/\r))\/(~p/\(~q/\~r))
 ~~~
 
+**Solution to Problem 30**: this one is not a tautology. It concerns three letters, and it is saying that either all three are true or all three are false. But clearly there are other possibilities, like in the row TFF or FTF.
 
 
 <br>
@@ -414,6 +455,10 @@ Then determine whether the two formulas are equivalent
  ~(a\/(b\/c)), ~a/\(~b\/~c)
 ~~~
 
+**Solution to Problem 31**: this one is not an equivalence. It kind of looks like an application of De Morgan, but for that to have been the case the second one needed to be all conjuncts. Consider the row FTF.
+
+
+
 *Problem 32*
 
 Practice parsing the first formula:
@@ -433,6 +478,8 @@ Then determine whether the two formulas are equivalent
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
  ~(a\/(b\/c)), ~a/\(~b/\~c)
 ~~~
+
+**Solution to Problem 32**: these ones are equivalent. They are applications of De Morgan. The full solution involves, in this context, of course filling out the entire table.
 
 
 *Problem 33*
@@ -455,6 +502,7 @@ Then determine whether the two formulas are equivalent
  ~(d->(e->f)), d/\(e/\~f)
 ~~~
 
+**Solution to Problem 33**: these ones are equivalent. Just apply twice the rule for when material conditionals are false to see this. The full solution involves, in this context, of course filling out the entire table.
 
 *Problem 34*
 
@@ -477,6 +525,8 @@ Then determine whether the two formulas are equivalent
 ~~~
 
 
+**Solution to Problem 34**: these ones are not equivalent. It kind of looks like the previous one. But consider the row TTF (when $d$ is true and $e$ is true and $f$ is false). In this case the second formula is true. But it is not the case that the consequent of $d\rightarrow (f\rightarrow e)$ is false.
+
 *Problem 35*
 
 Practice parsing the first formula:
@@ -497,6 +547,7 @@ Then determine whether the two formulas are equivalent
  l->(m->(n->o)), l->(m->(o->n))
 ~~~
 
+**Solution to Problem 35**: these ones are not equivalent. In general, you cannot move the innermost consequent forwards in a nested conditional. For, consider the case where $o$ is false but everything else is true. This is row TTTF. In this case the first formula is false, but the $o\rightarrow n$ is true and so the second formula is true.
 
 *Problem 36*
 
@@ -518,6 +569,7 @@ Then determine whether the two formulas are equivalent
  ~~~(p/\q), ~(p/\q)
 ```
 
+**Solution to Problem 36**: these are equivalent, since double-negations cancel. The full solution involves, in this context, of course filling out the entire table.
 
 *Problem 37*
 
@@ -539,6 +591,7 @@ Then determine whether the two formulas are equivalent
  p\/(~p\/q), r\/(~r\/q)
 ~~~
 
+**Solution to Problem 37**: these are equivalent, since each are tautologies. Each are tautologies since they include a disjunct which is a tautology, namley $p\vee \neg p$ and $r\vee \neg r$. Technically they do not have these as disjunctions per se, but this follows from the associative laws for disjunction which we learned about in the second lecture of Week 2. The full solution involves, in this context, of course filling out the entire table.
 
 *Problem 38*
 
@@ -560,6 +613,8 @@ Then determine whether the two formulas are equivalent
  a->(b\/c), (a->b)\/(a->c)
 ~~~
 
+**Solution to Problem 38**: these are equivalent, since each is equivalent to $(\neg a \vee b)\vee c$. This is by the equivalent characterizations of material conditional and the idepotent laws which we learned about in the second lecture of Week 2. The full solution involves, in this context, of course filling out the entire table.
+
 *Problem 39*
 
 Practice parsing the first formula:
@@ -579,6 +634,8 @@ Then determine whether the two formulas are equivalent
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
  a->(b/\c), (a->b)/\(a->c)
 ~~~
+
+**Solution to Problem 39**: these are equivalent. One explanation is by the equivalent characterizations of material conditional and the distribution laws which we learned about in the second lecture of Week 2. The full solution involves, in this context, of course filling out the entire table. One can
 
 
 *Problem 40*
@@ -600,6 +657,8 @@ Then determine whether the two formulas are equivalent
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
  g<->(h<->i), i<->(h<->g)
 ~~~
+
+**Solution to Problem 40**: these are equivalent. I do not know of a short explanation of why these are equivalent which does not start branching into as many cases as the truth-table itself.
 
 
 <br>
