@@ -1,0 +1,71 @@
+<br>
+<br>
+
+## Helper sheet for Week 2 Homework
+
+This is a helper sheet for the Week 2 Homework. It is **not** part of the Week 2 Homework but is designed to help you parse the formulas in the last ten problems of that homework set. It is structured like the [Practice finding the main connectives](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#practice-finding-the-main-connectives) problems.
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(p->q)->~q
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(p->q)->~p
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p/\q)\/((p/\~q)\/((~p/\q)\/(~p/\~q)))
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p\/q)/\((p\/~q)/\((~p\/q)/\(~p\/~q)))
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (((p->(q->r)))/\p)->r
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~p->q
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p\/q
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(p->q)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p\/q
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~p/\(~q\/~r)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (~p/\~q)\/(~p\/~r)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p->(p->q)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p->q
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p->(q->r)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p->q)->r
+```
+
+<br>
+<br>
+
+This is a helper sheet for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=3). It is run on the Carnap software, which is an:
