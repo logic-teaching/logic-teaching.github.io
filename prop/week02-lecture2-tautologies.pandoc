@@ -91,7 +91,7 @@ The next set of equivalences pertain to conjunction and disjunction and their in
 | FFFFFF
 ~~~
 
-The next laws are the *associative* laws, which say that if you have just two conjunctions it does not matter where you put the parentheses, and likewise if you have just two disjunctions it does not matter where you put the parentheses. Since the truth-tables become very long, we omit the truth-tables here and just state them (see the lists at the end for the truth-tables themselves).
+The next laws are the *associative* laws, which say that if you have just two conjunctions it does not matter where you put the parentheses, and likewise if you have just two disjunctions it does not matter where you put the parentheses. Since the truth-tables become very long, we omit the truth-tables here and just state them (for the full tables, see [List of named tautologies and equivalences with tables filled out](#list-of-named-tautologies-and-equivalences-with-tables-filled-out)).
 
 *Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$.
 
@@ -123,9 +123,9 @@ These are comparatively easy to remember since one just visualizes the negation 
 
 ## Recognizing tautologies and equivalences quickly
 
-The fact that tautologies are always true makes them a compelling object of study since it affords assurance that certain premises of our reasoning cannot be wrong, and thus lets us focus our energies on other premises for which we might have to, so to speak, look to the world to see whether it is true or false. However, it is hard to verify that a given formula with many letters is a tautology, since the truth-tables can become long very quickly. How can we come to recognize tautologies quickly, or quickly convince ourself that something is a tautology? There is a similar set of points and a similar question about equivalences.
+The fact that tautologies are always true makes them a compelling object of study since it affords assurance that these premises of our reasoning cannot be wrong, and thus lets us focus our energies on other premises whose truth is harder to discern. However, it is regrettably hard to verify that a given formula with many letters is a tautology, since the truth-tables can become long very quickly. How can we come to recognize tautologies quickly, or quickly convince ourself that something is a tautology? There is a similar set of issues with equivalences.
 
-One method is *substitution*. Given any tautology, if we substitute the propositional letters uniformly throughout the formula by other formulas, we still get a tautology. This is because a tautology is true all for any combination of the truth-values of the propositional letters, and when we do a uniform substitution we are just focusing in on certain of the combinations, perhaps with repetition. For instance, take the law of excluded middle, which we recopy here:
+One method is *substitution*. Given any tautology, if we uniformly substitute other formulas for the basic propositional letters, we still get a tautology. This is because a tautology is true all for any combination of the truth-values of the propositional letters, and when we do a uniform substitution we are just focusing in on certain of the combinations, perhaps with repetition. For instance, take the law of excluded middle, which we recopy here:
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p\/~p
@@ -143,22 +143,32 @@ The following is also a tautology, which is obtained by replacing $p$ by $(q\vee
 ```
 As we can see, this too is a tautology. Its first, second, and third rows are rows where $(q\vee r)$ is true, and hence correspond to the first row in the law of the excluded middle as displayed above, where $p$ is true. Its fourth row is where $(q\vee r)$ is false, and this corresponds to the second row in the law of the excluded middle, where $p$ is false.
 
-We can do substitutions with equivalences as well. For instance, in the DeMorgan Law, part 1, substitute $q\/r$ uniformly for $q$. Then we get the following equivalence:
+We can do substitutions with equivalences as well. For instance, in the DeMorgan Law, part 1, substitute $q\vee r$ uniformly for $q$. Then we get the following equivalence:
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-demorgan-substitutionv3.mp4"/> </video>
 
-A second method is *replacement* of equivalents with equivalents. If two formulas are equivalent, then you can replace the one with the other in any formula and not change the truth-value. For instance, take the formula $p\wedge q$. Since $p$ is equivalent to $\neg \neg q$, we have that $p\wedge q$ is equivalent to $\neg \neg p \wedge q$:
+<br>
+
+In this context, since we started with an equivalence, the biconditional we get at the end is also expressive of an equivalence (that is, it too is a tautology whose main connective is the biconditional symbol).
+
+A second method is *replacement* of equivalents with equivalents. If two formulas are equivalent, then you can replace the one with the other in any formula and not change the truth-value. For instance, take the formula $p\wedge q$. Since $p$ is equivalent to $\neg \neg p$, we have that $p\wedge q$ is equivalent to $\neg \neg p \wedge q$:
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-replacementv2.mp4"/> </video>
 
-A third method is *chaining*. If a first formula $\phi$ is the same as a second formula $\psi$ in terms of truth-values and the second formula $\psi$ is the same as a third formula $\xi$ in terms of truth-values, then the first formula $\phi$ is the same as the third formula $\phi$ in terms of truth-values. To illustrate, let us apply De Morgan, part 1 twice-over to figure out how to show equivalence of $\neg (p\wedge (q\wedge r))$ and $\neg (\neg p\vee (\neg q\vee \neg r))$:
+<br>
+
+Again, this biconditional is expressive of an equivalence. Obviously not all biconditionals are tautologies (for instance $p<->q$ is not a tautology), but what we are presently doing is describing various ways of turning equivalences into more equivalences, and so we happen to be focusing on biconditionals that are tautologies.
+
+A third method is *chaining*. If a first formula $\phi$ is the same as a second formula $\psi$ in terms of truth-values and the second formula $\psi$ is the same as a third formula $\xi$ in terms of truth-values, then the first formula $\phi$ is the same as the third formula $\xi$ in terms of truth-values. To illustrate, let us apply De Morgan, part 1 twice-over to figure out how to show equivalence of $\neg (p\wedge (q\wedge r))$ and $\neg p\vee (\neg q\vee \neg r)$:
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautology-demorgan-iterated.mp4"/> </video>
 
-In the first step, we apply De Morgan, part 1 to the conjuncts $p$ and $q/\r$ to get a disjunction with disjuncts $\neg p$ and $\neg (q/\r)$. In the second step, we apply De Morgan, part 1 to the conjuncts $p$ and $q$ to get the disjunction $\neg p \vee \neg r$. And we do the latter inside the larger formula, which formally amounts to  doing a replacement in the second step. And then we chain these two steps together to get the larger equivalence.
+In the first step, we apply De Morgan, part 1 to the conjuncts $p$ and $q\wedge r$ to get a disjunction with disjuncts $\neg p$ and $\neg (q\wedge r)$. In the second step, we apply De Morgan, part 1 to the conjuncts $p$ and $q$ to get the disjunction $\neg p \vee \neg r$. And we do the latter inside the larger formula, which formally amounts to  doing a replacement in the second step. And then we chain these two steps together to get the larger equivalence.
 
+<br>
 
 ## Tradition of algebraic logic
+
 
 
 
