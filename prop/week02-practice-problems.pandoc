@@ -1,0 +1,494 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 2, Practice Problems. [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=3)
+
+# Practice problems
+
+The practice problems fall into four groups:
+
+- [Translating and conditionals](#translating-and-conditionals)
+- [Necessary and sufficient conditions](#necessary-and-sufficient-conditions)
+- [Tautologies](#tautologies)
+- [Equivalences](#equivalences)
+
+<br>
+
+## Translating and conditionals
+
+The first five problems come from the [Corpus of American Soap Operas](https://www.english-corpora.org/soap/).
+
+*Problem 1*
+
+<p style="margin-left: 40px">  $i$ = $I$ am leaving </p>
+<p style="margin-left: 40px">  $y$ = $y$ou get out of my way </p>
+
+~~~{.Translate .Prop system="gamutPND"}
+ i->y  : I am leaving only if you get out of my way.
+~~~
+
+*Problem 2*
+
+<p style="margin-left: 40px"> $i$ = $I$'ll accept Bess  </p>
+<p style="margin-left: 40px"> $h$ = $h$er middle name is Charlotte  </p>
+
+~~~{.Translate .Prop system="gamutPND"}
+ i->h  : I'll accept Bess only if her middle name is Charlotte
+~~~
+
+*Problem 3*
+
+<p style="margin-left: 40px"> $d$ = a $d$ecision like that is supposed to be made </p>
+<p style="margin-left: 40px"> $e$ = all of us who love $E$ric Forrester are going to gather together  </p>
+<p style="margin-left: 40px"> $d$ = all of us including $D$onna are going to gather together  </p>
+
+~~~{.Translate .Prop system="gamutPND"}
+ d<->(e/\d)  : A decision like that is supposed to be made if and only if all of us who love Eric Forrester are going to gather together and all of us including Donna are going to gather together.
+~~~
+
+*Problem 4*
+
+<p style="margin-left: 40px"> $i$ = $I$ could find a way to generate income for you  </p>
+<p style="margin-left: 40px"> $y$ = $y$ou leave Chad Harris alone  </p>
+<p style="margin-left: 40px"> $h$ = you never bother $h$im  </p>
+<p style="margin-left: 40px"> $w$ = you never bother $W$hitney again  </p>
+
+~~~{.Translate .Prop system="gamutPND"}
+ i<->(y/\(h/\w))  : I could find a way to generate income for you if and only if you leave Chad Harris alone and you never bother him and you never bother Whitney again.
+~~~
+
+
+*Problem 5*
+
+<p style="margin-left: 40px"> $h$ = you try to $h$urt my mom  </p>
+<p style="margin-left: 40px"> $t$ = you try to $t$ake Johnny away from her </p>
+<p style="margin-left: 40px"> $n$ = $n$o one is going to keep me quiet  </p>
+
+~~~{.Translate .Prop system="gamutPND"}
+(h\/t)->n   : If you try to hurt my mom or if you try to take Johnny away from her, no one is going to keep me quiet
+~~~
+
+*Problem 6*
+
+<p style="margin-left: 40px">   </p>
+
+~~~{.Translate .Prop system="gamutPND"}
+ p/\q  : sentence
+~~~
+
+*Problem 7*
+
+<p style="margin-left: 40px">   </p>
+
+~~~{.Translate .Prop system="gamutPND"}
+ p/\q  : sentence
+~~~
+
+*Problem 8*
+
+<p style="margin-left: 40px">   </p>
+
+~~~{.Translate .Prop system="gamutPND"}
+ p/\q  : sentence
+~~~
+
+*Problem 9*
+
+<p style="margin-left: 40px">   </p>
+
+~~~{.Translate .Prop system="gamutPND"}
+ p/\q  : sentence
+~~~
+
+*Problem 10*
+
+<p style="margin-left: 40px">   </p>
+
+~~~{.Translate .Prop system="gamutPND"}
+ p/\q  : sentence
+~~~
+
+<br>
+
+## Necessary and sufficient conditions
+
+*Problem template*
+
+<p style="margin-left: 40px">   </p>
+
+~~~{.Translate .Prop system="gamutPND"}
+ p/\q  : sentence
+~~~
+
+<br>
+
+## Tautologies
+
+In the following problems, you are to determine whether the formula is a tautology or not. If it is a tautology, fill out the truth-table correctly so that its main connective column is all true, check your answer and then the answer will turn green. If it is not a tautology, then find a row where the formula is false, click the 'Non-tautology' button, and enter in the truth-values of the basic propositional letters on that row, and then the answer will turn green.
+
+Note 1: we will go over these problems in the second lecture of Week 2.
+
+Note 2: some of the formulas here are more complicated than we have seen previously. Hence, prior to each tautology problem, we give a problem like the ones from Week 1 which help you parse the formulas. It is structured like the [Practice finding the main connectives](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#practice-finding-the-main-connectives) problems.
+
+Note 3: even when the formula is not a tautology, it is possible to correctly solve the problem simply by filling out the entire table-- this is because in the event that it is not a tautology you will have found one place in the main connective column where it is false by filling out the entire truth-table. But often in practice one can show something is not a tautology without having to fill out the entire table. In exam situations, you will additionally be asked explicitly after this kind of problem whether the formula is a tautology or not.
+
+*Problem 21*
+
+Practice parsing the first formula. Hint: don't do the last connective (the bottom-most right connective), so that your tree continues to display. Having the tree in front of you may be helpful when doing the truth-table, since one does the truth-table following the tree from the bottom up. (This hint applies to all the remaining problems in this section, but will not be repeated). Also, ignore the "Success! You may now submit your solution" since this is just practice.
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p\/q)->(p/\q)
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p\/q)->(p/\q)
+~~~
+
+*Problem 22*
+
+Practice parsing the formula:
+
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p/\q)->(p\/q)
+```
+
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p/\q)->(p\/q)
+~~~
+
+*Problem 23*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p->q)->(q->p)
+```
+
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p->q)->(q->p)
+~~~
+
+*Problem 24*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p<->q)->(q->p)
+```
+
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p<->q)->(q->p)
+~~~
+
+*Problem 25*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ((~(p/\(q/\r))/\p)/\q)->~r
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ ((~(p/\(q/\r))/\p)/\q)->~r
+~~~
+
+*Problem 26*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p->q)\/(q->p)
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p->q)\/(q->p)
+~~~
+
+*Problem 27*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p<->q)\/(q<->p)
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p<->q)\/(q<->p)
+~~~
+
+*Problem 28*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p->(q->p)
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ p->(q->p)
+~~~
+
+*Problem 29*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p->(q->(p\/q))
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p/\(q/\r))\/~(p/\(q/\r))
+~~~
+
+*Problem 30*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p->(q->(p\/q))
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p/\(q/\r))\/(~p/\(~q/\~r))
+~~~
+
+
+
+<br>
+
+## Equivalences
+
+In the following problems, you are to determine whether the two formulas which are separated by a comma are equivalent or inequivalent. If they are equivalent, fill out the truth-table correctly, check your answer and then your answer will turn green. If they are inequivalent, then find a row where one is true and the other is false, click the 'Inequivalent' button, and enter in the truth-values of the basic propositional letters on that row, and then your answer will turn green.
+
+Note 1: we will go over these problems in the second lecture of Week 2.
+
+Note 2: some of the formulas here are more complicated than we have seen previously. Hence, prior to each tautology problem, we give a problem like the ones from Week 1 which help you parse the formulas. It is structured like the [Practice finding the main connectives](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#practice-finding-the-main-connectives) problems.
+
+Note 3: even when the formula is not an equivalence, it is possible to correctly solve the problem simply by filling out the entire table-- this is because in the event that it is not a equivalence you will have found one place in the main connective columns where the truth-values differ by filling out the entire truth-table. But often in practice one can show two things are inequivalent without having to fill out the entire table. In exam situations, you will additionally be asked explicitly after this kind of problem whether the two formulas are equivalent.
+
+*Problem 31*
+
+Practice parsing the first formula. Hint: don't do the last connective (the bottom-most right connective), so that your tree continues to display. Having the tree in front of you may be helpful when doing the truth-table, since one does the truth-table following the tree from the bottom up. (This hint applies to all the remaining problems in this section, but will not be repeated). Also, ignore the "Success! You may now submit your solution" since this is just practice.
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(a\/(b\/c))
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~a/\(~b\/~c)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ ~(a\/(b\/c)), ~a/\(~b\/~c)
+~~~
+
+*Problem 32*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(a\/(b\/c))
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~a/\(~b/\~c)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ ~(a\/(b\/c)), ~a/\(~b/\~c)
+~~~
+
+
+*Problem 33*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(d->(e->f))
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ d/\(e/\~f)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ ~(d->(e->f)), d/\(e/\~f)
+~~~
+
+
+*Problem 34*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(d->(f->e))
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ d/\(~f/\e)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ ~(d->(f->e)), d/\(~f/\e)
+~~~
+
+
+*Problem 35*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ l->(m->(n->o))
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ l->(m->(o->n))
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ l->(m->(n->o)), l->(m->(o->n))
+~~~
+
+
+*Problem 36*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~~~(p/\q)
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(p/\q)
+```
+
+Then determine whether the two formulas are equivalent
+
+```{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ ~~~(p/\q), ~(p/\q)
+```
+
+
+*Problem 37*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p\/(~p\/q)
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ r\/(~r\/q)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ p\/(~p\/q), r\/(~r\/q)
+~~~
+
+
+*Problem 38*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ a->(b\/c)
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (a->b)\/(a->c)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ a->(b\/c), (a->b)\/(a->c)
+~~~
+
+*Problem 39*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ a->(b/\c)
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (a->b)/\(a->c)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ a->(b/\c), (a->b)/\(a->c)
+~~~
+
+
+*Problem 40*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ g<->(h<->i)
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ i<->(h<->g)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ g<->(h<->i), i<->(h<->g)
+~~~
+
+
+<br>
+<br>
+
+These are practice problems for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=3). It is run on the Carnap software, which is an:
