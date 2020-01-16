@@ -1,0 +1,161 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 2, Lecture 2, Handout.
+
+
+## Definitions and law of excluded middle
+
+A *tautology* is a well-formed formula that is always true. That is, when you look at its truth-table, you see all true's in the column under the main connective.
+
+*Law of excluded middle*: $p\vee \neg p$ is a tautology.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/~p
+~~~
+
+*Law of non-contradiction*: $\neg (p\wedge \neg p)$ is a tautology.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ~(p/\~p)
+~~~
+
+An *equivalence* is just two formulas $\phi$ and $\psi$ such that their biconditional $\phi\leftrightarrow \psi$ is a tautology.
+
+*The law of double-negation*: $p$ is equivalent to $\neg \neg p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p, ~~p
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p <-> ~~p
+~~~
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p->q, ~p\/q
+~~~
+
+
+<br>
+
+## Commutativity and associativity and distributivity
+
+<br>
+<br>
+
+*Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$.
+
+<br>
+<br>
+
+*Law of commutativity for disjunction*: $p\vee q$ is equivalent to $q\vee p$
+
+<br>
+<br>
+
+*Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$.
+
+<br>
+<br>
+
+*Law of associativity for disjunction*: $(p\vee q)\vee r$ is equivalent to $p\vee (q\vee r)$.
+
+<br>
+<br>
+
+*Law of distribution, part 1*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$
+
+<br>
+<br>
+
+*Law of distribution, part 2*: $p\vee (q\wedge r)$ is equivalent to $(p\vee q)\wedge (p\vee r)$
+
+<br>
+<br>
+
+*DeMorgan Law, part 1*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.
+
+<br>
+<br>
+
+*DeMorgan Law, part 2*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$.
+
+<br>
+<br>
+
+<br>
+
+## Recognizing tautologies and equivalences quickly
+
+*Substitution*. Given any tautology, if we uniformly substitute other formulas for the basic propositional letters, we still get a tautology.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/~p
+| TTFT
+| FTTF
+~~~
+
+```{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ (q\/r)\/~(q\/r)
+| TTTTFTTT
+| TTFTFTTF
+| FTTTFFTT
+| FFFTTFFF
+```
+
+*Replacement* of equivalents with equivalents. If two formulas are equivalent, then you can replace the one with the other in any formula and not change the truth-value.
+
+<br>
+
+<br>
+
+<br>
+
+
+*Chaining*. If a first formula $\phi$ is the same as a second formula $\psi$ in terms of truth-values and the second formula $\psi$ is the same as a third formula $\xi$ in terms of truth-values, then the first formula $\phi$ is the same as the third formula $\xi$ in terms of truth-values.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautology-demorgan-iterated.mp4"/> </video>
+
+
+<br>
+
+## Boole and the laws of thought
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p/\p, p
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/p, p
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p/\(p\/q), p
+~~~
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/(p/\q), p
+~~~
+
+
+<br>
+
+## Spotting non-tautologies and spotting non-equivalences
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ p\/(q\/r)
+~~~
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ p/\q, p\/q
+~~~
+
+
+These is a handout written for Logic, First Course, Winter 2020. It is run on the Carnap software, which is an:
+
