@@ -5,14 +5,13 @@ Logic, First Course, Winter 2020. Week 2, Lecture 2. [Back to course website](ht
 
 # Tautologies and equivalences
 
-In this lecture, we learn about tautologies and equivalences, as well as examples and non-examples, and how to tell the difference.
+In this lecture, we learn about tautologies and equivalences, as well as how to generate examples of them, and how to discern when a formula is not a tautology and when a pair of formulas are not equivalent.
 
-- [Definitions and law of excluded middle](#definition-and-law-of-excluded-middle)
-- [Associativity and commutativity and distributivity](#associativity-and-commutativity-and-distributivity)
+- [Definitions and law of excluded middle](#definitions-and-law-of-excluded-middle)
+- [Commutativity and associativity and distributivity](#commutativity and associativity and distributivity)
 - [Recognizing tautologies and equivalences quickly](#recognizing-tautologies-and-equivalences-quickly)
-- [Tradition of algebraic logic](#tradition-of-algebraic-logic)
-- [Tautologies and equivalences involving arrow](#tautologies-and-equivalences-involving-arrow)
-- [Efficiently recognizing non-tautologies involving arrow](#efficiently-recognizing-non-tautologies-involving-arrow)
+- [Boole and the laws of thought](#boole-and-the-laws-of-thought)
+- [Spotting non-tautologies and spotting non-equivalences](#spotting-non-tautologies-and-spotting-non-equivalences)
 - [List of named tautologies and equivalences](#list-of-named-tautologies-and-equivalences)
 - [List of named tautologies and equivalences with tables filled out](#list-of-named-tautologies-and-equivalences-with-tables-filled-out)
 - [List of named tautologies and equivalences without tables filled out](#list-of-named-tautologies-and-equivalences-without-tables-filled-out)
@@ -27,18 +26,14 @@ A *tautology* is a well-formed formula that is always true. That is, when you lo
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p\/~p
-| TTFT
-| FTTF
 ~~~
 
 Again, it is a tautology because there are all trues under the main connective (the "or"). A related tautology is called the *law of non-contradiction*, because it says that a proposition and its negation cannot both be true:
 
-*Law of non-contradiction*: $\neg (p\wedge q)$ is a tautology.
+*Law of non-contradiction*: $\neg (p\wedge \neg p)$ is a tautology.
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  ~(p/\~p)
-| TTFFT
-| TFFTF
 ~~~
 
 An *equivalence* is just two formulas $\phi$ and $\psi$ such that their biconditional $\phi\leftrightarrow \psi$ is a tautology. Equivalence are then useful because they are true or false in precisely the same circumstances. A famous equivalence related to the two previous tautologies is called *the law of double-negation*, which says that $p$ and $\neg \neg p$ have the same truth-values:
@@ -47,23 +42,26 @@ An *equivalence* is just two formulas $\phi$ and $\psi$ such that their bicondit
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p, ~~p
-| TTFT
-| FFTF
 ~~~
 
-(Note that the 'check' button is merely checking that the table is filled in correctly, rather than checking that it is an equivalence-- more on this later).
+(Note that the 'check' button is merely checking that the table is filled in correctly, rather than checking that it is an equivalence-- more on this later under [Spotting non-tautologies and spotting non-equivalences](#spotting-non-tautologies-and-spotting-non-equivalences)).
 
-This is an equivalence because for each row, the truth-values of the two formulas separated by a comma are the same. By definition, this means that $p\leftrightarrow \neg \neg p$ is a tautology, as you can see here:
+The law of double-negation is an equivalence because for each row, the truth-values of the two formulas separated by a comma are the same. By definition, this means that $p\leftrightarrow \neg \neg p$ is a tautology, as you can see here:
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p <-> ~~p
-| TTTFT
-| FTFTF
 ~~~
 
-Given the definitional connection between equivalences and tautologies whose main connective is a biconditional, one might ask why introduce the notion of equivalence at all. In short, doing so saves us from having to do a bunch of extra last steps in our truth-tables with biconditional. That said, it is harder to see just by looking that something is an equivalence, because you have to do a row-by-row comparison of two columns. A generic name for "tautology or equivalence" in this part of logic is "law" and we will use this appellation here.
+Given the definitional connection between (i) equivalences and (ii) tautologies whose main connective is a biconditional, one might ask why introduce the notion of equivalence at all. In short, doing so saves us from having to do a bunch of extra last steps in our truth-tables with biconditional. That said, it is harder to see just by looking that something is an equivalence, because you have to do a row-by-row comparison of two columns. A generic name for "tautology or equivalence" in this part of logic is "law" and we will use this appellation here. It is important to memorize these tautologies and equivalences by their names. They will be on the exam, in the form of a question giving you the name and asking you to provide the tautology, or vice-versa. See [List of named tautologies and equivalences](#list-of-named-tautologies-and-equivalences) for a list of them in a compact format.
 
-It is important to memorize these tautologies and equivalences by their names. They will be on the exam, in the form of a question giving you the name and asking you to provide the tautology, or vice-versa. At the end of this lecture is a section of lists, along with the ability to practice more with truth-tables by inputting them in.
+But here is another example of an equivalence. It tells us that an arrow statement is equivalent to a disjunction:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p->q, ~p\/q
+~~~
+
+This is equivalence important because it is quite characteristic of the material conditional but not terribly accurate of the way we use "if . . . then . . . " (we will discuss this  discrepancy later). Hence, sometimes this equivalence is taken to be a definition of the material conditional, that is a characteristic that distinguishes it from other kinds of conditionals that are studied in other parts of logic.
+
 
 <br>
 
@@ -123,7 +121,7 @@ These are comparatively easy to remember since one just visualizes the negation 
 
 ## Recognizing tautologies and equivalences quickly
 
-The fact that tautologies are always true makes them a compelling object of study since it affords assurance that these premises of our reasoning cannot be wrong, and thus lets us focus our energies on other premises whose truth is harder to discern. However, it is regrettably hard to verify that a given formula with many letters is a tautology, since the truth-tables can become long very quickly. How can we come to recognize tautologies quickly, or quickly convince ourself that something is a tautology? There is a similar set of issues with equivalences.
+The fact that tautologies are always true makes them a compelling object of study since it affords assurance that these premises of our reasoning cannot be wrong, and thus lets us focus our energies on other premises whose truth is harder to discern. However, it is regrettably hard to verify that a given formula with many letters is a tautology, since the truth-tables can become long very quickly. How can we come to recognize tautologies quickly, or quickly convince ourself that something is a tautology? (There is a similar set of issues with equivalences).
 
 One method is *substitution*. Given any tautology, if we uniformly substitute other formulas for the basic propositional letters, we still get a tautology. This is because a tautology is true all for any combination of the truth-values of the propositional letters, and when we do a uniform substitution we are just focusing in on certain of the combinations, perhaps with repetition. For instance, take the law of excluded middle, which we recopy here:
 
@@ -157,60 +155,95 @@ A second method is *replacement* of equivalents with equivalents. If two formula
 
 <br>
 
-Again, this biconditional is expressive of an equivalence. Obviously not all biconditionals are tautologies (for instance $p<->q$ is not a tautology), but what we are presently doing is describing various ways of turning equivalences into more equivalences, and so we happen to be focusing on biconditionals that are tautologies.
+Again, this biconditional is expressive of an equivalence. Obviously not all biconditionals are tautologies (for instance $p\leftrightarrow q$ is not a tautology), but what we are presently doing is describing various ways of turning equivalences into more equivalences, and so we happen to be focusing on biconditionals that are tautologies.
 
 A third method is *chaining*. If a first formula $\phi$ is the same as a second formula $\psi$ in terms of truth-values and the second formula $\psi$ is the same as a third formula $\xi$ in terms of truth-values, then the first formula $\phi$ is the same as the third formula $\xi$ in terms of truth-values. To illustrate, let us apply De Morgan, part 1 twice-over to figure out how to show equivalence of $\neg (p\wedge (q\wedge r))$ and $\neg p\vee (\neg q\vee \neg r)$:
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautology-demorgan-iterated.mp4"/> </video>
 
-In the first step, we apply De Morgan, part 1 to the conjuncts $p$ and $q\wedge r$ to get a disjunction with disjuncts $\neg p$ and $\neg (q\wedge r)$. In the second step, we apply De Morgan, part 1 to the conjuncts $p$ and $q$ to get the disjunction $\neg p \vee \neg r$. And we do the latter inside the larger formula, which formally amounts to  doing a replacement in the second step. And then we chain these two steps together to get the larger equivalence.
+In the first step, we apply De Morgan, part 1 to the conjuncts $p$ and $q\wedge r$ to get a disjunction with disjuncts $\neg p$ and $\neg (q\wedge r)$. In the second step, we apply De Morgan, part 1 to the conjuncts $q$ and $r$ to get the disjunction $\neg q \vee \neg r$. And we do the latter inside the larger formula, which formally amounts to  doing a replacement in the second step. And then we chain these two steps together to get the larger equivalence.
 
 <br>
 
-## Tradition of algebraic logic
+## Boole and the laws of thought
 
-The named tautologies that we have been learning today were first isolated by George Boole in his 1854 book *An Investigation of the Laws of Thought.* In the early 19th Century, algebra became increasingly sophisticated, and Boole and others in the tradition of algebraic logic (like DeMorgan) thought that this was a fruitful analogy to be explored:
+The named tautologies that we have been learning today were first isolated by George Boole in his 1854 book [An Investigation of the Laws of Thought](https://books.google.com/books?id=SWgLVT0otY8C&newbks=1&newbks_redir=0&dq=An%20Investigation%20of%20the%20Laws%20of%20Thought&pg=PP5#v=onepage&q=An%20Investigation%20of%20the%20Laws%20of%20Thought&f=false). In the early 19th Century, algebra became increasingly sophisticated, and Boole and others thought that there was a fruitful analogy to be explored between algebra and logic, where the latter was conceived of as providing laws which "govern the general operation of the mind":
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_3.3.png" alt="Tractatus 3.3" width="400"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Boole%201854%20-%20An%20Investigation%20of%20the%20Laws%20of%20Thought%20p.%206.png" alt="Boole p. 6 of Laws of Thought" width="600"/>
 
+To see the analogy with algebra, suppose that we take the
+
+- *Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$.
+- *Law of associativity for disjunction*: $(p\vee q)\vee r$ is equivalent to $p\vee (q\vee r)$.
+- *Law of distribution, part 1*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$.
+- *Law of distribution, part 2*: $p\vee (q\wedge r)$ is equivalent to $(p\vee q)\wedge (p\vee r)$.
+
+and we suppose we write conjunction $\wedge$ with multiplication $\times$, and disjunction $\vee$ with addition $+$, and suppose that instead of "is equivalent to" we just write the equals $=$ sign. Boole and DeMorgan originally wrote these formulas in this way using the algebraic symbols:
+
+- *Law of associativity for conjunction*: $(p\times q)\times r= p\times (q\times r)$.
+- *Law of associativity for disjunction*: $(p+ q)+ r= p+ (q+ r)$.
+- *Law of distribution, part 1*: $p\times (q+ r)=(p\times q)+ (p\times r)$.
+- *Law of distribution, part 2*: $p+ (q\times r)= (p+ q)\times (p+ r)$.
+
+As one can see, the first three are also laws of numbers. However, there are some obvious differences, which Boole and DeMorgan noted. For instance, the Law of distribution, part 2 is not a truth of numbers, since for instance
+$$1+2\times 3 =7 \neq 12 = 3\times 4 = (1+2)\times (1+3)$$
+
+Some more striking differences concern the following equivalences (which are not named, for our purposes):
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p/\p, p
+| TTTT
+| FFFF
 ~~~
 
+It this was a rule of numbers, it would read $p\times p=p$, which is only true of the number one.
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p\/p, p
+| TTTT
+| FFFF
 ~~~
-
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p/\(p\/q), p
+| TTTTTT
+| TTTTFT
+| FFFTFF
+| FFFFFF
 ~~~
+
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p\/(p/\q), p
+| TTTTTT
+| TTTFFT
+| FFFFTF
+| FFFFFF
 ~~~
 
-
-
-<br>
-
-
-
-## Tautologies and equivalences involving arrow
-
-
+The deeper reason that Boole thought that there was an analogy between logic and algebra was that the laws of algebra apply to multiple number systems: the positive whole numbers, the negative numbers, the real numbers, the imaginary numbers. The tautologies and associated equivalences we have listed today form the axioms of *Boolean algebras*. Propositional logic is one source of Boolean algebras, and the other that Boole found was in sets. While we shall not say much more about sets in this course, it forms the analogue of truth-tables for richer logics beyond propositional logic.
 
 <br>
 
+## Spotting non-tautologies and spotting non-equivalences
+
+We have given many examples of tautologies and equivalences, and described some methods by which to generate them. How about non-tautologies and non-equivalences? The only way to determine that something is not a tautology is to find a row of the truth-table where it is false. That is what the following kind of problem prompts one to do. The problem is posed as follows:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ p\/(q\/r)
+~~~
+
+To show that this is not a tautology, one has to find a row where the formula is false. One way to do it, which is very time-consuming, is to fill out the entire table and then check it-- if the formula like this one is not a tautology, one will eventually find it. A much quicker way to do is to start thinking to yourself how you would find a row where it it false. If we recall that disjunctions are hard to make false, we might quickly zoom in on the row here $p$ is false, $q$ is false, and $r$ is false. This row is abbreviated as FFF, and when we press the "Non-Tautology" button and input in FFF, we get get success. If we had entered in any other row, like FTF, we would not have succeeded, because the formula is in fact true at all the other rows (since disjunction is easy to make true). Hence, when faced with one of these problems, one way to proceed is to "brute force it" and simply fill out the entire table. But a quicker way to proceed is to try to "think though" what would make it false. The [Practice Problems](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-practice-problems.pandoc#tautologies) for this week have solutions attached to them which explain why something is not a tautology when it is not-- just search for "solutions" (plural) on the practice problems. Finally, note that in exam situations, you will additionally be asked explicitly after this kind of problem whether the formula is a tautology or not. Hence, if you opt for "brute force" make sure that you can check the table quickly to discern whether it is a tautology.
+
+There is a similar thing for inequivalences. The problems about inequivalence are posed as follows:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ p/\q, p\/q
+~~~
+
+To show that these are inequivalent, you just have to find a row where their truth-values differs. Again, one can brute-force it and just fill out the entire table and check the answer: in the event that it is an inequivalence, like this, one will have found a row where the truth-values differ. But a quicker way to do is to just find a row where the truth-values differ. For instance, I know that when one of $p,q$ is false, then $p\wedge q$ is false but $p\vee q$ is true. Hence, I can just click on the "Inequivalent" button and enter in TF or FT. This way of doing it is much quicker than filling out the entire table. The [Practice Problems](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-practice-problems.pandoc#tautologies) for this week have solutions attached to them which explain why something is not an equivalence when it is not-- just search for "solutions" (plural) on the practice problems. Finally, note that in exam situations, you will additionally be asked explicitly after this kind of problem whether the two formulas are equivalent or not. Thus, if you opt for "brute force" make sure that you can check the table quickly to discern whether the two formulas are equivalent.
 
 
-
-
-## Efficiently recognizing non-tautologies involving arrow
-
-<br>
 
 
 
@@ -219,10 +252,10 @@ The named tautologies that we have been learning today were first isolated by Ge
 
 ## List of named tautologies and equivalences
 
-In this section, we provide a list of all the named tautologies and equivalences. It might be useful to have as a reference, or to memorize from and study with.
+In this section, we provide a list of all the named tautologies and equivalences in a compact format, which is useful for memorization:
 
 1. *Law of excluded middle*: $p\vee \neg p$ is a tautology.
-2. *Law of non-contradiction*: $\neg (p\wedge q)$ is a tautology.
+2. *Law of non-contradiction*: $\neg (p\wedge \neg p)$ is a tautology.
 3. *The law of double-negation*: $p$ is equivalent to $\neg \neg p$.
 4. *Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$.
 5. *Law of commutativity for disjunction*: $p\vee q$ is equivalent to $q\vee p$.
@@ -237,6 +270,8 @@ In this section, we provide a list of all the named tautologies and equivalences
 
 ## List of named tautologies and equivalences with tables filled out
 
+This section has all the tables filled out for the laws in the previous section. These tables demonstrate why the laws are tautologies or equivalences. But it is less important that you take time to explicitly verify them yourself and more important that you spend some time memorizing the statements of the laws.
+
 *Law of excluded middle*: $p\vee \neg p$ is a tautology.
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
@@ -245,7 +280,7 @@ In this section, we provide a list of all the named tautologies and equivalences
 | FTTF
 ~~~
 
-*Law of non-contradiction*: $\neg (p\wedge q)$ is a tautology.
+*Law of non-contradiction*: $\neg (p\wedge \neg p)$ is a tautology.
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  ~(p/\~p)
@@ -368,7 +403,7 @@ In this section, we provide a list of all the named tautologies and equivalences
 
 <br>
 
- We also provide the ability for you to practice with truth-tables by completing the truth-table. In the case of tautologies (the ones with just one formula), what you will see is that they have all true's under the column associated to their main connective. In the case of equivalences (the ones with two formulas, separated by a comma), you will find that for each row the two formulas have the same truth-value.
+ We also provide the ability for you to practice with truth-tables by completing the truth-table. In the case of tautologies (the ones with just one formula), what you will see is that they have all true's under the column associated to their main connective. In the case of equivalences (the ones with two formulas, separated by a comma), you will find that for each row the two formulas have the same truth-value. But as mentioned above, it is less important that you take time to explicitly verify them yourself and more important that you spend some time memorizing the statements of the laws. 
 
 *Law of excluded middle*: $p\vee \neg p$ is a tautology.
 
@@ -376,7 +411,7 @@ In this section, we provide a list of all the named tautologies and equivalences
  p\/~p
 ~~~
 
-*Law of non-contradiction$: $\neg (p\wedge q)$ is a tautology.
+*Law of non-contradiction*: $\neg (p\wedge \neg p)$ is a tautology.
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  ~(p/\~p)
