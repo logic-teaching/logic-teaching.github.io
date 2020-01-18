@@ -240,7 +240,7 @@ Hint: this one is asserting both a necessary and sufficient condition. Hence, it
 
 In the following problems, you are to determine whether the formula is a tautology or not. If it is a tautology, fill out the truth-table correctly so that its main connective column is all true, check your answer and then the answer will turn green. If it is not a tautology, then find a row where the formula is false, click the 'Non-tautology' button, and enter in the truth-values of the basic propositional letters on that row, and then the answer will turn green.
 
-Note 1: we will go over these problems in the second lecture of Week 2.
+Note 1: see the section [Spotting non-tautologies and spotting non-equivalences](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-lecture2-tautologies.pandoc#spotting-non-tautologies-and-spotting-non-equivalences) in the second lecture from this week before trying these problems.
 
 Note 2: some of the formulas here are more complicated than we have seen previously. Hence, prior to each tautology problem, we give a problem like the ones from Week 1 which help you parse the formulas. It is structured like the [Practice finding the main connectives](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#practice-finding-the-main-connectives) problems.
 
@@ -388,7 +388,7 @@ Then determine whether the formula is a tautology:
 
 In the following problems, you are to determine whether the two formulas which are separated by a comma are equivalent or inequivalent. If they are equivalent, fill out the truth-table correctly, check your answer and then your answer will turn green. If they are inequivalent, then find a row where one is true and the other is false, click the 'Inequivalent' button, and enter in the truth-values of the basic propositional letters on that row, and then your answer will turn green.
 
-Note 1: we will go over these problems in the second lecture of Week 2.
+Note 1: see the section [Spotting non-tautologies and spotting non-equivalences](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-lecture2-tautologies.pandoc#spotting-non-tautologies-and-spotting-non-equivalences) in the second lecture from this week before trying these problems.
 
 Note 2: some of the formulas here are more complicated than we have seen previously. Hence, prior to each tautology problem, we give a problem like the ones from Week 1 which help you parse the formulas. It is structured like the [Practice finding the main connectives](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#practice-finding-the-main-connectives) problems.
 

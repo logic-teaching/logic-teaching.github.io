@@ -8,7 +8,7 @@ Logic, First Course, Winter 2020. Week 2, Lecture 2. [Back to course website](ht
 In this lecture, we learn about tautologies and equivalences, as well as how to generate examples of them, and how to discern when a formula is not a tautology and when a pair of formulas are not equivalent.
 
 - [Definitions and law of excluded middle](#definitions-and-law-of-excluded-middle)
-- [Commutativity and associativity and distributivity](#commutativity and associativity and distributivity)
+- [Commutativity and associativity and distributivity](#commutativity-and-associativity-and-distributivity)
 - [Recognizing tautologies and equivalences quickly](#recognizing-tautologies-and-equivalences-quickly)
 - [Boole and the laws of thought](#boole-and-the-laws-of-thought)
 - [Spotting non-tautologies and spotting non-equivalences](#spotting-non-tautologies-and-spotting-non-equivalences)
@@ -237,9 +237,13 @@ To show that this is not a tautology, one has to find a row where the formula is
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-ex1.mp4"/> </video>
 
+<br>
+
 If we had entered in any other row, like FTF, we would not have succeeded, because the formula is in fact true at all the other rows (since disjunction is easy to make true). Here is a video fo me entering in FTF and not succeeding:
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-ex2.mp4"/> </video>
+
+<br>
 
 Hence, when faced with one of these problems, one way to proceed is to "brute force it" and simply fill out the entire table. But a quicker way to proceed is to try to "think though" what would make it false. The [Practice Problems](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-practice-problems.pandoc#tautologies) for this week have solutions attached to them which explain why something is not a tautology when it is not-- just search for "solutions" (plural) on the practice problems. Finally, note that in exam situations, you will additionally be asked explicitly after this kind of problem whether the formula is a tautology or not. Hence, if you opt for "brute force" make sure that you can check the table quickly to discern whether it is a tautology.
 
@@ -249,9 +253,11 @@ There is a similar thing for inequivalences. The problems about inequivalence ar
  p/\q, p\/q
 ~~~
 
-To show that these are inequivalent, you just have to find a row where their truth-values differs. Again, one can brute-force it and just fill out the entire table and check the answer: in the event that it is an inequivalence, like this, one will have found a row where the truth-values differ. But a quicker way to do is to just find a row where the truth-values differ. For instance, I know that when one of $p,q$ is false, then $p\wedge q$ is false but $p\vee q$ is true. Hence, I can just click on the "Inequivalent" button and enter in TF or FT this succeeds. But if I had entered in TT or FF I would not succeed, because $p\wedge q$ and $p\vee q$ have the same truth-value on these rows. Here is a video of me doing this:
+To show that these are inequivalent, you just have to find a row where their truth-values differs. Again, one can brute-force it and just fill out the entire table and check the answer: in the event that it is an inequivalence, like this, one will have found a row where the truth-values differ. But a quicker way to do is to just find a row where the truth-values differ. For instance, I know that when one of $p,q$ is false, then $p\wedge q$ is false but $p\vee q$ is true. Hence, I can just click on the "Inequivalent" button and enter in TF or FT this succeeds. But if I had entered in TT or FF I would not succeed, because $p\wedge q$ and $p\vee q$ have the same truth-value on these rows. Here is a video of me doing all this:
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/tautologies-ex3.mp4"/> </video>
+
+<br>
 
 Again, to successively solve it, I only needed to enter in one of TT or FF. This way of doing it is much quicker than filling out the entire table. The [Practice Problems](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-practice-problems.pandoc#tautologies) for this week have solutions attached to them which explain why something is not an equivalence when it is not-- just search for "solutions" (plural) on the practice problems. Finally, note that in exam situations, you will additionally be asked explicitly after this kind of problem whether the two formulas are equivalent or not. Thus, if you opt for "brute force" make sure that you can check the table quickly to discern whether the two formulas are equivalent.
 
