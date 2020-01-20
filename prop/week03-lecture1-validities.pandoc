@@ -1,0 +1,214 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 3, Lecture 1. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=4)
+
+# Validities
+
+In this lecture, we learn about validities. We look at paradigmatic examples of, as well as ways to quickly recognize some validities. Similarly, we look at representative examples of invalidities -- these are some of the well-known fallacies.
+
+- [Definition of validity](#definition-of-validity)
+- [First paradigmatic example of modus ponens](#first-paradigmatic-example-of-modus-ponens)
+- [Second paradigmatic example of modus tollens](#second-paradigmatic-example-of-modus-tollens)
+- [Some fallacies related to invalidities](#some-fallacies-related-to-invalidities)
+- [Deduction theorem and tautologies and validities](#deduction-theorem-and-tautologies-and-validities)
+- [Some fallacies unrelated to invalidities](#some-fallacies-unrelated-to-invalidities)
+- [Validities and equivalences](#validities-and-equivalences)
+- [Validities from substitution and distinguishing from invalidities](#Validities-from-substitution-and-distinguishing-from-invalidities)
+- [Third class of paradigmatic examples of disjunctive syllogisms](#third-class-of-paradigmatic-examples-of-disjunctive-syllogisms)
+- [Reasoning by cases](#reasoning-by-cases)
+
+<br>
+
+## Definition of validity
+
+On a very abstract level, an argument consists of several premises and a single conclusion. This level of abstraction ignores for the moment the reasons we have for thinking that the conclusion follows from the premises. These reasons might be complex, and come from a multitude of sources of evidence: perception, past experience, testimony, or logic. We abstract in this way so that we can focus on a particular source of evidence coming from logic, namely the situation in which the truth of the premises guarantees the truth of the conclusion, by virtue of logic alone.
+
+To formalize this notion of guarantee, we say: an argument is *valid* if for all possible distribution of truth-values of the basic propositional letters in the formulas, if all the premises are true, then the conclusion is true. For short we say:  an argument is *valid* if whenever all the premises are true, the conclusion is true. The sense of "whenever" is then "whenever you look at a row of the truth-table." As such, validity is clearly a very useful property to be able to identify: if an argument is valid, then all we need to do in order to obtain the truth of its conclusion is to certify that the premises are all true, and logic does the rest.
+
+We write $\varphi_1, \ldots, \varphi_n \vdash \psi$ to indicate that the argument with premises $\varphi_1, \ldots, \varphi_n$ and conclusion $\psi$ is valid. The symbol $\vdash$ is sometimes pronouced the *consequence symbol*. It is written on paper by just a vertical line drawn downwards and then a horizontal line attached to it. INSERT VIDEO. There are various alternative ways of pronouncing the expression $\varphi_1, \ldots, \varphi_n \vdash \psi$ out loud:
+
+1. $\varphi_1, \ldots, \varphi_n \vdash \psi$
+2. $\varphi_1, \ldots, \varphi_n$ have $\psi$ as a consequence.
+3. From premises $\varphi_1, \ldots, \varphi_n$ the conclusion $\psi$ follows.
+4. The conclusion $\psi$ follows from premises $\varphi_1, \ldots, \varphi_n$.
+5. The argument with premises $\varphi_1, \ldots, \varphi_n$ and conclusion $\psi$ is valid.
+
+Note that we are using commas to separate premises. In this context, the commas function like conjunctions, since someone who believes e.g. the two premises of the argument from $\varphi_1, \varphi_2$ to $\psi$ in fact believes both premises. And if the argument is valid, then of course they have a good reason to believe the conclusion $\psi$.
+
+<br>
+
+## First paradigmatic example of modus ponens
+
+
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q, p :|-: q
+~~~
+
+<br>
+
+## Second paradigmatic example of modus tollens
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q, ~q :|-: ~p
+~~~
+
+<br>
+
+
+## Some fallacies related to invalidities
+
+Affirming the consequent:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ p->q, q :|-: p
+~~~
+
+Denying the antecedent:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ p->q, ~p :|-: ~q
+~~~
+
+
+<br>
+
+
+## Deduction theorem and tautologies and validities
+
+Statement of deduction theorem
+
+Example via modus ponens
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ((p->q)/\p)->q
+~~~
+
+Example via modus tollens
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ((p->q)/\~q)->~p
+~~~
+
+<br>
+
+
+## Some fallacies unrelated to invalidities
+
+Begging the question:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
+ p->q, p, (q/\r) :|-: q
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
+ q->(p->q), q :|-: q
+~~~
+
+<br>
+
+## Validities and equivalences
+
+*The law of double-negation*: $p$ is equivalent to $\neg \neg p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p, ~~p
+| TTFT
+| FFTF
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
+ p :|-: ~~p
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
+ ~~p :|-: p
+~~~
+
+Recall *DeMorgan Law, part 1*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ~(p/\q), ~p\/~q
+| FTTTFTFFT
+| TTFFFTTTF
+| TFFTTFTFT
+| TFFFTFTTF
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
+ ~(p/\q) :|-: ~p\/~q
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
+ ~p\/~q :|-: ~(p/\q)
+~~~
+
+
+<br>
+
+## Validities from substitution and distinguishing from invalidities
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q, p :|-: q
+~~~
+
+Substitution
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ (p/\q)->r, p/\q :|-: r
+~~~
+
+Replacement:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q, ~~p :|-: q
+~~~
+
+
+## Third class of paradigmatic examples of disjunctive syllogisms
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/q, ~p :|-: q
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/q, ~q :|-: p
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ~(p/\q), p :|-: ~q
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ~(p/\q), q :|-: ~p
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/(q\/r), ~p, ~q :|-: r
+~~~
+
+<br>
+
+## Reasoning by cases
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/q, p->r, q->r :|-: r
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/~p, p->p, ~p->p :|-: p
+~~~
+
+<br>
+
+
+
+<br>
+
+<br>
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=4).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
