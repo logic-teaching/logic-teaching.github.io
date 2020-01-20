@@ -167,7 +167,7 @@ In the first step, we apply De Morgan, part 1 to the conjuncts $p$ and $q\wedge 
 
 ## Boole and the laws of thought
 
-The named tautologies that we have been learning today were first isolated by George Boole in his 1854 book [An Investigation of the Laws of Thought](https://books.google.com/books?id=SWgLVT0otY8C&newbks=1&newbks_redir=0&dq=An%20Investigation%20of%20the%20Laws%20of%20Thought&pg=PP5#v=onepage&q=An%20Investigation%20of%20the%20Laws%20of%20Thought&f=false). In the early 19th Century, algebra became increasingly sophisticated, and Boole and others thought that there was a fruitful analogy to be explored between algebra and logic, where the latter was conceived of as providing laws which "govern the general operation of the mind":
+The named tautologies that we have been learning today were isolated by George Boole in his 1854 book [An Investigation of the Laws of Thought](https://books.google.com/books?id=SWgLVT0otY8C&newbks=1&newbks_redir=0&dq=An%20Investigation%20of%20the%20Laws%20of%20Thought&pg=PP5#v=onepage&q=An%20Investigation%20of%20the%20Laws%20of%20Thought&f=false). In the early 19th Century, algebra became increasingly sophisticated, and Boole and others thought that there was a fruitful analogy to be explored between algebra and logic, where the latter was conceived of as providing laws which "govern the general operation of the mind":
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Boole%201854%20-%20An%20Investigation%20of%20the%20Laws%20of%20Thought%20p.%206.png" alt="Boole p. 6 of Laws of Thought" width="600"/>
 
@@ -192,33 +192,21 @@ Some more striking differences concern the following equivalences (which are not
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p/\p, p
-| TTTT
-| FFFF
 ~~~
 
-It this was a rule of numbers, it would read $p\times p=p$, which is only true of the number one.
+It this was a rule of numbers, it would read $p\times p=p$, which is only true of the number one and zero.
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p\/p, p
-| TTTT
-| FFFF
 ~~~
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p/\(p\/q), p
-| TTTTTT
-| TTTTFT
-| FFFTFF
-| FFFFFF
 ~~~
 
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p\/(p/\q), p
-| TTTTTT
-| TTTFFT
-| FFFFTF
-| FFFFFF
 ~~~
 
 The deeper reason that Boole thought that there was an analogy between logic and algebra was that the laws of algebra apply to multiple number systems: the positive whole numbers, the negative numbers, the real numbers, the imaginary numbers. The tautologies and associated equivalences we have listed today form the axioms of *Boolean algebras*. Propositional logic is one source of Boolean algebras, and the other that Boole found was in sets. While we shall not say much more about sets in this course, it forms the analogue of truth-tables for richer logics beyond propositional logic.
@@ -403,7 +391,7 @@ This section has all the tables filled out for the laws in the previous section.
 
 <br>
 
- We also provide the ability for you to practice with truth-tables by completing the truth-table. In the case of tautologies (the ones with just one formula), what you will see is that they have all true's under the column associated to their main connective. In the case of equivalences (the ones with two formulas, separated by a comma), you will find that for each row the two formulas have the same truth-value. But as mentioned above, it is less important that you take time to explicitly verify them yourself and more important that you spend some time memorizing the statements of the laws. 
+ We also provide the ability for you to practice with truth-tables by completing the truth-table. In the case of tautologies (the ones with just one formula), what you will see is that they have all true's under the column associated to their main connective. In the case of equivalences (the ones with two formulas, separated by a comma), you will find that for each row the two formulas have the same truth-value. But as mentioned above, it is less important that you take time to explicitly verify them yourself and more important that you spend some time memorizing the statements of the laws.
 
 *Law of excluded middle*: $p\vee \neg p$ is a tautology.
 
