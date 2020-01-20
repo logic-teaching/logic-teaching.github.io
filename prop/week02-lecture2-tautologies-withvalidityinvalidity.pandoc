@@ -167,7 +167,7 @@ In the first step, we apply De Morgan, part 1 to the conjuncts $p$ and $q\wedge 
 
 ## Boole and the laws of thought
 
-The named tautologies that we have been learning today were isolated by George Boole in his 1854 book [An Investigation of the Laws of Thought](https://books.google.com/books?id=SWgLVT0otY8C&newbks=1&newbks_redir=0&dq=An%20Investigation%20of%20the%20Laws%20of%20Thought&pg=PP5#v=onepage&q=An%20Investigation%20of%20the%20Laws%20of%20Thought&f=false). In the early 19th Century, algebra became increasingly sophisticated, and Boole and others thought that there was a fruitful analogy to be explored between algebra and logic, where the latter was conceived of as providing laws which "govern the general operation of the mind":
+The named tautologies that we have been learning today were first isolated by George Boole in his 1854 book [An Investigation of the Laws of Thought](https://books.google.com/books?id=SWgLVT0otY8C&newbks=1&newbks_redir=0&dq=An%20Investigation%20of%20the%20Laws%20of%20Thought&pg=PP5#v=onepage&q=An%20Investigation%20of%20the%20Laws%20of%20Thought&f=false). In the early 19th Century, algebra became increasingly sophisticated, and Boole and others thought that there was a fruitful analogy to be explored between algebra and logic, where the latter was conceived of as providing laws which "govern the general operation of the mind":
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Boole%201854%20-%20An%20Investigation%20of%20the%20Laws%20of%20Thought%20p.%206.png" alt="Boole p. 6 of Laws of Thought" width="600"/>
 
@@ -192,21 +192,33 @@ Some more striking differences concern the following equivalences (which are not
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p/\p, p
+| TTTT
+| FFFF
 ~~~
 
-It this was a rule of numbers, it would read $p\times p=p$, which is only true of the number one and zero.
+It this was a rule of numbers, it would read $p\times p=p$, which is only true of the number one.
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p\/p, p
+| TTTT
+| FFFF
 ~~~
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p/\(p\/q), p
+| TTTTTT
+| TTTTFT
+| FFFTFF
+| FFFFFF
 ~~~
 
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p\/(p/\q), p
+| TTTTTT
+| TTTFFT
+| FFFFTF
+| FFFFFF
 ~~~
 
 The deeper reason that Boole thought that there was an analogy between logic and algebra was that the laws of algebra apply to multiple number systems: the positive whole numbers, the negative numbers, the real numbers, the imaginary numbers. The tautologies and associated equivalences we have listed today form the axioms of *Boolean algebras*. Propositional logic is one source of Boolean algebras, and the other that Boole found was in sets. While we shall not say much more about sets in this course, it forms the analogue of truth-tables for richer logics beyond propositional logic.
@@ -233,7 +245,13 @@ If we had entered in any other row, like FTF, we would not have succeeded, becau
 
 <br>
 
-Hence, when faced with one of these problems, one way to proceed is to "brute force it" and simply fill out the entire table. But a quicker way to proceed is to try to "think though" what would make it false. The [Practice Problems](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-practice-problems.pandoc#tautologies) for this week have solutions attached to them which explain why something is not a tautology when it is not-- just search for "solutions" (plural) on the practice problems. Finally, note that in exam situations, you will additionally be asked explicitly after this kind of problem whether the formula is a tautology or not. Hence, if you opt for "brute force" make sure that you can check the table quickly to discern whether it is a tautology.
+Hence, when faced with one of these problems, one way to proceed is to "brute force it" and simply fill out the entire table. But a quicker way to proceed is to try to "think though" what would make it false. The [Practice Problems](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-practice-problems.pandoc#tautologies) for this week have solutions attached to them which explain why something is not a tautology when it is not-- just search for "solutions" (plural) on the practice problems. Finally, note that in exam situations, you will additionally be asked explicitly after this kind of problem whether the formula is a tautology or not. Hence, if you opt for "brute force" make sure that you can check the table quickly to discern whether it is a tautology. The question will look like:
+
+~~~{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Is p\/(q\/r) a tautology?
+| Yes
+| *No
+~~~
 
 There is a similar thing for inequivalences. The problems about inequivalence are posed as follows:
 
