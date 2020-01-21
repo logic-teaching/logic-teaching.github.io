@@ -24,11 +24,15 @@ In this lecture, we learn about valid arguments. We look at paradigmatic example
 
 ## Definition of valid argument
 
-On a very abstract level, an argument consists of several premises and a single conclusion. This level of abstraction ignores for the moment the reasons we have for thinking that the conclusion follows from the premises. These reasons might be complex, and come from a multitude of sources of evidence: perception, past experience, testimony, or logic. We abstract in this way so that we can subsequently focus attention on a particular source of evidence coming from logic, namely the situation in which the truth of the premises guarantees the truth of the conclusion.
+On a very abstract level, an argument consists of several premises and a single conclusion. As its name suggests, the conclusion is what we are trying to get to, what we are finishing our reasoning with. The premises are what we start with, what we begin with. Now, the reasons we have for thinking that the conclusion of an argument follows from its premises may be varied: maybe the conclusion is made more likely by the premises, maybe the conclusion offers a satisfactory explanation of some data collected together in the premises, or maybe a person we trust told us that the conclusion follows from the premises. However, in logic, we focus attention on arguments such that the truth of the conclusion is guaranteed by the truth of the premises.
 
 To formalize this notion of guarantee, we say: an argument is *valid* if for all possible combinations of truth-values of the basic propositional letters in the formulas, if all the premises are true on this combination, then the conclusion is true on this combination. For short we say:  an argument is *valid* if whenever all the premises are true, the conclusion is true. The sense of "whenever" is then "whenever you look at a row of the truth-table." As such, the validity of an argument is clearly a very useful property to be able to identify: if we know an argument is valid, then all we need to do in order to obtain the truth of its conclusion is to certify that the premises are all true.
 
-We write $\phi_1, \ldots, \phi_n \vdash \psi$ to indicate that the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\psi$ is valid. The symbol $\vdash$ is sometimes pronouced the *consequence symbol*. It is written on paper by just a vertical line drawn downwards and then a horizontal line attached to it. INSERT VIDEO. There are various alternative ways of pronouncing the expression $\phi_1, \ldots, \phi_n \vdash \psi$ out loud:
+We write $\phi_1, \ldots, \phi_n \vdash \psi$ to indicate that the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\psi$ is valid. The symbol $\vdash$ is sometimes pronouced the *consequence symbol*. It is written on paper by just a vertical line drawn downwards and then a horizontal line attached to it, like this:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-does-imply.mp4"/> </video>
+
+There are various alternative ways of pronouncing the expression $\phi_1, \ldots, \phi_n \vdash \psi$ out loud:
 
 1. $\phi_1, \ldots, \phi_n \vdash \psi$
 2. $\phi_1, \ldots, \phi_n$ have $\psi$ as a consequence.
@@ -106,7 +110,7 @@ Second, one can use one's knowledge of the propositional connectives to just gue
 
 Hence, what we have learned is that the argument with premises $p\rightarrow q$ and $q$ and conclusion $p$ is not valid. We sometimes write this like $p\rightarrow q,q\nvdash p$, where the symbol $\nvdash$ is formed from $\vdash$ by putting a vertical line through it which is twisted just a little bit clockwise. The following short video shows you how to write it:
 
-INSERT VIDEO
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-does-not-imply.mp4"/> </video>
 
 Hence, think of the truth-tables which follow which contain the "Counterexample" button as questions which ask you whether the argument in question is a valid argument  or not. In the case that they  are, in later contexts we will write the $\vdash$ to indicate that they are. In case that they are not, we will write $\nvdash$ to indicate that they are not. For instance, modus ponens was a valid argument, so we write $p\rightarow q,p\vdash q$ to record that. But affirming the consequent was not a valid argument, and so we write $p\rightarrow q, q\nvdash p$ to record that.
 
@@ -185,12 +189,11 @@ Just as substitution-instances of tautologies are tautologies, so substitution-i
 
 If you don't recognize it as an instance of modus ponens, the following video should help you do so.
 
-INSERT VIDEO
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-ponens.mp4"/> </video>
 
 Likewise, another way to generate new valid arguments from old valid arguments is to replace formulas by one of their equivalents. For instance, the following is obtained from modus ponens simply by replacing $p$ by its equivalent $\neg \neg p$:
 
 <p style="margin-left: 40px"> $p\rightarrow q, \neg \neg p\vdash q$ </p>
-
 
 
 <br>
@@ -217,7 +220,8 @@ These last two were the "third indemonstrables" of the Stoics (cf. p. 133 of [th
 
 One way to see that these are valid arguments is to use substitution and the DeMorgan laws and double-negation, as illustrated in the below video:
 
-INSERT MOVIE
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-disjunctive-syllogism.mp4"/> </video>
+
 
 As a final example of a substitution-instance, consider the following:
 
@@ -232,13 +236,13 @@ This kind of example was thought to be more challenging by the Stoics, who calle
 
 ## Reasoning by cases
 
-A final paradigmatic valid argument is "reasoning by cases." This is where we know a disjunction and we know that each of the disjunctions implies some desired conclusion, and we reason towards this desired conclusion. It is a valid argument, as the below table shows:
+A final paradigmatic valid argument is "reasoning by cases." This is where we know a disjunction and we know that each of the disjunctions implies some desired conclusion, and we reason towards this desired conclusion. It is a valid argument, as one can check using the below table:
 
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  (p\/q), p->r, q->r :|-: r
 ~~~
 
-This validity is called "reasoning by cases" since one thinks of each of the two disjuncts in $p\vee q$ as a "case", and the second premise is saying that Case~1 ($p$) implies the desired conclusion ($r$) and Case 2 implies the desired conclusion ($r$), and so one can get to the desired conclusion $r$.
+This validity is called "reasoning by cases" since one thinks of each of the two disjuncts in $p\vee q$ as a "case", and the second premise is saying that Case 1 ($p$) implies the desired conclusion ($r$) and Case 2 implies the desired conclusion ($r$), and so one can get to the desired conclusion $r$.
 
 A substitution instance of this is the following:
 
@@ -246,7 +250,7 @@ A substitution instance of this is the following:
  (p\/~p), p->p, ~p->p :|-: p
 ~~~
 
-This argument was of particular interest to the Stoics, who again first isolated these basic validities we are studying today. [They were interested in the specific case](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20463-469%20redeux.pdf) of $p= $ "There are good arguments." The first two premises of the argument are tautologies and so always true (as one can see by glancing at the truth-table). And the Stoics thought that "if there are no good arguments, then there are good arguments" has an air of truth since a sincere assertion of "there are no good arguments" would presumably be for some compelling reason, which would then be self-defeating in that it would show that there are some good arguments. While this aspect of the history of propositional logic is of merely historical interest to us in this course, it is illustrative of the way that logic is sometimes deployed in philosophy, namely as a way to subject very complicated arguments, about which there does not seem to be any relevant empirical or inductive evidence, to a type of rigorous analysis.
+This argument was of particular interest to the Stoics, who again first isolated these basic validities we are studying today. [They were interested in the specific case](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20463-469%20redeux%20double.pdf) of p= "There are good arguments." The first two premises of the argument are tautologies and so always true (as one can see by glancing at the truth-table). And the Stoics thought that "if there are no good arguments, then there are good arguments" has an air of truth since a sincere assertion of "there are no good arguments" would presumably be for some compelling reason, which would then be self-defeating in that it would show that there are some good arguments. While this aspect of the history of propositional logic is of merely historical interest to us in this course, it is illustrative of the way that logic is sometimes deployed in philosophy, namely as a way to subject very complicated arguments, about which there does not seem to be any relevant empirical or inductive evidence, to a type of rigorous analysis.
 
 <br>
 
