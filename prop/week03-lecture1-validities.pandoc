@@ -61,7 +61,7 @@ The columns of this truth-table outside of the consequence relation $\vdash$ sho
 3. If the premises are not all true and the conclusion is true, then put a true under the consequence relation $\vdash$.
 4. If the premises are not all true and the conclusion is false, then put a true under the consequence relation $\vdash$.
 
-These four rules looks a lot like the four rows of the truth-table for the material conditional, and we will explore these parallels in the [Deduction theorem](#deduction-theorem). Note in particular that one can combine rule 3 and rule 4 into the following helpful rule:
+These four rules looks a lot like the four rows of the truth-table for the material conditional, and we will explore these parallels in the [Deduction theorem](#deduction-theorem). Note in particular that one can combine rule 3 and rule 4 into the following helpful super-rule:
 
 5. If the premises are not all true, then put a true under the consequence relation $\vdash$.
 
@@ -88,7 +88,7 @@ It is a valid argument because if one fills out the table, then there are all tr
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-tollen.mp4"/> </video>
 
-The propositional logic of the kind we are learning was first isolated by the Ancient Greek school of the Stoics (we mentioned them briefly n [an earlier lecture](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#history-of-truth-table-for-implication-and-partial-confirmation)). They called modus ponens the *first indemonstrable*, and they called modus tollens the *second indemonstrable* (see pp. 132-133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)). The name "indemonstrable" indicates both that it did not need to be demonstrated, and that it could not be demonstrated. The truth-tables that we are displaying in some sense provide such a demonstration that an argument is valid. But it would be hard to think how to describe how to even use our truth-tables or what they mean without invoking something like modus ponens and modus tollens themselves. For instance, how would you use the four rules 1-4 above for the consequence relation $\vdash$ without knowing modus ponens? Hence, whether and how one can "ultimately justify" laws of logic like modus ponens is a difficult philosophical problem. But, perhaps one can just take the attitude that they do not need to be justified or demonstrated, since our doubts about them are comparatively low while our doubts about the things out in the world we use them to reason about are comparatively high.
+The propositional logic of the kind we are learning was first isolated by the Ancient Greek school of the Stoics (we mentioned them briefly n [an earlier lecture](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#history-of-truth-table-for-implication-and-partial-confirmation)). They called modus ponens the *first indemonstrable*, and they called modus tollens the *second indemonstrable* (see pp. 132-133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)). The name "indemonstrable" indicates both that it did not need to be demonstrated, and that it could not be demonstrated. The truth-tables that we are displaying in some sense provide such a demonstration that an argument is valid. But it would be hard to think how to describe how to even use our truth-tables or what they mean without invoking something like modus ponens and modus tollens themselves. For instance, how would you use the four rules 1-4 above for the consequence relation $\vdash$ without knowing modus ponens? Hence, whether and how one can "ultimately justify" laws of logic like modus ponens and modus tollens is a difficult philosophical problem. But, perhaps one can just take the attitude that they do not need to be justified or demonstrated, since our doubts about them are comparatively low while our doubts about the things out in the world we use them to reason about are comparatively high.
 
 <br>
 
@@ -106,7 +106,7 @@ One can check it is an invalidity in two ways. First, one can complete the entir
 
 <br>
 
-Second, one can use one's knowledge of the propositional connectives to just guess a row which shows it is invalid and then just press the "Counterexample" button and enter that row. In this case, we know that if $p$ is false and $q$ is true, then $p\rightarrow q$ is true. Hence, in the circumstance where $p$ is false and $q$ is true, we have that the  premise $p\rightarrow q$ is true and the premise $q$ is true and yet the conclusion $p$ is be false, indicating that the argument is invalid. Hence, we would just press the "Counterexample" button and enter in FT. This is what we do in the following video:
+Second, one can use one's knowledge of the propositional connectives to just guess a row which shows it is invalid and then just press the "Counterexample" button and enter that row. For example, we know that if $p$ is false and $q$ is true, then $p\rightarrow q$ is true. Hence, in the circumstance where $p$ is false and $q$ is true, we have that the  premise $p\rightarrow q$ is true and the premise $q$ is true and yet the conclusion $p$ is false, indicating that the argument is invalid. Hence, we would just press the "Counterexample" button and enter in FT. This is what we do in the following video:
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-affirming-consequent-second.mp4"/> </video>
 
@@ -116,13 +116,13 @@ Hence, what we have learned is that the argument with premises $p\rightarrow q$ 
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-does-not-imply.mp4"/> </video>
 
-Hence, think of the truth-tables which follow which contain the "Counterexample" button as questions which ask you whether the argument in question is a valid argument  or not. In the case that they  are, in later contexts we will write the $\vdash$ to indicate that they are. In case that they are not, we will write $\nvdash$ to indicate that they are not. For instance, modus ponens was a valid argument, so we write $p\rightarow q,p\vdash q$ to record that. But affirming the consequent was not a valid argument, and so we write $p\rightarrow q, q\nvdash p$ to record that.
+Hence, think of the truth-tables which follow which contain the "Counterexample" button as *questions* which ask you whether the argument is a valid argument  or not. In the case that they  are, in later contexts we will write the $\vdash$ to indicate that they are. In case that they are not, we will write $\nvdash$ to indicate that they are not. For instance, modus ponens was a valid argument, so we write $p\rightarrow q,p\vdash q$ to record that. But affirming the consequent was not a valid argument, and so we write $p\rightarrow q, q\nvdash p$ to record that.
 
 <br>
 
 ## Invalid arguments can be good in other ways
 
-It should be emphasized that arguments which are invalid can be meritorious in other ways. Take "if it is raining then the sidewalks are wet; the sidewalks are wet, and so it raining." This argument has the exact same form as affirming the consequent. And yet it is  an argument that we would all think rather reasonable. To be sure, the truth of the premises does not *gaurantee* the truth of the conclusion (maybe the sprinklers were on!), but it does make the conclusion *more likely* to be true. Another way of putting this is: validity is a feature of a good deductive arguments, rather than a feature of a good inductive arguments. But why then should we be worried about whether our arguments are valid, if they can be good in many other ways? One answer is: we want to be in a position to distinguish deductive from inductive arguments, so as to understand our reasoning better, just as e.g. a biologist wants to be in a position to distinguish different forms of life (plants vs. animals vs. fungi etc.) Another answer is: logic is kind of like a natural language, and just like when you first learn a language you are likely to misconjungate a verb if you are not careful, so when you are learning logic it is likely that you might mistake modus ponens with the similar looking affirming the consequent if you are not careful.
+It should be emphasized that arguments which are invalid can be meritorious in other ways. Take "if it is raining then the sidewalks are wet; the sidewalks are wet, and so it raining." This argument has the exact same form as affirming the consequent. And yet it is  an argument that we would all think rather reasonable. To be sure, the truth of the premises does not *gaurantee* the truth of the conclusion (maybe the sprinklers were on!), but it does make the conclusion *more likely* to be true. Another way of putting this is: validity is a feature of a good deductive arguments, rather than a feature of a good inductive arguments. But why then should we be worried about whether our arguments are valid, if they can be good in other ways? One answer is: we want to be in a position to distinguish deductive from inductive arguments, so as to understand our reasoning better, just as e.g. a biologist wants to be in a position to distinguish different forms of life (plants vs. animals vs. fungi etc.) Another answer is: logic is kind of like a natural language, and just like when you first learn a language you are likely to misconjungate a verb if you are not careful, so when you are first learning logic it is likely that you might mistake modus ponens with the similar looking affirming the consequent if you are not careful.
 
 <br>
 
@@ -134,7 +134,7 @@ There is another invalid argument which bears a passing similarity to the valid 
  p->q, ~p :|-: ~q
 ~~~
 
-Again, when posed like this, the computer system is giving you the problem: figure out whether it is a validity. In this case, it is an invalidity. We can  brute force it and fill it all out, and eventually uncover a row where all the premises are true and the conclusion is false. Alternatively, we can try to think through it and figure out, based on our knowledge of the propositional connectives, what row will be such that all the premises are true and the conclusion is false. Consider again the row FT. In this row $p$ is false so $\neg p$ is true; and likewise in this row $q$ is true so $\neg q$ is false. Further in this row the premise $p\rightarrow q$ is true. Hence the two premises $p\rightarrow q$ and $\neg  p$ are true in this row but the conclusion $\neg q$ is false. Hence the argument is invalid. To solve the problem this way, we click the "Counterexample" button and we enter in FT again. Hence, since the argument is invalid, if we want to later recall this without having to write out the truth-table again, we would just write $p\rightarrow q, \neg p\nvdash \neg q$. Likewise, if you read  $p\rightarrow q, \neg p\nvdash \neg q$ that is just a short way of communicating that the argument with premises $p\rightarrow q$ and $\neg p$ and conclusion $\neg q$ is invalid.
+Again, when posed like this, the computer system is giving you the problem: figure out whether it is a validity. In this case, it is an invalidity. We can  brute force it and fill it all out, and eventually uncover a row where all the premises are true and the conclusion is false. Alternatively, we can try to think through it and figure out, based on our knowledge of the propositional connectives, what row will be such that all the premises are true and the conclusion is false. Consider again the row FT. In this row $p$ is false so $\neg p$ is true; and likewise in this row $q$ is true so $\neg q$ is false. Further in this row the premise $p\rightarrow q$ is true. Hence the two premises $p\rightarrow q$ and $\neg  p$ are true in this row but the conclusion $\neg q$ is false. Hence the argument is invalid. To solve the problem this way, we click the "Counterexample" button and we enter in FT again. Hence, since the argument is invalid, if we want to later recall this without having to write out the truth-table again, we would just write $p\rightarrow q, \neg p\nvdash \neg q$. Likewise, writing $p\rightarrow q, \neg p\nvdash \neg q$ is just a short way of communicating that the argument with premises $p\rightarrow q$ and $\neg p$ and conclusion $\neg q$ is invalid.
 
 <br>
 
@@ -148,8 +148,6 @@ One might have gotten the feeling already that $\vdash$ is pretty closely  relat
 ~~~
 
 And similarly this is a tautology formed from modus tollens:
-
-Example via modus tollens
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  ((p->q)/\~q)->~p
@@ -165,7 +163,7 @@ There are some errors in reasoning which are actually valid arguments and hence 
 
 <p style="margin-left: 40px"> $p\rightarrow q, p, (q\wedge r)\vdash q$ </p>
 
-It is challenging to say more about what the notion of "tacit" or "implicit" amounts to in this context. If one meant "literally the conclusion is among the premises" then even the above argument would count as non-question-begging. But if one meant "the conclusion is somehow already to be found in the premises" then there is a sense in which all arguments are question-begging. Even though the notion of "question-begging" is hard to define, often there are clear cut cases. This can happen when one is trying to find deductive arguments for things which one already believes. For instance, suppose that you already believe $q$, and you are trying to justify your belief to a friend. You might try to argue from $p$ and $p\rightarrow q$ to $q$ using modus ponens. But when doing this, you have to be careful that your reason to belive $p\rightarrow q$ is more than just your prior belief in $q$. If your justification for believing $p\rightarrow q$ is just $q$, then your modus ponens argument to $q$ via $p\rihtarrow q$ and $p$ would be question-begging.
+It is challenging to say more about what the notion of "tacit" or "implicit" amounts to in this context. If one meant "literally the conclusion is among the premises" then even the above argument would not count as question-begging. But if one meant "the conclusion is somehow already to be found in the premises" then there is a sense in which all valid arguments are question-begging (the story of how they are to be found is just a really big truth-table). Even though the notion of "question-begging" is hard to define, often there are clear-cut cases. This can happen easily when one is trying to find deductive arguments for things which one already believes. For instance, suppose that you already believe $q$, and you are trying to justify your belief to a friend. You might try to argue from $p$ and $p\rightarrow q$ to $q$ using modus ponens. But when doing this, you have to be careful that your reason to belive $p\rightarrow q$ is more than just your prior belief in $q$. If your justification for believing $p\rightarrow q$ is just $q$, then your modus ponens argument to $q$ via $p\rightarrow q$ and $p$ would be question-begging.
 
 <br>
 
@@ -176,6 +174,8 @@ An equivalence recall is just a pair $\phi, \psi$ of formulas such that $\phi\le
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
  p :|-: ~~p
 ~~~
+
+Note again the the 'check' button is just making sure you filled in the table right. To check it is a valid argument, you have to look at the table and see whether it has all trues under the consequence relation $\vdash$.
 
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
  ~~p :|-: p
@@ -193,7 +193,7 @@ Just as substitution-instances of tautologies are tautologies, so substitution-i
 
 If you don't recognize it as an instance of modus ponens, the following video should help you do so.
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-ponens.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validites-modus-ponens-sub"/> </video>
 
 Likewise, another way to generate new valid arguments from old valid arguments is to replace formulas by one of their equivalents. For instance, the following is obtained from modus ponens simply by replacing $p$ by its equivalent $\neg \neg p$:
 
@@ -220,7 +220,7 @@ Now consider the following valid arguments:
 
 <p style="margin-left: 40px"> $\neg (p\wedge q), q \vdash \neg p$ </p>
 
-These last two were the "third indemonstrables" of the Stoics (cf. p. 133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)):
+These last two were the "third indemonstrables" of the Stoics-- they only had three (cf. p. 133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)).
 
 One way to see that these are valid arguments is to use substitution and the DeMorgan laws and double-negation, as illustrated in the below video:
 
@@ -232,7 +232,7 @@ As a final example of a substitution-instance, consider the following:
 
 <p style="margin-left: 40px"> $p\vee (q\vee (r\vee s)), \neg p\vdash q\vee (r\vee s)$ </p>
 
-This kind of example was thought to be more challenging by the Stoics, who called them "paradisjunctive syllogisms". [Galen](https://plato.stanford.edu/entries/galen/)-- the father of medicine-- wrote a book on logic in which he devotes a whole chapter to them (Chapter XV pp. 48-49 of [this edition](http://logic-teaching.github.io/prop/texts/Galen%201964%20-%20Institutio%20Logica.pdf)), with medical examples like this:
+This kind of example was thought to be more challenging by the Stoics, who called them "paradisjunctive syllogisms". [Galen](https://plato.stanford.edu/entries/galen/)-- the famous medical writer of the ancient world-- also wrote a book on logic in which he devotes a whole chapter to them (Chapter XV pp. 48-49 of [this edition](http://logic-teaching.github.io/prop/texts/Galen%201964%20-%20Institutio%20Logica.pdf)), with medical examples like this:
 
 &nbsp; &nbsp; &nbsp;   <img src="http://logic-teaching.github.io/prop/texts/Galen%201964%20-%20Institutio%20Logica%20-%20Chapter%20XV%20screenshot.png" alt="Galen quotation" width="700"/>
 
@@ -254,7 +254,7 @@ A substitution instance of this is the following:
  (p\/~p), p->p, ~p->p :|-: p
 ~~~
 
-This argument was of particular interest to the Stoics, who again first isolated these basic validities we are studying today. [They were interested in the specific case](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20463-469%20redeux%20double.pdf) of p= "There are good arguments." The first two premises of the argument are tautologies and so always true (as one can see by glancing at the truth-table). And the Stoics thought that "if there are no good arguments, then there are good arguments" has an air of truth since a sincere assertion of "there are no good arguments" would presumably be for some compelling reason, which would then be self-defeating in that it would show that there are some good arguments. While this aspect of the history of propositional logic is of merely historical interest to us in this course, it is illustrative of the way that logic is sometimes deployed in philosophy, namely as a way to subject very complicated arguments, about which there does not seem to be any relevant empirical or inductive evidence, to a type of rigorous analysis.
+This argument was of particular interest to the Stoics, who again first isolated these basic validities we are studying today. [They were interested in the specific case](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20463-469%20redeux%20double.pdf) of p= "There are good arguments." The first two premises of the argument are tautologies and so always true (as one can see by glancing at the truth-table). And the Stoics thought that the third premise "if there are no good arguments, then there are good arguments" has an air of truth since a sincere assertion of "there are no good arguments" would presumably be for some compelling reason, which would then be self-defeating in that it would show that there are some good arguments. While this aspect of the history of propositional logic is of merely historical interest to us in this course, it is illustrative of the way that logic is sometimes deployed in philosophy, namely as a way to subject very complicated arguments, about which there does not seem to be any relevant empirical or inductive evidence, to a type of rigorous analysis.
 
 <br>
 
