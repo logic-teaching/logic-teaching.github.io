@@ -1,0 +1,179 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 3, Section Meeting. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=4)
+
+# Valid or invalid
+
+In section, we focus on distinguishing valid from invalid arguments.
+
+- [Assessing validity](#assessing-validity)
+- [Translations then validity](#translations-then-validity)
+
+
+<br>
+
+## Assessing validity
+
+For each of the following ten problems, use the table to determine whether the argument is valid or invalid. Then record your answer by answering the subsequent yes/no question appropriately.
+
+*Example 1*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ a/\(b/\c) :|-: b/\c
+~~~
+
+Hence, is the argument with conclusion $a/\(b/\c)$ and premise $b/\c$ a valid argument?
+
+~~~{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+| *Yes
+| No
+~~~
+
+
+
+*Example 2*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ c/\(d/\e) :|-: e
+~~~
+
+Hence, is the argument with premise $c\wedge (d\wedge e)$ and conclusion $e$ a valid argument?
+
+~~~{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+| *Yes
+| No
+~~~
+
+
+*Example 3*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~e\/f :|-: ~e
+~~~
+
+Hence, is the argument with conclusion $\neg e$ and premise $\neg e\vee f$ a valid argument?
+
+~~~{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+| Yes
+| *No
+~~~
+
+
+*Example 4*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~j,~z :|-: ~(j\/z)
+~~~
+
+Hence, is the argument with conclusion $\neg (j\vee z)$ and premises $\neg j$ and $\neg z$ a valid argument?
+
+~~~{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+| *Yes
+| No
+~~~
+
+
+*Example 5*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ (a\/b), (b\/c), ~b :|-: a/\c
+~~~
+
+Hence, is the argument with premises $a\vee b$ and $b\vee c$ and $\neg b$ and conclusion $a\wedge c$ a valid argument?
+
+~~~{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+| *Yes
+| No
+~~~
+
+
+*Example 6*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ r,t :|-: s\/(r/\t)
+~~~
+
+Hence, is the argument with conclusion $s\vee (r\wedge t)$ and premises $r$ and $t$ a valid argument?
+
+~~~{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+| *Yes
+| No
+~~~
+
+*Example 7*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ t\/s :|-: (t\/s)/\r
+~~~
+
+Hence, is the argument with conclusion $(t\/s)/\r$ and premise $t\/s$ a valid argument?
+
+~~~{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+| Yes
+| *No
+~~~
+
+*Example 8*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~a, ~a->b :|-: b
+~~~
+
+Hence, is the argument with conclusion $b$ and premises $~a$ and $~a\rightarrow b$ a valid argument?
+
+~~~{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+| *Yes
+| No
+~~~
+
+*Example 9*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ c, ~d->c :|-: ~d
+~~~
+
+Hence, is the argument with conclusion $\neg d$ and premises $c$ and $\neg d\rightarrow c$ a valid argument?
+
+~~~{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+| Yes
+| *No
+~~~
+
+*Example 10*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ u\/v, u->v :|-: u
+~~~
+
+Hence, is the argument with premises $u\vee v$ and $u\rightarrow v$ and conclusion $u$ a valid argument?
+
+~~~{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+| Yes
+| *No
+~~~
+
+<br>
+
+## Translations then validity
+
+
+
+<br>
+
+<br>
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=4).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
