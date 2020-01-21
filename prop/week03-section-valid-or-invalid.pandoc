@@ -103,8 +103,8 @@ It turns out that this is a valid argument. What substitution should you do to s
 
 | substitute s for p and substitute r/\ t for q.
 | substitute t for p and substitute r/\ s for q.
-| *substitute r/\ t for q and substitute s for p.
-| substitute r/\ s for q and substitute t for p.
+| *substitute r/\ t for p and substitute s for q.
+| substitute r/\ s for p and substitute t for q.
 ```
 
 <br>
