@@ -94,11 +94,15 @@ A "fallacy" is just an error in argumentation. Some errors relate to an argument
 
 One can check it is an invalidity in two ways. First, one can complete the entire table correctly and just see that there is some row where there is a false under the $\vdash$ column. This is what we do in the following video:
 
-INSERT VIDEO
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-affirming-consequent.mp4"/> </video>
+
+<br>
 
 Second, one can use one's knowledge of the propositional connectives to just guess a row which shows it is invalid and then just press the "Counterexample" button and enter that row. In this case, we know that if $p$ is false and $q$ is true, then $p\rightarrow q$ is true. Hence, in the circumstance where $p$ is false and $q$ is true, we have that the  premise $p\rightarrow q$ is true and the premise $q$ is true and yet the conclusion $p$ is be false, indicating that the argument is invalid. Hence, we would just press the "Counterexample" button and enter in FT. This is what we do in the following video:
 
-INSERT VIDEO
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-affirming-consequent-second.mp4"/> </video>
+
+<br>
 
 Hence, what we have learned is that the argument with premises $p\rightarrow q$ and $q$ and conclusion $p$ is not valid. We sometimes write this like $p\rightarrow q,q\nvdash p$, where the symbol $\nvdash$ is formed from $\vdash$ by putting a vertical line through it which is twisted just a little bit clockwise. The following short video shows you how to write it:
 
@@ -122,13 +126,7 @@ There is another invalid argument which bears a passing similarity to the valid 
  p->q, ~p :|-: ~q
 ~~~
 
-Again, when posed like this, the computer system is giving you the problem: figure out whether it is a validity. In this case, it is an invalidity. We can  brute force it and fill it all out, and eventually uncover a row where all the premises are true and the conclusion is false. This is what we do in the below video:
-
-INSERT VIDEO
-
-Alternatively, we can try to think through it and figure out, based on our knowledge of the propositional connectives, what row will be such that all the premises are true and the conclusion is false. Consider again the row FT. In this row $p$ is false so $\neg p$ is true; and likewise in this row $q$ is true so $\neg q$ is false. Further in this row the premise $p\rightarrow q$ is true. Hence the two premises $p\rightarrow q$ and $\neg  p$ are true in this row but the conclusion $\neg q$ is false. Hence the argument is invalid. To solve the problem this way, we click the "Counterexample" button and we enter in FT again. Here is a video of that:
-
-Hence, since the argument is invalid, if we want to later recall this without having to write out the truth-table again, we would just write $p\rightarrow q, \neg p\nvdash \neg q$. Likewise, if you read  $p\rightarrow q, \neg p\nvdash \neg q$ that is just a short way of communicating that the argument with premises $p\rightarrow q$ and $\neg p$ and conclusion $\neg q$ is invalid.
+Again, when posed like this, the computer system is giving you the problem: figure out whether it is a validity. In this case, it is an invalidity. We can  brute force it and fill it all out, and eventually uncover a row where all the premises are true and the conclusion is false. Alternatively, we can try to think through it and figure out, based on our knowledge of the propositional connectives, what row will be such that all the premises are true and the conclusion is false. Consider again the row FT. In this row $p$ is false so $\neg p$ is true; and likewise in this row $q$ is true so $\neg q$ is false. Further in this row the premise $p\rightarrow q$ is true. Hence the two premises $p\rightarrow q$ and $\neg  p$ are true in this row but the conclusion $\neg q$ is false. Hence the argument is invalid. To solve the problem this way, we click the "Counterexample" button and we enter in FT again. Hence, since the argument is invalid, if we want to later recall this without having to write out the truth-table again, we would just write $p\rightarrow q, \neg p\nvdash \neg q$. Likewise, if you read  $p\rightarrow q, \neg p\nvdash \neg q$ that is just a short way of communicating that the argument with premises $p\rightarrow q$ and $\neg p$ and conclusion $\neg q$ is invalid.
 
 <br>
 
@@ -157,9 +155,7 @@ It is a tautology simply because it has all trues under its main connective, the
 
 There are some errors in reasoning which are actually valid arguments and hence which are not bad by virtue of being invalid. Hence, validity is not all there is to say about what makes reasoning good. One well-known fallacy which actually ends up invovling valid arguments is called "begging the question" or "viciously arguing in a circle". An  argument is *question-begging* or *viciously circular* when its conclusion is listed among its premises, or somehow tacit in your premises. For instance, the following valid argument might be thought to be question-begging because the conclusion $q$ is just sitting in the premise $q\wedge r$, albeit implicitly:
 
-~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
- p->q, p, (q/\r) :|-: q
-~~~
+<p style="margin-left: 40px"> $p\rightarrow q, p, (q\wedge r)\vdash q$ </p>
 
 It is challenging to say more about what the notion of "tacit" or "implicit" amounts to in this context. If one meant "literally the conclusion is among the premises" then even the above argument would count as non-question-begging. But if one meant "the conclusion is somehow already to be found in the premises" then there is a sense in which all arguments are question-begging. Even though the notion of "question-begging" is hard to define, often there are clear cut cases. This can happen when one is trying to find deductive arguments for things which one already believes. For instance, suppose that you already believe $q$, and you are trying to justify your belief to a friend. You might try to argue from $p$ and $p\rightarrow q$ to $q$ using modus ponens. But when doing this, you have to be careful that your reason to belive $p\rightarrow q$ is more than just your prior belief in $q$. If your justification for believing $p\rightarrow q$ is just $q$, then your modus ponens argument to $q$ via $p\rihtarrow q$ and $p$ would be question-begging.
 
@@ -167,7 +163,7 @@ It is challenging to say more about what the notion of "tacit" or "implicit" amo
 
 ## Valid arguments and equivalences
 
-An equivalence recall is just a pair $\phi, \psi$ of formulas such that $\phi\leftrightarrow \psi$ is a tautology. But then both $\phi\rightarrow \psi$ and $\psi\rightarrow \phi$ is a tautology. And then by the [Deduction theorem](#deduction-theorem) one has that the two arguments $\phi\vdash \psi$ and $\psi\vdash \phi$ are validities. Hence, if one knows some equivalences, one already knows a lot of valid arguments. For instance, take the law of double-negation, which says that $p$ is equivalent to $\neg \neg p$. One can check that $p\vdash \neg \neg p$ and $\neg \neg p \vdash p$, as the following two tables show:
+An equivalence recall is just a pair $\phi, \psi$ of formulas such that $\phi\leftrightarrow \psi$ is a tautology. But then both $\phi\rightarrow \psi$ and $\psi\rightarrow \phi$ is a tautology. And then by the [Deduction theorem](#deduction-theorem) one has that the two arguments $\phi\vdash \psi$ and $\psi\vdash \phi$ are validities. Hence, if one knows some equivalences, one already knows a lot of valid arguments. For instance, take the law of double-negation, which says that $p$ is equivalent to $\neg \neg p$. One can check that $p\vdash \neg \neg p$ and $\neg \neg p \vdash p$, as one can easily check with the following tables:
 
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
  p :|-: ~~p
@@ -177,17 +173,7 @@ An equivalence recall is just a pair $\phi, \psi$ of formulas such that $\phi\le
  ~~p :|-: p
 ~~~
 
-Likewise, recall the more complicated DeMorgan Law (part 1),  which says that $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$. Then $\neg (p\wedge q)\vdash \neg p \vee \neg q$ and  $\neg p \vee \neg q \vdash \neg (p\wedge q)$, as the following two tables show:
-
-~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
- ~(p/\q) :|-: ~p\/~q
-~~~
-
-~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
- ~p\/~q :|-: ~(p/\q)
-~~~
-
-Hence, any equivalence automatically yields two valid arguments.
+Likewise, recall the more complicated DeMorgan Law (part 1),  which says that $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$. Then $\neg (p\wedge q)\vdash \neg p \vee \neg q$ and  $\neg p \vee \neg q \vdash \neg (p\wedge q)$. Hence, any equivalence automatically yields two valid arguments.
 
 <br>
 
@@ -195,9 +181,7 @@ Hence, any equivalence automatically yields two valid arguments.
 
 Just as substitution-instances of tautologies are tautologies, so substitution-instances of valid arguments are valid arguments. Hence, one can automatically know ahead of time that the following is a valid argument simply by realizing that it is an instance of modus ponens:
 
-~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
- (p/\q)->r, p/\q :|-: r
-~~~
+<p style="margin-left: 40px"> $(p\wedge q)\rightarrow r, p\wedge q\vdash r$ </p>
 
 If you don't recognize it as an instance of modus ponens, the following video should help you do so.
 
@@ -205,13 +189,15 @@ INSERT VIDEO
 
 Likewise, another way to generate new valid arguments from old valid arguments is to replace formulas by one of their equivalents. For instance, the following is obtained from modus ponens simply by replacing $p$ by its equivalent $\neg \neg p$:
 
-~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
- p->q, ~~p :|-: q
-~~~
+<p style="margin-left: 40px"> $p\rightarrow q, \neg \neg p\vdash q$ </p>
+
+
+
+<br>
 
 ## Third class of paradigmatic examples of disjunctive syllogisms
 
-Another source of paradigmatic valid arguments are disjunctive syllogisms. These are arguments who first premise is that a disjunction obtains, whose second premise is that one disjunct does not obtain, and whose conclusion is that the second disjunct obtains:
+Another source of paradigmatic valid arguments are disjunctive syllogisms. These are arguments who first premise is that a disjunction obtains, whose second premise is that one disjunct does not obtain, and whose conclusion is that the second disjunct obtains. One can fill out the tables and check that each of these is a valid argument:
 
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  p\/q, ~p :|-: q
@@ -221,28 +207,24 @@ Another source of paradigmatic valid arguments are disjunctive syllogisms. These
  p\/q, ~q :|-: p
 ~~~
 
-One can check that the following are also valid arguments-- these were the "third indemonstrables" of the Ancient Greek school of the Stoics (cf. p. 133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)):
+Now consider the following valid arguments:
 
-~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
- ~(p/\q), p :|-: ~q
-~~~
+<p style="margin-left: 40px"> $\neg (p\wedge q), p \vdash \neg q$ </p>
 
-~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
- ~(p/\q), q :|-: ~p
-~~~
+<p style="margin-left: 40px"> $\neg (p\wedge q), q \vdash \neg p$ </p>
 
+These last two were the "third indemonstrables" of the Stoics (cf. p. 133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)):
 
-Another way to see that these are valid arguments is to use substitution and the DeMorgan laws and double-negation, as illustrated in the below video:
+One way to see that these are valid arguments is to use substitution and the DeMorgan laws and double-negation, as illustrated in the below video:
 
 INSERT MOVIE
 
 As a final example of a substitution-instance, consider the following:
 
-~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
- p\/(q\/(r\/s)), ~p :|-: (q\/(r\/s))
-~~~
 
-This kind of example was thought to be more challenging by the Stoic logicians, who called them "paradisjunctive syllogisms". [Galen](https://plato.stanford.edu/entries/galen/)-- the father of medicine-- wrote a book on logic in which he devotes a whole chapter to them (Chapter XV pp. 48-49 of [this edition](http://logic-teaching.github.io/prop/texts/Galen%201964%20-%20Institutio%20Logica.pdf)), with medical examples like this:
+<p style="margin-left: 40px"> $p\vee (q\vee (r\vee s)), \neg p\vdash q\vee (r\vee s)$ </p>
+
+This kind of example was thought to be more challenging by the Stoics, who called them "paradisjunctive syllogisms". [Galen](https://plato.stanford.edu/entries/galen/)-- the father of medicine-- wrote a book on logic in which he devotes a whole chapter to them (Chapter XV pp. 48-49 of [this edition](http://logic-teaching.github.io/prop/texts/Galen%201964%20-%20Institutio%20Logica.pdf)), with medical examples like this:
 
 &nbsp; &nbsp; &nbsp;   <img src="http://logic-teaching.github.io/prop/texts/Galen%201964%20-%20Institutio%20Logica%20-%20Chapter%20XV%20screenshot.png" alt="Galen quotation" width="700"/>
 
@@ -264,7 +246,7 @@ A substitution instance of this is the following:
  (p\/~p), p->p, ~p->p :|-: p
 ~~~
 
-This argument was of particular interest to the Ancient Greek School of the Stoics, who again first isolated these basic validities we are studying today. [They were interested in the case](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20463-469%20redeux.pdf) of $p= $ "There are good arguments." The first two premises of the argument are tautologies and so always true (as one can see by glancing at the truth-table). And the Stoics thought that "if there are no good arguments, then there are good arguments" has an air of truth since a sincere assertion of "there are no good arguments" would presumably be for some compelling reason, which would then be self-defeating in that it would show that there are some good arguments. While this aspect of the history of propositional logic might be of merely historical interest to us, it is illustrative of the way that logic is sometimes deployed in philosophy, namely as a way to subject very complicated arguments, about which there does not seem to be any relevant empirical or inductive evidence, to a type of rigorous analysis.
+This argument was of particular interest to the Stoics, who again first isolated these basic validities we are studying today. [They were interested in the specific case](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20463-469%20redeux.pdf) of $p= $ "There are good arguments." The first two premises of the argument are tautologies and so always true (as one can see by glancing at the truth-table). And the Stoics thought that "if there are no good arguments, then there are good arguments" has an air of truth since a sincere assertion of "there are no good arguments" would presumably be for some compelling reason, which would then be self-defeating in that it would show that there are some good arguments. While this aspect of the history of propositional logic is of merely historical interest to us in this course, it is illustrative of the way that logic is sometimes deployed in philosophy, namely as a way to subject very complicated arguments, about which there does not seem to be any relevant empirical or inductive evidence, to a type of rigorous analysis.
 
 <br>
 
