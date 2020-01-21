@@ -87,7 +87,7 @@ It is a valid argument because if one fills out the table, then there are all tr
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-tollens.mp4"/> </video>
 
-The propositional logic of the kind we are learning was first isolated by the Ancient Greek school of the Stoics (we mentioned them briefly n [an earlier lecture](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#history-of-truth-table-for-implication-and-partial-confirmation)). They called modus ponens the *first indemonstrable*, and they called modus tollens the *second indemonstrable* (see pp. 132-133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)). The name "indemonstrable" indicates both that it did not need to be demonstrated, and that it could not be demonstrated. The truth-tables that we are displaying in some sense provide such a demonstration that an argument is valid. But it would be hard to think how to describe how to even use our truth-tables or what they mean without invoking something like modus ponens and modus tollens themselves. For instance, how would you use the four rules 1-4 above for the consequence relation $\vdash$ without knowing modus ponens? Hence, whether and how one can "ultimately justify" laws of logic like modus ponens and modus tollens is a difficult philosophical problem. But, perhaps one can just take the attitude that they do not need to be justified or demonstrated, since our doubts about them are comparatively low while our doubts about the things out in the world we use them to reason about are comparatively high.
+Logic is an ancient subject, and the propositional logic of the kind we are learning was first isolated by the Ancient Greek school of the Stoics (we mentioned them briefly n [an earlier lecture](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#history-of-truth-table-for-implication-and-partial-confirmation)). They called modus ponens the *first indemonstrable*, and they called modus tollens the *second indemonstrable* (see pp. 132-133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)). The name "indemonstrable" indicates both that it did not need to be demonstrated, and that it could not be demonstrated. The truth-tables that we are displaying in some sense provide such a demonstration that an argument is valid. But it would be hard to think how to describe how to even use our truth-tables or what they mean without invoking something like modus ponens and modus tollens themselves. For instance, how would you use the four rules 1-4 above for the consequence relation $\vdash$ without knowing modus ponens? Hence, whether and how one can "ultimately justify" laws of logic like modus ponens and modus tollens is a difficult philosophical problem. But, perhaps one can just take the attitude that they do not need to be justified or demonstrated, since our doubts about them are comparatively low while our doubts about the things out in the world we use them to reason about are comparatively high.
 
 <br>
 
@@ -144,15 +144,26 @@ One might have gotten the feeling already that $\vdash$ is pretty closely  relat
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  ((p->q)/\p)->q
+| TTTTTTT
+| TFFFTTF
+| FTTFFTT
+| FTFFFTF
 ~~~
+
+It is a tautology simply because it has all trues under its main connective, the second arrow symbol.
 
 And similarly this is a tautology formed from modus tollens:
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  ((p->q)/\~q)->~p
+| TTTFFTTFT
+| TFFFTFTFT
+| FTTFFTTTF
+| FTFTTFTTF
 ~~~
 
-It is a tautology simply because it has all trues under its main connective, the arrow symbol.
+Again, is a tautology simply because it has all trues under its main connective, the second arrow symbol.
+
 
 <br>
 
@@ -243,17 +254,25 @@ A final paradigmatic valid argument is "reasoning by cases." This is where we kn
 
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  (p\/q), p->r, q->r :|-: r
+| TTTTTTTTTTT
+| TTTTFFTFFTF
+| TTFTTTFTTTT
+| TTFTFFFTFTF
+| FTTFTTTTTTT
+| FTTFTFTFFTF
+| FFFFTTFTTTT
+| FFFFTFFTFTF
 ~~~
 
 This validity is called "reasoning by cases" since one thinks of each of the two disjuncts in $p\vee q$ as a "case", and the second premise is saying that Case 1 ($p$) implies the desired conclusion ($r$) and Case 2 implies the desired conclusion ($r$), and so one can get to the desired conclusion $r$.
 
-A substitution instance of this is the following:
+A substitution instance of this is the following, which is in fact easier to directly verify than the previous one (and we leave it to the reader to verify):
 
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  (p\/~p), p->p, ~p->p :|-: p
 ~~~
 
-This argument was of particular interest to the Stoics, who again first isolated these basic validities we are studying today. [They were interested in the specific case](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20463-469%20redeux%20double.pdf) of p= "There are good arguments." The first two premises of the argument are tautologies and so always true (as one can see by glancing at the truth-table). And the Stoics thought that the third premise "if there are no good arguments, then there are good arguments" has an air of truth since a sincere assertion of "there are no good arguments" would presumably be for some compelling reason, which would then be self-defeating in that it would show that there are some good arguments. While this aspect of the history of propositional logic is of merely historical interest to us in this course, it is illustrative of the way that logic is sometimes deployed in philosophy, namely as a way to subject very complicated arguments, about which there does not seem to be any relevant empirical or inductive evidence, to a type of rigorous analysis.
+This argument was of particular interest to the Stoics, who again first isolated these basic validities we are studying today. [They were interested in the specific case](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20463-469%20redeux%20double.pdf) of p= "There are good arguments." The first two premises of the argument are tautologies and so always true (as one can see by glancing at the truth-table). And the Stoics thought that the third premise "if there are no good arguments, then there are good arguments" has an air of truth since a sincere assertion of "there are no good arguments" would presumably be for some compelling reason (perhaps a well-founded sense of skepticism), which would then be self-defeating in that it would show that there are some good arguments. While this aspect of the history of propositional logic is of merely historical interest to us in this course, it is illustrative of the way that logic is sometimes deployed in philosophy, namely as a way to subject very complicated arguments, about which there does not seem to be any relevant empirical or inductive evidence, to a type of rigorous analysis.
 
 <br>
 
