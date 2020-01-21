@@ -10,7 +10,7 @@ In this lecture, we learn about valid arguments. We look at paradigmatic example
 - [Definition of valid argument](#definition-of-valid-argument)
 - [First paradigmatic example](#first-paradigmatic-example)
 - [Second paradigmatic example](#second-paradigmatic-example)
-- [The invalid argument of affirming the consequent](#the-invalid-argument-of-affirming-the-consequent)
+- [Invalid arguments can be good in other ways](#invalid-arguments-can-be-good-in-other-ways)
 - [Being clear about what may be bad about invalid arguments](#being-clear-about-what-may-be-bad-about-invalid-arguments)
 - [The invalid argument of affirming the consequent](#the-invalid-argument-of-affirming-the-consequent)
 - [Deduction theorem](#deduction-theorem)
@@ -40,7 +40,7 @@ There are various alternative ways of pronouncing the expression $\phi_1, \ldots
 4. The conclusion $\psi$ follows from premises $\phi_1, \ldots, \phi_n$.
 5. The argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\psi$ is valid.
 
-Note that we are using commas to separate premises. In this context, the commas function like conjunctions, since someone who believes e.g. the two premises of the argument from $\phi_1, \phi_2$ to $\psi$ in fact believes both premises and indeed their conjunction $\phi_1\wedge \phi_2$. And if the argument is valid, then of course they have a good reason to believe the conclusion $\psi$.
+Note that we are using commas to separate premises. In this context, the commas function like conjunctions, since someone who believes e.g. the two premises of the argument from premises $\phi_1, \phi_2$ to conclusion $\psi$ believes both premises and indeed their conjunction $\phi_1\wedge \phi_2$. And if the argument is valid, then of course they have a good reason to believe the conclusion $\psi$.
 
 Note that the consequence relation $\vdash$ is not another propositional connective. In particular, iterations of it are *not* allowed and one cannot write things like $\phi \vdash (\psi\vdash \xi)$. In some sense, this is just a convention in propositional logic, since as we will see there is a sense in which $\vdash$ behaves like arrow (see [Deduction theorem](#deduction-theorem)).
 
@@ -61,9 +61,13 @@ The columns of this truth-table outside of the consequence relation $\vdash$ sho
 3. If the premises are not all true and the conclusion is true, then put a true under the consequence relation $\vdash$.
 4. If the premises are not all true and the conclusion is false, then put a true under the consequence relation $\vdash$.
 
-These four rules looks a lot like the four rows of the truth-table for the material conditional, and we will explore these parallels in the [Deduction theorem](#deduction-theorem). But With these rules in place, you should be able to fill out the above truth-table for modus ponens. Here is a video of the truth-table being filled out with some color highlighting to emphasize the application of the rule for the consequence relation $\vdash$.
+These four rules looks a lot like the four rows of the truth-table for the material conditional, and we will explore these parallels in the [Deduction theorem](#deduction-theorem). Note in particular that one can combine rule 3 and rule 4 into the following helpful rule:
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-ponens.mp4"/> </video>
+5. If the premises are not all true, then put a true under the consequence relation $\vdash$.
+
+But with these rules in place, you should be able to fill out the above truth-table for modus ponens. Here is a video of the truth-table being filled out with some color highlighting to emphasize the application of the rule for the consequence relation $\vdash$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-ponens-replace.mp4"/> </video>
 
 <br>
 
@@ -82,7 +86,7 @@ The second paradigmatic example of a valid argument is called *modus tollens*:
 
 It is a valid argument because if one fills out the table, then there are all trues under the $\vdash$ column, as one can see in the following video:
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-ponens.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-tollen.mp4"/> </video>
 
 The propositional logic of the kind we are learning was first isolated by the Ancient Greek school of the Stoics (we mentioned them briefly n [an earlier lecture](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#history-of-truth-table-for-implication-and-partial-confirmation)). They called modus ponens the *first indemonstrable*, and they called modus tollens the *second indemonstrable* (see pp. 132-133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)). The name "indemonstrable" indicates both that it did not need to be demonstrated, and that it could not be demonstrated. The truth-tables that we are displaying in some sense provide such a demonstration that an argument is valid. But it would be hard to think how to describe how to even use our truth-tables or what they mean without invoking something like modus ponens and modus tollens themselves. For instance, how would you use the four rules 1-4 above for the consequence relation $\vdash$ without knowing modus ponens? Hence, whether and how one can "ultimately justify" laws of logic like modus ponens is a difficult philosophical problem. But, perhaps one can just take the attitude that they do not need to be justified or demonstrated, since our doubts about them are comparatively low while our doubts about the things out in the world we use them to reason about are comparatively high.
 
@@ -116,7 +120,7 @@ Hence, think of the truth-tables which follow which contain the "Counterexample"
 
 <br>
 
-## Being clear about what may be bad about invalid arguments
+## Invalid arguments can be good in other ways
 
 It should be emphasized that arguments which are invalid can be meritorious in other ways. Take "if it is raining then the sidewalks are wet; the sidewalks are wet, and so it raining." This argument has the exact same form as affirming the consequent. And yet it is  an argument that we would all think rather reasonable. To be sure, the truth of the premises does not *gaurantee* the truth of the conclusion (maybe the sprinklers were on!), but it does make the conclusion *more likely* to be true. Another way of putting this is: validity is a feature of a good deductive arguments, rather than a feature of a good inductive arguments. But why then should we be worried about whether our arguments are valid, if they can be good in many other ways? One answer is: we want to be in a position to distinguish deductive from inductive arguments, so as to understand our reasoning better, just as e.g. a biologist wants to be in a position to distinguish different forms of life (plants vs. animals vs. fungi etc.) Another answer is: logic is kind of like a natural language, and just like when you first learn a language you are likely to misconjungate a verb if you are not careful, so when you are learning logic it is likely that you might mistake modus ponens with the similar looking affirming the consequent if you are not careful.
 
