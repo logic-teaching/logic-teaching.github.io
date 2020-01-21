@@ -1,0 +1,294 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 3, Lecture 1. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=4)
+
+# Valid arguments
+
+In this lecture, we learn about valid arguments. We look at paradigmatic examples of valid arguments, as well as ways to quickly recognize some valid arguments. Similarly, we look at representative examples of invalid arguments -- these are some but not all of the familiar fallacies.
+
+- [Definition of valid argument](#definition-of-valid-argument)
+- [First paradigmatic example](#first-paradigmatic-example)
+- [Second paradigmatic example](#second-paradigmatic-example)
+- [Invalid arguments can be good in other ways](#invalid-arguments-can-be-good-in-other-ways)
+- [The invalid argument of affirming the consequent](#the-invalid-argument-of-affirming-the-consequent)
+- [Deduction theorem](#deduction-theorem)
+- [Question-begging arguments](#question-begging-arguments)
+- [Valid arguments and equivalences](#valid-arguments-and-equivalences)
+- [Valid arguments from substitution](#valid-arguments-from-substitution)
+- [Third class of paradigmatic examples of disjunctive syllogisms](#third-class-of-paradigmatic-examples-of-disjunctive-syllogisms)
+- [Reasoning by cases](#reasoning-by-cases)
+
+<br>
+
+## Definition of valid argument
+
+On a very abstract level, an argument consists of several premises and a single conclusion. As its name suggests, the conclusion is what we are trying to get to, what we are finishing our reasoning with. The premises are what we start with, what we begin with. Now, the reasons we have for thinking that the conclusion of an argument follows from its premises may be varied: maybe the conclusion is made more likely by the premises, maybe the conclusion offers a satisfactory explanation of some data collected together in the premises, or maybe a person we trust told us that the conclusion follows from the premises. However, in logic, we focus attention on arguments such that the truth of the conclusion is guaranteed by the truth of the premises.
+
+To formalize this notion of guarantee, we say: an argument is *valid* if for all possible combinations of truth-values of the basic propositional letters in the formulas, if all the premises are true on this combination, then the conclusion is true on this combination. For short we say:  an argument is *valid* if whenever all the premises are true, the conclusion is true. The sense of "whenever" is then "whenever you look at a row of the truth-table." As such, the validity of an argument is clearly a very useful property to be able to identify: if we know an argument is valid, then all we need to do in order to obtain the truth of its conclusion is to certify that the premises are all true.
+
+We write $\phi_1, \ldots, \phi_n \vdash \psi$ to indicate that the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\psi$ is valid. The symbol $\vdash$ is sometimes pronouced the *consequence symbol*. It is written on paper by just a vertical line drawn downwards and then a horizontal line attached to it, like this:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-does-imply.mp4"/> </video>
+
+<br>
+
+There are various alternative ways of pronouncing the expression $\phi_1, \ldots, \phi_n \vdash \psi$ out loud:
+
+1. $\phi_1, \ldots, \phi_n \vdash \psi$
+2. $\phi_1, \ldots, \phi_n$ have $\psi$ as a consequence.
+3. From premises $\phi_1, \ldots, \phi_n$ the conclusion $\psi$ follows.
+4. The conclusion $\psi$ follows from premises $\phi_1, \ldots, \phi_n$.
+5. The argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\psi$ is valid.
+
+Note that we are using commas to separate premises. In this context, the commas function like conjunctions, since someone who believes e.g. the two premises of the argument from premises $\phi_1, \phi_2$ to conclusion $\psi$ believes both premises and indeed their conjunction $\phi_1\wedge \phi_2$. And if the argument is valid, then of course they have a good reason to believe the conclusion $\psi$.
+
+Note that the consequence relation $\vdash$ is not another propositional connective. In particular, iterations of it are *not* allowed and one cannot write things like $\phi \vdash (\psi\vdash \xi)$. In some sense, this is just a convention in propositional logic, since as we will see there is a sense in which $\vdash$ behaves like arrow (see [Deduction theorem](#deduction-theorem)).
+
+<br>
+
+## First paradigmatic example
+
+Here is our first paradigmatic example of a valid argument, which bears the traditional name of *modus ponens*:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q, p :|-: q
+~~~
+
+The columns of this truth-table outside of the consequence relation $\vdash$ should be familiar to you. As with the other connectives, with $\vdash$ we work row by row. In a given row, **the rules for the consequence relation $\vdash$** are as follows:
+
+1. If the premises are all true and the conclusion is true, then put a true under the consequence relation $\vdash$.
+2. If the premises are all true and the conclusion is false, then put a false under the consequence relation $\vdash$.
+3. If the premises are not all true and the conclusion is true, then put a true under the consequence relation $\vdash$.
+4. If the premises are not all true and the conclusion is false, then put a true under the consequence relation $\vdash$.
+
+These four rules looks a lot like the four rows of the truth-table for the material conditional, and we will explore these parallels in the [Deduction theorem](#deduction-theorem). Note in particular that one can combine rule 3 and rule 4 into the following helpful super-rule:
+
+- If the premises are not all true, then put a true under the consequence relation $\vdash$.
+
+But with these rules in place, you should be able to fill out the above truth-table for modus ponens. Here is a video of the truth-table being filled out with some color highlighting to emphasize the application of the rule for the consequence relation $\vdash$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-ponens-replace.mp4"/> </video>
+
+<br>
+
+As one sees, all the entries under the $\vdash$ column are true, indicating that modus ponens is a valid argument. How should one memorize modus ponens? Well, the idea is just that: if you know an arrow statement is true, and you know the antecedent is true, then you know the consequent is true. Put this way, it is just a different expression of part of what one knows about the truth-table for arrow statements.
+
+<br>
+
+
+## Second paradigmatic example
+
+The second paradigmatic example of a valid argument is called *modus tollens*:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q, ~q :|-: ~p
+~~~
+
+It is a valid argument because if one fills out the table, then there are all trues under the $\vdash$ column, as one can see in the following video:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-tollens.mp4"/> </video>
+
+<br>
+
+Logic is an ancient subject, and the propositional logic of the kind we are learning was first isolated by the Ancient Greek school of the Stoics (we mentioned them briefly in [an earlier lecture](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#history-of-truth-table-for-implication-and-partial-confirmation)). They called modus ponens the *first indemonstrable*, and they called modus tollens the *second indemonstrable* (see pp. 132-133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)). The name "indemonstrable" indicates both that it did not need to be demonstrated, and that it could not be demonstrated. The truth-tables that we are displaying in some sense provide such a demonstration that an argument is valid. But it would be hard to think how to describe how to even use our truth-tables or what they mean without invoking something like modus ponens and modus tollens themselves. For instance, how would you use the four rules 1-4 above for the consequence relation $\vdash$ without knowing modus ponens? Hence, whether and how one can "ultimately justify" laws of logic like modus ponens and modus tollens is a difficult philosophical problem. But, perhaps one can just take the attitude that they do not need to be justified or demonstrated, since our doubts about them are comparatively low while our doubts about the things out in the world we use them to reason about are comparatively high.
+
+<br>
+
+## The invalid argument of affirming the consequent
+
+A "fallacy" is just an error in argumentation. Some errors relate to an argument being invalid. The word "invalid" is just a way of saying "not valid." By definition then, invalid arguments are just arguments such that there is some row of the truth-table where the premises are all true and yet the conclusion is false. In that row, we will put false under the $\vdash$ column. Here is a famous invalid argument, which is sometimes called *affirming the consequent*:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ p->q, q :|-: p
+~~~
+
+One can check it is an invalidity in two ways. First, one can complete the entire table correctly and just see that there is some row where there is a false under the $\vdash$ column. This is what we do in the following video:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-affirming-consequent.mp4"/> </video>
+
+<br>
+
+Second, one can use one's knowledge of the propositional connectives to just guess a row which shows it is invalid and then just press the "Counterexample" button and enter that row. For example, we know that if $p$ is false and $q$ is true, then $p\rightarrow q$ is true. Hence, in the circumstance where $p$ is false and $q$ is true, we have that the  premise $p\rightarrow q$ is true and the premise $q$ is true and yet the conclusion $p$ is false, indicating that the argument is invalid. Hence, we would just press the "Counterexample" button and enter in FT. This is what we do in the following video:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-affirming-consequent-second.mp4"/> </video>
+
+<br>
+
+Hence, what we have learned is that the argument with premises $p\rightarrow q$ and $q$ and conclusion $p$ is not valid. We sometimes write this like $p\rightarrow q,q\nvdash p$, where the symbol $\nvdash$ is formed from $\vdash$ by putting a vertical line through it which is twisted just a little bit clockwise. The following short video shows you how to write it:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-does-not-imply.mp4"/> </video>
+
+<br>
+
+Hence, think of the truth-tables which follow which contain the "Counterexample" button as *questions* which ask you whether the argument is a valid argument  or not. In the case that they  are, in later contexts we will write the $\vdash$ to indicate that they are. In case that they are not, we will write $\nvdash$ to indicate that they are not. For instance, modus ponens was a valid argument, so we write $p\rightarrow q,p\vdash q$ to record that. But affirming the consequent was not a valid argument, and so we write $p\rightarrow q, q\nvdash p$ to record that.
+
+<br>
+
+## Invalid arguments can be good in other ways
+
+It should be emphasized that arguments which are invalid can be meritorious in other ways. Take "if it is raining then the sidewalks are wet; the sidewalks are wet, and so it raining." This argument has the exact same form as affirming the consequent. And yet it is  an argument that we would all think rather reasonable. To be sure, the truth of the premises does not *gaurantee* the truth of the conclusion (maybe the sprinklers were on!), but it does make the conclusion *more likely* to be true. Another way of putting this is: validity is a feature of a good deductive arguments, rather than a feature of a good inductive arguments. But why then should we be worried about whether our arguments are valid, if they can be good in other ways? One answer is: we want to be in a position to distinguish deductive from inductive arguments, so as to understand our reasoning better, just as e.g. a biologist wants to be in a position to distinguish different forms of life (plants vs. animals vs. fungi etc.) Another answer is: logic is kind of like a natural language, and just like when you first learn a language you are likely to misconjungate a verb if you are not careful, so when you are first learning logic it is likely that you might mistake modus ponens with the similar looking affirming the consequent if you are not careful.
+
+<br>
+
+## The invalid argument of denying the antecedent
+
+There is another invalid argument which bears a passing similarity to the valid modus tollens argument. It is called *denying the antecedent*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ p->q, ~p :|-: ~q
+~~~
+
+Again, when posed like this, the computer system is giving you the problem: figure out whether it is a validity. In this case, it is an invalidity. We can  brute force it and fill it all out, and eventually uncover a row where all the premises are true and the conclusion is false. Alternatively, we can try to think through it and figure out, based on our knowledge of the propositional connectives, what row will be such that all the premises are true and the conclusion is false. Consider again the row FT. In this row $p$ is false so $\neg p$ is true; and likewise in this row $q$ is true so $\neg q$ is false. Further in this row the premise $p\rightarrow q$ is true. Hence the two premises $p\rightarrow q$ and $\neg  p$ are true in this row but the conclusion $\neg q$ is false. Hence the argument is invalid. To solve the problem this way, we click the "Counterexample" button and we enter in FT again. Hence, since the argument is invalid, if we want to later recall this without having to write out the truth-table again, we would just write $p\rightarrow q, \neg p\nvdash \neg q$. Likewise, writing $p\rightarrow q, \neg p\nvdash \neg q$ is just a short way of communicating that the argument with premises $p\rightarrow q$ and $\neg p$ and conclusion $\neg q$ is invalid.
+
+<br>
+
+
+## Deduction theorem
+
+One might have gotten the feeling already that $\vdash$ is pretty closely  related to the truth-table for arrow. The formal statement of this result is sometimes called *The Deduction Theorem*. It says that the argument with two premises $\phi_1, \phi_2$ and conclusion $\psi$ is valid if and only if $(\phi_1 \wedge \phi_2)\rightarrow \psi$ is a tautology. And similarly the argument with three premises $\phi_1, \phi_2, \phi_3$ and conclusion $\psi$ is valid if and only if $((\phi_1 \wedge \phi_2)\wedge \phi_3)\rightarrow \psi$ is a tautology. In general, whenever you have a valid argument, you can obtain a tautology from it by conjoining the premises and forming an arrow statement with this conjunction as the antecedent and the conclusion as the consequent. For instance, one can quickly visually check that the following is a tautology obtained in this way from modus ponens:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ((p->q)/\p)->q
+| TTTTTTT
+| TFFFTTF
+| FTTFFTT
+| FTFFFTF
+~~~
+
+It is a tautology simply because it has all trues under its main connective, the second arrow symbol.
+
+And similarly this is a tautology formed from modus tollens:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ((p->q)/\~q)->~p
+| TTTFFTTFT
+| TFFFTFTFT
+| FTTFFTTTF
+| FTFTTFTTF
+~~~
+
+Again, is a tautology simply because it has all trues under its main connective, the second arrow symbol.
+
+
+<br>
+
+## Question-begging arguments
+
+There are some errors in reasoning which are actually valid arguments. Hence, validity is not all there is to say about what makes reasoning good. One well-known fallacy which actually ends up involving valid arguments is called "begging the question" or "viciously arguing in a circle". An  argument is *question-begging* or *viciously circular* when its conclusion is listed among its premises, or somehow tacit in your premises. For instance, the following valid argument might be thought to be question-begging because the conclusion $q$ is just sitting in the premise $q\wedge r$, albeit implicitly:
+
+<p style="margin-left: 40px"> $p\rightarrow q, p, (q\wedge r)\vdash q$ </p>
+
+It is challenging to say more about what the notion of "tacit" or "implicit" amounts to in this context. If one meant "literally the conclusion is among the premises" then even the above argument would not count as question-begging. But if one meant "the conclusion is somehow already to be found in the premises" then there is a sense in which all valid arguments are question-begging (the story of how they are to be found is just a really big truth-table). Even though the notion of "question-begging" is hard to define, often there are clear-cut cases. This can happen easily when one is trying to find deductive arguments for things which one already believes. For instance, suppose that you already believe $q$, and you are trying to justify your belief to a friend. You might try to argue from $p$ and $p\rightarrow q$ to $q$ using modus ponens. But when doing this, you have to be careful that your reason to belive $p\rightarrow q$ is more than just your prior belief in $q$. If your justification for believing $p\rightarrow q$ is just $q$, then your modus ponens argument to $q$ via $p\rightarrow q$ and $p$ would be question-begging.
+
+<br>
+
+## Valid arguments and equivalences
+
+An equivalence recall is just a pair $\phi, \psi$ of formulas such that $\phi\leftrightarrow \psi$ is a tautology. But then both $\phi\rightarrow \psi$ and $\psi\rightarrow \phi$ is a tautology. And then by the [Deduction theorem](#deduction-theorem) one has that the two arguments $\phi\vdash \psi$ and $\psi\vdash \phi$ are validities. Hence, if one knows some equivalences, one already knows a lot of valid arguments. For instance, take the law of double-negation, which says that $p$ is equivalent to $\neg \neg p$. One can check that $p\vdash \neg \neg p$ and $\neg \neg p \vdash p$, as one can easily check with the following tables:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
+ p :|-: ~~p
+~~~
+
+Note again the the 'check' button is just making sure you filled in the table right. To check it is a valid argument, you have to look at the table and see whether it has all trues under the consequence relation $\vdash$.
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
+ ~~p :|-: p
+~~~
+
+Likewise, recall the more complicated DeMorgan Law (part 1),  which says that $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$. Then $\neg (p\wedge q)\vdash \neg p \vee \neg q$ and  $\neg p \vee \neg q \vdash \neg (p\wedge q)$. Hence, any equivalence automatically yields two valid arguments.
+
+<br>
+
+## Valid arguments from substitution
+
+Just as substitution-instances of tautologies are tautologies, so substitution-instances of valid arguments are valid arguments. Hence, one can automatically know ahead of time that the following is a valid argument simply by realizing that it is an instance of modus ponens:
+
+<p style="margin-left: 40px"> $(p\wedge q)\rightarrow r, p\wedge q\vdash r$ </p>
+
+If you don't recognize it as an instance of modus ponens, the following video should help you do so.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validites-modus-ponens-sub.mp4"/> </video>
+
+<br>
+
+Likewise, another way to generate new valid arguments from old valid arguments is to replace formulas by one of their equivalents. For instance, the following is obtained from modus ponens simply by replacing $p$ by its equivalent $\neg \neg p$:
+
+<p style="margin-left: 40px"> $p\rightarrow q, \neg \neg p\vdash q$ </p>
+
+
+<br>
+
+## Third class of paradigmatic examples of disjunctive syllogisms
+
+Another source of paradigmatic valid arguments are disjunctive syllogisms. These are arguments who first premise is that a disjunction obtains, whose second premise is that one disjunct does not obtain, and whose conclusion is that the second disjunct obtains. One can fill out the tables and check that each of these is a valid argument:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/q, ~p :|-: q
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/q, ~q :|-: p
+~~~
+
+Now consider the following valid arguments:
+
+<p style="margin-left: 40px"> $\neg (p\wedge q), p \vdash \neg q$ </p>
+
+<p style="margin-left: 40px"> $\neg (p\wedge q), q \vdash \neg p$ </p>
+
+These last two were the "third indemonstrables" of the Stoics-- they only had three (cf. p. 133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)).
+
+One way to see that these are valid arguments is to use substitution and the DeMorgan laws and double-negation, as illustrated in the below video:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-disjunctive-syllogism.mp4"/> </video>
+
+<br>
+
+As a final example of a substitution-instance, consider the following:
+
+
+<p style="margin-left: 40px"> $p\vee (q\vee (r\vee s)), \neg p\vdash q\vee (r\vee s)$ </p>
+
+This kind of example was thought to be more challenging by the Stoics, who called them "paradisjunctive syllogisms". [Galen](https://plato.stanford.edu/entries/galen/)-- the famous medical writer of the ancient world-- also wrote a book on logic in which he devotes a whole chapter to them (Chapter XV pp. 48-49 of [this edition](http://logic-teaching.github.io/prop/texts/Galen%201964%20-%20Institutio%20Logica.pdf)), with medical examples like this:
+
+&nbsp; &nbsp; &nbsp;   <img src="http://logic-teaching.github.io/prop/texts/Galen%201964%20-%20Institutio%20Logica%20-%20Chapter%20XV%20screenshot.png" alt="Galen quotation" width="700"/>
+
+<br>
+
+## Reasoning by cases
+
+A final paradigmatic valid argument is "reasoning by cases." This is where we know a disjunction and we know that each of the disjunctions implies some desired conclusion, and we reason towards this desired conclusion. It is a valid argument, as one can check using the below table:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (p\/q), p->r, q->r :|-: r
+| TTTTTTTTTTT
+| TTTTFFTFFTF
+| TTFTTTFTTTT
+| TTFTFFFTFTF
+| FTTFTTTTTTT
+| FTTFTFTFFTF
+| FFFFTTFTTTT
+| FFFFTFFTFTF
+~~~
+
+This validity is called "reasoning by cases" since one thinks of each of the two disjuncts in $p\vee q$ as a "case", and the second premise is saying that Case 1 ($p$) implies the desired conclusion ($r$), and Case 2 implies the desired conclusion ($r$), and so one can get to the desired conclusion $r$.
+
+A substitution instance of this is the following, which is in fact easier to directly verify than the previous one (and we leave it to the reader to verify):
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (p\/~p), p->p, ~p->p :|-: p
+~~~
+
+This argument was of particular interest to the Stoics, who again first isolated these basic validities we are studying today. [They were interested in the specific case](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20463-469%20redeux%20double.pdf) of p= "There are good arguments." The first two premises of the argument are tautologies and so always true (as one can see by glancing at the truth-table). And the Stoics thought that the third premise "if there are no good arguments, then there are good arguments" has an air of truth since a sincere assertion of "there are no good arguments" would presumably be for some compelling reason (perhaps a well-founded sense of skepticism), which would then be self-defeating in that it would show that there are some good arguments. While this aspect of the history of propositional logic is of merely historical interest to us in this course, it is illustrative of the way that logic is sometimes deployed in philosophy, namely as a way to subject very complicated arguments, about which there does not seem to be any relevant empirical or inductive evidence, to a type of rigorous analysis.
+
+<br>
+
+
+<br>
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=4).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
