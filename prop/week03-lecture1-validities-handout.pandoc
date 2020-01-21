@@ -1,0 +1,206 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 3, Lecture 1, Handout.
+
+
+
+## Definition of valid argument
+
+On a very abstract level, an argument consists of several premises and a single conclusion. As its name suggests, the conclusion is what we are trying to get to, what we are finishing our reasoning with. The premises are what we start with, what we begin with. Now, the reasons we have for thinking that the conclusion of an argument follows from its premises may be varied: maybe the conclusion is made more likely by the premises, maybe the conclusion offers a satisfactory explanation of some data collected together in the premises, or maybe a person we trust told us that the conclusion follows from the premises. However, in logic, we focus attention on arguments such that the truth of the conclusion is guaranteed by the truth of the premises.
+
+To formalize this notion of guarantee, we say: an argument is *valid* if for all possible combinations of truth-values of the basic propositional letters in the formulas, if all the premises are true on this combination, then the conclusion is true on this combination. For short we say:  an argument is *valid* if whenever all the premises are true, the conclusion is true. The sense of "whenever" is then "whenever you look at a row of the truth-table." As such, the validity of an argument is clearly a very useful property to be able to identify: if we know an argument is valid, then all we need to do in order to obtain the truth of its conclusion is to certify that the premises are all true.
+
+We write $\phi_1, \ldots, \phi_n \vdash \psi$ to indicate that the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\psi$ is valid. The symbol $\vdash$ is sometimes pronouced the *consequence symbol*.
+
+<br>
+
+## First paradigmatic example
+
+Here is our first paradigmatic example of a valid argument, which bears the traditional name of *modus ponens*:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q, p :|-: q
+~~~
+
+The columns of this truth-table outside of the consequence relation $\vdash$ should be familiar to you. As with the other connectives, with $\vdash$ we work row by row. In a given row, **the rules for the consequence relation $\vdash$** are as follows:
+
+1. If the premises are all true and the conclusion is true, then put a true under the consequence relation $\vdash$.
+2. If the premises are all true and the conclusion is false, then put a false under the consequence relation $\vdash$.
+3. If the premises are not all true and the conclusion is true, then put a true under the consequence relation $\vdash$.
+4. If the premises are not all true and the conclusion is false, then put a true under the consequence relation $\vdash$.
+
+These four rules looks a lot like the four rows of the truth-table for the material conditional, and we will explore these parallels in the [Deduction theorem](#deduction-theorem). Note in particular that one can combine rule 3 and rule 4 into the following helpful super-rule:
+
+- If the premises are not all true, then put a true under the consequence relation $\vdash$.
+
+
+<br>
+
+
+## Second paradigmatic example
+
+The second paradigmatic example of a valid argument is called *modus tollens*:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q, ~q :|-: ~p
+~~~
+
+It is a valid argument because if one fills out the table, then there are all trues under the $\vdash$ column.
+
+
+
+<br>
+
+## The invalid argument of affirming the consequent
+
+A "fallacy" is just an error in argumentation. Some errors relate to an argument being invalid. The word "invalid" is just a way of saying "not valid." By definition then, invalid arguments are just arguments such that there is some row of the truth-table where the premises are all true and yet the conclusion is false. In that row, we will put false under the $\vdash$ column. Here is a famous invalid argument, which is sometimes called *affirming the consequent*:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ p->q, q :|-: p
+~~~
+
+
+<br>
+
+## Invalid arguments can be good in other ways
+
+It should be emphasized that arguments which are invalid can be meritorious in other ways. Take "if it is raining then the sidewalks are wet; the sidewalks are wet, and so it raining."
+
+<br>
+
+## The invalid argument of denying the antecedent
+
+There is another invalid argument which bears a passing similarity to the valid modus tollens argument. It is called *denying the antecedent*
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ p->q, ~p :|-: ~q
+~~~
+
+
+<br>
+
+
+## Deduction theorem
+
+In general, whenever you have a valid argument, you can obtain a tautology from it by conjoining the premises and forming an arrow statement with this conjunction as the antecedent and the conclusion as the consequent. For instance, one can quickly visually check that the following is a tautology obtained in this way from modus ponens:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ((p->q)/\p)->q
+~~~
+
+And similarly this is a tautology formed from modus tollens:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ((p->q)/\~q)->~p
+~~~
+
+It is a tautology simply because it has all trues under its main connective, the arrow symbol.
+
+<br>
+
+## Question-begging arguments
+
+An  argument is *question-begging* or *viciously circular* when its conclusion is listed among its premises, or somehow tacit in your premises. For instance, the following valid argument might be thought to be question-begging because the conclusion $q$ is just sitting in the premise $q\wedge r$, albeit implicitly:
+
+<p style="margin-left: 40px"> $p\rightarrow q, p, (q\wedge r)\vdash q$ </p>
+
+
+<br>
+
+## Valid arguments and equivalences
+
+An equivalence recall is just a pair $\phi, \psi$ of formulas such that $\phi\leftrightarrow \psi$ is a tautology. But then both $\phi\rightarrow \psi$ and $\psi\rightarrow \phi$ is a tautology. For instance, take the law of double-negation, which says that $p$ is equivalent to $\neg \neg p$. One can check that $p\vdash \neg \neg p$ and $\neg \neg p \vdash p$, as one can easily check with the following tables:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
+ p :|-: ~~p
+~~~
+
+Note again the the 'check' button is just making sure you filled in the table right. To check it is a valid argument, you have to look at the table and see whether it has all trues under the consequence relation $\vdash$.
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms nocounterexample" submission="none"}
+ ~~p :|-: p
+~~~
+
+Likewise, recall the more complicated DeMorgan Law (part 1),  which says that $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$. Then $\neg (p\wedge q)\vdash \neg p \vee \neg q$ and  $\neg p \vee \neg q \vdash \neg (p\wedge q)$. Hence, any equivalence automatically yields two valid arguments.
+
+<br>
+
+## Valid arguments from substitution
+
+Just as substitution-instances of tautologies are tautologies, so substitution-instances of valid arguments are valid arguments. Hence, one can automatically know ahead of time that the following is a valid argument simply by realizing that it is an instance of modus ponens:
+
+<p style="margin-left: 40px"> $(p\wedge q)\rightarrow r, p\wedge q\vdash r$ </p>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+## Third class of paradigmatic examples of disjunctive syllogisms
+
+
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/q, ~p :|-: q
+~~~
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/q, ~q :|-: p
+~~~
+
+Now consider the following valid arguments:
+
+<p style="margin-left: 40px"> $\neg (p\wedge q), p \vdash \neg q$ </p>
+
+<p style="margin-left: 40px"> $\neg (p\wedge q), q \vdash \neg p$ </p>
+
+<br>
+
+One way to see that these are valid arguments is to use substitution and the DeMorgan laws and double-negation:
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+As a final example of a substitution-instance, consider the following:
+
+
+<p style="margin-left: 40px"> $p\vee (q\vee (r\vee s)), \neg p\vdash q\vee (r\vee s)$ </p>
+
+<br>
+
+<br>
+
+## Reasoning by cases
+
+A final paradigmatic valid argument is "reasoning by cases." This is where we know a disjunction and we know that each of the disjunctions implies some desired conclusion, and we reason towards this desired conclusion. It is a valid argument, as one can check using the below table:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (p\/q), p->r, q->r :|-: r
+~~~
+
+A substitution instance of this is the following:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (p\/~p), p->p, ~p->p :|-: p
+~~~
+
+
+<br>
+
+
+<br>
+
+These is a handout written for Logic, First Course, Winter 2020. It is run on the Carnap software, which is an:

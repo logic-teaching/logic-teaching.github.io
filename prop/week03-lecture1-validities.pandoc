@@ -62,7 +62,7 @@ The columns of this truth-table outside of the consequence relation $\vdash$ sho
 
 These four rules looks a lot like the four rows of the truth-table for the material conditional, and we will explore these parallels in the [Deduction theorem](#deduction-theorem). Note in particular that one can combine rule 3 and rule 4 into the following helpful super-rule:
 
-5. If the premises are not all true, then put a true under the consequence relation $\vdash$.
+- If the premises are not all true, then put a true under the consequence relation $\vdash$.
 
 But with these rules in place, you should be able to fill out the above truth-table for modus ponens. Here is a video of the truth-table being filled out with some color highlighting to emphasize the application of the rule for the consequence relation $\vdash$.
 
@@ -158,7 +158,7 @@ It is a tautology simply because it has all trues under its main connective, the
 
 ## Question-begging arguments
 
-There are some errors in reasoning which are actually valid arguments and hence which are not bad by virtue of being invalid. Hence, validity is not all there is to say about what makes reasoning good. One well-known fallacy which actually ends up invovling valid arguments is called "begging the question" or "viciously arguing in a circle". An  argument is *question-begging* or *viciously circular* when its conclusion is listed among its premises, or somehow tacit in your premises. For instance, the following valid argument might be thought to be question-begging because the conclusion $q$ is just sitting in the premise $q\wedge r$, albeit implicitly:
+There are some errors in reasoning which are actually valid arguments and hence which are not bad by virtue of being invalid. Hence, validity is not all there is to say about what makes reasoning good. One well-known fallacy which actually ends up involving valid arguments is called "begging the question" or "viciously arguing in a circle". An  argument is *question-begging* or *viciously circular* when its conclusion is listed among its premises, or somehow tacit in your premises. For instance, the following valid argument might be thought to be question-begging because the conclusion $q$ is just sitting in the premise $q\wedge r$, albeit implicitly:
 
 <p style="margin-left: 40px"> $p\rightarrow q, p, (q\wedge r)\vdash q$ </p>
 
@@ -192,7 +192,7 @@ Just as substitution-instances of tautologies are tautologies, so substitution-i
 
 If you don't recognize it as an instance of modus ponens, the following video should help you do so.
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validites-modus-ponens-sub"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validites-modus-ponens-sub.mp4"/> </video>
 
 Likewise, another way to generate new valid arguments from old valid arguments is to replace formulas by one of their equivalents. For instance, the following is obtained from modus ponens simply by replacing $p$ by its equivalent $\neg \neg p$:
 
