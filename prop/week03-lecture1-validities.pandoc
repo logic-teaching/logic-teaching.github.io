@@ -31,6 +31,8 @@ We write $\phi_1, \ldots, \phi_n \vdash \psi$ to indicate that the argument with
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-does-imply.mp4"/> </video>
 
+<br>
+
 There are various alternative ways of pronouncing the expression $\phi_1, \ldots, \phi_n \vdash \psi$ out loud:
 
 1. $\phi_1, \ldots, \phi_n \vdash \psi$
@@ -87,6 +89,8 @@ It is a valid argument because if one fills out the table, then there are all tr
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-tollens.mp4"/> </video>
 
+<br>
+
 Logic is an ancient subject, and the propositional logic of the kind we are learning was first isolated by the Ancient Greek school of the Stoics (we mentioned them briefly n [an earlier lecture](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#history-of-truth-table-for-implication-and-partial-confirmation)). They called modus ponens the *first indemonstrable*, and they called modus tollens the *second indemonstrable* (see pp. 132-133 of [this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)). The name "indemonstrable" indicates both that it did not need to be demonstrated, and that it could not be demonstrated. The truth-tables that we are displaying in some sense provide such a demonstration that an argument is valid. But it would be hard to think how to describe how to even use our truth-tables or what they mean without invoking something like modus ponens and modus tollens themselves. For instance, how would you use the four rules 1-4 above for the consequence relation $\vdash$ without knowing modus ponens? Hence, whether and how one can "ultimately justify" laws of logic like modus ponens and modus tollens is a difficult philosophical problem. But, perhaps one can just take the attitude that they do not need to be justified or demonstrated, since our doubts about them are comparatively low while our doubts about the things out in the world we use them to reason about are comparatively high.
 
 <br>
@@ -114,6 +118,8 @@ Second, one can use one's knowledge of the propositional connectives to just gue
 Hence, what we have learned is that the argument with premises $p\rightarrow q$ and $q$ and conclusion $p$ is not valid. We sometimes write this like $p\rightarrow q,q\nvdash p$, where the symbol $\nvdash$ is formed from $\vdash$ by putting a vertical line through it which is twisted just a little bit clockwise. The following short video shows you how to write it:
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-does-not-imply.mp4"/> </video>
+
+<br>
 
 Hence, think of the truth-tables which follow which contain the "Counterexample" button as *questions* which ask you whether the argument is a valid argument  or not. In the case that they  are, in later contexts we will write the $\vdash$ to indicate that they are. In case that they are not, we will write $\nvdash$ to indicate that they are not. For instance, modus ponens was a valid argument, so we write $p\rightarrow q,p\vdash q$ to record that. But affirming the consequent was not a valid argument, and so we write $p\rightarrow q, q\nvdash p$ to record that.
 
@@ -169,7 +175,7 @@ Again, is a tautology simply because it has all trues under its main connective,
 
 ## Question-begging arguments
 
-There are some errors in reasoning which are actually valid arguments and hence which are not bad by virtue of being invalid. Hence, validity is not all there is to say about what makes reasoning good. One well-known fallacy which actually ends up involving valid arguments is called "begging the question" or "viciously arguing in a circle". An  argument is *question-begging* or *viciously circular* when its conclusion is listed among its premises, or somehow tacit in your premises. For instance, the following valid argument might be thought to be question-begging because the conclusion $q$ is just sitting in the premise $q\wedge r$, albeit implicitly:
+There are some errors in reasoning which are actually valid arguments. Hence, validity is not all there is to say about what makes reasoning good. One well-known fallacy which actually ends up involving valid arguments is called "begging the question" or "viciously arguing in a circle". An  argument is *question-begging* or *viciously circular* when its conclusion is listed among its premises, or somehow tacit in your premises. For instance, the following valid argument might be thought to be question-begging because the conclusion $q$ is just sitting in the premise $q\wedge r$, albeit implicitly:
 
 <p style="margin-left: 40px"> $p\rightarrow q, p, (q\wedge r)\vdash q$ </p>
 
@@ -205,6 +211,8 @@ If you don't recognize it as an instance of modus ponens, the following video sh
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/validites-modus-ponens-sub.mp4"/> </video>
 
+<br>
+
 Likewise, another way to generate new valid arguments from old valid arguments is to replace formulas by one of their equivalents. For instance, the following is obtained from modus ponens simply by replacing $p$ by its equivalent $\neg \neg p$:
 
 <p style="margin-left: 40px"> $p\rightarrow q, \neg \neg p\vdash q$ </p>
@@ -236,6 +244,7 @@ One way to see that these are valid arguments is to use substitution and the DeM
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-disjunctive-syllogism.mp4"/> </video>
 
+<br>
 
 As a final example of a substitution-instance, consider the following:
 
@@ -264,7 +273,7 @@ A final paradigmatic valid argument is "reasoning by cases." This is where we kn
 | FFFFTFFTFTF
 ~~~
 
-This validity is called "reasoning by cases" since one thinks of each of the two disjuncts in $p\vee q$ as a "case", and the second premise is saying that Case 1 ($p$) implies the desired conclusion ($r$) and Case 2 implies the desired conclusion ($r$), and so one can get to the desired conclusion $r$.
+This validity is called "reasoning by cases" since one thinks of each of the two disjuncts in $p\vee q$ as a "case", and the second premise is saying that Case 1 ($p$) implies the desired conclusion ($r$), and Case 2 implies the desired conclusion ($r$), and so one can get to the desired conclusion $r$.
 
 A substitution instance of this is the following, which is in fact easier to directly verify than the previous one (and we leave it to the reader to verify):
 
