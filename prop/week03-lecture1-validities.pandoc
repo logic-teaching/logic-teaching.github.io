@@ -235,7 +235,7 @@ As a final example of a substitution-instance, consider the following:
  p\/(q\/(r\/s)), ~p :|-: (q\/(r\/s))
 ~~~
 
-This kind of example was thought to be more challenging by the Stoic logicians, who called them "paradisjunctive syllogisms". [Galen](https://plato.stanford.edu/entries/galen/)-- the father of medicine-- wrote a logic book in which he devotes a whole chapter to them (Chapter XV pp. 48-49 of [this edition](http://logic-teaching.github.io/prop/texts/Galen%201964%20-%20Institutio%20Logica.pdf)), with examples like this:
+This kind of example was thought to be more challenging by the Stoic logicians, who called them "paradisjunctive syllogisms". [Galen](https://plato.stanford.edu/entries/galen/)-- the father of medicine-- wrote a book on logic in which he devotes a whole chapter to them (Chapter XV pp. 48-49 of [this edition](http://logic-teaching.github.io/prop/texts/Galen%201964%20-%20Institutio%20Logica.pdf)), with medical examples like this:
 
 &nbsp; &nbsp; &nbsp;   <img src="http://logic-teaching.github.io/prop/texts/Galen%201964%20-%20Institutio%20Logica%20-%20Chapter%20XV%20screenshot.png" alt="Galen quotation" width="700"/>
 
