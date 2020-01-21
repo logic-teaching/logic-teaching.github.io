@@ -241,10 +241,6 @@ This kind of example was thought to be more challenging by the Stoic logicians, 
 
 <br>
 
-<br>
-
-These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=4).[^2]
-
 ## Reasoning by cases
 
 A final paradigmatic valid argument is "reasoning by cases." This is where we know a disjunction and we know that each of the disjunctions implies some desired conclusion, and we reason towards this desired conclusion. It is a valid argument, as the below table shows:
@@ -262,6 +258,13 @@ A substitution instance of this is the following:
 ~~~
 
 This argument was of particular interest to the Ancient Greek School of the Stoics, who again first isolated these basic validities we are studying today. [They were interested in the case](http://logic-teaching.github.io/prop/texts/Sextus Empiricus 2005 - Sextus Empiricus - Against the Logicians - Book II 463-469.pdf) of $p= $ "There are good arguments." The first two premises of the argument are tautologies and so always true (as one can see by glancing at the truth-table). And the Stoics thought that "if there are no good arguments, then there are good arguments" has an air of truth since a sincere assertion of "there are no good arguments" would presumably be for some compelling reason, which would then be self-defeating in that it would show that there are some good arguments. While this aspect of the history of propositional logic might be of merely historical interest to us, it is illustrative of the way that logic is sometimes deployed in philosophy, namely as a way to subject very complicated arguments, about which there does not seem to be any relevant empirical or inductive evidence, to a type of rigorous analysis.
+
+<br>
+
+
+<br>
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=4).[^2]
 
 
 [^2]:It is run on the Carnap software, which is
