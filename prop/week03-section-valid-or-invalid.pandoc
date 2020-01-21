@@ -101,9 +101,9 @@ It turns out that this is a valid argument. What substitution should you do to s
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 
-| substitute s for p and substitute r/\ t for q.
+| *substitute s for p and substitute r/\ t for q.
 | substitute t for p and substitute r/\ s for q.
-| *substitute r/\ t for p and substitute s for q.
+| substitute r/\ t for p and substitute s for q.
 | substitute r/\ s for p and substitute t for q.
 ```
 
