@@ -54,7 +54,9 @@ The columns of this truth-table outside of the consequence relation $\vdash$ sho
 
 With this rule in place, you should be able to fill out the above truth-table for modus ponens. Here is a video of the truth-table being filled out with some color highlighting to emphasize the application of the rule for the consequence relation $\vdash$. As one sees, all the entries under the $\vdash$ column are true, indicating that it is a valid argument.
 
-INSERT video
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/validities-modus-ponens.mp4"/> </video>
+
+<br>
 
 How should one memorize modus ponens? Well, the idea is just that: if you know an arrow statement is true, and you know the antecedent is true, then you know the consequent is true. Put this way, it is just a different expression of part of what one knows about the truth-table for arrow statements. We will explore this parallel further in a moment in the section [Deduction theorem](#deduction-theorem).
 
