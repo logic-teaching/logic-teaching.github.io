@@ -50,7 +50,7 @@ Here is our first paradigmatic example of a valid argument, which bears the trad
  p->q, p :|-: q
 ~~~
 
-The columns of this truth-table outside of the consequence relation $\vdash$ should be familiar to you. As with the other connectives, with $\vdash$ we work row by row. In a given row, the rule for $\vdash$ is as follows. Put true under the $\vdash$ if and only if the following happens: if the premises are all true, then the conclusion is true. Hence, the only circumstance when we put a false under the $\vdash$ is in a row where there the premises are all true and the conclusion is false. Expressed in these terms, an argument is valid precisely when there are all true's under the $\vdash$ column.
+The columns of this truth-table outside of the consequence relation $\vdash$ should be familiar to you. As with the other connectives, with $\vdash$ we work row by row. In a given row, the rule for $\vdash$ is as follows. **Put true under the $\vdash$ in the row if and only if the following happens in the row: if the premises are all true, then the conclusion is true.** Hence, the only circumstance when we put a false under the $\vdash$ is in a row where there the premises are all true and the conclusion is false. Expressed in these terms, an argument is valid precisely when there are all true's under the $\vdash$ column.
 
 With this rule in place, you should be able to fill out the above truth-table for modus ponens. Here is a video of the truth-table being filled out with some color highlighting to emphasize the application of the rule for the consequence relation $\vdash$. As one sees, all the entries under the $\vdash$ column are true, indicating that it is a valid argument.
 
