@@ -5,7 +5,7 @@ Logic, First Course, Winter 2020. Week 3, Lecture 2. [Back to course website](ht
 
 # Soundness, truth, and conditionals
 
-In this lecture, we learn the distinction between sound and merely valid arguments. Soundness pertains to truth, and then we look what we can do if we agree on the truth of a conditional. Then we turn to different ways we might argue for the truth of a conditional. Finally, we synthesize various skills learned so far in the course.
+In this lecture, we learn the distinction between sound and merely valid arguments. Soundness pertains to truth, and then we look what we can do with valid arguments if we agree on the truth of a conditional. Then we turn to different ways we might argue for the truth of a conditional. Finally, we synthesize various skills learned so far in the course.
 
 - [Sound arguments and truth](#sound-arguments-and-truth)
 - [Sound vs valid](#sounds-vs-valid)
@@ -18,9 +18,9 @@ In this lecture, we learn the distinction between sound and merely valid argumen
 
 ## Sound arguments and truth
 
-A **sound** argument is simply a valid argument which has all true premises. Since valid arguments are such that the truth of the premises guarantees the truth of the conclusion, it follows that sound arguments must have true conclusions. Logic teaches us how to distinguish valid from invalid arguments-- that was the topic of the last lecture. However, logic does not teach us what premises are true and what premises are false. This is something that we have to learn from other sources: perception, testimony, science, etc. Other parts of philosophy like philosophy of mind and epistemology and philosophy of science study extensively the way in which these different sources lead us to truth. In propositional logic we just take it for granted that we have a good enough grip on what makes the sentences we care about true or false, even if do not have perfect knowledge of exactly which propositions are true and false.
+A **sound** argument is simply a valid argument that has all true premises. Since valid arguments are such that the truth of the premises guarantees the truth of the conclusion, it follows that sound arguments must have true conclusions. Logic teaches us how to distinguish valid from invalid arguments-- that was the topic of the last lecture. However, logic does not teach us what premises are true and what premises are false. This is something that we have to learn from other sources: perception, testimony, science, etc. Other parts of philosophy like philosophy of mind and epistemology and philosophy of science study extensively the way in which these different sources lead us to truth. In propositional logic we just take it for granted that we have a good enough grip on what makes the sentences we care about true or false.
 
-This assumption is not new to this lecture, but it is built into the very idea of propositional logic itself: we take basic propositions like $p,q$ as basic, and we say things like "the row where $p$ is true and $q$ is true corresponds to the situation in which both are true, and in this situation of course $p\wedge q$ is true." This takes it for granted that there is something like a situation or world that makes our propositions true or false, and in propositional logic we do not say much more about it. And indeed everything we are saying is perfectly compatible with the idea much of the time we are unsure of what circumstance we are actually in-- we talk about all of the possible circumstances in part because we are unsure of how things stand with respect to some propositions. But with respect to many propositions there is common enough knowledge of truth and falsity and we can be confident in our assessments
+This assumption is not new to this lecture, but it is built into the very idea of propositional logic itself: we take propositions like $p,q$ as basic, and we say things like "the row where $p$ is true and $q$ is true corresponds to the situation in which both are true, and in this situation of course $p\wedge q$ is true." This takes it for granted that there is something like a situation or world that makes our propositions true or false, and in propositional logic we do not say much more about it. And indeed everything we are saying is perfectly compatible with the idea much of the time we are unsure of what circumstance we are actually in-- we talk about all of the possible circumstances in part because we are unsure of how things stand with respect to some propositions in our actual circumstance. But with respect to many propositions there is common enough knowledge of truth and falsity and we can be confident in our assessments.
 
 <br>
 
@@ -40,13 +40,13 @@ To start off, here is a sound argument:
 
 <p style="margin-left: 40px"> *Example 1*. If the Governor of California resides near the California state capital, then the Governor of California resides near Sacramento. The Governor of California resides near the California state capital. Therefore, the Governor of California resides near Sacramento. </p>
 
-This first example is valid because it is an instance of modus ponens, and it has true premises and a true conclusion because of what we know about the world-- in this case, perhaps it is based off of our knowledge of politics and geography.
+This first example is valid because it is an instance of modus ponens, and it has true premises and a true conclusion because of what we know about the world-- in this case, perhaps it is based off of our knowledge of politics and geography. Since Example 1 is valid and has true premises, it is sound.
 
 Now consider the following valid but not sound argument, with a *true conclusion* but whose second premise is false. Of course, the second premise is false because the Governor of California does not reside near Los Angeles, the largest Californian city:
 
 <p style="margin-left: 40px"> *Example 2*. If the Governor of California resides near the largest Californian city, then the Governor of California resides near Sacramento. The Governor of California resides near the largest Californian city. Therefore, the Governor of California resides near Sacramento. </p>
 
-We can also consider the a valid but not sound argument which has a *false conclusion*. It has a false conclusion since the state capital of Arizona is Phoenix and not Tucson, and the Governor of Arizona resides near Phoenix and not Tucson:
+We can also consider the a valid but not sound argument that has a *false conclusion*. It has a false conclusion since the state capital of Arizona is Phoenix and not Tucson, and the Governor of Arizona resides near Phoenix and not Tucson:
 
 <p style="margin-left: 40px"> *Example 3*. If the Governor of Arizona resides near the Arizona state capital, then the Governor of Arizona resides near Tucson. The Governor of Arizona resides near the Arizona state capital. Therefore, the Governor of Arizona resides near Tucson.
  </p>
@@ -57,7 +57,7 @@ Now let us turn to invalid arguments. The following is an example of an invalid 
 
 <p style="margin-left: 40px"> *Example 4*. If the Governor of California resides near the largest Californian city, then the Governor of California resides near Sacramento. The Governor of California resides near Sacramento. Therefore, the Governor of California resides near the largest Californian city.</p>
 
-Clearly the second premise is true ("The Governor of California resides near Sacramento"). But since the conditional is the material conditional, the first premise is also technically true since it has a true consequent (think here back to the truth-table of the arrow, and note that if there is a true in the consequent, then the entire conditional statement is true).
+Clearly the second premise is true ("The Governor of California resides near Sacramento"). But since the conditional is the material conditional, the first premise is also technically true since it has a true consequent (see [Arguing for or against a conditional](#arguing-for-or-against-a-conditional)).
 
 As a final example of an invalid argument, consider the following, which is an invalid argument with a true conclusion and false premises. It is invalid because it is an instance of affirming the consequent (the invalid argument pattern which argues from premises $p\rightarrow q$ and $q$ to conclusion $p$):
 
@@ -65,7 +65,7 @@ As a final example of an invalid argument, consider the following, which is an i
 
 The conclusion is true since the Governor of Arizona resides near Phoenix, the state capital, which also happens to be the largest Arizonian city. For the same reason the second premise is false. And since the conditional is the material conditional, the first premise is also false since it has a true antecedent and a false consequent.
 
-Again, if an argument is invalid, then there are no constraints on the truth or falsity of the premises and conclusions. Hence, we have *not* here in this section enumerated *all* the possible combinations of the truth and falsity of premises and conclusions invalid arguments.
+Again, if an argument is invalid, then there are no constraints on the truth or falsity of the premises and conclusions. Hence, we have not here in this section enumerated *all* the possible combinations of the truth and falsity of premises and conclusions of invalid arguments.
 
 In the ordinary course of events, we are usually pretty good at discerning when arguments are sound. This is tied of course to our sense for discerning truth from falsity. We are good at this in the way that we are good at discerning grammatical from ungrammatical sentences, and this in turn is helped by our being routinely exposed to mostly grammatical sentences. However, as the above examples perhaps brought out, when one all of a sudden gets exposed to a number of random mixture of truths and falsehoods, it is easy to loose grip of things and one has to really focus to discern the difference between sound and unsound arguments.
 
@@ -73,10 +73,10 @@ In the ordinary course of events, we are usually pretty good at discerning when 
 
 ## Arguing from a conditional
 
-But sometimes only the truth of one premise may be clear to us. In this case logic can outlines the possible ways to argue. One frequent occurrence of this revolves around the saying: "one's man's modus ponens is another man's modus tollens." The beginning thought here is that both modus ponens and modus tollens start out with the same conditional:
+But sometimes only the truth of one premise may be clear to us. In this case logic can outlines the possible ways to argue. One frequent occurrence of this revolves around the common saying: "one's man's modus ponens is another man's modus tollens." The beginning thought here is that both modus ponens and modus tollens start out with the same conditional:
 
 - *Modus ponens:* $p\rightarrow q, p \vdash q$
-- *Modus tollens:* $p\rightarrow q, \neg q vdash \neg p$.
+- *Modus tollens:* $p\rightarrow q, \neg q \vdash \neg p$.
 
 Hence, the common saying reminds us that if we accept a conditional $p\rightarrow q$, then there are two different things that we could do with it:
 
@@ -85,19 +85,19 @@ Hence, the common saying reminds us that if we accept a conditional $p\rightarro
 
 For instance, suppose that Alex and Brianna are in an argument about whether $q$ is true, where Alex believes $q$ and Brianna believes $\neg q$. And suppose further that both agree that $p\rightarrow q$. Alex might use *Option 1* to try to mount a valid argument from a premise $p$ to conclusion $q$, as follows:
 
-- *Alex*: The reason why you should believe $q$ is because we both accept premise $p\rightarrow q$ and since I think that there is evidence for premise $p$.
+- *Alex*: The reason why you should believe $q$ is because we both accept premise $p\rightarrow q$ and because there is ample evidence for premise $p$.
 
-But unless Alex produces overwhelming evidence for the truth of $p$, Brianna can just respond using *Option 2* from above:
+But unless Alex produces not just ample but sufficiently overwhelming evidence for the truth of $p$, Brianna can just respond using *Option 2* from above, as follows:
 
-- *Brianna*: I think that your Alex's argument is valid but not sound. In particular, there is no reason to accept the truth of Alex's premise $p$. In particular, I think that there is a compelling argument to think that $\neg p$. Namely, since we both accept $p\rightarrow q$ and since I think $\neg q$ is true, it follows validly from that $\neg p$.
+- *Brianna*: I think that your Alex's argument is valid but not sound. In particular, there is no reason to accept the truth of Alex's premise $p$. In particular, I think that there is a compelling argument to think that $\neg p$. Namely, since we both accept $p\rightarrow q$ and since I think $\neg q$ is true, it follows that $\neg p$.
 
 This is a real disagreement, and given how little we know about what $p$ and $q$ say, we are in no position to adjudicate the dispute here. But logic gives us a way to understand the dispute as a rational one: if what is common to the two agents' beliefs is only the conditional, then there are two valid arguments one can pursue, namley a modus ponens and a modus tollens.
 
-The debate between Alex and Brianna is ridiculously abstract. This kind of things recurs throughout philosophy. For instance, in the debate on free will, many parties traditionally accepted the conditional
+The debate between Alex and Brianna is abstract. But this kind of thing recurs throughout philosophy. For instance, in the debate on free will, many parties traditionally accepted the conditional
 
 - "if one cannot do otherwise than one has actually done in a given case, then one does not bear any moral  responsibility in this case."
 
-This conditional is supposed to be initially attractive because of the familiar way in which we refrain from blaming people for actions they were forced by a third party to do (or by a tragic course of natural events to do). But in the free will debate, some people think that the antecedent always, perhaps because the laws of nature and the fixity of the past show that the present could not have been otherwise; for these theorist, the modus ponens move is attractive, and one then fatefully concludes that there is no moral responsibility. But others who find the evidence for moral responsibility so patently abundant do the modus tollens and conclude that we must have the ability to do otherwise in many cases.
+This conditional is supposed to be initially attractive because of the familiar way in which we refrain from blaming people for actions they were forced by a third party to do (or forced by a tragic course of natural events to do). But in the free will debate, some people think that the antecedent always, perhaps because the laws of nature and the fixity of the past show that the present could not have been otherwise. For these theorists, the modus ponens move is attractive, and one then fatefully concludes that there is no moral responsibility. But others who find the evidence for moral responsibility so patently abundant do the modus tollens and conclude that we must have the ability to do otherwise in many cases.
 
 <br>
 
@@ -115,10 +115,10 @@ This is a basic distinction, and one should not be surprised that it too is anci
 
 &nbsp; &nbsp; &nbsp;   <img src="http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20115.png" alt="quotation from Sextus Empiricus" width="700"/>
 
-Stepping back from history and back towards the issue of how one argues for conditionals, it is clear how one argues for a tautology-- one just employs truth-tables or the other methods like substitution that we learned in [Week 2, Lecture 2](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-lecture2-tautologies.pandoc). But it is likewise clear that this won't work for many of the conditionals we are actually interested in. For instance, consider the conditional above from the free will debate. If we had to formalize this in propositional logic, it would be something like $p\vdash q$, which is obviously not valid. Perhaps we could partially remedy the situation by viewing it as not a tautology per se, but rather as a valid argument like $\varphi_1, \ldots, \varphi_n \vdash p\rightarrow q$, where $\varphi_1, \ldots, \varphi_n$ enumerate various implicit claims about what e.g. responsibility means. But that quickly starts looking like it will involve special knowledge of the propositions $p$ and $q$ at hand, and logic alone will have little in general to say about that. These reflections also indicate how one can argue against a conditional qua tautology:
+Stepping back from history and back towards the issue of how one argues for conditionals, it is clear how one argues for a tautology-- one just employs truth-tables or the other methods like substitution that we learned in [Week 2, Lecture 2](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-lecture2-tautologies.pandoc). But it is likewise clear that this won't work for many of the conditionals we are actually interested in. For instance, consider the conditional above from the free will debate. If we had to formalize this in propositional logic, it would be something like $p\vdash q$, which is obviously not valid. Perhaps we could partially remedy the situation by viewing it as not a tautology *per se*, but rather as a valid argument like $\varphi_1, \ldots, \varphi_n \vdash p\rightarrow q$, where $\varphi_1, \ldots, \varphi_n$ enumerate various implicit claims about what e.g. responsibility means. But that quickly starts looking like it will involve special knowledge of the propositions $p$ and $q$ at hand, and logic alone will have little in general to say about that. These reflections also indicate how one can argue against a conditional qua tautology:
 
 - in absence of the proof that it is a tautology, you can ask for the auxiliary premises used to derive it
-- you can try to look for counterexamples: logically possible situations where the premises are true and the conclusion is false.
+- you can try to look for counterexamples: logically possible situations where the premises are true and the conclusion is false. If you get told by your opponent that your counterexample is too far-fetched, you can ask them to make explicit their constraints.
 
 <br>
 
@@ -132,7 +132,7 @@ What about the material conditional? A salient fact about the material condition
 | FTF
 ~~~
 
-Many authors, starting with [C.I. Lewis in 1912](logic-teaching.github.io/prop/texts/Lewis%201912%20-%20Implication%20and%20the%20Algebra%20of%20Logic.pdf), pointed out that this truth-table has unintuitive consequences, which are sometimes called the *paradoxes of the material conditional*. For instance, if the consequent $q$ is true, then $p\rightarrow q$ is true. To use Lewis' example, this yields the unintuitive result that "if Rome is still burning then Christmas is coming" is true. As later authors would thematize the issue, what is the problem is that there need not be any *relevance* between the antecedent and consequent in a true material conditional. Likewise, if the antecedent $p$ is false, then $p\rightarrow q$ is automatically true. To use one of Lewis' examples again, this yields that "if Caeser did not die, then the moon is made of green cheese" is true. But perhaps this second kind of material conditional is less problematic, if we are the business of trying to develop arguments for $p\rightarrow q$ with an eye towards doing the modus ponens. These brief reflections also point to ways in which one can argue against a conditional, viewed as something like a material:
+Many authors, starting with [C.I. Lewis in 1912](logic-teaching.github.io/prop/texts/Lewis%201912%20-%20Implication%20and%20the%20Algebra%20of%20Logic.pdf), pointed out that this truth-table has unintuitive consequences, which are sometimes called the *paradoxes of the material conditional*. For instance, if the consequent $q$ is true, then $p\rightarrow q$ is true (look at rows 2 and 4 above). To use Lewis' example, this yields the unintuitive result that "if Rome is still burning then Christmas is coming" is true. As later authors would thematize the issue, what is the problem is that there need not be any *relevance* between the antecedent and consequent in a true material conditional. Likewise, if the antecedent $p$ is false, then $p\rightarrow q$ is automatically true (look at rows 3 and 4 above). To use one of Lewis' examples again, this yields that "if Caeser did not die, then the moon is made of green cheese" is true. But perhaps this second kind of material conditional is less problematic, if we are the business of trying to develop arguments for $p\rightarrow q$ with an eye towards doing the modus ponens. These brief reflections also point to ways in which one can argue against a conditional, viewed as something like a material:
 
 - you can ask for the connection between the premises and the conclusion
 - you can ask for assurance that the conditional is true for some other reason besides its consequent being true, or besides its antecedent being false.
@@ -196,7 +196,7 @@ Then to assess for validity, we could patiently fill out the entire truth-table 
 
 As we can see by inspection of the column under the consequence relation $\vdash$, this is a valid argument. And the truth-tables offer a theoretically compelling account of validity, since the enumeration of all possible cases gives us a way to formalize the idea that "whenever the premises are true, the conclusion is true."
 
-However, part of what we have been learning is how to quickly ascertain validity. In this case, we could more quickly discern that the argument is valid by first noting that the following is a substitution instance of modus tollens:
+However, part of what we have been learning is how to *quickly* ascertain validity. In this case, we could more quickly discern that the argument is valid by first noting that the following is a substitution instance of modus tollens:
 
 <p style="margin-left: 40px"> $(a\vee b)\rightarrow c, \neg c \vdash \neg (a\vee b)$ </p>
 
