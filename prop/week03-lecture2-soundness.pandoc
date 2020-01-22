@@ -5,7 +5,7 @@ Logic, First Course, Winter 2020. Week 3, Lecture 2. [Back to course website](ht
 
 # Soundness, truth, and conditionals
 
-In this lecture, we learn about sound arguments. INSERT MORE
+In this lecture, we learn the distinction between sound and merely valid arguments. Soundness pertains to truth, and then we look what we can do if we agree on the truth of a conditional. Then we turn to different ways we might argue for the truth of a conditional. Finally, we try to synthesize various skills learned so far in the course.  
 
 - [Sound arguments and truth](#sound-arguments-and-truth)
 - [Sound vs valid](#sounds-vs-valid)
