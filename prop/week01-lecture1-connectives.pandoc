@@ -134,7 +134,7 @@ The way to memorize the truth-table for implication is as follows: an implicatio
 
 We can point out examples where the truth-table for implication *seems* to be right. The earliest known indication of the truth-table for implication is from the ancient Greeks, in particular the Stoic logician Philo. Here is the record of his views which the skeptic Sextus Empiricus tells us about in his *Against the Logicians* ([p. 112 in this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)):
 
-&nbsp; &nbsp; &nbsp;   <img src="http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20113-114.png" alt="Apple green" width="700"/>
+&nbsp; &nbsp; &nbsp;   <img src="http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20113-114.png" alt="quotation from Sextus Empiricus" width="700"/>
 
 However, a recurrent theme in this course is going to be that the material conditional fails to get our use of "if . . . then" statements right in many cases.
 

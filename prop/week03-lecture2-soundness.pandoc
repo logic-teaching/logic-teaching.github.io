@@ -1,0 +1,245 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 3, Lecture 2. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=4)
+
+# Sound arguments
+
+In this lecture, we learn about sound arguments. INSERT MORE
+
+- [Sound arguments and truth](#sound-arguments-and-truth)
+- [Sound vs valid](#sounds-vs-valid)
+- [Arguing from a conditional](#arguing-from-a-conditional)
+- [Arguing for or against a conditional](#arguing-for-or-against-a-conditional)
+- [Synthesizing and applying 1](#synthesizing-and-applying-1)
+- [Synthesizing and applying 1](#synthesizing-and-applying-2)
+
+<br>
+
+## Sound arguments and truth
+
+A **sound** argument is simply a valid argument which has all true premises. Since valid arguments are such that the truth of the premises guarantees the truth of the conclusion, it follows that sound arguments must have true conclusions. Logic teaches us how to distinguish valid from invalid arguments-- that was the topic of the last lecture. However, logic does not teach us what premises are true and what premises are false. This is something that we have to learn from other sources: perception, testimony, science, etc. Other parts of philosophy like philosophy of mind and epistemology and philosophy of science study extensively the way in which these different sources lead us to truth. In propositional logic we just take it for granted that we have a good enough grip on what makes the sentences we care about true or false, even if do not have perfect knowledge of exactly which propositions are true and false.
+
+This assumption is not new to this lecture, but it is built into the very idea of propositional logic itself: we take basic propositions like $p,q$ as basic, and we say things like "the row where $p$ is true and $q$ is true corresponds to the situation in which both are true, and in this situation of course $p\wedge q$ is true." This takes it for granted that there is something like a situation or world that makes our propositions true or false, and in propositional logic we do not say much more about it. And indeed everything we are saying is perfectly compatible with the idea much of the time we are unsure of what circumstance we are actually in-- we talk about all of the possible circumstances in part because we are unsure of how things stand with respect to some propositions. But with respect to many propositions there is common enough knowledge of truth and falsity and we can be confident in our assessments
+
+<br>
+
+## Sounds vs valid
+
+Since soundness implies validity, arguments then can be classified into three basic categories:
+
+<p style="margin-left: 40px"> *Sound arguments*: valid and all premises are true. These arguments must necessarily have true conclusions. </p>
+
+<p style="margin-left: 40px">  *Valid but not sound arguments*: valid but not all premises are true. These arguments may have either a true or false conclusion. It could be just one premise is false, or it could be many premises being false. </p>
+
+<p style="margin-left: 40px"> *Invalid arguments*. There are no constraints on the truth or falsity of premises and conclusions in these arguments. </p>
+
+One can quickly enumerate some examples of these by instantiating any of the paradigmatic examples of valid and invalid arguments.
+
+To start off, here is a sound argument:
+
+<p style="margin-left: 40px"> *Example 1*. If the Governor of California resides near the California state capital, then the Governor of California resides near Sacramento. The Governor of California resides near the California state capital. Therefore, the Governor of California resides near Sacramento. </p>
+
+This first example is valid because it is an instance of modus ponens, and it has true premises and a true conclusion because of what we know about the world-- in this case, perhaps it is based off of our knowledge of politics and geography.
+
+Now consider the following valid but not sound argument, with a *true conclusion* but whose second premise is false. Of course, the second premise is false because the Governor of California does not reside near Los Angeles, the largest Californian city:
+
+<p style="margin-left: 40px"> *Example 2*. If the Governor of California resides near the largest Californian city, then the Governor of California resides near Sacramento. The Governor of California resides near the largest Californian city. Therefore, the Governor of California resides near Sacramento. </p>
+
+We can also consider the a valid but not sound argument which has a *false conclusion*. It has a false conclusion since the state capital of Arizona is Phoenix and not Tucson, and the Governor of Arizona resides near Phoenix and not Tucson:
+
+<p style="margin-left: 40px"> *Example 3*. If the Governor of Arizona resides near the Arizona state capital, then the Governor of Arizona resides near Tucson. The Governor of Arizona resides near the Arizona state capital. Therefore, the Governor of Arizona resides near Tucson.
+ </p>
+
+Since Example 3 is valid but has a false conclusion, it must have at least one false premise. The second premise "The Governor of Arizona resides near the Arizona state capital" is true. Hence, the first premise must be false, that is, it is false that "if the Governor of Arizona resides near the Arizona state capital, then the Governor of Arizona resides near Tucson." This is predicted well by the truth-table for arrow, since the antecedent is true (it is true that "the Governor of Arizona resides near the Arizona state capital") but the consequent is false (it is false that "the Governor of Arizona resides near Tucson").
+
+Now let us turn to invalid arguments. The following is an example of an invalid argument with a false conclusion and true premises. It is invalid because it is an instance of affirming the consequent (the invalid argument pattern which argues from premises $p\rightarrow q$ and $q$ to conclusion $p$):
+
+<p style="margin-left: 40px"> *Example 4*. If the Governor of California resides near the largest Californian city, then the Governor of California resides near Sacramento. The Governor of California resides near Sacramento. Therefore, the Governor of California resides near the largest Californian city.</p>
+
+Clearly the second premise is true ("The Governor of California resides near Sacramento"). But since the conditional is the material conditional, the first premise is also technically true since it has a true consequent (think here back to the truth-table of the arrow, and note that if there is a true in the consequent, then the entire conditional statement is true).
+
+As a final example of an invalid argument, consider the following, which is an invalid argument with a true conclusion and false premises. It is invalid because it is an instance of affirming the consequent (the invalid argument pattern which argues from premises $p\rightarrow q$ and $q$ to conclusion $p$):
+
+<p style="margin-left: 40px"> *Example 5*. If the Governor of Arizona resides near the largest Arizonan city, then the Governor of Arizona resides near Tucson. The Governor of Arizona resides near Tucson. Therefore, the Governor of Arizona resides near the largest Arizonian city.</p>
+
+The conclusion is true since the Governor of Arizona resides near Phoenix, the state capital, which also happens to be the largest Arizonian city. For the same reason the second premise is false. And since the conditional is the material conditional, the first premise is also false since it has a true antecedent and a false consequent.
+
+Again, if an argument is invalid, then there are no constraints on the truth or falsity of the premises and conclusions. Hence, we have *not* here in this section enumerated *all* the possible combinations of the truth and falsity of premises and conclusions invalid arguments.
+
+In the ordinary course of events, we are usually pretty good at discerning when arguments are sound. This is tied of course to our sense for discerning truth from falsity. We are good at this in the way that we are good at discerning grammatical from ungrammatical sentences, and this in turn is helped by our being routinely exposed to mostly grammatical sentences. However, as the above examples perhaps brought out, when one all of a sudden gets exposed to a number of random mixture of truths and falsehoods, it is easy to loose grip of things and one has to really focus to discern the difference between sound and unsound arguments.
+
+<br>
+
+## Arguing from a conditional
+
+But sometimes only the truth of one premise may be clear to us. In this case logic can outlines the possible ways to argue. One frequent occurrence of this revolves around the saying: "one's man's modus ponens is another man's modus tollens." The beginning thought here is that both modus ponens and modus tollens start out with the same conditional:
+
+- *Modus ponens:* $p\rightarrow q, p \vdash q$
+- *Modus tollens:* $p\rightarrow q, \neg q vdash \neg p$.
+
+Hence, the common saying reminds us that if we accept a conditional $p\rightarrow q$, then there are two different things that we could do with it:
+
+- *Option 1*: we could use it to argue from $p$ to $q$.
+- *Option 2*: we could use it to argument from $\neg q$ to $\neg p$.
+
+For instance, suppose that Alex and Brianna are in an argument about whether $q$ is true, where Alex believes $q$ and Brianna believes $\neg q$. And suppose further that both agree that $p\rightarrow q$. Alex might use *Option 1* to try to mount a valid argument from a premise $p$ to conclusion $q$, as follows:
+
+- *Alex*: The reason why you should believe $q$ is because we both accept premise $p\rightarrow q$ and since I think that there is evidence for premise $p$.
+
+But unless Alex produces overwhelming evidence for the truth of $p$, Brianna can just respond using *Option 2* from above:
+
+- *Brianna*: I think that your Alex's argument is valid but not sound. In particular, there is no reason to accept the truth of Alex's premise $p$. In particular, I think that there is a compelling argument to think that $\neg p$. Namely, since we both accept $p\rightarrow q$ and since I think $\neg q$ is true, it follows validly from that $\neg p$.
+
+This is a real disagreement, and given how little we know about what $p$ and $q$ say, we are in no position to adjudicate the dispute here. But logic gives us a way to understand the dispute as a rational one: if what is common to the two agents' beliefs is only the conditional, then there are two valid arguments one can pursue, namley a modus ponens and a modus tollens.
+
+The debate between Alex and Brianna is ridiculously abstract. This kind of things recurs throughout philosophy. For instance, in the debate on free will, many parties traditionally accepted the conditional
+
+- "if one cannot do otherwise than one has actually done in a given case, then one does not bear any moral  responsibility in this case."
+
+This conditional is supposed to be initially attractive because of the familiar way in which we refrain from blaming people for actions they were forced by a third party to do (or by a tragic course of natural events to do). But in the free will debate, some people think that the antecedent always, perhaps because the laws of nature and the fixity of the past show that the present could not have been otherwise; for these theorist, the modus ponens move is attractive, and one then fatefully concludes that there is no moral responsibility. But others who find the evidence for moral responsibility so patently abundant do the modus tollens and conclude that we must have the ability to do otherwise in many cases.
+
+<br>
+
+## Arguing for or against a conditional
+
+But how to do you argue for or against a conditional? Let us start with ways to argue *for* a conditional. We can distinguish two extremes:
+
+- *Material conditional*: you believe $phi\rightarrow \psi$ because you think that you are *not* in a situation where $\phi$ is true and $\psi$ is false.
+
+- *Tautology*: you believe $\phi\rightarrow \psi$ because you think it is a tautology. Equivalently, you believe $\phi\rightarrow \psi$ because you think that $\phi\vdash \psi$.
+
+This is a basic distinction, and one should not be surprised that it too is ancient. In particular, we had mentioned in [Week 1, Lecture 1](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#history-of-truth-table-for-implication-and-partial-confirmation) that the Stoics had the material conditional. They also had the notion like the second notion mentioned above, of a conditional being a tautology. The Stoic logician Philo had the former, and the Stoic logician Diodorus had the latter ([p. 112 in this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)):
+
+&nbsp; &nbsp; &nbsp;   <img src="http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20113.png" alt="quotation from Sextus Empiricus" width="700"/>
+
+&nbsp; &nbsp; &nbsp;   <img src="http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20115.png" alt="quotation from Sextus Empiricus" width="700"/>
+
+Stepping back from history and back towards the issue of how one argues for conditionals, it is clear how one argues for a tautology-- one just employs truth-tables or the other methods like substitution that we learned in [Week 2, Lecture 2](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-lecture2-tautologies.pandoc). But it is likewise clear that this won't work for many of the conditionals we are actually interested in. For instance, consider the conditional above from the free will debate. If we had to formalize this in propositional logic, it would be something like $p\vdash q$, which is obviously not valid. Perhaps we could partially remedy the situation by viewing it as not a tautology per se, but rather as a valid argument like $\varphi_1, \ldots, \varphi_n \vdash p\rightarrow q$, where $\varphi_1, \ldots, \varphi_n$ enumerate various implicit claims about what e.g. responsibility means. But that quickly starts looking like it will involve special knowledge of the propositions $p$ and $q$ at hand, and logic alone will have little in general to say about that. These reflections also indicate how one can argue against a conditional qua tautology:
+
+- in absence of the proof that it is a tautology, you can ask for the auxiliary premises used to derive it
+- you can try to look for counterexamples: logically possible situations where the premises are true and the conclusion is false.
+
+What about the material conditional? A salient fact about the material conditional is that it is just much too easy for the material conditional to become true. This can be seen just by displaying again its truth-table:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p->q
+| TTT
+| TFF
+| FTT
+| FTF
+~~~
+
+Many authors, starting with C.I. Lewis, pointed out that this truth-table has unintuitive consequences, which are sometimes called the *paradoxes of the material conditional*. For instance, if the consequent $q$ is true, then $p\rightarrow q$ is true. To use Lewis' example, this yields the unintuitive result that "if Rome is still burning then Christmas is coming" is true. As later authors would thematize the issue, what is the problem is that there need not be any *relevance* between the antecedent and consequent in a true material conditional. Likewise, if the antecedent $p$ is false, then $p\rightarrow q$ is automatically true. To use one of Lewis' examples again, this yields that "if Caeser did not die, then the moon is made of green cheese" is true. But perhaps this second kind of material conditional is less problematic, if we are the business of trying to develop arguments for $p\rightarrow q$ with an eye towards doing the modus ponens. These brief reflections also point to ways in which one can argue against a conditional, viewed as something like a material:
+
+- you can ask for the connection between the premises and the conclusion
+- you can ask for assurance that the conditional is true for some other reason besides its consequent being true, or besides its antecedent being false.
+
+The second of course gets us back into the territory of the discussion in [the last lecture](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#question-begging-arguments) about question-begging arguments.
+
+<br>
+
+## Synthesizing and applying 1
+
+We can then start to put together all the things we have learned in this course. Let us first consider a simple example:
+
+<p style="margin-left: 40px"> *Example 6*. If Anthony attends or Briana attends then Cynthia attends. But Cynthia does not attend. Therefore, Anthony does not attend and Brianna does not attend. </p>
+
+Suppose that we were not at the meeting, but we knew the first premise due to our long experience with these characters and we knew the second premise because we got a message from Cynthia. Do we know the conclusion? If the argument was valid, we would know the conclusion. And to see whether it is valid, we would first translate into propositional logic, using the key:
+
+
+<p style="margin-left: 40px"> $a$ = Anthony attends </p>
+<p style="margin-left: 40px"> $b$ = Briana attends </p>
+<p style="margin-left: 40px"> $c$ = Cynthia attends </p>
+
+Then we could translate as follows:
+
+*First premise*:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a\/b)->c : If Anthony attends or Briana attends then Cynthia attends.
+~~~
+
+*Second premise*:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~c : Cynthia does not attend.
+~~~
+
+*Conclusion*:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~a/\~b : Anthony does not attend and Brianna does not attend.
+~~~
+
+We probably do not need it at this point, but if we wanted we could parse these sentences too:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (a\/b)->c
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~c
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~a/\~b
+```
+
+Then to assess for validity, we could patiently fill out the entire truth-table and see that it is a validity:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ (a\/b)->c, ~c  :|-: ~a/\~b
+```
+
+As we can see by inspection of the column under the consequence relation $\vdash$, this is a valid argument. And the truth-tables offer a theoretically compelling account of validity, since the enumeration of all possible cases gives us a way to formalize the idea that "whenever the premises are true, the conclusion is true."
+
+However, part of what we have been learning is how to quickly ascertain validity. In this case, we could more quickly discern that the argument is valid by first noting that the following is a substitution instance of modus tollens:
+
+<p style="margin-left: 40px"> $(a\vee b)\rightarrow c, \neg c \vdash \neg (a\vee b)$ </p>
+
+And then by DeMorgan we have that $\neg (a\vee b)$ is equivalent to $\neg a\wedge \neg b$. Hence by putting modus tollens together with DeMorgan, we can quickly argue for the validity of the argument. Since we were imagining we were in the  situation where we knew the premises to be true, we could likewise thereby obtain the truth of the conclusion.
+
+<br>
+
+## Synthesizing and applying 1
+
+Often in order to be able to apply propositional logic, we have to greatly simplify the natural language sentences we are given, in a way that preserves their truth-conditions. Here is an illustrative example:
+
+<p style="margin-left: 40px"> *Example 7*. Next quarter, Alex must take 106A or 143B, and he must take 118C or 154D. But the restrictions on his major indicate that he cannot take both 106A and 118C for his degree. Therefore Alex should: (i) take both 106A and 154D, or (ii) take both 143B and 118C, or (iii) take both 143B and 154D.</p>
+
+What makes this conclusion follow? It does not seem to be empirical, since we do not need to do any looking around to figure this out. And it does not seem to be anything specific to the scheduling of classes as opposed to meetings as opposed to appointments, since we can imagine similar reasoning in other domains. A plausible answer is simply that it follows because it is a valid argument.
+
+One way to formalize the argument is then to use the following key about what Alex is going to take next quarter:
+
+<p style="margin-left: 40px"> $a$ = takes 106A  </p>
+<p style="margin-left: 40px"> $b$ = takes 143B </p>
+<p style="margin-left: 40px"> $c$ = takes 118C </p>
+<p style="margin-left: 40px"> $d$ = takes 154D </p>
+
+Then we could then formalize the argument as the following validity problem:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ (a\/b), (c\/d), ~(a/\c) :|-: (a/\d)\/((b\/c)\/(b\/d))
+```
+This is valid, as one can check, but it is an enormous truth-table. Is there a quicker way? Well, let's use equivalents like the following:
+
+<p style="margin-left: 40px"> *Law of distribution, part 1*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$  </p>
+
+Replacing equivalents by equivalents, we can reduce the problem to the following:
+
+INSERT VIDEO
+
+<br>
+
+
+
+<br>
+
+
+<br>
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=4).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
