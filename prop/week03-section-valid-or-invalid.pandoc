@@ -97,15 +97,17 @@ Consider how large the table would be to assess the validity of the following:
 
 <p style="margin-left: 40px"> $r,t\vdash s\vee (r\wedge t)$ </p>
 
-It turns out that this is a valid argument. What substitution should you do to see this, on the basis of Example 4? Recall Example 4 was the valid argument $q \vdash p\vee q$.
+It turns out that this is a valid argument. What substitution should you do to see this, on the basis of Example 4? Recall Example 4 was the valid argument $q \vdash p\vee q$.[^1]
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-
+ Which one?
 | *substitute s for p and substitute r/\ t for q.
 | substitute t for p and substitute r/\ s for q.
 | substitute r/\ t for p and substitute s for q.
 | substitute r/\ s for p and substitute t for q.
 ```
+
+[^1]: Note that there was a typo in an earlier posted version of these section notes and that the first option was the same as the third option, and the second was the same as the fourth option.
 
 <br>
 
