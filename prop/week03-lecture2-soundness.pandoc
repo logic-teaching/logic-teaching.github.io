@@ -12,7 +12,7 @@ In this lecture, we learn about sound arguments. INSERT MORE
 - [Arguing from a conditional](#arguing-from-a-conditional)
 - [Arguing for or against a conditional](#arguing-for-or-against-a-conditional)
 - [Synthesizing and applying 1](#synthesizing-and-applying-1)
-- [Synthesizing and applying 1](#synthesizing-and-applying-2)
+- [Synthesizing and applying 2](#synthesizing-and-applying-2)
 
 <br>
 
@@ -107,7 +107,7 @@ But how to do you argue for or against a conditional? Let us start with ways to 
 
 - *Material conditional*: you believe $phi\rightarrow \psi$ because you think that you are *not* in a situation where $\phi$ is true and $\psi$ is false.
 
-- *Tautology*: you believe $\phi\rightarrow \psi$ because you think it is a tautology. Equivalently, you believe $\phi\rightarrow \psi$ because you think that $\phi\vdash \psi$.
+- *Tautology*: you believe $\phi\rightarrow \psi$ because you think it is a tautology. Equivalently, you believe $\phi\rightarrow \psi$ because $\phi\vdash \psi$.
 
 This is a basic distinction, and one should not be surprised that it too is ancient. In particular, we had mentioned in [Week 1, Lecture 1](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#history-of-truth-table-for-implication-and-partial-confirmation) that the Stoics had the material conditional. They also had the notion like the second notion mentioned above, of a conditional being a tautology. The Stoic logician Philo had the former, and the Stoic logician Diodorus had the latter ([p. 112 in this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)):
 
@@ -119,6 +119,8 @@ Stepping back from history and back towards the issue of how one argues for cond
 
 - in absence of the proof that it is a tautology, you can ask for the auxiliary premises used to derive it
 - you can try to look for counterexamples: logically possible situations where the premises are true and the conclusion is false.
+
+<br>
 
 What about the material conditional? A salient fact about the material conditional is that it is just much too easy for the material conditional to become true. This can be seen just by displaying again its truth-table:
 
@@ -135,7 +137,7 @@ Many authors, starting with [C.I. Lewis in 1912](logic-teaching.github.io/prop/t
 - you can ask for the connection between the premises and the conclusion
 - you can ask for assurance that the conditional is true for some other reason besides its consequent being true, or besides its antecedent being false.
 
-The second of course gets us back into the territory of the discussion in [the last lecture](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#question-begging-arguments) about question-begging arguments.
+The second point of course gets us back into the territory of the discussion in [the last lecture](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#question-begging-arguments) about question-begging arguments.
 
 <br>
 
@@ -202,7 +204,7 @@ And then by DeMorgan we have that $\neg (a\vee b)$ is equivalent to $\neg a\wedg
 
 <br>
 
-## Synthesizing and applying 1
+## Synthesizing and applying 2
 
 Often in order to be able to apply propositional logic, we have to greatly simplify the natural language sentences we are given, in a way that preserves their truth-conditions. Here is an illustrative example:
 
