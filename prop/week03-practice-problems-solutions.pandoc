@@ -1,0 +1,472 @@
+conclusion<br>
+<br>
+
+
+Logic, First Course, Winter 2020. Week 3, Practice Problems (with solutions).
+
+# Week 3, Practice problems (with solutions).
+
+The practice problems in this set fall into two groups:
+
+- [Assessing validity](#assessing-validity)
+- [Assessing soundness](#assessing-soundness)
+
+
+This is just like the practice problems, but after each problem there is a brief discussion of the solution, marked in bold **solution**. The truth tables are however *not* all filled out.
+
+<br>
+
+## Assessing validity
+
+<br>
+
+*Problem 1*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~p->~q, q :|-: p
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| *Yes.
+| No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ It is a substitution instance of which of the following (perhaps together with use of double-negation)?
+| modus ponens.
+| *modus tollens.
+| affirming the consequent.
+| denying the antecedent.
+```
+
+**Solution**: it is valid, and it is a substitution instance of modus tollens, obtained by first doing ~p->~q, ~~q ⊢ ~~p and then simplifying with double-negation to ~p->~q, q ⊢ p.
+
+<br>
+
+*Problem 2*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~p->~q, ~q :|-: ~p
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| Yes.
+| *No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ It is a substitution instance of which of the following (perhaps together with use of double-negation)?
+| modus ponens.
+| modus tollens.
+| *affirming the consequent.
+| denying the antecedent.
+```
+
+**Solution**: it is not valid. It is an instance of affirming the consequent. The row that shows that affirming the consequent is invalid is the row where the antecedent is false and the consequent is true. In this case, that is row TF, where p is true so that ~p (the antecedent) is false and where q is false so that ~q the consequent is true.
+
+<br>
+
+*Problem 3*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~p->~q, p :|-: q
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| Yes.
+| *No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ It is a substitution instance of which of the following (perhaps together with use of double-negation)?
+| modus ponens.
+| modus tollens.
+| affirming the consequent.
+| *denying the antecedent.
+```
+
+**Solution**: it is not valid. It is an instance of denying the antecedent. The row that shows that denying the antecedent is invalid is the row where the antecedent is false and the consequent is true. In this case, that is row TF, where p is true so that ~p (the antecedent) is false and where q is false so that ~q the consequent is true.
+
+<br>
+
+*Problem 4*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~p->~q, q :|-: p
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| *Yes.
+| No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ It is a substitution instance of which of the following (perhaps together with use of double-negation)?
+| modus ponens.
+| *modus tollens.
+| affirming the consequent.
+| denying the antecedent.
+```
+
+**Solution**: It is valid. The substitution instance of modus tollens is  ~p->~q, ~~q ⊢ ~~p, which we simplify via double-negation to ~p->~q, q ⊢ p.
+
+<br>
+
+*Problem 5*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ (a\/(~b\/~c)), ~a :|-: ~(b/\c)
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| *Yes.
+| No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ What laws and paradigm examples can you use to quickly assess for validity, in tandem with DeMorgan?
+| commutativity.
+| distribution.
+| *disjunctive syllogism.
+| reasoning by cases.
+```
+
+**Solution**: It is valid. The substitution instance of disjunctive syllogism is  (a\/(~b\/~c)), ~a ⊢ ~b\/~c which we then simplify via DeMorgan to  (a\/(~b\/~c)), ~a ⊢ ~(b/\c).
+
+<br>
+
+*Problem 6*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ a->b, b\/c, a->c :|-: a
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| Yes.
+| *No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Each of the following is true. Which of these could you use to quickly assess for validity in this case?
+| *conditionals with false antecedents are true.
+| conditionals with true antecedents and false consequents are false (and this is the only circumstance in which they are false).
+| conditionals with true consequents are true.
+```
+**Solution**: It is not valid. To quickly see this, think about what a row where all the premises are true and the conclusion is false would have to look like. The conclusion a would have to be false. But conditionals with false antecedents are true. And so the two premises a->b and a->c would automatically be true. And then just make the remaining premise true b\/c by choosing both of them to be true (the row FTT) or one of them to be true (the rows FTF and FFT).
+
+
+<br>
+
+
+<br>
+
+*Problem 7*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~a->~c, ~a\/b, b->~c :|-: ~c
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| *Yes.
+| No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Which of the following is this a substitution instance of?
+| commutativity.
+| distribution.
+| disjunctive syllogism.
+| *reasoning by cases.
+```
+
+**Solution**: This is valid. It is a substitution instance of reasoning by cases. Think about it this way: the premise ~a\/b says "one of two things happens." The premise  ~a->~c says that if the first thing happens then a third thing happens. The premise b->~c says that if the second thing happens then that same third thing happens. Hence, this third thing has to happen.
+
+<br>
+
+*Problem 8*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~a/\(~b\/~c) :|-:  ~(a\/b)\/~(a\/c)
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| *Yes.
+| No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ What laws and paradigm examples can you use to quickly assess for validity, in tandem with DeMorgan?
+| commutativity.
+| *distribution.
+| disjunctive syllogism.
+| reasoning by cases.
+```
+
+**Solution**: This is valid. It is obtained by doing distribution to obtain ~a/\(~b\/~c) ⊢  (~a/\~b)\/(~a/\~c). Then we do DeMorgan to simplify it to ~a/\(~b\/~c) ⊢  ~(a\/b)\/~(a\/c).
+
+<br>
+
+*Problem 9*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~a/\(~b\/~c) :|-: ~((a\/b)/\(a\/c))
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| *Yes.
+| No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ What laws and paradigm examples can you use to quickly assess for validity, in tandem with DeMorgan?
+| commutativity.
+| *distribution.
+| disjunctive syllogism.
+| reasoning by cases.
+```
+
+**Solution**: This is valid. It is just a continuation of the previous problem, whose conclusion was ~(a\/b)\/~(a\/c). We apply DeMorgan one more time to further simplify the conclusion to ~((a\/b)/\(a\/c)).
+
+<br>
+
+*Problem 10*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ a\/(b\/c) :|-: c\/(a\/b)
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| *Yes.
+| No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ What laws and paradigm examples can you use to quickly assess for validity, in tandem with associativity?
+| *commutativity.
+| distribution.
+| disjunctive syllogism.
+| reasoning by cases.
+```
+
+**Solution**: This is valid. One quick way to see it is to start with a\/(b\/c) and then apply commutativity of disjunction to get  a\/(c\/b) and then apply associativity of disjunct to get (a\/c)\/b and then apply commutativity to get (c\/a)\/b and then apply associativity one more time to get c\/(a\/b).
+
+<br>
+
+*Problem 11*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ a->(b->c), a->c :|-: b
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| Yes.
+| *No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Each of the following is true. Which of these could you use to quickly assess for validity in this case?
+| *conditionals with false antecedents are true.
+| conditionals with true antecedents and false consequents are false (and this is the only circumstance in which they are false).
+| conditionals with true consequents are true.
+```
+
+**Solution**: This is invalid. One quick way to see this is to think about what a row where the premises are all true and the conclusion is false must look like. This would be a row where b is false. But the since conditionals with false antecedents are true, we have that b->c is true. Then if we simply make a and c both true, we have both premises  a->(b->c), a->c being true. Hence a row which shows the argument to be invalid would be TFT.
+
+<br>
+
+*Problem 12*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ a/\(b/\c) :|-: a->(b->c)
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| *Yes.
+| No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Each of the following is true. Which of these could you use to quickly assess for validity in this case?
+| conditionals with false antecedents are true.
+| *conditionals with true antecedents and false consequents are false (and this is the only circumstance in which they are false).
+| conditionals with true consequents are true.
+```
+
+**Solution**: This one is valid. One way to think about it is: if the premises are all true, then a,b,c are all true. But the only place where the conditional a->(b->c) is false is where a is true and b->c is false. But then only place where b->c is false is where b is true and c is false. Hence, we cannot have both all premises true and the conclusion false. Thus if all the premises are true, then the conclusion must be true.
+
+<br>
+
+*Problem 13*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ a->b, a, b->c :|-: (a->b)->(a->c)
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| *Yes.
+| No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Each of the following is true. Which of these could you use to quickly assess for validity in this case?
+| conditionals with false antecedents are true.
+| *conditionals with true antecedents and false consequents are false (and this is the only circumstance in which they are false).
+| conditionals with true consequents are true.
+```
+
+**Solution**:  This one is valid. One way to think quickly about it is to consider what a row where the conclusion is false must look like. This must be a row where (a->b)->(a->c) is false. But the only place where this is false is the row hwere a->b is true and a->c is false. But the only row where a->c is false is the row where a is true and c is false. Since a is true in this row and a->b is true in this row, we have b is true in this row. But since b is true in this row and c is false in this row, the premise b->c must be false. Hence, summing up: a row in which the conclusion is false is automatically a row in which one of the premises is false.
+
+<br>
+
+*Problem 14*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~(a->b) :|-: a/\~b
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| *Yes.
+| No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Each of the following is true. Which of these could you use to quickly assess for validity in this case?
+| conditionals with false antecedents are true.
+| *conditionals with true antecedents and false consequents are false (and this is the only circumstance in which they are false).
+| conditionals with true consequents are true.
+```
+
+**Solution**: This is valid. If  ~(a->b) is true then a->b is false, and the only place where this happens is where a is true and b is false, which would make a/\~b true.
+
+<br>
+
+*Problem 15*
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ a/\~b :|-: (a->~b)
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Is it valid?
+| *Yes.
+| No.
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Each of the following is true. Which of these could you use to quickly assess for validity in this case?
+| conditionals with false antecedents are true.
+| *conditionals with true antecedents and false consequents are false (and this is the only circumstance in which they are false).
+| *conditionals with true consequents are true.
+```
+
+**Solution**: This is valid. If a/\~b is true then ~b is true and since conditionals with true consequents are true (think about the truth-table for arrow), we have that (a->~b) is true. Another way to think about this one is: if (a->~b) is false then a is true and ~b is false, which is to say that a is true and b is true. But then we cannot have that a/\~b  is true.
+
+<br>
+
+## Assessing soundness
+
+As we will discuss in Week 3 Lecture 2, an argument is **sound** if it is both valid and all the premises are true. Note that sound arguments automatically have true conclusions.
+
+To assess soundness we need to agree on what is true and what is false. While this is a hard thing to do in general, in the following five problems we simplify this by assuming that the following eight facts about collges and their location and acceptance rates are all true (these were obtained by searching "US colleges" on google, which strangely leads to a google page that does not have an obvious link):
+
+1. Harvard, Massachusetts, acceptance rate 5%
+2. Princeton, New Jersey, acceptance rate 7%
+3. MIT, Massachusetts, acceptance rate 8%
+4. Columbia, New York, acceptance rate 7%
+5. Yale, Connecticut,  acceptance rate 6%
+6. Cal Tech, California, acceptance rate 8%
+7. UC Berkeley, California, acceptance rate 17%
+8. Cornell, New York, acceptance rate 14%
+
+*Problem 16*
+
+The following are four valid arguments which would be translated by substitution instances of modus ponens. But only one of the arguments is sound. Which one is it?
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Which one is sound?
+| If Harvard is in Connecticut then Harvard is in the same state as MIT. Harvard is in Connecticut. Therefore Harvard is in the same state as MIT.
+| If Yale is in Massachusetts then Yale is in the same state as MIT. Yale is in Massachusetts. Therefore Yale is in the same state as MIT.
+| If Yale is in Connecticut then Yale is in the same state as MIT. Yale is in Connecticut. Therefore Yale is in the same state as MIT.
+| * If Harvard is in Massachusetts then Harvard is in the same state as MIT. Harvard is in Massachusetts. Therefore Harvard is in the same state as MIT.
+```
+
+**Solution**. The correct answer is the fourth one. In the first one the premise "Harvard is in Connecticut" is false. In the second one the premise "Yale is in Massachusetts" is false. In the third one the conclusion "Yale is in the same state as MIT" is false, and sound arguments have true conclusions.
+
+*Problem 17*
+
+The following are four valid arguments which would be translated by substitution instances of modus tollens (perhaps together with some replacement using double-negation). But only one of the arguments is sound. Which one is it?
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+  Which one is sound?
+| If Columbia is in New York then Columbia is not in the same state as Princeton. Columbia is in the same state as Princeton. Therefore Columbia is not in New York.
+| *If Columbia is in New Jersey then Columbia is in the same state as Princeton. Columbia is not in the same state as Princeton. Therefore Columbia is not in New Jersey.
+| If Cal Tech is not in New Jersey then Cal Tech is in the same state as Princeton. Cal Tech is not in the same state as Princeton. Therefore Cal Tech is in New Jersey.
+| If Cal Tech is in California then Cal Tech is in the same state as Cornell. Cal Tech is not in the same state as Cornell. Therefore Cal Tech is not in California.
+```
+
+**Solution*. The correct answer is the second one. In the first one, the premise "Columbia is in the same state as Princeton" is false. In the third one, the conclusion "Cal Tech is in New Jersey" and sound arguments have true conclusions. In the fourth one, the conclusion "Cal Tech is not in California" and sound arguments have true conclusions.
+
+*Problem 18*
+
+The following are four valid arguments which would be translated by substitution instances of disjunctive syllogism (perhaps together with some DeMorgan and double-negation). But only one of the arguments is sound. Which one is it? (In this problem, take "lowest acceptance rate in the state" to be shorthand for "lowest acceptance rate in the state of the colleges displayed in the list above." Also, in this problem, you'll probably have to actually look at the list of acceptance rates up above.)
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+  Which one is sound?
+| Not both Harvard and MIT have the lowest acceptance rate in Massachusetts. MIT has the lowest acceptance rate in Massachusetts. Therefore, Harvard does not have the lowest acceptance rate in Massachusetts.
+| Harvard or MIT has the lowest acceptance rate in Massachusetts. Harvard does not have the lowest acceptance rate in Massachusetts. Therefore, MIT has the lowest acceptance rate in Massachusetts.
+| MIT has the lowest acceptance rate in Massachusetts. Not both Harvard and MIT have the lowest acceptance rate in Massachusetts.  Therefore, Harvard does not have the lowest acceptance rate in Massachusetts.
+| *Not both Harvard and MIT have the lowest acceptance rate in Massachusetts. Harvard has the lowest acceptance rate in Massachusetts. Therefore, MIT does not have the lowest acceptance rate in Massachusetts.
+```
+
+**Solution**. The correct answer is the last one. In the first one the premise "MIT has the lowest acceptance rate in Massachusetts" is false (look at the facts up above). In the second one "Harvard does not have the lowest acceptance rate in Massachusetts" is false. In the third one, the premise "MIT has the lowest acceptance rate in Massachusetts" is false.
+
+*Problem 19*
+
+Consider the argument: "If Cal Tech has a lower acceptance rate than Cornell, then Cal Tech has a lower acceptance rate than UC Berkeley. Cal Tech has a lower acceptance rate than UC Berkeley. Therefore, Cal Tech has a lower acceptance rate than Cornell."
+
+Which of the following describes this argument:
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+  Which best describes the argument?
+| The argument is sound.
+| The argument is unsound but valid.
+| *The argument is invalid but has all true premises and a true conclusion.
+| The argument is invalid and has a false premise or a false conclusion.
+```
+
+**Solution**. The correct answer is the third one. The argument is invalid since it is an instance of affirming the consequent. But all the premises and conclusions are true.
+
+*Problem 20*
+
+Consider the argument: "If Cornell does not have a lower acceptance rate than Columbia, then Cornell has a lower acceptance rate than Princeton. Cornell does not have a lower acceptance rate than Columbia. Therefore, Cornell has a lower acceptance rate than Princeton."
+
+Which of the following describes this argument:
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+  Which best describes the argument?
+| The argument is sound.
+| * The argument is unsound but valid.
+| The argument is invalid but has all true premises and a true conclusion.
+| The argument is invalid and has a false premise or a false conclusion.
+```
+
+**Solution**. The correct answer is the second one. It is valid since it is an instance of modus ponens. But ti is not sound since "Cornell has a lower acceptance rate than Princeton" is not true (look again at the list up above).
+
+<br>
+<br>
+
+This is a practice problem set for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=4). It is run on the Carnap software, which is an:
