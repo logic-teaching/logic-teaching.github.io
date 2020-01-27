@@ -1,0 +1,190 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 4, Lecture 2. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=5)
+
+# Valid arguments
+
+In this lecture, we [...]
+
+- [Synthesizing](#synthesizing)
+- [Limitations of efficiency and its solution](#limitations-of-efficiency-and-its-solution)
+- [Limitations of expressibility and its solution](#limitations-of-expressibility-and-its-solution)
+- [Propositional consequences of universal statements and rules](#propositional-consequences-of-universal-statements-and-rules)
+- [Emulating universals with long conjunctions and existentials with long disjunctions](#emulating-universals-with-long-conjunctions-and-existentials-with-long-disjunctions)
+- [Aristotle and the square of opposition](#aristotle-and-the-square-of-opposition)
+
+<br>
+
+## Synthesizing
+
+We can then start to put together all the things we have learned in this course. Let us first consider a simple example:
+
+<p style="margin-left: 40px"> *Example*. If Anthony attends or Briana attends then Cynthia attends. But Cynthia does not attend. Therefore, Anthony does not attend and Brianna does not attend. </p>
+
+Suppose that we were not at the meeting, but we knew the first premise due to our long experience with these characters and we knew the second premise because we got a message from Cynthia. Do we know the conclusion? If the argument was valid, we would know the conclusion. And to see whether it is valid, we would first translate into propositional logic, using the key:
+
+<p style="margin-left: 40px"> $a$ = Anthony attends </p>
+<p style="margin-left: 40px"> $b$ = Briana attends </p>
+<p style="margin-left: 40px"> $c$ = Cynthia attends </p>
+
+Then we could translate as follows:
+
+*First premise*:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a\/b)->c : If Anthony attends or Briana attends then Cynthia attends.
+~~~
+
+*Second premise*:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~c : Cynthia does not attend.
+~~~
+
+*Conclusion*:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~a/\~b : Anthony does not attend and Brianna does not attend.
+~~~
+
+We probably do not need it at this point, but if we wanted we could parse these sentences too:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (a\/b)->c
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~c
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~a/\~b
+```
+
+Then to assess for validity, we could patiently fill out the entire truth-table and see that it is a validity:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ (a\/b)->c, ~c  :|-: ~a/\~b
+```
+
+As we can see by inspection of the column under the consequence relation $\vdash$, this is a valid argument. And the truth-tables offer a theoretically compelling account of validity, since the enumeration of all possible cases gives us a way to formalize the idea that "whenever the premises are true, the conclusion is true."
+
+However, part of what we have been learning is how to *quickly* ascertain validity. In this case, we could more quickly discern that the argument is valid by first noting that the following is a substitution instance of modus tollens:
+
+<p style="margin-left: 40px"> $(a\vee b)\rightarrow c, \neg c \vdash \neg (a\vee b)$ </p>
+
+And then by DeMorgan we have that $\neg (a\vee b)$ is equivalent to $\neg a\wedge \neg b$. Hence by putting modus tollens together with DeMorgan, we can quickly argue for the validity of the argument. Since we were imagining we were in the  situation where we knew the premises to be true, we could likewise thereby obtain the truth of the conclusion.
+
+<br>
+
+## Limitations of efficiency and its solution
+
+One limitation of propositional logic is that assessing for validity in propositional logic via truth-tables can be remarkably inefficient. Here is an illustrative example:
+
+<p style="margin-left: 40px"> *Example 7*. Next quarter, Alex must take 106A or 143B, and he must take 118C or 154D. But the restrictions on his major indicate that he cannot take both 106A and 118C for his degree. Therefore Alex should: (i) take 106A and 154D, or (ii) take 143B and 118C, or (iii) take 143B and 154D.</p>
+
+What makes this conclusion follow? It does not seem to be empirical, since we do not need to do any looking around to figure this out. And it does not seem to be anything specific to the scheduling of classes as opposed to meetings as opposed to appointments, since we can imagine similar reasoning in other domains. A plausible answer is simply that it follows simply because it is a valid argument.
+
+One way to formalize the argument is then to use the following key about what Alex is going to take next quarter:
+
+<p style="margin-left: 40px"> $a$ = takes 106A  </p>
+<p style="margin-left: 40px"> $b$ = takes 143B </p>
+<p style="margin-left: 40px"> $c$ = takes 118C </p>
+<p style="margin-left: 40px"> $d$ = takes 154D </p>
+
+Then we could then formalize the argument as the following validity problem:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ (a\/b), (c\/d), ~(a/\c) :|-: (a/\d)\/((b/\c)\/(b/\d))
+```
+This is valid, as one can check, but it is an enormous truth-table. Is there a quicker way? Well, let's use equivalents like the following:
+
+<p style="margin-left: 40px"> *Law of distribution, part 1*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$  </p>
+
+Replacing equivalents by equivalents, we can reduce the problem to the following:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/soundness-alexexample-long.mp4"/> </video>
+
+How much more efficient was this method of replacing equivalents by equivalents than just doing the big truth-table? Well, it was probably quicker by a few minutes, but there seemed to be some way in which this application of replacing equivalents by equivalents was hard too. And further, unlike truth-tables, we have not yet developed any systematic way of learning how to do these arguments.
+
+The solution to both the inefficiency of truth-tables and the lack of systematicity in the method of replacing equivalents by equivalents is going to be the topic of our course after the midterm, when we turn to developing derivations (also called proofs) systematically. Proofs are in general faster than truth-tables, especially when it comes to arguments with more than three propositional letters in them.
+
+INSERT remark on computational complexity.
+
+<br>
+
+## Limitations of expressibility and its solution
+
+Another limitation of propositional logic is that we can only translate certain kinds of sentences into propositional logic. Namely, our translation methods only work if the sentences are organized in such a way that they are built out of small propositional letters combined with the propositional connectives. But many arguments we are interested in cannot be translated in this fashion.
+
+Here are two simple examples:
+
+<p style="margin-left: 40px"> *Example*. "Connor works in billing and Connor attends the meeting. Therefore, someone working in billing attends the meeting." </p>
+
+If we set about translating, we would probably translate the first sentence using the following key:
+
+<p style="margin-left: 40px"> $a$ = Connor $a$ttends the meeting </p>
+<p style="margin-left: 40px"> $b$ = Connor works in $b$illing </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ b/\a : Connor is from billing and Connor attends the meeting.
+~~~
+
+However, how would we then translate the second sentence? We might be tempted to translate using the following key:
+
+<p style="margin-left: 40px"> $c$ = someone attends the meeting </p>
+<p style="margin-left: 40px"> $d$ = someone works in billing </p>
+
+Following the pattern of the first sentence, we might then translate the second sentence as $d/\c$. But let's translate that back into English. It would be: "someone works in billing and someone attends the meeting."
+
+
+<br>
+
+## Propositional consequences of universal statements and rules
+
+Propositional logic is easy to work with because it is so simple. But, the sentences one might be interested in may be a little more complicated than what can be expressed in propositional logic *per se*. However, sometimes the *consequences* of these sentences which one cares about can be so expressed.
+
+For example take "All history majors are fun." We cannot translate this into propositional logic since there is no "all" symbol in propositional logic (there is, of course, such a symbol in richer logics, such as predicate logic). But specializing this sentence to an arbitrary individual, we can get a consequence formalizable in propositional logic, such as "if you are a history major, then you are fun" or "if she is a history major then she is fun."
+
+There is a similar thing with rules, such as "Passengers must check in with the ticket-desk." This is because this is an all-statement of the form "All passengers are such that they must check in with the ticket-desk." Hence it has consequences such as "if you are a passenger, then you must check in with the ticket-desk" or "if he is a passenger, then he must check in with the ticket-desk."
+
+*Example*
+
+<p style="margin-left: 40px"> $b$ = it is a $b$ird  </p>
+<p style="margin-left: 40px"> $f$ = it $f$lies  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (b->f) : Insert a propositional consequence of "All birds fly".
+~~~
+
+*Example*
+
+
+<p style="margin-left: 40px"> $h$ = you are a $h$istory major  </p>
+<p style="margin-left: 40px"> $t$ = you must $t$ake American history 106  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (h->t) : Insert a propositional consequence of "History majors must take American History 106."
+~~~
+
+*Example*
+
+<p style="margin-left: 40px"> $b$ = you are a biology major  </p>
+<p style="margin-left: 40px"> $p$ = you are $p$ermitted to enroll in this course  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ p->b : Insert a propositional consequence of "Only biology majors are permitted to enroll in this course."
+~~~
+
+In trying to solve this problem, think through the truth-conditions of this rule about biology majors, and think through what would make it true or false.
+
+
+<br>
+
+
+<br>
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=5).[^2]
+
+[^2]:It is run on the Carnap software, which is

@@ -243,48 +243,6 @@ If you are having problems with this one, try to think about what propositional 
 
 <br>
 
-## Propositional consequences of universal statements and rules
-
-Propositional logic is easy to work with because it is so simple. But, the sentences one might be interested in may be a little more complicated than what can be expressed in propositional logic *per se*. However, sometimes the *consequences* of these sentences which one cares about can be so expressed.
-
-For example take "All history majors are fun." We cannot translate this into propositional logic since there is no "all" symbol in propositional logic (there is, of course, such a symbol in richer logics, such as predicate logic). But specializing this sentence to an arbitrary individual, we can get a consequence formalizable in propositional logic, such as "if you are a history major, then you are fun" or "if she is a history major then she is fun."
-
-There is a similar thing with rules, such as "Passengers must check in with the ticket-desk." This is because this is an all-statement of the form "All passengers are such that they must check in with the ticket-desk." Hence it has consequences such as "if you are a passenger, then you must check in with the ticket-desk" or "if he is a passenger, then he must check in with the ticket-desk."
-
-*Example 18*
-
-
-<p style="margin-left: 40px"> $b$ = it is a $b$ird  </p>
-<p style="margin-left: 40px"> $f$ = it $f$lies  </p>
-
-~~~{.Translate .Prop system="gamutPND" submission="none"}
- (b->f) : Insert a propositional consequence of "All birds fly".
-~~~
-
-*Example 19*
-
-
-<p style="margin-left: 40px"> $h$ = you are a $h$istory major  </p>
-<p style="margin-left: 40px"> $t$ = you must $t$ake American history 106  </p>
-
-~~~{.Translate .Prop system="gamutPND" submission="none"}
- (h->t) : Insert a propositional consequence of "History majors must take American History 106."
-~~~
-
-
-*Example 20*
-
-
-<p style="margin-left: 40px"> $b$ = you are a biology major  </p>
-<p style="margin-left: 40px"> $p$ = you are $p$ermitted to enroll in this course  </p>
-
-~~~{.Translate .Prop system="gamutPND" submission="none"}
- p->b : Insert a propositional consequence of "Only biology majors are permitted to enroll in this course."
-~~~
-
-In trying to solve this problem, think through the truth-conditions of this rule about biology majors, and think through what would make it true or false.
-
-
 
 These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]
 
