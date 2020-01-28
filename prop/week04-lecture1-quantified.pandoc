@@ -21,27 +21,27 @@ One reason is that "Christina is a student" and "Dave is a student" seem to have
 | $b$  =  "Bryan"
 | $c$  =  "Christina"
 | $d$  =  "Daisy"
-| $L$  =  "is a lawyer"
-| $M$  =  "is a musician"
+| $L$  =  "is a lawyer "
+| $M$  =  "is a musician "
 | $H$  =  "likes hockey"
 | $S$  =  "likes soccer"
 
 <br>
 
-~~~{.Translate .FOL system="gamutPND" submission="none"}
- L(a)/\M(b) : Alyssa is a lawyer and Bryan is a musician.
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ La/\Mb : Alyssa is a lawyer and Bryan is a musician.
 ~~~
 
-~~~{.Translate .FOL system="gamutPND" submission="none"}
- ~M(a)/\~L(b) : Alyssa is not a musician and Bryan is not a lawyer.
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~Ma/\~Lb : Alyssa is not a musician and Bryan is not a lawyer.
 ~~~
 
-~~~{.Translate .FOL system="gamutPND" submission="none"}
- H(b)->H(c) : if Bryan likes hockey then Christina likes hockey.
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Hb->Hc : if Bryan likes hockey then Christina likes hockey.
 ~~~
 
-~~~{.Translate .FOL system="gamutPND" submission="none"}
- H(c)\/M(d) : Christina likes hockey or Daisy is a musician.
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Hc -> Sc : Christina likes hockey or Daisy likes soccer.
 ~~~
 
 <br>
@@ -59,38 +59,86 @@ There is an obvious sense in which all of these sentences are formed by plugging
 
 <br>
 
-## The two quantifiers
+## The quantifiers
 
 Our solution is to translate these as follows:
 
-1. $N(a)$
-2. $\exists \; x \; N(x)$
-3. $\forall \; x \; N(x)$
+1. $Na$
+2. $\exists \; x \; Nx$
+3. $\forall \; x \; Nx$
 
-where we follow the key that $N(x)= x$ is nice, and $a=$ Alyssa. We pronounce $\exists \; x \; F(x)$ as "there is $x$ such that $F(x)$." We pronounce $\forall \; x \; F(x)$ as "for all all $x$, $F(x)$."
+where we follow the key that $Nx= x$ is nice, and $a=$ Alyssa. We pronounce $\exists \; x \; Fx$ as "there is $x$ such that $Fx$." We pronounce $\forall \; x \; Fx$ as "for all all $x$, $Fx$."
 
-Note that in our translation of 2, the $x$ appears twice. The instance in $\exists \; x$ is a signal: go look for $d$ such that $N(d)$, where you get $N(d)$ from $N(x)$ by substituting in $x=d$. More generally, the rule for the truth of $\exists \; x \; F(x)$ is: it’s true exactly when there is at least one $d$ such that $F(d)$.
+Note that in our translation of 2, the $x$ appears twice. The instance in $\exists \; x$ is a signal: go look for $d$ such that $Nd$, where you get $Nd$ from $Nx$ by plugging in $x=d$. More generally, the rule for the truth of $\exists \; x \; Fx$ is: it’s true exactly when there is at least one $d$ such that $Fd$.
 
-Similarly, in 3, the $x$ appears twice. The instance in $\forall \; x$ is a signal that one is making an "every" or "all" claim. And the rule for the truth of $\forall \; x \; F(x)$ is: it’s true exactly when $F(d)$ holds for each individual $d$.
+Similarly, in 3, the $x$ appears twice. The instance in $\forall \; x$ is a signal that one is making an "every" or "all" claim. And the rule for the truth of $\forall \; x \; Fx$ is: it’s true exactly when $Fd$ holds for each individual $d$.
 
-Here are some examples using the key $N(x)= x$ is nice, and $a=$ Alyssa:
+Here are some examples using the key $Nx= x$ is nice, and $a=$ Alyssa:
 
-~~~{.Translate .FOL system="gamutPND" submission="none"}
- Ex(N(x))->Ax(N(x)) : If someone is nice then everyone is nice.
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ExNx->AxNx : If someone is nice then everyone is nice.
 ~~~
 
-~~~{.Translate .FOL system="gamutPND" submission="none"}
- ~Ax(N(x)) : Not everyone is nice.
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~AxNx : Not everyone is nice.
 ~~~
 
-~~~{.Translate .FOL system="gamutPND" submission="none"}
- Ax(~N(x)) : Everyone is not nice.
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax~Nx : Everyone is not nice.
 ~~~
 
-~~~{.Translate .FOL system="gamutPND" submission="none"}
- N(a)->Ex(N(x)) : If Alyssa is nice then someone is nice.
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Na->ExNx : If Alyssa is nice then someone is nice.
 ~~~
 
+<br>
+
+## Multiple variables
+
+The variables act like the variables in algebra. For instance, $x=3$ is  a solution to $x+2=5$. And $x=4$ and $y=2$ is a solution to $x+y=6$. The existential quantifer is a way  of saying that there is a solution. Let's practice with the existential quantifier with respect to the following familiar key:
+
+| $a$  =  "Alyssa"
+| $b$  =  "Bryan"
+| $c$  =  "Christina"
+| $d$  =  "Daisy"
+| $L$  =  "is a lawyer "
+| $M$  =  "is a musician "
+| $H$  =  "likes hockey"
+| $S$  =  "likes soccer"
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (La/\(Ha/\Sb))->Ex(Lx/\Hx) : If Alyssa is a lawyer and Alyssa likes hockey and Bryan likes soccer, then someone is a lawyer and likes hockey.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~((La/\(Ha/\Sb))->Ex(Lx/\Sx)   : It is not the case that: if Alyssa is a lawyer and Alyssa likes hockey and Bryan likes soccer, then someone is a lawyer and likes soccer.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (La/\(Ha/\Sb))->(Ex(Lx/\Hx)/\EySy) : If Alyssa is a lawyer and Alyssa likes hockey and Bryan likes soccer, then someone is a lawyer and likes hockey and someone likes soccer.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Lx)->(La\/Lb): If someone is a lawyer, then Alyssa is a lawyer or Bryan is a lawyer.
+ ~~~
+
+ ~~~{.Translate .FOL system="gamutND" submission="none"}
+  (Ex(Lx)/\Ey(My))->(La/\Md): If someone is a lawyer and someone is a musician, then Alyssa  is a lawyer and Daisy is a musician.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Sx/\Mx)->((Sc/\Mc)\/(Sd/\Md)): If someone likes soccer and is a musician, then Christina likes soccer and Christina is a musician, or Daisy likes soccer and Daisy is a musician.
+~~~
+
+
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ La/\Mb : Alyssa is a lawyer and Bryan is a musician.
+~~~
 
 
 <br>
