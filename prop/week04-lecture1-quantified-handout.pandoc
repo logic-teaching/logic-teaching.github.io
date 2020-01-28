@@ -16,25 +16,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-Logic, First Course, Winter 2020. Week 4, Lecture 1. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=5)
+Logic, First Course, Winter 2020. Week 4, Lecture 1, Handout.
 
-# Quantification
-
-In this lecture, we motivate the idea of predicate logic and try to state the general idea of how it extends the propositional logic which we have been learning so far. Then we learn the basic idea of translating natural-language sentences into predicate logic, focusing on atomic sentences and quantifier expressions.
-
-- [Predicate logic and atomic statements](#predicate-logic-and-atomic-statements)
-- [The quantifiers](#the-quantifiers)
-- [Multiple variables](#multiple-variables)
-- [Translation schemas](#translation-schemas)
-
-<br>
 
 ## Predicate logic and atomic statements
 
-In propositional logic, we take as our basic unit the proposition, something that can be true or false. By taking it as the basic unit, we mean we do not subject it to any further analysis. For instance, while we translate "Christina is a student and Daisy is a student" as $p\wedge q$, we treat $p$ as a primitive and $q$ as primitives: they are basic. In predicate logic, the idea is to introduce another layer of analysis.
-In particular, the most basic idea is to further analyze "Christina is a student" as $Sc$ and analyze "Daisy is a student" as $Sd$. So we translate "Christina is a student and Daisy is a student as" as $Sc\wedge Sd$.
-
-One reason is that "Christina is a student" and "Daisy is a student" seem to have a common structure. Someone could not understand the one without understanding the other. And there is  a common way to evaluate them: look at the list of students! So translating as $Sc$ and $Sd$ reveals this common structure. Here are some more examples, where we use the key:
 
 | $a$  =  "Alyssa"
 | $b$  =  "Bryan"
@@ -89,8 +75,6 @@ Consider the following three sentences:
 </table>
 
 <br>
-
-There is an obvious sense in which all of these sentences are formed by plugging different words into the blank in “--- is nice.” This is an important perspective. But our translations are intended to display the truth-conditions of the statements: how their truth is determined, usually on the basis of decomposing them into smaller parts. And the truth-conditions of these three sentences differ in obvious ways. When we are trying to figure out whether "Alyssa is nice" is true, we go look at Alyssa and see whether she is nice. To see whether "someone is nice" is true, we go searching for someone (perhaps Bryan?) who is nice. For "everyone is nice," we need to make sure that Alyssa is nice, Bryan is nice, etc. And note that in thinking about the first sentence, we had said how to do that: to see whether a person is nice, simply go look and see whether they are nice. Hence, the moral is: while recognizing the differences between the three sentences, we should recognize the truth of the last two is somehow based on the kinds of things that make sentences like the first sentence true.
 
 <br>
 
@@ -158,10 +142,6 @@ In this we use the following symbols:
 <br>
 
 
-Note that in our translation of the second sentence, the $x$ appears twice. The instance of $x$ in $\exists \; x$ is a signal: go look for $d$ such that $Nd$, where you get $Nd$ from $Nx$ by plugging in $x=d$. More generally, the rule for the truth of $\exists \; x \; Fx$ is: it is true when there is at least one $d$ such that $Fd$.
-
-Similarly, in our translation of the third sentence, the $x$ appears twice. The instance of $x$ in $\forall \; x$ is a signal that one is making an "every" or "all" claim. And the rule for the truth of $\forall \; x \; Fx$ is: it is true when $Fd$ holds for every individual $d$.
-
 Here are some examples using the key $Nx= x$ is nice, and $a=$ Alyssa:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
@@ -184,7 +164,7 @@ Here are some examples using the key $Nx= x$ is nice, and $a=$ Alyssa:
 
 ## Multiple variables
 
-The variables act like the variables in algebra. For instance, $x=3$ is  a solution to $x+2=5$, since if you plug in $3$ for $x$ you get something true. And $x=4$ and $y=2$ is a solution to $x+y=6$, since if you plug in $4$ for $x$ and $2$ for $y$ you get something true. The existential quantifier is a way  of saying that *there is* a solution which makes the corresponding "equation" true. Let's first practice with respect to the following familiar key:
+The existential quantifier is a way  of saying that *there is* a solution which makes the corresponding "equation" true. Let's first practice with respect to the following familiar key:
 
 | $a$  =  "Alyssa"
 | $b$  =  "Bryan"
@@ -253,9 +233,7 @@ The universal quantifier is usually a way of stating generalizations or laws. It
  (~Cd/\~Td)/\~(AxCx\/AxTx) : Daisy is not drinking coffee and Christina is not drinking tea, and it is not the case that everyone is drinking coffee or everyone is drinking tea.
 ~~~
 
-These last examples hopefully give one a better sense of the truth-conditions of universal statements. For instance, the last couple of examples were pointing out that it can be true that every person taken one by one is either busy or tired, without it being true that everyone is in the busy category or everyone is in the tired category.
-
-Here are some examples with multiple universal quantifiers. In this first one, note that even though we use different variables for the two universal statements in the antecedent, they both have consequences for the individual Bryan under consideration.
+Here are some examples with multiple universal quantifiers.
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  (AxCx/\AyWy)->(Cb/\Wb): If everyone is drinking coffee and everyone is wide awake, then Bryan is drinking coffee and Bryan is wide awake.
@@ -310,7 +288,7 @@ Quantifiers are also very good at capturing the truth-conditions of statements a
 
 <br>
 
-Note that in these schemas the "some"-statements are translated with an existential quantifier which stands outside a conjunction, while the "all"-statements are translated with a universal quantifier together with an arrow statement.
+Note that in these schemas the "some"-statements are translated with an existential quantifier together with a conjunction, while the "all"-statements are translated with a universal quantifier together with an arrow statement.
 
 Let us practice with these translation schemas with respect to the following examples:
 
@@ -351,6 +329,4 @@ In the following, remember that "but" would just be translated by "and":
 
 <br>
 
-These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=5).[^2]
-
-[^2]:It is run on the Carnap software, which is
+These is a handout written for Logic, First Course, Winter 2020. It is run on the Carnap software, which is an:
