@@ -1,4 +1,4 @@
-<style>
+unsuccessfully<style>
 table {
   border-collapse: collapse;
   width: 100%;
@@ -54,6 +54,11 @@ The name 'Predicate logic' comes from the idea that things like L,M,H,S are pred
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  La/\Mb : Alyssa is a lawyer and Bryan is a musician.
 ~~~
+
+Below is a video of the first one-- remember that you have to "select all" and delete the entry in the first box, and then you have to press **return** at the end of the problem. If you need a refresher on how to type the propositional connectives on the keyboard, please consider reviewing [Typing the connectives on the keyboard](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#typing-the-connectives-on-the-keyboard).
+
+video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-example1.mp4"/> </video>
+
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ~Ma/\~Lb : Alyssa is not a musician and Bryan is not a lawyer.
@@ -168,6 +173,16 @@ Here are some examples using the key $Nx= x$ is nice, and $a=$ Alyssa:
  ExNx->AxNx : If someone is nice then everyone is nice.
 ~~~
 
+Here is a video of this one-- note that the second time we did in the video, we just cut and paste the quantifiers $\exists$ and $\forall$ from the text:
+
+video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-example2.mp4"/> </video>
+
+Note that the computer system is very picky about parentheses and quantifiers and will reject any answer that puts parentheses immediately before a quantifier. is illustrated in the below video where we try unsuccessfully to type the response `~(AxNx)` to the next problem and then fix it by removing the parentheses and typing the right answer `~AxNx`:
+
+video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-example3.mp4"/> </video>
+
+You can try it yourself now:
+
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ~AxNx : Not everyone is nice.
 ~~~
@@ -176,9 +191,12 @@ Here are some examples using the key $Nx= x$ is nice, and $a=$ Alyssa:
  Ax~Nx : Everyone is not nice.
 ~~~
 
+
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Na->ExNx : If Alyssa is nice then someone is nice.
 ~~~
+
+
 
 <br>
 
@@ -253,7 +271,7 @@ The universal quantifier is usually a way of stating generalizations or laws. It
  (~Cd/\~Td)/\~(AxCx\/AxTx) : Daisy is not drinking coffee and Christina is not drinking tea, and it is not the case that everyone is drinking coffee or everyone is drinking tea.
 ~~~
 
-These last examples hopefully give one a better sense of the truth-conditions of universal statements. For instance, the last couple of examples were pointing out that it can be true that every person taken one by one is either busy or tired, without it being true that everyone is in the busy category or everyone is in the tired category.
+These last examples hopefully give one a better sense of the truth-conditions of universal statements. For instance, the last couple of examples were pointing out that it can be true that every person taken one by one is either drinking coffee or tea, without it being true that everyone is in the coffee category or everyone is in the tea category.
 
 Here are some examples with multiple universal quantifiers. In this first one, note that even though we use different variables for the two universal statements in the antecedent, they both have consequences for the individual Bryan under consideration.
 
