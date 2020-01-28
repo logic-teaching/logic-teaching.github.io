@@ -15,7 +15,7 @@ In this lecture, we introduce quantification.
 In propositional logic, we take as our basic unit the proposition, something that can be true or false. By taking it as the basic unit, we mean we do not subject it to any further analysis. For instance, while we translate "Christina is a student and Daisy is a student" as $p\wedge q$, we treat $p$ as a primitive and $q$ as primitives: they are basic. In predicate logic, the idea is to introduce another layer of analysis.
 In particular, the most basic idea is to further analyze "Christina is a student" as $Sc$ and analyze "Dave is a student" as $Sd$. So we translate "Christina is a student and Dave is a student as" as $Sc\wedge Sd$.
 
-One reason is that "Christina is a student" and "Dave is a student" seem to have a common structure. Someone couldn’t understand the one without understanding the other. And thereis  a common way to evaluate them: look at the list of students! So translating as $Sc$ and $Sd$ reveals this common structure. Here are some more examples, where we use the key:
+One reason is that "Christina is a student" and "Dave is a student" seem to have a common structure. Someone could not understand the one without understanding the other. And there is  a common way to evaluate them: look at the list of students! So translating as $Sc$ and $Sd$ reveals this common structure. Here are some more examples, where we use the key:
 
 | $a$  =  "Alyssa"
 | $b$  =  "Bryan"
@@ -37,11 +37,11 @@ One reason is that "Christina is a student" and "Dave is a student" seem to have
 ~~~
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- Hb->Hc : if Bryan likes hockey then Christina likes hockey.
+ Hc->Hd : if Christina likes hockey then Daisy likes hockey.
 ~~~
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- Hc -> Sc : Christina likes hockey or Daisy likes soccer.
+ Hc\/Hd : Christina likes hockey or Daisy likes soccer.
 ~~~
 
 <br>
@@ -54,8 +54,7 @@ Consider the following three sentences.
 2. Someone is nice. 
 3. Everyone is nice.
 
-There is an obvious sense in which all of these sentences are formed by plugging different words into the blank in “--- is nice.” This is an important perspective. But our translations are intended to display the way in which the truth of the whole depends on the truth of the parts. How the truth of the whole depends on the truth of the parts differs between 1-3. When we are trying to figure out whether Alyssa is nice” is true, we go look at Alyssa and see whether she is nice. To see whether “someone is nice” is true, we go searching for someone (perhaps Bryan?) who is nice. For “everyone is nice”, we need to make sure that Alyssa is nice, Bryan is nice, etc. And note that in thinking about sentence 1, we had said how to do that: to see whether Alyssa is nice, simply go look and see whether she is nice. Hence, the moral is: while recognizing the differences between 1-3, we should recognize the truth of 2-3 is somehow based on the truth-conditions of sentences like 1.
-
+There is an obvious sense in which all of these sentences are formed by plugging different words into the blank in “--- is nice.” This is an important perspective. But our translations are intended to display the truth-conditions of the statements: how their truth is determined, usually on the basis of decomposing them into smaller parts. And the truth-conditions of 1-3 differ in obvious ways. When we are trying to figure out whether "Alyssa is nice" is true, we go look at Alyssa and see whether she is nice. To see whether "someone is nice" is true, we go searching for someone (perhaps Bryan?) who is nice. For "everyone is nice,"" we need to make sure that Alyssa is nice, Bryan is nice, etc. And note that in thinking about sentence 1, we had said how to do that: to see whether Alyssa is nice, simply go look and see whether she is nice. Hence, the moral is: while recognizing the differences between 1-3, we should recognize the truth of 2-3 is somehow based on the kinds of things that make sentences like 1 true.
 
 <br>
 
@@ -67,11 +66,11 @@ Our solution is to translate these as follows:
 2. $\exists \; x \; Nx$
 3. $\forall \; x \; Nx$
 
-where we follow the key that $Nx= x$ is nice, and $a=$ Alyssa. We pronounce $\exists \; x \; Fx$ as "there is $x$ such that $Fx$." We pronounce $\forall \; x \; Fx$ as "for all all $x$, $Fx$."
+where we follow the key that $Nx= x$ is nice, and $a=$ Alyssa. We pronounce $\exists \; x \; Fx$ as "there is $x$ such that $Fx$" or "someone/something is $F$." The symbol $\exists$ is called the *existential quantifier,* and it looks like a backwards big $E$, and when we type it we just write `E`. We pronounce $\forall \; x \; Fx$ as "for all all $x$, $Fx$" or "everyone/everything is $F$." The symbol $\forall$ is called the *universal quantifier,* and it looks like an upside-down big $A$, and when we type it we just write `A`.
 
-Note that in our translation of 2, the $x$ appears twice. The instance in $\exists \; x$ is a signal: go look for $d$ such that $Nd$, where you get $Nd$ from $Nx$ by plugging in $x=d$. More generally, the rule for the truth of $\exists \; x \; Fx$ is: it’s true exactly when there is at least one $d$ such that $Fd$.
+Note that in our translation of 2, the $x$ appears twice. The instance in $\exists \; x$ is a signal: go look for $d$ such that $Nd$, where you get $Nd$ from $Nx$ by plugging in $x=d$. More generally, the rule for the truth of $\exists \; x \; Fx$ is: it is true when there is at least one $d$ such that $Fd$.
 
-Similarly, in 3, the $x$ appears twice. The instance in $\forall \; x$ is a signal that one is making an "every" or "all" claim. And the rule for the truth of $\forall \; x \; Fx$ is: it’s true exactly when $Fd$ holds for each individual $d$.
+Similarly, in 3, the $x$ appears twice. The instance in $\forall \; x$ is a signal that one is making an "every" or "all" claim. And the rule for the truth of $\forall \; x \; Fx$ is: is is true when $Fd$ holds for each individual $d$.
 
 Here are some examples using the key $Nx= x$ is nice, and $a=$ Alyssa:
 
@@ -95,7 +94,7 @@ Here are some examples using the key $Nx= x$ is nice, and $a=$ Alyssa:
 
 ## Multiple variables
 
-The variables act like the variables in algebra. For instance, $x=3$ is  a solution to $x+2=5$. And $x=4$ and $y=2$ is a solution to $x+y=6$. The existential quantifer is a way  of saying that there is a solution. Let's practice with the existential quantifier with respect to the following familiar key:
+The variables act like the variables in algebra. For instance, $x=3$ is  a solution to $x+2=5$, since if you plug in $3$ for $x$ you get something true. And $x=4$ and $y=2$ is a solution to $x+y=6$, since if you plug in $4$ for $x$ and $2$ for $y$ you get something true. The existential quantifer is a way  of saying that *there is* a solution. Since we often Let's practice with the existential quantifier with respect to the following familiar key:
 
 | $a$  =  "Alyssa"
 | $b$  =  "Bryan"
