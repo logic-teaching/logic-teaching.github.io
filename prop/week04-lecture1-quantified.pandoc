@@ -25,7 +25,6 @@ In this lecture, we motivate the idea of predicate logic and try to state the ge
 - [Predicate logic and atomic statements](#predicate-logic-and-atomic-statements)
 - [The quantifiers](#the-quantifiers)
 - [Multiple variables](#multiple-variables)
-- [Translation schemas](#translation-schemas)
 
 <br>
 
@@ -177,7 +176,7 @@ Here is a video of this one-- note that the second time we did in the video, we 
 
 video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-example2.mp4"/> </video>
 
-Note that the computer system is very picky about parentheses and quantifiers and will reject any answer that puts parentheses immediately before a quantifier. is illustrated in the below video where we try unsuccessfully to type the response `~(AxNx)` to the next problem and then fix it by removing the parentheses and typing the right answer `~AxNx`:
+Note that the computer system is very picky about parentheses and quantifiers and will reject answers that puts a pair of parentheses around a statement whose main connective is the quantifier. This is illustrated in the below video where we try unsuccessfully to type the response `~(AxNx)` to the next problem and then fix it by removing the parentheses and typing the right answer `~AxNx`:
 
 video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-example3.mp4"/> </video>
 
@@ -222,6 +221,8 @@ The variables act like the variables in algebra. For instance, $x=3$ is  a solut
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ~((La/\(Ha/\Sb))->Ex(Lx/\Sx)) : It is not the case that if Alyssa is a lawyer and Alyssa likes hockey and Bryan likes soccer, then someone is both a lawyer and likes soccer.
 ~~~
+
+Note in this next example, the answer will involve a consequent whose main connective is a conjunction and whose first conjunct is a quantifier-phrase. Hence, the consequence in this case will look like `(Ex . . . ./\ . . . )`:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  (La/\(Ha/\Sb))->(Ex(Lx/\Hx)/\EySy) : If Alyssa is a lawyer and Alyssa likes hockey and Bryan likes soccer, then someone is both a lawyer and likes hockey, and someone likes soccer.
