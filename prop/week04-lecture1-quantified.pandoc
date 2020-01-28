@@ -1,3 +1,19 @@
+Everyone
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+
 <br>
 <br>
 
@@ -21,8 +37,8 @@ One reason is that "Christina is a student" and "Dave is a student" seem to have
 | $b$  =  "Bryan"
 | $c$  =  "Christina"
 | $d$  =  "Daisy"
-| $L$  =  "is a lawyer "
-| $M$  =  "is a musician "
+| $L$  =  "is a lawyer"
+| $M$  =  "is a musician"
 | $H$  =  "likes hockey"
 | $S$  =  "likes soccer"
 
@@ -48,29 +64,91 @@ One reason is that "Christina is a student" and "Dave is a student" seem to have
 
 ## Motivating quantifiers
 
-Consider the following three sentences.
+Consider the following three sentences:
 
-1. Alyssa is nice.
-2. Someone is nice. 
-3. Everyone is nice.
+<table style="width:33%">
+  <tr>
+    <th>Sentence</th>
+  </tr>
+  <tr>
+    <td>1. Alyssa is nice.</td>
+  </tr>
+  <tr>
+    <td>2. Someone is nice.</td>
+  </tr>
+  <tr>
+    <td>3. Eveyrone is nice.</td>
+  </tr>
+</table>
 
-There is an obvious sense in which all of these sentences are formed by plugging different words into the blank in “--- is nice.” This is an important perspective. But our translations are intended to display the truth-conditions of the statements: how their truth is determined, usually on the basis of decomposing them into smaller parts. And the truth-conditions of 1-3 differ in obvious ways. When we are trying to figure out whether "Alyssa is nice" is true, we go look at Alyssa and see whether she is nice. To see whether "someone is nice" is true, we go searching for someone (perhaps Bryan?) who is nice. For "everyone is nice,"" we need to make sure that Alyssa is nice, Bryan is nice, etc. And note that in thinking about sentence 1, we had said how to do that: to see whether Alyssa is nice, simply go look and see whether she is nice. Hence, the moral is: while recognizing the differences between 1-3, we should recognize the truth of 2-3 is somehow based on the kinds of things that make sentences like 1 true.
+There is an obvious sense in which all of these sentences are formed by plugging different words into the blank in “--- is nice.” This is an important perspective. But our translations are intended to display the truth-conditions of the statements: how their truth is determined, usually on the basis of decomposing them into smaller parts. And the truth-conditions of 1-3 differ in obvious ways. When we are trying to figure out whether "Alyssa is nice" is true, we go look at Alyssa and see whether she is nice. To see whether "someone is nice" is true, we go searching for someone (perhaps Bryan?) who is nice. For "everyone is nice," we need to make sure that Alyssa is nice, Bryan is nice, etc. And note that in thinking about sentence 1, we had said how to do that: to see whether a person is nice, simply go look and see whether they are nice. Hence, the moral is: while recognizing the differences between 1-3, we should recognize the truth of 2-3 is somehow based on the kinds of things that make sentences like 1 true.
 
 <br>
 
 ## The quantifiers
 
-Our solution is to translate these as follows:
+Our solution is to translate these as follows, where we follow the key that $Nx= x$ is nice, and $a=$ Alyssa:
 
-1. $Na$
-2. $\exists \; x \; Nx$
-3. $\forall \; x \; Nx$
+<table style="width:50%">
+  <tr>
+    <th>Sentence</th>
+    <th>Translation</th>
+    <th>Typed</th>
+    <th>Pronunciation</th>
+    <th>Colloquial pronunciation</th>
+  </tr>
+  <tr>
+    <td>1. Alyssa is nice.</td>
+    <td>$Na$</td>
+    <td>`Na`</td>
+    <td>$N$ (pause) $a$</td>
+    <td>$a$ has $N$</td>
+  </tr>
+  <tr>
+    <td>2. Someone is nice.</td>
+    <td>$\exists \; x \; Nx$.</td>
+    <td>`ExNx`.</td>
+    <td>There is $x$ such that $Nx$.</td>
+    <td>There is $x$ such that $x$ has $N$.</td>
+  </tr>
+  <tr>
+    <td>3. Everyone is nice.</td>
+    <td>$\forall \; x \; Nx$.</td>
+    <td>`AxNx`</td>
+    <td>For all $x$ (pause), $Nx$.</td>
+    <td>For all $x$ (pause), $x$ has $N$.</td>
+  </tr>
+</table>
 
-where we follow the key that $Nx= x$ is nice, and $a=$ Alyssa. We pronounce $\exists \; x \; Fx$ as "there is $x$ such that $Fx$" or "someone/something is $F$." The symbol $\exists$ is called the *existential quantifier,* and it looks like a backwards big $E$, and when we type it we just write `E`. We pronounce $\forall \; x \; Fx$ as "for all all $x$, $Fx$" or "everyone/everything is $F$." The symbol $\forall$ is called the *universal quantifier,* and it looks like an upside-down big $A$, and when we type it we just write `A`.
+<br>
 
-Note that in our translation of 2, the $x$ appears twice. The instance in $\exists \; x$ is a signal: go look for $d$ such that $Nd$, where you get $Nd$ from $Nx$ by plugging in $x=d$. More generally, the rule for the truth of $\exists \; x \; Fx$ is: it is true when there is at least one $d$ such that $Fd$.
+In this we use the following symbols:
 
-Similarly, in 3, the $x$ appears twice. The instance in $\forall \; x$ is a signal that one is making an "every" or "all" claim. And the rule for the truth of $\forall \; x \; Fx$ is: is is true when $Fd$ holds for each individual $d$.
+<table style="width:33%">
+  <tr>
+    <th>Symbol</th>
+    <th>Name</th>
+    <th>Handwritten</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>$\exists$</td>
+    <td>existential quantifier</td>
+    <td><video controls width="50" src="https://logic-teaching.github.io/prop/vid/quantifiers-exists-write.mp4"/> </video></td>
+    <td>`E`</td>
+  </tr>
+  <tr>
+    <td>$\forall$</td>
+    <td>universal quantifier</td>
+    <td><video controls width="50" src="https://logic-teaching.github.io/prop/vid/quantifiers-forall-write"/> </video></td>
+    <td>`A`</td>
+  </tr>
+</table>
+
+
+Note that in our translation of 2, the $x$ appears twice. The instance of $x$ in $\exists \; x$ is a signal: go look for $d$ such that $Nd$, where you get $Nd$ from $Nx$ by plugging in $x=d$. More generally, the rule for the truth of $\exists \; x \; Fx$ is: it is true when there is at least one $d$ such that $Fd$.
+
+Similarly, in 3, the $x$ appears twice. The instance of $x$ in $\forall \; x$ is a signal that one is making an "every" or "all" claim. And the rule for the truth of $\forall \; x \; Fx$ is: it is true when $Fd$ holds for each individual $d$.
 
 Here are some examples using the key $Nx= x$ is nice, and $a=$ Alyssa:
 
@@ -94,14 +172,14 @@ Here are some examples using the key $Nx= x$ is nice, and $a=$ Alyssa:
 
 ## Multiple variables
 
-The variables act like the variables in algebra. For instance, $x=3$ is  a solution to $x+2=5$, since if you plug in $3$ for $x$ you get something true. And $x=4$ and $y=2$ is a solution to $x+y=6$, since if you plug in $4$ for $x$ and $2$ for $y$ you get something true. The existential quantifer is a way  of saying that *there is* a solution. Since we often Let's practice with the existential quantifier with respect to the following familiar key:
+The variables act like the variables in algebra. For instance, $x=3$ is  a solution to $x+2=5$, since if you plug in $3$ for $x$ you get something true. And $x=4$ and $y=2$ is a solution to $x+y=6$, since if you plug in $4$ for $x$ and $2$ for $y$ you get something true. The existential quantifier is a way  of saying that *there is* a solution which makes the corresponding "equation" true. Let's first practice with respect to the following familiar key:
 
 | $a$  =  "Alyssa"
 | $b$  =  "Bryan"
 | $c$  =  "Christina"
 | $d$  =  "Daisy"
-| $L$  =  "is a lawyer "
-| $M$  =  "is a musician "
+| $L$  =  "is a lawyer"
+| $M$  =  "is a musician"
 | $H$  =  "likes hockey"
 | $S$  =  "likes soccer"
 
@@ -120,25 +198,148 @@ The variables act like the variables in algebra. For instance, $x=3$ is  a solut
 ~~~
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- Ex(Lx)->(La\/Lb): If someone is a lawyer, then Alyssa is a lawyer or Bryan is a lawyer.
+ ExLx->(La\/Lb) : If someone is a lawyer, then Alyssa is a lawyer or Bryan is a lawyer.
  ~~~
 
  ~~~{.Translate .FOL system="gamutND" submission="none"}
-  (Ex(Lx)/\Ey(My))->(La/\Md): If someone is a lawyer and someone is a musician, then Alyssa  is a lawyer and Daisy is a musician.
+  (ExLx/\EyMy)->(La/\Md) : If someone is a lawyer and someone is a musician, then Alyssa  is a lawyer and Daisy is a musician.
 ~~~
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- Ex(Sx/\Mx)->((Sc/\Mc)\/(Sd/\Md)): If someone likes soccer and is a musician, then Christina likes soccer and Christina is a musician, or Daisy likes soccer and Daisy is a musician.
+ Ex(Sx/\Mx)->((Sc/\Mc)\/(Sd/\Md)) : If someone likes soccer and is a musician, then Christina likes soccer and Christina is a musician, or Daisy likes soccer and Daisy is a musician.
 ~~~
 
+The universal quantifier is usually a way of stating generalizations or laws. It is a way of saying that everyone/everything has to have some property or feature. Let's translate with the following key:
 
+| $a$  =  "Alyssa"
+| $b$  =  "Bryan"
+| $c$  =  "Christina"
+| $d$  =  "Daisy"
+| $C$  =  "is drinking coffee"
+| $T$  =  "is drinking tea"
+| $W$  =  "is wide awake"
 
 <br>
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- La/\Mb : Alyssa is a lawyer and Bryan is a musician.
+ Ax(Cx\/Tx)->AxWx : If everyone is drinking coffee or tea, then everyone is wide awake.
 ~~~
 
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (AxCx\/AxTx)->AxWx : If everyone is drinking coffee or everyone is drinking tea, then everyone is wide awake.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (AxCx\/AxTx)->Ax(Cx\/Tx) : Everyone drinking coffee or everyone drinking tea is a sufficient condition for everyone drinking coffee or tea.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~(Ax(Cx\/Tx)->(AxCx\/AxTx)) : Everyone drinking coffee or everyone drinking tea is not a sufficient condition for everyone drinking coffee or for everyone drinking tea.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (~Cd/\~Cd)/\~(AxCx\/AxTx) : Daisy is not drinking coffee and Christina is not drinking coffee, and it is not the case that everyone is drinking coffee or everyone is drinking tea.
+~~~
+
+These last examples hopefully give one a better sense of the truth-conditions of universal statements. For instance, the last couple of examples were pointing out that it can be true that every person taken one by one is either busy or tired, without it being true that everyone is in the busy category or everyone is in the tired category.
+
+Here are some examples with multiple universal quantifiers. In this first one, note that even though we use different variables for the two universal statements in the antecedent, they both have consequences for the individual Bryan under consideration.
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (AxCx/\AyWy)->(Cb/\Wb): If everyone is drinking coffee and everyone is wide awake, then Bryan is drinking coffee and Bryan is wide awake.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (AxWx/\~AyTy)->Cb : If everyone is wide awake and not everyone is drinking tea, then Bryan is drinking coffee.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (~Wd/\~Td)->(~AxWx/\~AyTy) : If Daisy is not wide awake and Daisy is not drinking tea, then not everyone is wide awake and not everyone is drinking tea.
+~~~
+
+<br>
+
+## Translation schemas
+
+Quantifiers are also very good at capturing the truth-conditions of statements about "some" and "all" which connect two properties. Here are some common translation schemas:
+
+<table style="width:33%">
+  <tr>
+    <th>Schema</th>
+    <th>Translation</th>
+  </tr>
+  <tr>
+    <td>Some $F$ are $G$</td>
+    <td>$\exists \; x \; (Fx\wedge Gx)$</td>
+  </tr>
+  <tr>
+    <td>No $F$ are $G$</td>
+    <td>$\neg (\exists \; x\; (Fx\wedge Gx))$</td>
+  </tr>
+  <tr>
+    <td>Some $F$ are not $G$</td>
+    <td>$\exists \; x \; (Fx\wedge \neg Gx)$</td>
+  </tr>
+  <tr>
+    <td>No $F$ are not $G$</td>
+    <td>$\neg (\exists \; x\; (Fx\wedge \neg Gx))$</td>
+  </tr>
+  <tr>
+    <td>All $F$ are $G$</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx)$</td>
+  </tr>
+  <tr>
+    <td>Not all $F$ are $G$</td>
+    <td>$\neg (\forall \; x \; (Fx\rightarrow Gx))$</td>
+  </tr>
+  <tr>
+    <td>All $F$ are not $G$</td>
+    <td>$\forall \; x \; (Fx\rightarrow \neg Gx)$</td>
+  </tr>
+  <tr>
+    <td>Not all $F$ are $G$</td>
+    <td>$\neg (\forall \; x \; (Fx\rightarrow Gx))$</td>
+  </tr>
+</table>
+
+<br>
+
+Note that in these schemas the "some"-statements are translated with an existential quantifier which stands outside a conjunction, while the "all"-statements are translated with a universal quantifier together with an arrow statement.
+
+Let us practice with these translation schemas with respect to the following examples:
+
+| $C$  =  "is cheerful"
+| $F$  =  "is festive"
+| $G$  =  "is a geography major"
+| $L$  =  "is a law student"
+| $R$  =  "is relaxed"
+| $T$  =  "likes table-tennis"
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Cx)/\Ex(Gx/\Cx) : Every law student is cheerful and some geography majors are cheerful.
+~~~
+
+In the following, remember that "but" would just be translated by "and" here:
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Gx/\Rx)/\~Ex(Lx/\Rx) : Some geography majors are relaxed but no law students are relaxed.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Gx/\~Fx)/\~Ex(Lx/\~Fx) : Some geography majors are not festive, but no law students are not festive.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~(Ax(Lx->Tx) : Not all law students like table-tennis.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Rx)->Ax(Gx->Fx) : If all law students are relaxed, then all geography majors are festive.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Cx)->Ex(Lx/\Fx) : If all law students are cheerful, then some law students are festive.
+~~~
 
 <br>
 
