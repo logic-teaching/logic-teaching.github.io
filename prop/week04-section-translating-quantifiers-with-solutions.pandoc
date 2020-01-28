@@ -17,9 +17,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 Logic, First Course, Winter 2020. Week 4, Section Meeting. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=5)
 
-# Connecting multiple properties with some and all
+# Connecting multiple properties with some and all **with solutions**
 
-Quantifiers are very good at capturing the truth-conditions of statements about "some" and "all" that connect two properties.
+Quantifiers are very good at capturing the truth-conditions of statements about "some" and "all" that connect two properties. The **solutions** are just filled in on this one. 
 
 - [Translation schemas](#translation-schemas)
 - [More practice](#more-practice)
@@ -84,6 +84,7 @@ Let us practice further with these translation schemas with respect to the follo
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax(Lx->Cx)/\Ex(Gx/\Cx) : Every law student is cheerful and some geography majors are cheerful.
+|Ax(Lx->Cx)/\Ex(Gx/\Cx)
 ~~~
 
 <br>
@@ -94,6 +95,7 @@ In the following, remember that "but" would just be translated by "and":
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex(Gx/\Rx)/\~Ex(Lx/\Rx) : Some geography majors are relaxed but no law students are relaxed.
+|Ex(Gx/\Rx)/\~Ex(Lx/\Rx)
 ~~~
 
 <br>
@@ -102,6 +104,7 @@ In the following, remember that "but" would just be translated by "and":
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex(Gx/\~Fx)/\~Ex(Lx/\~Fx) : Some geography majors are not festive, but no law students are not festive.
+|Ex(Gx/\~Fx)/\~Ex(Lx/\~Fx)
 ~~~
 
 <br>
@@ -110,6 +113,7 @@ In the following, remember that "but" would just be translated by "and":
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ~Ax(Lx->Tx) : Not all law students like table-tennis.
+|~Ax(Lx->Tx)
 ~~~
 
 <br>
@@ -118,6 +122,7 @@ In the following, remember that "but" would just be translated by "and":
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax(Lx->Rx)->Ax(Gx->Fx) : If all law students are relaxed, then all geography majors are festive.
+|Ax(Lx->Rx)->Ax(Gx->Fx)
 ~~~
 
 <br>
@@ -126,6 +131,7 @@ In the following, remember that "but" would just be translated by "and":
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax(Lx->Cx)->Ex(Lx/\Fx) : If all law students are cheerful, then some law students are festive.
+|Ax(Lx->Cx)->Ex(Lx/\Fx)
 ~~~
 
 <br>
@@ -149,6 +155,7 @@ Let us practice with these translation schemas with respect to the following exa
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex(Hx/\Fx)/\~Ex(Gx/\Fx) : Some hobbits are fearful and no elves are fearful.
+|Ex(Hx/\Fx)/\~Ex(Gx/\Fx)
 ~~~
 
 <br>
@@ -157,6 +164,7 @@ Let us practice with these translation schemas with respect to the following exa
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax(Lx->Cx)/\~Ax(Wx->Cx) : All elves are clever and not all wizards are clever.
+|Ax(Lx->Cx)/\~Ax(Wx->Cx)
 ~~~
 
 <br>
@@ -167,6 +175,7 @@ On this one, be sure to use parentheses to separate the two conjunctions.
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax(Lx->Tx)/\(Ex(Wx/\Tx)/\~Ex(Hx/\Tx)) : All elves are tall and some wizards are tall and no hobbits are tall.
+|Ax(Lx->Tx)/\(Ex(Wx/\Tx)/\~Ex(Hx/\Tx))
 ~~~
 
 <br>
@@ -175,6 +184,7 @@ On this one, be sure to use parentheses to separate the two conjunctions.
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax(Lx->~Fx)->Ex(Hx/\~Fx) : If all elves are not fearful then some hobbit is not fearful.
+|Ax(Lx->~Fx)->Ex(Hx/\~Fx)
 ~~~
 
 <br>
@@ -183,6 +193,7 @@ On this one, be sure to use parentheses to separate the two conjunctions.
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ~Ax(Wx->Tx)/\~Ax(Hx->Fx) : Not all wizards are tall and not all hobbits are fearful.
+|~Ax(Wx->Tx)/\~Ax(Hx->Fx)
 ~~~
 
 <br>
@@ -197,6 +208,7 @@ We can slightly expand on this by considering how to translate statements like "
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax((Tx/\Wx)->Cx) : All tall wizards are clever.
+|Ax((Tx/\Wx)->Cx)
 ~~~
 
 <br>
@@ -205,12 +217,14 @@ We can slightly expand on this by considering how to translate statements like "
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ~Ax((Cx/\Wx)->Tx) : Not all clever wizards are tall.
+|~Ax((Cx/\Wx)->Tx)
 ~~~
 
 *Example 14*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex((Cx/\Hx)/\Fx) : Some clever hobbits are fearful.
+|Ex((Cx/\Hx)/\Fx)
 ~~~
 
 <br>
@@ -219,6 +233,7 @@ We can slightly expand on this by considering how to translate statements like "
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex((Cx/\Hx)/\Fx)->Ex((Fx/\Hx)/\Cx) : If some clever hobbits are fearful then some fearful hobbits are clever.
+|Ex((Cx/\Hx)/\Fx)->Ex((Fx/\Hx)/\Cx)
 ~~~
 
 <br>
@@ -227,6 +242,7 @@ We can slightly expand on this by considering how to translate statements like "
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ~Ax((Tx/\Wx)->Fx)->~Ax((Fx/\Lx)->Cx) : If not all tall wizards are fearful then not all fearful elves are clever.
+|~Ax((Tx/\Wx)->Fx)->~Ax((Fx/\Lx)->Cx)
 ~~~
 
 <br>
@@ -235,6 +251,7 @@ We can slightly expand on this by considering how to translate statements like "
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex((Cx/\Lx)/\Wx)->~Ax((Cx/\Lx)->~Tx) : If some clever elves are wizards, then not all clever elves are not tall.
+|Ex((Cx/\Lx)/\Wx)->~Ax((Cx/\Lx)->~Tx)
 ~~~
 
 <br>
@@ -256,6 +273,7 @@ Let us continue practicing with more than two properties using the key from the 
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax((Cx/\Lx)->Rx) : Every cheerful  law student is relaxed.
+|Ax((Cx/\Lx)->Rx)
 ~~~
 
 <br>
@@ -264,6 +282,7 @@ Let us continue practicing with more than two properties using the key from the 
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex((Fx/\Lx)/\Tx)->Ex((Fx/\Lx)/\Rx) : If some festive law student likes table-tennis, then some festive law student is relaxed.
+|Ex((Fx/\Lx)/\Tx)->Ex((Fx/\Lx)/\Rx)
 ~~~
 
 <br>
@@ -272,6 +291,7 @@ Let us continue practicing with more than two properties using the key from the 
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ~Ax((Rx/\Gx)->Tx) : Not all relaxed geography majors like table-tennis.
+|~Ax((Rx/\Gx)->Tx)
 ~~~
 
 

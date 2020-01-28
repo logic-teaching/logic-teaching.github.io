@@ -1,4 +1,4 @@
-unsuccessfully<style>
+<style>
 table {
   border-collapse: collapse;
   width: 100%;
@@ -222,10 +222,10 @@ The variables act like the variables in algebra. For instance, $x=3$ is  a solut
  ~((La/\(Ha/\Sb))->Ex(Lx/\Sx)) : It is not the case that if Alyssa is a lawyer and Alyssa likes hockey and Bryan likes soccer, then someone is both a lawyer and likes soccer.
 ~~~
 
-Note in this next example, the answer will involve a consequent whose main connective is a conjunction and whose first conjunct is a quantifier-phrase. Hence, the consequence in this case will look like `(Ex . . . ./\ . . . )`:
+Note in this next example, the answer will involve a consequent whose main connective is a conjunction and whose first conjunct is a quantifier-phrase. Hence, the consequent in this case will look like `(Ex . . . ./\ . . . )`:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- (La/\(Ha/\Sb))->(Ex(Lx/\Hx)/\EySy) : If Alyssa is a lawyer and Alyssa likes hockey and Bryan likes soccer, then someone is both a lawyer and likes hockey, and someone likes soccer.
+ (La/\(Ha/\Sb))->(Ex(Lx/\Hx)/\EySy) : If Alyssa is a lawyer and Alyssa likes hockey and Bryan likes soccer, then someone is both a lawyer and likes hockey and someone likes soccer.
 ~~~
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
