@@ -58,7 +58,7 @@ Here are some common translation schemas connecting two properties:
   <tr>
     <td>All $F$ are not $G$</td>
     <td>$\forall \; x \; (Fx\rightarrow \neg Gx)$</td>
-    <td>Not all $F$ are $G$</td>
+    <td>Not all $F$ are not $G$</td>
     <td>$\neg \forall \; x \; (Fx\rightarrow \neg Gx)$</td>
   </tr>
 </table>
