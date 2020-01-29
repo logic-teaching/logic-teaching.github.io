@@ -3,153 +3,107 @@
 
 Logic, First Course, Winter 2020. Week 4, Lecture 2. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=5)
 
-# Valid arguments
-
-In this lecture, we [...]
-
-- [Synthesizing](#synthesizing)
-- [Limitations of efficiency and its solution](#limitations-of-efficiency-and-its-solution)
-- [Limitations of expressibility and its solution](#limitations-of-expressibility-and-its-solution)
-- [Propositional consequences of universal statements and rules](#propositional-consequences-of-universal-statements-and-rules)
-- [Emulating universals with long conjunctions and existentials with long disjunctions](#emulating-universals-with-long-conjunctions-and-existentials-with-long-disjunctions)
-- [Aristotle and the square of opposition](#aristotle-and-the-square-of-opposition)
+# Relation between propositional and predicate logic
 
 <br>
 
-## Synthesizing
+In this lecture, we simultaneously pursue our brief introduction to predicate logic and review what we have learned so far about propositional logic by studying the relationship between predicate logic and propositional logic.
 
-We can then start to put together all the things we have learned in this course. Let us first consider a simple example:
-
-<p style="margin-left: 40px"> *Example*. If Anthony attends or Briana attends then Cynthia attends. But Cynthia does not attend. Therefore, Anthony does not attend and Brianna does not attend. </p>
-
-Suppose that we were not at the meeting, but we knew the first premise due to our long experience with these characters and we knew the second premise because we got a message from Cynthia. Do we know the conclusion? If the argument was valid, we would know the conclusion. And to see whether it is valid, we would first translate into propositional logic, using the key:
-
-<p style="margin-left: 40px"> $a$ = Anthony attends </p>
-<p style="margin-left: 40px"> $b$ = Briana attends </p>
-<p style="margin-left: 40px"> $c$ = Cynthia attends </p>
-
-Then we could translate as follows:
-
-*First premise*:
-
-~~~{.Translate .Prop system="gamutPND" submission="none"}
- (a\/b)->c : If Anthony attends or Briana attends then Cynthia attends.
-~~~
-
-*Second premise*:
-
-~~~{.Translate .Prop system="gamutPND" submission="none"}
- ~c : Cynthia does not attend.
-~~~
-
-*Conclusion*:
-
-~~~{.Translate .Prop system="gamutPND" submission="none"}
- ~a/\~b : Anthony does not attend and Brianna does not attend.
-~~~
-
-We probably do not need it at this point, but if we wanted we could parse these sentences too:
-
-```{.SynChecker .Match system="gamutPND" submission="none"}
- (a\/b)->c
-```
-
-```{.SynChecker .Match system="gamutPND" submission="none"}
- ~c
-```
-
-```{.SynChecker .Match system="gamutPND" submission="none"}
- ~a/\~b
-```
-
-Then to assess for validity, we could patiently fill out the entire truth-table and see that it is a validity:
-
-```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
- (a\/b)->c, ~c  :|-: ~a/\~b
-```
-
-As we can see by inspection of the column under the consequence relation $\vdash$, this is a valid argument. And the truth-tables offer a theoretically compelling account of validity, since the enumeration of all possible cases gives us a way to formalize the idea that "whenever the premises are true, the conclusion is true."
-
-However, part of what we have been learning is how to *quickly* ascertain validity. In this case, we could more quickly discern that the argument is valid by first noting that the following is a substitution instance of modus tollens:
-
-<p style="margin-left: 40px"> $(a\vee b)\rightarrow c, \neg c \vdash \neg (a\vee b)$ </p>
-
-And then by DeMorgan we have that $\neg (a\vee b)$ is equivalent to $\neg a\wedge \neg b$. Hence by putting modus tollens together with DeMorgan, we can quickly argue for the validity of the argument. Since we were imagining we were in the  situation where we knew the premises to be true, we could likewise thereby obtain the truth of the conclusion.
+- [Emulating universals and existentials in propositional logic](#emulating-universals-and-existentials-in-propositional-logic)
+- [Propositional consequences of universal statements](#propositiona-consequences-of-universal-statements)
+- [Predicate logic versions of DeMorgan](#predicate-logic-versions-of-demorgan)
+- [Using predicate logic to understand propositional logic](#using-predicate-logic-to-understand-propositional-logic)
 
 <br>
 
-## Limitations of efficiency and its solution
 
-One limitation of propositional logic is that assessing for validity in propositional logic via truth-tables can be remarkably inefficient. Here is an illustrative example:
+## Emulating universals and existentials in propositional logic
 
-<p style="margin-left: 40px"> *Example 7*. Next quarter, Alex must take 106A or 143B, and he must take 118C or 154D. But the restrictions on his major indicate that he cannot take both 106A and 118C for his degree. Therefore Alex should: (i) take 106A and 154D, or (ii) take 143B and 118C, or (iii) take 143B and 154D.</p>
+If we are sure ahead of time of who the relevant individuals are in the discussion, we can emulate universals and existentials in propositional logic. For instance, suppose that we are talking about a group of three people: Alex, Briana, and Chloe. Consider the sentence "Everyone is nice," where it is clear from context that we only mean to speak of these three individuals (perhaps they are the only people in the room). In predicate logic, we would translate "Everyone is nice" by "$\forall \; x \; Nx$," or `AxNx`, with the key $Nx=x$ is nice. But since we only mean to speak of Alex, Briana, and Chloe, this would be equivalent to "$Na\wedge(Nb\wedge Nc)$", where of course $a=$Alex, $b=$Brianna, and $c=$Chloe. And this is very close to propositional logic. In fact, we could translate it as $i\wedge (j\wedge k)$, with the obvious key:
 
-What makes this conclusion follow? It does not seem to be empirical, since we do not need to do any looking around to figure this out. And it does not seem to be anything specific to the scheduling of classes as opposed to meetings as opposed to appointments, since we can imagine similar reasoning in other domains. A plausible answer is simply that it follows simply because it is a valid argument.
+<p style="margin-left: 40px"> $i$ = Alex is nice  </p>
+<p style="margin-left: 40px"> $j$ = Brianna is nice  </p>
+<p style="margin-left: 40px"> $k$ = Chloe is nice  </p>
 
-One way to formalize the argument is then to use the following key about what Alex is going to take next quarter:
+Similarly, consider "Someone is busy." In predicate logic, we would translate it as $\exists \; x \; Bx$ or `ExBx`, where $Bx=x$ is tea. But if we knew that the only people under consideration were Alex, Briana, and Chloe, then this would be equivalent to the disjunction $Ba\vee (Bb\vee Bc)$. And this is again very close to propositional logic, and we could translate it as $m\vee (n\vee o)$ with the following key:
 
-<p style="margin-left: 40px"> $a$ = takes 106A  </p>
-<p style="margin-left: 40px"> $b$ = takes 143B </p>
-<p style="margin-left: 40px"> $c$ = takes 118C </p>
-<p style="margin-left: 40px"> $d$ = takes 154D </p>
-
-Then we could then formalize the argument as the following validity problem:
-
-```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
- (a\/b), (c\/d), ~(a/\c) :|-: (a/\d)\/((b/\c)\/(b/\d))
-```
-This is valid, as one can check, but it is an enormous truth-table. Is there a quicker way? Well, let's use equivalents like the following:
-
-<p style="margin-left: 40px"> *Law of distribution, part 1*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$  </p>
-
-Replacing equivalents by equivalents, we can reduce the problem to the following:
-
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/soundness-alexexample-long.mp4"/> </video>
-
-How much more efficient was this method of replacing equivalents by equivalents than just doing the big truth-table? Well, it was probably quicker by a few minutes, but there seemed to be some way in which this application of replacing equivalents by equivalents was hard too. And further, unlike truth-tables, we have not yet developed any systematic way of learning how to do these arguments.
-
-The solution to both the inefficiency of truth-tables and the lack of systematicity in the method of replacing equivalents by equivalents is going to be the topic of our course after the midterm, when we turn to developing derivations (also called proofs) systematically. Proofs are in general faster than truth-tables, especially when it comes to arguments with more than three propositional letters in them.
-
-INSERT remark on computational complexity.
+<p style="margin-left: 40px"> $m$ = Alex is busy  </p>
+<p style="margin-left: 40px"> $n$ = Brianna is busy  </p>
+<p style="margin-left: 40px"> $o$ = Chloe is busy  </p>
 
 <br>
 
-## Limitations of expressibility and its solution
+We can summarize as follows. Suppose that the individuals under discussion are $a,b,c$. Suppose that $\phi(x)$ is a formula of predicate logic. Suppose that $p=\phi(a)$ and $q=\phi(b)$ and $r=\phi(c)$. Then one has the following equivalences:
 
-Another limitation of propositional logic is that we can only translate certain kinds of sentences into propositional logic. Namely, our translation methods only work if the sentences are organized in such a way that they are built out of small propositional letters combined with the propositional connectives. But many arguments we are interested in cannot be translated in this fashion.
+- the predicate logic formula $\forall \; x \; \phi(x)$ (typed: `Axϕ(x)`) is equivalent to the predicate logic formula $\phi(a)\wedge (\phi(b) \wedge \phi(c))$, which is equivalent to the propositional formula $p\wedge (q\wedge r)$
+- the predicate logic formula $\exists \; x \; \phi(x)$ (typed: `Exϕ(x)`) is equivalent to the predicate logic $\phi(a)\vee (\phi(b) \vee \phi(c))$, which is equivalent to the propositional formula $p\vee (q\vee r)$
 
-Here are two simple examples:
+Note that the first formula in each of these is a formula of predicate logic with a quantifier, and the second is a formula of predicate logic without a quantifier, and the third is a formula of propositional logic. They are equivalent in that, intuitively, they have the same truth-conditions, given that we are only talking about the three individuals in question. There are similar equivalences for cases in which there are 4,5,6 etc. individuals under discussion, except that there are more conjuncts and disjuncts and they become unwieldy to write.
 
-<p style="margin-left: 40px"> *Example*. "Connor works in billing and Connor attends the meeting. Therefore, someone working in billing attends the meeting." </p>
+Here are some simple examples.
 
-If we set about translating, we would probably translate the first sentence using the following key:
+In each of these three examples, we keep the same three people fixed and we assume that we are only talking about them. We consider various formulas of predicate logic $\phi(x)$ formed out of the predicates $Nx=x$ is nice and $Bx=x$ is busy. Further, we use the propositional letters $i,j,k$ and $m,n,o$ as up above.
 
-<p style="margin-left: 40px"> $a$ = Connor $a$ttends the meeting </p>
-<p style="margin-left: 40px"> $b$ = Connor works in $b$illing </p>
+<br>
 
-~~~{.Translate .Prop system="gamutPND" submission="none"}
- b/\a : Connor is from billing and Connor attends the meeting.
+*Example 1*
+
+~~~{.Translate .Prop system="gamutND" submission="none"}
+ Ax(Nx/\Bx) : Translate "Everyone is nice and busy" into predicate logic using a quantifier
 ~~~
 
-However, how would we then translate the second sentence? We might be tempted to translate using the following key:
+<br>
 
-<p style="margin-left: 40px"> $c$ = someone attends the meeting </p>
-<p style="margin-left: 40px"> $d$ = someone works in billing </p>
+*Example 2*
 
-Following the pattern of the first sentence, we might then translate the second sentence as $d/\c$. But let's translate that back into English. It would be: "someone works in billing and someone attends the meeting."
-
+~~~{.Translate .Prop system="gamutND" submission="none"}
+ (Na/\Ba)/\(Nb/\Bb)/\(Nc/\Bc) : Translate "Everyone is nice and busy" into predicate logic without a quantifier.
+~~~
 
 <br>
 
-## Propositional consequences of universal statements and rules
+*Example 3*
 
-Propositional logic is easy to work with because it is so simple. But, the sentences one might be interested in may be a little more complicated than what can be expressed in propositional logic *per se*. However, sometimes the *consequences* of these sentences which one cares about can be so expressed.
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (i/\m)/\(j/\n)/\(k/\o) : Translate "Someone is nice and busy" into propositional logic.
+~~~
 
-For example take "All history majors are fun." We cannot translate this into propositional logic since there is no "all" symbol in propositional logic (there is, of course, such a symbol in richer logics, such as predicate logic). But specializing this sentence to an arbitrary individual, we can get a consequence formalizable in propositional logic, such as "if you are a history major, then you are fun" or "if she is a history major then she is fun."
+<br>
 
-There is a similar thing with rules, such as "Passengers must check in with the ticket-desk." This is because this is an all-statement of the form "All passengers are such that they must check in with the ticket-desk." Hence it has consequences such as "if you are a passenger, then you must check in with the ticket-desk" or "if he is a passenger, then he must check in with the ticket-desk."
+*Example 4*
 
-*Example*
+~~~{.Translate .Prop system="gamutND" submission="none"}
+ Ex(Nx/\Bx) : Someone "Everyone is nice and busy" into predicate logic using a quantifier
+~~~
+
+<br>
+
+*Example 5*
+
+~~~{.Translate .Prop system="gamutND" submission="none"}
+ (Na/\Ba)\/(Nb/\Bb)\/(Nc/\Bc) : Translate "Someone is nice and busy" into predicate logic without a quantifier.
+~~~
+
+<br>
+
+*Example 6*
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (i/\m)\/(j/\n)\/(k/\o) : Translate "Someone is nice and busy" into propositional logic.
+~~~
+
+<br>
+
+
+## Propositional consequences of universal statements
+
+As we have seen, we can emulate universal statements with propositional logic, provided we know in advance who the individuals under discussion are. But the sentences end up being unwieldily to work with, albeit conceptually simple. But often in practice we can quickly extract the propositional consequences of universal statements of predicate logic.
+
+For example take "All history majors are diligent." This gets translated as $\forall \; x \; (Hx\rightarrow Dx)$ (typed as `Ax(Hx->Dx)`), with the obvious key. Hence it should imply that $Ha->Da$ for any individual $a$ under discussion. But then consider consequences formalizable in propositional logic, such as "if you are a history major, then you are diligent" or "if she is a history major then she is diligent." Of course, the way we use the words "you" and "she" presuppose that the words pick out individuals under discussion.
+
+There is a similar thing with rules, such as "Passengers must check in." is an all statement of the form "All passengers are must-have-to-check-in-ers." Hence it has consequences such as "if you are a passenger, then you must check in" or "if he is a passenger, then he must check in."
+
+*Example 7*
 
 <p style="margin-left: 40px"> $b$ = it is a $b$ird  </p>
 <p style="margin-left: 40px"> $f$ = it $f$lies  </p>
@@ -158,8 +112,7 @@ There is a similar thing with rules, such as "Passengers must check in with the 
  (b->f) : Insert a propositional consequence of "All birds fly".
 ~~~
 
-*Example*
-
+*Example 8*
 
 <p style="margin-left: 40px"> $h$ = you are a $h$istory major  </p>
 <p style="margin-left: 40px"> $t$ = you must $t$ake American history 106  </p>
@@ -168,22 +121,128 @@ There is a similar thing with rules, such as "Passengers must check in with the 
  (h->t) : Insert a propositional consequence of "History majors must take American History 106."
 ~~~
 
-*Example*
+*Example 9*
 
-<p style="margin-left: 40px"> $b$ = you are a biology major  </p>
-<p style="margin-left: 40px"> $p$ = you are $p$ermitted to enroll in this course  </p>
+<p style="margin-left: 40px"> $b$ = you are a $b$iology major  </p>
+<p style="margin-left: 40px"> $r$ = you are $r$equired to enroll in this course  </p>
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
- p->b : Insert a propositional consequence of "Only biology majors are permitted to enroll in this course."
+ (b->r) : Insert a propositional consequence of "All biology majors are required to enroll in this course."
 ~~~
 
-In trying to solve this problem, think through the truth-conditions of this rule about biology majors, and think through what would make it true or false.
+<br>
+
+
+## Predicate logic versions of DeMorgan
+
+Recall the *DeMorgan Laws* of propositional logic from our earlier discussion of [tautologies](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-lecture2-tautologies.pandoc#commutativity-and-associativity-and-distributivity):
+
+*DeMorgan Law, part 1*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.
+
+*DeMorgan Law, part 2*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$.
+
+
+Since we have seen that we can emulate universal claims with conjunctions and existential claims with disjunctions, this points to the following predicate logic versions of DeMorgan:
+
+<br>
+
+*DeMorgan Law in Predicate Logic, part 1*: $\neg \forall \; x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$.
+
+*DeMorgan Law in Predicate Logic, part 2*: $\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$.
+
+<br>
+
+The way to memorize these laws is to practice writing them from left to right with a biconditional in the middle, and to visualize the negation on the very left move across the quantifier and flip the universal to an existential and the existential to a universal:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorgan1.mp4"/> </video>
+
+<br>
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorgan2.mp4"/> </video>
+
+<br>
+
+We can then combine this with DeMorgan itself to produce further equivalences.
+
+<br>
+
+*Example 10*
+
+For instance, $\neg \forall \; x \; (Px \wedge Qx)$ is equivalent to $\exists \; x \; \neg (Px\wedge Qx)$, which is equivalent to $\exists \; x \; (\neg P(x)\vee \neg Q(x))$. By hand, one would write:
+
+<br>
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorganex1.mp4"/> </video>
+
+<br>
+
+*Example 11*
+
+Likewise, $\neg \exists \; x \; (Px\wedge Qx)$ is equivalent to $\forall x \; \neg (Px\wedge Qx)$, which is equivalent to $\forall \; x \; (\neg P(x)\vee \neg Q(x))$. By hand, one would write:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorganex2.mp4"/> </video>
+
+<br>
+
+Here are some multiple choice questions which ask you to find the equivalents using DeMorgan. To facilitate our being able to go back and forth between the traditional handwritten style and the typed style, we write the existential quantifier $\exists$ as `E` and the universal quantifier as `A` in the statement of these problems:
+
+*Example 12*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which of the following is ~Ax(Px\/Qx) equivalent to?
+| Ex(Px\/~Qx)
+| *Ex(~Px/\~Qx)
+| Ex(~Px\/~Qx)
+| E(Px/\Qx)
+```
+
+*Example 13*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which of the following is ~Ex(Px\/Qx) equivalent to?
+| Ax(Px\/Qx)
+| *Ax(~Px/\~Qx)
+| Ax(~Px\/~Qx)
+| Ax(Px/\Qx)
+```
+
+The following are variations on our original examples but with double-negation applied at the last step:
+
+*Example 14*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which of the following is ~Ax(~Px/\~Qx) equivalent to?
+| *Ex(Px\/Qx)
+| Ex(~Px/\~Qx)
+| Ex(Px/\Qx)
+| E(Px/\~Qx)
+```
+
+*Example 15*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which of the following is ~Ex(~Px/\~Qx) equivalent to?
+| Ax(~Px/\~Qx)
+| Ax(~Px\/~Qx)
+| Ax(Px/\Qx)
+| *Ax(Px\/Qx)
+```
+
+<br>
+
+## Using predicate logic to understand propositional logic
+
+Recall the definition of a tautology: a tautology is a formula of propositional logic such that for every row of the truth-table, it has a true under its column. For instance, law of the excluded middle $p\vee \neg p$ is a tautology because all rows of its truth-table have $T$'s under the column associated to the formula. For short, we might say: a formula is a tautology if and only if "all the rows have true-entries (in the column associated to the formula)." This is a "for all" statement, which we would translate in predicate logic with the universal quantifier. In particular, we might translate it as $\forall \; r \; T(r)$, where the $r$'s ranged not over people, but over rows of the truth-table, and where: $T(r)=r$ has a true under the column associated to the formula. Likewise, to say that a formula is not a tautology is to say $\exists \; r \; \neg T(r)$, that is, it is to say that there is a row $r$ of the truth table where there is not a true under the column associated to the formula. Making this connection is practically useful because it helps you see that being a tautology is an "all" statement: it is hard to make true. And "not being a tautology" is a "some" statement: easy to make true.
+
+Likewise, consider validity. To say that modus ponens $p\rightarrow q, p\vdash q$ is a valid argument is to assert an "all" statement: it is saying that for all rows of the truth-table, if the premises are true, then the conclusion is true. And to say that affirming the antecedent is an invalid argument is to assert a "some" statement: it is to say that there is a row of the truth-table where the premises are all true and the conclusion is false. And note that we just referred to "all of the premises being true," which is again an "all" statement. If the arguments are small, with few premises, then we can actually unpack these "all statements" into conjunctions and the "some" statement into dijunctions. For instance,  $p\vee q, p \nvdash q$ just means that the argument with premises $p\vee q$ and $p$ and conclusion $q$ is invalid. This in turn just means that there is a row of the truth-table where both $p\vee q$ is true *and* $p$ is true *and* where finally $q$ is false. However, the advantage of using predicate logic notions of "all" and "some" to state the notion of validity is that we can state the definition of validity in a small number of words, regardless of how many premises our argument has, or how many rows of the truth-table there are.
+
+It might seem strange that to understand core notions of propositional logic -- like tautology or validity-- one has to learn the rudiments of predicate logic. But this phenomena recurs throughout logic. Notions like tautology and validity are often called *semantic* notions since they relate to truth and meaning. Often throughout logic, one will find that to understand the semantics of a given logic, one often needs to reason in a richer logic or a richer theory. The semantics of propositional logic requires the rudiments of predicate logic to understand, and similarly the semantics of predicate logic requires the rudiments of something called set theory to understand.
 
 
 <br>
 
-
 <br>
+
 
 These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=5).[^2]
 

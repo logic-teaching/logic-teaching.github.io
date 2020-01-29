@@ -264,7 +264,7 @@ The universal quantifier is usually a way of stating generalizations or laws. It
 ~~~
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- ~(Ax(Cx\/Tx)->(AxCx\/AxTx)) : Everyone drinking coffee or everyone drinking tea is not a sufficient condition for everyone drinking coffee or for everyone drinking tea.
+ ~((AxCx\/AxTx)->Ax(Cx\/Tx)) : Everyone drinking coffee or everyone drinking tea is not a sufficient condition for everyone drinking coffee or for everyone drinking tea.
 ~~~
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
