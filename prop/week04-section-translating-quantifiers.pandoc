@@ -41,25 +41,25 @@ Here are some common translation schemas connecting two properties:
     <td>Some $F$ are $G$</td>
     <td>$\exists \; x \; (Fx\wedge Gx)$</td>
     <td>No $F$ are $G$</td>
-    <td>$\neg (\exists \; x\; (Fx\wedge Gx))$</td>
+    <td>$\neg \exists \; x\; (Fx\wedge Gx)$</td>
   </tr>
   <tr>
     <td>Some $F$ are not $G$</td>
     <td>$\exists \; x \; (Fx\wedge \neg Gx)$</td>
     <td>No $F$ are not $G$</td>
-    <td>$\neg (\exists \; x\; (Fx\wedge \neg Gx))$</td>
+    <td>$\neg \exists \; x\; (Fx\wedge \neg Gx)$</td>
   </tr>
   <tr>
     <td>All $F$ are $G$</td>
     <td>$\forall \; x \; (Fx\rightarrow Gx)$</td>
     <td>Not all $F$ are $G$</td>
-    <td>$\neg (\forall \; x \; (Fx\rightarrow Gx))$</td>
+    <td>$\neg \forall \; x \; (Fx\rightarrow Gx)$</td>
   </tr>
   <tr>
     <td>All $F$ are not $G$</td>
     <td>$\forall \; x \; (Fx\rightarrow \neg Gx)$</td>
     <td>Not all $F$ are $G$</td>
-    <td>$\neg (\forall \; x \; (Fx\rightarrow Gx))$</td>
+    <td>$\neg \forall \; x \; (Fx\rightarrow Gx)$</td>
   </tr>
 </table>
 
@@ -148,7 +148,7 @@ Let us practice with these translation schemas with respect to the following exa
 *Example 7*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- Ex(Hx/\Fx)/\~Ex(Gx/\Fx) : Some hobbits are fearful and no elves are fearful.
+ Ex(Hx/\Fx)/\~Ex(Lx/\Fx) : Some hobbits are fearful and no elves are fearful.
 ~~~
 
 <br>
