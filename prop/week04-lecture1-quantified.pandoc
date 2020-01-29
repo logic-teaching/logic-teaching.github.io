@@ -56,7 +56,7 @@ The name 'Predicate logic' comes from the idea that things like L,M,H,S are pred
 
 Below is a video of the first one-- remember that you have to "select all" and delete the entry in the first box, and then you have to press **return** at the end of the problem. If you need a refresher on how to type the propositional connectives on the keyboard, please consider reviewing [Typing the connectives on the keyboard](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#typing-the-connectives-on-the-keyboard).
 
-video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-example1.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-example1.mp4"/> </video>
 
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
@@ -161,7 +161,6 @@ In this we use the following symbols:
 
 <br>
 
-
 Note that in our translation of the second sentence, the $x$ appears twice. The instance of $x$ in $\exists \; x$ is a signal: go look for $d$ such that $Nd$, where you get $Nd$ from $Nx$ by plugging in $x=d$. More generally, the rule for the truth of $\exists \; x \; Fx$ is: it is true when there is at least one $d$ such that $Fd$.
 
 Similarly, in our translation of the third sentence, the $x$ appears twice. The instance of $x$ in $\forall \; x$ is a signal that one is making an "every" or "all" claim. And the rule for the truth of $\forall \; x \; Fx$ is: it is true when $Fd$ holds for every individual $d$.
@@ -174,11 +173,11 @@ Here are some examples using the key $Nx= x$ is nice, and $a=$ Alyssa:
 
 Here is a video of this one-- note that the second time we did in the video, we just cut and paste the quantifiers $\exists$ and $\forall$ from the text:
 
-video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-example2.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-example2.mp4"/> </video>
 
 Note that the computer system is very picky about parentheses and quantifiers and will reject answers that puts a pair of parentheses around a statement whose main connective is the quantifier. This is illustrated in the below video where we try unsuccessfully to type the response `~(AxNx)` to the next problem and then fix it by removing the parentheses and typing the right answer `~AxNx`:
 
-video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-example3.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-example3.mp4"/> </video>
 
 You can try it yourself now:
 
