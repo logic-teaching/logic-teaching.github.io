@@ -48,7 +48,7 @@ In each of these three examples, we keep the same three people fixed and we assu
 
 *Example 1*
 
-~~~{.Translate .Prop system="gamutND" submission="none"}
+~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax(Nx/\Bx) : Translate "Everyone is nice and busy" into predicate logic using a quantifier
 ~~~
 
@@ -56,7 +56,7 @@ In each of these three examples, we keep the same three people fixed and we assu
 
 *Example 2*
 
-~~~{.Translate .Prop system="gamutND" submission="none"}
+~~~{.Translate .FOL system="gamutND" submission="none"}
  (Na/\Ba)/\(Nb/\Bb)/\(Nc/\Bc) : Translate "Everyone is nice and busy" into predicate logic without a quantifier.
 ~~~
 
@@ -72,7 +72,7 @@ In each of these three examples, we keep the same three people fixed and we assu
 
 *Example 4*
 
-~~~{.Translate .Prop system="gamutND" submission="none"}
+~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex(Nx/\Bx) : Someone "Everyone is nice and busy" into predicate logic using a quantifier
 ~~~
 
@@ -80,7 +80,7 @@ In each of these three examples, we keep the same three people fixed and we assu
 
 *Example 5*
 
-~~~{.Translate .Prop system="gamutND" submission="none"}
+~~~{.Translate .FOL system="gamutND" submission="none"}
  (Na/\Ba)\/(Nb/\Bb)\/(Nc/\Bc) : Translate "Someone is nice and busy" into predicate logic without a quantifier.
 ~~~
 
