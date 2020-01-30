@@ -166,11 +166,11 @@ Since we have seen that we can emulate universal claims with conjunctions and ex
 
 The way to memorize these laws is to practice writing them from left to right with a biconditional in the middle, and to visualize the negation on the very left move across the quantifier and flipping the universal to an existential and the existential to a universal:
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorgan1.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorgan1-redeux.mp4"/> </video>
 
 <br>
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorgan2.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorgan2-redeux.mp4"/> </video>
 
 <br>
 
@@ -184,7 +184,7 @@ For instance, $\neg \forall \; x \; (Px \wedge Qx)$ is equivalent to $\exists \;
 
 <br>
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorganex1.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorganex1-redeux.mp4"/> </video>
 
 <br>
 
@@ -192,7 +192,7 @@ For instance, $\neg \forall \; x \; (Px \wedge Qx)$ is equivalent to $\exists \;
 
 Likewise, $\neg \exists \; x \; (Px\wedge Qx)$ is equivalent to $\forall x \; \neg (Px\wedge Qx)$, which is equivalent to $\forall \; x \; (\neg P(x)\vee \neg Q(x))$. By hand, one would write:
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorganex2.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorganex2-redeux.mp4"/> </video>
 
 <br>
 
