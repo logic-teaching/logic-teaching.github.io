@@ -227,7 +227,7 @@ The following are variations on our original examples but with double-negation a
 | *Ex(Px\/Qx)
 | Ex(~Px/\~Qx)
 | Ex(Px/\Qx)
-| E(Px/\~Qx)
+| E(Px\/~Qx)
 ```
 
 *Example 15*
@@ -248,7 +248,11 @@ Recall the definition of a tautology: a tautology is a formula of propositional 
 
 Likewise, consider validity. To say that modus ponens is a valid argument is to assert an "all" statement: it is saying that for all rows of the truth-table, if the premises $p\rightarrow q$ and $p$ are true, then the conclusion is true. And to say that affirming the antecedent is an invalid argument is to assert a "some" statement: it is to say that there is a row of the truth-table where the premises $p\rightarrow q$ and $q$ are all true and the conclusion $p$ is false. And note that we just referred to "all of the premises being true," which is again an "all" statement. If the arguments are small, with few premises, then we can actually unpack these "all statements" into conjunctions and the "some" statement into dijunctions. For instance,  $p\vee q, p \nvdash q$ just means that the argument with premises $p\vee q$ and $p$ and conclusion $q$ is invalid. This in turn just means that there is a row of the truth-table where both $p\vee q$ is true *and* $p$ is true *and* where finally $q$ is false. However, the advantage of using predicate logic notions of "all" and "some" to state the notion of validity is that we can state the definition of validity in a small number of words, regardless of how many premises our argument has, or how many rows of the truth-table there are.
 
-It might seem strange that to understand core notions of propositional logic -- like tautology or validity-- one has to learn the rudiments of a different logic, predicate logic. But this phenomena recurs throughout logic. Notions like tautology and validity are often called *semantic* notions since they relate to truth and meaning. Often throughout logic, one will find that to understand the semantics of a given logic, one often needs to reason in a richer logic or a richer theory. The semantics of propositional logic requires the rudiments of predicate logic to understand, and similarly the semantics of predicate logic requires the rudiments of something called set theory to understand.
+It might seem strange that to understand core notions of propositional logic -- like tautology or validity-- one has to learn the rudiments of a different logic, predicate logic. But this phenomena recurs throughout logic. Notions like tautology and validity are often called *semantic* notions since they relate to truth and meaning. Often throughout logic, one will find that to understand the semantics of a given logic, one often needs to reason in a richer logic or a richer theory. The semantics of propositional logic requires the rudiments of predicate logic to understand, and similarly the semantics of predicate logic requires the rudiments of something called set theory to understand. One wonders if there is any limit to such a hierarchy, or if claims about the limits of this hierarchy could even be expressed, since presumably the expression would have to take place at some point in the hierarchy. This is something that the early analytic philosophers worried about. For instance, here is Russell's introduction to Wittgenstein's *Tractatus* where he voices something like these concerns:
+
+&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_preface.png" alt="Tractatus Russell Introduction" width="300"/>
+
+(Recall that we had discussed Wittgenstein briefly in [Week 1](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#wittgenstein-on-the-meaning-of-the-propositional-connectives)).
 
 
 <br>
