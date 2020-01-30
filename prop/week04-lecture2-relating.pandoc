@@ -250,7 +250,7 @@ Likewise, consider validity. To say that modus ponens is a valid argument is to 
 
 It might seem strange that to understand core notions of propositional logic -- like tautology or validity-- one has to learn the rudiments of a different logic, predicate logic. But this phenomena recurs throughout logic. Notions like tautology and validity are often called *semantic* notions since they relate to truth and meaning. Often throughout logic, one will find that to understand the semantics of a given logic, one often needs to reason in a richer logic or a richer theory. The semantics of propositional logic requires the rudiments of predicate logic to understand, and similarly the semantics of predicate logic requires the rudiments of something called set theory to understand. One wonders if there is any limit to such a hierarchy, or if claims about the limits of this hierarchy could even be expressed, since presumably the expression would have to take place at some point in the hierarchy. This is something that the early analytic philosophers worried about. For instance, here is Russell's introduction to Wittgenstein's *Tractatus* where he voices something like these concerns:
 
-&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_preface.png" alt="Tractatus Russell Introduction" width="300"/>
+&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_preface_redeux.png" alt="Tractatus Russell Introduction" width="600"/>
 
 (Recall that we had discussed Wittgenstein briefly in [Week 1](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#wittgenstein-on-the-meaning-of-the-propositional-connectives)).
 
