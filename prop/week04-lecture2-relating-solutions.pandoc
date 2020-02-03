@@ -1,0 +1,276 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 4, Lecture 2. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=5)
+
+# Relation between propositional and predicate logic **with solutions**
+
+<br>
+
+In this lecture, we simultaneously pursue our brief introduction to predicate logic and review what we have learned so far about propositional logic. We do so by studying the relationship between predicate logic and propositional logic.
+
+- [Emulating universals and existentials in propositional logic](#emulating-universals-and-existentials-in-propositional-logic)
+- [Propositional consequences of universal statements](#propositiona-consequences-of-universal-statements)
+- [Predicate logic versions of DeMorgan](#predicate-logic-versions-of-demorgan)
+- [Using predicate logic to understand propositional logic](#using-predicate-logic-to-understand-propositional-logic)
+
+This version is just like the lecture version, but has **the solutions** filled in. In the case of the translations, a correct solution is literally filled in the question box. In the case of multiple choice questions, the correct answer is pre-selected. 
+
+<br>
+
+
+## Emulating universals and existentials in propositional logic
+
+If we are sure ahead of time of who the relevant individuals are in the discussion, we can emulate universals and existentials in propositional logic. For instance, suppose that we are talking about a group of three people: Alex, Briana, and Chloe. Consider the sentence "Everyone is neat," where it is clear from context that we only mean to speak of these three individuals, perhaps they are the only people in the room. (In what follows, think of the adjective "neat" in the sense of "tidy." We are using "neat" instead of "nice" because the latter together with conjunctions in English can have the meaning of an intensifier rather than a pure conjunction).
+
+In predicate logic, we would translate "Everyone is neat" by $\forall \; x \; Nx$, or `AxNx`, with the key $Nx=x$ is neat. But since we only mean to speak of Alex, Briana, and Chloe, this would be equivalent to $Na\wedge(Nb\wedge Nc)$, where of course $a=$Alex, $b=$Brianna, and $c=$Chloe. And this is very close to propositional logic. In fact, we could translate it as $i\wedge (j\wedge k)$, with the obvious key:
+
+<p style="margin-left: 40px"> $i$ = Alex is neat  </p>
+<p style="margin-left: 40px"> $j$ = Brianna is neat  </p>
+<p style="margin-left: 40px"> $k$ = Chloe is neat  </p>
+
+Similarly, consider "Someone is busy." In predicate logic, we would translate it as $\exists \; x \; Bx$ or `ExBx`, where $Bx=x$ is busy. But if we knew that the only people under consideration were Alex, Briana, and Chloe, then this would be equivalent to the disjunction $Ba\vee (Bb\vee Bc)$. And this is again very close to propositional logic, and we could translate it as $m\vee (n\vee o)$ with the following key:
+
+<p style="margin-left: 40px"> $m$ = Alex is busy  </p>
+<p style="margin-left: 40px"> $n$ = Brianna is busy  </p>
+<p style="margin-left: 40px"> $o$ = Chloe is busy  </p>
+
+We can summarize all this as follows. Suppose that the individuals under discussion are $a,b,c$. Suppose that $\phi(x)$ is a formula of predicate logic. Suppose that $p=\phi(a)$ and $q=\phi(b)$ and $r=\phi(c)$. Then one has the following equivalences:
+
+*First*: the predicate logic formula $\forall \; x \; \phi(x)$ (typed: `Axϕ(x)`) is equivalent to the predicate logic formula $\phi(a)\wedge (\phi(b) \wedge \phi(c))$, which is equivalent to the propositional formula $p\wedge (q\wedge r)$
+
+*Second*: the predicate logic formula $\exists \; x \; \phi(x)$ (typed: `Exϕ(x)`) is equivalent to the predicate logic $\phi(a)\vee (\phi(b) \vee \phi(c))$, which is equivalent to the propositional formula $p\vee (q\vee r)$
+
+Note that the first formula in each of these is a formula of predicate logic with a quantifier, and the second is a formula of predicate logic without a quantifier, and the third is a formula of propositional logic. They are equivalent in that, intuitively, they have the same truth-conditions, given that we are only talking about the three individuals in question. There are similar equivalences for cases in which there are 4,5,6 etc. individuals under discussion, except that there are more conjuncts and disjuncts and they become unwieldy to write.
+
+Here are some simple examples.
+
+In each of these three examples, we keep the same three people fixed and we assume that we are only talking about them. We consider various formulas of predicate logic $\phi(x)$ formed out of the predicates $Nx=x$ is neat and $Bx=x$ is busy. Further, we use the propositional letters $i,j,k$ and $m,n,o$ as up above.
+
+<br>
+
+*Example 1*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Nx/\Bx) : Translate "Everyone is neat and busy" into predicate logic using a quantifier.
+|Ax(Nx/\Bx)
+~~~
+
+<br>
+
+*Example 2*
+
+For this one and the next one, keep in mind that you have to use parentheses when you have multiple conjunctions.
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Na/\Ba)/\((Nb/\Bb)/\(Nc/\Bc)) : Find an equivalent of "Everyone is neat and busy" in predicate logic without using a quantifier, under the hypothesis that there are only three individuals a,b,c.
+|(Na/\Ba)/\((Nb/\Bb)/\(Nc/\Bc))
+~~~
+
+<br>
+
+*Example 3*
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (i/\m)/\((j/\n)/\(k/\o)) : Find an equivalent of "Everyone is neat and busy" in propositional logic, using the letters i,j,k,m,n,o.
+|(i/\m)/\((j/\n)/\(k/\o))
+~~~
+
+For ease of reference, we recopy the key associated to these letters here:
+
+<p style="margin-left: 40px"> $i$ = Alex is neat  </p>
+<p style="margin-left: 40px"> $j$ = Brianna is neat  </p>
+<p style="margin-left: 40px"> $k$ = Chloe is neat  </p>
+<p style="margin-left: 40px"> $m$ = Alex is busy  </p>
+<p style="margin-left: 40px"> $n$ = Brianna is busy  </p>
+<p style="margin-left: 40px"> $o$ = Chloe is busy  </p>
+
+<br>
+
+*Example 4*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Nx/\Bx) : Translate "Someone is neat and busy" into predicate logic using a quantifier.
+|Ex(Nx/\Bx)
+~~~
+
+<br>
+
+*Example 5*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Na/\Ba)\/((Nb/\Bb)\/(Nc/\Bc)) : Find an equivalent of "Someone is neat and busy" in predicate logic without using a quantifier, under the hypothesis that there are only three individuals a,b,c.
+|(Na/\Ba)\/((Nb/\Bb)\/(Nc/\Bc))
+~~~
+
+<br>
+
+*Example 6*
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (i/\m)\/((j/\n)\/(k/\o)) : Find an equivalent of "Someone is neat and busy" into propositional logic, using the letters i,j,k,m,n,o from above.
+|(i/\m)\/((j/\n)\/(k/\o))
+~~~
+
+<br>
+
+
+## Propositional consequences of universal statements
+
+As we have seen, we can emulate universal statements with propositional logic, provided we know in advance who the individuals under discussion are. But the sentences end up being unwieldily to work with, albeit conceptually simple. Often in practice we can quickly extract the propositional consequences of universal statements of predicate logic.
+
+For example take "All history majors are diligent." This gets translated as $\forall \; x \; (Hx\rightarrow Dx)$ (typed as `Ax(Hx->Dx)`), with the obvious key. Hence it should imply that $Ha\rightarrow Da$ for any individual $a$ under discussion. But then consider consequences formalizable in propositional logic, such as "if you are a history major, then you are diligent" or "if she is a history major then she is diligent." Of course, the way we use the words "you" and "she" presuppose that the words pick out individuals under discussion.
+
+There is a similar thing with rules, such as "Passengers must check in." This is an "all" statement of the form "All passengers are must-have-to-check-in-ers." Hence it has consequences such as "if you are a passenger, then you must check in" or "if he is a passenger, then he must check in."
+
+*Example 7*
+
+<p style="margin-left: 40px"> $b$ = it is a $b$ird  </p>
+<p style="margin-left: 40px"> $f$ = it $f$lies  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (b->f) : Insert a propositional consequence of "All birds fly".
+|(b->f)
+~~~
+
+*Example 8*
+
+<p style="margin-left: 40px"> $h$ = you are a $h$istory major  </p>
+<p style="margin-left: 40px"> $t$ = you must $t$ake American history 106  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (h->t) : Insert a propositional consequence of "History majors must take American History 106."
+|(h->t)
+~~~
+
+*Example 9*
+
+<p style="margin-left: 40px"> $b$ = you are a $b$iology major  </p>
+<p style="margin-left: 40px"> $r$ = you are $r$equired to enroll in this course  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (b->r) : Insert a propositional consequence of "All biology majors are required to enroll in this course."
+|(b->r)
+~~~
+
+<br>
+
+
+## Predicate logic versions of DeMorgan
+
+Recall the *DeMorgan Laws* of propositional logic from our earlier discussion of [tautologies](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-lecture2-tautologies.pandoc#commutativity-and-associativity-and-distributivity):
+
+*DeMorgan Law, part 1*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.
+
+*DeMorgan Law, part 2*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$.
+
+
+Since we have seen that we can emulate universal claims with conjunctions and existential claims with disjunctions, this points to the following predicate logic versions of DeMorgan:
+
+<br>
+
+*DeMorgan Law in Predicate Logic, part 1*: $\neg \forall \; x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$.
+
+*DeMorgan Law in Predicate Logic, part 2*: $\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$.
+
+<br>
+
+The way to memorize these laws is to practice writing them from left to right with a biconditional in the middle, and to visualize the negation on the very left move across the quantifier and flipping the universal to an existential and the existential to a universal:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorgan1-redeux.mp4"/> </video>
+
+<br>
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorgan2-redeux.mp4"/> </video>
+
+<br>
+
+We can then combine this with DeMorgan itself to produce further equivalences:
+
+<br>
+
+*Example 10*
+
+For instance, $\neg \forall \; x \; (Px \wedge Qx)$ is equivalent to $\exists \; x \; \neg (Px\wedge Qx)$, which is equivalent to $\exists \; x \; (\neg P(x)\vee \neg Q(x))$. By hand, one would write:
+
+<br>
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorganex1-redeux.mp4"/> </video>
+
+<br>
+
+*Example 11*
+
+Likewise, $\neg \exists \; x \; (Px\wedge Qx)$ is equivalent to $\forall x \; \neg (Px\wedge Qx)$, which is equivalent to $\forall \; x \; (\neg P(x)\vee \neg Q(x))$. By hand, one would write:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/quantifiers-demorganex2-redeux.mp4"/> </video>
+
+<br>
+
+Here are some multiple choice questions which ask you to find the equivalents using DeMorgan. To facilitate our being able to go back and forth between the traditional handwritten style and the typed style, we write the existential quantifier $\exists$ as `E` and the universal quantifier as `A` in the statement of these problems:
+
+*Example 12*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which of the following is ~Ax(Px\/Qx) equivalent to?
+| Ex(Px\/~Qx)
+| +Ex(~Px/\~Qx)
+| Ex(~Px\/~Qx)
+| E(Px/\Qx)
+```
+
+*Example 13*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which of the following is ~Ex(Px\/Qx) equivalent to?
+| Ax(Px\/Qx)
+| +Ax(~Px/\~Qx)
+| Ax(~Px\/~Qx)
+| Ax(Px/\Qx)
+```
+
+The following are variations on our original examples but with double-negation applied at the last step:
+
+*Example 14*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which of the following is ~Ax(~Px/\~Qx) equivalent to?
+| +Ex(Px\/Qx)
+| Ex(~Px/\~Qx)
+| Ex(Px/\Qx)
+| E(Px\/~Qx)
+```
+
+*Example 15*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which of the following is ~Ex(~Px/\~Qx) equivalent to?
+| Ax(~Px/\~Qx)
+| Ax(~Px\/~Qx)
+| Ax(Px/\Qx)
+| +Ax(Px\/Qx)
+```
+
+<br>
+
+## Using predicate logic to understand propositional logic
+
+Recall the definition of a tautology: a tautology is a formula of propositional logic such that for every row of the truth-table, it has a true under its column. For instance, law of the excluded middle $p\vee \neg p$ is a tautology because all rows of its truth-table have $T$'s under the column associated to the formula. For short, we might say: a formula is a tautology if and only if "all the rows have true-entries (in the column associated to the formula)." This is a "all" statement, which we would translate in predicate logic with the universal quantifier. In particular, we might translate it as $\forall \; r \; T(r)$, where the $r$'s ranged not over people, but over rows of the truth-table, and where: "$T(r)=r$ has a true under the column associated to the formula." Likewise, to say that a formula is not a tautology is to say $\exists \; r \; \neg T(r)$, that is, it is to say that there is a row $r$ of the truth table where there is not a true under the column associated to the formula. Making this connection is practically useful because it helps you see that "being a tautology" is an "all" statement: it is hard to make true. And "not being a tautology" is a "some" statement: easy to make true.
+
+Likewise, consider validity. To say that modus ponens is a valid argument is to assert an "all" statement: it is saying that for all rows of the truth-table, if the premises $p\rightarrow q$ and $p$ are true, then the conclusion is true. And to say that affirming the antecedent is an invalid argument is to assert a "some" statement: it is to say that there is a row of the truth-table where the premises $p\rightarrow q$ and $q$ are all true and the conclusion $p$ is false. And note that we just referred to "all of the premises being true," which is again an "all" statement. If the arguments are small, with few premises, then we can actually unpack these "all statements" into conjunctions and the "some" statement into dijunctions. For instance,  $p\vee q, p \nvdash q$ just means that the argument with premises $p\vee q$ and $p$ and conclusion $q$ is invalid. This in turn just means that there is a row of the truth-table where both $p\vee q$ is true *and* $p$ is true *and* where finally $q$ is false. However, the advantage of using predicate logic notions of "all" and "some" to state the notion of validity is that we can state the definition of validity in a small number of words, regardless of how many premises our argument has, or how many rows of the truth-table there are.
+
+It might seem strange that to understand core notions of propositional logic -- like tautology or validity-- one has to learn the rudiments of a different logic, predicate logic. But this phenomena recurs throughout logic. Notions like tautology and validity are often called *semantic* notions since they relate to truth and meaning. Often throughout logic, one will find that to understand the semantics of a given logic, one often needs to reason in a richer logic or a richer theory. The semantics of propositional logic requires the rudiments of predicate logic to understand, and similarly the semantics of predicate logic requires the rudiments of something called set theory to understand. One wonders if there is any limit to such a hierarchy, or if claims about the limits of this hierarchy could even be expressed, since presumably the expression would have to take place at some point in the hierarchy. This is something that the early analytic philosophers worried about. For instance, here is Russell's introduction to Wittgenstein's *Tractatus* where he voices something like these concerns:
+
+&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_preface_redeux.png" alt="Tractatus Russell Introduction" width="600"/>
+
+(Recall that we had discussed Wittgenstein briefly in [Week 1](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#wittgenstein-on-the-meaning-of-the-propositional-connectives)).
+
+
+<br>
+
+<br>
+
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=5).[^2]
+
+[^2]:It is run on the Carnap software, which is
