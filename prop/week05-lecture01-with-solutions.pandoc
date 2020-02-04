@@ -2,9 +2,9 @@
 <br>
 
 
-Logic, First Course, Winter 2020. Week 5, Lecture 1. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=6)
+Logic, First Course, Winter 2020. Week 5, Lecture 1 **with solutions**. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=6)
 
-# Week 5, Review for exam
+# Week 5, Review for exam **with solutions**
 
 These lecture is a review session for the midterm exam, which takes the form of a practice exam. Hence, the problems fall into groups corresponding to the first four weeks:
 
@@ -13,7 +13,7 @@ These lecture is a review session for the midterm exam, which takes the form of 
 - [Week 3 problems](#week-3-problems)
 - [Week 4 problems](#week-4-problems)
 
-Before you begin the homework, you might consider printing a copy either to work out by hand as you go along, or to work with on a tablet. A nice pdf of this page is [here](https://drive.google.com/open?id=1tbmOFIahQZPBXTkLG0hqtWWqGSgHJlME).
+For the case of translations and multiple choice, we fill in **the solutions**. In the case of validity and equivalence problems, we put some brief remarks about **the solutions** right after the problem in boldface. For the first five problems, there is no simple way to give the solution other than just doing it, and so there are not solutions for the first five problems.
 
 <br>
 
@@ -92,6 +92,7 @@ The next two problems concern translations into *propositional logic*.
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (l/\d)->(k/\m)  :   If the planning zone was larger and if the planning zone that the company dealt with was the fifteen (15) kilometre planning zone that was laid out, I would know about it and I would take measures.
+|(l/\d)->(k/\m)
 ~~~
 
 <br>
@@ -103,6 +104,7 @@ The next two problems concern translations into *propositional logic*.
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  ~(t->o)  :  There being two articles in the literature was not sufficient for one reaching a conclusion about the efficacy of the instrument.
+|~(t->o)
 ~~~
 
 <br>
@@ -121,9 +123,12 @@ In the next two problems, determine whether the formula is a tautology or not. I
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
  It the formula a tautology?
-| *Yes.
+| +Yes.
 | No.
 ```
+
+**Solution**. It is a tautology, since it is a substitution instance of $(a\wedge b) \rightarrow b$.
+
 <br>
 
 
@@ -138,8 +143,10 @@ In the next two problems, determine whether the formula is a tautology or not. I
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
  It the formula a tautology?
 | Yes.
-| *No.
+| +No.
 ```
+
+**Solution**. This one is not a tautology, since the rows TF or FF are rows where the formula is false.
 
 <br>
 
@@ -151,7 +158,7 @@ Consider the tautology $\neg (\neg a\vee \neg b) \leftrightarrow (\neg \neg a\we
  Which one?
 | Law of excluded middle.
 | Distribution.
-| *The law of double-negation.
+| +The law of double-negation.
 | DeMorgan.
 ```
 
@@ -172,8 +179,10 @@ In the next two problems, determine whether the argument is valid or not. If it 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
  It the argument valid?
 | Yes.
-| *No.
+| +No.
 ```
+
+**Solution**. The argument is invalid. For instance, the row TTT is the row where a,b,c are all true. In this row a\/b is true since both disjuncts are, and c->a and c->b are true since they have true consequents. And ~c is false since c is true.
 
 <br>
 
@@ -185,9 +194,13 @@ In the next two problems, determine whether the argument is valid or not. If it 
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
  It the argument valid?
-| *Yes.
+| +Yes.
 | No.
 ```
+
+**Solution**. The argument is valid. It is a substitution instance of "reasoning by cases."
+
+
 <br>
 
 *Problem 13*.
@@ -203,7 +216,7 @@ It can be obtained from disjunctive syllogism $p\vee q, \neg q \vdash \neg p$ by
 | Substitute c for p, and substitute a\/b for q.
 | Substitute a\/b for p, and substitute c for q.
 | Substitute b\/c for p, and substitute a for q.
-| *Substitute a for p, and substitute b\/c for q.
+| +Substitute a for p, and substitute b\/c for q.
 ```
 
 *Problem 14*
@@ -212,7 +225,7 @@ One and only one of the following is a valid argument. Which is it? *Hint: it ca
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
  Which one is valid?
-| *a\/(b/\c) ⊢ a\/c
+| +a\/(b/\c) ⊢ a\/c
 | a\/(b/\c) ⊢ b\/c
 | a\/(b/\c) ⊢ a/\c
 | a\/(b/\c) ⊢ b/\c
@@ -228,7 +241,7 @@ One and only one of the following statements is always true about valid argument
  Which of the following is always true?
 | If a valid argument has a false conclusion, then it has a true premise.
 | If a valid argument has a false conclusion, then it has all false premises.
-| *If a valid argument has a false conclusion, then it has a false premise.
+| +If a valid argument has a false conclusion, then it has a false premise.
 | If a valid argument has a false conclusion, then it has all true premises.
 ```
 
@@ -258,6 +271,7 @@ Remember that on the translation problems, to check them on the computer you jus
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  (Sb/\Mb)->Ex(Sx/\Mx)  : If Baltimore has a soccer team and Baltimore is in the midwest, then someplace has a soccer team and is in the Midwest.
+|(Sb/\Mb)->Ex(Sx/\Mx)
 ~~~
 
 <br>
@@ -267,6 +281,7 @@ Remember that on the translation problems, to check them on the computer you jus
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax(Fx->~Hx)->~Ha  : If all places having football teams do not have hockey teams, then Atlanta does not have a hockey team.
+|Ax(Fx->~Hx)->~Ha
 ~~~
 
 
@@ -276,6 +291,7 @@ Remember that on the translation problems, to check them on the computer you jus
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  (Ia/\Ha)\/((Ib/\Hb)\/(Ic/\Hc)) : Find an equivalent of "someplace is inland and has a hockey team" in predicate logic without using a quantifier, under the hypothesis that there are only three places a,b,c.
+|(Ia/\Ha)\/((Ib/\Hb)\/(Ic/\Hc))
 ~~~
 
 <br>
@@ -288,6 +304,7 @@ Remember that on the translation problems, to check them on the computer you jus
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  m->(s/\~h) : Insert a propositional consequence of "All places in the midwest have soccer teams and not hockey teams".
+|m->(s/\~h)
 ~~~
 
 <br>
@@ -296,7 +313,7 @@ Remember that on the translation problems, to check them on the computer you jus
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
  Which of the following is ~Ex((~Fx/\~Gx)\/Hx) equivalent to?
-| *Ax((Fx\/Gx)/\~Hx)
+| +Ax((Fx\/Gx)/\~Hx)
 | Ax((~Fx\/Gx)/\~Hx)
 | Ax((~~Fx\/~~Gx)/\Hx)
 | Ax((Fx/\Gx)\/~Hx)
