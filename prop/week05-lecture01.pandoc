@@ -13,7 +13,7 @@ These lecture is a review session for the midterm exam, which takes the form of 
 - [Week 3 problems](#week-3-problems)
 - [Week 4 problems](#week-4-problems)
 
-Before you begin the homework, you might consider printing a copy either to work out by hand as you go along, or to work with on a tablet. A nice pdf of this page is [here](https://drive.google.com/open?id=1tbmOFIahQZPBXTkLG0hqtWWqGSgHJlME).
+Before you begin, you might consider printing a copy either to work out by hand as you go along, or to work with on a tablet. A nice pdf of this page is [here](https://drive.google.com/open?id=1tbmOFIahQZPBXTkLG0hqtWWqGSgHJlME).
 
 <br>
 
@@ -120,7 +120,7 @@ In the next two problems, determine whether the formula is a tautology or not. I
 ~~~
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
- It the formula a tautology?
+ Is the formula a tautology?
 | *Yes.
 | No.
 ```
@@ -136,7 +136,7 @@ In the next two problems, determine whether the formula is a tautology or not. I
 ~~~
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
- It the formula a tautology?
+ Is the formula a tautology?
 | Yes.
 | *No.
 ```
