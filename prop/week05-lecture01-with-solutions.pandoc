@@ -158,9 +158,11 @@ Consider the tautology $\neg (\neg a\vee \neg b) \leftrightarrow (\neg \neg a\we
  Which one?
 | Law of excluded middle.
 | Distribution.
-| +The law of double-negation.
-| DeMorgan.
+| The law of double-negation.
+| +DeMorgan.
 ```
+
+**Solution**. Just a quick note on this one: one gets this from DeMorgan $\neg (p\vee q) \leftrightarrow (\neg p \wedge \neg q)$ by replacing $p$ by $\neg a$ and $q$ by $\neg b$.
 
 <br>
 
@@ -209,7 +211,7 @@ The following is a valid argument:
 
 <p style="margin-left: 40px"> $(a\vee (b\vee c)), \neg b\wedge \neg c  \vdash \neg a$ </p>
 
-It can be obtained from disjunctive syllogism $p\vee q, \neg q \vdash \neg p$ by doing a substitution, and then DeMorgan. Which substitution should you do in order to obtain it?
+It can be obtained from disjunctive syllogism $p\vee q, \neg q \vdash p$ by doing a substitution, and then DeMorgan. Which substitution should you do in order to obtain it?
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
  Which substitution?
