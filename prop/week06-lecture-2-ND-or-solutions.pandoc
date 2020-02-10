@@ -1,7 +1,7 @@
 <br>
 <br>
 
-# Natural deduction for disjunction
+# Natural deduction for disjunction **with solutions**
 
 In this section, we continue the study of natural deduction, focusing on disjunction.
 
@@ -12,6 +12,8 @@ In this section, we continue the study of natural deduction, focusing on disjunc
 - [Example of disjunction elimination](#example-of-disjunction-elimination)
 - [Another example of disjunction elimination](#another-example-of-disjunction-elimination)
 - [Deriving commutativity of disjunction](#deriving-commutativity-of-disjunction)
+
+The proofs below all have **solution included**. Just search for "solution included".
 
 <br>
 <br>
@@ -46,7 +48,7 @@ Here is the proof written out by hand:
 
 <br>
 
-You can try to input it this proof here, or come back later for practice:
+You can try to input it this proof here, or come back later for practice (**solution included**):
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p, (p\/q)->r :|-: r
@@ -69,7 +71,7 @@ You can try to input it this proof here, or come back later for practice:
 
 <br>
 
-You can try to input it this proof here, or come back later for practice:
+You can try to input it this proof here, or come back later for practice (**solution included**):
 
 ```{.ProofChecker .GamutMPND submission="none"}
  a, c, ((a\/b)/\(b\/c))->d :|-: d
@@ -117,7 +119,7 @@ Here is the proof written out by hand, where the idea is to use arrow eliminatio
 <br>
 
 
-You can try to input it this proof here, or come back later for practice:
+You can try to input it this proof here, or come back later for practice (**solution included**):
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (c\/d)/\a, a/\(c->e), (d->e)/\b :|-: e
@@ -149,7 +151,7 @@ Here is the proof written out by hand:
 <br>
 
 
-You can try to input it this proof here, or come back later for practice:
+You can try to input it this proof here, or come back later for practice (**solution included**):
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (a/\b)\/(a/\c) :|-: a
@@ -181,7 +183,7 @@ Here is the proof written out by hand:
 <br>
 
 
-You can try to input it this proof here, or come back later for practice:
+You can try to input it this proof here, or come back later for practice (**solution included**):
 
 ```{.ProofChecker .GamutMPND submission="none"}
   :|-: (p\/q)->(q\/p)

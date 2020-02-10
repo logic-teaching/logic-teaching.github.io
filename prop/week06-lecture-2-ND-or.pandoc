@@ -50,10 +50,6 @@ You can try to input it this proof here, or come back later for practice:
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p, (p\/q)->r :|-: r
-|p :assumption
-|(p\/q)->r :assumption
-|p\/q :I\/1
-|r :E->2,3
 ```
 
 <br>
@@ -73,13 +69,6 @@ You can try to input it this proof here, or come back later for practice:
 
 ```{.ProofChecker .GamutMPND submission="none"}
  a, c, ((a\/b)/\(b\/c))->d :|-: d
-|a :assumption
-|c :assumption
-|((a\/b)/\(b\/c))->d :assumption
-|a\/b :I\/1
-|b\/c :I\/2
-|(a\/b)/\(b\/c) :I/\4,5
-|d :E->3,6
 ```
 
 
@@ -121,13 +110,6 @@ You can try to input it this proof here, or come back later for practice:
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (c\/d)/\a, a/\(c->e), (d->e)/\b :|-: e
-|(c\/d)/\a :assumption
-|a/\(c->e) :assumption
-|(d->e)/\b :assumption
-|c\/d :E/\1
-|c->e :E/\2
-|d->e :E/\3
-|e :E\/4,5,6
 ```
 
 <br>
@@ -153,14 +135,6 @@ You can try to input it this proof here, or come back later for practice:
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (a/\b)\/(a/\c) :|-: a
-|(a/\b)\/(a/\c) :assumption
-| a/\b :assumption
-| a :E/\2
-|(a/\b)->a :I->
-| a/\c :assumption
-| a :E/\5
-|(a/\c)->a :I->
-|a :E\/1,4,7
 ```
 
 <br>
@@ -185,15 +159,6 @@ You can try to input it this proof here, or come back later for practice:
 
 ```{.ProofChecker .GamutMPND submission="none"}
   :|-: (p\/q)->(q\/p)
-| p\/q :assumption
-|  p :assumption
-|  q\/p :I\/2
-| p->(q\/p) :I->2-3
-|  q :assumption
-|  q\/p :I\/5
-| q->(q\/p) :I->5-6
-| q\/p :E\/1,4,7
-|(p\/q)->(q\/p) :I->1-8
 ```
 
 

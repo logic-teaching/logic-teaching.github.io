@@ -1,0 +1,141 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 6, Practice Problems. [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=7)
+
+# Week 6, Practice Problems
+
+<br>
+<br>
+
+*Example 1*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (p/\q)/\r, (q\/s)->t :|-: t
+|(p/\q)/\r :assumption
+|(q\/s)->t :assumption
+```
+
+<br>
+<br>
+
+
+*Example 2*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p :|-: q->(p/\q)
+|p :assumption
+```
+
+<br>
+<br>
+
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->q, p->r :|-: p->(q/\r)
+|p->q :assumption
+|p->r :assumption
+```
+
+<br>
+<br>
+
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->q, r->s :|-: p->(r->(q/\s))
+|p->q :assumption
+|r->s :assumption
+```
+
+
+<br>
+<br>
+
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (p/\~q)\/(r/\~q) :|-: ~q
+|(p/\~q)\/(r/\~q) :assumption
+```
+
+
+<br>
+<br>
+
+
+*Example 6*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a\/b :|-: b\/a
+|a\/b :assumption
+```
+
+
+<br>
+<br>
+
+
+
+*Example 7*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->(r/\s), q->(r/\s) :|-: (p\/q)->r
+|p->(r/\s) :assumption
+|q->(r/\s) :assumption
+```
+
+<br>
+<br>
+
+<br>
+<br>
+
+
+*Example 8*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->(q\/v), r->(q\/v), p\/r :|-: q\/v
+|p->(q\/v) :assumption
+|r->(q\/v) :assumption
+|p\/r :assumption
+```
+
+<br>
+<br>
+
+
+*Example 9*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (p/\~q)/\r, (~p\/~q)->(u/\v) :|-: p/\v
+|(p/\~q)/\r :assumption
+|(~p\/~q)->(u/\v) :assumption
+```
+
+
+<br>
+<br>
+
+
+*Example 10*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (p\/q)->r, p, r->(t/\s) :|-: s
+|(p\/q)->r :assumption
+|p :assumption
+|r->(t/\s) :assumption
+```
+
+<br>
+<br>
+
+
+<br>
+<br>
+
+This is a practice problem set for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=7). It is run on the Carnap software, which is an:
