@@ -1,0 +1,152 @@
+<br>
+<br>
+
+# Natural deduction for disjunction
+
+In this section, we continue the study of natural deduction, focusing on disjunction.
+
+- [Introduction rule for disjunction](#introduction-rule-for-disjunction)
+- [Example 1](#example-1)
+- [Example 2](#example-2)
+- [Elimination rule for disjunction](#elimination-rule-for-disjunction)
+- [Example 3](#example-3)
+- [Example 4](#example-4)
+- [Deriving commutativity of disjunction](#deriving-commutativity-of-disjunction)
+
+<br>
+<br>
+
+## Introduction rule for disjunction
+
+The rule is: if you have $\varphi$ on line $\ell_1$, then you may write $\varphi\vee \psi$ on any subsequent line $\ell>\ell_1$. Likewise, if you have $\varphi$ on line $\ell_1$, then you may write $\psi\vee \varphi$ on any subsequent line $\ell>\ell_1$.
+
+This rule is abbreviated as $I\vee$, where the 'I' is for *introduction*.
+
+In terms of a picture, the rule is either of the following:
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_or_intro1.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_or_intro2"/> </video>
+<br>
+
+Note that the rule does **not** require that $\psi$ appear on any previous line. In many ways, this is what gives $I\vee$ its strength.
+
+<br>
+<br>
+
+## Example 1
+
+*Example 1*: Show that $p, (p\vee q)\rightarrow r \vdash r$.
+
+Here is the proof written out by hand:
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_INSERT.mp4#t=STARTSEC,STOPSEC"/> </video>
+
+You can try to input it this proof here, or come back later for practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p, (p\/q)->r :|-: r
+|p :assumption
+|(p\/q)->r :assumption
+|p\/q :I\/1
+|r :E->2,3
+```
+
+<br>
+<br>
+
+## Example 2
+
+*Example 2*: Show that $a, c, ((a\vee b)\wedge (b\vee c))\rightarrow d \vdash d$.
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_INSERT.mp4#t=STARTSEC,STOPSEC"/> </video>
+
+You can try to input it this proof here, or come back later for practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a, c, ((a\/b)/\(b\/c))->d :|-: d
+|a :assumption
+|c :assumption
+|((a\/b)/\(b\/c))->d :assumption
+|a\/b :I\/1
+|b\/c :I\/2
+|(a\/b)/\(b\/c) :I/\4,5
+|d :E->3,6
+```
+
+
+<br>
+<br>
+
+## Elimination rule for disjunction
+
+The rule is: if you have $\varphi\vee \psi$ on line $\ell_1$, and you have $\varphi\rightarrow \xi$ on line $\ell_2$, and you have $\psi\rightarrow \xi$ on line $\ell_3$, then you may write $\xi$ on any subsequent line $\ell>\ell_1, \ell_2, \ell_3$.
+
+Again, the order in which $\ell_1, \ell_2, \ell_3$ occurs does not matter. All that matters is the all of three of these come before the $\ell$, where we apply the rule.
+
+This rule is abbreviated as $E\vee$, where the 'E' is for *elimination*.
+
+In terms of a picture, the rule is the following:
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_or_intro2"/> </video>
+<br>
+
+Note that the rule just says that "[reasoning by cases](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#reasoning-by-cases)" is valid.
+
+<br>
+<br>
+
+## Example 4
+
+*Example 4*: Show that $(c\vee d)\wedge a, a\wedge (c\rightarrow e), (d\rightarrow e)\wedge b :|-: e$
+
+Here is the proof written out by hand:
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_INSERT.mp4#t=STARTSEC,STOPSEC"/> </video>
+
+You can try to input it this proof here, or come back later for practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (c\/d)/\a, a/\(c->e), (d->e)/\b :|-: e
+|(c\/d)/\a :assumption
+|a/\(c->e) :assumption
+|(d->e)/\b :assumption
+|c\/d :E/\1
+|c->e :E/\2
+|d->e :E/\3
+|e :E\/4,5,6
+```
+
+<br>
+<br>
+
+
+## Example 4
+
+*Example 4*: Show that $(a\wedge b)\vee (a\wedge c) \vdash a$
+
+Here is the proof written out by hand:
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_INSERT.mp4#t=STARTSEC,STOPSEC"/> </video>
+
+You can try to input it this proof here, or come back later for practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b)\/(a/\c) :|-: a
+|(a/\b)\/(a/\c) :assumption
+| a/\b :assumption
+| a :E/\2
+|(a/\b)->a :I->
+| a/\c :assumption
+| a :E/\5
+|(a/\c)->a :I->
+|a :E\/1,4,7
+```
+
+<br>
+<br>
+
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]
+
+
+[^2]:It is run on the Carnap software, which is

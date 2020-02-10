@@ -48,13 +48,16 @@ Here is a simple worked-out example. As one can see: it is a list, some lines ar
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_00_example_proof.mp4#t=10,15"/> </video>
 <br>
 
-You can get a feel for the proof checker by trying to emulate these steps:
+You can get a feel for the proof checker by trying to emulate these steps (**solution included**):
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->q, p->r, p :|-: q/\r
 |p->q :assumption
 |p->r :assumption
 |p :assumption
+|q :E->1,3
+|r :E->2,3
+|q/\r :I/\4,5
 ```
 
 Of course, we will be learning these rules as we go along, and so feel free to come back to this one.
@@ -97,13 +100,15 @@ Here's a worked-out example which contains two applications of $I\wedge$:
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_02_ex_and_intro.mp4"/> </video>
 <br>
 
-You can emulate this proof here, or come back to it later to practice:
+You can emulate this proof here, or come back to it later to practice (**solution included**)
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p,q,r :|-: p/\(r/\q)
 |p            :assumption
 |q            :assumption
 |r            :assumption
+|r/\q :I/\3,2
+|p/\(r/\q) :I/\1,4
 ```
 
 <br>
@@ -124,11 +129,13 @@ Here's a worked-out example:
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_05_ex_and_elim.mp4"/> </video>
 <br>
 
-You can try it out here, or come back to this later to practice:
+You can try it out here, or come back to this later to practice (**solution included**):
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p/\(r/\q) :|-: r
 |p/\(r/\q)    :assumption
+|r/\q :E/\1
+|r :E/\2
 ```
 
 <br>
@@ -152,10 +159,17 @@ Here's a worked-out example. The blue higlighting is just the result of selectin
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_07_ex_arrow_elim.mp4"/> </video>
 <br>
 
-Again, to practice, you can input it here:
+Again, to practice, you can input it here (**solution included**):
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (p->q)/\(p->r), p :|-: q/\r
+|(p->q)/\(p->r) :assumption
+|p :assumption
+|p->q :E/\1
+|p->r :E/\1
+|q :E->2,3
+|r :E->2,4
+|q/\r :I/\5,6
 ```
 
 <br>
@@ -192,10 +206,17 @@ In the proof checker, to get the bracket one **inserts a space** before the form
 
 Further as one can see from the last line of the example, we don't need to input the range $\ell_1-\ell_n$, since it is implicit in the closing-off of the brackets.
 
-It is recommended that you try to emulate this example, to get the hang of the convention on how the brackets are created by the insertion of a space before the formulas.
+It is recommended that you try to emulate this example, to get the hang of the convention on how the brackets are created by the insertion of a space before the formulas. **Solution included**:
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->(q/\r) :|-: p->(r/\q)
+|p->(q/\r) :assumption
+| p :assumption
+| q/\r :E->1,2
+| q :E/\3
+| r :E/\3
+| r/\q :I/\4,5
+|p->(r/\q) :I->2-6
 ```
 
 <br>
@@ -213,10 +234,15 @@ Now that we have done the proof by hand, we can put it into the proof-checker.
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_11_more_complex_1.mp4"/> </video>
 <br>
 
-You should try it for yourself to get used to inputting into the proof-checker:
+You should try it for yourself to get used to inputting into the proof-checker (**solution included**):
 
 ```{.ProofChecker .GamutMPND init="now" submission="none"}
  p->q :|-: p->(p/\q)
+|p->q :assumption
+| p :assumption
+| q :E->1,2
+| p/\q :I/\2,3
+|p->(p/\q) :I->2-4
 ```
 
 <br>
@@ -234,10 +260,14 @@ And then we put it into the proof-checker to check our work:
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_13_more_complex_2.mp4"/> </video>
 <br>
 
-You can put it into the proof-checker as well:
+You can put it into the proof-checker as well (**solution included**):
 
 ```{.ProofChecker .GamutMPND init="now" submission="none"}
  p/\q :|-: p->q
+|p/\q :assumption
+| p :assumption
+| q :E/\1
+|p->q :I->2-3
 ```
 
 <br>
@@ -257,11 +287,17 @@ Then we input our solution into the proof-checker to make sure its right:
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_15_nested.mp4"/> </video>
 <br>
 
-To get used to the proof-checker, again try to put your solution in, noting that one needs to put **two spaces** before the assumption of $p$:
+To get used to the proof-checker, again try to put your solution in, noting that one needs to put **two spaces** before the assumption of $p$: (**solution included**)
 
 ```{.ProofChecker .GamutMPND init="now" submission="none"}
  p->(q->r) :|-: (q->(p->r))
 |p->(q->r)      :assumption
+| q :assumption
+|  p :assumption
+|  q->r :E->1,3
+|  r :E->2,4
+| p->r :I->3-5
+|q->(p->r) :I->2-6
 ```
 
 <br>
