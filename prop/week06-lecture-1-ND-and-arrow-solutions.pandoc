@@ -1,6 +1,8 @@
 <br>
 <br>
 
+Logic, First Course, Winter 2020. Week 6, Lecture 1 **with solutions**. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=7)
+
 # Natural deduction for conjunction and implication **with solutions**
 
 In this section, we introduce the natural deduction proof system, focusing first on the connectives $\wedge$ and $\rightarrow$. Then we look at several examples of proofs in a natural deduction system.
@@ -339,7 +341,7 @@ As one can see, our proof checker does not accept this as a proof. What went wro
 <br>
 <br>
 
-These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=7).[^2]
 
 
 [^2]:It is run on the Carnap software, which is

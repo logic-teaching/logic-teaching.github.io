@@ -5,10 +5,149 @@ Logic, First Course, Winter 2020. Week 6, Practice Problems. [Back to course web
 
 # Week 6, Practice Problems
 
+The practice problems fall into two groups:
+
+- [Memorizing rules](#memorizing-rules)
+- [Simple proofs](#simple-proofs)
+
+<br>
+<br>
+
+## Memorizing rules
+
+The first set of ten problems is just practice in memorizing the rules, with substitution instances. In each case below, the proof is exactly one line long, except for the last two proofs involving arrow introduction, which are three lines long.
+
+
 <br>
 <br>
 
 *Example 1*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b)/\c :|-: a/\b
+|(a/\b)/\c :assumption
+```
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+<br>
+<br>
+
+*Example 2*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ i/\j :|-: (i/\j)\/k
+|i/\j :assumption
+```
+
+
+
+<br>
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ i\/j :|-: (i\/j)\/k
+|i\/j :assumption
+```
+
+<br>
+<br>
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ k :|-: (i/\j)\/k
+|k :assumption
+```
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ d, d->(e/\f) :|-: e/\f
+|d :assumption
+|d->(e/\f) :assumption
+```
+
+<br>
+<br>
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+*Example 6*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ d, d->(e/\f) :|-: d\/e
+|d :assumption
+|d->(e/\f) :assumption
+```
+
+
+<br>
+<br>
+
+*Example 7*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (m/\n)->(o/\p), m/\n :|-: o/\p
+|(m/\n)->(o/\p) :assumption
+|m/\n :assumption
+```
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+<br>
+<br>
+
+*Example 8*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ h\/i, h->(k/\p), i->(k/\p) :|-: k/\p
+|h\/i :assumption
+|h->(k/\p) :assumption
+|i->(k/\p) :assumption
+```
+
+<br>
+<br>
+
+
+*Example 9*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+  :|-: (a/\b)->b
+```
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+<br>
+<br>
+
+*Example 10*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+  :|-: a->(a\/b)
+```
+
+<br>
+<br>
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+## Simple proofs
+
+These next set of ten problems are just simple proofs, like the ones done in lecture and section.
+
+<br>
+<br>
+
+*Example 11*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (p/\q)/\r, (q\/s)->t :|-: t
@@ -19,8 +158,9 @@ Logic, First Course, Winter 2020. Week 6, Practice Problems. [Back to course web
 <br>
 <br>
 
+<p style="page-break-after: always;">&nbsp;</p>
 
-*Example 2*.
+*Example 12*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p :|-: q->(p/\q)
@@ -31,7 +171,7 @@ Logic, First Course, Winter 2020. Week 6, Practice Problems. [Back to course web
 <br>
 
 
-*Example 3*.
+*Example 13*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->q, p->r :|-: p->(q/\r)
@@ -42,8 +182,9 @@ Logic, First Course, Winter 2020. Week 6, Practice Problems. [Back to course web
 <br>
 <br>
 
+<p style="page-break-after: always;">&nbsp;</p>
 
-*Example 4*.
+*Example 14*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->q, r->s :|-: p->(r->(q/\s))
@@ -56,19 +197,20 @@ Logic, First Course, Winter 2020. Week 6, Practice Problems. [Back to course web
 <br>
 
 
-*Example 5*.
+*Example 15*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (p/\~q)\/(r/\~q) :|-: ~q
 |(p/\~q)\/(r/\~q) :assumption
 ```
 
+<p style="page-break-after: always;">&nbsp;</p>
 
 <br>
 <br>
 
 
-*Example 6*.
+*Example 16*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  a\/b :|-: b\/a
@@ -81,7 +223,7 @@ Logic, First Course, Winter 2020. Week 6, Practice Problems. [Back to course web
 
 
 
-*Example 7*.
+*Example 17*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->(r/\s), q->(r/\s) :|-: (p\/q)->r
@@ -95,8 +237,9 @@ Logic, First Course, Winter 2020. Week 6, Practice Problems. [Back to course web
 <br>
 <br>
 
+<p style="page-break-after: always;">&nbsp;</p>
 
-*Example 8*.
+*Example 18*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->(q\/v), r->(q\/v), p\/r :|-: q\/v
@@ -109,7 +252,7 @@ Logic, First Course, Winter 2020. Week 6, Practice Problems. [Back to course web
 <br>
 
 
-*Example 9*.
+*Example 19*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (p/\~q)/\r, (~p\/~q)->(u/\v) :|-: p/\v
@@ -117,12 +260,13 @@ Logic, First Course, Winter 2020. Week 6, Practice Problems. [Back to course web
 |(~p\/~q)->(u/\v) :assumption
 ```
 
+<p style="page-break-after: always;">&nbsp;</p>
 
 <br>
 <br>
 
 
-*Example 10*.
+*Example 20*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (p\/q)->r, p, r->(t/\s) :|-: s

@@ -1,0 +1,148 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 6, Section Meeting. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=7)
+
+<br>
+<br>
+
+# Simple examples of proofs
+
+In this section meeting, we just focus on doing some simple examples of proofs, and practice inputting them into the proof-checker.
+
+<br>
+<br>
+
+*Example 1*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a/\(b/\c), d/\e :|-: b/\e
+|a/\(b/\c) :assumption
+|d/\e :assumption
+```
+
+<br>
+<br>
+
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+*Example 2*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a/\(b/\c), f->(d/\e) :|-: f->(b/\e)
+|a/\(b/\c) :assumption
+|f->(d/\e) :assumption
+```
+
+<br>
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->(b->c), a, b :|-: c
+|a->(b->c) :assumption
+|a :assumption
+|b :assumption
+```
+
+<br>
+<br>
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->b, b->c, c->d :|-: a->d
+|a->b :assumption
+|b->c :assumption
+|c->d :assumption
+```
+
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->(b/\d), b->c :|-: a->(c/\d)
+|a->(b/\d) :assumption
+|b->c :assumption
+```
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+<br>
+<br>
+
+*Example 6*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p/\r, q/\r :|-: p/\q
+|p/\r :assumption
+|q/\r :assumption
+```
+
+<br>
+<br>
+
+
+*Example 7*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->(q->r) :|-: (p->q)->(p->r)
+|p->(q->r) :assumption
+```
+
+<br>
+<br>
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+*Example 8*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (p/\q)->(r->t) :|-: (p/\r)->(q->t)
+|(p/\q)->(r->t) :assumption
+```
+
+<br>
+<br>
+
+
+*Example 9*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p, p->(q/\r), r->s :|-: q/\s
+|p :assumption
+|p->(q/\r) :assumption
+|r->s :assumption
+```
+
+<br>
+<br>
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+
+*Example 10*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ q->t, r->s :|-: (q/\r)->(s/\t)
+|q->t :assumption
+|r->s :assumption
+```
+
+
+<br>
+<br>
+
+
+
+<br>
+<br>
+
+This is a practice problem set for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=7). It is run on the Carnap software, which is an:

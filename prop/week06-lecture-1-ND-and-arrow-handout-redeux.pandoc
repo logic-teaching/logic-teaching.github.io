@@ -1,0 +1,125 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 6, Lecture 1, Handout.
+
+
+## Introduction rule for conjunction
+
+The rule is: if you have $\varphi$ on a line $\ell_1$, and you have $\psi$ on line $\ell_2$, then you may write $\varphi \wedge \psi$ on any subsequent line $\ell> \ell_1, \ell_2$.
+
+This rule is abbreviated as $I\wedge$, where the 'I' is for *introduction*.
+
+In terms of a picture, the rule is:
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_01_and_intro_v2.mp4"/> </video>
+<br>
+
+In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
+
+Here's a worked-out example which contains two applications of $I\wedge$:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p,q,r :|-: p/\(r/\q)
+|p            :assumption
+|q            :assumption
+|r            :assumption
+```
+
+<br>
+<br>
+
+## Elimination rule for conjunction
+
+The rule is: if you have $\varphi \wedge \psi$ on line $\ell_1$, then you may write $\varphi$ on any subsequent line $\ell>\ell_1$, and likewise you may write $\psi$ on any subsequent line $\ell>\ell_1$.
+
+In terms of a picture, the rule is either of the following:
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_03_and_elim1.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_04_and_elim2.mp4"/> </video>
+<br>
+
+Here's a worked-out example:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p/\(r/\q) :|-: r
+|p/\(r/\q)    :assumption
+```
+
+<br>
+<br>
+
+## Elimination rule for implication
+
+The rule is: if you have $\varphi$ on line $\ell_1$, and you have $\varphi\rightarrow \psi$ on line $\ell_2$, then you may write $\psi$ on any subsequent line $\ell>\ell_1, \ell_2$.
+
+In terms of a picture, the rule is:
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_06_arrow_elim-redeux.mp4"/> </video>
+<br>
+
+In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
+
+Here's a worked-out example:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (p->q)/\(p->r), p :|-: q/\r
+```
+
+<br>
+<br>
+
+## The introduction rule for implication
+
+The rule is: suppose that consecutive lines $\ell_1-\ell_n$ constitute a proof with premise $\varphi$ and conclusion $\psi$. Then one may introduce $\varphi\rightarrow \psi$ at line $\ell_n+1$, so long as one brackets off $\ell_1-\ell_n$ and never appeals to them again.
+
+In a picture, it is:
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_08_arrow_intro.mp4"/> </video>
+<br>
+
+Here is a worked out example:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->(q/\r) :|-: p->(r/\q)
+```
+
+<br>
+<br>
+
+## Another example and proof-sketches by hand
+
+
+```{.ProofChecker .GamutMPND init="now" submission="none"}
+ p->q :|-: p->(p/\q)
+```
+
+<br>
+<br>
+
+## Yet another example
+
+
+```{.ProofChecker .GamutMPND init="now" submission="none"}
+ p/\q :|-: p->q
+```
+
+<br>
+<br>
+
+## Nested example of implication introduction
+
+
+```{.ProofChecker .GamutMPND init="now" submission="none"}
+ p->(q->r) :|-: (q->(p->r))
+|p->(q->r)      :assumption
+```
+
+<br>
+<br>
+
+
+These is a handout for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=7).[^2]
+
+
+[^2]:It is run on the Carnap software, which is

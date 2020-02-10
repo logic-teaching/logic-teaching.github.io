@@ -5,14 +5,152 @@ Logic, First Course, Winter 2020. Week 6, Practice Problems **with solutions**. 
 
 # Week 6, Practice Problems **with solutions**
 
+The practice problems fall into two groups:
+
+- [Memorizing rules](#memorizing-rules)
+- [Simple proofs](#simple-proofs)
+
 <br>
 <br>
 
-These have the solutions. But keep in mind that for each problem there can be more than one correct proof. 
+These have the solutions. But keep in mind that for each problem there can be more than one correct proof.
 
+## Memorizing rules
+
+The first set of ten problems is just practice in memorizing the rules, with substitution instances. In each case below, the proof is exactly one line long, except for the last two proofs involving arrow introduction, which are three lines long.
+
+
+<br>
 <br>
 
 *Example 1*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b)/\c :|-: a/\b
+|(a/\b)/\c :assumption
+|a/\b :E/\1
+```
+
+<br>
+<br>
+
+*Example 2*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ i/\j :|-: (i/\j)\/k
+|i/\j :assumption
+|(i/\j)\/k :I\/1
+```
+
+<br>
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ i\/j :|-: (i\/j)\/k
+|i\/j :assumption
+|(i\/j)\/k :I\/1
+```
+
+<br>
+<br>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ k :|-: (i/\j)\/k
+|k :assumption
+|(i/\j)\/k :I\/1
+```
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ d, d->(e/\f) :|-: e/\f
+|d :assumption
+|d->(e/\f) :assumption
+|e/\f :E->1,2
+```
+
+<br>
+<br>
+
+*Example 6*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ d, d->(e/\f) :|-: d\/e
+|d :assumption
+|d->(e/\f) :assumption
+|d\/e :I\/1
+```
+
+
+<br>
+<br>
+
+*Example 7*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (m/\n)->(o/\p), m/\n :|-: o/\p
+|(m/\n)->(o/\p) :assumption
+|m/\n :assumption
+|o/\p :E->1,2
+```
+
+<br>
+<br>
+
+*Example 8*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ h\/i, h->(k/\p), i->(k/\p) :|-: k/\p
+|h\/i :assumption
+|h->(k/\p) :assumption
+|i->(k/\p) :assumption
+|k/\p :E\/1,2,3
+```
+
+<br>
+<br>
+
+
+*Example 9*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+  :|-: (a/\b)->b
+| a/\b :assumption
+| b :E/\1
+|(a/\b)->b :I->1-2
+```
+
+
+<br>
+<br>
+
+*Example 10*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+  :|-: a->(a\/b)
+| a :assumption
+| a\/b :I\/1
+|a->(a\/b) :I->1-2
+```
+
+<br>
+<br>
+
+## Simple proofs
+
+These next set of ten problems are just simple proofs, like the ones done in lecture and section.
+
+<br>
+<br>
+
+*Example 11*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (p/\q)/\r, (q\/s)->t :|-: t
@@ -28,7 +166,7 @@ These have the solutions. But keep in mind that for each problem there can be mo
 <br>
 
 
-*Example 2*.
+*Example 12*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p :|-: q->(p/\q)
@@ -42,7 +180,7 @@ These have the solutions. But keep in mind that for each problem there can be mo
 <br>
 
 
-*Example 3*.
+*Example 13*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->q, p->r :|-: p->(q/\r)
@@ -59,7 +197,7 @@ These have the solutions. But keep in mind that for each problem there can be mo
 <br>
 
 
-*Example 4*.
+*Example 14*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->q, r->s :|-: p->(r->(q/\s))
@@ -79,7 +217,7 @@ These have the solutions. But keep in mind that for each problem there can be mo
 <br>
 
 
-*Example 5*.
+*Example 15*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (p/\~q)\/(r/\~q) :|-: ~q
@@ -98,7 +236,7 @@ These have the solutions. But keep in mind that for each problem there can be mo
 <br>
 
 
-*Example 6*.
+*Example 16*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  a\/b :|-: b\/a
@@ -118,7 +256,7 @@ These have the solutions. But keep in mind that for each problem there can be mo
 
 
 
-*Example 7*.
+*Example 17*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->(r/\s), q->(r/\s) :|-: (p\/q)->r
@@ -144,7 +282,7 @@ These have the solutions. But keep in mind that for each problem there can be mo
 <br>
 
 
-*Example 8*.
+*Example 18*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->(q\/v), r->(q\/v), p\/r :|-: q\/v
@@ -158,7 +296,7 @@ These have the solutions. But keep in mind that for each problem there can be mo
 <br>
 
 
-*Example 9*.
+*Example 19*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (p/\~q)/\r, (~p\/~q)->(u/\v) :|-: p/\v
@@ -178,7 +316,7 @@ These have the solutions. But keep in mind that for each problem there can be mo
 <br>
 
 
-*Example 10*.
+*Example 20*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  (p\/q)->r, p, r->(t/\s) :|-: s

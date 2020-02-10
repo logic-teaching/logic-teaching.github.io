@@ -1,0 +1,106 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 6, Lecture 2, Handout.
+
+<br>
+<br>
+
+## Introduction rule for disjunction
+
+The rule is: if you have $\varphi$ on line $\ell_1$, then you may write $\varphi\vee \psi$ on any subsequent line $\ell>\ell_1$. Likewise, if you have $\varphi$ on line $\ell_1$, then you may write $\psi\vee \varphi$ on any subsequent line $\ell>\ell_1$.
+
+This rule is abbreviated as $I\vee$, where the 'I' is for *introduction*.
+
+In terms of a picture, the rule is either of the following:
+
+<video controls width="400" src="https://logic-teaching.github.io/prop/vid/natural_deduction_or_intro1.mp4"/> </video><video controls width="400" src="https://logic-teaching.github.io/prop/vid/natural_deduction_or_intro2.mp4"/> </video>
+<br>
+
+<br>
+
+Note that the rule does **not** require that $\psi$ appear on any previous line. In many ways, this is what gives $I\vee$ its strength.
+
+<br>
+<br>
+
+## Example of disjunction introduction
+
+<br>
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p, (p\/q)->r :|-: r
+```
+
+<br>
+<br>
+
+## Another example of disjunction introduction
+
+<br>
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a, c, ((a\/b)/\(b\/c))->d :|-: d
+```
+
+
+<br>
+<br>
+
+## Elimination rule for disjunction
+
+The rule is: if you have $\varphi\vee \psi$ on line $\ell_1$, and you have $\varphi\rightarrow \xi$ on line $\ell_2$, and you have $\psi\rightarrow \xi$ on line $\ell_3$, then you may write $\xi$ on any subsequent line $\ell>\ell_1, \ell_2, \ell_3$.
+
+Again, the order in which $\ell_1, \ell_2, \ell_3$ occurs does not matter. All that matters is the all of three of these come before the $\ell$, where we apply the rule.
+
+This rule is abbreviated as $E\vee$, where the 'E' is for *elimination*.
+
+In terms of a picture, the rule is the following:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_or_elim.mp4"/> </video>
+<br>
+
+<br>
+<br>
+
+## Example of disjunction elimination
+
+<br>
+
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (c\/d)/\a, a/\(c->e), (d->e)/\b :|-: e
+```
+
+<br>
+<br>
+
+
+## Another example of disjunction elimination
+
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b)\/(a/\c) :|-: a
+```
+
+<br>
+<br>
+
+## Deriving commutativity of disjunction
+
+
+```{.ProofChecker .GamutMPND submission="none"}
+  :|-: (p\/q)->(q\/p)
+```
+
+
+<br>
+<br>
+
+<br>
+<br>
+
+These is a handout written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=7).[^2]
+
+
+[^2]:It is run on the Carnap software, which is

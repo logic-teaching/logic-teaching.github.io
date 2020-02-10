@@ -1,0 +1,197 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 6, Section Meeting **with solutions**. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=7)
+
+<br>
+<br>
+
+# Simple examples of proofs **with solutions**
+
+In this section meeting, we just focus on doing some simple examples of proofs, and practice inputting them into the proof-checker.
+
+These have the solutions. But keep in mind that for each problem there can be more than one correct proof.
+
+<br>
+<br>
+
+*Example 1*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a/\(b/\c), d/\e :|-: b/\e
+|a/\(b/\c) :assumption
+|d/\e :assumption
+|b/\c :E/\1
+|b :E/\3
+|e :E/\2
+|b/\e :I/\4,5
+```
+
+<br>
+<br>
+
+
+*Example 2*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a/\(b/\c), f->(d/\e) :|-: f->(b/\e)
+|a/\(b/\c) :assumption
+|f->(d/\e) :assumption
+| f :assumption
+| d/\e :E->2,3
+| b/\c :E/\1
+| b :E/\5
+| e :E/\4
+| b/\e :I/\6,7
+|f->(b/\e) :I->3-8
+```
+
+<br>
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->(b->c), a, b :|-: c
+|a->(b->c) :assumption
+|a :assumption
+|b :assumption
+|b->c :E->1,2
+|c :E->3,4
+```
+
+<br>
+<br>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->b, b->c, c->d :|-: a->d
+|a->b :assumption
+|b->c :assumption
+|c->d :assumption
+| a :assumption
+| b :E->1,4
+| c :E->2,5
+| d :E->3,6
+|a->d :I->4-7
+```
+
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->(b/\d), b->c :|-: a->(c/\d)
+|a->(b/\d) :assumption
+|b->c :assumption
+| a :assumption
+| b/\d :E->1,3
+| b :E/\4
+| d :E/\4
+| c :E->2,5
+| c/\d :I/\6,7
+|a->(c/\d)
+```
+
+<br>
+<br>
+
+*Example 6*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p/\r, q/\r :|-: p/\q
+|p/\r :assumption
+|q/\r :assumption
+|p :E/\1
+|q :E/\2
+|p/\q :I/\3,4
+```
+
+<br>
+<br>
+
+
+*Example 7*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->(q->r) :|-: (p->q)->(p->r)
+|p->(q->r) :assumption
+| p->q :assumption
+|  p :assumption
+|  q->r :E->1,3
+|  q :E->2,3
+|  r :E->4,5
+| p->r :I->3-6
+|(p->q)->(p->r) :I->2-7
+```
+
+<br>
+<br>
+
+
+*Example 8*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (p/\q)->(r->t) :|-: (p/\r)->(q->t)
+|(p/\q)->(r->t) :assumption
+| p/\r :assumption
+|  q :assumption
+|  p :E/\2
+|  p/\q :I/\3,4
+|  r->t :E->1,5
+|  r :E/\2
+|  t :E->6,7
+| q->t :I->3-8
+|(p/\r)->(q->t) :I->2-9
+```
+
+<br>
+<br>
+
+
+*Example 9*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p, p->(q/\r), r->s :|-: q/\s
+|p :assumption
+|p->(q/\r) :assumption
+|r->s :assumption
+|q/\r :E->1,2
+|r :E/\4
+|s :E->3,5
+|q :E/\4
+|q/\s :I/\6,7
+```
+
+<br>
+<br>
+
+
+*Example 10*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ q->t, r->s :|-: (q/\r)->(s/\t)
+|q->t :assumption
+|r->s :assumption
+| q/\r :assumption
+| q :E/\3
+| r :E/\3
+| t :E->1,4
+| s :E->2,5
+| s/\t :I/\6,7
+|((q ∧ r) → (s ∧ t)) :I->3-8
+```
+
+
+<br>
+<br>
+
+
+
+<br>
+<br>
+
+This is a practice problem set for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=7). It is run on the Carnap software, which is an:
