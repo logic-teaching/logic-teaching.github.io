@@ -1,11 +1,9 @@
 <br>
 <br>
 
-# Natural deduction for conjunction and implication
+# Natural deduction for conjunction and implication **with solutions**
 
-In this section, we introduce the natural deduction proof system, focusing first on the connectives $\wedge$ and $\rightarrow$.
-
-Then we look at several examples of proofs in a natural deduction system.
+In this section, we introduce the natural deduction proof system, focusing first on the connectives $\wedge$ and $\rightarrow$. Then we look at several examples of proofs in a natural deduction system.
 
 - [Motivations for a deductive system](#motivations-for-a-deductive-system)
 - [Proofs in natural deduction](#proofs-in-natural-deduction)
@@ -21,6 +19,8 @@ Then we look at several examples of proofs in a natural deduction system.
 - [Conventions on brackets](#conventions-on-brackets)
 - [What goes wrong if you ignore the conventions on brackets](#what-goes-wrong-if-you-ignore-the-conventions-on-brackets)
 
+The proofs below all have **solution included**. Just search for "solution included".
+
 <br>
 <br>
 
@@ -28,7 +28,7 @@ Then we look at several examples of proofs in a natural deduction system.
 
 A deductive system is a means by which one can derive a conclusion from premises, using rules.
 
-Recall that an argument is just a way to go from premises to a conclusion. Earlier we learned how to assess arguments for validity by using truth-tables. And in this, [recall that validity means](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#definition-of-valid-argument): anytime the premises are true, the conclusion is true, where the "any*time*" has the sense of "any *row* of the truth-table . . . " This is a conceptually simple and well-motivated: we care about this notion because we are interested in preserving truth, and it is simple to state how to assess an argument for validity, after we have filled out the truth-table. But filling out the truth-table is time-intensive, and not obvious how we usually go about producing arguments.
+Recall that an argument is just a way to go from premises to a conclusion. Earlier we learned how to assess arguments for validity by using truth-tables. And in this, [recall that validity means](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#definition-of-valid-argument): anytime the premises are true, the conclusion is true, where the "any*time*" has the sense of "any *row* of the truth-table . . . " This is a conceptually simple and well-motivated: we care about this notion because we are interested in preserving truth, and it is simple to state how to assess an argument for validity, after we have filled out the truth-table. But filling out the truth-table is time-intensive, and it is not obvious that this is how we usually go about producing arguments.
 
 Deductive systems are designed to formalize the idea of moving from premises to a conclusion using only specific logical rules that are set-out in advance. We will focus on a particular type of deductive system-- called *natural deduction*-- in which the logical rules are tailored to the propositional connectives.
 
@@ -41,7 +41,7 @@ It turns out that all valid arguments have proofs in these deductive systems, an
 
 Again, natural deduction is a deductive system in which proofs go from premises to conclusions by means of rules tailored to the connectives.
 
-What is a proof? It is a list of formulas or sentences, and everything on the list is an assumption or follows axioms, or from things earlier on the list, by a finite fixed number of rules. The model for this was the idea of proof used in the mathematical sciences, and in particular the model of deductive proof used by Euclid in his *Elements* (albeit without the diagrams).
+What is a proof? It is a list of formulas or sentences, and everything on the list is an assumption or an axiom, or follows from things earlier on the list, by a finite fixed number of rules. The model for this was the notion of proof used in the mathematical sciences, and in particular the model of deductive proof used by Euclid in his *Elements* (albeit without the diagrams).
 
 Here is a simple worked-out example. As one can see: it is a list, some lines are assumptions, the other lines follow from earlier lines by rules.
 
@@ -147,7 +147,7 @@ The rule is: if you have $\varphi$ on line $\ell_1$, and you have $\varphi\right
 
 In terms of a picture, the rule is:
 
-<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_06_arrow_elim.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_06_arrow_elim-redeux.mp4"/> </video>
 <br>
 
 In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
