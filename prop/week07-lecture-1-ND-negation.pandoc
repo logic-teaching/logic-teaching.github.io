@@ -36,7 +36,7 @@ Here is the elimination rule for negation: if you have \phi on line $\ell_1$ and
 
 Here is a picture of the rule:
 
-INSERT video
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_elimination.mp4"/> </video>
 
 In this rule, it does not matter whether the line with $\phi$ comes before or after the line with $\neg \phi$.
 
@@ -44,13 +44,9 @@ In this rule, it does not matter whether the line with $\phi$ comes before or af
 
 First we do it by hand:
 
-INSERT video
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_1.mp4"/> </video>
 
-Second, we input it into the proof-checker:
-
-INSERT video
-
-Third, You can try it here yourself or come back later and practice:
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->~q, q, p :|-: ⊥
@@ -75,17 +71,11 @@ INSERT video
 
 *Example 2* $p\vdash ~~p$.
 
-
 First we do it by hand:
 
-INSERT video
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_2.mp4"/> </video>
 
-Second, we input it into the proof-checker:
-
-INSERT video
-
-
-Third, you can try it here yourself or come back later and practice:
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p :|-: ~~p
@@ -94,14 +84,6 @@ Third, you can try it here yourself or come back later and practice:
 | ⊥ :E~1,2
 |~~p :I~2,3
 ```
-
-
-<br>
-<br>
-
-## Connection between arrow and falsum and negation
-
-
 
 <br>
 <br>
@@ -119,10 +101,9 @@ Hence, one way to think about all this is as follows: negations are abbreviation
 
 A very common pattern to get used to and to anticipate in these proofs is this one:
 
-INSERT video
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_common_pattern.mp4"/> </video>
 
 Basically, when you want to prove a negation, you need a bracket with a falsum at the bottom. But the only way to get a falsum is to get $\phi$ and $\neg phi$ for some $\phi$.
-
 
 <br>
 <br>
@@ -134,13 +115,9 @@ Basically, when you want to prove a negation, you need a bracket with a falsum a
 
 First we do it by hand:
 
-INSERT video
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_3.mp4"/> </video>
 
-Second, we input it into the proof-checker:
-
-INSERT video
-
-Third, you can try it here yourself or come back later and practice:
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
 
 ```{.ProofChecker .GamutMPND submission="none"}
  q :|-: ~(p/\~q)
@@ -161,13 +138,9 @@ Here's another example
 
 First we do it by hand:
 
-INSERT video
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_4.mp4"/> </video>
 
-Second, we input it into the proof-checker:
-
-INSERT video
-
-Third, you can try it here yourself or come back later and practice:
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
 
 ```{.ProofChecker .GamutMPND submission="none"}
  q, p->~q :|-: ~p
@@ -191,11 +164,10 @@ Here a final example:
 
 First we do it by hand:
 
-INSERT video
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_5.mp4"/> </video>
 
-Second, we input it into the proof-checker:
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
 
-INSERT video
 
 ```{.ProofChecker .GamutMPND submission="none"}
  ~~~p :|-: ~p
@@ -208,7 +180,7 @@ INSERT video
 |~p :I~2-6
 ```
 
-This example is important because it shows that triple negation implies single negation. Next time, we will add rules which allow us to prove the contrary as well. 
+This example is important because it shows that triple negation implies single negation. Next time, we will add rules which allow us to prove the contrary as well.
 
 <br>
 <br>
