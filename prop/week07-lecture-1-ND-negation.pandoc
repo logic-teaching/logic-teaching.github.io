@@ -1,0 +1,225 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 7, Lecture 1. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=8)
+
+# Negation
+
+In this section, we introduce how negation is handled in natural deduction, and illustrate it by doing several examples. Along the way we practice more with natural deduction.
+
+- [The falsum symbol](#the-falsum-symbol)
+- [Elimination rule for negation](#elimination-rule-for-negation)
+- [Introduction rule for negation](#introduction-rule-for-negation)
+- [Connection between arrow and falsum and negation](#connection-between-arrow-and-falsum-and-negation)
+- [A very common pattern](#a-very-common-pattern)
+- [Illustrating the common pattern](#illustrating-the-common-pattern)
+- [Another example](#another-example)
+
+<br>
+<br>
+
+## The falsum symbol
+
+To describe the introduction and elimination rules for negation, we need to introduce a special symbol.
+This symbol is ⊥ and is called falsum or bottom or bot. Intuitively, it’s a special symbol for a contradiction, for something that’s always false.
+
+Initially it may seem strange to have one symbol which stands for all contradictions. However, contradictions validly imply anything. Hence, any two contradictions are equivalent. Hence if we wanted our deductive system to match up with our judgements of validity, perhaps it is plausible that we have one symbol ⊥ which stands for all contradictions.
+
+The falsum symbol ⊥ can be typed in one of three ways. First, you can just cut and paste from this screen or anywhere else. Second, you can alternatively type `!?`. Third, you can program your computer to accept a shortcut like \bot or anything else you want. (Here are external sites which contain instructions on how to do this on a [mac](https://support.apple.com/guide/mac-help/replace-text-punctuation-documents-mac-mh35735/mac) or [windows](https://helpdeskgeek.com/how-to/create-custom-keyboard-shortcuts-for-anything-in-windows-10/)).
+
+<br>
+<br>
+
+## Elimination rule for negation
+
+Here is the elimination rule for negation: if you have \phi on line $\ell_1$ and you have $\neg \phi$ on line $\ell_2$, then you may write $\bot$ on any subsequent line $\ell>\ell_1, \ell_2$.
+
+Here is a picture of the rule:
+
+INSERT video
+
+In this rule, it does not matter whether the line with $\phi$ comes before or after the line with $\neg \phi$.
+
+*Example 1*. $p\rightarrow \neg q, q, p \vdash \bot$.
+
+First we do it by hand:
+
+INSERT video
+
+Second, we input it into the proof-checker:
+
+INSERT video
+
+Third, You can try it here yourself or come back later and practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->~q, q, p :|-: ⊥
+|p->~q :assumption
+|q :assumption
+|p :assumption
+|~q :E->1,3
+|⊥ :E~2,4
+```
+
+<br>
+<br>
+
+## Introduction rule for negation
+
+Here is the introduction rule for negation: suppose that consecutive lines $\ell_1-\ell_n$ constitute a bracketed proof with premise $\phi$ and conclusion $\bot$. Then one may introduce $\neg \phi$ at any subsequent line $\ell>\ell_n$.
+
+
+Here is a picture of the rule:
+
+INSERT video
+
+*Example 2* $p\vdash ~~p$.
+
+
+First we do it by hand:
+
+INSERT video
+
+Second, we input it into the proof-checker:
+
+INSERT video
+
+
+Third, you can try it here yourself or come back later and practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p :|-: ~~p
+|p :assumption
+| ~p :assumption
+| ⊥ :E~1,2
+|~~p :I~2,3
+```
+
+
+<br>
+<br>
+
+## Connection between arrow and falsum and negation
+
+
+
+<br>
+<br>
+
+## Connection between arrow and falsum and negation
+
+The introduction rule for negation looks a lot like the introduction rule for arrow which we learned previously. In particular, to introduce $p\rightarrow q$ you just need a proof inside a bracket which starts at $p$ and ends at $q$. To introduce $\neg p$, you just need a proof inside a bracket which starts at $p$ and ends at $\bot$.
+Hence, one way to think about all this is as follows: negations are abbreviations for arrow statements, and in particular $\neg p$ is an abbrevation for $p\rightarrow \bot$. However, since we use it all the time, it’s convenient to take negation as a primitive symbol.
+
+<br>
+<br>
+
+
+## A very common pattern
+
+A very common pattern to get used to and to anticipate in these proofs is this one:
+
+INSERT video
+
+Basically, when you want to prove a negation, you need a bracket with a falsum at the bottom. But the only way to get a falsum is to get $\phi$ and $\neg phi$ for some $\phi$.
+
+
+<br>
+<br>
+
+
+## Illustrating the common pattern
+
+*Example 3* $q\vdash \neg (p\wedge \neg q)$.
+
+First we do it by hand:
+
+INSERT video
+
+Second, we input it into the proof-checker:
+
+INSERT video
+
+Third, you can try it here yourself or come back later and practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ q :|-: ~(p/\~q)
+|q :assumption
+| p/\~q :assumption
+| ~q :E/\2
+| ⊥ :E~1,3
+|~(p/\~q) :I~2-4
+```
+<br>
+<br>
+
+## Illustrating the common pattern again
+
+Here's another example
+
+*Example 4* $q, p\rightarrow \neg q \vdash \neg p$.
+
+First we do it by hand:
+
+INSERT video
+
+Second, we input it into the proof-checker:
+
+INSERT video
+
+Third, you can try it here yourself or come back later and practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ q, p->~q :|-: ~p
+|q :assumption
+|p->~q :assumption
+| p :E/\2
+| ~q :E->2,3
+| ⊥ :E~1,4
+|~p :I~3-5
+```
+
+<br>
+<br>
+
+
+## Another example
+
+Here a final example:
+
+*Example 5*: $\neg \neg \neg p\vdash \neg p$.
+
+First we do it by hand:
+
+INSERT video
+
+Second, we input it into the proof-checker:
+
+INSERT video
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~~~p :|-: ~p
+|~~~p :assumption
+| p :as
+|  ~p :as
+|  ⊥ :E~2,3
+| ~~p :I~3-4
+| ⊥ :E~1,5
+|~p :I~2-6
+```
+
+This example is important because it shows that triple negation implies single negation. Next time, we will add rules which allow us to prove the contrary as well. 
+
+<br>
+<br>
+
+
+<br>
+<br>
+<br>
+<br>
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=8).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
