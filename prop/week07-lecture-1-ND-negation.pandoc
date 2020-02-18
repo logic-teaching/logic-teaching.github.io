@@ -111,7 +111,7 @@ A very common pattern to get used to and to anticipate in these proofs is this o
 
 <br>
 
-Basically, when you want to prove a negation, you need a bracket with a falsum at the bottom. But the only way to get a falsum is to get $\phi$ and $\neg phi$ for some $\phi$.
+Basically, when you want to prove a negation, you need a bracket with a falsum at the bottom. But the only way to get a falsum is to get $\phi$ and $\neg \phi$ for some $\phi$.
 
 <br>
 <br>
