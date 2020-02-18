@@ -48,7 +48,7 @@ Here is a picture of the rule:
 
 A very common pattern to get used to and to anticipate in these proofs is this one:
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_common_pattern.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_common_pattern_redeux.mp4"/> </video>
 
 <br>
 <br>
@@ -97,7 +97,6 @@ Second, you can try to input it into the proof-checker yourself, or come back la
 |~~~p :assumption
 ```
 
-This example is important because it shows that triple negation implies single negation. Next time, we will add rules which allow us to prove the converse as well.
 
 
 <br>
