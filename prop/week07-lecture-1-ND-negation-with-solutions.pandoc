@@ -60,6 +60,8 @@ Second, you can try to input it into the proof-checker yourself, or come back la
 |p->~q :assumption
 |q :assumption
 |p :assumption
+|~q :E->1,3
+|⊥ :E~2,4
 ```
 
 <br>
@@ -89,6 +91,9 @@ Second, you can try to input it into the proof-checker yourself, or come back la
 ```{.ProofChecker .GamutMPND submission="none"}
  p :|-: ~~p
 |p :assumption
+| ~p :assumption
+| ⊥ :E~1,2
+|~~p :I~2-3
 ```
 
 <br>
@@ -132,6 +137,10 @@ Second, you can try to input it into the proof-checker yourself, or come back la
 ```{.ProofChecker .GamutMPND submission="none"}
  q :|-: ~(p/\~q)
 |q :assumption
+| p/\~q :assumption
+| ~q :/\E2
+| ⊥ :E~1,3
+|~(p/\~q) :I~2-4
 ```
 <br>
 <br>
@@ -154,6 +163,10 @@ Second, you can try to input it into the proof-checker yourself, or come back la
  q, p->~q :|-: ~p
 |q :assumption
 |p->~q :assumption
+| p :assumption
+| ~q :E->2,3
+| ⊥ :E~3,4
+|~p :I~3-5
 ```
 
 <br>
@@ -178,6 +191,12 @@ Second, you can try to input it into the proof-checker yourself, or come back la
 ```{.ProofChecker .GamutMPND submission="none"}
  ~~~p :|-: ~p
 |~~~p :assumption
+| p :assumption
+|  ~p :assumption
+|  ⊥ :E~2,3
+| ~~p :I~3-4
+| ⊥ :E~1,5
+|~p :I~2-6
 ```
 
 This example is important because it shows that triple negation implies single negation. Next time, we will add rules which allow us to prove the converse as well.
