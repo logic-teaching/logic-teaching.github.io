@@ -1,0 +1,110 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 7, Lecture 1, Handout.
+
+## Elimination rule for negation
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_elimination.mp4"/> </video>
+
+<br>
+
+*Example 1*. $p\rightarrow \neg q, q, p \vdash \bot$.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->~q, q, p :|-: ⊥
+|p->~q :assumption
+|q :assumption
+|p :assumption
+```
+
+<br>
+<br>
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+## Introduction rule for negation
+
+Here is a picture of the rule:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_introduction.mp4"/> </video>
+
+<br>
+
+*Example 2*. $p\vdash \neg \neg p$.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p :|-: ~~p
+|p :assumption
+```
+
+<br>
+<br>
+
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+## A very common pattern
+
+A very common pattern to get used to and to anticipate in these proofs is this one:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_common_pattern.mp4"/> </video>
+
+<br>
+<br>
+
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+## Illustrating the common pattern
+
+*Example 3*. $q\vdash \neg (p\wedge \neg q)$.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ q :|-: ~(p/\~q)
+|q :assumption
+```
+<br>
+<br>
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+## Illustrating the common pattern again
+
+*Example 4*. $q, p\rightarrow \neg q \vdash \neg p$.
+
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ q, p->~q :|-: ~p
+|q :assumption
+|p->~q :assumption
+```
+
+<br>
+<br>
+
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+## A more challenging example
+
+
+*Example 5*. $\neg \neg \neg p\vdash \neg p$.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~~~p :|-: ~p
+|~~~p :assumption
+```
+
+This example is important because it shows that triple negation implies single negation. Next time, we will add rules which allow us to prove the converse as well.
+
+
+<br>
+<br>
+
+
+These is a handout for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=7).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
