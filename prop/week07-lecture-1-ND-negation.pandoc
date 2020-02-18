@@ -107,7 +107,7 @@ Hence, one way to think about all this is as follows: negations are abbreviation
 
 A very common pattern to get used to and to anticipate in these proofs is this one:
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_common_pattern.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_common_pattern_redeux.mp4"/> </video>
 
 <br>
 
@@ -180,7 +180,7 @@ Second, you can try to input it into the proof-checker yourself, or come back la
 |~~~p :assumption
 ```
 
-This example is important because it shows that triple negation implies single negation. Next time, we will add rules which allow us to prove the converse as well.
+This example shows that triple negation implies single negation. By using *Example 2* one can show that the converse holds as well. In later lectures, we will look at the associated results about [the law of double-negation](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-lecture2-tautologies.pandoc#definitions-and-law-of-excluded-middle).
 
 
 <br>
