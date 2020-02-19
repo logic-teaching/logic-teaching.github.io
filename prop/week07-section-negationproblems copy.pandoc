@@ -1,0 +1,81 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 7, Section Meeting. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=8)
+
+<br>
+<br>
+
+# Simple examples of proofs involving negation
+
+In this section meeting, we just focus on doing some simple examples of proofs involving negation, and practice inputting them into the proof-checker.
+
+<br>
+<br>
+
+*Example 1*.
+
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a/\~b :|-:  ~(a->b)
+|a/\~b  :assumption
+```
+
+<br>
+<br>
+
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+*Example 2*.
+
+
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a, ~(a/\b) :|-: ~b
+|a :assumption
+|~(a/\b) :assumption
+```
+
+<br>
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~a\/~b, a :|-: ~b
+|~a\/~b :assumption
+|a :assumption
+```
+
+<br>
+<br>
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~a\/~b :|-: ~(a/\b)
+|~a\/~b :assumption
+```
+
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+  ~~(a/\b) :|-: ~~a
+|~~(a/\b) :assumption
+```
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+
+
+<br>
+<br>
+
+This is a section notes for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=8). It is run on the Carnap software, which is an:

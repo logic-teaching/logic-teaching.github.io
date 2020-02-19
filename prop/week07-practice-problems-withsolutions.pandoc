@@ -1,0 +1,203 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 7, Practice Problems. [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=8)
+
+# Week 6, Practice Problems
+
+The practice problems fall into two groups:
+
+- [Memorizing and recognizing negation introduction and elimination](#memorizing-and-recognizing-negation-introduction-and-elimination)
+- [Proofs with negation introduction and elimination](#proofs-with-negation-introduction-and-elimination)
+
+Some more problems on ex falso will be added prior to the second lecture.
+
+<br>
+<br>
+
+## Memorizing and recognizing negation introduction and elimination
+
+The first set of five problems is just practice in memorizing and recognizing negation introduction and elimination. The proofs involving negation elimination are just 1-2 extra lines beyond the assumptions. The proofs involving negation introduction are just 3-5 extra lines beyond the assumptions.
+
+<br>
+<br>
+
+*Example 1*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a, ~a  :|-: ⊥
+|a :assumption
+|~a :assumption
+|⊥ :E~1,2
+```
+
+<br>
+<br>
+
+*Example 2*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b), ~(a/\b)  :|-: ⊥
+|(a/\b) :assumption
+|~(a/\b) :assumption
+|⊥ :E~1,2
+```
+
+<br>
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b)/\c, ~(a/\b)  :|-: ⊥
+|(a/\b)/\c :assumption
+|~(a/\b) :assumption
+|(a/\b) :E/\1
+|⊥ :E~2,3
+```
+
+<br>
+<br>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->~q  :|-: ~(p/\q)
+|p->~q :assumption
+| p/\q :assumption
+| p :E/\2
+| q :E/\2
+| ~q :E->1,3
+| ⊥ :E~4,5
+|~(p/\q) :I~2-6
+```
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->~q, p, q  :|-: ⊥
+|p->~q :assumption
+|p :assumption
+|q :assumption
+|~q :E->1,2
+|⊥ :E~3,4
+```
+
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+<br>
+<br>
+
+## Proofs with negation introduction and elimination
+
+These next five proofs are simple proofs involving negation introduction and elimination, along with the other rules which we learned earlier.
+
+<br>
+<br>
+
+*Example 6*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->c, b->d, ~(c/\d) :|-: ~(a/\b)
+|a->c :assumption
+|b->d :assumption
+|~(c/\d) :assumption
+| a/\b :assumption
+| a :E/\4
+| b :E/\4
+| c :E->1,5
+| d :E->2,6
+| c/\d :I/\7,8
+| ⊥ :E~3,9
+|~(a/\b) :I~4-10
+```
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+<br>
+<br>
+
+*Example 7*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->r, q->r, ~r :|-: ~(p\/q)
+|p->r :assumption
+|q->r :assumption
+|~r :assumption
+| (p\/q) :assumption
+| r :E\/1,2,4
+| ⊥ :E~3,5
+|~(p\/q) :I~4-6
+```
+
+<br>
+<br>
+
+*Example 8*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ c, c->(d/\a), b->~d :|-: ~(a->b)
+|c :assumption
+|c->(d/\a) :assumption
+|b->~d :assumption
+|d/\a :E->1,2
+|a :E/\4
+|d :E/\4
+| a->b :assumption
+| b :E->7,5
+| ~d :E->3,8
+| ⊥ :E~6,9
+|~(a->b) :I~7-10
+```
+
+<br>
+<br>
+
+*Example 9*.
+
+This example shows that we can derive modus tollens in our proof system. INSERT ref
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->q, ~q :|-: ~p
+|p->q :assumption
+|~q :assumption
+| p :assumption
+| q :E->1,3
+| ⊥ :E~2,4
+|~p :I~3-5
+```
+
+<br>
+<br>
+
+*Example 10*.
+
+In this example, be sure to remember to think of $\neg \neg a$ as "a negation applies to $\neg a$".
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~a->~b, b :|-: ~~a
+|~a->~b :assumption
+|b :assumption
+| ~a :assumption
+| ~b :E->1,3
+| ⊥ :E~2,4
+|~~a :I~3-5
+```
+
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+<br>
+<br>
+
+
+
+
+<br>
+<br>
+
+This is a practice problem set for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=8). It is run on the Carnap software, which is an:
