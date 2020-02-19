@@ -1,0 +1,274 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 7, Practice Problems. [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=8)
+
+# Week 6, Practice Problems
+
+The practice problems fall into two groups:
+
+- [Memorizing and recognizing negation introduction and elimination](#memorizing-and-recognizing-negation-introduction-and-elimination)
+- [Proofs with negation introduction and elimination](#proofs-with-negation-introduction-and-elimination)
+
+Some more problems on ex falso will be added prior to the second lecture.
+
+<br>
+<br>
+
+## Memorizing and recognizing negation introduction and elimination
+
+The first set of five problems is just practice in memorizing and recognizing negation introduction and elimination. The proofs involving negation elimination are just 1-2 extra lines beyond the assumptions. The proofs involving negation introduction are just 3-5 extra lines beyond the assumptions.
+
+<br>
+<br>
+
+*Example 1*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a, ~a  :|-: ⊥
+|a :assumption
+|~a :assumption
+```
+
+<br>
+<br>
+
+*Example 2*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b), ~(a/\b)  :|-: ⊥
+|(a/\b) :assumption
+|~(a/\b) :assumption
+```
+
+<br>
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b)/\c, ~(a/\b)  :|-: ⊥
+|(a/\b)/\c :assumption
+|~(a/\b) :assumption
+```
+
+<br>
+<br>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->~q  :|-: ~(p/\q)
+|p->~q :assumption
+```
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->~q, p, q  :|-: ⊥
+|p->~q :assumption
+|p :assumption
+|q :assumption
+```
+
+
+
+
+<br>
+<br>
+
+## Proofs with negation introduction and elimination
+
+These next five proofs are simple proofs involving negation introduction and elimination, along with the other rules which we learned earlier.
+
+<br>
+<br>
+
+*Example 6*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->c, b->d, ~(c/\d) :|-: ~(a/\b)
+|a->c :assumption
+|b->d :assumption
+|~(c/\d) :assumption
+```
+
+
+
+<br>
+<br>
+
+*Example 7*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->r, q->r, ~r :|-: ~(p\/q)
+|p->r :assumption
+|q->r :assumption
+|~r :assumption
+```
+
+<br>
+<br>
+
+*Example 8*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ c, c->(d/\a), b->~d :|-: ~(a->b)
+|c :assumption
+|c->(d/\a) :assumption
+|b->~d :assumption
+```
+
+<br>
+<br>
+
+*Example 9*.
+
+This example shows that we can derive modus tollens in our proof system. INSERT ref
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->q, ~q :|-: ~p
+|p->q :assumption
+|~q :assumption
+```
+
+<br>
+<br>
+
+*Example 10*.
+
+In this example, be sure to remember to think of $\neg \neg a$ as "a negation applies to $\neg a$".
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~a->~b, b :|-: ~~a
+|~a->~b :assumption
+|b :assumption
+```
+
+<br>
+<br>
+
+## Memorizing and recognizing ex falso
+
+These next proofs are designed to help you do ex falso, which we cover in the second lecture from this week. These proofs are intended to be very short, all under 5 lines beyond the assumptions.
+
+<br>
+<br>
+
+*Example 11*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a, a->⊥ :|-: b
+|a :assumption
+|a->⊥ :assumption
+```
+
+<br>
+<br>
+
+*Example 12*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a, b, b->~a :|-: c
+|a :assumption
+|b :assumption
+|b->~a :assumption
+```
+
+*Example 13*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a/\b, c/\~b :|-: d
+|a/\b :assumption
+|c/\~b :assumption
+```
+
+*Example 14*.
+
+On this one, resist the inclination to do an arrow introduction, and focus rather on finding a contradiction among the assumptions and then doing ex falso.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a->b, ~(a->b) :|-: a->c
+|a->b :assumption
+|~(a->b) :assumption
+```
+
+*Example 15*.
+
+This one is just practice with the repeat rule.
+
+```{.ProofChecker .GamutIPND submission="none"}
+  :|-: q->q
+```
+
+
+
+
+<br>
+<br>
+
+
+## Proofs with ex falso
+
+These are simple proofs with ex falso and the other rules which we have available.
+
+<br>
+<br>
+
+*Example 16*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ ~a :|-: a->b
+|~a :assumption
+```
+
+<br>
+<br>
+
+*Example 17*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ ~a :|-: a->b
+|~a :assumption
+```
+
+<br>
+<br>
+
+*Example 18*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a :|-: ~a->b
+|~a :assumption
+```
+
+*Example 19*.
+
+This is one half of the classical equivalence of a material conditional with a certain kind of disjunction. Hint: you need to do a disjunction elimination on the premise. One of the arrow statements can be justified via the repeat rule like in Example 19.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ ~p\/q :|-: p->q
+|~p\/q :assumption
+```
+
+*Example 20*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ p->q, ~q\/q :|-: ~p\/q
+|p->q :assumption
+|~q\/q :assumption
+```
+
+
+
+<br>
+<br>
+
+
+
+
+<br>
+<br>
