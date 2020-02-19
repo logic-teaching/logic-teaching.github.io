@@ -1,0 +1,120 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 7, Section Meeting. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=8)
+
+<br>
+<br>
+
+# Simple examples of proofs involving negation
+
+In this section meeting, we just focus on doing some simple examples of proofs involving negation, and practice inputting them into the proof-checker.
+
+<br>
+<br>
+
+*Example 1*.
+
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a/\~b :|-:  ~(a->b)
+|a/\~b  :assumption
+|a :E/\1
+|~b :E/\1
+| a->b :assumption
+| b :E->2,4
+| !? :E~3,5
+|~(a->b) :I~4-6
+```
+
+<br>
+<br>
+
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+*Example 2*.
+
+
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a, ~(a/\b) :|-: ~b
+|a :assumption
+|~(a/\b) :assumption
+|a :assumption
+|~(a/\b) :assumption
+| b :assumption
+| a/\b :I/\1,5
+| !? :E~2,6
+|~b :I~5-7
+```
+
+<br>
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~a\/~b, a :|-: ~b
+|~a\/~b :assumption
+|a :assumption
+| b :assumption
+|  ~a :assumption
+|  !? :E~2,4
+| ~a->!? :I->4-5
+|  ~b :assumption
+|  !? :E~3,7
+| ~b->!? :I->7-8
+| !? :E\/1,6,9
+|~b :I~3-10
+```
+
+<br>
+<br>
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~a\/~b :|-: ~(a/\b)
+|~a\/~b :assumption
+| a/\b :assumption
+| a :E/\2
+| b :E/\2
+|  ~a :assumption
+|  !? :E~3,5
+| ~a->!? :I->5-6
+|  ~b :assumption
+|  !? :E~4,8
+| ~b->!? :I->8-9
+| !? :E\/1,7,10
+|~(a/\b) :I~2-11
+```
+
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+  ~~(a/\b) :|-: ~~a
+|~~(a/\b) :assumption
+| ~a :assumption
+|  a/\b :assumption
+|  a :E/\3
+|  !? :E~2,4
+| ~(a/\b) :I~3-5
+| !? :E~1,6
+|~~a :I~2-7
+```
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+
+
+<br>
+<br>
+
+This is a section notes for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=8). It is run on the Carnap software, which is an:
