@@ -3,14 +3,14 @@
 
 Logic, First Course, Winter 2020. Week 7, Practice Problems. [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=8)
 
-# Week 6, Practice Problems
+# Week 7, Practice Problems
 
-The practice problems fall into two groups:
+The practice problems fall into four groups:
 
 - [Memorizing and recognizing negation introduction and elimination](#memorizing-and-recognizing-negation-introduction-and-elimination)
 - [Proofs with negation introduction and elimination](#proofs-with-negation-introduction-and-elimination)
-- [Memorizing and recognizing ex falso](#memorizing-and-recognizing-ex-falso)
-- [Proofs with ex falso](#proofs-with-ex-falso)
+- [Memorizing and recognizing EFSQ](#memorizing-and-recognizing-efsq)
+- [Proofs with EFSQ](#proofs-with-efsq)
 
 
 
@@ -133,7 +133,7 @@ These next five proofs are simple proofs involving negation introduction and eli
 
 *Example 9*.
 
-This example shows that we can derive modus tollens in our proof system. INSERT ref
+This example shows that we can derive modus tollens in our proof system.
 
 ```{.ProofChecker .GamutMPND submission="none"}
  p->q, ~q :|-: ~p
@@ -157,9 +157,9 @@ In this example, be sure to remember to think of $\neg \neg a$ as "a negation ap
 <br>
 <br>
 
-## Memorizing and recognizing ex falso
+## Memorizing and recognizing EFSQ
 
-These next proofs are designed to help you do ex falso, which we cover in the second lecture from this week. These proofs are intended to be very short, all under 5 lines beyond the assumptions.
+These next proofs are designed to help you do EFSQ, which we cover in the second lecture from this week. These proofs are intended to be very short, all under 5 lines beyond the assumptions.
 
 <br>
 <br>
@@ -217,9 +217,9 @@ This one is just practice with the repeat rule. We did one like it in the second
 <br>
 
 
-## Proofs with ex falso
+## Proofs with EFSQ
 
-These are simple proofs with ex falso and the other rules which we have available.
+These are simple proofs with EFSQ and the other rules which we have available.
 
 <br>
 <br>
@@ -285,18 +285,12 @@ This one shows the converse, under the assumption of law of excluded middle for 
 
 ```{.ProofChecker .GamutIPND submission="none"}
  a/\(b/\c), a->d, b->e, c->f, ~(d/\f)  :|-: (a/\c)->e
-| a/\c :assumption
-| a :E/\6
-| c :E/\6
-| d :E->2,7
-| f :E->4,8
-| d/\f :I/\9,10
-| ⊥ :E~5,11
-| e :EFSQ 12
-|((a ∧ c) → e) :I->6-13
+|a/\(b/\c) :assumption
+|a->d :assumption
+|b->e :assumption
+|c->f :assumption
+|~(d/\f) :assumption
 ```
-
-
 
 <br>
 <br>
