@@ -98,7 +98,7 @@ This is one of the [disjunctive syllogisms](https://carnap.io/shared/logicteachi
 
 First we do it by hand:
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_EFSQ_ex2.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_EFSQ_ex2_redeux.mp4"/> </video>
 
 <br>
 
@@ -106,6 +106,7 @@ Second we input it into the proof-checker:
 
 ```{.ProofChecker .GamutIPND submission="none"}
  p\/q, ~p :|-: q
+|p\/q :assumption
 |~p :assumption
 ```
 
