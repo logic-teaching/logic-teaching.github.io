@@ -18,13 +18,11 @@ We introduce two new rules, repeat rule and EFSQ. Along the way we discuss the u
 <br>
 
 
-
 ## Repeat rule
 
 The repeat rule simply says that if you have $\phi$ on a line $\ell_1$, then you can write $\phi$ on any subsequent line $\ell>\ell_1$:
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_repeat_rule.mp4"/> </video>
-
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_repeat_rule_redeuxb.mp4"/> </video>
 
 Note that we are abbreviating repeat by *rep*. In the proof-checker, we just type `rep`.
 
@@ -129,9 +127,31 @@ Second we input it into the proof-checker:
 <br>
 <br>
 
+## Intuitionistic logic and BHK
+
+The deductive system that he have learned so far is sometimes called intuitionistic logic. The traditional motivation for it is sometimes called the *Brouwer-Heyting-Kolmogorov (BHK) interpretation*. The traditional statement of this, due to Heyting in his short 1956 book \emph{Intuitionism}, is as follows:[^1]
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-conjunctiondisjunction.png" alt="BHK conjunction disjunction.png" width="300"/>
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-arrow1.png" alt="BHK conjunction disjunction" width="300"/>
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-arrow2.png" alt="BHK conjunction disjunction" width="300"/>
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-negation.png" alt="BHK conjunction disjunction" width="300"/>
+
+[^1]: This is from pp. 102-103, 106-107 of [Heyting, Arend. 1956. Intuitionism. An Introduction. Amsterdam: North-Holland](https://logic-teaching.github.io/prop/texts/Heyting%201956%20-%20Intuitionism%20-%20An%20Introduction%20-%20Chapters%201,%207,%208.pdf). Heyting had originally developed these ideas in the 1930s, in publications such as: Heyting Sur La Logique Intuitionniste.” Académie Royale de Belgique, Bulletin de La Classe. Heyting, Arend. 1930. “Die Formalen Regeln Der Intuitionistichen Logik.” Sitzungsberichte Der Koniglichen Preussischen Akademie Der Wissenschaften, 42–56. [Heyting, Arend. 1931. “Die Intuitionistische Grundlegung Der Mathematik.” Erkenntnis. An International Journal of Analytic Philosophy 2: 106–15](https://logic-teaching.github.io/prop/texts/Heyting%201931%20-%20Die%20Intuitionistische%20Grundlegung%20Der%20Mathematik.pdf).
+
+Consider the law of the excluded middle $\phi \vee \neg \phi$. BHK predicts that this will not hold in situations where-- for whatever reason-- we cannot assert either of the disjuncts. Brouwer himself thought that there were mathematical counterexamples to the law of the excluded middle, such as the $\phi$ that says that in the decimal expansion of $\pi$ there is a ten digit block of numbers $0123456789$. The thinking seems to be that we cannot assert $\phi$ because no one has yet found such a block. And we cannot assert $\neg \phi$ because no one has yet proven that the supposition of $\phi$ leads to an absurdity.[^2] This, of course, presupposes that we interpret $\neg \phi$ as $\phi\rightarrow \bot$.
+
+[^2]: This is Brouwer's example on p. 6 of Brouwer, L. E. J. 1981. Brouwer’s Cambridge Lectures on Intuitionism. Cambridge University Press, Cambridge-New York; and on p. 21 of: Brouwer, L. E. J. 1992. Intuitionismus. Edited by Dirk van Dalen. Mannheim: Wissenschaftsverlag. These are lectures which he gave in Berlin in Cambridge after the war and in Berlin in 1927. The ideas in them were made well-known, at the time, in the intuitionism chapter of Fraenkel's 1927 book: Fraenkel, Adolf. 1927. Zehn Vorlesungen Über Die Grundlegung Der Mengenlehre: Gehalten in Kiel Auf Einladung Der Kant-Gesellschaft, Ortsgruppe Kiel, Vom 8.--12. Juni 1925. Leipzig and Berlin: Teubner.
+
+A natural question to ask is whether BHK itself requires that one assent to EFSQ. This is what Heyting says:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-EFSQ.png" alt="BHK EFSQ" width="300"/>
+
+But it is not obvious whether this is anything more than a restatement of EFSQ in terms of constructions.
 
 
-These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=8).[^2]
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=8).[^3]
 
-
-[^2]:It is run on the Carnap software, which is
+[^3]:It is run on the Carnap software, which is
