@@ -9,10 +9,16 @@ The practice problems fall into two groups:
 
 - [Memorizing and recognizing negation introduction and elimination](#memorizing-and-recognizing-negation-introduction-and-elimination)
 - [Proofs with negation introduction and elimination](#proofs-with-negation-introduction-and-elimination)
+- [Memorizing and recognizing ex falso](#memorizing-and-recognizing-ex-falso)
+- [Proofs with ex falso](#proofs-with-ex-falso)
 
-Some more problems on ex falso will be added prior to the second lecture.
+
 
 <br>
+<br>
+
+Before we begin, [recall](https://carnap.io/shared/logicteaching@g.ucla.edu/week07-lecture-1-ND-negation.pandoc#the-falsum-symbol) that the falsum symbol ⊥ can be typed in one of three ways. First, you can just cut and paste from this screen or anywhere else. Second, you can alternatively type `!?`. Third, you can program your computer to accept a shortcut like \bot or anything else you want. (Here are external sites which contain instructions on how to do this on a [Mac](https://support.apple.com/guide/mac-help/replace-text-punctuation-documents-mac-mh35735/mac) or [Windows](https://helpdeskgeek.com/how-to/create-custom-keyboard-shortcuts-for-anything-in-windows-10/)).
+
 <br>
 
 ## Memorizing and recognizing negation introduction and elimination
@@ -198,10 +204,10 @@ On this one, resist the inclination to do an arrow introduction, and focus rathe
 
 *Example 15*.
 
-This one is just practice with the repeat rule.
+This one is just practice with the repeat rule. We did one like it in the second lecture.
 
 ```{.ProofChecker .GamutIPND submission="none"}
-  :|-: q->q
+  :|-: b->b
 ```
 
 
@@ -218,6 +224,17 @@ These are simple proofs with ex falso and the other rules which we have availabl
 <br>
 <br>
 
+*Example 15*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a->b, ~b :|-: ~a
+|a->b :assumption
+|~b :assumption
+```
+
+<br>
+<br>
+
 *Example 16*.
 
 ```{.ProofChecker .GamutIPND submission="none"}
@@ -230,9 +247,11 @@ These are simple proofs with ex falso and the other rules which we have availabl
 
 *Example 17*.
 
+This next one does not involve ex falso, but rather involves the repeat rule.
+
 ```{.ProofChecker .GamutIPND submission="none"}
- ~a :|-: a->b
-|~a :assumption
+ b :|-: a->b
+|b :assumption
 ```
 
 <br>
@@ -240,33 +259,42 @@ These are simple proofs with ex falso and the other rules which we have availabl
 
 *Example 18*.
 
+On this one, the last line is justified via disjunction elimination. To complete the disjunction elimination, one first needs to prove $\neg a\rightarrow (a\rightarrow b)$, but this just amounts to doing Example 16 inside a bracket. Finally, one needs to get $b\rightarrow (a\rightarrow b)$, but this just amounts to doing Example 17 inside a bracket. Note that this problem is one-half of the equivalence of material conditional and a certain kind of disjunction [which we learned about earlier](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-lecture2-tautologies-withvalidityinvalidity.pandoc#definitions-and-law-of-excluded-middle).
+
 ```{.ProofChecker .GamutIPND submission="none"}
- a :|-: ~a->b
-|~a :assumption
+ ~a\/b :|-: a->b
+|~a\/b :assumption
 ```
+<br>
+<br>
 
 *Example 19*.
 
-This is one half of the classical equivalence of a material conditional with a certain kind of disjunction. Hint: you need to do a disjunction elimination on the premise. One of the arrow statements can be justified via the repeat rule like in Example 19.
+This one shows the converse, under the assumption of law of excluded middle for the consequent. One proceeds by doing a disjunction elimination on the instance of the law of the excluded middle. One line one needs is $\neg b\rightarrow (\neg a \vee b)$, but this will be like Example 15 inside a bracket (since one has the assumption $a\rightarrow b$). Another line one needs is $b\rightarrow (\neg a \vee b)$ but this can be done in a familiar way using disjunction introduction.
 
 ```{.ProofChecker .GamutIPND submission="none"}
- ~p\/q :|-: p->q
-|~p\/q :assumption
+ a->b, ~b\/b :|-: ~a\/b
+|a->b :assumption
+|~b\/b :assumption
 ```
+
+<br>
+<br>
 
 *Example 20*.
 
 ```{.ProofChecker .GamutIPND submission="none"}
- p->q, ~q\/q :|-: ~p\/q
-|p->q :assumption
-|~q\/q :assumption
+ a/\(b/\c), a->d, b->e, c->f, ~(d/\f)  :|-: (a/\c)->e
+| a/\c :assumption
+| a :E/\6
+| c :E/\6
+| d :E->2,7
+| f :E->4,8
+| d/\f :I/\9,10
+| ⊥ :E~5,11
+| e :EFSQ 12
+|((a ∧ c) → e) :I->6-13
 ```
-
-
-
-<br>
-<br>
-
 
 
 

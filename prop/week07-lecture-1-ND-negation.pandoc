@@ -5,7 +5,7 @@ Logic, First Course, Winter 2020. Week 7, Lecture 1. [Back to course website](ht
 
 # Negation
 
-In this section, we introduce how negation is handled in natural deduction, and illustrate it by doing several examples.
+We introduce how negation is handled in natural deduction, and illustrate it by doing several examples.
 
 - [The falsum symbol](#the-falsum-symbol)
 - [Elimination rule for negation](#elimination-rule-for-negation)
