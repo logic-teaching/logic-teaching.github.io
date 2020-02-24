@@ -3,7 +3,7 @@
 
 Logic, First Course, Winter 2020. Week 8, Lecture 2. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=9)
 
-# Validity: truth-tables vs. proofs
+# Validity: truth-tables vs. proofs **with solutions**
 
 - [Two ways to assess validity](#two-ways-to-assess-validity)
 - [Confirmation of the alignment via examples](#confirmation-of-the-alignment-via-examples)
@@ -14,6 +14,8 @@ Logic, First Course, Winter 2020. Week 8, Lecture 2. [Back to course website](ht
 
 <br>
 <br>
+
+This version has **solutions**. They are not that many-- just Example 4 and Example 6.
 
 ## Two ways to assess validity
 
@@ -148,6 +150,10 @@ If you did it via truth-tables, then this would be a really big truth-table. It 
 |q->r :assumption
 |r->s :assumption
 |s->t :assumption
+|q :E->1,2
+|r :E->3,6
+|s :E->4,7
+|t :E->5,8
 ```
 
 <br>
@@ -196,6 +202,21 @@ A quicker way is to proceed via the system of derived rules we have developed:
 |(a\/b) :assumption
 |(c\/d) :assumption
 |~(a/\c) :assumption
+|(a\/b)/\(c\/d) :I/\1,2
+|((a\/b)/\c)\/((a\/b)/\d) :LDC4
+|(c/\(a\/b))\/((a\/b)/\d) :LCC5
+|(c/\(a\/b))\/(d/\(a\/b)) :LCC6
+|((c/\a)\/(c/\b))\/(d/\(a\/b)) :LDC7
+|((c/\a)\/(c/\b))\/((d/\a)\/(d/\b)) :LDC8
+|((a/\c)\/(c/\b))\/((d/\a)\/(d/\b)) :LCC9
+|((a/\c)\/(b/\c))\/((d/\a)\/(d/\b)) :LCC10
+|((a/\c)\/(b/\c))\/((a/\d)\/(d/\b)) :LCC11
+|((a/\c)\/(b/\c))\/((a/\d)\/(b/\d)) :LCC12
+|(a/\c)\/((b/\c)\/((a/\d)\/(b/\d))) :LAD13
+|((b/\c)\/((a/\d)\/(b/\d))) :PDS3,14
+|((b/\c)\/(a/\d))\/(b/\d) :LAD15
+|((a/\d)\/(b/\c))\/(b/\d) :LCD16
+|(a/\d)\/((b/\c)\/(b/\d)) :LAD17
 ```
 
 Of course, while complicated, this proof would be even more complicated if we had not added on our many derived rules.
