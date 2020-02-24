@@ -1,0 +1,126 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 8, Lecture 1, Handout.
+
+
+## Double negation rule
+
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_double_negation.mp4"/> </video>
+
+<br>
+
+
+<br>
+<br>
+
+## Law of the excluded middle
+
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_LEM_from_DN.mp4"/> </video>
+
+<br>
+
+
+Since we will often want to appeal to double-negation without having to redo this proof over and over, we simply include a new rule for law of the excluded middle which says that one can always put $\phi\vee\neg\phi$ on a line, and justify it as `LEM`. Note that no line number is put down as part of the justification.
+
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_LEM.mp4"/> </video>
+
+<br>
+
+
+## Other derived rules
+
+
+- *Law of excluded middle*: $p\vee \neg p$ is a tautology. Abbreviation: `LEM`
+- *Law of non-contradiction*: $\neg (p\wedge \neg p)$ is a tautology. Abbreviation: `LNC`
+- *The law of double-negation*: $p$ is equivalent to $\neg \neg p$. Abbreviation: `DN`
+- *Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$. Abbreviation: `LCC`
+- *Law of commutativity for disjunction*: $p\vee q$ is equivalent to $q\vee p$. Abbreviation `LCD`.
+- *Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$. Abbreviation: `LAC`
+- *Law of associativity for disjunction*: $(p\vee q)\vee r$ is equivalent to $p\vee (q\vee r)$. Abbreviation: `LAD`
+- *Law of distribution, part 1*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$. Abbreviation: `LDC` (where the final "C" is short for the initial conjunction)
+- *Law of distribution, part 2*: $p\vee (q\wedge r)$ is equivalent to $(p\vee q)\wedge (p\vee r)$. Abbreviation: `LDD` (where the final "D" is short for the initial disjunction)
+- *DeMorgan Law, part 1*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$. Abbreviation: `DMOR` (since it ends in an or statement)
+- *DeMorgan Law, part 2*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$. Abbreviation: `DMAND` (since it ends in an and statement)
+
+
+- *Modus ponens*. $p\rightarrow q, p \vdash q$. Abbreviation: `E->`
+- *Modus tollens*. $p\rightarrow q, ~q \vdash \neg p$. Abbreviation: `MT`
+- *Disjunctive syllogism*. $p\vee q, \neg p \vdash q$. Abbreviation: `PDS` (for positive disjunctive syllogism, since it starts with an initial unnegated "positive" disjunction).
+- *Disjunctive syllogism*. $\neg (p\wedge q), p \vdash \neg q$. Abbreviation: `NDS` (for negative disjunctive syllogism, since it starts with a negated conjunction).
+- *Reasoning by cases*. $p \vee q, p \rightarrow r, q \rightarrow r \vdash r$. Abbreviation: `E\/`
+
+
+<br>
+<br>
+
+## Some examples
+
+
+<br>
+
+*Example 1*. $\vdash \neg p \vee p$.
+
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+  :|-: ~p\/p
+```
+
+<br>
+
+*Example 2*. $p\vee q, \neg q \vdash p$.
+
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p\/q, ~q  :|-: p
+|p\/q :assumption
+|~q :assumption
+```
+
+<br>
+
+*Example 3*. $(\neg c \wedge \neg d)\rightarrow e, \neg e \vdash c\vee d$.
+
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (~c/\~d)->e, ~e  :|-: c\/d
+|(~c/\~d)->e :assumption
+|~e :assumption
+```
+
+
+<br>
+
+*Example 4*. $a, b\vee c, \neg (a\wedge c) \vdash a\wedge b$.
+
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a, b\/c, ~(a/\c)  :|-: a/\b
+|a :assumption
+|b\/c :assumption
+|~(a/\c) :assumption
+```
+
+<br>
+
+*Example 5*. $\neg a\vee \neg(b\wedge c), c \vdash \neg (a\wedge b)$.
+
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~a\/~(b/\c), c  :|-: ~(a/\b)
+|~a\/~(b/\c) :assumption
+|c :assumption
+```
+
+<br>
+<br>
+<br>
+<br>
+
+These is a handout written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=9).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
