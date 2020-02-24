@@ -23,7 +23,7 @@ Recall that [the law of double-negation](https://carnap.io/shared/logicteaching@
 
 <br>
 
-Note that that the version on the right-hand side is in fact derivable in intuitionistic logic, and indeed follows directly from [the introduction rule for negation](https://carnap.io/shared/logicteaching@g.ucla.edu/week07-lecture-1-ND-negation.pandoc#introduction-rule-for-negation) (see in particular Example 2 at that link). Hence, it is only the version on the left-hand side which is new. However, note that the left-hand side does not accord well with the guiding idea of natural deduction, namely that the rules are all introduction and elimination rules for a single propositional connective.
+Note that that the version on the right-hand side is in fact derivable in intuitionistic logic, and indeed follows directly from the introduction rule for negation (see in particular Example 2 on [this page](https://carnap.io/shared/logicteaching@g.ucla.edu/week08-lecture-1-ND-classical.pandoc)). Hence, it is only the version on the left-hand side which is new. However, note that the left-hand side does not accord well with the guiding idea of natural deduction, namely that the rules are all introduction and elimination rules for a single propositional connective.
 
 This rule is organized so that one can do the replacement of equivalents by equivalents inside a more complex expression. The following proofs illustrate this:
 
