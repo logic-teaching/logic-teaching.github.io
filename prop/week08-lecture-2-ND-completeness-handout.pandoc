@@ -1,0 +1,158 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 8, Lecture 2, Handout.
+
+
+## Confirmation of the alignment via examples
+
+One way to convince oneself that the two notions align is by doing many examples, and in some sense we have been doing this all along. Let's just briefly note three very simple examples.
+
+*Example 1*. $p,p\rightarrow q\vdash q$.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p,p->q :|-: q
+|p :assumption
+|p->q :assumption
+```
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q, p :|-: q
+~~~
+
+<br>
+
+*Example 2*. $p, q\vdash p\wedge q$.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p,q :|-: p/\q
+|p :assumption
+|q :assumption
+```
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p, q :|-: p/\q
+~~~
+
+<br>
+
+*Example 3*. $p, \neg p \vdash q$.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p,~p :|-: q
+|p :assumption
+|~p :assumption
+```
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p,~p :|-: p/\q
+~~~
+
+<br>
+
+## The Soundness Theorem and The Completeness Theorem
+
+Examples like this should make it plausible that: given premises $\phi_1, \ldots, \phi_n$ and conclusion $\psi$, one has that there is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$ **if and only if** any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row then the conclusion $\psi$ is true at the row. This **biconditional** is in fact true, and its two halves bear the following traditional names:
+
+- *The Soundness Theorem*: **if** there is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$, **then** any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row then the conclusion $\psi$ is true at the row.
+
+- *The Completeness Theorem*:  **if** any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row, then the conclusion $\psi$ is true at the row, **then** there is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$.
+
+
+<br>
+
+## Completeness as a check on rules
+
+Here is how Kleene put the point in his *Introduction to Metamathematics* ([Chapter VI of p. 131](https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus.pdf)):
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus%20p.%20131.png" alt="Kleene on completeness" width="700"/>
+
+<br>
+
+## Completeness and the vagueness of intuitive validity
+
+Consider the following four claims about an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\psi$:
+
+1. There is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$
+2. The truth of the premises $\phi_1, \ldots, \phi_n$ guarantees the truth of the conclusion $\psi$.
+3. Whenever the premises $\phi_1, \ldots, \phi_n$ are all true, then the conclusion $\psi$ is true.
+4. Any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row, then the conclusion $\psi$ is true.
+
+One might have the thought that
+
+- 1 intuitively implies 2 since a proof is a guarantee
+- 2 intuitively implies 3 since the guarantee in 2 pertains to truth
+- 3 intuitively implies 4 since the rows of the truth-table represent possible situations
+- 4 intuitively implies 1 since this is just the content of The Completeness Theorem
+
+If this is right, then the role that The Completeness Theorem plays is showing us that this the distinct concepts in 1-4 in fact align extensionally. This argument is sometimes called the "Kreisel Squeezing Argument." Kreisel thought that it was an argument *against* a view that "informal validity" was a irreparably vague notion ([p. 153 of "Informal Rigour and Completeness Proofs"](https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion].pdf):
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion]%20p.%20153.png" alt="Kreisel on completeness" width="600"/>
+
+<br>
+
+## Applications of the alignment
+
+
+<p style="margin-left: 40px"> *Example 4*. $p, p\rightarrow q, q\rightarrow r, r\rightarrow s, s\rightarrow t \vdash t$. </p>
+
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p, p->q, q->r, r->s, s->t :|-: t
+|p :assumption
+|p->q :assumption
+|q->r :assumption
+|r->s :assumption
+|s->t :assumption
+```
+
+<br>
+
+<p style="margin-left: 40px"> *Example 5* (Pierce's Law): $((p\rightarrow q)\rightarrow p)\rightarrow p$.</p>
+
+The truth table for this is comparatively easy:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+  :|-: ((p->q)->p)->p
+~~~
+
+<br>
+
+Finally consider the following example:
+
+<p style="margin-left: 40px"> *Example 6*. Next quarter, Alex must take course $A$ or course $B$, and he also must take course $C$ or $D$. But the restrictions on his major indicate that he cannot take both course $A$ and $C$ for his degree. Therefore Alex should: (i) take $A$ and $D$, or (ii) take $B$ and $C$, or (iii) take $B$ and $D$.</p>
+
+If we used the following key:
+
+<p style="margin-left: 40px"> $a$ = takes $A$; $b$ = takes $B$; $c$ = takes $C$; and $d$ = takes $D$ </p>
+
+then we could try to assess for validity using truth-tables. But, as one can see, the truth-table is going to be huge.
+
+A quicker way is to proceed via the system of derived rules we have developed:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_classical_complex.mp4"/> </video>
+
+<br>
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (a\/b), (c\/d), ~(a/\c) :|-: (a/\d)\/((b/\c)\/(b/\d))
+|(a\/b) :assumption
+|(c\/d) :assumption
+|~(a/\c) :assumption
+```
+
+Of course, while complicated, this proof would be even more complicated if we had not added on our many derived rules.
+
+<br>
+
+
+<br>
+<br>
+<br>
+<br>
+
+This is a handout written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=9).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
+
