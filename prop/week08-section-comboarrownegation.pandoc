@@ -1,0 +1,73 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 8, Section Meeting. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=9)
+
+<br>
+<br>
+
+# Practice with proofs in classical logic
+
+In this section meeting, we just focus on doing some simple examples of proofs in classical logic. We focus on proofs that involve combinations of arrows-statements and our derived rules.
+
+<br>
+<br>
+
+*Example 1*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ s->~(p\/(~q\/r)),s :|-: ~p/\(~r/\q)
+|s->~(p\/(~q\/r)) :assumption
+|s :assumption
+|~(p\/(~q\/r)) :E->1,2
+|~p/\~(~q\/r) :DMAND3
+|~p/\(~~q/\~r) :DMAND4
+|~p/\(q/\~r) :DN5
+|~p/\(~r/\q) :LCC6
+```
+
+<br>
+<br>
+
+*Example 2*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a/\(b\/(c/\d)), ~(c/\d) :|-: b
+|a/\(b\/(c/\d)) :assumption
+|~a :assumption
+```
+
+<br>
+<br>
+
+*Example 3* (Pierce's Law).
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+  :|-: ((p->q)->p)->p
+```
+
+<br>
+<br>
+
+*Example 4*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~p\/q :|-: p->q
+|~p\/q :assumption
+```
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->q :|-: ~p\/q
+|a :assumption
+|~(a/\b) :assumption
+```
+
+<br>
+<br>
+
+This is a section notes for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=9). It is run on the Carnap software, which is an:

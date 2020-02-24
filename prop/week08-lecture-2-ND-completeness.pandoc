@@ -189,7 +189,11 @@ then we could try to assess for validity using truth-tables. But, as one can see
 ```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
  (a\/b), (c\/d), ~(a/\c) :|-: (a/\d)\/((b/\c)\/(b/\d))
 ```
-A perhaps quicker way is to proceed via the system of derived rules we have developed:
+A quicker way is to proceed via the system of derived rules we have developed:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_classical_complex.mp4"/> </video>
+
+<br>
 
 ```{.ProofChecker .GamutPNDPlus submission="none"}
  (a\/b), (c\/d), ~(a/\c) :|-: (a/\d)\/((b/\c)\/(b/\d))
