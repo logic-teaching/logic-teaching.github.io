@@ -87,7 +87,7 @@ A couple of brief remarks on these theorems:
 
 <br>
 
-## Significance of The Completeness Theorem
+## Completeness as a check on rules
 
 After we covered the introduction and elimination rules for the propositional connectives, we kept on adding rules to our deductive system like EFSQ and DN, even when these departed from the guiding idea of natural deduction that the only rules are those that allow for the introduction and elimination of a symbol. But if we are going to go beyond the
 
@@ -97,7 +97,7 @@ After we covered the introduction and elimination rules for the propositional co
 
 <br>
 
-## Significance of The Completeness Theorem, continued
+## Completeness and the vagueness of intuitive validity
 
 Consider the following four claims about the argument with premises $\phi_1, \ldots, \phi_n$ and the conclusion $\psi$:
 
@@ -113,7 +113,48 @@ One might have the thought that
 - 3 intuitively implies 4 since the rows of the truth-table represent possible situations
 - 4 intuitively implies 1 since this is just the content of The Completeness Theorem
 
-If this is right, then the role that The Completeness Theorem plays is showing us that this the distinct concepts in 1-4 in fact align extensionally. This argument is sometimes called the "Kreisel Squeezing Argument." Kreisel thought that 
+If this is right, then the role that The Completeness Theorem plays is showing us that this the distinct concepts in 1-4 in fact align extensionally. This argument is sometimes called the "Kreisel Squeezing Argument." Kreisel thought that it was an argument against a view to the effect that "informal validity" was a irrepairably vague notion ([p. 153 of "Informal Rigour and Completeness Proofs"](Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion].pdf):
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion]%20p.%20153" alt="Kreisel on completeness" width="600"/>
+
+<br>
+
+## Applications of the alignment
+
+Perhaps the more humble reason why the alignment is useful is that we have two ways to get to one and the same thing. And in many concrete cases it will be very obvious which way is more efficient.
+
+Suppose that someone asked you to show:
+
+*Example 4*. $p, p\rightarrow q, q\rightarrow r, r\rightarrow s, s\rightarrow t \vdash t$.
+
+This would be a really big truth table. It would have $2^5=32$ different rows. However, since we know that we can also assess validity via proofs, we can give a very comparatively short proof:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p, p->q, q->r, r->s, s->t :|-: t
+|p :assumption
+|p->q :assumption
+|q->r :assumption
+|r->s :assumption
+|s->t :assumption
+|q :E->1,2
+|r :E->3,6
+|s :E->4,7
+|t :E->5,8
+```
+<br>
+<br>
+
+By contrast, consider
+
+*Example 5* (Pierce's Law): $((p\rightarrow q)\rightarrow p)\rightarrow p$.
+
+The truth table for this is comparatively easy:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+  :|-: ((p->q)->p)->p
+~~~
+
+By contrast, the proof is rather difficult (we do it in section this week).
 
 
 
