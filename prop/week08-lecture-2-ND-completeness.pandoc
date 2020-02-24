@@ -1,0 +1,107 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 8, Lecture 2. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=9)
+
+# Validity: truth-tables vs. proofs
+
+- [Double negation rule](#double-negation-rule)
+- [Law of the excluded middle](#law-of-excluded-middle)
+- [Other derived rules](#other-derived-rules)
+- [Some examples](#some-examples)
+
+<br>
+<br>
+
+## Two ways to assess validity
+
+We have hence learned two different ways to assess validity whether $\varphi_1, \ldots, \varphi_n \vdash \psi$. First, we learned how to do this via truth-tables: we construct the truth-table and ask whether every row in which all of the premises are true is also one in which the conclusion is true. Second, we have been learning how to do this via proofs: that is, by constructing a proof which goes from the assumptions to the conclusion.
+
+A presupposition of our using one and the same symbol -- namely the consequence symbol $\vdash$ -- for both of these notions is that they align extensionally, that is, that it is actually the case any argument which is valid by the light of truth-tables is also valid by the light of a deduction, and vice-versa. Our topic today is this alignment.
+
+<br>
+
+## Verifying the alignment
+
+One way to convince oneself that the two notions align is by doing many examples, and in some sense we have been doing this all along. Let's just briefly note three very simple examples.
+
+*Example 1*. $p,p\rightarrow q\vdash q$.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p,p->q :|-: q
+|p :assumption
+|p->q :assumption
+|q :E->1,2
+```
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q, p :|-: q
+~~~
+
+<br>
+
+*Example 2*. $p, q\vdash p/\q$.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p,q :|-: p/\q
+|p :assumption
+|q :assumption
+|p/\q :E->1,2
+```
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+p, q :|-: p/\q
+~~~
+
+<br>
+
+*Example 3*. $p, \neg p \vdash q$.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p,~p :|-: q
+|p :assumption
+|~p :assumption
+|q :E->1,2
+```
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p,~p :|-: p/\q
+~~~
+
+<br>
+
+## The Soundness Theorem and The Completeness Theorem
+
+Examples like this should make it plausible that: given premises $\phi_1, \ldots, \phi_n$ and conclusion $\psi$, one has that there is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$ if and only if any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row, then the conclusion $\psi$ is true. This biconditional is in fact true, and its two halves bear the following traditional names:
+
+- *The Soundness Theorem*: there is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$ only if any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row, then the conclusion $\psi$ is true.
+
+- *The Completeness Theorem*: there is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$ if any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row, then the conclusion $\psi$ is true.
+
+A couple of brief remarks on these theorems:
+
+1. Do not confuse the Soundness Theorem with the soundness of an argument-- they both happen to have the word "soundness" in it, but they are different concepts that happen to bear the same name.
+2. The proof of The Soundness Theorem comes down to the facts that our introduction and elimination rules preserve truth.
+3. The proof of The Completeness Theorem is a little harder and-- after a long analysis-- comes down to showing that any consistent set of assumptions is true on at least one row of the truth-table.
+4. The proof of both of these theorems is a little beyond what we are able to do in this course. The are in which one proves these is sometimes called "Metalogic."
+
+<br>
+
+## Significance of the completeness theorem
+
+After we covered the introduction and elimination rules for the propositional connectives, we kept on adding rules to our deductive system like EFSQ and DN. Is there something non-arbitrary about this specific list of rules? The Soundness and Completeness Theorems give us a reason to think so. Here is how the logician Kleene put the point in his logic textbook:
+
+
+
+
+Kleene:  “[...] we have listed eleven postulates for the propositional calculus [...]. Can we give a reason why we stop with just these? Might we with advantage attempt to discover others which could be added to the list to give more provable formulas?'' (Introduction to Metamathematics p. 131).
+
+<br>
+<br>
+<br>
+<br>
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=9).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
