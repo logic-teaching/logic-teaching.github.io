@@ -83,18 +83,39 @@ A couple of brief remarks on these theorems:
 1. Do not confuse the Soundness Theorem with the soundness of an argument-- they both happen to have the word "soundness" in it, but they are different concepts that happen to bear the same name.
 2. The proof of The Soundness Theorem comes down to the facts that our introduction and elimination rules preserve truth.
 3. The proof of The Completeness Theorem is a little harder and-- after a long analysis-- comes down to showing that any consistent set of assumptions is true on at least one row of the truth-table.
-4. The proof of both of these theorems is a little beyond what we are able to do in this course. The are in which one proves these is sometimes called "Metalogic."
+4. The proof of the Completeness Theorem is a little beyond what we are able to do in this course. The course or area in which one proves this is sometimes called "Metalogic."
 
 <br>
 
-## Significance of the completeness theorem
+## Significance of The Completeness Theorem
 
-After we covered the introduction and elimination rules for the propositional connectives, we kept on adding rules to our deductive system like EFSQ and DN. Is there something non-arbitrary about this specific list of rules? The Soundness and Completeness Theorems give us a reason to think so. Here is how the logician Kleene put the point in his logic textbook:
+After we covered the introduction and elimination rules for the propositional connectives, we kept on adding rules to our deductive system like EFSQ and DN, even when these departed from the guiding idea of natural deduction that the only rules are those that allow for the introduction and elimination of a symbol. But if we are going to go beyond the
+
+ Is there something non-arbitrary about this specific list of rules? The Soundness and Completeness Theorems give us a reason to think so. Here is how the logician Kleene put the point in his *Introduction to Metamathematics* ([Chapter VI of p. 131](https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus.pdf)):
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus%20p.%20131.png" alt="Kleene on completeness" width="600"/>
+
+<br>
+
+## Significance of The Completeness Theorem, continued
+
+Consider the following four claims about the argument with premises $\phi_1, \ldots, \phi_n$ and the conclusion $\psi$:
+
+1. There is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$
+2. The truth of the premises $\phi_1, \ldots, \phi_n$ guarantees the truth of the conclusion $\psi$.
+3. Whenever the premises $\phi_1, \ldots, \phi_n$ are all true, then the conclusion $\psi$ is true.
+4. Any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row, then the conclusion $\psi$ is true.
+
+One might have the thought that
+
+- 1 intuitively implies 2 since a proof is a guarantee
+- 2 intuitively implies 3 since the guarantee in 2 pertained to truth
+- 3 intuitively implies 4 since the rows of the truth-table represent possible situations
+- 4 intuitively implies 1 since this is just the content of The Completeness Theorem
+
+If this is right, then the role that The Completeness Theorem plays is showing us that this the distinct concepts in 1-4 in fact align extensionally. This argument is sometimes called the "Kreisel Squeezing Argument." Kreisel thought that 
 
 
-
-
-Kleene:  “[...] we have listed eleven postulates for the propositional calculus [...]. Can we give a reason why we stop with just these? Might we with advantage attempt to discover others which could be added to the list to give more provable formulas?'' (Introduction to Metamathematics p. 131).
 
 <br>
 <br>
