@@ -40,7 +40,7 @@ One way to convince oneself that the two notions align is by doing many examples
 
 <br>
 
-*Example 2*. $p, q\vdash p/\q$.
+*Example 2*. $p, q\vdash p\wedge q$.
 
 ```{.ProofChecker .GamutPNDPlus submission="none"}
  p,q :|-: p/\q
@@ -50,7 +50,7 @@ One way to convince oneself that the two notions align is by doing many examples
 ```
 
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
-p, q :|-: p/\q
+ p, q :|-: p/\q
 ~~~
 
 <br>
@@ -93,7 +93,7 @@ After we covered the introduction and elimination rules for the propositional co
 
  Is there something non-arbitrary about this specific list of rules? The Soundness and Completeness Theorems give us a reason to think so. Here is how the logician Kleene put the point in his *Introduction to Metamathematics* ([Chapter VI of p. 131](https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus.pdf)):
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus%20p.%20131.png" alt="Kleene on completeness" width="600"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus%20p.%20131.png" alt="Kleene on completeness" width="800"/>
 
 <br>
 
@@ -156,6 +156,49 @@ The truth table for this is comparatively easy:
 
 By contrast, the proof is rather difficult (we do it in section this week).
 
+Finally consider:
+
+<p style="margin-left: 40px"> *Example 6*. Next quarter, Alex must take 106A or 143B, and he must take 118C or 154D. But the restrictions on his major indicate that he cannot take both 106A and 118C for his degree. Therefore Alex should: (i) take 106A and 154D, or (ii) take 143B and 118C, or (iii) take 143B and 154D.</p>
+
+What makes this conclusion follow? It does not seem to be empirical, since we do not need to do any looking around to figure this out. And it does not seem to be anything specific to the scheduling of classes as opposed to meetings as opposed to appointments, since we can imagine similar reasoning in other domains. A plausible answer is simply that it follows because it is a valid argument.
+
+If we used the following key
+
+<p style="margin-left: 40px"> $a$ = takes 106A  </p>
+<p style="margin-left: 40px"> $b$ = takes 143B </p>
+<p style="margin-left: 40px"> $c$ = takes 118C </p>
+<p style="margin-left: 40px"> $d$ = takes 154D </p>
+
+then we could try to assess for validity using truth-tables, but as one can see the truth-table is going to be huge:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ (a\/b), (c\/d), ~(a/\c) :|-: (a/\d)\/((b/\c)\/(b/\d))
+```
+A perhaps quicker way is to proceed via the system of derived rules we have developed:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (a\/b), (c\/d), ~(a/\c) :|-: (a/\d)\/((b/\c)\/(b/\d))
+|(a\/b) :assumption
+|(c\/d) :assumption
+|~(a/\c) :assumption
+|(a\/b)/\(c\/d) :I/\1,2
+|((a\/b)/\c)\/((a\/b)/\d) :LDC5
+|(c/\(a\/b))\/((a\/b)/\d) :LCC6
+|(c/\(a\/b))\/(d/\(a\/b)) :LCC7
+|((c/\a)\/(c/\b))\/(d/\(a\/b)) :LDC8
+|((c/\a)\/(c/\b))\/((d/\a)\/(d/\b))) :LDC9
+|((a/\c)\/(c/\b))\/((d/\a)\/(d/\b))) :LCC10
+|((a/\c)\/(b/\c))\/((d/\a)\/(d/\b))) :LCC11
+|((a/\c)\/(b/\c))\/((a/\d)\/(d/\b))) :LCC12
+|((a/\c)\/(b/\c))\/((a/\d)\/(b/\d))) :LCC13
+|(a/\c)\/((b/\c)\/((a/\d)\/(b/\d))) :LAD14
+|((b/\c)\/((a/\d)\/(b/\d))) :PSD3,15
+|((b/\c)\/(a/\d))\/(b/\d)) :LAD16
+|((a/\d)\/(b/\c))\/(b/\d)) :LCD17
+|(a/\d)\/((b/\c)\/(b/\d))) :LAD18
+```
+
+<br>
 
 
 <br>
