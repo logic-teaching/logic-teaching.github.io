@@ -1,0 +1,113 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 8, Section Meeting. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=9)
+
+<br>
+<br>
+
+# Combinations of arrows-statements and derived rules **with solutions**
+
+In this section meeting, we just focus on doing some simple examples of proofs in classical logic. We focus on proofs that involve combinations of arrows-statements and our derived rules.
+
+<br>
+<br>
+
+This version has the **solutions** included. It also has videos for Examples 3 and 5 (the two more difficult examples).
+
+*Example 1*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ s->~(p\/(~q\/r)),s :|-: ~p/\(~r/\q)
+|s->~(p\/(~q\/r)) :assumption
+|s :assumption
+|~(p\/(~q\/r)) :E->1,2
+|~p/\~(~q\/r) :DMAND3
+|~p/\(~~q/\~r) :DMAND4
+|~p/\(q/\~r) :DN5
+|~p/\(~r/\q) :LCC6
+```
+
+<br>
+<br>
+
+*Example 2*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a/\(b\/(c/\d)), ~((a/\c)/\d) :|-: b
+|a/\(b\/(c/\d)) :assumption
+|~((a/\c)/\d) :assumption
+|(a/\b)\/(a/\(c/\d)) :LDC1
+|(a/\(c/\d))\/(a/\b) :LCD3
+|~(a/\(c/\d)) :LAC2
+|a/\b :PDS4,5
+|b :E/\6
+```
+
+<br>
+<br>
+
+*Example 3* (Pierce's Law).
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_classical_pierce.mp4"/> </video>
+
+<br>
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+  :|-: ((p->q)->p)->p
+| ((p->q)->p) :assumption
+|  ~p :assumption
+|   p :assumption
+|   ⊥ :E~2,3
+|   q :EFSQ4
+|  p->q :I->3-5
+|  p :E->1,6
+|  ⊥ :E~2,7
+| ~~p :I~2-8
+| p :DN9
+|((p->q)->p)->p :I->1-10
+```
+
+
+
+<br>
+<br>
+
+*Example 4*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~p\/q :|-: p->q
+|~p\/q :assumption
+| p :assumption
+| ~~p :DN2
+| q :PDS1,3
+|p->q :I->2-4
+```
+
+<br>
+<br>
+
+*Example 5*.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_hard_material.mp4"/> </video>
+
+<br>
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p->q :|-: ~p\/q
+|p->q :assumption
+| p/\~q :assumption
+| p :E/\2
+| ~q :E/\2
+| q :E->1,3
+| ⊥ :E~4,5
+|~(p/\~q) :I~2-6
+|~(~~p/\~q) :DN7
+|~~(~p\/q) :DMAND8
+|~p\/q :DN9
+```
+
+<br>
+<br>
+
+This is a section notes for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=9). It is run on the Carnap software, which is an:
