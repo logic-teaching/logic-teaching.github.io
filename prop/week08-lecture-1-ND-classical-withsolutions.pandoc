@@ -117,7 +117,7 @@ Recall that we had [a long list of tautologies and equivalences](https://carnap.
 Recall that we also had a shorter list of validities from our lecture [on validities](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc). These are all now provable in our system, and we likewise add rules for them:
 
 - *Modus ponens*. $p\rightarrow q, p \vdash q$. Abbreviation: `E->`
-- *Modus tollens*. $p\rightarrow q, ~q \vdash \neg p$. Abbreviation: `MT`
+- *Modus tollens*. $p\rightarrow q, \neg q \vdash \neg p$. Abbreviation: `MT`
 - *Disjunctive syllogism*. $p\vee q, \neg p \vdash q$. Abbreviation: `PDS` (for positive disjunctive syllogism, since it starts with an initial unnegated "positive" disjunction).
 - *Disjunctive syllogism*. $\neg (p\wedge q), p \vdash \neg q$. Abbreviation: `NDS` (for negative disjunctive syllogism, since it starts with a negated conjunction).
 - *Reasoning by cases*. $p \vee q, p \rightarrow r, q \rightarrow r \vdash r$. Abbreviation: `E\/`
