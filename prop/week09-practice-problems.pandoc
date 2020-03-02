@@ -1,0 +1,40 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 9, Practice Problems. [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=10)
+
+# Week 9, Practice Problems
+
+The practice problems fall into four groups:
+
+- [Conversational implicature](#conversational-implicature)
+- [Scales](#scales)
+- [Probability](#probability)
+- [Conditional probability](#conditional-probability)
+
+<br>
+<br>
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/(q/\r)
+|
+|
+|
+|
+~~~
+
+<iframe width="211" height="135" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=80B2892796FBF873%21121&authkey=%21AO0RWnCo07W7ayY&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Sheet1'!A1%3AC5&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+
+<iframe width="311" height="177" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=80B2892796FBF873%21121&authkey=%21AO0RWnCo07W7ayY&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Sheet2'!A1%3AD7&wdInConfigurator=True"></iframe>
+
+<br>
+<br>
+
+## Commutativity and associativity
+
+
+
+<br>
+<br>
+
+This is a practice problem set for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=9). It is run on the Carnap software, which is an:
