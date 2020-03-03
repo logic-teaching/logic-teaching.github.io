@@ -3,13 +3,15 @@
 
 Logic, First Course, Winter 2020. Week 9, Lecture 1. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=10)
 
-# Pragmatics and conversational implicature
+# Pragmatics and conversational implicature **with solutions**
 
 We motivate pragmatics by examining cases of divergence between the formal notion of consequence and the intuitive notion of consequence. We define Grice's notion of conversational implicature and see how it solves some of these problems.
 
 - [Divergences](#divergences)
 - [Conversational implicature](#conversational-implicature)
 - [Revisiting divergences](#revisiting-divergences)
+
+This version has the **solutions** in it.
 
 <br>
 <br>
@@ -29,10 +31,12 @@ We saw in [Lecture 1](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-l
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  w/\s : Cameron returned from work and he fell asleep.
+|w/\s
 ~~~
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  s/\w : Cameron fell asleep and he returned from work.
+|s/\w
 ~~~
 
 But we know that the following holds, as well as the converse direction:
@@ -40,6 +44,7 @@ But we know that the following holds, as well as the converse direction:
 ```{.ProofChecker .GamutPNDPlus submission="none"}
  w/\s :|-: s/\w
 |w/\s :assumption
+|s/\w :LCC1
 ```
 Intuitively there is no entailment between the first sentence and the second sentence. For the situations in which Cameron first returns from work and then falls asleep seem to be different from the situations in which he does it the other way around.
 
@@ -85,10 +90,13 @@ In this, we use the following key:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax((Tx/\Fx)->Hx) : All tall French majors are happy.
+|Ax((Tx/\Fx)->Hx)
 ~~~
+
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex(Fx/\Tx) : Some French majors are tall.
+|Ex(Fx/\Tx)
 ~~~
 
 Intuitively, it seems that someone who asserts "All tall French majors are happy" also would intend "Some French majors are tall." However, if this entailment is guaranteed by validity, we should be able to assess it.
@@ -97,10 +105,12 @@ The first step is to translate it into something more like propositional logic. 
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ((Ta/\Fa)->Ha)/\(((Tb/\Fb)->Hb)/\((Tb/\Fb)->Hb)) : Find an equivalent of "All tall French majors are happy" in predicate logic without using a quantifier, under the hypothesis that there are only three people a,b,c.
+|((Ta/\Fa)->Ha)/\(((Tb/\Fb)->Hb)/\((Tb/\Fb)->Hb))
 ~~~
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  (Fa/\Ta)\/((Fb/\Tb)\/(Fc/\Tc)) : Find an equivalent of "Some French majors are tall" in predicate logic without using a quantifier, under the hypothesis that there are only three people a,b,c.
+|(Fa/\Ta)\/((Fb/\Tb)\/(Fc/\Tc))
 ~~~
 
 By using the following further key, we can translate into pure propositional logic:
@@ -125,6 +135,8 @@ This would be, of course, a rather long truth table. But one can quickly find a 
 ```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
  ((i/\j)->k) :|-: (j/\i)
 ```
+
+**Solution**: a row which demonstrates invalidity is any in which one of the first two letters $i,j$ is false. For instance FFF is such a row, as is FTF and FTT.
 
 Thus, "All tall French majors are happy" does *not* have as a consequence "Some French majors are tall," indicating again a divergence between the formal notion of consequence and the more intuitive notion of consequence.
 
@@ -179,6 +191,7 @@ He further broke this down into several more specific maxims:[^2]
 4. Be orderly.
 
 
+
 We can then define the key notion of conversational implicature as follows.[^3] Suppose that two people $S$ and $L$ are talking with another, where $S$ stands for the *speaker*, and $L$ stands for the *listener.* Suppose that $S$ says $p$. Then $q$ is a **conversational implicature** of $S$'s saying $p$ if:
 
 - Prior to saying this, $S$ has not violated Grice's maxims.
@@ -228,6 +241,29 @@ The triviality here pertains to the fact that the $k, o, r$ could be anything. T
 ```{.ProofChecker .GamutPNDPlus submission="none"}
  ~((j/\i)\/((n/\m)\/(q/\p)))  :|-: ((i/\j)->k)/\(((m/\n)->o)/\((p/\q)->r))
 |~((j/\i)\/((n/\m)\/(q/\p))) :assumption
+|~(j/\i)/\~((n/\m)\/(q/\p)) :DMAND1
+|~(j/\i)/\(~(n/\m)/\~(q/\p)) :DMAND2
+|~(j/\i) :E/\3
+|~(n/\m)/\~(q/\p) :E/\3
+|~(n/\m) :E/\5
+|~(q/\p) :E/\5
+| i/\j :as
+| j/\i :LCC8
+| ⊥ :E~9,4
+| k :EFSQ10
+|(i/\j)->k :I->8-11
+| m/\n :as
+| n/\m :LCC13
+| ⊥ :E~14,6
+| o :EFSQ15
+|(m/\n)->o :I->13-16
+| p/\q :as
+| q/\p :LCC18
+| ⊥ :E~19,7
+| r :EFSQ20
+|(p/\q)->r :I->18-21
+|((m/\n)->o)/\((p/\q)->r) :I/\17,22
+|((i/\j)->k)/\(((m/\n)->o)/\((p/\q)->r)) :I/\12,23
 ```
 
 However, the speaker $S$ now has asserted "All tall French majors are happy" for a trivial reason. Hence they violate the maxim of quantity since they ought to have communicated rather the trivial ground on which they believe this.
