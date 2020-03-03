@@ -212,8 +212,8 @@ In this example, Laura asks Sofia a question and Sofia responds by saying $p=(\p
 In this example, the speaker $S$ says $p$= "All tall French majors are happy." Consider $q = $ the speaker $S$ believes that "Some French majors are tall." Let's argue that $q$ is a conversational implicature of $S$'s having said $p$. For, suppose $\neg q$. Then $S$ does not believe that some French majors are tall. But then trivially "All tall French majors are happy." This is a trivial consequence, for the same reason that the following is:
 
 ```{.ProofChecker .GamutPNDPlus submission="none"}
- \neg ((j/\i)\/((n/\m)\/(q/\p)))  :|-: ((i/\j)->k)/\(((m/\n)->o)/\((p/\q)->r))
-|\neg ((j/\i)\/((n/\m)\/(q/\p))) :assumption
+ ~((j/\i)\/((n/\m)\/(q/\p)))  :|-: ((i/\j)->k)/\(((m/\n)->o)/\((p/\q)->r))
+|~((j/\i)\/((n/\m)\/(q/\p))) :assumption
 ```
 
 <br>
