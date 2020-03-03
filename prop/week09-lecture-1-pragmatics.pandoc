@@ -96,7 +96,7 @@ Intuitively, it seems that someone who asserts "All tall French majors are happy
 The first step is to translate it into something more like propositional logic. Suppose that there are only three people at our very small campus, say Angel, Briana, and Cole.
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- ((Ta/\Fa)->Ha)/\(((Tb/\Fb)->Hb)/\((Tb/\Fb)->Hb)) : Find an equivalent of "All tall French majors are happy" in predicate logic without using a quantifier, under the hypothesis that there are only three people a,b,c.
+ ((Ta/\Fa)->Ha)/\(((Tb/\Fb)->Hb)/\((Tc/\Fc)->Hc)) : Find an equivalent of "All tall French majors are happy" in predicate logic without using a quantifier, under the hypothesis that there are only three people a,b,c.
 ~~~
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}

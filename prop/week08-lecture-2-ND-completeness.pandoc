@@ -52,7 +52,7 @@ One way to convince oneself that the two notions align is by doing many examples
  p,q :|-: p/\q
 |p :assumption
 |q :assumption
-|p/\q :E->1,2
+|p/\q :I/\1,2
 ```
 
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
@@ -71,7 +71,8 @@ One way to convince oneself that the two notions align is by doing many examples
  p,~p :|-: q
 |p :assumption
 |~p :assumption
-|q :E->1,2
+|⊥ :E~1,2
+|q :EFSQ3
 ```
 
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
@@ -120,12 +121,12 @@ Consider the following four claims about an argument with premises $\phi_1, \ldo
 
 One might have the thought that
 
-- 1 intuitively implies 2 since a proof is a guarantee
-- 2 intuitively implies 3 since the guarantee in 2 pertains to truth
-- 3 intuitively implies 4 since the rows of the truth-table represent possible situations
-- 4 intuitively implies 1 since this is just the content of The Completeness Theorem
+- 1 implies 2 since a proof is a guarantee
+- 2 implies 3 since the guarantee in 2 pertains to truth
+- 3 implies 4 since the rows of the truth-table represent possible situations
+- 4 implies 1 since this is just the content of The Completeness Theorem
 
-If this is right, then the role that The Completeness Theorem plays is showing us that this the distinct concepts in 1-4 in fact align extensionally. This argument is sometimes called the "Kreisel Squeezing Argument." Kreisel thought that it was an argument *against* a view that "informal validity" was a irreparably vague notion ([p. 153 of "Informal Rigour and Completeness Proofs"](https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion].pdf):
+If this is right, then the role that The Completeness Theorem plays is showing us that this the distinct concepts in 1-4 in fact align extensionally. This argument is sometimes called the "Kreisel Squeezing Argument." Kreisel thought that it was an argument *against* a view that "informal validity" was a irreparably vague notion ([p. 153 of "Informal Rigour and Completeness Proofs"](https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion].pdf)):
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion]%20p.%20153.png" alt="Kreisel on completeness" width="600"/>
 
@@ -139,7 +140,14 @@ Suppose that someone asked you to show:
 
 <p style="margin-left: 40px"> *Example 4*. $p, p\rightarrow q, q\rightarrow r, r\rightarrow s, s\rightarrow t \vdash t$. </p>
 
-If you did it via truth-tables, then this would be a really big truth-table. It would have $2^5=32$ different rows. However, since we know that we can also assess validity via proofs, we can give a very comparatively short proof:
+If you did it via truth-tables, then this would be a really big truth-table. It would have $2^5=32$ different rows:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p, p->q, q->r, r->s, s->t :|-: t
+~~~
+
+
+However, since we know that we can also assess validity via proofs, we can give a very comparatively short proof:
 
 ```{.ProofChecker .GamutPNDPlus submission="none"}
  p, p->q, q->r, r->s, s->t :|-: t
@@ -166,7 +174,7 @@ The truth table for this is comparatively easy:
 |TFTFFFTF
 ~~~
 
-By contrast, the proof is rather challenging (it is in section this week).
+By contrast, the proof is rather challenging (it is [in section](https://carnap.io/shared/logicteaching@g.ucla.edu/week08-section-comboarrownegation-withsolutions.pandoc) this week).
 
 <br>
 
