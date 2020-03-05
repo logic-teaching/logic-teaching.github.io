@@ -1,0 +1,193 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 9, Lecture 2, Handout.
+
+
+## Assigning probabilities to rows of the truth table
+
+<p style="margin-left: 40px"> $f$ = the coin flips heads on the $f$irst flip </p>
+<p style="margin-left: 40px"> $s$ = the coin flips heads on the $s$econd flip </p>
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ f/\~s, ~f\/s
+~~~
+
+It is natural to assign probabilities to each of these outcomes. If our coin was a fair coin, we would assign probabilities as follows:
+
+*Probability assignment for fair coin*, for propositions $f$ and $s$:
+
+| 1/4 -- TT  =  Heads on first flip, heads on second flip.
+| 1/4 -- TF =  Heads on first flip, tails on second flip.
+| 1/4 -- FT  =  Tails on first flip, heads on second flip.
+| 1/4 -- FF  =  Tails on first flip, tails on second flip.
+
+<br>
+
+What is the probability of $f\wedge \neg s$?
+
+<br>
+
+What is the probability of $\neg f\vee s$?
+
+<br>
+
+<br>
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ f/\~s, ~f\/s
+~~~
+
+*Probability assignment for biased coin*, for propositions $f$ and $s$:
+
+| 1/9 -- TT  =  Heads on first flip and heads on second flip.
+| 2/9 -- TF =  Heads on first flip and tails on second flip.
+| 2/9 -- FT  =  Tails on first flip and heads on second flip.
+| 4/9 -- FF  =  Tails on first flip and tails on second flip.
+
+<br>
+
+What is the probability of $f\wedge \neg s$?
+
+<br>
+
+What is the probability of $\neg f\vee s$?
+
+<br>
+
+In general, we can summarize as follows:
+
+- A *probability assignment* assigns numbers between 0 and 1 to each row of the truth-table, so that the numbers all add up to 1.
+- One then assigns probabilities $Pr(\phi)$ to propositions $\phi$ by adding up the probabilities of all those rows at which the proposition $\phi$ is true.
+
+To illustrate, let's note that it is possible to assign a row of a truth-table probability zero. For instance, suppose we use the key
+
+<p style="margin-left: 40px"> $p$ = it is sunny on Monday </p>
+<p style="margin-left: 40px"> $q$ = it is sunny on Tuesday </p>
+
+Then we might assign probabilities as follows, since we live in a part of the world where it is very unlikely to have two days in a row that are not sunny:
+
+*Probability assignment for an agent's degrees of belief about the weather*, for propositions $p$ and $q$:
+
+| 3/5 -- TT  =  It is sunny on Monday and it is sunny on Tuesday.
+| 1/5 -- TF =  It is sunny on Monday and it is not sunny on Tuesday.
+| 1/5 -- FT  =  It is not sunny on Monday and it is sunny on Tuesday.
+| 0 -- FF  =  It is not sunny on Monday and it is not sunny on Tuesday.
+
+<br>
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q,  p/\~q
+~~~
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is Pr(p->q), relative to the agent's degrees of belief about the weather?
+| 1/5
+| 2/5
+| 3/5
+| *4/5
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is Pr(p/\~q), relative to the agent's degrees of belief about the weather?
+| *1/5
+| 2/5
+| 3/5
+| 4/5
+```
+
+<br>
+
+## The rules of probability
+
+
+- First rule: $0\leq Pr(\phi)\leq 1$
+- Second rule: if $\phi$ is a tautology, then $Pr(\phi)=1$.
+- Third rule: $Pr(\neg \phi)=1-Pr(\phi)$.
+- Fourth rule: $Pr(\phi \vee \psi)= Pr(\phi)+Pr(\psi)-Pr(\phi\wedge \psi)$
+
+
+*Example 1*. Suppose that $Pr(p)=.4$ and $Pr(q)=.5$ and $Pr(p\wedge q)=.2$. What is $Pr(p\vee q)$?
+
+<br>
+<br>
+<br>
+
+*Example 2*. Suppose that $Pr(p)=.3$ and $Pr(q)=.2$ and $Pr(p\vee q)=.45$. What is $Pr(p\wedge q)$?
+
+<br>
+<br>
+<br>
+
+*Example 3*. Suppose that $Pr(p)=.3$ and $Pr(q)=.2$ and $Pr(\neg p\wedge \neg q)=.5$. What is $Pr(\neg p\vee \neg q)$?
+
+<br>
+<br>
+<br>
+
+## Connections between probability and logic
+
+
+- If $\phi\rightarrow \psi$ is a tautology, then $Pr(\phi)\leq Pr(\psi)$.
+- If $\phi$ and $\psi$ are equivalent, then $Pr(\phi)=Pr(\psi)$.
+
+
+*Example 4*. Show that $Pr(\phi\wedge (\psi\vee \xi))= Pr(\phi \wedge \psi)+Pr(\phi\wedge \xi)- Pr(\phi \wedge (\psi\wedge \xi))$.
+
+<br>
+<br>
+<br>
+
+One can check the equivalence mentioned at the end of this video by doing a truth-table like follows:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ (p/\q)/\(p/\r), p/\(q/\r)
+~~~
+
+One can calso check the equivalence by doing two simple proofs:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+   (p/\q)/\(p/\r) :|-: p/\(q/\r)
+|(p/\q)/\(p/\r) :assumption
+```
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+   p/\(q/\r) :|-: (p/\q)/\(p/\r)
+|p/\(q/\r) :assumption
+```
+
+<br>
+<br>
+<br>
+
+*Example 5*. Show that $Pr(\phi \vee (\psi\vee \xi))=Pr(\phi)+Pr(\psi)+Pr(\xi)-Pr(\phi\wedge \psi)-Pr(\psi\wedge \xi)-Pr(\phi\wedge \xi) +Pr(\varphi\wedge (\psi\wedge \xi))$.
+
+<br>
+<br>
+<br>
+
+This is a special case of the so-called 'Inclusion-Exclusion' formula.
+
+<br>
+
+*Example 6*. Let us verify this formula, in a specific case. Consider the following truth-table, which we complete just like in Week 1 (the commas separating the formulas is just a way for us to write many truth-tables in one box):
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/(q\/r), p/\q, q/\r, p/\r, p/\(q/\r)
+~~~
+
+Suppose that each of the rows is weighted equally, that is each has equal chance of happening, namely a 1/8 chance of happening.
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=10).[^2]
+
+
+[^2]:It is run on the Carnap software, which is

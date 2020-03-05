@@ -227,11 +227,25 @@ One can calso check the equivalence by doing two simple proofs:
 ```{.ProofChecker .GamutPNDPlus submission="none"}
    (p/\q)/\(p/\r) :|-: p/\(q/\r)
 |(p/\q)/\(p/\r) :assumption
+|(p/\q) :E/\1
+|p :E/\2
+|q :E/\2
+|p/\r :E/\1
+|r :E/\5
+|q/\r :I/\4,6
+|p/\(q/\r) :I/\3,7
 ```
 
 ```{.ProofChecker .GamutPNDPlus submission="none"}
    p/\(q/\r) :|-: (p/\q)/\(p/\r)
 |p/\(q/\r) :assumption
+|p :E/\1
+|q/\r :E/\1
+|q :E/\3
+|r :E/\3
+|p/\q :I/\2,4
+|p/\r :I/\2,5
+|(p/\q)/\(p/\r) :I/\6,7
 ```
 
 <br>

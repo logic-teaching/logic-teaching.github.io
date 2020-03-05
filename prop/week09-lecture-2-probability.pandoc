@@ -166,20 +166,20 @@ These rules save us from essentially redoing several calculations with truth-tab
 
 *Example 1*. Suppose that $Pr(p)=.4$ and $Pr(q)=.5$ and $Pr(p\wedge q)=.2$. What is $Pr(p\vee q)$?
 
-<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-1.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-1-redeux.mp4"/> </video>
 
 <br>
 
 *Example 2*. Suppose that $Pr(p)=.3$ and $Pr(q)=.2$ and $Pr(p\vee q)=.45$. What is $Pr(p\wedge q)$?
 
-<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-2.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-2-redeux.mp4"/> </video>
 
 <br>
 
 
 *Example 3*. Suppose that $Pr(p)=.3$ and $Pr(q)=.2$ and $Pr(\neg p\wedge \neg q)=.5$. What is $Pr(\neg p\vee \neg q)$?
 
-<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-4.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-3-redeux.mp4"/> </video>
 
 <br>
 
@@ -196,7 +196,7 @@ As a simple application of this, consider the following:
 
 *Example 4*. Show that $Pr(\phi\wedge (\psi\vee \xi))= Pr(\phi \wedge \psi)+Pr(\phi\wedge \xi)- Pr(\phi \wedge (\psi\wedge \xi))$.
 
-<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-4.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-4-redeux.mp4"/> </video>
 
 One can check the equivalence mentioned at the end of this video by doing a truth-table like follows:
 
@@ -220,7 +220,7 @@ One can calso check the equivalence by doing two simple proofs:
 
 *Example 5*. Show that $Pr(\phi \vee (\psi\vee \xi))=Pr(\phi)+Pr(\psi)+Pr(\xi)-Pr(\phi\wedge \psi)-Pr(\psi\wedge \xi)-Pr(\phi\wedge \xi) +Pr(\varphi\wedge (\psi\wedge \xi))$.
 
-<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-5.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-5-redeux.mp4"/> </video>
 
 This is a special case of the so-called 'Inclusion-Exclusion' formula.
 
