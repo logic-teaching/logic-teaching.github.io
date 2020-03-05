@@ -107,7 +107,9 @@ Then we might assign probabilities as follows, since we live in a part of the wo
 | 1/5 -- FT  =  It is not sunny on Monday and it is sunny on Tuesday.
 | 0 -- FF  =  It is not sunny on Monday and it is not sunny on Tuesday.
 
-Unlike in the previous cases about coins, here there are no "rules" which tell one how to get the precise numbers. Rather, we simply take this as given as part of the problem-- for instance, as the title suggests, we might take the numbers to be reflective of an agent's degrees of belief in the propositions. The view that probabilities are reflective of the degrees of beliefs of agents is called *Bayesianism* in philosophy. To give a feel for it, here is the opening pages of Jeffrey's *Subjective Probability* book:
+Unlike in the previous cases about coins, here there are no "rules" which tell one how to get the precise numbers. Rather, we simply take this as given as part of the problem-- for instance, as the title suggests, we might take the numbers to be reflective of an agent's degrees of belief in the propositions. The view that probabilities are reflective of the degrees of beliefs of agents is called *Bayesianism* in philosophy. To give a feel for it, here is the opening pages of Jeffrey's *Subjective Probability* book:[^1]
+
+[^1]: [Jeffrey, Richard. 2004. Subjective Probability: The Real Thing. Cambridge University Press.](https://www.princeton.edu/~bayesway/Book*.pdf)
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_4.442.png" alt="Tractatus 4.442" width="300"/> &nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/prop/texts/Jeffrey%20Subjective%20Probability%20p.%203.png" alt="Jeffrey Subjective Probability" width="300"/>
 
