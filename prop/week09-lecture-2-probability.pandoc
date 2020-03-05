@@ -5,8 +5,6 @@ Logic, First Course, Winter 2020. Week 9, Lecture 2. [Back to course website](ht
 
 # Probability
 
-
-
 - [Deduction vs induction](#deduction-vs-induction)
 - [Assigning probabilities to rows of the truth table](#Assigning-probabilities-to-rows-of-the-truth-table)
 - [The probability axioms](#the-probability-axioms)
@@ -168,20 +166,20 @@ These rules save us from essentially redoing several calculations with truth-tab
 
 *Example 1*. Suppose that $Pr(p)=.4$ and $Pr(q)=.5$ and $Pr(p\wedge q)=.2$. What is $Pr(p\vee q)$?
 
-INSERT MOVIE
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-1.mp4"/> </video>
 
 <br>
 
 *Example 2*. Suppose that $Pr(p)=.3$ and $Pr(q)=.2$ and $Pr(p\vee q)=.45$. What is $Pr(p\wedge q)$?
 
-INSERT MOVIE
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-2.mp4"/> </video>
 
 <br>
 
 
 *Example 3*. Suppose that $Pr(p)=.3$ and $Pr(q)=.2$ and $Pr(\neg p\wedge \neg q)=.5$. What is $Pr(\neg p\vee \neg q)$?
 
-INSERT MOVIE
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-4.mp4"/> </video>
 
 <br>
 
@@ -198,13 +196,62 @@ As a simple application of this, consider the following:
 
 *Example 4*. Show that $Pr(\phi\wedge (\psi\vee \xi))= Pr(\phi \wedge \psi)+Pr(\phi\wedge \xi)- Pr(\phi \wedge (\psi\wedge \xi))$.
 
-INSERT MOVIE
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-4.mp4"/> </video>
+
+One can check the equivalence mentioned at the end of this video either by doing a truth-table like follows:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ (p/\q)/\(p/\r), p/\(q/\r)
+~~~
+
+or by doing two proofs:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+   (p/\q)/\(p/\r) :|-: p/\(q/\r)
+|(p/\q)/\(p/\r) :assumption
+```
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+   p/\(q/\r) :|-: (p/\q)/\(p/\r)
+|p/\(q/\r) :assumption
+```
 
 <br>
 
 *Example 5*. Show that $Pr(\phi \vee (\psi\vee \xi))=Pr(\phi)+Pr(\psi)+Pr(\xi)-Pr(\phi\wedge \psi)-Pr(\psi\wedge \xi)-Pr(\phi\wedge \xi) +Pr(\varphi\wedge (\psi\wedge \xi))$.
 
-INSERT MOVIE
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/probability-example-5.mp4"/> </video>
+
+This is a special case of the so-called 'Inclusion-Exclusion' formula.
+
+<br>
+
+*Example 6*. Let us verify this formula, in a specific case. Consider the following truth-table, which we complete just like in Week 1 (the commas separating the formulas is just a way for us to write many truth-tables in one box):
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/(q\/r), p/\q, q/\r, p/\r, p/\(q/\r)
+~~~
+
+Suppose that each of the rows is weighted equally, that is each has equal chance of happening, namely a 1/8 chance of happening.
+
+Then one can directly calculate
+
+- Pr(p\/(q\/r))=7/8
+- Pr(p)=4/8
+- Pr(q)= 4/8
+- Pr(r)= 4/8
+- Pr(r)= 4/8
+- Pr(p/\q) = 2/8
+- Pr(q/\r) = 2/8
+- Pr(p/\r) = 2/8
+- Pr(p/\(q/\r)) = 1/8
+
+To verify the formula from Example 5, we just need to check that
+
+- 7/8 = 4/8+4/8+4/8-2/8-2/8-2/8+1/8
+
+and as one quickly sees, this is in fact the case.
+
 
 <br>
 <br>
