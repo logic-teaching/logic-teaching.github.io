@@ -3,15 +3,18 @@
 
 Logic, First Course, Winter 2020. Week 9, Lecture 2. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=10)
 
-# Probability
+# Probability **with solutions**
 
 - [Deduction vs induction](#deduction-vs-induction)
 - [Assigning probabilities to rows of the truth table](#Assigning-probabilities-to-rows-of-the-truth-table)
 - [The rules of probability](#the-rules-of-probability)
 - [Connections between probability and logic](#connections-between-probability-and-logic)
 
+This verison just has the **solutions** written into it. It does *not* fill out the really big truth-tables.
+
 <br>
 <br>
+
 
 ## Deduction vs induction
 
@@ -30,16 +33,22 @@ Of course, we are thinking of the coin as a normal two-sided coin, with two side
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
   f/\~s : The coin flipped heads on the first slip and tails on the second flip.
+|f/\~s
 ~~~
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
   ~f\/s : The coin flipped tails on the first flip or heads on the second flip.
+|~f\/s
 ~~~
 
 And we could calculate the truth-values of these as normal (the commas separating the two formulas is just a way for us to write two truth-tables in one box):
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  f/\~s, ~f\/s
+|TFFTFTTT
+|TTTFFTFF
+|FFFTTFTT
+|FFTFTFTF
 ~~~
 
 But recall [what the rows of a truth-table represent](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-lecture1-connectives.pandoc#how-to-read-the-rows-and-columns): they represent possible outcomes or situations. Hence, a more descriptive presentation of the four rows would be:
@@ -115,6 +124,10 @@ For some more practice, let us fill out the following truth-table (the commas se
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  p->q,  p/\~q
+|TTTTFFT
+|TFFTTTF
+|FTTFFFT
+|FTFFFTF
 ~~~
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
@@ -122,16 +135,21 @@ For some more practice, let us fill out the following truth-table (the commas se
 | 1/5
 | 2/5
 | 3/5
-| *4/5
+| +4/5
 ```
+
+The **solution** is 4/5 because p->q is true at rows TT and FT and FF, and these have probabilities 3/5 and 1/5 and 0 respectively, which sum up to 4/5.
+
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
  What is Pr(p/\~q), relative to the agent's degrees of belief about the weather?
-| *1/5
+| +1/5
 | 2/5
 | 3/5
 | 4/5
 ```
+
+The **solution** is 1/5 since p/\~q is true at only one row, namely TF, and this row has probability 1/5.
 
 <br>
 
