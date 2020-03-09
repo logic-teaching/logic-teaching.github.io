@@ -30,7 +30,11 @@ Each of these problems asks you to do a proof in the Week 6 deductive system. Th
 |(a/\b)/\c :assumption
 ```
 
+
+
 <br>
+
+<P style="page-break-before: always">
 
 *Example 2*.
 
@@ -43,6 +47,8 @@ Each of these problems asks you to do a proof in the Week 6 deductive system. Th
 
 <br>
 
+<P style="page-break-before: always">
+
 *Example 3*.
 
 ```{.ProofChecker .GamutMPND submission="none"}
@@ -51,6 +57,8 @@ Each of these problems asks you to do a proof in the Week 6 deductive system. Th
 ```
 
 <br>
+
+<P style="page-break-before: always">
 
 *Example 4*.
 
@@ -62,7 +70,8 @@ Each of these problems asks you to do a proof in the Week 6 deductive system. Th
 ```
 
 <br>
-<br>
+
+<P style="page-break-before: always">
 
 *Example 5*.
 
@@ -75,6 +84,8 @@ Each of these problems asks you to do a proof in the Week 6 deductive system. Th
 
 <br>
 <br>
+
+<P style="page-break-before: always">
 
 ## Week 7 problems
 
@@ -93,6 +104,8 @@ Each of these problems asks you to do a proof in the Week 7 deductive system. Th
 
 <br>
 
+<P style="page-break-before: always">
+
 *Example 7*.
 
 ```{.ProofChecker .GamutIPND submission="none"}
@@ -104,6 +117,7 @@ Each of these problems asks you to do a proof in the Week 7 deductive system. Th
 
 <br>
 
+<P style="page-break-before: always">
 
 *Example 8*.
 
@@ -116,6 +130,8 @@ Each of these problems asks you to do a proof in the Week 7 deductive system. Th
 
 <br>
 
+<P style="page-break-before: always">
+
 *Example 9*.
 
 ```{.ProofChecker .GamutIPND submission="none"}
@@ -125,6 +141,8 @@ Each of these problems asks you to do a proof in the Week 7 deductive system. Th
 ```
 
 <br>
+
+<P style="page-break-before: always">
 
 *Example 10*.
 
@@ -136,6 +154,7 @@ Each of these problems asks you to do a proof in the Week 7 deductive system. Th
 <br>
 <br>
 
+<P style="page-break-before: always">
 
 ## Week 8 problems
 
@@ -161,6 +180,8 @@ These problems pertain to the Week 8 deductive system. Remember that the Week 8 
 
 <br>
 
+<P style="page-break-before: always">
+
 *Example 13*.
 
 ```{.ProofChecker .GamutPNDPlus submission="none"}
@@ -169,6 +190,8 @@ These problems pertain to the Week 8 deductive system. Remember that the Week 8 
 |(~a\/(~b\/(~c\/~d)))->e :assumption
 ```
 <br>
+
+<P style="page-break-before: always">
 
 *Example 14*.
 
@@ -181,6 +204,8 @@ These problems pertain to the Week 8 deductive system. Remember that the Week 8 
 
 <br>
 
+<P style="page-break-before: always">
+
 *Example 15*.
 
 
@@ -188,6 +213,8 @@ These problems pertain to the Week 8 deductive system. Remember that the Week 8 
  ((a/\(b\/c))/\~c) :|-: b
 |((a/\(b\/c))/\~c) :assumption
 ```
+
+<P style="page-break-before: always">
 
 *Example 16*.
 
