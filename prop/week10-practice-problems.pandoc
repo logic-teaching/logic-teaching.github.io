@@ -13,7 +13,9 @@ These practice problems are intended to be a practice exam. Hence, they fall int
 - [Week 8 problems](#week-8-problems)
 - [Week 9 problems](#week-9-problems)
 
-Before you begin, you might consider printing a copy either to work out by hand as you go along, or to work with on a tablet. A nice pdf of this page is [INSERT]().
+Before you begin, you might consider printing a copy either to work out by hand as you go along, or to work with on a tablet. A nice pdf of this page is [here](https://drive.google.com/open?id=1IClQHchYSq3oAU7qRoZjk0XFS4fUFpVT).
+
+Please keep in mind that on the exam, there will be ample partial credit given for proofs. Hence, even if you don't get all the way done with the proof, try to get as much of it done as you can. Further, the proofs on the exam will be minor variations of the proofs which we are doing in this practice set and the other practice that we are doing in Week 10 (in lecture 2 of Week 10 and in the homework).
 
 <br>
 
@@ -158,7 +160,8 @@ Each of these problems asks you to do a proof in the Week 7 deductive system. Th
 
 ## Week 8 problems
 
-These problems pertain to the Week 8 deductive system. Remember that the Week 8 deductive system has rules built in for modus tollens (MT), double-negation (DN) commutativity (LCC, LCD), associativity (LAC, LAD), distribution (LDC, LCDD), distribution (LDC, LDD), and disjunctive syllogism (PDS, NDS). Also keep in mind that the strategy for the Week 8 deductive system is to look for patterns associated to these rules, as opposed to following the main connectives like we did in Weeks 6-7.
+These problems pertain to the Week 8 deductive system. Remember that the Week 8 deductive system has rules built in for modus tollens (MT), law of excluded middle (LEM), law of non-contradiction (LNC), double-negation (DN) commutativity (LCC, LCD), associativity (LAC, LAD), distribution (LDC, LCDD), distribution (LDC, LDD), and disjunctive syllogism (PDS, NDS). Also keep in mind that the strategy for the Week 8 deductive system is to look for patterns associated to these rules, as opposed to following the main connectives like we did in Weeks 6-7.
+
 
 <br>
 
