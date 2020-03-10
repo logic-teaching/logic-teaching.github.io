@@ -111,7 +111,7 @@ The justification for Bayes' theorem just goes through the commutativity of conj
 
 ## Bayes' theorem when the hypothesis implies the evidence
 
-One traditional application of Bayes' theorem is when $h\vdash e$, or equivalently when $h\rightarrow e$ is a tautology (see [the Deduction Theorem](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#deduction-theorem)). This is the situation we are often in when we are trying to test a scientific hypothesis: we deduce that if the hypothesis $h$ is true, then $e$ is true. Further, there being a deduction of $h\rightarrow e$ implies that $e\wedge h$ is equivalent to $e$, as one can quickly check:
+One traditional application of Bayes' theorem is when $h\vdash e$, or equivalently when $h\rightarrow e$ is a tautology (see [the Deduction Theorem](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#deduction-theorem)). This is the situation we are often in when we are trying to test a scientific hypothesis: we deduce that if the hypothesis $h$ is true, then $e$ is true. Further, there being a deduction of $h\rightarrow e$ implies that $e\wedge h$ is equivalent to $h$, as one can quickly check:
 
 ```{.ProofChecker .GamutPNDPlus submission="none"}
  h->e :|-: h->(h/\ e)
@@ -119,7 +119,7 @@ One traditional application of Bayes' theorem is when $h\vdash e$, or equivalent
 ```
 
 ```{.ProofChecker .GamutPNDPlus submission="none"}
- :|-: (h/\ e)->e
+ :|-: (h/\ e)->h
 ```
 Hence if $h\rightarrow e$ is a tautology, then $Pr(e\wedge h) =Pr(h)$ by [the connections between probability and logic](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-2-probability.pandoc#connections-between-probability-and-logic), and thus
 
