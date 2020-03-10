@@ -1,0 +1,214 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 10, Lecture 1, Handout.
+
+## Definition
+
+The conditional probability of $h$ given $e$, written $Pr(h\mid e)$, is defined as the fraction of $Pr(h\wedge e)$ over $Pr(e)$:
+
+<br>
+<br>
+
+
+## Examples
+
+Let us illustrate this with respect to the following, where we suppose that all rows have an equal chance of happening, namely a 1/4 chance of happening:
+
+<br>
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (p/\q)/\(p\/q), p/\(p\/q)
+~~~
+
+<br>
+
+*Example 1*. Let us calculate $Pr(p\wedge q\mid p\vee q)$.
+
+<br>
+<br>
+
+<br>
+<br>
+
+*Example 2*. Let us calculate $Pr(p\vee q\mid p\wedge q)$.
+
+<br>
+<br>
+
+<br>
+<br>
+
+*Example 3*. Let us calculate $Pr(p\mid p\vee q)$.
+
+<br>
+<br>
+
+<br>
+<br>
+
+*Example 4*. Let us calculate $Pr(p\vee q\mid p)$.
+
+<br>
+<br>
+
+<br>
+<br>
+
+Here is a technique to slightly speed such calculations up. First, we know that $(p\wedge q)\wedge (p\vee q)$ is equivalent to $p\wedge q$:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (p/\q)/\(p\/q)  :|-: p/\q
+|(p/\q)/\(p\/q) :assumption
+```
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p/\q  :|-: (p/\q)/\(p\/q)
+|p/\q :assumption
+```
+Hence . . .
+
+<br>
+<br>
+
+## Bayes' theorem
+
+Formally, Bayes' theorem is just the following identity, whose parts we abbreviate as follows:
+
+<br>
+<br>
+
+<br>
+<br>
+
+The names for these parts are as follows, along with their intuitive meaning:
+
+- $Pr(h\mid e)$ is just the conditional probability of the hypothesis $h$ given the evidence $e$. This is how likely the hypothesis $h$ is made by observation of the evidence $e$.
+- $Pr(e\mid h)$ is the *likelihood*: this the conditional probability of the evidence given the hypothesis $h$. This is how likely the evidence is, given that we assume the hypothesis. More intuitively still, it is how likely the evidence is by the lights of the hypothesis.
+- $Pr(h)$ is the *prior* probability: it is how probable hypothesis $h$ is full stop, and not conditional on any other proposition.
+- $Pr(e)$ is the probability of the evidence: it is how probable the evidence $e$ is full stop, and not conditional on any other proposition.
+
+The justification for Bayes' theorem just goes through the commutativity of conjunction and the definition of conditional probability:
+
+<br>
+<br>
+
+<br>
+<br>
+
+## Bayes' theorem when the hypothesis implies the evidence
+
+One traditional application of Bayes' theorem is when $h\vdash e$, or equivalently when $h\rightarrow e$ is a tautology (see [the Deduction Theorem](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#deduction-theorem)).
+
+Further, there being a deduction of $h\rightarrow e$ implies that $e\wedge h$ is equivalent to $e$, as one can quickly check:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ h->e :|-: h->(h/\ e)
+|h->e :assumption
+```
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ :|-: (h/\ e)->e
+```
+Hence if $h\rightarrow e$ is a tautology, then $Pr(e\wedge h) =Pr(h)$ by [the connections between probability and logic](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-2-probability.pandoc#connections-between-probability-and-logic), and thus
+
+<br>
+<br>
+
+<br>
+<br>
+
+
+This implies that if $h\rightarrow e$ is a tautology, then the conditional probability is just the fraction of the prior probability over the probability of the evidence:
+
+<br>
+<br>
+
+<br>
+<br>
+
+Further, recall from [the connections between probability and logic](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-2-probability.pandoc#connections-between-probability-and-logic) that if $h\rightarrow e$ is a tautology, then $Pr(h)\leq Pr(e)\leq 1$.
+
+This has two immediate consequences:
+
+- If $Pr(e)$ is as low as possible, namely close to $Pr(h)$, then $Pr(h\mid e)$ is close to one and so high as possible. Hence, updating on evidence $e$ whose probability is as low as possible makes the conditional probability $Pr(h\mid e)$ as high as possible.
+- If $Pr(e)$ is as high as possible, namely close to $1$, then $Pr(h\mid e)$ is close to $Pr(h)$ and thus as low as possible. Hence, updating on evidence $e$ whose probability is as high as possible makes the conditional probability $Pr(h\mid e)$ as low as possible.
+
+
+<br>
+<br>
+
+## Revisiting affirming the consequent
+
+Recall the fallacy of [affirming the consequent](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#the-invalid-argument-of-affirming-the-consequent):
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ h->e, e :|-: h
+~~~
+
+This is a paradigmatic example of an invalid argument. But we noted that [invalid arguments can be good in other ways](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#invalid-arguments-can-be-good-in-other-ways). For instance, when take
+
+<p style="margin-left: 40px"> $h$ = it is raining </p>
+<p style="margin-left: 40px"> $e$ = the sidewalks are wet </p>
+
+then the argument actually seems very reasonable: since you know that rain makes the sidewalks wet, if you observed the sidewalks being wet, you might think it likely to be true that it is raining.
+
+The assessment that the truth of $e$ makes $h$ more likely is predicted by the apparatus of conditional probability. For, it is something like a tautology that rain makes the sidewalks wet-- this has something to do with the meaning of "rain" and "sidewalks" and knowledge of the environment we live in. Then one has that $P(h|e)$ is $P(h)$ divided by $P(e)$. And if e.g. $Pr(h)=1/3$ and $Pr(e)=2/3$ then . . . .
+
+<br>
+<br>
+
+## Revisiting the paradoxes of the material conditional
+
+Stated in terms of proofs, one of the [paradoxes of the material conditional](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture2-soundness.pandoc#arguing-for-or-against-a-conditional) which C.I. Lewis drew attention to were:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ q :|-: p->q
+|q :assumption
+```
+
+C.I. Lewis thought this was implausible because of
+
+<p style="margin-left: 40px"> $q$ = New Year's is coming </p>
+<p style="margin-left: 40px"> $p$ = Rome is still burning </p>
+
+Maybe [Grice's notion of conversational implicature](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-1-pragmatics.pandoc#conversational-implicature) has some role to play here. For instance, maybe the idea would be that when the speaker says $p\rightarrow q$, they conversationally implicate that they do not believe the deductively stronger $q$. But that cannot be the whole story. For we all believe that New Year's is coming but few of us believe "if Rome is still burning then New Year's is coming."
+
+One explanation of this is to note that since $q\vdash p\rightarrow q$, then by the [the connections between probability and logic](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-2-probability.pandoc#connections-between-probability-and-logic) we have:
+
+<br>
+<br>
+
+<br>
+<br>
+
+Again, this seems implausible if probability is degrees of belief. For, again, we all like that it is likely that New Year's is coming but few think it likely that "if Rome is still burning then New Year's is coming."
+
+However, perhaps what has gone wrong is that we have simply misidentified the meaning of "if . . . then . . . " Perhaps when we are asserting "if p then q" we are not asserting the truth (or high probability) of p->q, but rather we are asserting that the probability of p conditional on q is high.
+
+And then one can note that it is not in general true that:
+
+<br>
+<br>
+
+<br>
+<br>
+
+For instance, if $Pr(p)=3/4$ and $Pr(q)=3/4$ and $Pr(p\wedge q)=1/4$, then
+
+<br>
+<br>
+
+<br>
+<br>
+
+
+Hence if assertions of "if  . . . then . . . " statements were expressions of conditional probability, then we would not have that $q$ makes "if $p$ then $q$" likely. Exploring this proposal is an active area within contemporary philosophy and logic.[^1]
+
+
+<br>
+<br>
+
+These is a handout written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=11).[^2]
+
+[^2]:It is run on the Carnap software, which is
