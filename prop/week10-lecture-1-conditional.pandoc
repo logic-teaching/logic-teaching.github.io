@@ -1,0 +1,36 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 10, Lecture 1. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=11)
+
+# Conditional Probability
+
+- [Definition and examples](#definition-and-examples)
+- [Bayes' theorem](#bayes-theorem)
+- [Implication as conditional probability](implication–as-conditional-probability)
+
+<br>
+<br>
+
+## Definition and examples
+
+The conditional probability of $\varphi$ given $\psi$ is $Pr(\varphi|\psi) = \frac{Pr(\varphi\wedge \psi)}{Pr(\psi)}$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/q, p/\q
+~~~
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=10).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
