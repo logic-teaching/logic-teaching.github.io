@@ -14,14 +14,34 @@ Logic, First Course, Winter 2020. Week 10, Lecture 1. [Back to course website](h
 
 ## Definition and examples
 
-The conditional probability of $\varphi$ given $\psi$ is $Pr(\varphi|\psi) = \frac{Pr(\varphi\wedge \psi)}{Pr(\psi)}$.
+The conditional probability of $\varphi$ given $\psi$ is
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditional.mp4"/> </video>
+
+Let us illustrate this with respect to the following, where we suppose that all rows have an equal chance of happening, namely a 1/4 chance of happening:
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
- p\/q, p/\q
+ (p/\q)/\(p\/q), p/\(p\/q)
 ~~~
 
 
+*Example 1*. Let us calculate $Pr(p\wedge q\mid p\vee q)$.
 
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex1.mp4"/> </video>
+
+*Example 2*. Let us calculate $Pr(p\vee q\mid p\wedge q)$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex2.mp4"/> </video>
+
+
+*Example 3*. Let us calculate $Pr(p\mid p\vee q)$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex3.mp4"/> </video>
+
+
+*Example 4*. Let us calculate $Pr(p\vee q\mid p)$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex4.mp4"/> </video>
 
 
 <br>
