@@ -14,34 +14,63 @@ Logic, First Course, Winter 2020. Week 10, Lecture 1. [Back to course website](h
 
 ## Definition and examples
 
-The conditional probability of $\varphi$ given $\psi$ is
+The conditional probability of $\varphi$ given $\psi$, written $Pr(\phi\mid \psi)$, is defined as the fraction of $Pr(\phi\wedge \psi)$ over $Pr(\psi)$:
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditional.mp4"/> </video>
 
 Let us illustrate this with respect to the following, where we suppose that all rows have an equal chance of happening, namely a 1/4 chance of happening:
 
+<br>
+
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  (p/\q)/\(p\/q), p/\(p\/q)
 ~~~
 
+<br>
 
 *Example 1*. Let us calculate $Pr(p\wedge q\mid p\vee q)$.
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex1.mp4"/> </video>
 
+<br>
+
 *Example 2*. Let us calculate $Pr(p\vee q\mid p\wedge q)$.
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex2.mp4"/> </video>
 
+In this problem `LCC` is just our [familiar abbreviation](https://carnap.io/shared/logicteaching@g.ucla.edu/week08-lecture-1-ND-classical.pandoc#other-derived-rules) for the law of commutativity of conjunction. We can do this inside the probability operator due to the [the connections between probability and logic](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-2-probability.pandoc#connections-between-probability-and-logic).
+
+<br>
 
 *Example 3*. Let us calculate $Pr(p\mid p\vee q)$.
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex3.mp4"/> </video>
 
+<br>
 
 *Example 4*. Let us calculate $Pr(p\vee q\mid p)$.
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex4.mp4"/> </video>
+
+<br>
+
+There is a technique to speed such calculations up. First, we know that $(p\wedge q)\wedge (p\vee q)$ is equivalent to $p\wedge q$:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (p/\q)/\(p\/q)  :|-: p/\q
+|(p/\q)/\(p\/q) :assumption
+```
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p/\q  :|-: (p/\q)/\(p\/q)
+|p/\q :assumption
+```
+Hence, we know from [the connections between probability and logic](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-2-probability.pandoc#connections-between-probability-and-logic) that their $Pr((p\wedge q)\wedge (p\vee q))=Pr(p\wedge q)$. This is useful because we could have probably just seen that $Pr(p\wedge q)$ has probability 1/4, without having had to do the truth-table up above. For instance, Example 1 done in this way would look like:
+
+*Example 1 again*. Let us calculate $Pr(p\wedge q\mid p\vee q)$ slightly faster, in that we probably do not have to look back up at the truth-table again to complete it:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex1.mp4"/> </video>
+
 
 
 <br>
