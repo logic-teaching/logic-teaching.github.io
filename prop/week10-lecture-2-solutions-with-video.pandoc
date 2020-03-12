@@ -37,7 +37,7 @@ Each of these problems asks you to do a proof in the Week 6 deductive system. Th
 
 The idea behind the **solution** in Example 1 is just to apply conjunction elimination as much as you can, and then to apply disjunction introduction.
 
-Here is a video of me solving the problem:
+Here is a video of me solving the problem (note the video comes with *audio*):
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex1.mp4"/> </video>
 
@@ -60,7 +60,7 @@ Here is a video of me solving the problem:
 
 The idea behind the **solution** in Example 2 is just to apply iterations of arrow elimination (aka modus ponens) and conjunction elimination.
 
-Here is a video of me solving the problem:
+Here is a video of me solving the problem (note the video comes with *audio*):
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex2.mp4"/> </video>
 
@@ -88,7 +88,7 @@ Here is a video of me solving the problem:
 
 The idea behind the **solution** in Example 3 is you want to prove an arrow statement `(a/\b)->(d/\e)`. You should be *sketching out* the proof on a sheet of paper before you begin. Put `(a/\b)->(d/\e)` down at the bottom of your page. Then get this by doing a bracket with `(a/\b)` at the top and `(d/\e)` at the bottom. Inside the bracket, you do the normal elimination of conjunction and arrow.
 
-Here is a video of me solving the problem:
+Here is a video of me solving the problem (note the video comes with *audio*):
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex3.mp4"/> </video>
 
@@ -114,7 +114,7 @@ Here is a video of me solving the problem:
 
 The idea behind the **solution** in Example 4 is you want to prove an arrow statement `(a/\b)->(c/\d)`. Hence, you try to go from `a/\b` to `c/\d` inside brackets. But `a/\b` implies `a\/b`. Then one can get to `c/\d` by applying arrow elimination.
 
-Here is a video of me solving the problem:
+Here is a video of me solving the problem (note the video comes with *audio*):
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex4.mp4"/> </video>
 
@@ -145,7 +145,7 @@ Here is a video of me solving the problem:
 
 The idea behind the **solution** in Example 5 is that it is a disjunction elimination. As usual, the best strategy is to form two arrow statements that say that the two disjuncts individually imply the conclusion. In this case, it is `a->e` and `b->e`. Then one just notes that these two arrows can be formed respectively from the premises `a->c` and `c->e`, as well as `b->d` and `d->e`. This is slightly challenging to see because the premises are not written in this order, but rather as `c->e` and `a->c`, as well as `d->e` and `b->d`.
 
-Here is a video of me solving the problem:
+Here is a video of me solving the problem (note the video comes with *audio*):
 
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex5.mp4"/> </video>
 
