@@ -174,6 +174,11 @@ Each of these problems asks you to do a proof in the Week 7 deductive system. Th
 
 The idea of the **solution** to Example 6 is that one wants to get `~(a/\b)`, and so one needs to introduce the main connective of negation. This then involves going from `a/\b` to falsum in a bracket. But from `a/\b` you get `a`, and this and the premise `~a` get you falsum.
 
+Here is a video of me solving the problem (note the video comes with *audio*):
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex6.mp4"/> </video>
+
+
 <br>
 
 <P style="page-break-before: always">
@@ -192,6 +197,11 @@ The idea of the **solution** to Example 6 is that one wants to get `~(a/\b)`, an
 ```
 
 The idea behind the **solution** to Example 7 is that you want to get the arrow statement `~c->~(a/\b)`. Hence, you will introduce the arrow, and go from `~c` to `~(a/\b)` inside a bracket. Like in the previous example,  to get `~(a/\b)`, and one needs to introduce the main connective of negation. This then involves going from `a/\b` to falsum in a bracket. Then it is just a simple arrow elimination to get `c` and you already had `~c` as a premise.
+
+Here is a video of me solving the problem (note the video comes with *audio*):
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex7.mp4"/> </video>
+
 
 <br>
 
@@ -213,6 +223,11 @@ The idea behind the **solution** to Example 7 is that you want to get the arrow 
 ```
 
 The idea behind the **solution** to Example 8 is that you want to get `~a`. Hence, you need to introuce the negation and go from `a` to falsum inside a bracket. The chain of premises essentially gives you a way to obtain `~a` from `a` vis a chain of modus ponens.
+
+Here is a video of me solving the problem (note the video comes with *audio*):
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex8.mp4"/> </video>
+
 
 <br>
 
@@ -238,6 +253,10 @@ On this one, keep in mind that we are proving it in the Week 7 system, and so we
 
 The idea behind the **solution** to this one is that you want to get `b/\c`. Since this is one of the disjuncts of `a\/(b/\c)`, you are essentially verifying positive disjunctive syllogism. The way to do this inside the Week 7 system is to do disjunction elimination on `a\/(b/\c)`. Hence, you need an arrow statement saying that you can get from the first disjunct `a` to the conclusion `b/\c`, and you need an arrow statement saying that you can get from the second disjunct `b/\c` to the conclusion `b/\c`. The latter is easy by repeat rule. The former goes through EFSQ, which says that after you get falsum from `a` and the premise `~a`, you can get anything you want, including `b/\c`.
 
+Here is a video of me solving the problem (note the video comes with *audio*):
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex9.mp4"/> </video>
+
 
 <br>
 
@@ -257,6 +276,11 @@ The idea behind the **solution** to this one is that you want to get `b/\c`. Sin
 ```
 
 The idea behind the **solution** to this one is that you want to get `~~(p->q)`, and you need to view it as the negation of `~(p->q)`. (In the Week 8 system, where we have double-negation, this would be easier, and the conclusion would be equivalent to `p->q`). Hence to get `~~(p->q)` in the Week 7 system, you need to go from `~(p->q)` to falsum in a bracket. To do this, you'll need to get an arrow statement `p->q`. And you can do that via arrow introduction from premise `q` and the repeat rule.
+
+Here is a video of me solving the problem (note the video comes with *audio*):
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex10.mp4"/> </video>
+
 
 <br>
 <br>
@@ -280,6 +304,11 @@ These problems pertain to the Week 8 deductive system. Remember that the Week 8 
 
 The idea behind the **solution** to Example 11 is just one application of commutativity for conjunction.
 
+Here is a video of me solving the problem (note the video comes with *audio*):
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex11.mp4"/> </video>
+
+
 <br>
 
 *Example 12*.
@@ -291,6 +320,10 @@ The idea behind the **solution** to Example 11 is just one application of commut
 ```
 
 The idea behind the **solution** to Example 11 is just one application of commutativity for disjunction.
+
+Here is a video of me solving the problem (note the video comes with *audio*):
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex12.mp4"/> </video>
 
 
 <br>
@@ -307,6 +340,11 @@ The idea behind the **solution** to Example 11 is just one application of commut
 ```
 
 The idea behind the **solution** to Example 13 is just commutativity of disjunction followed by associativity of conjunction.
+
+Here is a video of me solving the problem (note the video comes with *audio*):
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex13.mp4"/> </video>
+
 
 <br>
 
@@ -329,6 +367,11 @@ The idea behind the **solution** to Example 13 is just commutativity of disjunct
 ```
 
 The idea behind the **solution** to Example 14 is distribution followed by some arrow elimination and DeMorgan.
+
+Here is a video of me solving the problem (note the video comes with *audio*):
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex14.mp4"/> </video>
+
 
 <br>
 
