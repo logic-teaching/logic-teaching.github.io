@@ -37,6 +37,7 @@ Each of these problems asks you to do a proof in the Week 6 deductive system. Th
 
 The idea behind the **solution** in Example 1 is just to apply conjunction elimination as much as you can, and then to apply disjunction introduction.
 
+
 <br>
 
 <P style="page-break-before: always">
