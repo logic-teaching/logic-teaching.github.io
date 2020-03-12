@@ -13,7 +13,7 @@ This is intended to be review for the exam, in the form of a practice exam. Like
 - [Week 8 problems](#week-8-problems)
 - [Week 9 problems](#week-9-problems)
 
-Before you begin, you might consider printing a copy either to work out by hand as you go along, or to work with on a tablet. A nice pdf of this page is [INSERT](INSERT).
+Before you begin, you might consider printing a copy either to work out by hand as you go along, or to work with on a tablet. A nice pdf of this page is [here](https://drive.google.com/open?id=1Xt8Pur97YJ8YvWXqi-mqWcmZrWCBxW6B).
 
 Please keep in mind that on the exam, there will be ample partial credit given for proofs. Hence, even if you don't get all the way done with the proof, try to get as much of it done as you can. Further, the proofs on the exam will be minor variations of the proofs which we are doing in this set and [the Week 10 Practice Problems](https://carnap.io/shared/logicteaching@g.ucla.edu/week10-practice-problems.pandoc).
 
@@ -231,10 +231,6 @@ By the [Soundness and Completeness Theorems](https://carnap.io/shared/logicteach
 
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash nocheck autoAtoms" submission="none"}
  (~(a/\b)/\b) :|-: ~a
-|FTTTFTTFT
-|TTFFFFTFT
-|TFFTTTTTF
-|TFFFFFTTF
 ~~~
 
 (We will need this truth-table in Example 20, and so perhaps consider taking a screen shot of it before you move on, for easy access later).
@@ -308,4 +304,4 @@ Suppose that each of the rows in the truth-table in Example 16 is weighted equal
 <br>
 <br>
 
-This is a practice problem set for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=11). It is run on the Carnap software, which is an:
+This is a review set for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=11). It is run on the Carnap software, which is an:
