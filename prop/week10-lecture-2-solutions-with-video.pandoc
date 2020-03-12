@@ -169,7 +169,7 @@ Each of these problems asks you to do a proof in the Week 7 deductive system. Th
 | a/\b :assumption
 | a :E/\2
 | ⊥ :E~1,3
-~(a/\b) :I~2-4
+|~(a/\b) :I~2-4
 ```
 
 The idea of the **solution** to Example 6 is that one wants to get `~(a/\b)`, and so one needs to introduce the main connective of negation. This then involves going from `a/\b` to falsum in a bracket. But from `a/\b` you get `a`, and this and the premise `~a` get you falsum.
