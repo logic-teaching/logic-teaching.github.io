@@ -15,7 +15,9 @@ This is intended to be review for the exam, in the form of a practice exam. Like
 
 Please keep in mind that on the exam, there will be ample partial credit given for proofs. Hence, even if you don't get all the way done with the proof, try to get as much of it done as you can. Further, the proofs on the exam will be minor variations of the proofs which we are doing in this set and [the Week 10 Practice Problems](https://carnap.io/shared/logicteaching@g.ucla.edu/week10-practice-problems.pandoc).
 
-The **solutions** consist, in the case of proofs, with a filled out proof. However, keep in mind that there are many equally good proofs of a given proposition. **Below** each proof is a brief 1-2 sentence explanation of the idea of the proof. For multiple choice questions, there is a brief explanation **below** the multiple choice question of the answer. The one large truth-table is not filled out.
+The **solutions** consist, in the case of proofs, with a filled out proof. However, keep in mind that there are many equally good proofs of a given proposition. **Below** each proof is a brief 1-2 sentence explanation of the idea of the proof. For multiple choice questions, there is a brief explanation **below** the multiple choice question of the answer.
+
+For the problems which are proofs (problems 1-15), there is also video with audio of me doing the problem. There is no video for problems 1-15, since the brief explanation in text below the problem suffices to give the idea.
 
 <br>
 
@@ -390,6 +392,11 @@ Here is a video of me solving the problem (note the video comes with *audio*):
 ```
 
 The idea behind the **solution** to Example 15 is negative disjunctive syllogism. The only tricky thing is that one has to separate out the two conjuncts first, and then do some commutativity of conjunction to get the pattern to match up exactly to negative disjunctive syllogism.
+
+Here is a video of me solving the problem (note the video comes with *audio*):
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/review-ex15.mp4"/> </video>
+
 
 <P style="page-break-before: always">
 
