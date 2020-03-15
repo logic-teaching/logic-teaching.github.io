@@ -1,0 +1,127 @@
+<br>
+
+# Logic, First Course: Propositional Logic.
+
+<br>
+
+## By [Sean Walsh](https://philosophy.ucla.edu/person/sean-walsh/).[^1]
+
+[^1]: <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Logic, First Course: Propositional Logic</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://carnap.io/shared/walsh@g.ucla.edu/book-mainpage.pandoc" property="cc:attributionName" rel="cc:attributionURL">Sean Walsh</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://carnap.io/shared/walsh@g.ucla.edu/book-mainpage.pandoc" rel="dct:source">https://carnap.io/shared/walsh@g.ucla.edu/book-mainpage.pandoc</a>. The underlying files are at this github page: logicteaching.
+
+<br>
+<br>
+
+These are interactive lecture notes for a first course in logic, focusing on propositional logic. The basic idea is to start with translations and semantics, then introduce proofs in a natural deduction framework, and finally to end the course by briefly discussing pragmatics and probability.
+
+
+<br>
+
+## Chapter 1
+
+<br>
+
+- Connectives
+- Truth-tables
+- Main connectives
+- Practice Problems
+
+<br>
+
+## Chapter 2
+
+<br>
+
+- Translations
+- Tautologies
+- Translating conditionals
+- Practice Problems
+
+<br>
+
+## Chapter 3
+
+<br>
+
+- Valid arguments
+- Sound arguments
+- Valid or invalid
+- Practice Problems
+
+<br>
+
+## Chapter 4
+
+<br>
+
+- A glimpse at predicate logic
+- The relation between propositional and predicate logic
+- Translating in predicate logic
+- Practice Problems
+
+<br>
+
+## Intermezzo: Midterm exam preparations
+
+<br>
+
+- Review for midterm exam
+- Practice Problems
+
+<br>
+
+## Chapter 6
+
+<br>
+
+- Proofs with conjunction and conditionals
+- Proofs with disjunction
+- Simple proofs
+- Practice Problems
+
+<br>
+
+## Chapter 7
+
+<br>
+
+- Proofs with negation
+- Intuitionistic logic
+- More practice proofs
+- Practice Problems
+
+<br>
+
+## Chapter 8
+
+<br>
+
+- Classical logic
+- Soundness and Completeness Theorems
+- More practice proofs
+- Practice Problems
+
+<br>
+
+## Chapter 9
+
+<br>
+
+- Pragmatics
+- Pragmatics and scales
+- Practice Problems
+
+<br>
+
+## Chapter 10
+
+<br>
+
+- Probability
+- Conditional probability
+
+## Chapter 11
+
+- Review for final exam
+- Practice Problems
+
+<br>

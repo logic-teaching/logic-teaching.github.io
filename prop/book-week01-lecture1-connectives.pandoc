@@ -1,0 +1,251 @@
+<br>
+<br>
+
+Logic, First Course, Winter 2020. Week 1, Lecture 1. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=2)
+
+# Propositions, connectives, and their truth-tables
+
+The aim of this lecture is to introduce propositions and the propositional connectives. We also describe the truth-tables for the propositional connectives and their interpretation.
+
+- [Propositions](#propositions)
+- [Logical structure](#logical-structure)
+- [Conjunction](#conjunction)
+- [How to read the tables](#how-to-read-the-rows-and-columns)
+- [Disjunction](#disjunction)
+- [Negation](#negation)
+- [Implication](#implication)
+- [History of truth-table for implication and partial confirmation](#history-of-truth-table-for-implication-and-partial-confirmation)
+- [The graphical representation of truth-tables](#the-graphical-representation-of-truth-tables)
+- [Wittgenstein on the meaning of the propositional connectives](#wittgenstein-on-the-meaning-of-the-propositional-connectives)
+- [Biconditional](#biconditional)
+- [Practice memorizing the truth-tables](#practice-memorizing-the-truth-tables)
+- [Practice memorizing the truth-tables via substitution](#practice-memorizing-the-truth-tables-via-substitution)
+
+<br>
+
+## Propositions
+
+Propositional logic is a logic which takes as its most primitive unit *the proposition*. A proposition is something that can be true or false, like "The apple in front of me is red" or "Jerry Brown was the governor of California." The parts of speech which make up the propositions -- like "apple" and "red"-- are not themselves propositions, since they are not the kinds of thing that can be true or false. To take propositions as a primitive means that, within this logic, there are some propositions which we regard as not having any further logical structure.
+
+<br>
+
+## Logical structure
+
+Contrast "The apple is red" to "The apple is red *or* the apple is *not* red." Likewise, contrast "Jerry Brown was the governor of California" to "*If* Jerry Brown was the governor of California *then* he lived in Sacramento." These latter propositions seem to be built up from smaller propositions by means of logical operations such as *or*, *not*, *and*, *if . . . then.* In propositional logic, the idea is to take some propositions as basic -- having no further structure-- and to look at the way in which we build further propositions up via these logical operations. Today we introduce the basic logical operations, the *propositional connectives*.
+
+<br>
+
+## Conjunction
+
+If both $p$ and $q$ are propositions, then "$p$ and $q$" is a third proposition. The symbol for "and" is $\wedge$. Another word for "and" is "conjunction." Hence we write "$p$ and $q$" as "$p\wedge q$." In this situation, $p$ and $q$ are called the two *conjuncts*. Later when we start writing formulas ourselves on the keyboard we form the conjunction symbol $\wedge$ by writing `/\`. The following table records when the conjunction is true ($T$) or false ($F$). It is hence called a *truth-table.*
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p/\q
+| TTT
+| TFF
+| FFT
+| FFF
+~~~
+
+<br>
+
+## How to read the rows and columns
+
+Since we are going to be spending a lot of time with the truth-tables, it is important to be clear about how to read them. Each of the horizontal rows describes a situation, and each of the vertical columns is devoted to a given proposition, and the cells record whether the proposition in the column-header is true at the situation in the row-header.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/connectives_columnsrows.mp4"/> </video>
+
+In the conjunction example above, there are four rows since there are two propositions ($p$, $q$) and two truth-values (true $T$, false $F$). And each of these four rows describes a situation. There are three propositions displayed in the columns: $p$, $q$, and $p\wedge q$. The column for $p\wedge q$ is right under the conjunction sign.
+
+What are situations? Well, they are ways things might be. For instance, take $p$="the apple is red" and $q$="the banana is yellow," where we are talking about e.g. the contents of one's lunch. Then the four rows might be describing the following four situations:
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/connectives_fourworlds.mp4"/> </video>
+
+In situations where the apple is green or the banana is brown, one has that "the apple is red and the banana is yellow" is false. The truth-table is then just recording information about what propositions are true in what situations.
+
+Other synonyms for "situation" might be "world" or the more technical term "valuation," whose sense comes from the idea that the situations or worlds provide a means of *evaluating* the propositions for truth or falsity.
+
+<br>
+
+## Disjunction
+
+If both $p$ and $q$ are propositions, then "$p$ or $q$" is a third proposition. The symbol for "or" is $\vee$. Another word for "or" is "disjunction." Hence we write "$p$ or $q$" as "$p\vee q$." In this situation, $p$ and $q$ are called the two *disjuncts*. Later when we start writing formulas ourselves on the keyboard we form the disjunction symbol $\vee$ by writing `\/`. The following table records when the disjunction is true ($T$) or false ($F$).
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p\/q
+| TTT
+| TTF
+| FTT
+| FFF
+~~~
+
+As one can see from the first row, we count a disjunction as true when both disjuncts are true. Hence, this disjunction is sometimes called *inclusive* disjunction, since it permits the possibility that both disjunctions are true. Often when we use "or," we might have the *exclusive* disjunction in mind, which precludes the possibility that both disjuncts are true. For instance, when we say "it is to the left or it is to the right," presumably we have ruled out in advance that it could be both to the left and to the right. As we will see later, it is easy to "define" exclusive disjunction in terms of our inclusive disjunction. For the moment, keep in mind that the disjunction symbol $\vee$ is the inclusive disjunction.
+
+One has to quickly memorize the truth-tables for conjunction and disjunction, and for this purpose it is helpful to keep in mind the following memory-aid: it is hard to make a conjunction true, while it is easy to make a disjunction true. In particular, there is only one row where the conjunction is true, but there are three rows where disjunction is true. We can see this clearly if we put the conjunction and disjunction tables side-by-side and highlight the places they are true in green and the places they are false in pink. Try to see if you can spot these places before we highlight them in the video.
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/connectives_conjunctcontrast.mp4"/> </video>
+
+<br>
+<br>
+
+## Negation
+
+If $p$ is a proposition, then "not $p$" is a proposition. The symbol for "not" is $\neg$. On the keyboard we type `~`. The following table simply says that $\neg p$ is true precisely when $p$ is false. That is, $p$ and $\neg p$ always have opposite truth-values.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ ~p
+| FT
+| TF
+~~~
+
+Note that in our formalism, the negation symbol in $\neg p$ occurs right in front of the proposition $p$. But in natural language, negation symbols more often appear close to the main verb. For instance, take our earlier proposition $p$="The apple is red." How would we express $\neg p$ in English? We could say the cumbersome thing "It is not the case that the apple is red." However, it is more likely that we would just say "The apple is not red." Likewise, suppose that someone believes that "Jerry Brown was not the governor of California." We could translate this as $\neg q$, where $q$="Jerry Brown was the governor of California."[^1] In general, the translation procedure for negation works by moving the negation symbol to the immediate left of the proposition that one wants to negate.
+
+[^1]: An earlier posted version of this had the following typo: where $q$="Jerry Brown not the governor of California."
+
+<br>
+
+## Implication
+
+The next symbol that we will do is implication, which is sometimes also called the *conditional* or the *material conditional*. This is the symbol by which we translate "if . . . then . . . " statements. We use an arrow $\rightarrow$ for this, and on the keyboard we type `->`. The truth-table for this is the following:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p->q
+| TTT
+| TFF
+| FTT
+| FTF
+~~~
+
+We pronounce $p\rightarrow q$ out loud as any one of the following:
+
+- if $p$ then $q$
+- if $p$, $q$ (when said out loud, the comma would mark some kind of short pause)
+- $p$ implies $q$
+- $p$ materially implies $q$
+- $p$ arrow $q$
+
+In the context $p\rightarrow q$, we say that $p$ is the *antecedent* and $q$ is the *consequent*. In this terminology, $p\rightarrow q$ says that the antecedent $p$ implies the consequent $q$. In some older texts, one will see $p\supset q$ instead of $p\rightarrow q$.
+
+The way to memorize the truth-table for implication is as follows: an implication is false in precisely one circumstance, namely when the antecedent is true and the consequent is false. This is just drawing our attention to the fact that in one and only one of the four rows is the implication statement false.
+
+<br>
+
+## History of truth-table for implication and partial confirmation
+
+We can point out examples where the truth-table for implication *seems* to be right. The earliest known indication of the truth-table for implication is from the ancient Greeks, in particular the Stoic logician Philo. Here is the record of his views which the skeptic Sextus Empiricus tells us about in his *Against the Logicians* ([p. 112 in this edition](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf)):
+
+&nbsp; &nbsp; &nbsp;   <img src="http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20113-114.png" alt="quotation from Sextus Empiricus" width="700"/>
+
+However, a recurrent theme in this course is going to be that the material conditional fails to get our use of "if . . . then" statements right in many cases.
+
+## The graphical representation of truth-tables
+
+But the graphical representation of truth-tables actually comes quite late. One of the first places is in a key text of early analytic philosophy, Wittgenstein's *Tractatus Logico-Philosophicus* from 1922. (A very nice edition is on [this site](https://people.umass.edu/klement/tlp/).) Wittgenstein experimented with a number of graphical representations of the truth-table, and the one to the below left is very much like the one we use nowadays. The idea for the one on the below right becomes clear if you see it as indicating that the material conditional $p\rightarrow q$ is true in three situations and false in one (i.e. there are three lines going to the bottom "T", and there is just one line going to the top "F").
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_4.442.png" alt="Tractatus 4.442" width="300"/> &nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_6.1203.png" alt="Tractatus 6.1203" width="300"/>
+
+Wittgenstein also developed the following linear notation, which never really caught on:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_5.101-and.png" alt="Tractatus 5.101" width="400"/>
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_5.101-or.png" alt="Tractatus 5.101" width="400"/>
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_5.101.png" alt="Tractatus 5.101" width="400"/>
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_5.101-bicond.png" alt="Tractatus 5.101" width="400"/>
+
+The Gamut textbook presents truth-tables in the following way, using 1 for "true" and 0 for "false":
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Gamut1991-tableand.png" alt="Tractatus 5.101" width="500"/>
+
+<br>
+
+## Wittgenstein on the meaning of the propositional connectives
+
+One lasting philosophical idea of Wittgenstein's *Tractatus* is that the truth-table of the propositional connectives are closely tied to their meaning. One beginning point here is the connection between understanding a sentence and understanding what circumstances make it true or false (its truth-conditions):
+
+&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_4.023.png" alt="Tractatus 4.023" width="300"/>
+
+Right before he introduces the graphical representation of truth-tables, Wittgenstein suggests that at least for certain simple sentences built-up out of elementary propositions like $p,q$, the truth-conditions just are very much like the truth-tables.
+
+&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/prop/texts/Wittgenstein_Tracatus_4.431.png" alt="Tractatus 4.023" width="300"/>
+
+<br>
+
+## Biconditional
+
+The final connective is the biconditional. This is the symbol by which we translate ". . . if and only if . . . " statements. We use an arrow $\leftrightarrow$ for this, and on the keyboard we type `<->`. The truth-table for this is the following:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p<->q
+| TTT
+| TFF
+| FFT
+| FTF
+~~~
+
+We pronounce $p\leftrightarrow q$ out loud as "$p$ if and only if $q$". One might also say something like "$p$ holds when and only when $q$ holds" or "$p$ is true precisely when $q$ is true." The idea, as expressed in the truth-table, is that the biconditional $p\leftrightarrow q$ is true when the truth-values of $p,q$ are the same, and it is false otherwise.
+
+
+## Practice memorizing the truth-tables
+
+It is very important to memorize the truth-tables very soon. To this end, here are the four truth-tables with the entries blank. Memorize the truth-tables by trying to fill these in. You can check your answer by pressing the 'check' button.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p/\q
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/q
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ~p
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p<->q
+~~~
+
+## Practice memorizing the truth-tables via substitution
+
+One way to make sure that you have memorized the truth-tables is if you are able to substitute different letters in for the two propositions. Try the following variation on the previous ones but with the letters changed from the way we first saw them.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ r/\s
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ a\/b
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ~r
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ a->c
+~~~
+
+A particularly challenging substitution which we sometimes meet in practice is when we switch the antecedent and consequent in e.g. $p\rightarrow q$ to $q\rightarrow p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ q->p
+~~~
+
+The biconditional is easier to handle under such a "switch" since there is a symmetry in the biconditional:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ q<->p
+~~~
+
+<br>
+
+These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]
+
+
+[^2]:It is run on the Carnap software, which is
