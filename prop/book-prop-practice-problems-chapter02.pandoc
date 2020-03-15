@@ -1,0 +1,591 @@
+<br>
+<br>
+
+# Practice problems for Chapter 2
+
+The practice problems fall into four groups:
+
+- [Translating and conditionals](#translating-and-conditionals)
+- [Necessary and sufficient conditions](#necessary-and-sufficient-conditions)
+- [Tautologies](#tautologies)
+- [Equivalences](#equivalences)
+
+<br>
+
+## Translating and conditionals
+
+The first five problems come from the [Corpus of American Soap Operas](https://www.english-corpora.org/soap/).
+
+*Problem 1*
+
+<p style="margin-left: 40px">  $i$ = $I$ am leaving </p>
+<p style="margin-left: 40px">  $y$ = $y$ou get out of my way </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ i->y  : I am leaving only if you get out of my way.
+~~~
+
+*Problem 2*
+
+<p style="margin-left: 40px"> $i$ = $I$'ll accept Bess  </p>
+<p style="margin-left: 40px"> $h$ = $h$er middle name is Charlotte  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ i->h  : I'll accept Bess only if her middle name is Charlotte
+~~~
+
+*Problem 3*
+
+<p style="margin-left: 40px"> $d$ = a $d$ecision like that is supposed to be made </p>
+<p style="margin-left: 40px"> $e$ = all of us who love $E$ric Forrester are going to gather together  </p>
+<p style="margin-left: 40px"> $d$ = all of us including $D$onna are going to gather together  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ d<->(e/\d)  : A decision like that is supposed to be made if and only if all of us who love Eric Forrester are going to gather together and all of us including Donna are going to gather together.
+~~~
+
+*Problem 4*
+
+<p style="margin-left: 40px"> $i$ = $I$ could find a way to generate income for you  </p>
+<p style="margin-left: 40px"> $y$ = $y$ou leave Chad Harris alone  </p>
+<p style="margin-left: 40px"> $h$ = you never bother $h$im  </p>
+<p style="margin-left: 40px"> $w$ = you never bother $W$hitney again  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ i<->(y/\(h/\w))  : I could find a way to generate income for you if and only if you leave Chad Harris alone and you never bother him and you never bother Whitney again.
+~~~
+
+
+*Problem 5*
+
+<p style="margin-left: 40px"> $h$ = you try to $h$urt my mom  </p>
+<p style="margin-left: 40px"> $t$ = you try to $t$ake Johnny away from her </p>
+<p style="margin-left: 40px"> $n$ = $n$o one is going to keep me quiet  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (h\/t)->n   : If you try to hurt my mom or if you try to take Johnny away from her, no one is going to keep me quiet
+~~~
+
+The following five problems relate to the following Brexit flowchart,[^1] which you can download and print/view [here](https://logic-teaching.github.io/prop/vid/MeaningfulVoteOptions1point2-selection.png) (to print/view, perhaps do a "save image as" and then print/view).
+
+[^1]: This is a selection from the lower-left hand corner of [Jon Worth's December 1, 2019 diagram](https://jonworth.eu/wp-content/uploads/2019/01/MeaningfulVoteOptions1point2.png), featured on [his site](https://jonworth.eu/brexit-where-now-the-flow-diagrams/), which was discussed in [this New York times article](https://www.nytimes.com/2019/03/29/world/europe/brexit-flowchart-confusion.html).
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/vid/MeaningfulVoteOptions1point2-selection.png" alt="Brexit flowchart" width="900"/>
+
+The following five problems use a single key, which is also marked on the diagram, and where the enumeration is alphabetical
+
+<p style="margin-left: 40px"> $a$ = May says she $a$ims for No Deal Brexit  </p>
+<p style="margin-left: 40px"> $c$ = The No $C$onfidence Vote Fails  </p>
+<p style="margin-left: 40px"> $d$ = Parliament $d$emands People's Vote  </p>
+<p style="margin-left: 40px"> $f$ = the Vote $f$ails  </p>
+<p style="margin-left: 40px"> $h$ = Britain $h$eads for No Deal  </p>
+<p style="margin-left: 40px"> $m$ = Further $M$eaningful Vote on an amended deal happens </p>
+<p style="margin-left: 40px"> $n$ = $N$o Deal Brexit happens  </p>
+<p style="margin-left: 40px"> $o$ = $O$fficial Opposition (Labour) brings No Confidence Vote  </p>
+<p style="margin-left: 40px"> $p$ = $P$arliament demands changes to Deal  </p>
+<p style="margin-left: 40px"> $s$ = Parliament seeks to $s$abotage this where it can  </p>
+<p style="margin-left: 40px"> $u$ = Parliament p$u$ts criteria on passing any deal  </p>
+
+You do not *need* to consult the diagram to solve these problems, although it *might* be helpful, since the diagram is where the sentences are coming from.
+
+*Problem 6*
+
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ h->(s\/n)  : If Britain heads for No Deal then either Parliament seeks to sabotage this where it can or no Deal Brexit happens.
+~~~
+
+*Problem 7*
+
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ p->(m->f)  : If Parliament demands changes to Deal, then if further Meaningful Vote on an amended deal happens then the Vote fails.
+~~~
+
+*Problem 8*
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (f\/s)->o  : If the Vote fails or if Parliament seeks to sabotage this where it can, official Opposition (Labour) brings No Confidence Vote.
+~~~
+
+*Problem 9*
+
+<p style="margin-left: 40px">   </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (f/\a)->h  : If the Vote fails and May says she aims for No Deal Brexit, Britain heads for No Deal.
+~~~
+
+*Problem 10*
+
+<p style="margin-left: 40px">   </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (c/\u)->(p\/d)  : if the No confidence Vote Fails and if Parliament puts criteria on passing any deal, then parliament demands changes to Deal or Parliament demands People's Vote.
+~~~
+
+<br>
+
+## Necessary and sufficient conditions
+
+The following examples come from the [Corpus of US Supreme Court Opinions](https://www.english-corpora.org/scotus/).
+
+*Problem 11*
+
+<p style="margin-left: 40px"> $i$ = the tax $i$s imposed  </p>
+<p style="margin-left: 40px"> $l$ = the occurrence of "a $l$ocal activity, delivery of goods within the State upon their purchase for consumption." </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ i->l  :  The occurrence of "a local activity, delivery of goods within the State upon their purchase for consumption" was a necessary condition for the tax being imposed.
+~~~
+
+*Problem 12*
+
+<p style="margin-left: 40px"> $i$ = the tax $i$s imposed  </p>
+<p style="margin-left: 40px"> $l$ = the occurrence of "a $l$ocal activity, delivery of goods within the State upon their purchase for consumption." </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ i->l  : A necessary condition for the tax being imposed was the occurrence of "a local activity, delivery of goods within the State upon their purchase for consumption."
+~~~
+
+Note that the way that "is" statements sometimes allow for symmetry ends up making "$q$ is a necessary condition for $p$" and "a necessary condition for $p$ is $q$." We translate *both* of these by $p->q$. It is similar to the symmetry between "History major Brianna is an honors student" and "An honors student is history major Brianna." One might feel a little more natural to you, but both have the same truth-conditions.
+
+*Problem 13*
+
+<p style="margin-left: 40px"> $b$ = the vote of the $b$oard occurs </p>
+<p style="margin-left: 40px"> $t$ = the $t$ransaction is valid  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ t->b  : The vote of the board occurring is a necessary condition for the transaction being valid.
+~~~
+
+
+*Problem 14*
+
+<p style="margin-left: 40px"> $b$ = the vote of the $b$oard occurs </p>
+<p style="margin-left: 40px"> $t$ = the $t$ransaction is valid  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ t->b  : a necessary condition for the transaction being valid is the vote of the board occurring.
+~~~
+
+
+*Problem 15*
+
+<p style="margin-left: 40px"> $i$ = the defendent is cognitively incapacitated  </p>
+<p style="margin-left: 40px"> $e$ = a defense of insanity is $e$stablished </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ i->e  : the defendant being cognitively incapacitated is a sufficient condition for a defense of insanity to be established.
+~~~
+
+*Problem 16*
+
+<p style="margin-left: 40px"> $i$ = the defendent is cognitively incapacitated  </p>
+<p style="margin-left: 40px"> $e$ = a defense of insanity is $e$stablished </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ i->e  : A sufficient condition for a defense of insanity to be established is for the defendant to be cognitively incapacitated.
+~~~
+
+
+*Problem 17*
+
+<p style="margin-left: 40px"> $b$ = to $b$e a federal officer  </p>
+<p style="margin-left: 40px"> $e$ = the exercise of federal judicial power  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (e->b)/\~(b->e)   : To be a federal officer is a necessary but not sufficient condition for the exercise of federal judicial power.
+~~~
+
+Hint: on problems 17-19, note that the main connectives of these are conjunctions, and that one of the conjuncts is a negated conditional while the other is just a plain conditional.
+
+*Problem 18*
+
+<p style="margin-left: 40px"> $p$ = there is proof of prejudice  </p>
+<p style="margin-left: 40px"> $d$ = a person submits a due process claim  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (d->p)/\~(p->d)   : there being proof of prejudice is generally a necessary but not sufficient condition for a person submitting a due process claim
+~~~
+
+*Problem 19*
+
+<p style="margin-left: 40px"> $e$ = an aid program being run $e$venhandedly  </p>
+<p style="margin-left: 40px"> $s$ = it $s$atisfies constitutional scrutiny  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (s->e)/\~(e->s)   : an aid program being run evenhandedly is a necessary but not a sufficient condition for it to satisfy constitutional scrutiny.
+~~~
+
+*Problem 20*
+
+<p style="margin-left: 40px">  $c$ = the $c$ompulsory commitment provision is brought  into play   </p>
+<p style="margin-left: 40px"> $d$ = the defendant is found not guilty of the crime with which he is charged because of insanity "at the time of its commission."  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ c<->d, (c->d)/\(d->c)   : A necessary and sufficient condition for bringing the compulsory commitment provision into play is that the defendant be found not guilty of the crime with which he is charged because of insanity " at the time of its commission."
+~~~
+
+Hint: this one is asserting both a necessary and sufficient condition. Hence, it is asserting two things. What connective would you use to handle that?
+
+
+<br>
+
+## Tautologies
+
+In the following problems, you are to determine whether the formula is a tautology or not. If it is a tautology, fill out the truth-table correctly so that its main connective column is all true, check your answer and then the answer will turn green. If it is not a tautology, then find a row where the formula is false, click the 'Non-tautology' button, and enter in the truth-values of the basic propositional letters on that row, and then the answer will turn green.
+
+*Problem 21*
+
+Practice parsing the first formula. Hint: don't do the last connective (the bottom-most right connective), so that your tree continues to display. Having the tree in front of you may be helpful when doing the truth-table, since one does the truth-table following the tree from the bottom up. (This hint applies to all the remaining problems in this section, but will not be repeated). Also, ignore the "Success! You may now submit your solution" since this is just practice.
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p\/q)->(p/\q)
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p\/q)->(p/\q)
+~~~
+
+*Problem 22*
+
+Practice parsing the formula:
+
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p/\q)->(p\/q)
+```
+
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p/\q)->(p\/q)
+~~~
+
+*Problem 23*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p->q)->(q->p)
+```
+
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p->q)->(q->p)
+~~~
+
+*Problem 24*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p<->q)->(q->p)
+```
+
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p<->q)->(q->p)
+~~~
+
+*Problem 25*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ((~(p/\(q/\r))/\p)/\q)->~r
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ ((~(p/\(q/\r))/\p)/\q)->~r
+~~~
+
+*Problem 26*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p->q)\/(q->p)
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p->q)\/(q->p)
+~~~
+
+*Problem 27*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p<->q)\/(q<->p)
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p<->q)\/(q<->p)
+~~~
+
+*Problem 28*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p->(q->p)
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ p->(q->p)
+~~~
+
+*Problem 29*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p->(q->(p\/q))
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ p->(q->(p\/q))
+~~~
+
+*Problem 30*
+
+Practice parsing the formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p->(q->(p\/q))
+```
+Then determine whether the formula is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p/\(q/\r))\/(~p/\(~q/\~r))
+~~~
+
+
+
+<br>
+
+## Equivalences
+
+In the following problems, you are to determine whether the two formulas which are separated by a comma are equivalent or inequivalent. If they are equivalent, fill out the truth-table correctly, check your answer and then your answer will turn green. If they are inequivalent, then find a row where one is true and the other is false, click the 'Inequivalent' button, and enter in the truth-values of the basic propositional letters on that row, and then your answer will turn green.
+
+*Problem 31*
+
+Practice parsing the first formula. Hint: don't do the last connective (the bottom-most right connective), so that your tree continues to display. Having the tree in front of you may be helpful when doing the truth-table, since one does the truth-table following the tree from the bottom up. (This hint applies to all the remaining problems in this section, but will not be repeated). Also, ignore the "Success! You may now submit your solution" since this is just practice.
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(a\/(b\/c))
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~a/\(~b\/~c)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ ~(a\/(b\/c)), ~a/\(~b\/~c)
+~~~
+
+*Problem 32*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(a\/(b\/c))
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~a/\(~b/\~c)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ ~(a\/(b\/c)), ~a/\(~b/\~c)
+~~~
+
+
+*Problem 33*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(d->(e->f))
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ d/\(e/\~f)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ ~(d->(e->f)), d/\(e/\~f)
+~~~
+
+
+*Problem 34*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(d->(f->e))
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ d/\(~f/\e)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ ~(d->(f->e)), d/\(~f/\e)
+~~~
+
+
+*Problem 35*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ l->(m->(n->o))
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ l->(m->(o->n))
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ l->(m->(n->o)), l->(m->(o->n))
+~~~
+
+
+*Problem 36*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~~~(p/\q)
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~(p/\q)
+```
+
+Then determine whether the two formulas are equivalent
+
+```{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ ~~~(p/\q), ~(p/\q)
+```
+
+
+*Problem 37*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ p\/(~p\/q)
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ r\/(~r\/q)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ p\/(~p\/q), r\/(~r\/q)
+~~~
+
+
+*Problem 38*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ a->(b\/c)
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (a->b)\/(a->c)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ a->(b\/c), (a->b)\/(a->c)
+~~~
+
+*Problem 39*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ a->(b/\c)
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (a->b)/\(a->c)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ a->(b/\c), (a->b)/\(a->c)
+~~~
+
+
+*Problem 40*
+
+Practice parsing the first formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ g<->(h<->i)
+```
+
+Practice parsing the second formula:
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ i<->(h<->g)
+```
+
+Then determine whether the two formulas are equivalent
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="equivalence" submission="none"}
+ g<->(h<->i), i<->(h<->g)
+~~~
+
+
+<br>
+<br>
+

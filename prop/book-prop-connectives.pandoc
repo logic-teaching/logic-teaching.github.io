@@ -1,11 +1,9 @@
 <br>
 <br>
 
-Logic, First Course, Winter 2020. Week 1, Lecture 1. [Back to course website](https://ccle.ucla.edu/course/view.php?id=82647&section=2)
+# Connectives
 
-# Propositions, connectives, and their truth-tables
-
-The aim of this lecture is to introduce propositions and the propositional connectives. We also describe the truth-tables for the propositional connectives and their interpretation.
+The aim here is to introduce propositions and the propositional connectives. We also describe the truth-tables for the propositional connectives and their interpretation.
 
 - [Propositions](#propositions)
 - [Logical structure](#logical-structure)
@@ -98,9 +96,8 @@ If $p$ is a proposition, then "not $p$" is a proposition. The symbol for "not" i
 | TF
 ~~~
 
-Note that in our formalism, the negation symbol in $\neg p$ occurs right in front of the proposition $p$. But in natural language, negation symbols more often appear close to the main verb. For instance, take our earlier proposition $p$="The apple is red." How would we express $\neg p$ in English? We could say the cumbersome thing "It is not the case that the apple is red." However, it is more likely that we would just say "The apple is not red." Likewise, suppose that someone believes that "Jerry Brown was not the governor of California." We could translate this as $\neg q$, where $q$="Jerry Brown was the governor of California."[^1] In general, the translation procedure for negation works by moving the negation symbol to the immediate left of the proposition that one wants to negate.
+Note that in our formalism, the negation symbol in $\neg p$ occurs right in front of the proposition $p$. But in natural language, negation symbols more often appear close to the main verb. For instance, take our earlier proposition $p$="The apple is red." How would we express $\neg p$ in English? We could say the cumbersome thing "It is not the case that the apple is red." However, it is more likely that we would just say "The apple is not red." Likewise, suppose that someone believes that "Jerry Brown was not the governor of California." We could translate this as $\neg q$, where $q$="Jerry Brown was the governor of California." In general, the translation procedure for negation works by moving the negation symbol to the immediate left of the proposition that one wants to negate.
 
-[^1]: An earlier posted version of this had the following typo: where $q$="Jerry Brown not the governor of California."
 
 <br>
 
@@ -245,7 +242,3 @@ The biconditional is easier to handle under such a "switch" since there is a sym
 
 <br>
 
-These are lecture notes written for [this course](https://ccle.ucla.edu/course/view.php?id=82647&section=2).[^2]
-
-
-[^2]:It is run on the Carnap software, which is

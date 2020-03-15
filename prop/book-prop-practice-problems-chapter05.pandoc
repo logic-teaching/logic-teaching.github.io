@@ -1,0 +1,306 @@
+<br>
+<br>
+
+# Practice problems for Chapter 5
+
+These practice problems are intended to be a practice exam. Hence, they fall into groups corresponding to Chapters 1-4:
+
+- [Chapter 1 problems](#chapter-1-problems)
+- [Chapter 2 problems](#chapter-2-problems)
+- [Chapter 3 problems](#chapter-3-problems)
+- [Chapter 4 problems](#chapter-4-problems)
+
+<br>
+
+## Chapter 1 problems
+
+For the first two problems, draw the tree diagram associated to the formulas, by successively finding the main connectives of the formulas, starting with the big formulas and breaking them into smaller parts. On paper, simply draw the tree diagram. On the computer, successively find the main connectives (pressing 'return' to move to next connective), until the tree diagram has been drawn (ignore the "You may now submit your solution" remark after you finish, since this is just practice).
+
+<br>
+
+*Problem 1*
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (~p -> (q\/~r))
+```
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+*Problem 2*
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ((p/\q) -> (q->~r))
+```
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+For these next three problems, complete the truth-table. On the computer, you can check your truth-table for correctness.
+
+*Problem 3*
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (~p -> (q\/~r))
+~~~
+
+
+<br>
+
+*Problem 4*
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ((p/\q)->(q->~r))
+~~~
+
+<br>
+
+*Problem 5*
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ((p->r)->(~q->~r))
+~~~
+
+
+<br>
+
+## Chapter 2 problems
+
+The next two problems concern translations into *propositional logic*.
+
+*Problem 6*
+
+<p style="margin-left: 40px"> $p$ = a $p$rivate citizen may successfully defend a charge of false imprisonment  </p>
+<p style="margin-left: 40px"> $c$ = a $c$rime had been committed </p>
+<p style="margin-left: 40px"> $r$ = he had $r$easonable cause to believe the plaintiff had committed that crime </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ p->(c/\r)  :  A private citizen may successfully defend a charge of false imprisonment only if a crime had been committed and he had reasonable cause to believe the plaintiff had committed that crime.
+~~~
+
+<br>
+
+*Problem 7*
+
+<p style="margin-left: 40px"> $a$ = $a$ll the parties on one side of the suit are citizens of different states from those on the other side  </p>
+<p style="margin-left: 40px"> $c$ = the $c$ircuit court takes jurisdiction of the entire suit </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ c->a  :  All the parties on one side of the suit being citizens of different states from those on the other side is a necessary condition for the circuit court to take jurisdiction of the entire suit.
+~~~
+
+<br>
+
+<br>
+
+In the next two problems, determine whether the formula is a tautology or not. If it is a tautology simply fill out the entire table and indicate that it is a tautology in the subsequent yes/no question. If it is not a tautology, indicate a row where it is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is not a tautology in the subsequent yes/no question.
+
+<br>
+
+*Problem 8*
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (p->(p->q))->~p
+~~~
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ It the formula a tautology?
+| Yes.
+| *No.
+```
+<br>
+
+
+<br>
+
+*Problem 9*
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ ((p->~q)->p)->p
+~~~
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ It the formula a tautology?
+| *Yes.
+| No.
+```
+
+<br>
+
+*Problem 10*.
+
+Consider the tautology $\neg (\neg p \wedge \neg \neg p)$. Which of the following is this a substitution instance of?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| Law of excluded middle.
+| *Law of non-contradiction.
+| The law of double-negation.
+| Law of commutativity for conjunction.
+```
+
+<br>
+
+## Chapter 3 problems
+
+In the next two problems, determine whether the argument is valid or not. If it is valid simply fill out the entire table and indicate that it is valid in the subsequent yes/no question. If it is not valid, indicate a row where the premises are all true and the conclusion is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is valid in the subsequent yes/no question.
+
+<br>
+
+*Problem 11*.
+
+```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+ a->~b, b->c :|-: b->(~a/\c)
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ It the argument valid?
+| *Yes.
+| No.
+```
+
+<br>
+
+*Problem 12*.
+
+```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+ a\/(b/\c), ~(a\/~b) :|-: ~c
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ It the argument valid?
+| Yes.
+| *No.
+```
+<br>
+
+*Problem 13*.
+
+The following is a valid argument:
+
+<p style="margin-left: 40px"> $(a\rightarrow b)\rightarrow (b\wedge c), \neg (b\wedge c) \vdash \neg (a\rightarrow b)$ </p>
+
+It can be obtained from modus tollens $p\rightarrow q, \neg q \vdash \neg p$ by doing a substitution. Which substitution should you do in order to obtain it?
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Which substitution?
+| Substitute (b/\c) for p, and substitute a->b for q.
+| Substitute a->c for p, and substitute (a/\c) for q.
+| *Substitute a->b for p, and substitute (b/\c) for q.
+| Substitute (a/\c) for p, and substitute a->b for q.
+```
+
+*Problem 14*
+
+One and only one of the following is a valid argument. Which is it? *Hint: it can be obtained from the disjunctive syllogism together with DeMorgan*.
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Which one is valid?
+| ~(m/\(~n/\~o)), m ⊢ ~n\/~o
+| ~(m/\(~n/\~o)), ~n ⊢ n\/~o
+| *~(m/\(n/\o)), m ⊢ ~n\/~o
+| ~(m/\(~n/\~o)), ~o ⊢ ~n\/o
+```
+
+<br>
+
+In the following problem, we focus on the following set of facts from [this Wikipedia page](https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population) on American cities and the state they are in:
+
+-	Phoenix, Arizona
+-	Dallas,	 Texas
+-	Austin,	 Texas
+-	Fort Worth,	 Texas
+
+<br>
+
+*Problem 15*
+
+The following are four valid arguments which would be translated by substitution instances of modus tollens. But only one of the arguments is sound. Which one is it?
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Which one is sound?
+| If Austin is in Arizona, then Austin is in the same state as Dallas. Austin is not in the same state as Dallas. Therefore, Austin is not in Arizona.
+| If Austin is in Texas, then Austin is in the same state as Phoenix.  Austin is not in the same state as Phoenix. Therefore, Austin is not in Texas.
+| If Dallas is in Texas, then Dallas is in the same state as Fort Worth. Dallas is not in the same state as Fort Worth. Therefore, Dallas is not in Texas.
+| *If Dallas is in Arizona, then Dallas is in the same state as Phoenix. Dallas is not in the same state as Phoenix. Therefore, Dallas is not in Arizona.
+```
+
+
+<br>
+
+## Chapter 4 problems
+
+In the following four problems we use the following key:
+
+| $a$  =  "Angel"
+| $b$  =  "Briana"
+| $c$  =  "Cole"
+| $O$  =  "is on base"
+| $P$  =  "is a pitcher"
+| $T$  =  "is tired"
+
+<br>
+
+Remember that on the translation problems, to check them on the computer you just press 'return.'
+
+<br>
+
+*Problem 16*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ((Ob/\Tb)\/(Pc/\Tc))->(ExTx/\Ex(Px\/Ox))  : If Briana is on base and tired or Cole is a pitcher and is tired, then someone is tired and someone is a pitcher or on base.
+~~~
+
+<br>
+
+
+*Problem 17*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Ta/\Pa)->~Ex((Tx/\Px)/\Ox)  : If Angel is a tired and a pitcher, then no tired pitchers are on base.
+~~~
+
+
+<br>
+
+*Problem 18*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Ta\/Oa)/\((Tb\/Ob)/\(Tc\/Oc)) : Find an equivalent of "Everyone is tired or on base" in predicate logic without using a quantifier, under the hypothesis that there are only three individuals a,b,c.
+~~~
+
+<br>
+
+*Problem 19*
+
+<p style="margin-left: 40px"> $o$ = she is $o$n base  </p>
+<p style="margin-left: 40px"> $p$ = she is a $p$itcher  </p>
+<p style="margin-left: 40px"> $t$ = she is $t$ired  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ((t/\p)->~o) : Insert a propositional consequence of "All tired pitchers are not on base".
+~~~
+
+<br>
+
+*Problem 20*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which of the following is ~Ax(~Fx\/Gx) equivalent to?
+| Ex(~Fx\/~Gx)
+| Ex(Fx\/~Gx)
+| *Ex(Fx/\~Gx)
+| E(~Fx/\Gx)
+```
+
+<br>

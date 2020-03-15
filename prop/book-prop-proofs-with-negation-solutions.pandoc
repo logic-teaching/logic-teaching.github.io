@@ -1,0 +1,204 @@
+<br>
+<br>
+
+# Proofs with negation with solutions
+
+We introduce how negation is handled in natural deduction, and illustrate it by doing several examples.
+
+- [The falsum symbol](#the-falsum-symbol)
+- [Elimination rule for negation](#elimination-rule-for-negation)
+- [Introduction rule for negation](#introduction-rule-for-negation)
+- [Connection between arrow and falsum and negation](#connection-between-arrow-and-falsum-and-negation)
+- [A very common pattern](#a-very-common-pattern)
+- [Illustrating the common pattern](#illustrating-the-common-pattern)
+- [Illustrating the common pattern again](#illustrating-the-common-pattern-again)
+- [A more challenging example](#a-more-challenging-example)
+
+<br>
+<br>
+
+## The falsum symbol
+
+To describe the introduction and elimination rules for negation, we need to introduce a special symbol.
+This symbol is ⊥ and is called falsum or bottom or bot. Intuitively, it’s a special symbol for a contradiction, something that’s always false.
+
+Initially it may seem strange to have one symbol which stands for all contradictions. However, contradictions validly imply anything. Hence, any two contradictions are equivalent. Thus if we wanted our deductive system to match up with our judgements of validity, perhaps it is plausible that we have one symbol ⊥ which stands for all contradictions.
+
+The falsum symbol ⊥ can be typed in one of three ways. First, you can just cut and paste from this screen or anywhere else. Second, you can alternatively type `!?`. Third, you can program your computer to accept a shortcut like \bot or anything else you want. (Here are external sites which contain instructions on how to do this on a [Mac](https://support.apple.com/guide/mac-help/replace-text-punctuation-documents-mac-mh35735/mac) or [Windows](https://helpdeskgeek.com/how-to/create-custom-keyboard-shortcuts-for-anything-in-windows-10/)).
+
+<br>
+<br>
+
+## Elimination rule for negation
+
+Here is the elimination rule for negation: if you have $\phi$ on line $\ell_1$ and you have $\neg \phi$ on line $\ell_2$, then you may write $\bot$ on any subsequent line $\ell>\ell_1, \ell_2$.
+
+Here is a picture of the rule:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_elimination_redeux_redeux.mp4"/> </video>
+
+<br>
+
+In this rule, it does not matter whether the line with $\phi$ comes before or after the line with $\neg \phi$.
+
+<br>
+
+*Example 1*. $p\rightarrow \neg q, q, p \vdash \bot$.
+
+First we do it by hand:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_1.mp4"/> </video>
+
+<br>
+
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->~q, q, p :|-: ⊥
+|p->~q :assumption
+|q :assumption
+|p :assumption
+|~q :E->1,3
+|⊥ :E~2,4
+```
+
+<br>
+<br>
+
+## Introduction rule for negation
+
+Here is the introduction rule for negation: suppose that consecutive lines $\ell_1-\ell_n$ constitute a bracketed proof with premise $\phi$ and conclusion $\bot$. Then one may introduce $\neg \phi$ at any subsequent line $\ell>\ell_n$.
+
+
+Here is a picture of the rule:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_introduction.mp4"/> </video>
+
+<br>
+
+*Example 2*. $p\vdash \neg \neg p$.
+
+First we do it by hand:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_2.mp4"/> </video>
+
+<br>
+
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p :|-: ~~p
+|p :assumption
+| ~p :assumption
+| ⊥ :E~1,2
+|~~p :I~2-3
+```
+
+<br>
+<br>
+
+## Connection between arrow and falsum and negation
+
+The introduction rule for negation looks a lot like the introduction rule for arrow  which we learned previously. In particular, to introduce $p\rightarrow q$ you just need a proof inside a bracket which starts at $p$ and ends at $q$. To introduce $\neg p$, you just need a proof inside a bracket which starts at $p$ and ends at $\bot$. Hence, one way to think about all this is as follows: negations are abbreviations for arrow statements, and in particular $\neg p$ is an abbreviation for $p\rightarrow \bot$. However, since we use it all the time, it’s convenient to take negation as a primitive symbol.
+
+<br>
+<br>
+
+
+## A very common pattern
+
+A very common pattern to get used to and to anticipate in these proofs is this one:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_common_pattern_redeux.mp4"/> </video>
+
+<br>
+
+Basically, when you want to prove a negation, you need a bracket with a falsum at the bottom. But the only way to get a falsum is to get $\phi$ and $\neg \phi$ for some $\phi$.
+
+<br>
+<br>
+
+
+## Illustrating the common pattern
+
+*Example 3*. $q\vdash \neg (p\wedge \neg q)$.
+
+First we do it by hand:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_3.mp4"/> </video>
+
+<br>
+
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ q :|-: ~(p/\~q)
+|q :assumption
+| p/\~q :assumption
+| ~q :E/\2
+| ⊥ :E~1,3
+|~(p/\~q) :I~2-4
+```
+<br>
+<br>
+
+## Illustrating the common pattern again
+
+Here's another example
+
+*Example 4*. $q, p\rightarrow \neg q \vdash \neg p$.
+
+First we do it by hand:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_4_redeux.mp4"/> </video>
+
+<br>
+
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ q, p->~q :|-: ~p
+|q :assumption
+|p->~q :assumption
+| p :assumption
+| ~q :E->2,3
+| ⊥ :E~1,4
+|~p :I~3-5
+```
+
+<br>
+<br>
+
+
+## A more challenging example
+
+Here a final example:
+
+*Example 5*. $\neg \neg \neg p\vdash \neg p$.
+
+First we do it by hand:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_5.mp4"/> </video>
+
+<br>
+
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
+
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~~~p :|-: ~p
+|~~~p :assumption
+| p :assumption
+|  ~p :assumption
+|  ⊥ :E~2,3
+| ~~p :I~3-4
+| ⊥ :E~1,5
+|~p :I~2-6
+```
+
+This example shows that triple negation implies single negation. By using *Example 2* one can show that the converse holds as well. Later we will look at associated results about the law of double-negation.
+
+
+<br>
+<br>
+

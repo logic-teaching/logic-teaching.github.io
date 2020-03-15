@@ -1,0 +1,181 @@
+<br>
+<br>
+
+# Main connectives
+
+We define well-formed formulas and learn to identify main connectives of formulas.
+
+- [Complexity and formulas](#complexity-and-formulas)
+- [Ambiguity and formulas](#ambiguity-and-formulas)
+- [Definition of well-formed formula](#definition-of-well-formed-formula)
+- [Comments on the definition](#comments-on-the-definition)
+- [More comments on the definition](#More comments on the definition)
+- [Examples and non-examples of well-formed formulas](#examples-and-non-examples-of-well-formed-formulas)
+- [Remarks on negation](#remarks-on-negation)
+- [Typing the connectives on the keyboard](#typing-the-connectives-on-the-keyboard)
+- [Practice finding the main connectives](#practice-finding-the-main-connectives)
+- [Dropping outermost parentheses](#dropping-outermost-parentheses)
+
+## Complexity and formulas
+
+We have been learning about propositions and their truth-tables, and as we are going along we are making the propositions more and more complex. This increase in complexity corresponds to the complexity of sentences we actually use. For instance, in describing the consequences of $p$, we might want to assert $p\rightarrow (q\wedge r)$. But what rules govern the development of more and more complex sentences? And how do we distinguish the strings of symbols which determine more complex propositions from arbitrary, "ungrammatical" strings of symbols like $p\rightarrow \rightarrow (q\wedge r)$? The definition of a well-formed formula is intended to answer these questions.
+
+<br>
+
+## Ambiguity and formulas
+
+One kind of ambiguity is when one word has two different meanings, such as "bank" as in "river bank" versus "bank" as in "financial institution." Another type of ambiguity is when a string of symbols can be interpreted in two different ways. For instance, consider $a=$"Alex attends" and $b=$"Brenda attends" and $c=$"Chris attends". And consider $a\wedge b \vee c$. Can you infer from this that Alex attends? If we tried to say in natural language and we knew how things stood with the people and the meeting, we would insert commas or spacing or extra words to disambiguate. We would say one of the following:
+
+- "Either both Alex attends and Brenda attends, or Chris attends"
+- "Alex attends, and either Brenda attends or Chris attends"
+
+As we will see, in our formal language, we use parentheses to disambiguate between these two claims. This saves us from having to introduce a bunch of extra words like "both" and "just" and rules for how to use them.
+
+<br>
+
+## Definition of well-formed formula
+
+We solve both of these problems by defining the notion of *well-formed formula*.
+
+We start with a basic list of basic propositional formulas $a,b,c, \ldots, p,q,r, \ldots$. They are basic in that they do not have any further structure.
+
+Then we give some rules how to generate more complex well-formed formulas from simpler well-formed formulas, and we say what the *main connective* is of the complex well-formed formula:
+
+  - If $\phi$ is a well-formed formula, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$.
+  - If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \wedge \psi)$ is a well-formed formula and its main connective is the conjunction symbol $\wedge$.
+  - If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \vee \psi)$ is a well-formed formula and its main connective is the disjunction symbol $\vee$.
+  - If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \rightarrow \psi)$ is a well-formed formula and its main connective is the implication symbol $\rightarrow$.
+  - If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \leftrightarrow \psi)$ is a well-formed formula and its main connective is the biconditional symbol $\leftrightarrow$.
+
+Finally, we say that nothing else is a well-formed formula besides what can be generated in the way described above.
+
+<br>
+
+## Comments on the definition
+
+Obviously the phrase "well-formed formula" is cumbersome. Hence, as a synonym, one will find people saying shorter things like: "formula", "proposition", or "wff".
+
+The basic propositional formulas are sometimes called "atomic propositions" or "sentential letters". In general, a synonym for "propositional logic" is "sentential logic".
+
+There is some variance on how people like to write atomic propositions. Some like lower-case Latin letters $a,b,c, \ldots, p,q,r, \ldots$ and some like upper case Latin letters $A,B,C, \ldots, P,Q,R, \ldots$. We will still with lower-case Latin letters.
+
+<br>
+
+## More comments on the definition
+
+The letter $\phi$ is a Greek letter phi, which is said out loud as "fī". It is sometimes also written as <img src="https://logic-teaching.github.io/prop/texts/greekphi.png" height="20">. The letter $\psi$ is the Greek letter psi, which is said out loud as "(p)sī." Another one we sometimes use is $\chi$, the Greek letter chi, which is said out loud as "kī."
+
+We use Greek letters to range over well-formed formulas. We have to use something besides Latin letters because of the above conventions about using Latin letters for the basic propositional formulas.
+
+If you have never seen them before, take a minute and practice writing them:
+
+<video controls width="500" src="https://logic-teaching.github.io/prop/vid/main_connective_greek.mp4#t=4"/> </video>
+
+<br>
+
+## Examples and non-examples of well-formed formulas
+
+Here are some examples of complex well-formed formulas:
+
+- $((p\wedge q)\rightarrow (\neg q\vee r))$
+- $(q\rightarrow ((\neg p\vee r)\wedge s))$
+- $((p\wedge \neg q) \vee (q\leftrightarrow r))$
+- $((p\rightarrow (q\wedge \neg r))\rightarrow (s\vee \neg t))$
+
+
+Here are some things which are not well-formed formulas
+
+- $p \vee q \wedge r$, because there are no parentheses. There are two well-formed formulas closely related to this one, namely $(p \vee q) \wedge r$ and $p \vee (q \wedge r)$.
+
+- $(pqp\rightarrow \rightarrow q)$, because what occurs on either side of an arrow must be a well-formed formula, and $\rightarrow q$ is not a formula, because arrows must have something on each side.
+
+<br>
+
+## Remarks on negation
+
+Negation always "hugs" the formula to its immediate right. Consider the following:
+
+- $\neg p \wedge \neg q$
+- $\neg (p \wedge \neg q)$
+
+In the first, we are saying that two things happen: not-$p$, as well as not-$q$. In the second, we are saying that the following does not happen: both $p$ and $\neg q$. A common mistake is for beginnings to blend these two together. We avoid this mistake by remembering that negation always clings to the formula to its immediate right.
+
+<br>
+
+## Typing the connectives on the keyboard
+
+In the homeworks, we will sometimes be typing the connectives on the keyboard. For that purpose, we use the following keys:
+
+
+<table>
+<thead>
+<tr>
+<th>Connective name</th>
+<th>&nbsp; &nbsp; &nbsp;By hand</th>
+<th>&nbsp; &nbsp; &nbsp; On keyboard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conjunction</td>
+<td>&nbsp; &nbsp; &nbsp;$\wedge$</td>
+<td>&nbsp; &nbsp; &nbsp; `/\`</td>
+</tr>
+<tr>
+<td>disjunction</td>
+<td>&nbsp; &nbsp; &nbsp;$\vee$</td>
+<td>&nbsp; &nbsp; &nbsp; `\/`</td>
+</tr>
+<tr>
+<td>negation</td>
+<td>&nbsp; &nbsp; &nbsp;$\neg$</td>
+<td>&nbsp; &nbsp; &nbsp; `~`</td>
+</tr>
+<tr>
+<td>conditional</td>
+<td>&nbsp; &nbsp; &nbsp;$\rightarrow$</td>
+<td>&nbsp; &nbsp; &nbsp; `->`</td>
+</tr>
+<tr>
+<td>biconditional</td>
+<td>&nbsp; &nbsp; &nbsp;$\leftrightarrow$</td>
+<td>&nbsp; &nbsp; &nbsp; `<->`</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+Note that for conjunction and disjunction, you actually have to press two keys on your keyboard to form the symbol: they formed by putting the two slash buttons `/` and `\` side by side.
+
+<br>
+
+## Practice finding the main connectives
+
+A good way to learn how to read well-formed formulas is to find the main connectives. In the following problems we successively find the main connectives of the formulas, starting with the big formulas and breaking them into smaller parts. Press return after you have entered in the main connective to get to the next level.
+
+Two quick notes. First, you can also just cut and paste the main connective instead of typing it. Second, ignore the "You may now submit your solution" remark after you finish. In the actual homeworks, there will actually be a "submit your solution" button. This is just practice.
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ((p/\q)->(~q\/r))
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (q->((~p\/r)/\s))
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ((p/\~q) \/ (q<->r))
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ((p->(q/\~r))->(s\/~t))
+```
+
+## Dropping outermost parentheses
+
+As we have seen, parentheses are crucial for the avoidance of ambiguity in our well-formed formulas. However, when we write things out by hand, the last parentheses that we write can be omitted without any loss of confusion. That is, we can write just $p\wedge q$ instead of $(p\wedge q)$. Likewise, we can just write $p\wedge (q\vee r)$ instead of $(p\wedge (q\vee r))$. However, we cannot drop inner parentheses, since e.g $p\wedge q\vee r)$ is ambiguous in exactly the way we are trying to avoid. We maintain the convention of allowing ourselves to drop outermost parentheses throughout this course.
+
+<br>
+<br>
+

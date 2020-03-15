@@ -1,0 +1,242 @@
+<br>
+<br>
+
+# Translating conditionals
+
+We hone in on translating conditional statements.
+
+- [Translating conditionals](#translating-conditionals)
+- [Examples of translating conditionals](#examples-of-translating-conditionals)
+- [Conditionals with disjunctions in the antecedent or consequent](#conditionals-with-disjunctions-in-the-antecedent-or-consequent)
+- [Necessary and sufficient conditions](#necessary-and-sufficient-conditions)
+- [Asserting necessary but not sufficient](#asserting-necessary-but-not-sufficient)
+- [Propositional consequences of universal statements and rules](#propositional-consequences-of-universal-statements-and-rules)
+
+<br>
+
+## Translating conditionals
+
+Natural language abounds with numerous ways to say things that have the same truth-conditions as "if $p$, then $q$." Consider the following sentence, where perhaps one puts emphasis on the italicized words when one says it out loud: "Anthony attends the meeting *only if* Briana attends the meeting." When would this be false? It would be false if the meeting starts with Anthony being there but Briana not being there. And since this is the only outcome in which it would be false, it has the same truth-conditions as "if Anthony attends the meeting then Briana attends the meeting." In general, we translate any of the following by $p\rightarrow q$:
+
+1. If $p$ then $q$.
+
+2. If $p$, $q$.
+
+3. $q$, if $p$.
+
+4. $p$ only if $q$.
+
+5. $q$ is a necessary condition for $p$.
+
+6. $q$ is necessary for $p$.
+
+7. In order for $p$, it is necessary that $q$.
+
+8. $p$ is a sufficient condition for $q$.
+
+9. $p$ suffices for $q$.
+
+Note that while we translate all of these by $p\rightarrow q$, in 3, 5, 6 the consequent $q$ occurs in the English sentence before the antecedent $p$. Likewise, note that in 4, the "if" in the larger phrase "only if" occurs right before the consequent $q$. Let us focus first on 1-4, and turn later to 5-9.
+
+<br>
+
+
+## Examples of translating conditionals
+
+Here we practice with translating conditional statements, using examples from the [Corpus of Contemporary American English](https://www.english-corpora.org/coca/). For each problem, we first introduce the relevant abbreviations of the propositional letters. We mix in some other propositional connectives for practice.
+
+*Example 1*.
+
+<p style="margin-left: 40px"> $e$ = $e$mail notifications are sent </p>
+<p style="margin-left: 40px"> $n$ = there are $n$ew matching items. </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ e->n : Email notifications are sent only if there are new matching items.
+~~~
+
+*Example 2*.
+
+<p style="margin-left: 40px"> $r$ = they found that modeled winds at high latitudes can be $r$eliable </p>
+<p style="margin-left: 40px"> $a$ = an accurate representation of the actual drivers prevailing at the time can be identified </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ r<->a : They found that modeled winds at high latitudes can be reliable if and only if an accurate representation of the actual drivers prevailing at the time can be identified.
+~~~
+
+*Example 3*.
+
+<p style="margin-left: 40px"> $e$ = $e$veryone sticks with his party </p>
+<p style="margin-left: 40px"> $g$ = $G$ore would win </p>
+<p style="margin-left: 40px"> $f$ = the $F$lorida court is able to order state officials to "certify" a Gore victory by the time the electors are scheduled to cast their ballots next week </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ e->(g->f) : If everyone sticks with his party, Gore would win only if the Florida court is able to order state officials to "certify" a Gore victory by the time the electors are scheduled to cast their ballots next week.
+~~~
+
+*Example 4*.
+
+<p style="margin-left: 40px"> $a$ = the $a$larm goes off </p>
+<p style="margin-left: 40px"> $c$ = there's a $c$at outside </p>
+<p style="margin-left: 40px"> $t$ = there's a real $t$hreat for the home </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (c->~a)/\(a->t) : The alarm doesn't go off if there's a cat outside; and the alarm goes off only if there's a real threat for the home.
+~~~
+
+
+<br>
+
+## Conditionals with disjunctions in the antecedent or consequent
+
+Consider the following example, which should be straightforward:
+
+*Example 5*
+
+<p style="margin-left: 40px"> $v$ = the $v$ariable dips too low </p>
+<p style="margin-left: 40px"> $c$ = the $c$abinets lose power </p>
+<p style="margin-left: 40px"> $h$ = $h$e gets barraged by automatic emails and texts. </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (v\/c)->h : If the variable dips too low or the cabinets lose power, he gets barraged by automatic emails and texts.
+~~~
+
+Note that when you say the sentence out loud, you can naturally include a second "if", which we boldface: "If the variable dips too low or **if** the cabinets lose power, he gets barraged by automatic emails and texts." We saw up above that instead of "if $p$ then $q$", one can write "$q$, if $p$." This would lead one to suspect instead of "if $p$ or if $r$, then $q$" one can write "$q$, if $p$ or if $r$". Use this to translate the following two examples:
+
+*Example 6*
+
+<p style="margin-left: 40px"> $r$ = this step is usually $r$equired </p>
+<p style="margin-left: 40px"> $s$ = the item in question is too $s$mall to survive testing </p>
+<p style="margin-left: 40px"> $t$ = too little of it exists </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (s\/t)->r : This step is usually required if the item in question is too small to survive testing, or if too little of it exists.
+~~~
+
+*Example 7*
+
+<p style="margin-left: 40px"> $l$ = $l$ocal coaches agree it is often similar to running a mini-marathon </p>
+<p style="margin-left: 40px"> $f$ = $f$our or more games are required </p>
+<p style="margin-left: 40px"> $d$ = $d$oubleheaders are scheduled </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (f\/d)->l : Local coaches agree it is often similar to running a mini-marathon if four or more games are required, or if doubleheaders are scheduled.
+~~~
+
+You might have the intuition that each of these three previous examples is really a conjunction statement, since the speaker is saying in each that there are two ways to get to the consequent. As we will see, $(l\vee f)\rightarrow d$ is logically equivalent to the conjunction $(l\rightarrow d)\wedge (f\rightarrow d)$. If you type the conjunctions into the three previous problems, the computer system will tell you that you have something logically equivalent to the correct solutions.
+
+Finally, we close with one where the placement of the disjunction is in a different place, and one where there is a conjunction instead of a disjunction:
+
+*Example 8*
+
+<p style="margin-left: 40px"> $l$ = you're $l$ying </p>
+<p style="margin-left: 40px">  $i$ = you are the least $i$nteresting person on earth </p>
+<p style="margin-left: 40px"> $s$ = you $s$tate you have nothing to hide. </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ s->(l\/i) : You're lying or you are the least interesting person on earth, if you state you have nothing to hide.
+~~~
+
+*Example 9*
+
+<p style="margin-left: 40px"> $a$ = $A$ showdown will happen </p>
+<p style="margin-left: 40px">  $h$ = the $h$ouse passes its health care bill </p>
+<p style="margin-left: 40px"> $s$ = the $s$enate passes its health care bill </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a->(h/\s) : A showdown will happen only if both the house passes its health care bill and the senate passes its health care bill.
+~~~
+
+<br>
+
+## Necessary and sufficient conditions
+
+One way to remember the necessary and sufficient terminology is as follows: a *necessary* condition for $p$ is something which *has* to happen when $p$ happens, or which *must* happen when $p$ happens. A *sufficient* condition for $p$ by contrast is something that gives you $p$ all by itself-- *it suffices*, nothing is else is required. The familiar directionality of causes and effects can help one to remember the difference between sufficient conditions and necessary conditions. Just as a given event (like fire) has various causes (matches, lighters) and various effects (smoke, heat), so a given proposition (like there being fire) has various sufficient conditions (a match being lit, a lighter being lit) and various necessary conditions (there being smoke, there being heat).
+
+*Example 10*
+
+<p style="margin-left: 40px"> $r$ = the $r$ecession ends </p>
+<p style="margin-left: 40px"> $b$ = businesses have renewed confidence in the economy </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ r->b : One necessary condition for the recession ending is for businesses having renewed confidence in the economy.
+~~~
+
+Note that if $p$ has the form "subject verb" then "necessary condition for $p$" has the form "necessary condition for subject verb-ing". That is, the verb is put into a participle form. The same thing happens for sufficient conditions.
+
+*Example 11*
+
+<p style="margin-left: 40px"> $a$ = $a$ll resources are owned exclusively by private individuals </p>
+<p style="margin-left: 40px"> $e$ = this $e$fficiency is achieved </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ e->a : All resources being owned exclusively by private individuals is a necessary condition for this efficiency being achieved.
+~~~
+
+*Example 12*
+
+<p style="margin-left: 40px"> $v$ = there being a valuation </p>
+<p style="margin-left: 40px"> $e$ = decisions are economized. </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ v->e : there being a valuation is a sufficient condition for decisions to be economized
+~~~
+
+*Example 13*
+
+<p style="margin-left: 40px"> $r$ = there being $r$eproductive isolation </p>
+<p style="margin-left: 40px"> $d$ = a population is considered $d$istinct. </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~(r->d) : there being reproductive isolation is not a sufficient condition for a population to be considered distinct
+~~~
+
+*Example 14*
+
+<p style="margin-left: 40px"> $f$ = to be able to use it $f$lexibly </p>
+<p style="margin-left: 40px"> $a$ = it is $a$pplied repeatedly within practical cases. </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ f->a : In order to be able to use it flexibly, it is necessary that it is applied repeatedly within practical cases.
+~~~
+
+*Example 15*
+
+<p style="margin-left: 40px"> $a$ = the acceptance of emissions caps </p>
+<p style="margin-left: 40px"> $w$ = the system to $w$ork </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~(w->a) : the acceptance of emissions caps are not a necessary condition for the system to work.
+~~~
+
+<br>
+
+## Asserting necessary but not sufficient
+
+Often we use the phrase "$q$ is a necessary but not sufficient condition for $p$" to indicate that we think that both $(p\rightarrow q) \wedge \neg (q\rightarrow p)$. That is, it is a way of saying that one thinks the arrow goes one way and does not go the other way. As we will see later, maybe it is even a way of saying that it is a logical truth that the arrow goes one way but not the other, or that one has very good reasons for thinking the arrow goes one way but not the other.
+
+For instance, consider "regulation is necessary but not sufficient for ensuring high-quality nursing home care." This person is saying both that if the nursing home care is to be high quality, then there is going to have to be regulation in place, and that it is not the case that the mere existence of regulation implies that the nursing home care is high quality.
+
+*Example 16*
+
+<p style="margin-left: 40px"> $m$ = there is $m$ore science </p>
+<p style="margin-left: 40px"> $i$ = society $i$mproves </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (i->m)/\~(m->i) : More science is a necessary but not sufficient condition for society to improve.
+~~~
+
+*Example 17*
+
+<p style="margin-left: 40px"> $b$ = you filing for $b$ankruptcy  </p>
+<p style="margin-left: 40px"> $c$ = you $c$orrect course  </p>
+<p style="margin-left: 40px"> $a$ = you alleviating your distress </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (c->b)/\~(b->a) : You filing for bankruptcy is a necessary condition for you correcting course, but it is not sufficient for your alleviating your distress.
+~~~
+
+If you are having problems with this one, try to think about what propositional connective "but" is most like in terms of its truth-conditions. For instance, take "$p$, but $q$". Is it possible for this to be true when one of $p$ or $q$ is false?
+
+<br>
+
+

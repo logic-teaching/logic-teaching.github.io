@@ -1,0 +1,280 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+
+# More translating
+
+Quantifiers are very good at capturing the truth-conditions of statements about "some" and "all" that connect two properties.
+
+- [Translation schemas](#translation-schemas)
+- [More practice](#more-practice)
+- [More than two properties](#more-than-two-properties)
+- [More practice with more than two properties](#more-practice-with-more-than-two-properties)
+
+## Translation schemas
+
+Here are some common translation schemas connecting two properties:
+
+<table style="width:100%">
+  <tr>
+    <th>Schema</th>
+    <th>Translation</th>
+    <th>Schema Negated</th>
+    <th>Translation of Negation</th>
+  </tr>
+  <tr>
+    <td>Some $F$ are $G$</td>
+    <td>$\exists \; x \; (Fx\wedge Gx)$</td>
+    <td>No $F$ are $G$</td>
+    <td>$\neg \exists \; x\; (Fx\wedge Gx)$</td>
+  </tr>
+  <tr>
+    <td>Some $F$ are not $G$</td>
+    <td>$\exists \; x \; (Fx\wedge \neg Gx)$</td>
+    <td>No $F$ are not $G$</td>
+    <td>$\neg \exists \; x\; (Fx\wedge \neg Gx)$</td>
+  </tr>
+  <tr>
+    <td>All $F$ are $G$</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx)$</td>
+    <td>Not all $F$ are $G$</td>
+    <td>$\neg \forall \; x \; (Fx\rightarrow Gx)$</td>
+  </tr>
+  <tr>
+    <td>All $F$ are not $G$</td>
+    <td>$\forall \; x \; (Fx\rightarrow \neg Gx)$</td>
+    <td>Not all $F$ are not $G$</td>
+    <td>$\neg \forall \; x \; (Fx\rightarrow \neg Gx)$</td>
+  </tr>
+</table>
+
+<br>
+
+Note that in these schemas the "some"-statements are translated with an existential quantifier together with a conjunction, while the "all"-statements are translated with a universal quantifier together with an arrow statement.
+
+<br>
+
+Let us practice further with these translation schemas with respect to the following examples:
+
+| $C$  =  "is cheerful"
+| $F$  =  "is festive"
+| $G$  =  "is a geography major"
+| $L$  =  "is a law student"
+| $R$  =  "is relaxed"
+| $T$  =  "likes table-tennis"
+
+<br>
+
+*Example 1*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Cx)/\Ex(Gx/\Cx) : Every law student is cheerful and some geography majors are cheerful.
+~~~
+
+<br>
+
+*Example 2*
+
+In the following, remember that "but" would just be translated by "and":
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Gx/\Rx)/\~Ex(Lx/\Rx) : Some geography majors are relaxed but no law students are relaxed.
+~~~
+
+<br>
+
+*Example 3*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Gx/\~Fx)/\~Ex(Lx/\~Fx) : Some geography majors are not festive, but no law students are not festive.
+~~~
+
+<br>
+
+*Example 4*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~Ax(Lx->Tx) : Not all law students like table-tennis.
+~~~
+
+<br>
+
+*Example 5*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Rx)->Ax(Gx->Fx) : If all law students are relaxed, then all geography majors are festive.
+~~~
+
+<br>
+
+*Example 6*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Cx)->Ex(Lx/\Fx) : If all law students are cheerful, then some law students are festive.
+~~~
+
+<br>
+
+## More practice
+
+Let us practice with these translation schemas with respect to the following examples:
+
+| $C$  =  "is clever"
+| $F$  =  "is fearful"
+| $H$  =  "is a hobbit"
+| $L$  =  "is an elf"
+| $T$  =  "is tall"
+| $W$  =  "is a wizard"
+
+
+
+<br>
+
+*Example 7*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Hx/\Fx)/\~Ex(Lx/\Fx) : Some hobbits are fearful and no elves are fearful.
+~~~
+
+<br>
+
+*Example 8*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Cx)/\~Ax(Wx->Cx) : All elves are clever and not all wizards are clever.
+~~~
+
+<br>
+
+*Example 9*
+
+On this one, be sure to use parentheses to separate the two conjunctions.
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Tx)/\(Ex(Wx/\Tx)/\~Ex(Hx/\Tx)) : All elves are tall and some wizards are tall and no hobbits are tall.
+~~~
+
+<br>
+
+*Example 10*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->~Fx)->Ex(Hx/\~Fx) : If all elves are not fearful then some hobbit is not fearful.
+~~~
+
+<br>
+
+*Example 11*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~Ax(Wx->Tx)/\~Ax(Hx->Fx) : Not all wizards are tall and not all hobbits are fearful.
+~~~
+
+<br>
+
+## More than two properties
+
+We can slightly expand on this by considering how to translate statements like "tall wizard" and "clever hobbit". Since to say that someone is a tall wizard is to say that they both tall *and* a wizard, it should not be too surprising that we translate this with a conjunction. We continue to use the same key as the previous section.
+
+<br>
+
+*Example 12*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax((Tx/\Wx)->Cx) : All tall wizards are clever.
+~~~
+
+<br>
+
+*Example 13*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~Ax((Cx/\Wx)->Tx) : Not all clever wizards are tall.
+~~~
+
+*Example 14*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex((Cx/\Hx)/\Fx) : Some clever hobbits are fearful.
+~~~
+
+<br>
+
+*Example 15*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex((Cx/\Hx)/\Fx)->Ex((Fx/\Hx)/\Cx) : If some clever hobbits are fearful then some fearful hobbits are clever.
+~~~
+
+<br>
+
+*Example 16*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~Ax((Tx/\Wx)->Fx)->~Ax((Fx/\Lx)->Cx) : If not all tall wizards are fearful then not all fearful elves are clever.
+~~~
+
+<br>
+
+*Example 17*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex((Cx/\Lx)/\Wx)->~Ax((Cx/\Lx)->~Tx) : If some clever elves are wizards, then not all clever elves are not tall.
+~~~
+
+<br>
+
+## More practice with more than two properties
+
+Let us continue practicing with more than two properties using the key from the first section:
+
+| $C$  =  "is cheerful"
+| $F$  =  "is festive"
+| $G$  =  "is a geography major"
+| $L$  =  "is a law student"
+| $R$  =  "is relaxed"
+| $T$  =  "likes table-tennis"
+
+<br>
+
+*Example 18*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax((Cx/\Lx)->Rx) : Every cheerful  law student is relaxed.
+~~~
+
+<br>
+
+*Example 19*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex((Fx/\Lx)/\Tx)->Ex((Fx/\Lx)/\Rx) : If some festive law student likes table-tennis, then some festive law student is relaxed.
+~~~
+
+<br>
+
+*Example 20*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~Ax((Rx/\Gx)->Tx) : Not all relaxed geography majors like table-tennis.
+~~~
+
+
+<br>
+
+<br>
+

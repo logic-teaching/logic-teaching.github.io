@@ -1,0 +1,282 @@
+<br>
+<br>
+
+# Practice problems for Chapter 1
+
+The practice problems fall into four groups:
+
+- [Memorizing truth-tables](#memorizing-truth-tables)
+- [More memorizing truth-tables](#more-memorizing-truth-tables)
+- [Finding the main connectives](#finding-the-main-connectives)
+- [More complex truth-tables](#more-complex-truth-tables)
+
+<br>
+
+## Memorizing truth-tables
+
+The following practice problems are intended to help you memorize the truth-tables for the propositional connectives. Only one of the rows are given, and this is designed to help you memorize the truth-tables row-by-row, and to make sure that your recall of this is not tied to the particular order we happened to enumerate the rows in.
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.01 p/\q
+| F - F
+~~~
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.02 p\/q
+| F - F
+~~~
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.03 p->q
+| F - F
+~~~
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.04 p/\q
+| T - T
+~~~
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.05 p\/q
+| T - T
+~~~
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.06 p->q
+| T - T
+~~~
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.07 p/\q
+| F - T
+~~~
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.08 p\/q
+| F - T
+~~~
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.09 p->q
+| F - T
+~~~
+
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.10 p/\q
+| T - F
+~~~
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.11 p\/q
+| T - F
+~~~
+
+~~~{.TruthTable .Partial system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.12 p->q
+| T - F
+~~~
+
+<br>
+
+## More memorizing truth-tables
+
+In the following, we introduce a minor variation on the previous problems by having one fill in two rows of a truth-table. We further add on biconditional and negation, and use different propositional letters.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.13 a/\z
+| TTT
+| T-F
+| FFT
+| F-F
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.14 b\/y
+| T-T
+| TTF
+| FTT
+| F-F
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.15 ~c
+| -T
+| TF
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.16 d->k
+| TTT
+| T-F
+| FTT
+| F-F
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.17 u<->v
+| T-T
+| TFF
+| FFT
+| F-F
+~~~
+
+
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.18 m/\n
+| T-T
+| TFF
+| FFT
+| F-F
+~~~
+
+Before you try the next problem, note that the $j$ column is listed before the $z$ column, even though we are considering the formula $z\vee j$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.19 z\/j
+| TTT
+| T-F
+| F-T
+| FFF
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.20 ~r
+| FT
+| -F
+~~~
+
+Before you try the next problem, note that the $e$ column is listed before the $w$ column, even though we are considering the formula $w\rightarrow e$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.21 w->e
+| T-T
+| TTF
+| F-T
+| FTF
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.22 f<->d
+| T-T
+| TFF
+| F-T
+| FTF
+~~~
+
+<br>
+
+## Finding the main connectives
+
+
+Prior to starting the next set of problems, perhaps consider reviewing [how to type the connectives on the keyboard](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-main-connectives.pandoc#typing-the-connectives-on-the-keyboard).
+
+In the following problems we successively find the main connectives of the formulas, starting with the big formulas and breaking them into smaller parts. Press return after you have entered in the main connective to get to the next level. Ignore the "You may now submit your solution" remark after you finish. In the actual homeworks, there will actually be a "submit your solution" button- this is just practice.
+
+<br>
+
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.23 (~p -> (q/\r))
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.24 p\/(q/\r)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.25 p<->(q/\r)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.26 ~(p->(q/\r))
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.27 (p->~q)\/r
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.28 ((p \/ q) /\ r)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.29 ((p /\ q) \/ ~(q /\ r))
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.30 (~p <-> ~(q \/ r))
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.31 (p -> (q \/ r))
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.32  (((p \/ ~q) -> (r <-> s)) -> ~t)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.33  ((w /\ ~t) -> (t -> (w \/ u)))
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.34  (~~v -> ~~u)
+```
+<br>
+
+## More complex truth-tables
+
+Now we focus on completing the truth-tables of more complex propositions.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.35 (p->(q/\r))
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.36 ((p/\q)->r)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.37 ((p\/q)->r)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.38 ((~p\/~q)->r)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.39 ((~p/\q)->~r)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.40 (p/\q)<->(p\/q)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.41 ~~p <-> q
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.42 (~~p -> ~~q)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.43 (~(~p /\~q) <-> ~~q)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.44 (p/\(q/\r))
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+1.45 (p\/(q/\r))
+~~~
+
+<br>
+<br>
+

@@ -1,0 +1,139 @@
+<br>
+<br>
+
+# Truth-tables
+
+Now we develop a method for assigning a truth-table to the complex propositions, by reference to a number of examples, and a running commentary on the examples.
+
+- [Determining truth-values](#determining-truth-values)
+- [Building more complex tables](#building-more-complex-tables)
+- [Example 1](#example-1)
+- [Example 2](#example-2)
+- [Observation](#observation)
+- [Example 3](#example-3)
+- [Example 4](#example-4)
+- [Example 5](#example-5)
+- [Example 6](#example-6)
+
+<br>
+
+## Determining truth-values
+
+The basic question is: how is the truth-value of a complex proposition a function of the truth-values of its corresponding parts? More specifically, we can ask: Consider $p\rightarrow (q\vee r)$. Suppose you knew that $r$ is false while $p,q$ are true. Is $p\rightarrow (q\vee r)$ true or false?
+
+We develop a general method for answering these questions. This is important for two reasons.  This is useful since often the sentences whose truth we’re interested in are complex, and so the method gives us a way to determine truth/falsity based on prior knowledge of truth/ falsity of smaller components.
+
+<br>
+
+## Building more complex tables
+
+We describe a general method for building a truth-table for each proposition, even the complex ones like $p\rightarrow (q\vee r)$.
+
+By following this method, we will have a big table that tells us what the truth-value of $p\rightarrow (q\vee r)$ is, given the truth-value of its components.
+
+We build the big table by slowly decomposing the complex formula into its simpler components and successively applying the five truth tables for the propositional connectives which we have memorized.
+
+<br>
+
+## Example 1
+
+The truth-tables come pre-populated with a row corresponding to each combination of the truth-values of the basic propositional letters. In this first example, there are two basic propositional letters $p$ and $q$, and so there are four rows. We fill out the columns corresponding to each connective, starting with the connectives that come first in the order in which the proposition is built up out the propositional letters. In this case, we start with the disjunction $\vee$ and then move onto the negation $\neg$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/truth_tables_example1.mp4"/> </video>
+
+You can try it out yourself, or come back to it later to practice. Note that in the videos, there is added highlighting. But this was added in a video editor afterwards. There is no highlighting in the program itself.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ~(p\/q)
+~~~
+
+<br>
+
+## Example 2
+
+In this example, we start with the conjunction $\wedge$ and move onto the negation $\neg$. This is because the order in which the proposition became a proposition was: first we took the basic propositional letters $p$ and $q$ and made the conjunction $p\wedge q$. Then we negated this to make $\neg (p \wedge q)$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/truth_tables_example2.mp4"/> </video>
+
+Again, you can try it out yourself, or come back and practice later.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ~(p/\q)
+~~~
+
+<br>
+
+
+## Observation
+
+In the first two examples, at the last step we handled the negation. In this, we are applying the basic truth-table for negation which we learned earlier, and which recall looks like:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms immutable nocheck" submission="none"}
+ ~p
+| FT
+| TF
+~~~
+
+We can apply this truth-table by thinking about its two rows as two rules governing negation:
+
+- If $p$ is true, then $\neg p$ is false.
+- If $p$ is false, then $\neg p$ is true.
+
+Hence, in the second example, we apply these rules *four* times, to the proposition $p\wedge q$. Play the following part of it again:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/truth_tables_example2.mp4#t=10,21"/> </video>
+
+In these four applications, we first applied the first rule governing negation, then we subsequently applied the second rule governing negation three times.
+
+This underscores something we mentioned earlier, namely that each of the truth-tables for the connectives is a function which tells one how the truth-value of the larger proposition is determined from the truth-values of its smaller components. And one way to understand a function is as given by a rule, or a collection of rules.
+
+<br>
+
+## Example 3
+
+In the first two examples, we had two propositional connectives. In this example, we have three connectives: two instances of negation and one instance of conjunction. The way in which the proposition $\neg p \wedge \neg q$ became a proposition was by first taking $p$, putting a negation on it to get $\neg p$, and then taking $q$ and putting a negation on it to get $\neg q$, and finally conjoining them together to get a conjunction $\neg p \wedge \neg q$. Hence, first we apply the truth-table for negation twice, and then we apply the truth-table for conjunction. The rule for conjunction is of course easy to memorize ("a conjunction is true precisely when both conjuncts are true"), but visually it is challenging to apply this rule since one has to be looking at the right columns, in this case the columns corresponding to the two negated statements.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/truth_tables_example3.mp4"/> </video>
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (~p/\~q)
+~~~
+
+<br>
+
+## Example 4
+
+Here is another example with three connectives, except this time the last connective is a disjunction. Try it out yourself, or perhaps watch the video first and then try it out.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/truth_tables_example4.mp4"/> </video>
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (~p\/~q)
+~~~
+
+<br>
+
+## Example 5
+
+In this example, we only have two connectives, but one of them is an implication. The way that the proposition $p\rightarrow \neg q$ became a proposition was by first putting a negation on the propositional letter to get $\neg q$, and then by forming an implication with antecedent $p$ and consequent $\neg q$. Hence, first we apply the rule for negation, and then we apply the rule for implication. To apply the rule for implication, we have to correctly identify the antecedent column ($p$) and the consequent column ($\neg q$).
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/truth_tables_example5.mp4"/> </video>
+
+~~~{.TruthTable .Simple system="gamutPND"  options="nodash nocounterexample autoAtoms" submission="none"}
+ (p->~q)
+~~~
+
+<br>
+
+## Example 6
+
+In this example, we have three connectives: reading from left-to-right, we see one conjunction and two disjunctions. But the order in which the proposition became a proposition was: we took the two letters $p,q$ and we formed both their conjunction $p\wedge q$ and their disjunction $p\vee q$, and then we took the disjunction of these to form $(p\wedge q)\vee (p\vee q)$. Hence, first we apply the rule for conjunction, then we apply the rule for disjunction, and then we apply the rule for disjunction again. This last application of the rule for disjunction is tricky only in that you have to be looking at the columns corresponding to the disjuncts, which in this case are separated from one another.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/truth_tables_example6.mp4"/> </video>
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ((p/\q)\/(p\/q))
+~~~
+
+<br>
+

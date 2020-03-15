@@ -1,0 +1,331 @@
+<br>
+<br>
+
+# Practice problems for Chapter 6 with solutions
+
+The practice problems fall into two groups:
+
+- [Memorizing rules](#memorizing-rules)
+- [Simple proofs](#simple-proofs)
+
+<br>
+<br>
+
+These have the solutions. But keep in mind that for each problem there can be more than one correct proof.
+
+## Memorizing rules
+
+The first set of ten problems is just practice in memorizing the rules, with substitution instances. In each case below, the proof is exactly one line long, except for the last two proofs involving arrow introduction, which are three lines long.
+
+
+<br>
+<br>
+
+*Example 1*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b)/\c :|-: a/\b
+|(a/\b)/\c :assumption
+|a/\b :E/\1
+```
+
+<br>
+<br>
+
+*Example 2*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ i/\j :|-: (i/\j)\/k
+|i/\j :assumption
+|(i/\j)\/k :I\/1
+```
+
+<br>
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ i\/j :|-: (i\/j)\/k
+|i\/j :assumption
+|(i\/j)\/k :I\/1
+```
+
+<br>
+<br>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ k :|-: (i/\j)\/k
+|k :assumption
+|(i/\j)\/k :I\/1
+```
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ d, d->(e/\f) :|-: e/\f
+|d :assumption
+|d->(e/\f) :assumption
+|e/\f :E->1,2
+```
+
+<br>
+<br>
+
+*Example 6*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ d, d->(e/\f) :|-: d\/e
+|d :assumption
+|d->(e/\f) :assumption
+|d\/e :I\/1
+```
+
+
+<br>
+<br>
+
+*Example 7*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (m/\n)->(o/\p), m/\n :|-: o/\p
+|(m/\n)->(o/\p) :assumption
+|m/\n :assumption
+|o/\p :E->1,2
+```
+
+<br>
+<br>
+
+*Example 8*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ h\/i, h->(k/\p), i->(k/\p) :|-: k/\p
+|h\/i :assumption
+|h->(k/\p) :assumption
+|i->(k/\p) :assumption
+|k/\p :E\/1,2,3
+```
+
+<br>
+<br>
+
+
+*Example 9*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+  :|-: (a/\b)->b
+| a/\b :assumption
+| b :E/\1
+|(a/\b)->b :I->1-2
+```
+
+
+<br>
+<br>
+
+*Example 10*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+  :|-: a->(a\/b)
+| a :assumption
+| a\/b :I\/1
+|a->(a\/b) :I->1-2
+```
+
+<br>
+<br>
+
+## Simple proofs
+
+These next set of ten problems are just simple proofs.
+
+<br>
+<br>
+
+*Example 11*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (p/\q)/\r, (q\/s)->t :|-: t
+|(p/\q)/\r :assumption
+|(q\/s)->t :assumption
+|p/\q :E/\1
+|q :E/\3
+|q\/s :I\/4
+|t :E->2,5
+```
+
+<br>
+<br>
+
+
+*Example 12*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p :|-: q->(p/\q)
+|p :assumption
+| q :assumption
+| p/\q :I/\1,2
+|q->(p/\q) :I->2-3
+```
+
+<br>
+<br>
+
+
+*Example 13*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->q, p->r :|-: p->(q/\r)
+|p->q :assumption
+|p->r :assumption
+| p :assumption
+| q :E->1,3
+| r :E->2,3
+| q/\r :I/\4,5
+|p->(q/\r) :I->3-6
+```
+
+<br>
+<br>
+
+
+*Example 14*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->q, r->s :|-: p->(r->(q/\s))
+|p->q :assumption
+|r->s :assumption
+| p :assumption
+|  r :assumption
+|  q :E->1,3
+|  s :E->2,4
+|  q/\s :I/\5,6
+| r->(q/\s) :I->4-7
+|p->(r->(q/\s)) :I->3-8
+```
+
+
+<br>
+<br>
+
+
+*Example 15*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (p/\~q)\/(r/\~q) :|-: ~q
+|(p/\~q)\/(r/\~q) :assumption
+| p/\~q :assumption
+| ~q :E/\2
+|(p/\~q)->~q :I->2-3
+| r/\~q :assumption
+| ~q :E/\5
+|(r/\~q)->~q :I->5-6
+|~q :E\/1,4,7
+```
+
+
+<br>
+<br>
+
+
+*Example 16*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a\/b :|-: b\/a
+|a\/b :assumption
+| a :assumption
+| b\/a :I\/2
+|a->(b\/a) :I->2-3
+| b :assumption
+| b\/a :I\/5
+|b->(b\/a) :I->5-6
+|b\/a :E\/1,4,7
+```
+
+
+<br>
+<br>
+
+
+
+*Example 17*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->(r/\s), q->(r/\s) :|-: (p\/q)->r
+|p->(r/\s) :assumption
+|q->(r/\s) :assumption
+| p\/q :assumption
+|  p :assumption
+|  r/\s :E->1,4
+|  r :E/\5
+| p->r :I->4-6
+|  q :assumption
+|  r/\s :E->2,8
+|  r :E/\9
+| q->r :I->8-10
+| r :E\/3,7,11
+|(p\/q)->r :I->3-12
+```
+
+<br>
+<br>
+
+<br>
+<br>
+
+
+*Example 18*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->(q\/v), r->(q\/v), p\/r :|-: q\/v
+|p->(q\/v) :assumption
+|r->(q\/v) :assumption
+|p\/r :assumption
+|q\/v :E\/1,2,3
+```
+
+<br>
+<br>
+
+
+*Example 19*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (p/\~q)/\r, (~p\/~q)->(u/\v) :|-: p/\v
+|(p/\~q)/\r :assumption
+|(~p\/~q)->(u/\v) :assumption
+|(p/\~q) :E/\1
+|~q :E/\3
+|~p\/~q :I\/4
+|u/\v :E->2,5
+|v :E/\6
+|p :E/\3
+|p/\v :I/\7,8
+```
+
+
+<br>
+<br>
+
+
+*Example 20*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (p\/q)->r, p, r->(t/\s) :|-: s
+|(p\/q)->r :assumption
+|p :assumption
+|r->(t/\s) :assumption
+|p\/q :I\/2
+|r :E->1,4
+|t/\s :E->3,5
+|s :E/\6
+```
+
+<br>
+<br>

@@ -1,0 +1,203 @@
+<br>
+<br>
+
+
+Logic, First Course, Winter 2020. Week 4, Practice Problems. [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=5)
+
+# Week 4, Practice Problems
+
+The practice problems in this set fall into four groups:
+
+- [Atomic statements](#atomic-statements)
+- [Simple quantifier statements](#simple-quantifier-statements)
+- [Multiple quantifier statements](#multiple-quantifier-statements)
+- [Connecting properties](#connecting-properties)
+
+Before you begin the homework, you might consider printing a copy either to work out by hand as you go along, or to work with on a tablet. A nice pdf of this page is [here](https://drive.google.com/open?id=1QHip9DdLxnYJH8b6Q_uXD-xa6yTGTMUG).
+
+## Atomic statements
+
+In the following problems we use the following key:
+
+| $a$  =  "Angel"
+| $b$  =  "Briana"
+| $c$  =  "Cole"
+| $d$  =  "Daniela"
+| $C$  =  "is a congressman"
+| $D$  =  "is a Democrat"
+| $J$  =  "is a judge"
+| $S$  =  "is senator"
+| $R$  =  "is a Republican"
+
+<br>
+
+Remember that you have to "select all" and delete the entry in the first box, and then you have to press **return** at the end of the problem. If you need a refresher on how to type the propositional connectives on the keyboard, please consider reviewing [Typing the connectives on the keyboard](https://carnap.io/shared/logicteaching@g.ucla.edu/week01-section-main_connective.pandoc#typing-the-connectives-on-the-keyboard).
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ca/\Da : Angel is a congressman and Angel is a Democrat.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Sa\/Sb : Angel is a senator or Briana is a senator.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Dd->Rc : If Daniela is a Democrat then Cole is a Republican.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Jb->~Sb : If Briana is a judge then Briana is not a senator.
+~~~
+
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ja\/(Jb\/Jc) : Angel is a judge or Briana is a judge or Cole is a judge
+~~~
+
+<br>
+
+## Simple quantifier statements
+
+In the following problems, we use the key:
+
+| $a$  =  "Angel"
+| $b$  =  "Briana"
+| $c$  =  "Cole"
+| $d$  =  "Daniela"
+| $C$  = is compassionate
+| $B$  = is brave
+| $H$  = is honest
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ AxHx/\~AxCx : Everyone is honest but not everyone is compassionate.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ExBx/\ExCx : Someone is brave and someone is compassionate.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Bc/\~Hc)->Ex(Bx/\~Hx) : If Cole is brave and Cole is not honest, then someone is brave and not honest.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax~Cx->(~Cb/\~Cc) : If everyone is not compassionate, then Briana is not compassionate and Cole is not compassionate.
+~~~
+
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (ExBx/\ExHx)/\Ax(~Bx\/~Hx) : Someone is brave and someone is honest, but everyone is not brave or not honest.
+~~~
+
+<br>
+
+
+## Multiple quantifier statements
+
+In the following problems, we use the key:
+
+| $a$  =  "Angel"
+| $b$  =  "Briana"
+| $c$  =  "Cole"
+| $d$  =  "Daniela"
+| $H$  = "is happy"
+| $R$  = "is responsible"
+| $O$  = "on time"
+
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ExOx/\Ex~Ox : Someone is on time and someone is not on time.
+~~~
+
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Oa/\~Ob)->(ExOx/\Ex~Ox) : If Angel is on time and Briana is not on time, then someone is on time and someone is not on time.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax~Ox/\Ax~Hx : everyone is not on time and everyone is not happy
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Ax~Ox/\Ax~Hx)->(~Oc/\~Hc) : If everyone is not on time and everyone is not happy, then Cole is not on time and Cole is not happy.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (~Oc/\~Hc)->(~AxOx/\~AxHx) : If Cole is not on time and Cole is not happy, then not everyone is on time and not everyone is happy.
+~~~
+
+
+<br>
+
+## Connecting properties
+
+| $H$  =  "is high-quality"
+| $M$  =  "is a musical"
+| $P$  =  "is popular"
+| $T$  =  "is a thriller"
+
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Mx->Hx) : All musicals are high-quality.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Mx/\Tx) : Some musicals are thrillers.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Tx/\Px)->Ax(Tx->Px) : If some thrillers are popular, then all thrillers are popular.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Mx/\Px)/\Ex(Mx/\~Px) : Some musicals are popular and some musicals are not popular.
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~Ax(Tx->Px)/\Ax((Hx/\Tx)->Px) : Not all thrillers are popular but all high-quality thrillers are popular.
+~~~
+
+<br>
+<br>
+
+This is a practice problem set for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=5). It is run on the Carnap software, which is an:

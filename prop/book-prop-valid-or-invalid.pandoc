@@ -1,0 +1,287 @@
+<br>
+<br>
+
+
+# Valid or invalid
+
+Here we focus on distinguishing valid from invalid arguments via a discussion of a series of examples.
+
+<br>
+
+*Example 1*
+
+Use the table to assess the validity of the argument:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ p/\q :|-: q
+```
+
+Hence, is the argument with premise $p\wedge q$ and conclusion $q$ a valid argument?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Yes or no?
+| *Yes.
+| No.
+```
+
+<br>
+
+*Example 2*
+
+Use the table to assess the validity of the argument:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~e\/f :|-: ~e
+```
+
+Hence, is the argument with conclusion $\neg e$ and premise $\neg e\vee f$ a valid argument?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Yes or no?
+| Yes.
+| *No.
+```
+
+<br>
+
+*Example 3*
+
+Use the table to assess the validity of the argument:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~j,~z :|-: ~(j\/z)
+```
+
+Hence, is the argument with conclusion $\neg (j\vee z)$ and premises $\neg j$ and $\neg z$ a valid argument?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Yes or no?
+| *Yes.
+| No.
+```
+
+One way to quickly assess validity is to see this argument as a valid argument obtained from an equivalence. Which equivalence can this be seen as an instance of? *Hint: the comma separating the premises acts like a conjunction.*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is it?
+| law of double negation
+| associativity
+| *DeMorgan
+| distributivity
+```
+
+<br>
+
+*Example 4*
+
+Use the table to assess the validity of the argument:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ q :|-: p\/q
+```
+
+Hence, is the argument with conclusion $p\vee  q$ and premise $p$ a valid argument?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Yes or no?
+| *Yes.
+| No.
+```
+
+<br>
+
+*Example 5*
+
+Consider how large the table would be to assess the validity of the following:
+
+<p style="margin-left: 40px"> $r,t\vdash s\vee (r\wedge t)$ </p>
+
+It turns out that this is a valid argument. What substitution should you do to see this, on the basis of Example 4? Recall Example 4 was the valid argument $q \vdash p\vee q$.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| *substitute s for p and substitute r/\ t for q.
+| substitute t for p and substitute r/\ s for q.
+| substitute r/\ t for p and substitute s for q.
+| substitute r/\ s for p and substitute t for q.
+```
+
+<br>
+
+*Example 6*
+
+Use the table to assess the validity of the argument, keeping in mind that the initial three columns are ordered alphabetically (i.e. $r,s,t$):
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ t\/s :|-: (t\/s)/\r
+```
+
+Hence, is the argument with conclusion $(t\vee s)\wedge r$ and premise $t\vee s$ a valid argument?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Yes or no?
+| Yes.
+| *No.
+```
+
+*Hint: think about $t\vee s$ as it appears in the premise and as part of the conclusion as a single proposition (like $p$).*
+
+<br>
+
+*Example 7*
+
+Use the table to assess the validity of the argument:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ~a, ~a->b :|-: b
+```
+
+Hence, is the argument with conclusion $b$ and premises $\neg a$ and $\neg a\rightarrow b$ a valid argument?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Yes or no?
+| *Yes.
+| No.
+```
+
+Which of the following is this example a substitution-instance of:
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is it?
+| *modus ponens
+| modus tollens
+| affirming the consequent
+| denying the antecedent
+```
+
+<br>
+
+*Example 8*
+
+Use the table to assess the validity of the argument:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ c, ~d->c :|-: ~d
+```
+
+Hence, is the argument with conclusion $\neg d$ and premises $c$ and $\neg d\rightarrow c$ a valid argument?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Yes or no?
+| Yes.
+| *No.
+```
+
+Which of the following is this example a substitution-instance of:
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is it?
+| modus ponens.
+| modus tollens.
+| *affirming the consequent.
+| denying the antecedent.
+```
+
+<br>
+
+*Example 9*
+
+Use the table to assess the validity of the argument:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ u\/v, u->v :|-: u
+```
+
+Hence, is the argument with premises $u\vee v$ and $u\rightarrow v$ and conclusion $u$ a valid argument?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Yes or no?
+| Yes.
+| *No.
+```
+
+<br>
+
+*Example 10*
+
+Consider how large the table would be to assess the validity of the following:
+
+<p style="margin-left: 40px"> $c\wedge (d\wedge e)\vdash e$ </p>
+
+ It  turns out this argument is valid. One way to see it is to answer the following question:
+
+What is the one circumstance in which $c\wedge (d\wedge e)$  is true?
+
+ ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+  Which is it?
+ | when exactly one of the propositional letters is true.
+ | when exactly two of the propositional letters are true.
+ | *when all three of the propositional letters are true.
+ ```
+
+Another way to discern the validity of the argument is to "chain together" the following two valid arguments:
+
+<p style="margin-left: 40px"> $c\wedge (d\wedge e)\vdash d\wedge e$  and $d\wedge e\vdash e$ </p>
+
+The second validity $d\wedge e\vdash e$ is clearly a substitution-instance of Example 1 (which recall said that $p\wedge q \vdash q$).
+
+But what substitution do you have to do to see that the first validity $c\wedge (d\wedge e)\vdash d\wedge e$ is a substitution-instance of Example 1? Recall again Example 1 said that  that $p\wedge q \vdash q$.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is it?
+| substitute d for q, and substitute c/\ e for p.
+| *substitute c for p, and substitute d/\ e for q.
+| substitute d for p, and substitute c/\ e for q.
+| substitute c for q, and substitute d/\ e for p.
+```
+
+<br>
+
+*Example 11*
+
+Use the table to assess the validity of the argument (this validity undergirds the "chaining" we mentioned in the previous example).
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ p->q, q->r :|-: p->r
+```
+
+Hence, is the argument with premises $p\rightarrow q$ and $q\rightarrow r$ and conclusion $p\rightarrow r$ a valid argument?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Yes or no?
+| *Yes.
+| No.
+```
+
+<br>
+
+
+*Example 12*
+
+Here is another way to think about the validity from the previous example:
+
+<p style="margin-left: 40px"> $p\rightarrow q, q\rightarrow r \vdash p\rightarrow r$ </p>
+
+What is the one circumstance in which the conclusion $p\rightarrow r$ is false?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is it?
+| when p is true and r is true.
+| *when p is true and r is false.
+| when p is false and r is true.
+| when p is false and r is false.
+```
+
+In this circumstance you just described, if $q$ is true then  premise $q\rightarrow r$ is false; and in  this circumstance if $q$ is false then $p\rightarrow q$ is false. Hence, in either case, one of the two premises is false. Hence, in the circumstance where the conclusion $p\rightarrow r$ is false, at least one of the premises is false.
+
+The argument we just gave in the previous paragraph is an example of one of the valid arguments we saw earlier.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is it?
+| disjunctive syllogism.
+| modus ponens.
+| *reasoning by cases.
+| modus tollens.
+```
+
+<br>

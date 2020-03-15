@@ -1,0 +1,321 @@
+<br>
+<br>
+
+
+# Review for midterm exam with solutions
+
+- [Chapter 1 problems](#chapter-1-problems)
+- [Chapter 2 problems](#chapter-2-problems)
+- [Chapter 3 problems](#chapter-3-problems)
+- [Chapter 4 problems](#chapter-4-problems)
+
+For the case of translations and multiple choice, we fill in **the solutions**. In the case of validity and equivalence problems, we put some brief remarks about **the solutions** right after the problem in boldface. For the first five problems, there is no simple way to give the solution other than just doing it, and so there are not solutions for the first five problems.
+
+<br>
+
+## Chapter 1 problems
+
+For the first two problems, draw the tree diagram associated to the formulas, by successively finding the main connectives of the formulas, starting with the big formulas and breaking them into smaller parts. On paper, simply draw the tree diagram. On the computer, successively find the main connectives (pressing 'return' to move to next connective), until the tree diagram has been drawn (ignore the "You may now submit your solution" remark after you finish, since this is just practice).
+
+<br>
+
+*Problem 1*
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (~p\/(~q/\~r))
+```
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+*Problem 2*
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (~p->(~q->~r))
+```
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+For these next three problems, complete the truth-table. On the computer, you can check your truth-table for correctness.
+
+*Problem 3*
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (~p\/(~q/\~r))
+~~~
+
+
+<br>
+
+*Problem 4*
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (~p->(~q->~r))
+~~~
+
+<br>
+
+*Problem 5*
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ~~p/\~~q
+~~~
+
+
+<br>
+
+## Chapter 2 problems
+
+The next two problems concern translations into *propositional logic*.
+
+*Problem 6*
+
+<p style="margin-left: 40px"> $l$ = the planning zone was $l$arger  </p>
+<p style="margin-left: 40px"> $d$ = the planning zone that the company $d$ealt with was the fifteen (15) kilometre planning zone that was laid out </p>
+<p style="margin-left: 40px"> $k$ = I would $k$now about it </p>
+<p style="margin-left: 40px"> $m$ = I would take $m$easures </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (l/\d)->(k/\m)  :   If the planning zone was larger and if the planning zone that the company dealt with was the fifteen (15) kilometre planning zone that was laid out, I would know about it and I would take measures.
+|(l/\d)->(k/\m)
+~~~
+
+<br>
+
+*Problem 7*
+
+<p style="margin-left: 40px"> $t$ = there are $t$wo articles in the literature  </p>
+<p style="margin-left: 40px"> $o$ = $o$ne reaches a conclusion about the efficacy of the instrument. </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~(t->o)  :  There being two articles in the literature was not sufficient for one reaching a conclusion about the efficacy of the instrument.
+|~(t->o)
+~~~
+
+<br>
+
+<br>
+
+In the next two problems, determine whether the formula is a tautology or not. If it is a tautology simply fill out the entire table and indicate that it is a tautology in the subsequent yes/no question. If it is not a tautology, indicate a row where it is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is not a tautology in the subsequent yes/no question.
+
+<br>
+
+*Problem 8*
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ ((p/\q)/\(q->p))->(q->p)
+~~~
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ It the formula a tautology?
+| +Yes.
+| No.
+```
+
+**Solution**. It is a tautology, since it is a substitution instance of $(a\wedge b) \rightarrow b$.
+
+<br>
+
+
+<br>
+
+*Problem 9*
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
+ (q->p)->((p/\q)/\(q->p))
+~~~
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ It the formula a tautology?
+| Yes.
+| +No.
+```
+
+**Solution**. This one is not a tautology, since the rows TF or FF are rows where the formula is false.
+
+<br>
+
+*Problem 10*.
+
+Consider the tautology $\neg (\neg a\vee \neg b) \leftrightarrow (\neg \neg a\wedge \neg \neg b)$. Which of the following is this a substitution instance of?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| Law of excluded middle.
+| Distribution.
+| The law of double-negation.
+| +DeMorgan.
+```
+
+**Solution**. Just a quick note on this one: one gets this from DeMorgan $\neg (p\vee q) \leftrightarrow (\neg p \wedge \neg q)$ by replacing $p$ by $\neg a$ and $q$ by $\neg b$.
+
+<br>
+
+## Chapter 3 problems
+
+In the next two problems, determine whether the argument is valid or not. If it is valid simply fill out the entire table and indicate that it is valid in the subsequent yes/no question. If it is not valid, indicate a row where the premises are all true and the conclusion is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is valid in the subsequent yes/no question.
+
+<br>
+
+*Problem 11*.
+
+```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+ a\/b, c->a, c->b :|-: ~c
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ It the argument valid?
+| Yes.
+| +No.
+```
+
+**Solution**. The argument is invalid. For instance, the row TTT is the row where a,b,c are all true. In this row a\/b is true since both disjuncts are, and c->a and c->b are true since they have true consequents. And ~c is false since c is true.
+
+<br>
+
+*Problem 12*.
+
+```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+ a\/b, a->~c, b->~c :|-: ~c
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ It the argument valid?
+| +Yes.
+| No.
+```
+
+**Solution**. The argument is valid. It is a substitution instance of "reasoning by cases."
+
+
+<br>
+
+*Problem 13*.
+
+The following is a valid argument:
+
+<p style="margin-left: 40px"> $(a\vee (b\vee c)), \neg b\wedge \neg c  \vdash \neg a$ </p>
+
+It can be obtained from disjunctive syllogism $p\vee q, \neg q \vdash p$ by doing a substitution, and then DeMorgan. Which substitution should you do in order to obtain it?
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Which substitution?
+| Substitute c for p, and substitute a\/b for q.
+| Substitute a\/b for p, and substitute c for q.
+| Substitute b\/c for p, and substitute a for q.
+| +Substitute a for p, and substitute b\/c for q.
+```
+
+*Problem 14*
+
+One and only one of the following is a valid argument. Which is it? *Hint: it can be obtained from distribution.*
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Which one is valid?
+| +a\/(b/\c) ⊢ a\/c
+| a\/(b/\c) ⊢ b\/c
+| a\/(b/\c) ⊢ a/\c
+| a\/(b/\c) ⊢ b/\c
+```
+
+<br>
+
+*Problem 15*
+
+One and only one of the following statements is always true about valid arguments:
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+ Which of the following is always true?
+| If a valid argument has a false conclusion, then it has a true premise.
+| If a valid argument has a false conclusion, then it has all false premises.
+| +If a valid argument has a false conclusion, then it has a false premise.
+| If a valid argument has a false conclusion, then it has all true premises.
+```
+
+<br>
+
+## Chapter 4 problems
+
+In the following four problems we use the following key:
+
+| $a$  =  "Atlanta"
+| $b$  =  "Baltimore"
+| $c$  =  "Chicago"
+| $F$  =  "has a football team"
+| $H$  =  "has a hockey team"
+| $I$  =  "is inland"
+| $M$  =  "is in the midwest"
+| $S$  =  "has a soccer team"
+
+
+<br>
+
+Remember that on the translation problems, to check them on the computer you just press 'return.'
+
+<br>
+
+*Problem 16*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Sb/\Mb)->Ex(Sx/\Mx)  : If Baltimore has a soccer team and Baltimore is in the midwest, then someplace has a soccer team and is in the Midwest.
+|(Sb/\Mb)->Ex(Sx/\Mx)
+~~~
+
+<br>
+
+
+*Problem 17*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Fx->~Hx)->~Ha  : If all places having football teams do not have hockey teams, then Atlanta does not have a hockey team.
+|Ax(Fx->~Hx)->~Ha
+~~~
+
+
+<br>
+
+*Problem 18*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Ia/\Ha)\/((Ib/\Hb)\/(Ic/\Hc)) : Find an equivalent of "someplace is inland and has a hockey team" in predicate logic without using a quantifier, under the hypothesis that there are only three places a,b,c.
+|(Ia/\Ha)\/((Ib/\Hb)\/(Ic/\Hc))
+~~~
+
+<br>
+
+*Problem 19*
+
+<p style="margin-left: 40px"> $m$ = it is in the $m$idwest  </p>
+<p style="margin-left: 40px"> $s$ = it has a $s$occer team  </p>
+<p style="margin-left: 40px"> $h$ = it has a $h$ockey team  </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ m->(s/\~h) : Insert a propositional consequence of "All places in the midwest have soccer teams and not hockey teams".
+|m->(s/\~h)
+~~~
+
+<br>
+
+*Problem 20*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which of the following is ~Ex((~Fx/\~Gx)\/Hx) equivalent to?
+| +Ax((Fx\/Gx)/\~Hx)
+| Ax((~Fx\/Gx)/\~Hx)
+| Ax((~~Fx\/~~Gx)/\Hx)
+| Ax((Fx/\Gx)\/~Hx)
+```
+
+<br>
+
