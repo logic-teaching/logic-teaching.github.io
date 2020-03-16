@@ -1,0 +1,205 @@
+<br>
+<br>
+
+# Classical logic
+
+We introduce a single rule which takes us from intuitionistic logic up to classical logic. We then review a number of derived rules available in this system.
+
+- [Double negation rule](#double-negation-rule)
+- [Law of the excluded middle](#law-of-excluded-middle)
+- [Other derived rules](#other-derived-rules)
+- [Some examples](#some-examples)
+
+<br>
+<br>
+
+## Double negation rule
+
+Recall that the law of double-negation says that $p$ is equivalent to $\neg \neg p$. We add this to our deductive system using the abbreviation `DN`. We write the rule like follows:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_double_negation.mp4"/> </video>
+
+<br>
+
+Note that that the version on the right-hand side is in fact derivable in intuitionistic logic, and indeed follows directly from the introduction rule for negation. Hence, it is only the version on the left-hand side which is new. However, note that the left-hand side does not accord well with the guiding idea of natural deduction, namely that each of the rules is an introduction or elimination rules for one of the propositional connectives.
+
+This rule is organized so that one can do the replacement of equivalents by equivalents inside a more complex expression. The following proofs illustrate this:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (a/\~~b) :|-: (a/\b)
+|(a/\~~b) :assumption
+```
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (a/\b), ~~b->~~c :|-: c
+|(a/\b) :assumption
+|~~b->~~c :assumption
+```
+
+Note however that the replacement has to happen one replacement at a time. For instance, the following is correct
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (~~a/\~~b) :|-: (a/\b)
+|(~~a/\~~b) :assumption
+|~~a/\b :DN1
+|a/\b :DN2
+```
+
+But the following proof, which attempts to do two replacements at once, is not recognized by our proof-checker:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (~~a/\~~b) :|-: (a/\b)
+|(~~a/\~~b) :assumption
+|a/\b :DN1
+```
+
+<br>
+<br>
+
+## Law of the excluded middle
+
+We can derive the law of the excluded middle from double negation as follows:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_LEM_from_DN.mp4"/> </video>
+
+<br>
+
+```{.ProofChecker .GamutPND submission="none"}
+  :|-: p\/~p
+```
+
+Since we will often want to appeal to double-negation without having to redo this proof over and over, we simply include a new rule for law of the excluded middle which says that one can always put $\phi\vee\neg\phi$ on a line, and justify it as `LEM`. Note that no line number is put down as part of the justification.
+
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_LEM.mp4"/> </video>
+
+<br>
+
+Note that the rule for law of the excluded middle says that we can put $\phi\vee \neg \phi$ on a line, but does not say that we can put $\neg \phi \vee \phi$ on a line. We can take care of this via the commutativity of disjunction, which we introduce as a rule next.
+
+## Other derived rules
+
+Recall that we had a long list of tautologies and equivalences that we verified via truth-tables. With the inclusion of the double-negation to our deductive system, these are all now derivable. So that we do not have to be constantly replicating the long proofs over and over again, we include rules for them in our deductive system. Here is the list, along with the abbreviation used in the deductive system and proof-checker:
+
+- *Law of excluded middle*: $p\vee \neg p$ is a tautology. Abbreviation: `LEM`
+- *Law of non-contradiction*: $\neg (p\wedge \neg p)$ is a tautology. Abbreviation: `LNC`
+- *The law of double-negation*: $p$ is equivalent to $\neg \neg p$. Abbreviation: `DN`
+- *Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$. Abbreviation: `LCC`
+- *Law of commutativity for disjunction*: $p\vee q$ is equivalent to $q\vee p$. Abbreviation `LCD`.
+- *Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$. Abbreviation: `LAC`
+- *Law of associativity for disjunction*: $(p\vee q)\vee r$ is equivalent to $p\vee (q\vee r)$. Abbreviation: `LAD`
+- *Law of distribution, part 1*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$. Abbreviation: `LDC` (where the final "C" is short for the initial conjunction)
+- *Law of distribution, part 2*: $p\vee (q\wedge r)$ is equivalent to $(p\vee q)\wedge (p\vee r)$. Abbreviation: `LDD` (where the final "D" is short for the initial disjunction)
+- *DeMorgan Law, part 1*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$. Abbreviation: `DMOR` (since it ends in an or statement)
+- *DeMorgan Law, part 2*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$. Abbreviation: `DMAND` (since it ends in an and statement)
+
+The truth-tables for all of these were done when we introduced them. We have done virtually all of the proofs. For instance, we just did the proof for law of the excluded middle, and we did one of the distribution rules last week. The remaining ones will be the focus of some practice problems and homeworks. As we will see when we put these into the proof-checker, the tautologies in this list do not require that you cite a line as a justification, and the equivalences in this list just require that you cite one previous line as a justification.
+
+Recall that we also had a shorter list of validities. These are all now provable in our system, and we likewise add rules for them:
+
+- *Modus ponens*. $p\rightarrow q, p \vdash q$. Abbreviation: `E->`
+- *Modus tollens*. $p\rightarrow q, \neg q \vdash \neg p$. Abbreviation: `MT`
+- *Disjunctive syllogism*. $p\vee q, \neg p \vdash q$. Abbreviation: `PDS` (for positive disjunctive syllogism, since it starts with an initial unnegated "positive" disjunction).
+- *Disjunctive syllogism*. $\neg (p\wedge q), p \vdash \neg q$. Abbreviation: `NDS` (for negative disjunctive syllogism, since it starts with a negated conjunction).
+- *Reasoning by cases*. $p \vee q, p \rightarrow r, q \rightarrow r \vdash r$. Abbreviation: `E\/`
+
+As is indicated, modus ponens and reasoning by cases are just elimination rules for two of the propositional connectives, namely arrow and disjunction. The first four of these require citing two lines for their justification separated by commas, and the last of these (as we know) requires citing three lines as the justification separated by commas.
+
+<br>
+<br>
+
+## Some examples
+
+As ever, the one way one learns these rules is by doing examples involving them. Hence, we close by doing a small set of examples.
+
+<br>
+
+*Example 1*. $\vdash \neg p \vee p$.
+
+This one is just law of double-negation with the negation coming first in the disjunction. If we had wanted we could have taken this one as a derived rule instead of `LEM` per se. But we can produce a short proof of it as follows:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_classical_example1.mp4"/> </video>
+
+<br>
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+  :|-: ~p\/p
+```
+
+<br>
+
+*Example 2*. $p\vee q, \neg q \vdash p$.
+
+Similarly, this one is just `PDS` with the second disjunct being negated. Both this and the previous problem are less interesting problems in and of themselves, and more just illustrations of which particular patterns we took as basic rules in the system.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_classical_example2.mp4"/> </video>
+
+<br>
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p\/q, ~q  :|-: p
+|p\/q :assumption
+|~q :assumption
+```
+
+<br>
+
+*Example 3*. $(\neg c \wedge \neg d)\rightarrow e, \neg e \vdash c\vee d$.
+
+Here is a different kind of example, where we just start interleaving the derived rules:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_classical_example3.mp4"/> </video>
+
+<br>
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (~c/\~d)->e, ~e  :|-: c\/d
+|(~c/\~d)->e :assumption
+|~e :assumption
+```
+
+
+<br>
+
+*Example 4*. $a, b\vee c, \neg (a\wedge c) \vdash a\wedge b$.
+
+In this example, the disjunction elimination can be avoided by passing through disjunctive syllogism. Since disjunction elimination is sometimes challenging, this is a benefit of having the extra rules.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_classical_example4.mp4"/> </video>
+
+<br>
+
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a, b\/c, ~(a/\c)  :|-: a/\b
+|a :assumption
+|b\/c :assumption
+|~(a/\c) :assumption
+```
+
+<br>
+
+*Example 5*. $\neg a\vee \neg(b\wedge c), c \vdash \neg (a\wedge b)$.
+
+This example illustrates the use of associativity in these systems, and is also a good example of DeMorgan.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_classical_example5.mp4"/> </video>
+
+<br>
+
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~a\/~(b/\c), c  :|-: ~(a/\b)
+|~a\/~(b/\c) :assumption
+|c :assumption
+```
+
+<br>
+<br>
+
+If you want to just practice more with these rules, you can use this to create your own proofs:
+
+
+```{.Playground .GamutPNDPlus submission="none"}
+```
+

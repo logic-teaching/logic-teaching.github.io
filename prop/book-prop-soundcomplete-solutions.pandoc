@@ -1,0 +1,226 @@
+<br>
+<br>
+
+# Soundness and Completeness with solutions
+
+We compare the two different ways we have learned to assess validity, namely truth-tables and proofs. They are related by the Soundness and Completeness Theorems, which we state and discuss.
+
+- [Two ways to assess validity](#two-ways-to-assess-validity)
+- [Confirmation of the alignment via examples](#confirmation-of-the-alignment-via-examples)
+- [The Soundness Theorem and The Completeness Theorem](#the-soundness-theorem-and-the-completeness-theorem)
+- [Completeness as a check on rules](#completeness-as-a-check-on-rules)
+- [Completeness and the vagueness of intuitive validity](#completeness-and-the-vagueness-of-intuitive-validity)
+- [Applications of the alignment](#applications-of-the-alignment)
+
+<br>
+<br>
+
+This version has **solutions**. They are not that many-- just Example 4 and Example 6.
+
+## Two ways to assess validity
+
+We have hence learned two different ways to assess validity whether $\varphi_1, \ldots, \varphi_n \vdash \psi$. First, we learned how to do this via truth-tables: we construct the truth-table and ask whether every row in which all of the premises are true is also one in which the conclusion is true (and if the answer is "yes" for every row, then the argument is valid). Second, we have been learning how to do this via proofs: that is, by constructing a proof which goes from the assumptions to the conclusion.
+
+A presupposition of our using one and the same symbol, namely the consequence symbol $\vdash$, for both of these notions is that they align extensionally, that is, that it is actually the case any argument which is valid by the light of truth-tables is also valid by the light of a proof, and vice-versa. Our topic today is this alignment.
+
+<br>
+
+## Confirmation of the alignment via examples
+
+One way to convince oneself that the two notions align is by doing many examples, and in some sense we have been doing this all along. Let's just briefly note three very simple examples.
+
+*Example 1*. $p,p\rightarrow q\vdash q$.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p,p->q :|-: q
+|p :assumption
+|p->q :assumption
+|q :E->1,2
+```
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p->q, p :|-: q
+|TTTTTT
+|TFFTTF
+|FTTFTT
+|FTFFTF
+~~~
+
+<br>
+
+*Example 2*. $p, q\vdash p\wedge q$.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p,q :|-: p/\q
+|p :assumption
+|q :assumption
+|p/\q :E->1,2
+```
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p, q :|-: p/\q
+|TTTTTT
+|TFTTFF
+|FTTFFT
+|FFTFFF
+~~~
+
+<br>
+
+*Example 3*. $p, \neg p \vdash q$.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p,~p :|-: q
+|p :assumption
+|~p :assumption
+|q :E->1,2
+```
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p,~p :|-: p/\q
+|TFTTTTT
+|TFTTTFF
+|FTFTFFT
+|FTFTFFF
+~~~
+
+<br>
+
+## The Soundness Theorem and The Completeness Theorem
+
+Examples like this should make it plausible that: given premises $\phi_1, \ldots, \phi_n$ and conclusion $\psi$, one has that there is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$ **if and only if** any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row then the conclusion $\psi$ is true at the row. This **biconditional** is in fact true, and its two halves bear the following traditional names:
+
+- *The Soundness Theorem*: **if** there is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$, **then** any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row then the conclusion $\psi$ is true at the row.
+
+- *The Completeness Theorem*:  **if** any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row, then the conclusion $\psi$ is true at the row, **then** there is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$.
+
+A couple of brief remarks on these theorems:
+
+1. Do not confuse the Soundness Theorem with the soundness of an argument they both happen to have the word "soundness" in it, but they are different concepts that happen to bear the same name. One way to keep is straight is as follows. The Soundness Theorem tells us about a relation between two different ways of assessing the validity of an argument. By contrast, the soundness of an argument picks out a certain specific subclass of valid arguments (namely those with all true premises).
+2. The proof of The Soundness Theorem comes down to the fact that our introduction and elimination rules preserve truth.
+3. The proof of The Completeness Theorem is a little harder and-- after a long analysis-- comes down to showing that any consistent set of assumptions is true on at least one row of the truth-table.
+4. The proof of the Completeness Theorem is a little beyond what we are able to do in this course. The course or area in which one proves this is sometimes called "Metalogic."
+
+<br>
+
+## Completeness as a check on rules
+
+After we covered the introduction and elimination rules for the propositional connectives, we kept on adding rules to our deductive system like EFSQ and DN, even when these departed from the guiding idea of natural deduction that the only rules are those that allow for the introduction and elimination of a symbol. But if we are going to go beyond the introduction and elimination rules and add on things like EFSQ and DN, then is there something that constrains this choice? Kleene's idea was that the Completeness Theorem tells when we are "done" adding new rules, since any valid argument is already derivable from these rules. Here is how Kleene put the point in his *Introduction to Metamathematics* ([Chapter VI of p. 131](https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus.pdf)):
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus%20p.%20131.png" alt="Kleene on completeness" width="700"/>
+
+<br>
+
+## Completeness and the vagueness of intuitive validity
+
+Consider the following four claims about an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\psi$:
+
+1. There is a proof with assumptions $\phi_1, \ldots, \phi_n$ and conclusion $\psi$
+2. The truth of the premises $\phi_1, \ldots, \phi_n$ guarantees the truth of the conclusion $\psi$.
+3. Whenever the premises $\phi_1, \ldots, \phi_n$ are all true, then the conclusion $\psi$ is true.
+4. Any row of the truth-table is such that if all premises $\phi_1, \ldots, \phi_n$ are true at the row, then the conclusion $\psi$ is true.
+
+One might have the thought that
+
+- 1 intuitively implies 2 since a proof is a guarantee
+- 2 intuitively implies 3 since the guarantee in 2 pertains to truth
+- 3 intuitively implies 4 since the rows of the truth-table represent possible situations
+- 4 intuitively implies 1 since this is just the content of The Completeness Theorem
+
+If this is right, then the role that The Completeness Theorem plays is showing us that this the distinct concepts in 1-4 in fact align extensionally. This argument is sometimes called the "Kreisel Squeezing Argument." Kreisel thought that it was an argument *against* a view that "informal validity" was a irreparably vague notion ([p. 153 of "Informal Rigour and Completeness Proofs"](https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion].pdf):
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion]%20p.%20153.png" alt="Kreisel on completeness" width="600"/>
+
+<br>
+
+## Applications of the alignment
+
+Perhaps the more humble reason why the alignment is useful is that we have two ways to get to one and the same thing. And in many concrete cases it will be very obvious which way is more efficient.
+
+Suppose that someone asked you to show:
+
+<p style="margin-left: 40px"> *Example 4*. $p, p\rightarrow q, q\rightarrow r, r\rightarrow s, s\rightarrow t \vdash t$. </p>
+
+If you did it via truth-tables, then this would be a really big truth-table. It would have $2^5=32$ different rows. However, since we know that we can also assess validity via proofs, we can give a very comparatively short proof:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p, p->q, q->r, r->s, s->t :|-: t
+|p :assumption
+|p->q :assumption
+|q->r :assumption
+|r->s :assumption
+|s->t :assumption
+|q :E->1,2
+|r :E->3,6
+|s :E->4,7
+|t :E->5,8
+```
+
+<br>
+
+By contrast, consider:
+
+<p style="margin-left: 40px"> *Example 5* (Pierce's Law): $((p\rightarrow q)\rightarrow p)\rightarrow p$.</p>
+
+The truth table for this is comparatively easy:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+  :|-: ((p->q)->p)->p
+|TTTTTTTT
+|TTFFTTTT
+|TFTTFFTF
+|TFTFFFTF
+~~~
+
+By contrast, the proof is rather challenging (it is in section this week).
+
+<br>
+
+Finally consider the following example:
+
+<p style="margin-left: 40px"> *Example 6*. Next quarter, Alex must take course $A$ or course $B$, and he also must take course $C$ or $D$. But the restrictions on his major indicate that he cannot take both course $A$ and $C$ for his degree. Therefore Alex should: (i) take $A$ and $D$, or (ii) take $B$ and $C$, or (iii) take $B$ and $D$.</p>
+
+What makes this conclusion follow? It does not seem to be empirical, since we do not need to do any looking around to figure this out. And it does not seem to be anything specific to the scheduling of classes as opposed to meetings as opposed to appointments, since we can imagine similar reasoning in other domains. A plausible answer is simply that it follows because it is a valid argument. But if it is valid, we should be able to determine that it is valid, using one of our two methods.
+
+If we used the following key:
+
+<p style="margin-left: 40px"> $a$ = takes $A$; $b$ = takes $B$; $c$ = takes $C$; and $d$ = takes $D$ </p>
+
+then we could try to assess for validity using truth-tables. But, as one can see, the truth-table is going to be huge:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ (a\/b), (c\/d), ~(a/\c) :|-: (a/\d)\/((b/\c)\/(b/\d))
+```
+A quicker way is to proceed via the system of derived rules we have developed:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_classical_complex.mp4"/> </video>
+
+<br>
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (a\/b), (c\/d), ~(a/\c) :|-: (a/\d)\/((b/\c)\/(b/\d))
+|(a\/b) :assumption
+|(c\/d) :assumption
+|~(a/\c) :assumption
+|(a\/b)/\(c\/d) :I/\1,2
+|((a\/b)/\c)\/((a\/b)/\d) :LDC4
+|(c/\(a\/b))\/((a\/b)/\d) :LCC5
+|(c/\(a\/b))\/(d/\(a\/b)) :LCC6
+|((c/\a)\/(c/\b))\/(d/\(a\/b)) :LDC7
+|((c/\a)\/(c/\b))\/((d/\a)\/(d/\b)) :LDC8
+|((a/\c)\/(c/\b))\/((d/\a)\/(d/\b)) :LCC9
+|((a/\c)\/(b/\c))\/((d/\a)\/(d/\b)) :LCC10
+|((a/\c)\/(b/\c))\/((a/\d)\/(d/\b)) :LCC11
+|((a/\c)\/(b/\c))\/((a/\d)\/(b/\d)) :LCC12
+|(a/\c)\/((b/\c)\/((a/\d)\/(b/\d))) :LAD13
+|((b/\c)\/((a/\d)\/(b/\d))) :PDS3,14
+|((b/\c)\/(a/\d))\/(b/\d) :LAD15
+|((a/\d)\/(b/\c))\/(b/\d) :LCD16
+|(a/\d)\/((b/\c)\/(b/\d)) :LAD17
+```
+
+Of course, while complicated, this proof would be even more complicated if we had not added on our many derived rules.
+
+<br>
+<br>
+

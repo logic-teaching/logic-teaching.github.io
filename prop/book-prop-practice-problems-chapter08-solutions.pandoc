@@ -1,0 +1,364 @@
+<br>
+<br>
+
+# Practice problems for Chapter 8 with solutions
+
+The practice problems fall into four groups:
+
+- [Commutativity and associativity](#commutativity-and-associativity)
+- [Distribution](#distribution)
+- [DeMorgan and Disjunctive Syllogism and Arrow](#demorgan-and-disjunctive-syllogism-and-arrow)
+- [Putting it all together](#putting-it-all-together)
+
+
+<br>
+<br>
+
+This version has **the solutions**. Keep in mind that there can be many distinct correct proofs which show the validity of one and the same argument. Hence, the solutions provided here merely provide one of many correct possible answers.
+
+<br>
+<br>
+
+## Commutativity and associativity
+
+The first five problems could be solved using introduction and elimination rules for conjunction. But rather solve them first by using associativity and commutativity of conjunction. The proofs are often quicker, and steps like these are often appealed to in the context of more difficult proofs.
+
+<br>
+<br>
+
+*Example 1*.
+
+This first one is just practice applying commutativity of conjunction to a part of the given formula. There is a  proof of this one using commutativity which is a total of two lines.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a/\(b/\c)  :|-: a/\(c/\b)
+|a/\(b/\c) :assumption
+|a/\(c/\b) :LCC1
+```
+
+*Example 2*.
+
+This next one extends the previous one by adding on an application of associativity at the end.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a/\(b/\c)  :|-: (a/\c)/\b
+|a/\(b/\c) :assumption
+|a/\(c/\b) :LCC1
+|(a/\c)/\b :LAC2
+```
+
+*Example 3*.
+
+This next one extends the previous one by adding on an application of commutativity at the end.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a/\(b/\c)  :|-: (c/\a)/\b
+|a/\(b/\c) :assumption
+|a/\(c/\b) :LCC1
+|(a/\c)/\b :LAC2
+|(c/\a)/\b :LCC3
+```
+
+
+<br>
+<br>
+
+*Example 4*.
+
+This one is a slightly different combination of commutativity and associativity than the previous one.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a/\((b/\c)/\d)  :|-: (b/\a)/\(d/\c)
+|a/\((b/\c)/\d) :assumption
+|a/\(b/\(c/\d)) :LAC1
+|(a/\b)/\(c/\d) :LAC2
+|(b/\a)/\(c/\d) :LCC3
+|(b/\a)/\(d/\c) :LCC4
+```
+
+
+<br>
+<br>
+
+*Example 5*.
+
+This next one can be proven using only associativity. Try doing this one on a sheet of paper before putting it into the proof-checker. If the first step isn't clear to you, on your sheet of paper replace $c\wedge d$ by $x$ (or some other new letter) and then apply associativity. If the second step isn't clear to you, on your sheet of paper replace $a\wedge b$ by $y$ (or some new letter) and then apply associativity.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a/\(b/\(c/\d))  :|-: ((a/\b)/\c)/\d
+|a/\(b/\(c/\d)) :assumption
+|(a/\b)/\(c/\d) :LAC1
+|((a/\b)/\c)/\d :LAC2
+```
+
+
+<br>
+<br>
+
+## Distribution
+
+
+
+<br>
+<br>
+
+
+*Example 6*.
+
+This one is just an application of distribution followed by two applications of commutativity. Don't let the presence of negations throw you-- just view the ~a, ~b, ~c as propositional letters in and of themselves.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~a/\(~b\/~c) :|-: (~b/\~a)\/(~c/\~a)
+|~a/\(~b\/~c) :assumption
+|(~a/\~b)\/(~a/\~c) :LDC1
+|(~b/\~a)\/(~a/\~c) :LCC2
+|(~b/\~a)\/(~c/\~a) :LCC3
+```
+
+
+<br>
+<br>
+
+
+*Example 7*.
+
+This one is just like the previous one. Don't let the presence of the arrow distract you-- just start modifying the antecedent just like you did in the previous problem.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (~a/\(~b\/~c))->d :|-: ((~b/\~a)\/(~c/\~a))->d
+|(~a/\(~b\/~c))->d :assumption
+|((~a/\~b)\/(~a/\~c))->d :LDC1
+|((~b/\~a)\/(~a/\~c))->d :LCC2
+|((~b/\~a)\/(~c/\~a))->d :LCC3
+```
+
+<br>
+<br>
+
+
+*Example 8*.
+
+For this one, try distribution and then positive disjunctive syllogism. Make sure you are applying the right form of distribution, and don't forget to do some conjunction elimination along the way.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a\/(b/\c), ~c/\~d :|-: a
+|a\/(b/\c) :assumption
+|~c/\~d :assumption
+|~c/\~d :assumption
+|(a\/b)/\(a\/c) :LDD1
+|a\/c :E/\4
+|c\/a :LCD5
+|~c :E/\2
+|a :PDS6,7
+```
+
+<br>
+<br>
+
+
+*Example 9*.
+
+For this one try a distribution followed by a couple of commutativities. In the first step, just on a sheet of paper replace $a\wedge b$ by $x$ (or some other letter) and apply distribution. Don't forget that when applying commutativity, you can only do one application per line.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (a/\b)\/(c/\d) :|-: (c\/(a/\b))/\(d\/(a/\b))
+|(a/\b)\/(c/\d) :assumption
+|((a/\b)\/c)/\((a/\b)\/d) :LDD1
+|(c\/(a/\b))/\((a/\b)\/d) :LCD2
+|(c\/(a/\b))/\(d\/(a/\b)) :LCD3
+```
+
+
+<br>
+<br>
+
+*Example 10*.
+
+For this one, just continue your previous proof by applying distribution twice inside the two conjuncts of the conclusion to Example 9, and then finish with a bunch of commutativity so as to "alphabetize" the various conjuncts.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (a/\b)\/(c/\d) :|-: ((a\/c)/\(b\/c))/\((a\/d)/\(b\/d))
+|(a/\b)\/(c/\d) :assumption
+|((a/\b)\/c)/\((a/\b)\/d) :LDD1
+|(c\/(a/\b))/\((a/\b)\/d) :LCD2
+|(c\/(a/\b))/\(d\/(a/\b)) :LCD3
+|((c\/a)/\(c\/b))/\(d\/(a/\b)) :LDD4
+|((c\/a)/\(c\/b))/\((d\/a)/\(d\/b)) :LDD5
+|((a\/c)/\(c\/b))/\((d\/a)/\(d\/b)) :LCD6
+|((a\/c)/\(b\/c))/\((d\/a)/\(d\/b)) :LCD7
+|((a\/c)/\(b\/c))/\((a\/d)/\(d\/b)) :LCD8
+|((a\/c)/\(b\/c))/\((a\/d)/\(b\/d)) :LCD9
+```
+
+<br>
+<br>
+
+## DeMorgan and Disjunctive Syllogism and Arrow
+
+<br>
+
+*Example 11*.
+
+This one is just a couple of applications of Demorgan.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~(a/\(b/\c)) :|-: ~a\/(~b\/~c)
+|~(a/\(b/\c)) :assumption
+|~a\/~(b/\c) :DMOR1
+|~a\/(~b\/~c) :DMOR2
+```
+
+<br>
+<br>
+
+
+*Example 12*.
+
+For this one, start with your proof for Example 11, and then apply disjunctive syllogism a few times followed by modus ponens.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~(a/\(b/\c)), ~~a, ~~b, ~c->~d :|-: ~d
+|~(a/\(b/\c)) :assumption
+|~~a :assumption
+|~~b :assumption
+|~c->~d :assumption
+|~a\/~(b/\c) :DMOR1
+|~a\/(~b\/~c) :DMOR5
+|~b\/~c :PDS2,6
+|~c :PDS3,7
+|~d :E->4,8
+```
+
+<br>
+<br>
+
+
+*Example 13*.
+
+A proof of this one can be obtained by taking a proof of the previous one and just turning the $a$ into $\neg \neg a$, and similarly for $b$. Keep in mind that in taking your proof from Example 12, you'll have to change the lines numbers of the justifications in moving them into this proof.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~(a/\(b/\c)), a, b, ~c->~d :|-: ~d
+|~(a/\(b/\c)) :assumption
+|a :assumption
+|b :assumption
+|~c->~d :assumption
+|~~a :DN2
+|~~b :DN3
+|~c->~d :assumption
+|~a\/~(b/\c) :DMOR1
+|~a\/(~b\/~c) :DMOR8
+|~b\/~c :PDS5,9
+|~c :PDS6,10
+|~d :E->4,11
+```
+
+<br>
+<br>
+
+
+*Example 14*.
+
+For this one, try to apply combinations of disjunctive syllogism and DeMorgan.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~(p/\q), ~~p, ~q->~(r/\t) :|-: ~r\/~t
+|~(p/\q) :assumption
+|~~p :assumption
+|~q->~(r/\t) :assumption
+|~p\/~q :DMOR1
+|~q :PDS2,4
+|~(r/\t) :E->3,5
+|~r\/~t :DMOR6
+```
+
+<br>
+<br>
+
+
+*Example 15*.
+
+For this one, try to do DeMorgan followed by reasoning by cases (aka disjunction elimination). Further hint: before applying disjunctive syllogism, try flipping $d\vee e$ to $e\vee d$.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~(a/\b), ~a->c, ~b->c, ~~c->(d\/e), ~e :|-: d
+|~(a/\b) :assumption
+|~a->c :assumption
+|~b->c :assumption
+|~~c->(d\/e) :assumption
+|~e :assumption
+|~a\/~b :DMOR1
+|c :E\/6,2,3
+|~~c :DN7
+|d\/e :E->4,8
+|e\/d :LCD9
+|d :PDS5,10
+```
+
+<br>
+<br>
+
+## Putting it all together
+
+We can put together all the things we have learned in this course, and the last problems in this practice problem set are just an example of this. Consider:
+
+<p style="margin-left: 40px"> If Anthony attends or Briana attends then Cynthia attends. But Cynthia does not attend. Therefore, Anthony does not attend and Brianna does not attend. </p>
+
+Suppose that we were not at the meeting, but we knew the first premise due to our long experience with these characters and we knew the second premise because we got a message from Cynthia. Do we know the conclusion? If the argument was valid, we would know the conclusion. And to see whether it is valid, we would first translate into propositional logic, using the key:
+
+<p style="margin-left: 40px"> $a$ = Anthony attends </p>
+<p style="margin-left: 40px"> $b$ = Briana attends </p>
+<p style="margin-left: 40px"> $c$ = Cynthia attends </p>
+
+Then we could translate as follows:
+
+*First premise*:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a\/b)->c : If Anthony attends or Briana attends then Cynthia attends.
+~~~
+
+*Second premise*:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~c : Cynthia does not attend.
+~~~
+
+*Conclusion*:
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~a/\~b : Anthony does not attend and Brianna does not attend.
+~~~
+
+We probably do not need it at this point, but if we wanted we could parse these sentences too (again, ignore the "submit your solution" bit since we are just practicing):
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (a\/b)->c
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~c
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ ~a/\~b
+```
+
+Then to assess for validity, we could patiently fill out the entire truth-table and see that it is a validity:
+
+```{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ (a\/b)->c, ~c  :|-: ~a/\~b
+```
+
+Alternatively, given that we can also assess validity via proofs, we could also just do a derivation:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (a\/b)->c, ~c :|-: ~a/\~b
+|(a\/b)->c :assumption
+|~c :assumption
+|~(a\/b) :MT1,2
+|~a/\~b :DMAND3
+```
+
+<br>
+<br>

@@ -1,0 +1,270 @@
+<br>
+<br>
+
+# Pragmatics and conversational implicature with solutions
+
+We motivate pragmatics by examining cases of divergence between the formal notion of consequence and the intuitive notion of consequence. We define Grice's notion of conversational implicature and see how it solves some of these problems.
+
+- [Divergences](#divergences)
+- [Conversational implicature](#conversational-implicature)
+- [Revisiting divergences](#revisiting-divergences)
+
+This version has the **solutions** in it.
+
+<br>
+<br>
+
+## Divergences
+
+We saw earlier that some authors, like the early Wittgenstein, thought that the truth-table for the propositional connectives was closely tied to its meaning. Many today follow the early Wittgenstein in thinking this. However, there are various problem cases that suggest "divergences in meaning" between the propositional connectives and their natural language "counterparts".[^1]
+
+[^1]: This language is Grice's. See the opening lines of: [Grice, H. P. 1975. “Logic and Conversation.” In Speech Acts, 41–58. Brill](http://logic-teaching.github.io/prop/texts/Grice%201975%20-%20Logic%20and%20Conversation.pdf).
+
+<br>
+
+*Example 1.*
+
+<p style="margin-left: 40px"> $w$ = Cameron returned from $w$ork </p>
+<p style="margin-left: 40px"> $s$ = Cameron fell a$s$leep </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ w/\s : Cameron returned from work and he fell asleep.
+|w/\s
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ s/\w : Cameron fell asleep and he returned from work.
+|s/\w
+~~~
+
+But we know that the following holds, as well as the converse direction:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ w/\s :|-: s/\w
+|w/\s :assumption
+|s/\w :LCC1
+```
+Intuitively there is no entailment between the first sentence and the second sentence. For the situations in which Cameron first returns from work and then falls asleep seem to be different from the situations in which he does it the other way around.
+
+You might respond: shouldn't we read the first one with a suppressed and isolated "then", as in "Cameron returned from work *and then* he fell asleep." But this response seems a little ad-hoc: if you're allowed to fix a bad translation by adding words to the original, are there any limits to what you can add? Are you allowed to delete words too when it suits you?
+
+<br>
+
+*Example 2*.
+
+Consider the following three exchanges between Laura and Sofia:
+
+<p style="margin-left: 40px"> Laura: Where is the coffee shop? </p>
+<p style="margin-left: 40px"> Sofia: on 6th st. or 7th street. </p>
+
+<br>
+
+<p style="margin-left: 40px"> Laura: When is the exam? </p>
+<p style="margin-left: 40px"> Sofia: On Monday or Tuesday. </p>
+
+<br>
+
+<p style="margin-left: 40px"> Laura: Where is Cameron? </p>
+<p style="margin-left: 40px"> Sofia: at school or at the coffee shop. </p>
+
+So Laura asks Sofia a question and Sofia responds with $\phi\vee \psi$. An intuitive thought is that Laura should be able to infer that Sofia does not know $\phi$ and that Sofia does not know $\psi$. What could possibly account for the intuitive thought besides the meaning of "or"? After all, that’s the only thing that is common to all Sofia's answers.
+
+You might think that we should amend the truth-conditions for "or" so that "$\phi$ or $\psi$" means that "one of them happens but we don't know which." But this won’t work in general because in other settings we do know which. For instance, perhaps I am working on an algebra problem, and I infer from my knowledge that $x<5$ to my knowledge that $x\leq 5$.
+
+<br>
+
+*Example 3*.
+
+In this, we use the following key:
+
+| $a$  =  "Angel"
+| $b$  =  "Briana"
+| $c$  =  "Cole"
+| $F$  =  "is a French major"
+| $H$  = "is happy"
+| $T$  =  "is tall"
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax((Tx/\Fx)->Hx) : All tall French majors are happy.
+|Ax((Tx/\Fx)->Hx)
+~~~
+
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Fx/\Tx) : Some French majors are tall.
+|Ex(Fx/\Tx)
+~~~
+
+Intuitively, it seems that someone who asserts "All tall French majors are happy" also would intend "Some French majors are tall." However, if this entailment is guaranteed by validity, we should be able to assess it.
+
+The first step is to translate it into something more like propositional logic. Suppose that there are only three people at our very small campus, say Angel, Briana, and Cole.
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ((Ta/\Fa)->Ha)/\(((Tb/\Fb)->Hb)/\((Tc/\Fc)->Hc)) : Find an equivalent of "All tall French majors are happy" in predicate logic without using a quantifier, under the hypothesis that there are only three people a,b,c.
+|((Ta/\Fa)->Ha)/\(((Tb/\Fb)->Hb)/\((Tc/\Fc)->Hc))
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Fa/\Ta)\/((Fb/\Tb)\/(Fc/\Tc)) : Find an equivalent of "Some French majors are tall" in predicate logic without using a quantifier, under the hypothesis that there are only three people a,b,c.
+|(Fa/\Ta)\/((Fb/\Tb)\/(Fc/\Tc))
+~~~
+
+By using the following further key, we can translate into pure propositional logic:
+
+| i  =  $Ta$
+| j  =  $Fa$
+| k  =  $Ha$
+| m  =  $Tb$
+| n  =  $Fb$
+| o  =  $Hb$
+| p  =  $Tc$
+| q  =  $Fc$
+| r  =  $Hc$
+
+We would then ask whether the following is valid:
+
+<p style="margin-left: 40px"> $((i\wedge j)\rightarrow k)\wedge(((m\wedge n)\rightarrow o)\wedge((p\wedge q)\rightarrow r))\vdash (j\wedge i)\vee ((n\wedge m)\vee (q\wedge p))$ </p>
+
+
+This would be, of course, a rather long truth table. But one can quickly find a row which demonstrates invalidity by noting that the premise is a conjunction of arrow statements. And it is easy to make arrow statements true by making the antecedents false. In particular, the row where all the propositional letters are false would be a counterexample to the validity of the argument. The invalidity of this complex argument would then be conceptually proximate to the invalidity of this simpler argument:
+
+```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+ ((i/\j)->k) :|-: (j/\i)
+```
+
+**Solution**: a row which demonstrates invalidity is any in which one of the first two letters $i,j$ is false. For instance FFF is such a row, as is FTF and FTT.
+
+Thus, "All tall French majors are happy" does *not* have as a consequence "Some French majors are tall," indicating again a divergence between the formal notion of consequence and the more intuitive notion of consequence.
+
+<br>
+<br>
+
+## Conversational implicature
+
+It looks like we’re just scratching the surface here. This is bad because all these problems piled one atop the other suggest that our translations are in general bad. Hence, this suggests that the approach is simply misguided: we've failed to identify the meanings of the logical particles like "and" and "or" and "all" and "some." Grice invented the field of pragmatics in part to respond to worries like these. Grice's idea was that we can uniformly dissipate all of these problems once we realize that there are certain inferences which are generated not only by the meanings of the logical particles, but by general rules or maxims of conversation. ("Maxim" is an old word for "a rule or principle of conduct").
+
+As a warm-up, consider the following:[^4]
+
+[^4]: This is a "student" variation on Grice's gas station example from p. 51 of his paper.
+
+*Example 4*.
+
+<p style="margin-left: 40px"> Laura: I need to print my homework. </p>
+<p style="margin-left: 40px"> Sofia: There is a computer lab in the library. </p>
+
+It seems natural that Laura should infer that Sofia thinks that there are printers in the computer lab in the library. But this inference does not follow from logic-- indeed, nowadays there are lots of computers without printers. If it does not follow from logic, what does it follow from? Grice's idea was that it followed from logic plus rules governing conversations.
+
+The most basic rule governing conversations that Grice articulated was the following *cooperative principle*:
+
+<img src="http://logic-teaching.github.io/prop/texts/Grice%201975%20-%20Logic%20and%20Conversation%20p.%2045%20v1.png" alt="quotation from Grice" width="700"/>
+
+<img src="http://logic-teaching.github.io/prop/texts/Grice%201975%20-%20Logic%20and%20Conversation%20p.%2045%20v2.png" alt="quotation from Grice" width="700"/>
+
+He further broke this down into several more specific maxims:[^2]
+
+[^2]: These are all direct quotations from pp. 45-46 of the aforementioned Grice article.
+
+
+*Quantity*:
+
+1. Make your contribution to the conversation as informative as is required (for the current purposes of the exchange).
+2. Do not make your contribution more informative than is required.
+
+*Quality*:
+
+1. Do not say that which you believe to be false.
+2. Do not say that for which you lack adequate evidence.
+
+*Relation*:
+
+1. Be relevant.
+
+*Manner*:
+
+1. Avoid obscurity of expression.
+2. Avoid ambiguity.
+3. Be brief.
+4. Be orderly.
+
+
+
+We can then define the key notion of conversational implicature as follows.[^3] Suppose that two people $S$ and $L$ are talking with another, where $S$ stands for the *speaker*, and $L$ stands for the *listener.* Suppose that $S$ says $p$. Then $q$ is a **conversational implicature** of $S$'s saying $p$ if:
+
+- Prior to saying this, $S$ has not violated Grice's maxims.
+- If $\neg q$, then $S$ violates Grice's maxims by saying $p$.
+- Both $S$ and $L$ know these first two points.
+
+[^3]: This definition of conversational implicature follows p. 113 of [Levinson, Stephen C. 1983. “Chapter 3: Conversational Implicature.” In Pragmatics, 97–166. Cambridge University Press.](http://logic-teaching.github.io/prop/texts/Levinson%201983%20-%20Chapter%203%20-%20Conversational%20Implicature.pdf) I think that this is a more intuitive statement than the one on pp. 49-50 of the Grice.
+
+
+To illustrate, let us return to the example of the printer and the computer lab in the library:
+
+<p style="margin-left: 40px"> Laura: I need to print my homework. </p>
+<p style="margin-left: 40px"> Sofia: There is a computer lab in the library. </p>
+
+Obviously Laura should infer from Sofia's having said $p=$ "There is a computer lab in the library" that $q=$ Sofia believes that there is a printer in the computer lab in the library. Let's check to see that this is indeed a conversational implicature of Sofia's having said $p$. For, if $\neg q$, then Sofia did not believe that there is a printer in the computer lab in the library. Then it seems like Sofia is violating Grice's maxim of relation which says that one's contribution to the conversation must be relevant. This verifies the crucial second part of our definition of conversational implicature. (The other two parts are presumably covered by what we typically assume about questions posed by students to students on campuses.)
+
+<br>
+<br>
+
+## Revisiting divergences
+
+Let us now revisit Examples 1-3 and apply conversational implicature to these contexts.
+
+<br>
+
+*Revisiting Example 1*.
+
+Suppose that Sofia said that $p$ = "Cameron returned from work and he fell asleep." Consider $q=$ Sofia believes that Cameron returned from work and then he fell asleep. Then we claim that $q$ is a conversational implicature of $S$'s having said $p$. For, suppose that $\neg q$. Then since $q$ isn't true, presumably Sofia believed that the order of events was somehow different. But then Sofia, in saying $p$, was not being orderly, and hence violated the fourth maxim of manner.
+
+<br>
+
+*Revisiting Example 2*.
+
+In this example, Laura asks Sofia a question and Sofia responds by saying $p=(\phi\vee \psi)$. The intuitive thought is that Laura should be able to infer that $q$= Sofia does not know $\phi$ (and by parity of reasoning that Sofia does not know $\psi$). Let us show that $q$ is a conversational implicature of Sofia's having said $p$. For, if $\neg q$, then Sofia does know $\phi$. (Here we are tacitly using double-negation). But then if Sofia knows $\phi$, then she should have responded by answering with $\phi$ itself. But since she did not, she violates the first maxim of quantity, namely informativeness.
+
+<br>
+
+*Revisiting Example 3*.
+
+In this example, the speaker $S$ says $p$= "All tall French majors are happy." Consider $q=$ the speaker $S$ believes that "Some French majors are tall." Let's argue that $q$ is a conversational implicature of $S$'s having said $p$. For, suppose $\neg q$. Then $S$ does not believe that some French majors are tall. But then trivially "All tall French majors are happy." This is a trivial consequence, for the same reason that the following is trivial:
+
+<p style="margin-left: 40px"> $\neg ((j\wedge i)\vee ((n\wedge m)\vee (q\wedge p))) \vdash ((i\wedge j)\rightarrow k)\wedge(((m\wedge n)\rightarrow o)\wedge((p\wedge q)\rightarrow r))$ </p>
+
+The triviality here pertains to the fact that the $k, o, r$ could be anything. The proof is not difficult, given the proof system we learned last week:
+
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~((j/\i)\/((n/\m)\/(q/\p)))  :|-: ((i/\j)->k)/\(((m/\n)->o)/\((p/\q)->r))
+|~((j/\i)\/((n/\m)\/(q/\p))) :assumption
+|~(j/\i)/\~((n/\m)\/(q/\p)) :DMAND1
+|~(j/\i)/\(~(n/\m)/\~(q/\p)) :DMAND2
+|~(j/\i) :E/\3
+|~(n/\m)/\~(q/\p) :E/\3
+|~(n/\m) :E/\5
+|~(q/\p) :E/\5
+| i/\j :as
+| j/\i :LCC8
+| ⊥ :E~9,4
+| k :EFSQ10
+|(i/\j)->k :I->8-11
+| m/\n :as
+| n/\m :LCC13
+| ⊥ :E~14,6
+| o :EFSQ15
+|(m/\n)->o :I->13-16
+| p/\q :as
+| q/\p :LCC18
+| ⊥ :E~19,7
+| r :EFSQ20
+|(p/\q)->r :I->18-21
+|((m/\n)->o)/\((p/\q)->r) :I/\17,22
+|((i/\j)->k)/\(((m/\n)->o)/\((p/\q)->r)) :I/\12,23
+```
+
+However, the speaker $S$ now has asserted "All tall French majors are happy" for a trivial reason. Hence they violate the maxim of quantity since they ought to have communicated rather the trivial ground on which they believe this.
+
+<br>
+<br>

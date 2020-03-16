@@ -5,7 +5,6 @@
 
 We introduce the natural deduction proof system, focusing first on the connectives $\wedge$ and $\rightarrow$. Then we look at several examples of proofs in a natural deduction system.
 
-In this section, we introduce the natural deduction proof system, focusing first on the connectives $\wedge$ and $\rightarrow$. Then we look at several examples of proofs in a natural deduction system.
 
 - [Motivations for a deductive system](#motivations-for-a-deductive-system)
 - [Proofs in natural deduction](#proofs-in-natural-deduction)

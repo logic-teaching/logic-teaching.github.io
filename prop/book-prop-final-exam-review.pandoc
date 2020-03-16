@@ -1,0 +1,296 @@
+<br>
+<br>
+
+# Review for final exam
+
+This is intended to be review for the exam. There are 20 problems which fall into four groups corresponding to Chapters 6-9.
+
+- [Chapter 6 problems](#chapter-6-problems)
+- [Chapter 7 problems](#chapter-7-problems)
+- [Chapter 8 problems](#chapter-8-problems)
+- [Chapter 9 problems](#chapter-9-problems)
+
+<br>
+
+## Chapter 6 problems
+
+Each of these problems asks you to do a proof in the Chapter 6 deductive system. This is the system with just introduction and elimination rules for conjunction, arrow, and disjunction. Remember that the strategy in this system is: (1) try to do elimination rules at the top of your proof, and if that doesn't work, then (2) try to do an introduction rule at the bottom of your proof, and (3) repeat steps (1)-(2).
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 1*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b)/\c :|-: (a\/c)
+|(a/\b)/\c :assumption
+```
+
+
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 2*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->(b/\c), a, c->(d/\e) :|-: e
+|a->(b/\c) :assumption
+|a :assumption
+|c->(d/\e) :assumption
+```
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->c, b->d, d->e :|-: (a/\b)->(d/\e)
+|a->c :assumption
+|b->d :assumption
+|d->e :assumption
+```
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a\/b)->c, (a\/b)->d :|-: (a/\b)->(c/\d)
+|(a\/b)->c :assumption
+|(a\/b)->d :assumption
+```
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a\/b, c->e, a->c, d->e, b->d :|-: e
+|a\/b :assumption
+|c->e :assumption
+|a->c :assumption
+|d->e :assumption
+|b->d :assumption
+```
+
+<br>
+<br>
+
+<P style="page-break-before: always">
+
+## Chapter 7 problems
+
+Each of these problems asks you to do a proof in the Chapter 7 deductive system. This system just adds onto the Chapter 6 deductive system with the introduction and elimination rule for negation, as well as EFSQ and the repeat rule. Remember that falsum ⊥ can be written in the proof-checker (and on exam) as `!?`. You can also just copy and paste ⊥ from here.
+
+<br>
+
+*Example 6*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ ~a :|-: ~(a/\b)
+|~a :assumption
+```
+
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 7*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ (a/\b)->c :|-: ~c->~(a/\b)
+|(a/\b)->c :assumption
+```
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 8*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a->b, b->c, c->~a :|-: ~a
+|a->b :assumption
+|b->c :assumption
+|c->~a :assumption
+```
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 9*.
+
+On this one, keep in mind that we are proving it in the Chapter 7 system, and so we do not have disjunctive syllogism as a primitive rule. This proof is basically showing that a certain kind of disjunctive syllogism holds in the Chapter 7 system.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a\/(b/\c), ~a :|-: b/\c
+|a\/(b/\c) :assumption
+|~a :assumption
+```
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 10*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ q :|-: ~~(p->q)
+|q :assumption
+```
+
+<br>
+<br>
+
+<P style="page-break-before: always">
+
+## Chapter 8 problems
+
+These problems pertain to the Chapter 8 deductive system. Remember that the Chapter 8 deductive system has rules built in for modus tollens (MT), law of excluded middle (LEM), law of non-contradiction (LNC), double-negation (DN) commutativity (LCC, LCD), associativity (LAC, LAD), distribution (LDC, LCDD), distribution (LDC, LDD), and disjunctive syllogism (PDS, NDS). Also keep in mind that the strategy for the Chapter 8 deductive system is to look for patterns associated to these rules, as opposed to following the main connectives like we did in Weeks 6-7.
+
+
+<br>
+
+*Example 11*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (a->b)/\((b->c)/\(c->d))  :|-: (a->b)/\((c->d)/\(b->c))
+|(a->b)/\((b->c)/\(c->d)) :assumption
+```
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 12*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~(a\/b)->c  :|-: ~(b\/a)->c
+|~(a\/b)->c :assumption
+```
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 13*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (a/\(b/\c))\/(~a/\(~b/\~c))  :|-: ((~a/\~b)/\~c)\/(a/\(b/\c))
+|(a/\(b/\c))\/(~a/\(~b/\~c)) :assumption
+```
+<br>
+
+<P style="page-break-before: always">
+
+*Example 14*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a\/(b/\c), (a\/b)->~d, (a\/c)->~e  :|-: ~(d\/e)
+|a\/(b/\c) :assumption
+|(a\/b)->~d :assumption
+|(a\/c)->~e :assumption
+```
+
+<br>
+
+<P style="page-break-before: always">
+
+*Example 15*.
+
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (~(a/\b)/\b)  :|-: ~a
+|(~(a/\b)/\b) :assumption
+```
+
+<P style="page-break-before: always">
+
+*Example 16*.
+
+By the Soundness and Completeness Theorems, we can assess the validity of this argument using truth-tables as well. Fill out the following truth-table, just like we did in Chapter 3:
+
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocheck autoAtoms" submission="none"}
+ (~(a/\b)/\b) :|-: ~a
+~~~
+
+(We will need this truth-table in Example 20, and so perhaps consider taking a screen shot of it before you move on, for easy access later).
+
+<br>
+<br>
+
+## Chapter 9 problems
+
+These problems pertain to the materials from Chapter 9 and the first lecture of Chapter 10.
+
+<br>
+
+*Example 17*
+
+Consider the scale (always, often, sometimes). Suppose Laura and Sofia are talking about commuting, and Laura asks: "Do you drive to campus" and that Sofia responds by saying that "sometimes." Which of the following is a conversational implicature of Sofia's having said that?
+
+```{.QualitativeProblem .MultipleChoice submission="none"}
+ Which one?
+| *It is not the case that Sofia always drives to campus.
+| *It is not the case that Sofia often drives to campus.
+| It is not the case that Sofia sometimes drives to campus.
+| It is not the case that Sofia believes that she sometimes drives to campus.
+```
+
+<br>
+
+*Example 18*
+
+Suppose that Lily meets Sara for the first time and asks Sara how long she has been working at her present job. Suppose that Sara responds by saying that she quit her last job because she did not like the hours. It seems that Sara has violated one of Grice's conversational maxims. Which one?
+
+```{.QualitativeProblem .MultipleChoice submission="none"}
+ Which one?
+| Quantity
+| Quality
+| *Relation
+| Manner
+```
+
+<br>
+
+*Example 19*
+
+Suppose that the probability of $p\vee q$ is 3/10 and the probability of $p\vee r$ is 4/10 and the probability of $p\vee (q\vee r)$ is 6/10. What is the probability of $p\vee (q\wedge r)$? *Hint*: use distribution.
+
+```{.QualitativeProblem .MultipleChoice submission="none"}
+ What is it?
+| 0/10
+| *1/10
+| 2/10
+| 3/10
+```
+
+<br>
+
+
+*Example 20*
+
+Suppose that each of the rows in the truth-table in Example 16 is weighted equally, that is each has equal chance of happening, namely a 1/4 chance of happening. What is the probability of $\neg (a\wedge b)$ conditional on $b$?
+
+```{.QualitativeProblem .MultipleChoice submission="none"}
+ What is it?
+| 1/4
+| *2/4
+| 3/4
+| 4/4
+```
+
+<br>
+<br>

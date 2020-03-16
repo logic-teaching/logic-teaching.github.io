@@ -1,0 +1,201 @@
+<br>
+<br>
+
+# Conditional Probability
+
+- [Definition](#definition)
+- [Examples](#examples)
+- [Bayes' theorem](#bayes-theorem)
+- [Bayes' theorem when the hypothesis implies the evidence](#bayes'-theorem-when-the-hypothesis-implies-the-evidence)
+- [Revisiting affirming the consequent](#revisiting-affirming-the-consequent)
+- [Revisiting the paradoxes of material implication](#revisiting-the-paradoxes-of-material-implication)
+
+<br>
+<br>
+
+## Definition
+
+The conditional probability of $h$ given $e$, written $Pr(h\mid e)$, is defined as the fraction of $Pr(h\wedge e)$ over $Pr(e)$:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditional-defn-redeux.mp4"/> </video>
+
+<br>
+
+What is the underlying idea behind conditional probability? By definition, $Pr(h\mid e)$ is the probability of the $h \wedge e$ rows over the probability of the $e$ rows. In the case where the rows are all equally weighted, this comes down to asking what percentage of the $e$ rows are also $h\wedge e$ rows.
+
+The choice of variables $h,e$ here come from the canonical application, where $h$ is a *hypothesis* and $e$ is *evidence* which bears on the hypothesis. As we mentioned last time, one way to think about probability is as degrees of belief. To continue this, the idea is that $Pr(h\mid e)$ reflects one's degree of belief in the hypothesis $h$ once one has come to learn evidence $e$. Hence, in the definition of conditional probability, when we form the conjunction of $h\wedge e$ and the evidence $e$, we are restricting attention to the $e$ rows of the truth-table, since these are the rows where the evidence $e$ is actually true.
+
+
+<br>
+<br>
+
+## Examples
+
+Let us illustrate this with respect to the following, where we suppose that all rows have an equal chance of happening, namely a 1/4 chance of happening:
+
+<br>
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (p/\q)/\(p\/q), p/\(p\/q)
+~~~
+
+<br>
+
+*Example 1*. Let us calculate $Pr(p\wedge q\mid p\vee q)$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex1.mp4"/> </video>
+
+<br>
+
+*Example 2*. Let us calculate $Pr(p\vee q\mid p\wedge q)$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex2.mp4"/> </video>
+
+<br>
+
+In this problem `LCC` is just our [familiar abbreviation](https://carnap.io/shared/logicteaching@g.ucla.edu/week08-lecture-1-ND-classical.pandoc#other-derived-rules) for the law of commutativity of conjunction. We can do this inside the probability operator due to the [the connections between probability and logic](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-2-probability.pandoc#connections-between-probability-and-logic).
+
+<br>
+
+*Example 3*. Let us calculate $Pr(p\mid p\vee q)$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex3.mp4"/> </video>
+
+<br>
+
+*Example 4*. Let us calculate $Pr(p\vee q\mid p)$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-conditiona-ex4.mp4"/> </video>
+
+<br>
+
+Here is a technique to slightly speed such calculations up. First, we know that $(p\wedge q)\wedge (p\vee q)$ is equivalent to $p\wedge q$:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (p/\q)/\(p\/q)  :|-: p/\q
+|(p/\q)/\(p\/q) :assumption
+```
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ p/\q  :|-: (p/\q)/\(p\/q)
+|p/\q :assumption
+```
+Hence, we know from [the connections between probability and logic](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-2-probability.pandoc#connections-between-probability-and-logic) that their $Pr((p\wedge q)\wedge (p\vee q))=Pr(p\wedge q)$. This is useful because we could have just seen that $Pr(p\wedge q)$ has probability 1/4, without having had to do the truth-table up above (under the assumption at the rows are all equally weighted).
+
+<br>
+<br>
+
+## Bayes' theorem
+
+Formally, Bayes' theorem is just the following identity, whose parts we abbreviate as follows:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-bayes-redeux.mp4"/> </video>
+
+<br>
+
+The names for these parts are as follows, along with their intuitive meaning:
+
+- $Pr(h\mid e)$ is just the conditional probability of the hypothesis $h$ given the evidence $e$. This is how likely the hypothesis $h$ is made by observation of the evidence $e$.
+- $Pr(e\mid h)$ is the *likelihood*: this the conditional probability of the evidence given the hypothesis $h$. This is how likely the evidence is, given that we assume the hypothesis. More intuitively still, it is how likely the evidence is by the lights of the hypothesis.
+- $Pr(h)$ is the *prior* probability: it is how probable hypothesis $h$ is full stop, and not conditional on any other proposition.
+- $Pr(e)$ is the probability of the evidence: it is how probable the evidence $e$ is full stop, and not conditional on any other proposition.
+
+The justification for Bayes' theorem just goes through the commutativity of conjunction and the definition of conditional probability:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-bayes-theorem-proof.mp4"/> </video>
+
+<br>
+<br>
+
+## Bayes' theorem when the hypothesis implies the evidence
+
+One traditional application of Bayes' theorem is when $h\vdash e$, or equivalently when $h\rightarrow e$ is a tautology (see [the Deduction Theorem](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#deduction-theorem)). This is the situation we are often in when we are trying to test a scientific hypothesis: we deduce that if the hypothesis $h$ is true, then $e$ is true. Further, there being a deduction of $h\rightarrow e$ implies that $e\wedge h$ is equivalent to $h$, as one can quickly check:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ h->e :|-: h->(h/\ e)
+|h->e :assumption
+```
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ :|-: (h/\ e)->h
+```
+Hence if $h\rightarrow e$ is a tautology, then $Pr(e\wedge h) =Pr(h)$ by [the connections between probability and logic](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-2-probability.pandoc#connections-between-probability-and-logic), and thus
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-when-likelihood-is-1.mp4"/> </video>
+
+<br>
+
+This implies that if $h\rightarrow e$ is a tautology, then the conditional probability is just the fraction of the prior probability over the probability of the evidence:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/probability-simplebayes.mp4"/> </video>
+
+<br>
+
+Further, recall from [the connections between probability and logic](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-2-probability.pandoc#connections-between-probability-and-logic) that if $h\rightarrow e$ is a tautology, then $Pr(h)\leq Pr(e)\leq 1$.
+
+This has two immediate consequences:
+
+- If $Pr(e)$ is as low as possible, namely close to $Pr(h)$, then $Pr(h\mid e)$ is close to one and so high as possible. Hence, updating on evidence $e$ whose probability is as low as possible makes the conditional probability $Pr(h\mid e)$ as high as possible.
+- If $Pr(e)$ is as high as possible, namely close to $1$, then $Pr(h\mid e)$ is close to $Pr(h)$ and thus as low as possible. Hence, updating on evidence $e$ whose probability is as high as possible makes the conditional probability $Pr(h\mid e)$ as low as possible.
+
+These might initially seem counterintuitive. But consider that a hypothesis can deductively imply many things: if it deductively implies $e$ then it deductively implies $e\vee f$. Hence, deducing a proposition of high probability should not be a mark of distinction, since high probability are kind of like near-tautologies and almost as easy to come by as tautologies. By contrast, if a hypothesis implied an observation which was startling because it is unlikely, we would be more interested in the hypothesis. It is of course a further step to argue that we ought thereby come to believe such a hypothesis to a stronger degree. This kind of application of probability to claims about what we ought to believe gets studied in the setting of *epistemology,* as well as *confirmation theory* within the *philosophy of science*. (The name comes from the idea that the evidence is confirming the hypothesis by making it more likely).[^3]
+
+[^3]: See [Earman, John. Bayes or Bust? A Critical Examination of Bayesian Conﬁrmation Theory. Cambridge, MA: MIT Press, 1992](http://fitelson.org/confirmation/earman_bayes_or_bust.pdf), or [Pettigrew, Richard & Weisberg, Jonathan (eds.) (2019). The Open Handbook of Formal Epistemology](https://philpapers.org/rec/PETTOH-2).
+
+<br>
+<br>
+
+## Revisiting affirming the consequent
+
+Recall the fallacy of [affirming the consequent](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#the-invalid-argument-of-affirming-the-consequent):
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ h->e, e :|-: h
+~~~
+
+This is a paradigmatic example of an invalid argument. But we noted that [invalid arguments can be good in other ways](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture1-validities.pandoc#invalid-arguments-can-be-good-in-other-ways). For instance, when take
+
+<p style="margin-left: 40px"> $h$ = it is raining </p>
+<p style="margin-left: 40px"> $e$ = the sidewalks are wet </p>
+
+then the argument actually seems very reasonable: since you know that rain makes the sidewalks wet, if you observed the sidewalks being wet, you might think it likely to be true that it is raining. There is no guarantee of truth here since the sprinklers may have been on and since you may not have been able to see the sky (imagine you are looking out a far away window and your view of the sky is obstructed). The assessment that the truth of $e$ makes $h$ more likely is predicted by the apparatus of conditional probability. For, it is something like a tautology that rain makes the sidewalks wet-- this has something to do with the meaning of "rain" and "sidewalks" and knowledge of the environment we live in. Then one has that $P(h|e)$ is $P(h)$ divided by $P(e)$. And if e.g. $Pr(h)=1/3$ and $Pr(e)=2/3$ then $Pr(h|e) = 1/2$, so that the probability of $h$ conditional on evidence $e$ is higher than the prior probability of the hypothesis. Hence, probability -- a slight extension of truth-tables-- allows us to see why the paradigmatic example of an invalid argument might help raise our estimation in the truth of its conclusion.
+
+<br>
+<br>
+
+## Revisiting the paradoxes of the material conditional
+
+Stated in terms of proofs, one of the [paradoxes of the material conditional](https://carnap.io/shared/logicteaching@g.ucla.edu/week03-lecture2-soundness.pandoc#arguing-for-or-against-a-conditional) which C.I. Lewis drew attention to were:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ q :|-: p->q
+|q :assumption
+```
+
+C.I. Lewis thought this was implausible because of
+
+<p style="margin-left: 40px"> $q$ = New Year's is coming </p>
+<p style="margin-left: 40px"> $p$ = Rome is still burning </p>
+
+Maybe [Grice's notion of conversational implicature](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-1-pragmatics.pandoc#conversational-implicature) has some role to play here. For instance, maybe the idea would be that when the speaker says $p\rightarrow q$, they conversationally implicate that they do not believe the deductively stronger $q$. But that cannot be the whole story. For we all believe that New Year's is coming but few of us believe "if Rome is still burning then New Year's is coming."
+
+One explanation of this is to note that since $q\vdash p\rightarrow q$, then by the [the connections between probability and logic](https://carnap.io/shared/logicteaching@g.ucla.edu/week09-lecture-2-probability.pandoc#connections-between-probability-and-logic) we have:
+
+- $Pr(q)\leq Pr(p\rightarrow q)$
+
+Again, this seems implausible if probability is degrees of belief. For, again, we all like that it is likely that New Year's is coming but few think it likely that "if Rome is still burning then New Year's is coming."
+
+However, perhaps what has gone wrong is that we have simply misidentified the meaning of "if . . . then . . . " Perhaps when we are asserting "if p then q" we are not asserting the truth (or high probability) of p->q, but rather we are asserting that the probability of p conditional on q is high.
+
+And then one can note that it is not in general true that:
+
+- $Pr(q)\leq Pr(q \mid p)$
+
+For instance, if $Pr(p)=3/4$ and $Pr(q)=3/4$ and $Pr(p\wedge q)=1/4$, then $Pr(q)=3/4$ which is greater than $Pr(q\mid p) = (1/4)\times (4/3) = 1/3$. Hence if assertions of "if  . . . then . . . " statements were expressions of conditional probability, then we would not have that $q$ makes "if $p$ then $q$" likely. Exploring this proposal is an active area within contemporary philosophy and logic.[^1]
+
+[^1]: See [Edgington, Dorothy. 2006. “The Pragmatics of the Logical Constants.” In The Oxford Handbook to the Philosophy of Language, edited by Ernest Lepore and Barry Smith, 768–93. Oxford University Press.](http://logic-teaching.github.io/prop/texts/Edgington%202006%20-%20The%20Pragmatics%20of%20the%20Logical%20Constants.pdf
+)
+
+<br>
+<br>
+

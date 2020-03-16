@@ -1,0 +1,288 @@
+<br>
+<br>
+
+# Practice problems for Chapter 7
+
+The practice problems fall into four groups:
+
+- [Memorizing and recognizing negation introduction and elimination](#memorizing-and-recognizing-negation-introduction-and-elimination)
+- [Proofs with negation introduction and elimination](#proofs-with-negation-introduction-and-elimination)
+- [Memorizing and recognizing EFSQ](#memorizing-and-recognizing-efsq)
+- [Proofs with EFSQ](#proofs-with-efsq)
+
+<br>
+<br>
+
+## Memorizing and recognizing negation introduction and elimination
+
+The first set of five problems is just practice in memorizing and recognizing negation introduction and elimination. The proofs involving negation elimination are just 1-2 extra lines beyond the assumptions. The proofs involving negation introduction are just 3-5 extra lines beyond the assumptions.
+
+<br>
+<br>
+
+*Example 1*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a, ~a  :|-: ⊥
+|a :assumption
+|~a :assumption
+```
+
+<br>
+<br>
+
+*Example 2*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b), ~(a/\b)  :|-: ⊥
+|(a/\b) :assumption
+|~(a/\b) :assumption
+```
+
+<br>
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b)/\c, ~(a/\b)  :|-: ⊥
+|(a/\b)/\c :assumption
+|~(a/\b) :assumption
+```
+
+<br>
+<br>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->~q  :|-: ~(p/\q)
+|p->~q :assumption
+```
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->~q, p, q  :|-: ⊥
+|p->~q :assumption
+|p :assumption
+|q :assumption
+```
+
+
+
+
+<br>
+<br>
+
+## Proofs with negation introduction and elimination
+
+These next five proofs are simple proofs involving negation introduction and elimination, along with the other rules which we learned earlier.
+
+<br>
+<br>
+
+*Example 6*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->c, b->d, ~(c/\d) :|-: ~(a/\b)
+|a->c :assumption
+|b->d :assumption
+|~(c/\d) :assumption
+```
+
+
+
+<br>
+<br>
+
+*Example 7*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->r, q->r, ~r :|-: ~(p\/q)
+|p->r :assumption
+|q->r :assumption
+|~r :assumption
+```
+
+<br>
+<br>
+
+*Example 8*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ c, c->(d/\a), b->~d :|-: ~(a->b)
+|c :assumption
+|c->(d/\a) :assumption
+|b->~d :assumption
+```
+
+<br>
+<br>
+
+*Example 9*.
+
+This example shows that we can derive modus tollens in our proof system.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->q, ~q :|-: ~p
+|p->q :assumption
+|~q :assumption
+```
+
+<br>
+<br>
+
+*Example 10*.
+
+In this example, be sure to remember to think of $\neg \neg a$ as "a negation applies to $\neg a$".
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~a->~b, b :|-: ~~a
+|~a->~b :assumption
+|b :assumption
+```
+
+<br>
+<br>
+
+## Memorizing and recognizing EFSQ
+
+These next proofs are designed to help you do EFSQ. These proofs are intended to be very short, all under 5 lines beyond the assumptions.
+
+<br>
+<br>
+
+*Example 11*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a, a->⊥ :|-: b
+|a :assumption
+|a->⊥ :assumption
+```
+
+<br>
+<br>
+
+*Example 12*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a, b, b->~a :|-: c
+|a :assumption
+|b :assumption
+|b->~a :assumption
+```
+
+*Example 13*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a/\b, c/\~b :|-: d
+|a/\b :assumption
+|c/\~b :assumption
+```
+
+*Example 14*.
+
+On this one, resist the inclination to do an arrow introduction, and focus rather on finding a contradiction among the assumptions and then doing ex falso.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a->b, ~(a->b) :|-: a->c
+|a->b :assumption
+|~(a->b) :assumption
+```
+
+*Example 15*.
+
+This one is just practice with the repeat rule.
+
+```{.ProofChecker .GamutIPND submission="none"}
+  :|-: b->b
+```
+
+
+
+
+<br>
+<br>
+
+
+## Proofs with EFSQ
+
+These are simple proofs with EFSQ and the other rules which we have available.
+
+<br>
+<br>
+
+*Example 15*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a->b, ~b :|-: ~a
+|a->b :assumption
+|~b :assumption
+```
+
+<br>
+<br>
+
+*Example 16*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ ~a :|-: a->b
+|~a :assumption
+```
+
+<br>
+<br>
+
+*Example 17*.
+
+This next one does not involve ex falso, but rather involves the repeat rule.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ b :|-: a->b
+|b :assumption
+```
+
+<br>
+<br>
+
+*Example 18*.
+
+On this one, the last line is justified via disjunction elimination. To complete the disjunction elimination, one first needs to prove $\neg a\rightarrow (a\rightarrow b)$, but this just amounts to doing Example 16 inside a bracket. Finally, one needs to get $b\rightarrow (a\rightarrow b)$, but this just amounts to doing Example 17 inside a bracket.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ ~a\/b :|-: a->b
+|~a\/b :assumption
+```
+<br>
+<br>
+
+*Example 19*.
+
+This one shows the converse, under the assumption of law of excluded middle for the consequent. One proceeds by doing a disjunction elimination on the instance of the law of the excluded middle. One line one needs is $\neg b\rightarrow (\neg a \vee b)$, but this will be like Example 15 inside a bracket (since one has the assumption $a\rightarrow b$). Another line one needs is $b\rightarrow (\neg a \vee b)$ but this can be done in a familiar way using disjunction introduction.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a->b, ~b\/b :|-: ~a\/b
+|a->b :assumption
+|~b\/b :assumption
+```
+
+<br>
+<br>
+
+*Example 20*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a/\(b/\c), a->d, b->e, c->f, ~(d/\f)  :|-: (a/\c)->e
+|a/\(b/\c) :assumption
+|a->d :assumption
+|b->e :assumption
+|c->f :assumption
+|~(d/\f) :assumption
+```
+
+<br>
+<br>

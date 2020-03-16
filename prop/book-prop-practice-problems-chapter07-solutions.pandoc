@@ -1,9 +1,7 @@
 <br>
 <br>
 
-Logic, First Course, Winter 2020. Week 7, Practice Problems. [Back to course website](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=8)
-
-# Week 7, Practice Problems
+# Practice problems for Chapter 7 with solutions
 
 The practice problems fall into four groups:
 
@@ -12,12 +10,11 @@ The practice problems fall into four groups:
 - [Memorizing and recognizing EFSQ](#memorizing-and-recognizing-efsq)
 - [Proofs with EFSQ](#proofs-with-efsq)
 
+This one includes the **solutions**.
+
 <br>
 <br>
 
-Before we begin, [recall](https://carnap.io/shared/logicteaching@g.ucla.edu/week07-lecture-1-ND-negation.pandoc#the-falsum-symbol) that the falsum symbol ⊥ can be typed in one of three ways. First, you can just cut and paste from this screen or anywhere else. Second, you can alternatively type `!?`. Third, you can program your computer to accept a shortcut like \bot or anything else you want. (Here are external sites which contain instructions on how to do this on a [Mac](https://support.apple.com/guide/mac-help/replace-text-punctuation-documents-mac-mh35735/mac) or [Windows](https://helpdeskgeek.com/how-to/create-custom-keyboard-shortcuts-for-anything-in-windows-10/)).
-
-<br>
 
 ## Memorizing and recognizing negation introduction and elimination
 
@@ -201,7 +198,7 @@ In this example, be sure to remember to think of $\neg \neg a$ as "a negation ap
 
 ## Memorizing and recognizing EFSQ
 
-These next proofs are designed to help you do EFSQ, which we cover in the second lecture from this week. These proofs are intended to be very short, all under 5 lines beyond the assumptions.
+These next proofs are designed to help you do EFSQ. These proofs are intended to be very short, all under 5 lines beyond the assumptions.
 
 <br>
 <br>
@@ -257,7 +254,7 @@ On this one, resist the inclination to do an arrow introduction, and focus rathe
 
 *Example 15*.
 
-This one is just practice with the repeat rule. We did one like it in the second lecture.
+This one is just practice with the repeat rule.
 
 ```{.ProofChecker .GamutIPND submission="none"}
   :|-: b->b
@@ -322,7 +319,7 @@ This next one does not involve ex falso, but rather involves the repeat rule.
 
 *Example 18*.
 
-On this one, the last line is justified via disjunction elimination. To complete the disjunction elimination, one first needs to prove $\neg a\rightarrow (a\rightarrow b)$, but this just amounts to doing Example 16 inside a bracket. Finally, one needs to get $b\rightarrow (a\rightarrow b)$, but this just amounts to doing Example 17 inside a bracket. Note that this problem is one-half of the equivalence of material conditional and a certain kind of disjunction [which we learned about earlier](https://carnap.io/shared/logicteaching@g.ucla.edu/week02-lecture2-tautologies-withvalidityinvalidity.pandoc#definitions-and-law-of-excluded-middle).
+On this one, the last line is justified via disjunction elimination. To complete the disjunction elimination, one first needs to prove $\neg a\rightarrow (a\rightarrow b)$, but this just amounts to doing Example 16 inside a bracket. Finally, one needs to get $b\rightarrow (a\rightarrow b)$, but this just amounts to doing Example 17 inside a bracket.
 
 ```{.ProofChecker .GamutIPND submission="none"}
  ~a\/b :|-: a->b
@@ -389,9 +386,3 @@ This one shows the converse, under the assumption of law of excluded middle for 
 ```
 <br>
 <br>
-
-
-<br>
-<br>
-
-This is a practice problem set for [this course](https://ccle.ucla.edu/course/view/20W-PHILOS31-1?section=8). It is run on the Carnap software, which is an:

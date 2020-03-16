@@ -1,0 +1,392 @@
+<br>
+<br>
+
+# Practice problems for Chapter 10 with solutions
+
+These practice problems are intended to be a practice exam. There are 20 problems which fall into four groups corresponding to Chapters 6-9.
+
+- [Chapter 6 problems](#chapter-6-problems)
+- [Chapter 7 problems](#chapter-7-problems)
+- [Chapter 8 problems](#chapter-8-problems)
+- [Chapter 9 problems](#chapter-9-problems)
+
+<br>
+
+## Chapter 6 problems
+
+Each of these problems asks you to do a proof in the Chapter 6 deductive system. This is the system with just introduction and elimination rules for conjunction, arrow, and disjunction. Remember that the strategy in this system is: (1) try to do elimination rules at the top of your proof, and if that doesn't work, then (2) try to do an introduction rule at the bottom of your proof, and (3) repeat steps (1)-(2).
+
+<br>
+
+*Example 1*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\b)/\c :|-: (a/\c)
+|(a/\b)/\c :assumption
+|a/\b :E/\1
+|c :E/\1
+|a :E/\2
+|a/\c :I/\3,4
+```
+
+The idea behind the **solution** in Example 1 is just to apply conjunction elimination as much as you can, and then to apply conjunction introduction.
+
+<br>
+
+*Example 2*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a, a->(b/\c), b->d :|-: d
+|a :assumption
+|a->(b/\c) :assumption
+|b->d :assumption
+|b/\c :E->1,2
+|b :E/\4
+|d :E->3,5
+```
+
+The idea behind the **solution** in Example 2 is just to apply iterations of arrow elimination (aka modus ponens) and conjunction elimination.
+
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ (a/\c)->d :|-: ((a/\b)/\c)->d
+|(a/\c)->d :assumption
+| (a/\b)/\c :assumption
+| a/\b :E/\2
+| a :E/\3
+| c :E/\2
+| a/\c :I/\4,5
+| d :E->1,6
+|((a/\b)/\c)->d :I->2-7
+```
+
+The idea behind the **solution** in Example 3 is you want to prove an arrow statement `((a/\b)/\c)->d`. You should be *sketching out* the proof on a sheet of paper before you begin. Put `((a/\b)/\c)->d` down at the bottom of your page. Then get this by doing a bracket with `((a/\b)/\c)` at the top and d at the bottom. Inside the bracket, you do the normal elimination of conjunction and arrow.
+
+<br>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a/\(b\/c), b->(d/\e), c->(d/\e) :|-: d
+|a/\(b\/c) :assumption
+|b->(d/\e) :assumption
+|c->(d/\e) :assumption
+|b\/c :E/\1
+|d/\e :E\/2,3,4
+|d :E/\5
+```
+
+The idea behind the **solution** in Example 4 is to apply disjunction elimination to `(b\/c)`. In order to do this, one first needs to isolate the `(b\/c)` from the `a/\(b\/c)` by doing conjunction elimination. The proof ends by doing some conjunction elimination.
+
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a->(b\/c), (b/\d)->e, (c/\d)->e :|-: a->(d->e)
+|a->(b\/c) :assumption
+|(b/\d)->e :assumption
+|(c/\d)->e :assumption
+| a :assumption
+|  d :assumption
+|  b\/c :E->1,4
+|   b :assumption
+|   b/\d :I/\5,7
+|   e :E->2,8
+|  b->e :I->7-9
+|   c :assumption
+|   c/\d :I/\11,5
+|   e :E->3,12
+|  c->e :I->11-13
+|  e :E\/6,10,14
+| d->e :I->5-15
+|a->(d->e) :I->4-16
+```
+
+The idea behind the **solution** in Example 5 is to combine the proof ideas of Example 3 and Example 4. In Example 5, you want to prove an arrow statement `a->(d->e)`. Like in Example 3, you should be *sketching out* the proof on a sheet of paper before you begin. Put `a->(d->e)` down at the bottom of your page. Then get this by doing a bracket with `a` at the top and `d->e` at the bottom. To get the `d->e`, you need to do another bracket with `d` at the top and `e` at the bottom. Then the idea is to emulate the strategy in Example 4 of doing disjunction elimination.
+
+<br>
+<br>
+
+## Chapter 7 problems
+
+Each of these problems asks you to do a proof in the Chapter 7 deductive system. This system just adds onto the Chapter 6 deductive system with the introduction and elimination rule for negation, as well as EFSQ and the repeat rule. Remember that falsum ⊥ can be written in the proof-checker (and on exam) as `!?`. You can also just copy and paste ⊥ from here.
+
+<br>
+
+*Example 6*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a->b, b->c, ~c :|-: ~a
+|a->b :assumption
+|b->c :assumption
+|~c :assumption
+| a :assumption
+| b :E->1,4
+| c :E->2,5
+| ⊥ :E~3,6
+|~a :I~4-7
+```
+
+The idea behind the **solution** in Example 6 is: you want to prove a negation `~a`. You should be *sketching out* the proof on a sheet of paper before you begin. Put `~a` down at the bottom of your page. Get this by doing a bracket with `a` at the top and falsum at the bottom-- this is the precondition for doing negation introduction. Then do arrow elimination until you get to falsum (where the last step to get falsum is handled via negation elimination).
+
+<br>
+
+*Example 7*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a->(b/\e), b->(c/\f), ~c :|-: ~(a/\g)
+|a->(b/\e) :assumption
+|b->(c/\f) :assumption
+|~c :assumption
+| a/\g :assumption
+| a :E/\4
+| b/\e :E->1,5
+| b :E/\6
+| c/\f :E->2,7
+| c :E/\8
+| ⊥ :E~3,9
+|~(a/\g) :I~4-10
+```
+
+The idea behind the **solution** in Example 7 is: you want to prove a negation `~(a/\g)`. You should be *sketching out* the proof on a sheet of paper before you begin. Put `~(a/\g)` down at the bottom of your page. Get this by doing a bracket with `(a/\g)` at the top and falsum at the bottom-- this is the precondition for doing negation introduction. Then do arrow elimination and conjunction elimination until you get to falsum (where the last step to get falsum is handled via negation elimination).
+
+<br>
+
+
+*Example 8*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ a, a->(b/\c), ~d :|-: ~(b->d)
+|a :assumption
+|a->(b/\c) :assumption
+|~d :assumption
+| (b->d) :assumption
+| b/\c :E->1,2
+| b :E/\5
+| d :E->4,6
+| ⊥ :E~3,7
+|~(b->d) :I~4-8
+```
+
+The idea behind the **solution** in Example 8 is: you want to prove a negation `~(b->d)`. You should be *sketching out* the proof on a sheet of paper before you begin. Put `~(b->d)` down at the bottom of your page. Get this by doing a bracket with `(b->d)` at the top and falsum at the bottom-- this is the precondition for doing negation introduction. Then do arrow elimination and conjunction elimination until you get to falsum (where the last step to get falsum is handled via negation elimination).
+
+<br>
+
+*Example 9*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ ~a->b, ~a->~b :|-: ~a->c
+|~a->b :assumption
+|~a->~b :assumption
+| ~a :assumption
+| b :E->1,3
+| ~b :E->2,3
+| ⊥ :E~4,5
+| c :EFSQ6
+|~a->c :I->3-7
+```
+
+The idea behind the **solution** in Example 9 is: you want to prove an arrow statement `~a->c`. You should be *sketching out* the proof on a sheet of paper before you begin. Put `~a->c` down at the bottom of your page. Get this by doing a bracket with `~a` at the top and `c` at the bottom. Then do arrow elimination until you get to falsum, where you get to falsum via negation elimination. Then the way to get from falsum to `c` is to apply EFSQ.
+
+
+<br>
+
+*Example 10*.
+
+```{.ProofChecker .GamutIPND submission="none"}
+ ~a\/~b :|-: (a/\b)->c
+|~a\/~b :assumption
+| a/\b :assumption
+| a :E/\2
+| b :E/\2
+|  ~a :assumption
+|  ⊥ :E~3,5
+|  c :EFSQ6
+| ~a->c :I->5-7
+|  ~b :assumption
+|  ⊥ :E~4,9
+|  c :EFSQ10
+| ~b->c :I->9-11
+| c :E\/1,8,12
+|(a/\b)->c :I->2-13
+```
+
+The idea behind the **solution** in Example 10 is: you want to prove an arrow statement `(a/\b)->c`. You should be *sketching out* the proof on a sheet of paper before you begin. Put `(a/\b)->c` down at the bottom of your page. Get this by doing a bracket with `(a/\b)` at the top and `c` at the bottom. To get to `c` via the disjunctive hypothesis `~a\/~b`, you need to do disjunction elimination. This requires you to get arrows which say, respectively, that the first disjunction `~a` and the second disjunct `~b` implies `c`. These arrow statements are gotten by doing two separate brackets, going respectively from `~a` to `c` and from `~b` to `c`. Inside the brackets, use negation elimination to get falsum and then move from falsum to `c` vis EFSQ.
+
+<br>
+<br>
+
+
+## Chapter 8 problems
+
+These problems pertain to the Chapter 8 deductive system. Remember that the Chapter 8 deductive system has rules built in for modus tollens (MT), law of excluded middle (LEM), law of non-contradiction (LNC), double-negation (DN) commutativity (LCC, LCD), associativity (LAC, LAD), distribution (LDC, LCDD), distribution (LDC, LDD), and disjunctive syllogism (PDS, NDS). Also keep in mind that the strategy for the Chapter 8 deductive system is to look for patterns associated to these rules, as opposed to following the main connectives like we did in Weeks 6-7.
+
+<br>
+
+*Example 11*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~a/\(~b/\~c)  :|-: ~a/\(~c/\~b)
+|~a/\(~b/\~c) :assumption
+|~a/\(~c/\~b) :LCC1
+```
+
+The idea behind the **solution** in Example 11 is: it is a one-line proof which is just an application commutativity of conjunction. That is, the negations are not operative in the proof. Again, the idea behind the Chapter 8 deductive system is less "pay attention to the main connectives" and more "pattern match to the Chapter 8 rules".
+
+<br>
+
+*Example 12*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ (a->b)\/(b->c)  :|-: (b->c)\/(a->b)
+|(a->b)\/(b->c) :assumption
+|(b->c)\/(a->b) :LCD1
+```
+
+The idea behind the **solution** in Example 12 is: it is a one-line proof which is just an application commutativity of disjunction. That is, the arrows are not operative in the proof. Again, the idea behind the Chapter 8 deductive system is less "pay attention to the main connectives" and more "pattern match to the Chapter 8 rules".
+
+
+<br>
+
+*Example 13*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ~(a/\(b/\(c/\d))), (~a\/(~b\/(~c\/~d)))->e  :|-: e
+|~(a/\(b/\(c/\d))) :assumption
+|(~a\/(~b\/(~c\/~d)))->e :assumption
+|~a\/~(b/\(c/\d)) :DMOR1
+|~a\/(~b\/~(c/\d)) :DMOR3
+|~a\/(~b\/(~c\/~d)) :DMOR4
+|e :E->2,5
+```
+
+The idea behind the **solution** in Example 13 is just iterated applications of DeMorgan followed by arrow elimination.
+
+<br>
+
+*Example 14*.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a/\(b\/c), (a/\b)->d, c->d  :|-: d
+|a/\(b\/c) :assumption
+|(a/\b)->d :assumption
+|c->d :assumption
+|(a/\b)\/(a/\c) :LDC1
+| a/\c :assumption
+| c :E/\5
+| d :E->3,6
+|(a/\c)->d :I->5-7
+|d :E\/4,2,8
+```
+
+The idea behind the **solution** in Example 14 is just distribution to turn `a/\(b\/c)` into the disjunction `(a/\b)\/(a/\c)`, and then disjunction elimination. You already have the arrow `(a/\b)->d` in your assumptions. You can get the arrow `(a/\c)->d` simply by doing an arrow introduction.
+
+<br>
+
+*Example 15*.
+
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ ((a/\(b\/c))/\~c) :|-: b
+|((a/\(b\/c))/\~c) :assumption
+|a/\(b\/c) :E/\1
+|~c :E/\1
+|b\/c :E/\2
+|c\/b :LCD4
+|b :PDS3,5
+```
+
+The idea behind the **solution** in Example 15 is just separate out the various parts of the conjunction in the premise. Doing this you will get `~c` and `b\/c`. Then apply commutativity of disjunction to turn the latter into `c\/b`, and then apply positive disjunctive syllogism.
+
+*Example 16*.
+
+By the Soundness and Completeness Theorems, we can assess the validity of this argument using truth-tables as well. Fill out the following truth-table, just like we did in Chapter 3:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash autoAtoms" submission="none"}
+ ((a/\(b\/c))/\~c) :|-: b
+~~~
+
+(We will need this truth-table in Example 20, and so perhaps consider taking a screen shot of it before you move on, for easy access later).
+
+The **solution** behind this one is easy and so we don't input it. The key thing we need for later is that the formula `((a/\(b\/c))/\~c)` is only true at one row, namely the second one.
+
+<br>
+<br>
+
+## Chapter 9 problems
+
+These problems pertain to the materials from Chapter 9 and the first lecture of Chapter 10.
+
+<br>
+
+*Example 17*
+
+Consider the scale (all, most, few, some). Suppose Laura and Sofia are talking about their recent graduation party, and Laura asks: "Was your family able to come?" and that Sofia responds by saying that "A few of them were." Which of the following is a conversational implicature of Sofia's having said that?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| +It is not the case that all of Sofia's family was able to come.
+| +It is not the case that most of Sofia's family was able to come.
+| It is not the case that few of Sofia's family was able to come.
+| It is not the case that some of Sofia's family was able to come.
+```
+
+The **solution** is the first or the second, since these are to the left of "few" in the scale (all, most, few, some).
+
+<br>
+
+*Example 18*
+
+Suppose that Lily meets Sara for the first time and asks Sara how long she has been working at her present job. Suppose that Sara responds by saying that she has been working there 1 year and 237 days. It seems that Sara has violated one of Grice's conversational maxims. Which one?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| +Quantity
+| Quality
+| Relation
+| Manner
+```
+
+The **solution** is the first one, since Sara has given more information than is required by Lily's query.
+
+<br>
+
+*Example 19*
+
+Suppose that the probability of $p\wedge q$ is 2/10 and the probability of $p\wedge r$ is 3/10 and the probability of $p\wedge (q\wedge r)$ is 1/10. What is the probability of $p\wedge (q\vee r)$? *Hint*: use distribution.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is it?
+| 2/10
+| 3/10
+| +4/10
+| 5/10
+```
+
+The **solution** once you apply distribution, you get the formula $(p\wedge q)\vee (p\wedge r)$. Using the fourth rule of probability, one has then that the answer is  2/10 + 3/10 - 1/10 = 4/10.
+
+<br>
+
+
+*Example 20*
+
+Suppose that each of the rows in the truth-table in Example 16 is weighted equally, that is each has equal chance of happening, namely a 1/8 chance of happening. What is the probability of $a\wedge (b\vee c)$ conditional on $\neg c$?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is it?
+| 0/8
+| 1/8
+| +2/8
+| 3/8
+```
+
+The **solution** is: since $(a\wedge (b\vee c))\wedge \neg c$ is only true on 1 of 8 rows, it has probability 1/8. Since $\neg c$ is true on 4 of the 8 rows, it has probability 4/8. Then the answer is 1/8 divided by 4/8, which is the same as 1/8 times 8/4, and the 8's cancel, and so we get 1/4, which is the same 2/8.
+
+<br>
+<br>

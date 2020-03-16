@@ -1,0 +1,351 @@
+<br>
+<br>
+
+# Practice problems for Chapter 9 with solutions
+
+The practice problems fall into four groups:
+
+- [Conversational implicature](#conversational-implicature)
+- [Scales](#scales)
+- [Probability](#probability)
+- [Conditional probability](#conditional-probability)
+
+This version has **solutions**. In the case of multiple choice questions, the solution is just right below the problem.
+
+<br>
+<br>
+
+## Conversational Implicature
+
+<br>
+
+*Example 1*.
+
+Suppose the speaker says: "On my walk, I saw a big dog with spots". Which is the following is a conversational implicature of the speaker's having said that?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| The speaker does not know when he saw the big dog with spots.
+| The speaker does not believe that he went for a walk.
+| The speaker saw his own big spotted dog on his walk.
+| +The speaker saw a big spotted dog which was distinct from his own dog.
+```
+
+The **solution** is the fourth one, since if it was the speaker's own dog, they were being uninformative by not giving this more specific information.
+
+<br>
+
+*Example 2*.
+
+Suppose that Laura asks "Where is the coffee shop?" and Sofia replies "If it is before 6pm, then there's coffee in Lu Valle Commons." Which is the following is a conversational implicature of the Sofia's having said that?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| Sofia believes that the physical presence of coffee shops in buildings depends on the time of day: sometimes they are there, and other times they are not.
+| +Sofia does not know exactly what time it is now, but she knows that the coffee shop in Lu Valle Commons closes at 6pm.
+| Sofia does know exactly what time it is now, and she believes that the time is presently after 6pm or that that there's coffee in Lu Valle Commons.
+| Sofia does know exactly what time it is now, and she does not believe that the time is presently after 6pm or that that there's coffee in Lu Valle Commons.
+```
+
+The **solution** is the second one, since if she does know what time it is, she would know whether it is before 6pm, and typically when we assert bare if-then statements without further context we are uncertain of the truth of the antecedent. Likewise, if she didn't know the coffee shop in Lu Valle closed before 6pm, then she would be saying something irrelevant to Laura's question.
+
+<br>
+
+*Example 3*.
+
+Suppose that Laura asks "What do I have to do to graduate next term?" and the Students Affairs Officer (SAO) replies "The requirements are such that you can graduate next term only if you complete courses A, B, and C." Which is the following is a conversational implicature of the SOA having said that, it being part of background information that SAO's want to help students graduate in a timely way?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| The SAO does not believe that if Laura completes courses A,B, and C, then Laura can graduate next term.
+| +The SAO believes that if Laura completes courses A,B, and C, then Laura can graduate next term.
+| The SAO does not believe that Laura can complete courses A,B, and C.
+| The SAO believes that Laura has many more requirements to complete than just courses A,B, and C.
+```
+
+The **solution** is the second one, since if the SAO didn't believe this conditional, their sharing the requirements would not be relevant to Laura's request.
+
+<br>
+
+*Example 4*.
+
+Suppose the speaker says: "I am not sure but I think that he's pretty well versed on what happened." The speaker seems to have intentionally flagged that they are opting out of one of the maxims. Which one?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| Quantity
+| +Quality
+| Relation
+| Manner
+```
+
+The **solution** is the second one, since quality includes "Do not say that for which you lack adequate evidence."
+
+<br>
+
+*Example 5*.
+
+Suppose the speaker says: "Sorry to go on so long, but this is something which I think everyone should care more about." The speaker seems to have intentionally flagged that they are opting out of one of the maxims. Which one?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| +Quantity
+| Quality
+| Relation
+| +Manner
+```
+
+The **solution** is the first one, since Quantity includes the idea of saying only what is required for the purposes of the exchange. Another good **solution** is the fourth one, since Manner includes "be brief".
+
+<br>
+<br>
+
+## Scales
+
+<br>
+
+*Example 6*.
+
+Consider the following scale which we might use to rank applicants: (top 10%, top 20%, top 30%, top 40%).  Which of the following is a conversational implicature of the recommendation letter writer having said "The applicant is within the top 30% of her class"?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is it?
+| The letter writer does not believe that "The applicant is within the top 40% of her class"
+| The letter writer does not believe that "The applicant is within the top 30% of her class"
+| +The letter writer does not believe that "The applicant is within the top 20% of her class"
+| +The letter writer does not believe that "The applicant is within the top 10% of her class"
+```
+
+The **solution** is the third or the fourth, since these pertain to the entries to the left of "top 30%"
+
+<br>
+
+*Example 7*.
+
+Consider the following scale which we might use to informally rank universities: (prestigious, excellent, good, decent).  Which of the following is a conversational implicature of someone saying that "This campus is not good"? *Hint*: when we negate entries, the scale flips around.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is it?
+| The speaker does not believe that "The campus is not prestigious"
+| The speaker does not believe that "The campus is not excellent"
+| The speaker does not believe that "The campus is not good"
+| +The speaker does not believe that "The campus is not decent"
+```
+
+The **solution** is the fourth one, since when we add negations the scale is (not decent, not good, not excellent, not prestigious). And "not decent" is to the left of "not good."
+
+
+<br>
+
+*Example 8*.
+
+Show the following:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+  ~(a\/b)  :|-: ~(a/\b)
+|~(a\/b) :assumption
+|~a/\~b :DMAND1
+|~a :E/\2
+|~a\/~b :I\/3
+|~(a/\b) :DMOR4
+```
+
+<br>
+
+
+*Example 9*.
+
+Determine whether the argument is valid or invalid:
+
+```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+ ~(a/\b) :|-: ~(a\/b)
+```
+
+The **solution** is just any row were only one of $\neg a$ and $\neg b$ is true, like TF or FT.
+
+<br>
+
+*Example 10*.
+
+The previous example suggests a scale (~(a\/b), ~(a/\b)). Which of the following is a conversational implicature of the speaker having said that "It's not the case that Alex and Brianna attended"?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| The speaker believes that "Alex attended and Brianna attended"
+| The speaker does not believe "It's not the case that Alex attended and Brianna attended"
+| The speaker does not believe "Alex attended or Brianna attended"
+| +The speaker does not believe "It's not the case that Alex attended or Brianna attended"
+```
+
+The **solution** is the last one, since this is the substitution instance of the entry ~(a\/b) to the left of the entry ~(a/\b).
+
+<br>
+<br>
+
+## Probability
+
+This material pertains to the Week 9, Lecture 2 material. Please do not try this material until after that lecture.
+
+<br>
+
+*Example 11*
+
+Complete the following truth-table, just like in Week 1.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ p\/(q/\r)
+~~~
+
+The **solution** is just that it is true at the first five rows and false at the last three.
+
+<br>
+
+*Example 12*
+
+This example builds off of the previous example. Suppose that each of the rows is weighted equally, that is each has equal chance of happening, namely a 1/8 chance of happening.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is the probability of p\/(q/\r) happening?
+| 3/8
+| 4/8
+| +5/8
+| 6/8
+```
+
+The **solution** is the third one, since 5/8 indicates that it is true at five of the eight rows.
+
+<br>
+
+*Example 13*
+
+This example builds off of Example 11. Suppose that we assign the following probabilities to the rows in that truth-table:
+
+| .1 -- TTT
+| .1 -- TTF
+| .1 -- TFT
+| .2 -- TFF
+| .3 -- FTT
+| .05 -- FTF
+| .05 -- FFT
+| .1 -- FFF
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is the probability of p\/(q/\r) happening?
+| .55
+| .60
+| .75
+| +.80
+```
+
+The **solution** is the last one. The formula was true at the first five rows, and if you add up .1+.1+.1+.2+.3, you get .80.
+
+
+<br>
+
+*Example 14*
+
+Suppose that you know that the probability of p is 25% and the probability of q is 25% and that the probability of p\/q is 40%. What is the probability of p/\q?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is the probability of p/\q?
+| 5%
+| 6.25%
+| +10%
+| 30%
+```
+
+The **solution** is 10%, which you get by doing 25%+25%-40%. This follows from the formula that Pr(p/\q)=Pr(p)+Pr(q)-Pr(p\/q).
+
+<br>
+
+*Example 15*
+
+Suppose that you know that the probability of p is 25% and the probability of q is 25% and that the probability of p\/q is 40%. What is the probability of $\neg p \wedge \neg q$? *Hint*: use DeMorgan.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is the probability of ~p/\~q?
+| 50%
+| +60%
+| 70%
+| 80%
+```
+
+The **solution** is the second one, since by DeMorgan, $\neg p \wedge \neg q$ is equivalent to $\neg (p\vee q)$, and we can calculate that $Pr(\neg (p\vee q))=1-Pr(p\vee q) = 100-40 = 60$.
+
+<br>
+<br>
+
+## Conditional probability
+
+This material pertains to the **Week 10**, Lecture 1 material. Please do not try this material until after that lecture.
+
+<br>
+
+*Example 16*
+
+Complete the following truth-tables, just like in Week 1 and Week 3:
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (~(p\/q)\/~r)/\r
+~~~
+
+The **solution** is that the formula (~(p\/q)\/~r)/\r is only true in the second to last row.
+
+```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+ ~(p\/q)\/~r :|-: ~r\/~q
+```
+
+The **solution** is that the formula ~(p\/q)\/~r is true in the 2nd, 4th, and 6th, 7th, 8th rows. And ~r\/~q is only false in the 1st row and the 5th row. Hence, the argument is valid since there is no row where ~(p\/q)\/~r is true and ~r\/~q is false. (We will also produce a proof in Example 19 to show this validity).
+
+<br>
+
+*Example 17*
+
+Suppose that each of the rows in the previous truth-tables are weighted equally, that is each has equal chance of happening, namely a 1/8 chance of happening. What is the probability of ~(p\/q)\/~r conditional on r?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is the probability of ~(p\/q)\/~r conditional on r?
+| 1/8
+| +2/8
+| 3/8
+| 4/8
+```
+
+The **solution** is 2/8 since by the tables we have that the probability of (~(p\/q)\/~r)/\r is 1/8 and the probability of r is 1/2 (since r is true in four out of eight rows). Hence we have 1/8 divided by 1/2, which is the same as 1/8 times 2, which is 2/8.
+
+<br>
+
+*Example 19*
+
+Show the following, using distribution:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+  ~(p\/q)\/~r  :|-: ~r\/~q
+|~(p\/q)\/~r :assumption
+|(~p/\~q)\/~r :DMAND1
+|~r\/(~p/\~q) :LCD2
+|(~r\/~p)/\(~r\/~q) :LDD3
+|(~r\/~q) :E/\4
+```
+
+<br>
+
+*Example 20*
+
+Suppose that each of the rows in the truth-table in Example 16 is weighted equally, that is each has equal chance of happening, namely a 1/8 chance of happening. Use Bayes's theorem, and the tables in Example 16, to calculate the probability of ~(p\/q)\/~r conditional on ~r\/~q.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is the probability of ~(p\/q)\/~r conditional on ~r\/~q?
+| +5/6
+| 1/8
+| 1/6
+| 6/8
+```
+
+By Bayes' theorem and Example 19, the probability is just the probability of ~(p\/q)\/~r divided by the probability of ~r\/~q. By the tables, we know that the former is 5/8 and the latter is 6/8.
+
+<br>
+<br>

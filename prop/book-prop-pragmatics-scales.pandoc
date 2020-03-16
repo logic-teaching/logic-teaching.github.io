@@ -1,0 +1,244 @@
+<br>
+<br>
+
+# Scales and conversational implicature
+
+<br>
+
+ We look at conversational implicatures associated to scales. Along the way we practice with translations, truth-tables, and proofs.
+
+- [Scales of conjunction and disjunction](#scales-of-conjunction-and-disjunction)
+- [Scales of universals and existentials](#scales-of-universals-and-existentials)
+- [Other scales](#other-scales)
+
+<br>
+<br>
+
+## Scales of conjunction and disjunction
+
+Consider the following sentences:
+
+<p style="margin-left: 40px"> $a$ = Alex attends </p>
+<p style="margin-left: 40px"> $b$ = Brianna attends </p>
+<p style="margin-left: 40px"> $c$ = Claire attends </p>
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a/\(b/\c) : Alex attends and Brianna attends and Claire attends
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a/\b : Alex attends and Brianna attends
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a\/b : Alex attends or Brianna attends
+~~~
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ a\/(b\/c) : Alex attends or Brianna attends or Claire attends.
+~~~
+
+These are organized so that one can quickly check that the earlier ones imply the later ones, but not vice versa. For instance, you can quickly check that the first implies that fourth, but not vice versa:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+ a/\(b/\c) :|-: a\/(b\/c)
+|a/\(b/\c) :assumption
+```
+
+```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+ a\/(b\/c) :|-: a/\(b/\c)
+```
+
+This structure of entailments going from top to bottom can be more compactly written in the following horizontal way, with formulas to the left implying formulas to the right:
+
+<p style="margin-left: 40px"> (a/\(b/\c), a/\b, a\/b, a\/(b\/c)) </p>
+
+This structure of entailments seems to be correlated with the following conversational implicatures:
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is the following is a conversational implicature of the speaker having said a/\b?
+| The speaker does not believe (a\/(b\/c))
+| The speaker does not believe (a\/b)
+| The speaker does not believe (a/\b)
+| *The speaker does not believe (a/\(b/\c))
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is the following is a conversational implicature of the speaker having said a\/b?
+| The speaker does not believe (a\/(b\/c))
+| The speaker believes (a/\b)
+| *The speaker does not believe (a/\b)
+| *The speaker does not believe (a/\(b/\c))
+```
+
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ In both cases, what maxim is operative in discerning that there is a conversational implicature?
+| *Quantity
+| Quality
+| Relation
+| Manner
+```
+
+<br>
+<br>
+
+
+## Scales of universals and existentials
+
+Let us work with the following key:
+
+| $a$  =  "Angel"
+| $b$  =  "Briana"
+| $c$  =  "Cole"
+| $H$  =  "is happy"
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+  AxHx : Everyone is happy.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+  ExHx : Someone is happy.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ha/\(Hb/\Hc) : Find an equivalent of "Everyone is happy" in predicate logic without using a quantifier, under the hypothesis that there are only three people a,b,c.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+  Ha\/(Hb\/Hc) : Find an equivalent of "Someone is happy" in predicate logic without using a quantifier, under the hypothesis that there are only three people a,b,c.
+~~~
+
+Since we are thinking about the case where there are only three people, we can also consider "Most people are happy", where this means that at least two out of the three are happy. We use a disjunction to translate this, since there is one option where $a,b$ are happy, another where $a,c$ are happy, and a third where $b,c$ is happy.
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+  (Ha/\Hb)\/((Ha/\Hc)\/(Hb/\Hc)) : Find an equivalent of "Most people are happy" in predicate logic without using a quantifier, under the hypothesis that there are only three people a,b,c.
+~~~
+
+We can then translate into pure predicate logic by replacing:
+
+| i  =  $Ha$
+| j  =  $Hb$
+| k  =  $Hc$
+
+<br>
+
+Then we can show that "Everyone is happy" implies "Most people are happy," but not vice-versa:
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+  i/\(j/\k)  :|-: (i/\j)\/((i/\k)\/(j/\k))
+|i/\(j/\k) :assumption
+```
+
+```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+ (i/\j)\/((i/\k)\/(j/\k)) :|-: i/\(j/\k)
+```
+
+And likewise we can show that "Most people are happy" implies "Some people are happy" but not vice-versa.
+
+```{.ProofChecker .GamutPNDPlus submission="none"}
+  (i/\j)\/((i/\k)\/(j/\k))  :|-: i\/(j\/k)
+|(i/\j)\/((i/\k)\/(j/\k)) :assumption
+```
+
+```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+ i\/(j\/k) :|-: (i/\j)\/((i/\k)\/(j/\k))
+```
+
+This structure of entailments going from top to bottom can be more compactly written in the following horizontal way:
+
+<p style="margin-left: 40px"> (all, most, some) </p>
+
+This structure seems to be correlated with the following conversational implicatures:
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is the following is a conversational implicature of the speaker having said Most people are happy?
+| *The speaker does not believe "All people are happy"
+| The speaker believes "All people are happy"
+| The speaker does not believe "Some people are happy"
+| The speaker believes "Some people are happy"
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is the following is a conversational implicature of the speaker having said Some people are happy?
+| *The speaker does not believe "All people are happy"
+| The speaker believes "All people are happy"
+| *The speaker does not believe "Most people are happy"
+| The speaker believes "Most people are happy"
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ In both cases, what maxim is operative in discerning that there is a conversational implicature?
+| *Quantity
+| Quality
+| Relation
+| Manner
+```
+
+<br>
+<br>
+
+## Other scales
+
+What we have seen so far is just the first two entries in the following list of scales:[^2]
+
+[^2]: This section all derives from the discussion on p. 133 ff of [Levinson, Stephen C. 1983. “Chapter 3: Conversational Implicature.” In Pragmatics, 97–166. Cambridge University Press.](http://logic-teaching.github.io/prop/texts/Levinson%201983%20-%20Chapter%203%20-%20Conversational%20Implicature.pdf)
+
+- (and, or)
+- (all, most, some)
+- (necessary, actual, possible)
+- (always, often, sometimes)
+- (hot, warm)
+- (cold, cool)
+
+The observed phenomena is that:
+
+1. There is an intuitive sense in which the entries towards the left imply entries towards the right.
+2. If someone asserts an entry, then they conversationally implicate that they do not believe the entries to the left of this entry to hold.
+
+One can test this out on the following:
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is the following is a conversational implicature of the speaker having said He is often late?
+| The speaker believes "He is always late"
+| The speaker does not believe "He is sometimes late"
+| *The speaker does not believe "He is always late"
+| The speaker believes "He is sometimes late"
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which is the following is a conversational implicature of the speaker having said It is warm?
+| The speaker believes "It is not hot"
+| *The speaker does not believe "It is hot"
+| The speaker does not believe "It is warm"
+| The speaker believes "It is cool"
+```
+
+If one focuses on the first four scales:
+
+- (and, or)
+- (all, most, some)
+- (necessary, actual, possible)
+- (always, often, sometimes)
+
+one notices that we have synonyms in English for the *negation* of the entries on the very right:
+
+- "not (p or q)" is "neither p nor q".
+- "not some F's are G's" is "no F's are G's".
+- "not possible" is "impossible"
+- "not sometimes" is "never"
+
+However, we do not have synonyms in English for the *negation* of the entries on the very left.
+
+- There is no English one-word synonym for the "not and" in "not (p and q)".
+- There is no English one-word synonym for the "not all" in "not all F's are G's"
+- There is no English one-word synonym for "not necessary"
+- There is no English one-word synonym for "not always"
+
+One hypothesis for this is that since these negations are conversationally implicated by the entries more towards the right, such an inclusion in the lexicon would be redundant. This of course presupposes that most of the time you are committing to "not always" is via conversational implicature from the assertion of an entry further to the right.
+
+<br>
+<br>
+

@@ -1,7 +1,7 @@
 <br>
 <br>
 
-# Intuitionistic logic
+# Intuitionistic logic with solutions
 
 We introduce two new rules, repeat rule and EFSQ. Along the way we discuss the relation of the deductive system built up so far to intuitionism.
 
@@ -12,6 +12,7 @@ We introduce two new rules, repeat rule and EFSQ. Along the way we discuss the r
 - [Example 3 of EFSQ](#example-3-of-efsq)
 - [Intuitionistic logic and BHK](#intuitionistic-logic-and-bhk)
 
+This version has the **solutions** filled in, that is, it has the proofs filled in.
 
 <br>
 <br>
@@ -38,6 +39,9 @@ Second, you can try to input it into the proof-checker yourself, or come back la
 ```{.ProofChecker .GamutIPND submission="none"}
  q :|-: p->q
 |q :assumption
+| p :assumption
+| q :rep 1
+|p->q :I->2-3
 ```
 Note again that the repeat rule is typed `rep`.
 
@@ -52,6 +56,10 @@ Recall that the symbol ⊥ is called falsum or bottom or bot, and that it is a s
 
 ~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  (p/\~p) :|-: q
+|TFFTTT
+|TFFTTF
+|FFTFTT
+|FFTFTF
 ~~~
 
 The Latin phrase *ex falso sequitur quodlibet* just means "from a contradiction anything follows." The rule EFSQ in natural deduction simply is a rule associated to this. Formally, it says that if you have a line with ⊥ on it, then on any subsequent line you may write anything you like. In a picture, it is the following:
@@ -83,6 +91,10 @@ Second we input it into the proof-checker:
 ```{.ProofChecker .GamutIPND submission="none"}
  ~p :|-: p->q
 |~p :assumption
+| p :assumption
+| ⊥ :E~1,2
+| q :EFSQ3
+|p->q :I->2-4
 ```
 
 <br>
@@ -106,6 +118,14 @@ Second we input it into the proof-checker:
  p\/q, ~p :|-: q
 |p\/q :assumption
 |~p :assumption
+|  p:assumption
+|  ⊥ :E~2,3
+|  q :EFSQ4
+|p->q :I->3-5
+| q :assumption
+| q :rep7
+|q->q :I->7-8
+|q :E\/1,6,9
 ```
 
 <br>
@@ -127,6 +147,13 @@ Second we input it into the proof-checker:
 ```{.ProofChecker .GamutIPND submission="none"}
  ~(p->q) :|-: ~~p
 |~(p->q) :assumption
+| ~p :assumption
+|  p :assumption
+|  ⊥ :E~2,3
+|  q :EFSQ 4
+| p->q :I->3-5
+| ⊥ :E~1,6
+|~~p :I~2-7
 ```
 
 <br>

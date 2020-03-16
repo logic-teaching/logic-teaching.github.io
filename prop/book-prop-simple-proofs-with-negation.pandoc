@@ -1,0 +1,73 @@
+<br>
+<br>
+
+# Simple intuitionistic proofs
+
+Here we just focus on doing some simple examples of proofs involving negation, and practice inputting them into the proof-checker.
+
+<br>
+<br>
+
+*Example 1*.
+
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a/\~b :|-:  ~(a->b)
+|a/\~b  :assumption
+```
+
+<br>
+<br>
+
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+*Example 2*.
+
+
+
+```{.ProofChecker .GamutMPND submission="none"}
+ a, ~(a/\b) :|-: ~b
+|a :assumption
+|~(a/\b) :assumption
+```
+
+<br>
+<br>
+
+*Example 3*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~a\/~b, a :|-: ~b
+|~a\/~b :assumption
+|a :assumption
+```
+
+<br>
+<br>
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+*Example 4*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+ ~a\/~b :|-: ~(a/\b)
+|~a\/~b :assumption
+```
+
+
+<br>
+<br>
+
+*Example 5*.
+
+```{.ProofChecker .GamutMPND submission="none"}
+  ~~(a/\b) :|-: ~~a
+|~~(a/\b) :assumption
+```
+
+<p style="page-break-after: always;">&nbsp;</p>
+
+<br>
+<br>
+

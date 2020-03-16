@@ -8,19 +8,12 @@ We just focus on doing some simple examples of proofs in classical logic. We loo
 <br>
 <br>
 
-This version has the **solutions** included. It also has a video for Example 3.
-
 *Example 1*.
 
 ```{.ProofChecker .GamutPNDPlus submission="none"}
  s->~(p\/(~q\/r)),s :|-: ~p/\(~r/\q)
 |s->~(p\/(~q\/r)) :assumption
 |s :assumption
-|~(p\/(~q\/r)) :E->1,2
-|~p/\~(~q\/r) :DMAND3
-|~p/\(~~q/\~r) :DMAND4
-|~p/\(q/\~r) :DN5
-|~p/\(~r/\q) :LCC6
 ```
 
 <br>
@@ -32,11 +25,6 @@ This version has the **solutions** included. It also has a video for Example 3.
  a/\(b\/(c/\d)), ~((a/\c)/\d) :|-: b
 |a/\(b\/(c/\d)) :assumption
 |~((a/\c)/\d) :assumption
-|(a/\b)\/(a/\(c/\d)) :LDC1
-|(a/\(c/\d))\/(a/\b) :LCD3
-|~(a/\(c/\d)) :LAC2
-|a/\b :PDS4,5
-|b :E/\6
 ```
 
 <br>
@@ -44,26 +32,9 @@ This version has the **solutions** included. It also has a video for Example 3.
 
 *Example 3* (Pierce's Law).
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_classical_pierce.mp4"/> </video>
-
-<br>
-
 ```{.ProofChecker .GamutPNDPlus submission="none"}
   :|-: ((p->q)->p)->p
-| ((p->q)->p) :assumption
-|  ~p :assumption
-|   p :assumption
-|   ⊥ :E~2,3
-|   q :EFSQ4
-|  p->q :I->3-5
-|  p :E->1,6
-|  ⊥ :E~2,7
-| ~~p :I~2-8
-| p :DN9
-|((p->q)->p)->p :I->1-10
 ```
-
-
 
 <br>
 <br>
@@ -73,10 +44,6 @@ This version has the **solutions** included. It also has a video for Example 3.
 ```{.ProofChecker .GamutPNDPlus submission="none"}
  ~p\/q :|-: p->q
 |~p\/q :assumption
-| p :assumption
-| ~~p :DN2
-| q :PDS1,3
-|p->q :I->2-4
 ```
 
 <br>
@@ -84,22 +51,10 @@ This version has the **solutions** included. It also has a video for Example 3.
 
 *Example 5*.
 
-<br>
-
 ```{.ProofChecker .GamutPNDPlus submission="none"}
  p->q :|-: ~p\/q
 |p->q :assumption
-| p/\~q :assumption
-| p :E/\2
-| ~q :E/\2
-| q :E->1,3
-| ⊥ :E~4,5
-|~(p/\~q) :I~2-6
-|~(~~p/\~q) :DN7
-|~~(~p\/q) :DMAND8
-|~p\/q :DN9
 ```
 
 <br>
 <br>
-
