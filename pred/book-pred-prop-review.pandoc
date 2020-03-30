@@ -1,0 +1,105 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+
+# Review of propositional connectives
+
+We begin with a simple review of the propositional connectives: conjunction, disjunction, negation, conditional, biconditional.
+
+- [Translation schemas](#translation-schemas)
+- [More practice](#more-practice)
+- [More than two properties](#more-than-two-properties)
+- [More practice with more than two properties](#more-practice-with-more-than-two-properties)
+
+## The propositional connectives
+
+<table style="width:100%">
+  <tr>
+    <th>Connective</th>
+    <th>Translates</th>
+    <th>Symbol Handwritten</th>
+    <th>Symbol Typeset</th>
+    <th>Symbol Typed</th>
+  </tr>
+  <tr>
+    <td>Conjunction</td>
+    <td>"and"</td>
+    <td>INSERT</td>
+    <td>$\wedge$</td>
+    <td>`/\`</td>
+  </tr>
+  <tr>
+    <td>Disjunction</td>
+    <td>"or"</td>
+    <td>INSERT</td>
+    <td>$\vee$</td>
+    <td>`\/`</td>
+  </tr>
+  <tr>
+    <td>Negation</td>
+    <td>"not"</td>
+    <td>INSERT</td>
+    <td>$\neg$</td>
+    <td>`~`</td>
+  </tr>
+  <tr>
+    <td>Conditional</td>
+    <td>"if . . . then . . . "</td>
+    <td>INSERT</td>
+    <td>$\rightarrow$</td>
+    <td>`->`</td>
+  </tr>
+  <tr>
+    <td>Biconditional</td>
+    <td>". . . if and only if . . ."</td>
+    <td>INSERT</td>
+    <td>$\leftrightarrow$</td>
+    <td>`<->`</td>
+  </tr>
+</table>
+
+<br>
+
+Note that when you are typing e.g. conjunction `/\`, you are typing two letters on the keyboard, namely `/` followed by `\`.
+
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/.mp4"/> </video>
+
+
+<br>
+
+Let us practice further with these translation schemas with respect to the following examples:
+
+| $C$  =  "is cheerful"
+| $F$  =  "is festive"
+| $G$  =  "is a geography major"
+| $L$  =  "is a law student"
+| $R$  =  "is relaxed"
+| $T$  =  "likes table-tennis"
+
+<br>
+
+*Example 1*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Cx)/\Ex(Gx/\Cx) : Every law student is cheerful and some geography majors are cheerful.
+~~~
+
+<br>
+
+<br>
+
