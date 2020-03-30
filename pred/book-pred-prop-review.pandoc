@@ -38,7 +38,7 @@ We begin with a simple review of the propositional connectives: conjunction, dis
   <tr>
     <td>Conjunction</td>
     <td>"and"</td>
-    <td><video autoplay width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-conj.mp4"/> </video>
+    <td><video autoplay muted width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-conj.mp4"/> </video>
 </td>
     <td>$\wedge$</td>
     <td>`/\`</td>
@@ -46,7 +46,7 @@ We begin with a simple review of the propositional connectives: conjunction, dis
   <tr>
     <td>Disjunction</td>
     <td>"or"</td>
-    <td><video autoplay width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-disj.mp4"/> </video>
+    <td><video autoplay muted width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-disj.mp4"/> </video>
 </td>
     <td>$\vee$</td>
     <td>`\/`</td>
@@ -54,7 +54,7 @@ We begin with a simple review of the propositional connectives: conjunction, dis
   <tr>
     <td>Negation</td>
     <td>"not"</td>
-    <td><video autoplay width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-neg.mp4"/> </video>
+    <td><video autoplay muted width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-neg.mp4"/> </video>
 </td>
     <td>$\neg$</td>
     <td>`~`</td>
@@ -62,7 +62,7 @@ We begin with a simple review of the propositional connectives: conjunction, dis
   <tr>
     <td>Conditional</td>
     <td>"if . . . then . . . "</td>
-    <td><video autoplay width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-conditional.mp4"/> </video>
+    <td><video autoplay muted width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-conditional.mp4"/> </video>
 </td>
     <td>$\rightarrow$</td>
     <td>`->`</td>
@@ -70,7 +70,7 @@ We begin with a simple review of the propositional connectives: conjunction, dis
   <tr>
     <td>Biconditional</td>
     <td>". . . if and only if . . ."</td>
-    <td><video autoplay width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-biconditional.mp4"/> </video>
+    <td><video autoplay muted width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-biconditional.mp4"/> </video>
 </td>
     <td>$\leftrightarrow$</td>
     <td>`<->`</td>
