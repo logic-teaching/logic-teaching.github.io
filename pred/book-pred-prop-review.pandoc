@@ -31,9 +31,9 @@ We begin with a simple review of the propositional connectives: conjunction, dis
   <tr>
     <th>Connective</th>
     <th>Translates</th>
-    <th>Symbol Handwritten</th>
-    <th>Symbol Typeset</th>
-    <th>Symbol Typed</th>
+    <th>Symbol handwritten</th>
+    <th>Symbol typeset</th>
+    <th>How to type on keyboard</th>
   </tr>
   <tr>
     <td>Conjunction</td>
@@ -79,7 +79,7 @@ We begin with a simple review of the propositional connectives: conjunction, dis
 
 <br>
 
-Note that when you are typing e.g. conjunction `/\`, you are typing two letters on the keyboard, namely `/` followed by `\`.  Here is a video of how to type these characters on a standard US keybao
+Note that when you are typing e.g. conjunction `/\`, you are typing two letters on the keyboard, namely `/` followed by `\`.  Here is a video of how to type these characters on a standard US keyboard:
 
 <video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-review-type.mp4"/> </video>
 
