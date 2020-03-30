@@ -38,35 +38,40 @@ We begin with a simple review of the propositional connectives: conjunction, dis
   <tr>
     <td>Conjunction</td>
     <td>"and"</td>
-    <td>INSERT</td>
+    <td><video controls width="50" src="https://logic-teaching.github.io/pred/vid/prop-review-conj.mp4"/> </video>
+</td>
     <td>$\wedge$</td>
     <td>`/\`</td>
   </tr>
   <tr>
     <td>Disjunction</td>
     <td>"or"</td>
-    <td>INSERT</td>
+    <td><video controls width="50" src="https://logic-teaching.github.io/pred/vid/prop-review-disj.mp4"/> </video>
+</td>
     <td>$\vee$</td>
     <td>`\/`</td>
   </tr>
   <tr>
     <td>Negation</td>
     <td>"not"</td>
-    <td>INSERT</td>
+    <td><video controls width="50" src="https://logic-teaching.github.io/pred/vid/prop-review-neg.mp4"/> </video>
+</td>
     <td>$\neg$</td>
     <td>`~`</td>
   </tr>
   <tr>
     <td>Conditional</td>
     <td>"if . . . then . . . "</td>
-    <td>INSERT</td>
+    <td><video controls width="50" src="https://logic-teaching.github.io/pred/vid/prop-review-conditional.mp4"/> </video>
+</td>
     <td>$\rightarrow$</td>
     <td>`->`</td>
   </tr>
   <tr>
     <td>Biconditional</td>
     <td>". . . if and only if . . ."</td>
-    <td>INSERT</td>
+    <td><video controls width="50" src="https://logic-teaching.github.io/pred/vid/prop-review-biconditional.mp4"/> </video>
+</td>
     <td>$\leftrightarrow$</td>
     <td>`<->`</td>
   </tr>
@@ -74,11 +79,9 @@ We begin with a simple review of the propositional connectives: conjunction, dis
 
 <br>
 
-Note that when you are typing e.g. conjunction `/\`, you are typing two letters on the keyboard, namely `/` followed by `\`.
+Note that when you are typing e.g. conjunction `/\`, you are typing two letters on the keyboard, namely `/` followed by `\`.  Here is a video of how to type these characters on a standard US keybao
 
-
-<video controls width="700" src="https://logic-teaching.github.io/pred/vid/.mp4"/> </video>
-
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-review-type.mp4"/> </video>
 
 <br>
 
