@@ -17,7 +17,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 # The Aristotelian Syllogisms
 
-As a preface to our study of predicate logic, we introduce the Aristotelian syllogism. This was the kind of predicate logic initiated by the great ancient Greek philosopher Aristotle: it remained dominate for many centuries, and the predicate logic we will study in this course generalizes it in certain ways.
+As a preface to our study of predicate logic, we introduce the Aristotelian syllogism. This was the kind of predicate logic initiated by the ancient Greek philosopher Aristotle in his [*Prior Analytics*](https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12.pdf). It remained dominate for many centuries, and the predicate logic we will study in this course generalizes it in certain ways.
 
 <br>
 
@@ -165,11 +165,134 @@ The arguments discussed so far pertain to a single pair of a subject and predica
 </table>
 
 <br>
+
+For our purposes, it is not important that we memorize the traditional names of the valid arguments. But it is useful to have them for ease of reference. In homework and exam contexts, we will always provide the tables like above.
+
+Recall that in valid arguments, it does not matter in which order you list the premises. Hence, we would also say that the following argument is an example of Barbara: All G are H, All F are G $\vdash$ All F are H.
+
+It is important in logic to become good at recognizing when an example is an example of one of these abstract argument forms. That is what these simple multiple choice questions are asking one to do:
+
+<br>
+
+
+*Example 1*
+
+Consider the following argument: All French-majors are generous, Some hockey-players are French-majors $\vdash$ Some hockey-players are generous. Which of the four valid arguments is this an example of?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is it?
+| Barbara
+| Celarent
+| *Darii
+| Ferio
+```
+
+<br>
+
+*Example 2*
+
+Consider the following argument: No French-majors are grumpy, Some hockey-players are French players $\vdash$ Some hockey-players are not grumpy.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is it?
+| Barbara
+| Celarent
+| Darii
+| *Ferio
+```
+
+<br>
+
+Experience suggests that answering questions like this becomes more challenging if there is no association between the initial letter of the English subjects and predicates and the valid arguments.
+
+*Example 3*
+
+Consider the following argument: No one living in LA is living in Montreal, All people living in Westwood are living in LA $\vdash$ No one living in Westwood is living in Montreal.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is it?
+| Barbara
+| *Celarent
+| Darii
+| Ferio
+```
+
+To help one do this kind of pattern-matching, it can be useful to write on top of the sentences the letters F,G,H that feature in our statement of the four validities up above.
+
+<br>
+
+One way to make the idea of pattern-matching more precise is with substitutions, which we use frequently in logic.
+
+
+*Example 4*
+
+Consider the following argument: No A are B, Some C are A $\vdash$ Some C are not B.
+
+Replace A by F and replace B by G, and replace C by H. What argument do you get?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is it?
+| Barbara
+| Celarent
+| Darii
+| *Ferio
+```
+
+<br>
+
+*Example 5*
+
+Consider the following argument: All B are C, Some A are B $\vdash$ Some A are C
+
+Replace B by F and replace C by G, and replace A by H. What argument do you get?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is it?
+| Barbara
+| Celarent
+| *Darii
+| Ferio
+```
+
+<br>
+
+We say that one abstract argument is a *substitution-instance* of another if it can be obtained via a replacement like the ones we have done up above. As we go along in our study of logic, it will be important that we practice lots with recognizing substitution-instances. Here are two simple examples:
+
+*Example 6*
+
+Consider the following argument: All I are J, All J are K $\vdash$ All I are K. Which argument is this a substitution-instance of?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is it?
+| *Barbara
+| Celarent
+| Darii
+| Ferio
+```
+
+<br>
+
+*Example 7*
+
+Consider the following argument: No P are Q, All R are P $\vdash$ No R are Q. Which argument is this a substitution-instance of?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What is it?
+| Barbara
+| *Celarent
+| Darii
+| Ferio
+```
+
+<br>
+
+In addition to learning about the origins and history of logic as a subject, reviewing these four traditional Aristotelian syllogisms is a useful way to practice with the key concepts of replacement and substitution that are important throughout logic.
+
 <br>
 
 ## The second figure
 
-
+In Book 1, Chapter 5 of the *Prior Analytics* Aristotle identified another four pairs of valid arguments, which bear the following traditional names and collectively are called the "second figure":
 
 <table style="width:100%">
   <tr>
@@ -195,7 +318,13 @@ The arguments discussed so far pertain to a single pair of a subject and predica
 
 <br>
 
-*Derivation of Cesare*:
+Aristotle then proceeds to show how to *derive* these valid arguments from the valid arguments in the first figure together with the conversions. This is the prototype of the derivations that we do in contemporary logic. We will spend a lot of time later learning a deductive system for predicate logic; for the moment, we simply describe the arguments as Aristotle presents them.
+
+<br>
+
+*Example 8*.
+
+Proof of Cesare: No A are B, All C are B $\vdash$ No C
 
 1. No A are B &nbsp; :assumption
 2. All C are B &nbsp; :assumption
@@ -204,11 +333,13 @@ The arguments discussed so far pertain to a single pair of a subject and predica
 
 Seeing that the last step is indeed an application of Celarent requires doing the following substitution:
 
-<video muted width="700" src="https://logic-teaching.github.io/pred/vid/aristotle-cesare.mp4"/> </video>
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/aristotle-cesare.mp4"/> </video>
 
 <br>
 
-*Derivation of Camestres*:
+*Example 9*.
+
+Proof of Camestres: All A are B, No C are B $\vdash$ No C are A
 
 1. All A are B &nbsp; :assumption
 2. No C are B &nbsp; :assumption
@@ -218,19 +349,42 @@ Seeing that the last step is indeed an application of Celarent requires doing th
 
 Seeing that the second-to-last step is indeed an application of Celarent requires doing the following substitution:
 
-<video muted width="700" src="https://logic-teaching.github.io/pred/vid/aristotle-camestres.mp4"/> </video>
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/aristotle-camestres.mp4"/> </video>
 
 <br>
 
-*Derivation of Festino*:
+*Example 10*.
+
+Proof of Festino: No A are B, Some C are B $\vdash$ Some C are not A.
 
 1. No A are B &nbsp; :assumption
 2. Some C are B &nbsp; :assumption
-3. No B are A &nbsp; :Second Conversion 1
+3. No B are A &nbsp; :Second Conversion, 1
 4. Some C are not A &nbsp; :Ferio 3,2
 
 Again, seeing that the last step is indeed an application of Ferio requires doing the following substitution:
 
-<video muted width="700" src="https://logic-teaching.github.io/pred/vid/aristotle-festino.mp4"/> </video>
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/aristotle-festino.mp4"/> </video>
+
+<br>
+
+*Example 11*.
+
+The derivation of Baroco is harder, and Aristotle indicates that it goes through a method called *reductio ad absurdum* (*reductio* for short), which consists in showing $\neg phi$ by producing a proof that $\phi$ implies a contradiction $\bot$. Recall that the symbol $\bot$ is the symbol for falsum, which is a stand-in for a contradiction. The idea of this proof method is that if one can produce that an auxiliary hypothesis $\phi$ leads to a contradiction, then that it a good reason to believe $\neg \phi$.
+
+Proof of Baroco: All A are B, Some C are not B $\vdash$ Some C are not A.
+
+Since it is a *reductio* proof, we prove that we can derive a contradiction from All A are B, Some C are not B, and No C are not A. Aristotle employs a further rule, law of double-negation, which says that $\neg \neg phi$ is equivalent to $\phi$. Here is the proof, without further ado:
+
+1. All A are B  &nbsp; :assumption
+2. Some C are not B &nbsp; :assumption
+3. No C are not A &nbsp; :assumption
+4. All C are not not A &nbsp; :Third Conversion, 3
+5. All C are A &nbsp; :Law of Double Negation, 4
+6. Some not B are C &nbsp; :First Conversion, 1
+7. Some not B are A &nbsp; :Darrii 5,6
+8. Some not B are B &nbsp; :Darrii 1,7
+
+And the last line is regarded as a contradiction.
 
 <br>
