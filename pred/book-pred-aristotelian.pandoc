@@ -43,9 +43,9 @@ In predicate logic, we subject these small propositions to further analysis. In 
 <p style="margin-left: 40px"> $b$ = Briana </p>
 <p style="margin-left: 40px"> $Wx$ = $x$ walks </p>
 
-The first to propose something like this was Aristotle in his *Prior Analytics*. He described propositions as follows in Book I, Chapter 1 of the *Prior Analytics* (from [this edition](https://logic-teaching.github.io/prop/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12.pdf)):
+The first to propose something like this was Aristotle in his *Prior Analytics*. He described propositions as follows in Book I, Chapter 1 of the *Prior Analytics* (from [this edition](https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12.pdf)):
 
-<img src="https://logic-teaching.github.io/prop/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20prop.png" alt="Aristotle on propositions" width="400"/>
+<img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20propv2.png" alt="Aristotle on propositions" width="700"/>
 
 As we can see here, he thought that the primary subject-matter of logic was statements like:
 
@@ -57,7 +57,7 @@ When Aristotle says that a proposition affirms "something of something," he is t
 
 The other important notion that Aristotle introduces in Book I, Chapter 1 is that of "deduction," or what we might today call "consequence" or "logical consequence":
 
-<img src="https://logic-teaching.github.io/prop/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20deduction.png" alt="Aristotle on deduction" width="400"/>
+<img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20deductionv2.png" alt="Aristotle on deduction" width="700"/>
 
 This general idea is probably familiar from your first logic course, where we say that a *valid argument* is an argument whose premises guarantee the truth of its conclusion. In the quotation, what we today call "valid argument" is what Aristotle calls "deduction," and what we today call "premises" are what Aristotle calls "certain things being stated," and finally what we call the "conclusion" is what Aristotle calls that which "follows of necessity."
 
