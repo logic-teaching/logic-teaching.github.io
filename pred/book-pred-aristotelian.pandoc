@@ -77,16 +77,16 @@ Aristotle opens Book I, Chapter 2 of *Prior Analytics* with what he calls "conve
     <th>Example</th>
   </tr>
   <tr>
-    <th>Some F are G $\vdash$ Some G are F.</th>
-    <th>Some pleasures are good $\vdash$ Some good is pleasurable.</th>
+    <td>Some F are G $\vdash$ Some G are F.</td>
+    <td>Some pleasures are good $\vdash$ Some good is pleasurable.</td>
   </tr>
   <tr>
-    <th>No F are G $\vdash$ No G are F.</th>
-    <th>No pleasures are good $\vdash$ No good is pleasurable.</th>
+    <td>No F are G $\vdash$ No G are F.</td>
+    <td>No pleasures are good $\vdash$ No good is pleasurable.</td>
   </tr>
   <tr>
-    <th>No F are G $\vdash$ All F are not G.</th>
-    <th>No pleasures are good $\vdash$ All pleasures are not good.</th>
+    <td>No F are G $\vdash$ All F are not G.</td>
+    <td>No pleasures are good $\vdash$ All pleasures are not good.</td>
   </tr>
 </table>
 <br>
@@ -101,8 +101,8 @@ He also produces an example of an argument showing a situation in which one cann
     <th>Example</th>
   </tr>
   <tr>
-    <th>Some F is not G $\nvdash$ Some G is not F.</th>
-    <th>Some animal is not man $\nvdash$ Some man is not an animal.</th>
+    <td>Some F is not G $\nvdash$ Some G is not F.</td>
+    <td>Some animal is not man $\nvdash$ Some man is not an animal.</td>
   </tr>
 </table>
 <br>
@@ -116,8 +116,8 @@ The contemporary predicate logic which we will study in this course agrees with 
 
 <table style="width:100%">
   <tr>
-    <th>All F are G $\vdash$ Some G are F.</th>
-    <th>All pleasure is good $\vdash$ Some good is pleasurable.</th>
+    <td>All F are G $\vdash$ Some G are F.</td>
+    <td>All pleasure is good $\vdash$ Some good is pleasurable.</td>
   </tr>
 </table>
 <br>
