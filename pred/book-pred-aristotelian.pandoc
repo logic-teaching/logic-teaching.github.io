@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Aristotelian Syllogism
+# The Aristotelian Syllogisms
 
 As a preface to our study of predicate logic, we introduce the Aristotelian syllogism. This was the kind of predicate logic initiated by the great ancient Greek philosopher Aristotle: it remained dominate for many centuries, and the predicate logic we will study in this course generalizes it in certain ways.
 
@@ -45,7 +45,7 @@ In predicate logic, we subject these small propositions to further analysis. In 
 
 The first to propose something like this was Aristotle in his *Prior Analytics*. He described propositions as follows in Book I, Chapter 1 of the *Prior Analytics* (from [this edition](https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12.pdf)):
 
-<img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20prop-v2.png" alt="Aristotle on propositions" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20prop-v2.png" alt="Aristotle on propositions" width="700"/>
 
 As we can see here, he thought that the primary subject-matter of logic was statements like:
 
@@ -57,7 +57,7 @@ When Aristotle says that a proposition affirms "something of something," he is t
 
 The other important notion that Aristotle introduces in Book I, Chapter 1 is that of "deduction," or what we might today call "consequence" or "logical consequence":
 
-<img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20deduction-v2.png" alt="Aristotle on deduction" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20deduction-v2.png" alt="Aristotle on deduction" width="700"/>
 
 This general idea is probably familiar from your first logic course, where we say that a *valid argument* is an argument whose premises guarantee the truth of its conclusion. In the quotation, what we today call "valid argument" is what Aristotle calls "deduction," and what we today call "premises" are what Aristotle calls "certain things being stated," and finally what we call the "conclusion" is what Aristotle calls that which "follows of necessity."
 
@@ -73,24 +73,28 @@ Aristotle opens Book I, Chapter 2 of *Prior Analytics* with what he calls "conve
 
 <table style="width:100%">
   <tr>
+    <th>Name</th>
     <th>Valid argument</th>
     <th>Example</th>
   </tr>
   <tr>
-    <td>Some F are G $\vdash$ Some G are F.</td>
-    <td>Some pleasures are good $\vdash$ Some good is pleasurable.</td>
+    <td>First Conversion</td>
+    <td>Some F are G $\vdash$ Some G are F</td>
+    <td>Some pleasures are good $\vdash$ Some good is pleasurable</td>
   </tr>
   <tr>
-    <td>No F are G $\vdash$ No G are F.</td>
-    <td>No pleasures are good $\vdash$ No good is pleasurable.</td>
+    <td>Second Conversion</td>
+    <td>No F are G $\vdash$ No G are F</td>
+    <td>No pleasures are good $\vdash$ No good is pleasurable</td>
   </tr>
   <tr>
-    <td>No F are G $\vdash$ All F are not G.</td>
-    <td>No pleasures are good $\vdash$ All pleasures are not good.</td>
+    <td>Third Conversion</td>
+    <td>No F are G $\vdash$ All F are not G</td>
+    <td>No pleasures are good $\vdash$ All pleasures are not good</td>
   </tr>
 </table>
 <br>
-In this, we use the $\vdash$ of contemporary logic to separate out the premise on the left from the conclusion on the right. Recall that $\vdash$ is the *consequence relation* which one can pronounce out loud as "has as a consequence" or "entails."
+In this, we use the $\vdash$ of contemporary logic to separate out the premise on the left from the conclusion on the right. Recall that $\vdash$ is the *consequence relation* which one can pronounce out loud as "therefore" or "hence" or "has as a consequence" or "entails."
 
 ## Non-conversions and invalid arguments
 
@@ -101,8 +105,8 @@ He also produces an example of an argument showing a situation in which one cann
     <th>Example</th>
   </tr>
   <tr>
-    <td>Some F is not G $\nvdash$ Some G is not F.</td>
-    <td>Some animal is not man $\nvdash$ Some man is not an animal.</td>
+    <td>Some F is not G $\nvdash$ Some G is not F</td>
+    <td>Some animal is not man $\nvdash$ Some man is not an animal</td>
   </tr>
 </table>
 <br>
@@ -116,8 +120,14 @@ The contemporary predicate logic which we will study in this course agrees with 
 
 <table style="width:100%">
   <tr>
-    <td>All F are G $\vdash$ Some G are F.</td>
-    <td>All pleasure is good $\vdash$ Some good is pleasurable.</td>
+    <th>Name</th>
+    <th>Valid argument</th>
+    <th>Example</th>
+  </tr>
+  <tr>
+    <td>Fourth Conversion</td>
+    <td>All F are G $\vdash$ Some G are F</td>
+    <td>All pleasure is good $\vdash$ Some good is pleasurable</td>
   </tr>
 </table>
 <br>
@@ -126,16 +136,99 @@ Aristotle thinks that this is a valid argument, and his example and related exam
 
 <br>
 
-
-
-
-<br>
-
 ## The first figure
 
+The arguments discussed so far pertain to a single pair of a subject and predicate F and G. The next valid arguments that Aristotle identified in Book 1, Chapter 4 of the *Prior Analytics* pertain to a triple F,G,H. Each of these valid arguments has two premises, in which one of the three of F,G,H appears in both of the premises. The four valid arguments that Aristotle identified have traditional names attached to them. In Latin these traditional names were helpful mnemonics for the arguments which helped students memorize the argument patterns. The presence of names conveys the extent to which Aristotle's logic constituted the core of logic for many centuries. The four arguments collectively are called the "first figure":[^2]
+
+[^2]: There is some evidence that this grouping had something to do with a diagrammatic representation of the arguments, hence the term "figure."
+
+<table style="width:120%">
+  <tr>
+    <th>Traditional Name</th>
+    <th>Valid argument</th>
+  </tr>
+  <tr>
+    <td>Barbara</td>
+    <td>All F are G, All G are H $\vdash$ All F are H</td>
+  </tr>
+  <tr>
+    <td>Celarent</td>
+    <td>No F are G, All H are F $\vdash$ No H are G</td>
+  <tr>
+    <td>Darii</td>
+    <td>All F are G, Some H are F $\vdash$ Some H are G</td>
+  </tr>
+  <tr>
+    <td>Ferio</td>
+    <td>No F are G, Some H are F $\vdash$ Some H are not G</td>
+  </tr>
+</table>
+
+<br>
 <br>
 
 ## The second figure
 
+<table style="width:100%">
+  <tr>
+    <th>Traditional Name</th>
+    <th>Valid argument</th>
+  </tr>
+  <tr>
+    <td>Cesare</td>
+    <td>No A are B, All C are B $\vdash$ No C are A</td>
+  </tr>
+  <tr>
+    <td>Camestres</td>
+    <td>All A are B, No C are B $\vdash$ No C are A</td>
+  <tr>
+    <td>Festino</td>
+    <td>No A are B, Some C are B $\vdash$ Some C are not A</td>
+  </tr>
+  <tr>
+    <td>Baroco</td>
+    <td>All A are B, Some C are not B $\vdash$ Some C are not A</td>
+  </tr>
+</table>
+
+<br>
+
+*Derivation of Cesare*:
+
+1. No A are B &nbsp; :assumption
+2. All C are B &nbsp; :assumption
+3. No B are A &nbsp; :Second Conversion, 1.
+4. No C are A &nbsp; :Celarent 3,2
+
+Seeing that the last step is indeed an application of Celarent requires doing the following substitution:
+
+<video autoplay muted width="700" src="https://logic-teaching.github.io/pred/vid/aristotle-cesare.mp4"/> </video>
+
+<br>
+
+*Derivation of Camestres*:
+
+1. All A are B &nbsp; :assumption
+2. No C are B &nbsp; :assumption
+3. No B are C &nbsp; :Second Conversion, 1.
+4. No A are C &nbsp; :Celarent 1,3
+5. No C are A &nbsp; :Second Conversion, 4
+
+Seeing that the second-to-last step is indeed an application of Celarent requires doing the following substitution:
+
+<video autoplay muted width="700" src="https://logic-teaching.github.io/pred/vid/aristotle-camestres.mp4"/> </video>
+
+<br>
+
+*Derivation of Festino*:
+
+1. No A are B &nbsp; :assumption
+2. Some C are B &nbsp; :assumption
+3. No B are A &nbsp; :Second Conversion 1
+4. Some C are not A &nbsp; :Ferio 3,2
+
+Again, seeing that the last step is indeed an application of Ferio requires doing the following substitution:
+
+<video autoplay muted width="700" src="https://logic-teaching.github.io/pred/vid/aristotle-festino.mp4"/> </video>
 
 <br>
