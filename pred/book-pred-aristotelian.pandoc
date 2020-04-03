@@ -31,6 +31,8 @@ As a preface to our study of predicate logic, we introduce the Aristotelian syll
 
 <br>
 
+<p style="page-break-before: always">
+
 ## The subject matter of logic
 
 In propositional logic, we take the proposition as primitive and do not subject it to further analysis. For instance, we translate "Alex walks and Brianna walks" simply as $p\wedge q$, with the key
@@ -44,7 +46,7 @@ In predicate logic, we subject these small propositions to further analysis. In 
 <p style="margin-left: 40px"> $b$ = Briana </p>
 <p style="margin-left: 40px"> $Wx$ = $x$ walks </p>
 
-The first to propose something like this was Aristotle in his *Prior Analytics*. He described propositions as follows in Book I, Chapter 1 of the *Prior Analytics* (from [this edition](https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12.pdf)):
+The first to propose something like this was Aristotle in his *Prior Analytics*. He described propositions as follows in Book 1, Chapter 1 of the *Prior Analytics* (from [this edition](https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12.pdf)):
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20prop-v2.png" alt="Aristotle on propositions" width="700"/>
 
@@ -56,19 +58,21 @@ As we can see here, he thought that the primary subject-matter of logic was stat
 
 When Aristotle says that a proposition affirms "something of something," he is thinking about examples like these. The starkest contrast to propositional logic *per se* is that in these examples we are given some further sense of what makes the basic propositions true or false: it is the relation between the subject (human, animal) and the predicate (walk, talk). This idea is retained in contemporary predicate logic. Part of what we will learn in this course is the ways in which contemporary predicate logic goes beyond Aristotelian logic, but it is safe to say that the relation between a subject and a predicate features crucially in both.
 
-The other important notion that Aristotle introduces in Book I, Chapter 1 is that of "deduction," or what we might today call "consequence" or "logical consequence":
+The other important notion that Aristotle introduces in Book 1, Chapter 1 is that of "deduction," or what we might today call "consequence" or "logical consequence":
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20deduction-v2.png" alt="Aristotle on deduction" width="700"/>
 
-This general idea is probably familiar from your first logic course, where we say that a *valid argument* is an argument whose premises guarantee the truth of its conclusion. In the quotation, what we today call "valid argument" is what Aristotle calls "deduction," and what we today call "premises" are what Aristotle calls "certain things being stated," and finally what we call the "conclusion" is what Aristotle calls that which "follows of necessity." Another traditional term for type type of deductions Aristotle called attention to are "syllogisms."
+This general idea is probably familiar from your first logic course, where we say that a *valid argument* is an argument whose premises guarantee the truth of its conclusion. In the quotation, what we today call "valid argument" is what Aristotle calls "deduction," and what we today call "premises" are what Aristotle calls "certain things being stated," and finally what we call the "conclusion" is what Aristotle calls that which "follows of necessity." Another traditional term for the type of deductions to which Aristotle called attention are "syllogisms."
 
 Part of what we strive to do in our first logic course is specify the sense in which the conclusion follows of necessity from the premises. One way we do that in the propositional setting is with truth-tables: any row of the table is such that if all the premises are true, the conclusion is true. Another way we do that in the propositional setting is with proofs: we can get from the premises to the conclusion using only certain specified rules. For instance, using either of these methods we can show that the argument with premise $p\wedge q$ and conclusion $p$ is a valid argument. Aristotle in these passage of the *Prior Analytics* does try to specify the sense of necessity he had in mind using cognate-notions like "because" and "by" (that is the second sentence of the above quotation). But perhaps the clearest way he specifies the sense of necessity is by all the examples of valid arguments (or deductions or syllogisms) which he gives.
 
 <br>
 
+<p style="page-break-before: always">
+
 ## Conversions and valid arguments
 
-Aristotle opens Book I, Chapter 2 of *Prior Analytics* with what he calls "conversions." These are one-premise arguments where the subject and predicates are interchanged between the sole premise and the conclusion of the argument.[^1] Here are the general forms and the examples which Aristotle gives:
+Aristotle opens Book 1, Chapter 2 of *Prior Analytics* with what he calls "conversions." These are one-premise arguments where the subject and predicates are interchanged between the sole premise and the conclusion of the argument.[^1] Here are the general forms and the examples which Aristotle gives:
 
 [^1]: Perhaps they don't even justify, in Aristotle's eyes, the title of a "deduction," since it is not always obvious they satisfy the constraint from the last quotation in [The subject matter of logic](#the-subject-matter-of-logic) section that the conclusion be different than the conclusion.
 
@@ -102,6 +106,8 @@ Aristotle opens Book I, Chapter 2 of *Prior Analytics* with what he calls "conve
 <br>
 We list the third conversion twice just to emphasize that the entailment goes both ways-- that it goes both ways in the first and second conversion follows by interchanging the roles of F and G. In all of these, we use the $\vdash$ of contemporary logic to separate out the premise on the left from the conclusion on the right. Recall that $\vdash$ is the *consequence relation* which one can pronounce out loud as "therefore" or "hence" or "has as a consequence" or "entails."
 
+<p style="page-break-before: always">
+
 ## Non-conversions and invalid arguments
 
 Aristotle also produces an example of an argument showing a situation in which one cannot interchange the subject and predicate:
@@ -116,9 +122,11 @@ Aristotle also produces an example of an argument showing a situation in which o
   </tr>
 </table>
 <br>
-The argument is invalid simply because "Some animal is not man" is true (e.g. a zebra), while "Some man is not an animal" is false. In contemporary terms, valid arguments have the feature that if all the premises are true, then the conclusion is true. To use Aristotle's language, from the statement "Some animal is not man" being so it simply does not necessarily follow that "Some man is not an animal".
+The argument is invalid simply because "Some animal is not man" is true (e.g. a zebra), while "Some man is not an animal" is false. This argument is invalid because it has its sole premise is true but it has a false conclusion. To use Aristotle's language, it is invalid because from the statement "Some animal is not man" being so it does not necessarily follow that "Some man is not an animal" is true.
 
 <br>
+
+<p style="page-break-before: always">
 
 ## Conversions and existential import
 
@@ -143,13 +151,15 @@ The contemporary predicate logic which we will study in this course agrees with 
 </table>
 <br>
 
-(We list the fourth conversion twice, since in the conclusion one can interchange the subject and predicate using the first conversion). Aristotle thinks that this is a valid argument, and his example and related examples indeed are highly suggestive of its validity. This valid argument is sometimes described as the view that universal statements have "existential import" since the "existential" is another way of describing statements we form with "some." The contemporary logic that we will learn in this course agrees that these arguments are valid *when you already know in advance that there are things that are F's*. Hence, the one place where the argument is thought to be invalid by today's lights is in the case where there are no F's. This might seem like a degenerate case in some sense, that is, a case that would not be of much interest. However, countenancing cases of arguments where the subjects and predicates can be uninstantiated is a useful simplifying assumption, much akin to countenancing the number zero in arithmetic. Even if there are no collections of zero things that we count, we are all familiar with the idea that the rules of addition and subtraction are made easier if there is a number zero available. Likewise, it turns out that some of the rules of predicate logic will be easier to state and use if we allow there to be properties which are uninstantiated.
+(We list the fourth conversion twice, since in the conclusion one can interchange the subject and predicate using the first conversion). Aristotle thinks that this is a valid argument, and his example and related examples indeed are highly suggestive of its validity. This argument is sometimes described as the view that universal statements have "existential import" since the "existential" is another way of describing statements we form with "some." The contemporary logic that we will learn in this course agrees that these arguments are valid *when you already know in advance that there are things that are F's*. Hence, the one place where the argument is thought to be invalid by today's lights is in the case where there are no F's. This might seem like a degenerate case in some sense, that is, a case that would not be of much interest. However, countenancing cases of arguments where the subjects and predicates can be uninstantiated is a useful simplifying assumption, much akin to countenancing the number zero in arithmetic. Even if there are no collections of zero things that we count, we are all familiar with the idea that the rules of addition and subtraction are made easier if there is a number zero available. Likewise, it turns out that some of the rules of predicate logic will be easier to state and use if we allow there to be properties which are uninstantiated.
 
 <br>
 
+<p style="page-break-before: always">
+
 ## The first figure
 
-The arguments discussed so far pertain to a single pair of a subject and predicate F and G. The next valid arguments that Aristotle identified in Book 1, Chapter 4 of the *Prior Analytics* pertain to a triple F,G,H. Each of these valid arguments has two premises, in which one of the three of F,G,H appears in both of the premises. The four valid arguments that Aristotle identified have traditional names attached to them. In Latin these traditional names were helpful mnemonics for the arguments which helped students memorize the argument patterns. The presence of names conveys the extent to which Aristotle's logic constituted the core of logic for many centuries. The four arguments collectively are called the "first figure,"[^2] and they are the paradigmatic examples of Aristotelian syllogisms:
+The arguments discussed so far pertain to a single pair of a subject and predicate F and G. The next valid arguments that Aristotle identified in Book 1, Chapter 4 of the *Prior Analytics* pertain to a triple F,G,H. Each of these valid arguments has two premises, in which one of the three of F,G,H appears in both of the premises. The four valid arguments that Aristotle identified have traditional names attached to them. In Latin these traditional names were helpful mnemonics for the arguments that helped students memorize the argument patterns. The presence of names conveys the extent to which Aristotle's logic constituted the core of logic for many centuries. The four arguments collectively are called the "first figure,"[^2] and they are the paradigmatic examples of Aristotelian syllogisms:
 
 [^2]: There is some evidence that this grouping had something to do with a diagrammatic representation of the arguments, hence the term "figure."
 
@@ -205,7 +215,7 @@ Which of the four valid arguments in the first figure is this an example of?
 
 *Example 2*
 
-Consider the following argument: No French-majors are grumpy, Some hockey-players are French players $\vdash$ Some hockey-players are not grumpy.
+Consider the following argument: No French-majors are grumpy, Some hockey-players are French-majors $\vdash$ Some hockey-players are not grumpy.
 
 Which of the four valid arguments in the first figure is this an example of?
 
@@ -221,7 +231,7 @@ Which of the four valid arguments in the first figure is this an example of?
 
 <p style="page-break-before: always">
 
-Experience suggests that answering questions like this becomes more challenging if there is no association between the initial letter of the subjects and predicates and the valid arguments.
+Experience suggests that answering questions like this becomes more challenging if there is no association between the initial letter of the subjects and predicates and the letters F,G,H used in the valid arguments.
 
 *Example 3*
 
@@ -242,6 +252,8 @@ Which of the four valid arguments in the first figure is this an example of?
 To help one do this kind of pattern-matching, it can be useful to write on top of the sentences the letters F,G,H that feature in our statement of the four validities up above.
 
 <br>
+
+<p style="page-break-before: always">
 
 One way to make the idea of pattern-matching more precise is with substitutions, which we use frequently in logic.
 
@@ -323,6 +335,8 @@ Which argument is this a substitution-instance of?
 In addition to learning about the origins and history of logic as a subject, reviewing these four traditional Aristotelian syllogisms is a useful way to practice with the key concepts of replacement and substitution that are important throughout logic.
 
 <br>
+
+<p style="page-break-before: always">
 
 ## The second figure
 
@@ -430,6 +444,8 @@ Since it is a *reductio* proof, we prove that we can derive a contradiction from
 And the last line is regarded as a contradiction.
 
 <br>
+
+<p style="page-break-before: always">
 
 ## Summary of conversions and first figure
 
