@@ -74,7 +74,7 @@ Part of what we strive to do in our first logic course is specify the sense in w
 
 Aristotle opens Book 1, Chapter 2 of *Prior Analytics* with what he calls "conversions." These are one-premise arguments where the subject and predicates are interchanged between the sole premise and the conclusion of the argument.[^1] Here are the general forms and the examples which Aristotle gives:
 
-[^1]: Perhaps they don't even justify, in Aristotle's eyes, the title of a "deduction," since it is not always obvious they satisfy the constraint from the last quotation in [The subject matter of logic](#the-subject-matter-of-logic) section that the conclusion be different than the conclusion.
+[^1]: Perhaps they don't even merit, in Aristotle's eyes, the title of a "deduction," since it is not always obvious they satisfy the constraint from the last quotation in "[The subject matter of logic](#the-subject-matter-of-logic)" section that the conclusion be different than the premises.
 
 <table style="width:100%">
   <tr>
@@ -374,7 +374,7 @@ Aristotle then proceeds to show how to *derive* these valid arguments from the v
 
 *Example 8*.
 
-Proof of Cesare: No A are B, All C are B $\vdash$ No C
+Proof of Cesare: No A are B, All C are B $\vdash$ No C are A
 
 1. No A are B &nbsp; :assumption
 2. All C are B &nbsp; :assumption
