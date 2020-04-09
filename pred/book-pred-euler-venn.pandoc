@@ -94,11 +94,9 @@ Finally, we get to:
 
 Ferio: No A are B, Some C are A $\vdash$ Some C are not B
 
-&nbsp; &nbsp; &nbsp;  <img src="Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figures%2018%20or%2019%20or%2020%20Ferio.png" alt="Euler's diagram of Darrii" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figures%2018%20or%2019%20or%2020%20Ferio.png" alt="Euler's diagram of Ferio" width="700"/>
 
-
-
-
+There are three possible pictures of this one. For, after you draw the "No A are B" by making the two shapes A,B disjoint, you have to decide how to make C overlap with A in order to have "Some C are A." The left-most diagram represents if C just overlapped with A but not B. And the center diagram is the case where C contains all of B, and the right-most diagram represents when C not only overlapped with A but also with B.
 
 [^1]: "These circles, or rather these spaces, for it is of no importance of what figure they are of, are extremely commodious for facilitating our reflections on this subject [of logic], and for unfolding all the boasted mysteries of logic, which that art finds it so difficult to explain; whereas, by means of these signs, the whole is rendered sensible to the eye" (p. 397 of see [this edition](https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20CI-CVIII.pdf)).
 
