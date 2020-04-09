@@ -191,7 +191,11 @@ Last time we went over sets, and all the diagrams we presented up above can be n
 
 <p style="margin-left: 40px"> *Example of invalid argument 1*:  Some A are B, No B are C $\nvdash$ Some C are not A
 
-To show the invalidity of this using sets, one lets A, B, C be small subsets of natural numbers which bear the containment relationships of the diagram we drew up above. For instance, one could define the following sets just by viewing A,B,C in the diagram up above as parts of the the natural number line up to the number 10:
+To show the invalidity of this using sets, one lets A, B, C be small subsets of natural numbers which bear the containment relationships of the diagram we drew up above.
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-invalidity1-numbers.mp4"/> </video>
+
+As the video suggests, we could define the following sets just by viewing A,B,C in the diagram up above as parts of the the natural number line up to the number 10:
 
 <p style="margin-left: 40px"> $B = {x\in \mathbb{N}: 0\leq x \leq 6}$  </p>
 <p style="margin-left: 40px"> $A = {x\in \mathbb{N}: 3\leq x \leq 10}$  </p>
@@ -199,11 +203,13 @@ To show the invalidity of this using sets, one lets A, B, C be small subsets of 
 
 Then one can check that Some A are B (such as $x=3,4,5,6$) and No B are C (since B ends at 6 and C only starts at 8), and yet it is false that Some C are not A, since all the C are are in A.
 
+Some other choices of numbers would have worked just as well. For instance, we could have replaced 3 by 2, and we could have replaced 8 by 9. But not all choices of numbers would have worked to demonstrate the invalidity of this argument. For instance, we could not have replaced 8 by 2, since this would have made "Some C are not A" be true, namely $x=2$.
+
 <br>
 
 <p style="margin-left: 40px"> *Example of invalid argument 2*: All A are B, Some B are C $\nvdash$ Some A are C  </p>
 
-To show the invalidity of this using sets, we could do the same thing with the second diagram we drew up above. 
+To show the invalidity of this using sets, we could do the same thing with the second diagram we drew up above.
 
 <br>
 
