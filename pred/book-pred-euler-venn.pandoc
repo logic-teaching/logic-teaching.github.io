@@ -58,6 +58,8 @@ Recall Aristotle's first figure, where we have chosen different letters so as to
   </tr>
 </table>
 
+<br>
+
 Today we are going to look at diagrammatic representations of these arguments. Diagrams were not part of Aristotle's procedure: recall he simply enumerates these four paradigmatic valid arguments and gives examples which are suggestive of their validity. However, diagrams are often helpful in elucidating complex arguments, and this is how they are used in this context as well.
 
 <br>
@@ -108,7 +110,7 @@ There are three possible pictures of this one. For, after you draw the "No A are
 
 Euler also was the first to use these diagrams to show invalidity:
 
-&nbsp; &nbsp; &nbsp; Some A are B, No B are C $\nvdash$ Some C are not A
+&nbsp; &nbsp; &nbsp; *Example of invalid argument 1*: Some A are B, No B are C $\nvdash$ Some C are not A
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2024%20Invalid%201.png
 " alt="Euler diagram to show invalidity" width="400"/>
@@ -117,11 +119,11 @@ This shows the invalidity because the premises are true in the model. Some A are
 
 Here is a another simple example of invalidity:
 
-&nbsp; &nbsp; &nbsp; All A are B, Some B are C $\nvdash$ Some A are C
+&nbsp; &nbsp; &nbsp; *Example of invalid argument 2*: All A are B, Some B are C $\nvdash$ Some A are C
 
 One can show the invalidity of this using the following Euler diagram:
 
-&nbsp; &nbsp; &nbsp;  <img src="Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2013%20Invalid%202.png" alt="Euler diagram to show invalidity" width="400"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2013%20Invalid%202.png" alt="Euler diagram to show invalidity" width="400"/>
 
 The premises are true. For, "All A are B" is true since the A shape is entirely contained within the B shape. And "Some B are C" is true since the B shape and the C shape overlap. But "Some A are C" is false since the A shape and the C shape do not overlap.
 
@@ -143,8 +145,7 @@ Here is Leibniz's diagram of Barbara, where to the very left the three propertie
 
 &nbsp; &nbsp; &nbsp; *Barbara*: All C are A, All A are B $\vdash$ All C are B.
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Barbara.png
-" alt="Leibniz's diagram of Barbara" width="250"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Barbara.png" alt="Leibniz's diagram of Barbara" width="500"/>
 
 (The word "Omne" is Latin for "all" and the word "est" is Latin for "is").
 
@@ -152,31 +153,35 @@ Now, in Euler diagrams the convention was that "All C are A" meant that the C sh
 
 <video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-line.mp4"/> </video>
 
+<br>
+
 That is, in Leibniz's diagram, one is supposed to think of the line segments as all being parts of one and the same line which is obtained by vertically shifting them all to one and the same line. With that convention in place, the other syllogisms in the first figure can likewise be understood in terms of these linear diagrams:
 
 &nbsp; &nbsp; &nbsp; *Celarent*: No B are C, All A are B $\vdash$ No A are C.
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Celerant.png" alt="Leibniz's diagram of Celarent" width="250"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Celerant.png" alt="Leibniz's diagram of Celarent" width="500"/>
 
 &nbsp; &nbsp; &nbsp; *Darii*: All A are B, Some C are A $\vdash$ Some C are B.
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Darii.png" alt="Leibniz's diagram of Darii" width="250"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Darii.png" alt="Leibniz's diagram of Darii" width="500"/>
 
 &nbsp; &nbsp; &nbsp; *Ferio*: No A are B, Some C are A $\vdash$ Some C are not B
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Ferio.png" alt="Leibniz's diagram of Ferio" width="250"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Ferio.png" alt="Leibniz's diagram of Ferio" width="500"/>
 
 What about the invalid arguments we went over in the previous section? Even though Leibniz himself does not go over this, one could easily describe this using these linear diagrams:
 
-&nbsp; &nbsp; &nbsp; Some A are B, No B are C $\nvdash$ Some C are not A
+&nbsp; &nbsp; &nbsp; *Example of invalid argument 1*:  Some A are B, No B are C $\nvdash$ Some C are not A
 
 <video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-invalidity1.mp4"/> </video>
 
-&nbsp; &nbsp; &nbsp; All A are B, Some B are C $\nvdash$ Some A are C
+<br>
+
+&nbsp; &nbsp; &nbsp; *Example of invalid argument 2*: All A are B, Some B are C $\nvdash$ Some A are C
 
 <video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-invalidity2.mp4"/> </video>
 
-
+<br>
 
 <br>
 
