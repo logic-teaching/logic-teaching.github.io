@@ -110,7 +110,7 @@ There are three possible pictures of this one. For, after you draw the "No A are
 
 Euler also was the first to use these diagrams to show invalidity:
 
-&nbsp; &nbsp; &nbsp; *Example of invalid argument 1*: Some A are B, No B are C $\nvdash$ Some C are not A
+<p style="margin-left: 40px"> *Example of invalid argument 1*: Some A are B, No B are C $\nvdash$ Some C are not A  </p>
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2024%20Invalid%201.png
 " alt="Euler diagram to show invalidity" width="400"/>
@@ -119,7 +119,7 @@ This shows the invalidity because the premises are true in the model. Some A are
 
 Here is a another simple example of invalidity:
 
-&nbsp; &nbsp; &nbsp; *Example of invalid argument 2*: All A are B, Some B are C $\nvdash$ Some A are C
+<p style="margin-left: 40px"> *Example of invalid argument 2*: All A are B, Some B are C $\nvdash$ Some A are C  </p>
 
 One can show the invalidity of this using the following Euler diagram:
 
@@ -145,13 +145,13 @@ Here is Leibniz's diagram of Barbara, where to the very left the three propertie
 
 &nbsp; &nbsp; &nbsp; *Barbara*: All C are A, All A are B $\vdash$ All C are B.
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Barbara.png" alt="Leibniz's diagram of Barbara" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Barbara.png" alt="Leibniz's diagram of Barbara" width="600"/>
 
 (The word "Omne" is Latin for "all" and the word "est" is Latin for "is").
 
 Now, in Euler diagrams the convention was that "All C are A" meant that the C shape was entirely contained within the A shape. In Leibniz's linear representation, the idea is as indicated in the below video:
 
-<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-line.mp4"/> </video>
+<video controls width="500" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-line.mp4"/> </video>
 
 <br>
 
@@ -159,31 +159,51 @@ That is, in Leibniz's diagram, one is supposed to think of the line segments as 
 
 &nbsp; &nbsp; &nbsp; *Celarent*: No B are C, All A are B $\vdash$ No A are C.
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Celerant.png" alt="Leibniz's diagram of Celarent" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Celerant.png" alt="Leibniz's diagram of Celarent" width="600"/>
+
+(You can probably guess ,but "Nullum" gets translated from the Latin as "no" here in Celarent, and "Quoddam" gets translated from the Latin as "some" below in Darii).
 
 &nbsp; &nbsp; &nbsp; *Darii*: All A are B, Some C are A $\vdash$ Some C are B.
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Darii.png" alt="Leibniz's diagram of Darii" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Darii.png" alt="Leibniz's diagram of Darii" width="600"/>
 
 &nbsp; &nbsp; &nbsp; *Ferio*: No A are B, Some C are A $\vdash$ Some C are not B
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Ferio.png" alt="Leibniz's diagram of Ferio" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Ferio.png" alt="Leibniz's diagram of Ferio" width="600"/>
 
-What about the invalid arguments we went over in the previous section? Even though Leibniz himself does not go over this, one could easily describe this using these linear diagrams:
+What about the invalid arguments we went over in the previous section? One could easily describe this using these linear diagrams:
 
-&nbsp; &nbsp; &nbsp; *Example of invalid argument 1*:  Some A are B, No B are C $\nvdash$ Some C are not A
+<p style="margin-left: 40px"> *Example of invalid argument 1*:  Some A are B, No B are C $\nvdash$ Some C are not A  </p>
 
 <video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-invalidity1.mp4"/> </video>
 
 <br>
 
-&nbsp; &nbsp; &nbsp; *Example of invalid argument 2*: All A are B, Some B are C $\nvdash$ Some A are C
+<p style="margin-left: 40px"> *Example of invalid argument 2*: All A are B, Some B are C $\nvdash$ Some A are C  </p>
 
 <video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-invalidity2.mp4"/> </video>
 
 <br>
 
+## Set theory and diagrams
+
+Last time we went over sets, and all the diagrams we presented up above can be naturally described as sets. The easiest to set-theoretically represent would be the linear examples from Leibniz. For, we can describe all the lines as small subsets of the natural numbers, which carries a natural linear structure.
+
+<p style="margin-left: 40px"> *Example of invalid argument 1*:  Some A are B, No B are C $\nvdash$ Some C are not A
+
+To show the invalidity of this using sets, one lets A, B, C be small subsets of natural numbers which bear the containment relationships of the diagram we drew up above. For instance, one could define the following sets just by viewing A,B,C in the diagram up above as parts of the the natural number line up to the number 10:
+
+<p style="margin-left: 40px"> $B = {x\in \mathbb{N}: 0\leq x \leq 6}$  </p>
+<p style="margin-left: 40px"> $A = {x\in \mathbb{N}: 3\leq x \leq 10}$  </p>
+<p style="margin-left: 40px"> $C = {x\in \mathbb{N}: 8\leq x \leq 10}$  </p>
+
+Then one can check that Some A are B (such as $x=3,4,5,6$) and No B are C (since B ends at 6 and C only starts at 8), and yet it is false that Some C are not A, since all the C are are in A.
+
 <br>
+
+<p style="margin-left: 40px"> *Example of invalid argument 2*: All A are B, Some B are C $\nvdash$ Some A are C  </p>
+
+To show the invalidity of this using sets, we could do the same thing with the second diagram we drew up above. 
 
 <br>
 
