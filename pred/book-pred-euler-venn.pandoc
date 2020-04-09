@@ -26,7 +26,7 @@ INSERT
 - [Euler diagrams and invalidity](#euler-diagrams-and-invalidity)
 - [Leibniz and linear diagrams](#leibniz-and-linear-diagrams)
 - [Set theory and diagrams](#set theory and diagrams)
-- [Set theory and propositional connectives](#set-theory-and-propositional-connectives)
+
 
 <br>
 
@@ -195,6 +195,8 @@ To show the invalidity of this using sets, one lets A, B, C be small subsets of 
 
 <video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-invalidity1-numbers.mp4"/> </video>
 
+<br>
+
 As the video suggests, we could define the following sets just by viewing A,B,C in the diagram up above as parts of the the natural number line up to the number 10:
 
 <p style="margin-left: 40px"> $B = {x\in \mathbb{N}: 0\leq x \leq 6}$  </p>
@@ -210,6 +212,20 @@ Some other choices of numbers would have worked just as well. For instance, we c
 <p style="margin-left: 40px"> *Example of invalid argument 2*: All A are B, Some B are C $\nvdash$ Some A are C  </p>
 
 To show the invalidity of this using sets, we could do the same thing with the second diagram we drew up above.
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-invalidity2-numbers.mp4"/> </video>
+
+<br>
+
+As indicated, wen can then define the following sets:
+
+<p style="margin-left: 40px"> $A = {x\in \mathbb{N}: 0\leq x \leq 40}$  </p>
+<p style="margin-left: 40px"> $B = {x\in \mathbb{N}: 0\leq x \leq 50}$  </p>
+<p style="margin-left: 40px"> $C = {x\in \mathbb{N}: 45\leq x \leq 47}$  </p>
+
+One can then check that All A are B since any number between zero and 50 is also between 0 and 50. And Some B are C since the numbers $x=45,46,47$ are both B and C. However, it is not the case that "Some A are C" is true since this would require that there be some overlap between A and C, while A stops at 45 and C starts at 45.
+
+These number-theoretic examples are useful because they are simple to describe and because they can be easily mechanically checked for correctness since numbers are easy to computationally implement.
 
 <br>
 
