@@ -36,7 +36,7 @@ Euler's method of visually representing the Aristotelian syllogisms is described
 
 ## Recall Aristotle and the first figure
 
-Recall Aristotle's first figure, where we have chosen different letters so as to better match with Euler's diagrams:
+Recall [Aristotle's first figure](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-aristotelian.pandoc#the-first-figure), where we have chosen the letters so as to better match with Euler's diagrams:
 
 <table style="width:120%">
   <tr>
@@ -62,9 +62,13 @@ Recall Aristotle's first figure, where we have chosen different letters so as to
 
 <br>
 
-Today we are going to look at diagrammatic representations of these arguments. Diagrams were not part of Aristotle's procedure: recall he simply enumerates these four paradigmatic valid arguments and gives examples which are suggestive of their validity. However, diagrams are often helpful in elucidating complex arguments, and this is how they are used in this context as well.
+Today we are going to look at diagrammatic representations of these arguments, as it historically developed.[^8] Diagrams were not part of Aristotle's procedure: recall he simply enumerates these four paradigmatic valid arguments and gives natural language examples that are suggestive of their validity. However, diagrams are often helpful in elucidating complex arguments and in producing counterexamples which demonstrate invalidity.
+
+[^8]: For the history of this subject, see: [Bennett, Deborah. 2015. “Origins of the Venn Diagram.” In Research in History and Philosophy of Mathematics, 105–19. Springer International Publishing.](https://logic-teaching.github.io/pred/texts/Bennett%202015%20-%20Origins%20of%20the%20Venn%20Diagram.pdf)
 
 <br>
+
+<p style="page-break-before: always">
 
 ## Euler diagrams of the first figure
 
@@ -102,22 +106,24 @@ Finally, we get to:
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figures%2018%20or%2019%20or%2020%20Ferio.png" alt="Euler's diagram of Ferio" width="700"/>
 
-There are three possible pictures of this one. For, after you draw the "No A are B" by making the two shapes A,B disjoint, you have to decide how to make C overlap with A in order to have "Some C are A." The left-most diagram represents if C just overlapped with A but not B. And the center diagram is the case where C contains all of B, and the right-most diagram represents when C not only overlapped with A but also with B.
+There are three possible pictures of this one. For, after you draw the "No A are B" by making the two shapes A,B disjoint, you have to decide how to make C overlap with A in order to have "Some C are A." The left-most diagram represents if C just overlapped with A but not B. And the center diagram is the case where C contains all of B, and the right-most diagram represents when C not only overlaps with A but also with B.
 
 [^1]: "These circles, or rather these spaces, for it is of no importance of what figure they are of, are extremely commodious for facilitating our reflections on this subject [of logic], and for unfolding all the boasted mysteries of logic, which that art finds it so difficult to explain; whereas, by means of these signs, the whole is rendered sensible to the eye" (p. 397 of see [this edition](https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20CI-CVIII.pdf)).
 
 <br>
 
+<p style="page-break-before: always">
+
 ## Euler diagrams and invalidity
 
-Euler also was the first to use these diagrams to show invalidity:
+Euler also used these diagrams to show invalidity:
 
 <p style="margin-left: 40px"> *Example of invalid argument 1*: Some A are B, No B are C $\nvdash$ Some C are not A  </p>
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2024%20Invalid%201.png
 " alt="Euler diagram to show invalidity" width="300"/>
 
-This shows the invalidity because the premises are true in the model. Some A are B, as shown by the fact that the shapes overlap. And No B are C as shown by the fact that the B,C shapes do no overlap. And yet the conclusion is false in the model, since all C in the small inner circle to the left are A, and hence no C are not A.[^2]
+This shows the invalidity because the premises are true in the diagram but the conclusion is false. For, some A are B, as shown by the fact that the shapes overlap. And No B are C as shown by the fact that the B,C shapes do no overlap. And yet the conclusion is false in the model, since all C in the small inner circle to the left are A, and hence *no* C are not A.[^2]
 
 Here is a another simple example of invalidity:
 
@@ -127,14 +133,15 @@ One can show the invalidity of this using the following Euler diagram:
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2013%20Invalid%202.png" alt="Euler diagram to show invalidity" width="300"/>
 
-The premises are true. For, "All A are B" is true since the A shape is entirely contained within the B shape. And "Some B are C" is true since the B shape and the C shape overlap. But "Some A are C" is false since the A shape and the C shape do not overlap.
+This diagram shows the argument to be invalid since the premises are true but the conclusion is false in the diagram. For, "All A are B" is true since the A shape is entirely contained within the B shape. And "Some B are C" is true since the B shape and the C shape overlap. But "Some A are C" is false since the A shape and the C shape do not overlap.
 
-These example illustrate well how to show invalidity of arguments using Euler diagrams. However, Euler thought that these diagrams told one something important about validity as well.
 
 [^2]: This last step from "All C are A" to "No C are not A" is an instance of third conversion.
 
 
 <br>
+
+<p style="page-break-before: always">
 
 ## Leibniz and linear diagrams
 
@@ -163,7 +170,7 @@ That is, in Leibniz's diagram, one is supposed to think of the line segments as 
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Celerant.png" alt="Leibniz's diagram of Celarent" width="600"/>
 
-(You can probably guess ,but "Nullum" gets translated from the Latin as "no" here in Celarent, and "Quoddam" gets translated from the Latin as "some" below in Darii).
+(You can probably guess, but "Nullum" gets translated from the Latin as "no" here in Celarent, and "Quoddam" gets translated from the Latin as "some" below in Darii).
 
 &nbsp; &nbsp; &nbsp; *Darii*: All A are B, Some C are A $\vdash$ Some C are B.
 
@@ -187,9 +194,11 @@ What about the invalid arguments we went over in the previous section? One could
 
 <br>
 
+<p style="page-break-before: always">
+
 ## Set theory and diagrams
 
-Last time we went over sets, and all the diagrams we presented up above can be naturally described as sets. The easiest to set-theoretically represent would be the linear examples from Leibniz. For, we can describe all the lines as small subsets of the natural numbers, which carries a natural linear structure.
+Last time we went over [sets](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc), and all the diagrams we presented up above can be naturally described as sets. The easiest to set-theoretically represent would be the linear examples from Leibniz. For, we can describe all the lines as small subsets of the natural numbers, which carries a natural linear structure.
 
 <p style="margin-left: 40px"> *Example of invalid argument 1*:  Some A are B, No B are C $\nvdash$ Some C are not A
 
@@ -225,11 +234,13 @@ As indicated, we can then define the following sets:
 <p style="margin-left: 40px"> $B = \{x\in \mathbb{N}: 0\leq x \leq 50\}$  </p>
 <p style="margin-left: 40px"> $C = \{x\in \mathbb{N}: 45\leq x \leq 47\}$  </p>
 
-One can then check that All A are B since any number between zero and 50 is also between 0 and 50. And Some B are C since the numbers $x=45,46,47$ are both B and C. However, it is not the case that "Some A are C" is true since this would require that there be some overlap between A and C, while A stops at 45 and C starts at 45.
+One can then check that All A are B since any number between zero and 40 is also between 0 and 50. And Some B are C since the numbers $x=45,46,47$ are both B and C. However, it is not the case that "Some A are C" is true since this would require that there be some overlap between A and C, while A stops at 45 and C starts at 45.
 
 These number-theoretic examples are useful because they are simple to describe and because they can be easily mechanically checked for correctness since numbers are easy to computationally implement.
 
 <br>
+
+<p style="page-break-before: always">
 
 ## Set theory and diagrams and connectives
 
@@ -266,11 +277,33 @@ There are some general principles connecting diagrams and sets and connectives t
 
 In the last column we introduce some set-theoretic notation related to the propositional connectives:
 
-- *Intersection of $X,Y$*: $X\cap Y= \{x: x\in X \wedge x\in Y\}$
-- *Difference of $X$ from $Y$*: $X\setminus Y = \{x: x\in X \wedge x\notin Y\}$.
-- *Union of $X,Y$*: $X\cup Y =\{x: x\in X \vee x\in Y\}$
 
-(The union operation was not deployed in the table, but it is a natural companion to the other two). To illustrate all this, consider the following Euler diagram:
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Definition</th>
+  </tr>
+  <tr>
+    <td>Intersection of $X,Y$</td>
+    <td>$X\cap Y$</td>
+    <td>$X\cap Y= \{x: x\in X \wedge x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Union of $X,Y$</td>
+    <td>$X\cup Y$</td>
+    <td>$X\cup Y= \{x: x\in X \vee x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Difference of $X$ from $Y$</td>
+    <td>$X\setminus Y$</td>
+    <td>$X\setminus Y = \{x: x\in X \wedge x\notin Y\}$</td>
+  </tr>
+</table>
+
+<br>
+
+(The union operation was not deployed today, but it is a natural companion to the other two). To illustrate all this, consider the following Euler diagram:
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Large-Euler-Diagram.png" alt="Large Euler diagram" width="700"/>
 
@@ -284,15 +317,25 @@ One can check that the following are all true on this diagram:
 
 <br>
 
+<p style="page-break-before: always">
+
 ## Venn and concerns about diagrammatic reasoning
 
-We have been calling the diagrams drawn today *Euler diagrams*. There are more often today called *Venn diagrams*, after a 19th Century logician Venn who did a lot of work on them. However, Venn himself was animated primarily about what he saw as a failing of Euler diagrams. The first issue he noted was that there is no precise correspondence between Aristotelian propositions and the diagrams:
+We have been calling the diagrams drawn today *Euler diagrams*. There are more often today called *Venn diagrams*, after a 19th Century logician Venn who did a lot of work on them. However, Venn himself was animated primarily about what he saw as a failing of Euler diagrams. He was concerned that there was no precise correspondence between Aristotelian propositions and the diagrams:[^6]
+
+[^6]: p. 330 of: [Venn, John. 1880. “On the Forms of Logical Proposition.” Mind; a Quarterly Review of Psychology and Philosophy 5 (19): 336–49](https://logic-teaching.github.io/pred/texts/Venn%201880%20-%20On%20the%20Forms%20of%20Logical%20Proposition.pdf).
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Venn%201880%20-%20On%20the%20Forms%20of%20Logical%20Proposition%20p.%20339%20part%202.png" alt="Venn quotation" width="700"/>
 
+In (1), the idea is that A and B are the same shape, namely the displayed circle. Venn wrote of these that:
+
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Venn%201880%20-%20On%20the%20Forms%20of%20Logical%20Proposition%20p.%20339%20part%201.png" alt="Venn quotation" width="700"/>
 
+Maybe the issue about (4) is not terribly important: after all, in any diagram there are going to be different features of it one could draw attention to. But the issue about (1) and (2) seems more important. If one had a premise "All A are B" then to carry out an argument one would have to consider two different diagrams, namely (1) and (2). After all, if one focused just on diagrams like (2), one might mistakenly think that "All A are B $\vdash$ Some B are not A.'' In some sense we saw this issue before, in Euler's multiple diagrams for Darii and Ferio (cf. [Euler diagrams of the first figure](#euler-diagrams-of-the-first-figure)). But Venn drew attention to this point again, and noted that if one really wanted to do entire long arguments in a digrammatic way, one would have to be paying attention to an immensely large number of different cases.
 
+Venn's own solution to this issue was to work with a more elaborate set of diagrammatic conventions and rules that were more amenable to carrying out proofs.[^7] Time permitting, we will return to this later in the course.
+
+[^7]: See [Venn, J. 1880. “On the Diagrammatic and Mechanical Representation of Propositions and Reasonings.” The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science 10 (59): 1–18](https://logic-teaching.github.io/pred/texts/Venn%201880%20-%20On%20the%20diagrammatic%20and%20mechanical%20representation%20of%20propositions%20and%20reasonings.pdf).
 
 <br>
 
