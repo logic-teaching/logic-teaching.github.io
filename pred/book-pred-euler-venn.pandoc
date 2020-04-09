@@ -170,11 +170,13 @@ What about the invalid arguments we went over in the previous section? Even thou
 
 &nbsp; &nbsp; &nbsp; Some A are B, No B are C $\nvdash$ Some C are not A
 
-<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-line.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-invalidity1.mp4"/> </video>
 
 &nbsp; &nbsp; &nbsp; All A are B, Some B are C $\nvdash$ Some A are C
 
-<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-line.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-invalidity2.mp4"/> </video>
+
+
 
 <br>
 
