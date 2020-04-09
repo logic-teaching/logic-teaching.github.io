@@ -64,7 +64,9 @@ Today we are going to look at diagrammatic representations of these arguments. D
 
 ## Euler diagrams of the first figure
 
-These diagrams were popularized by Euler in the 18th century in his *Letters to a German Princess, On Different Subjects in Physics and Philosophy* (see [this edition](https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20CI-CVIII.pdf)). The idea is that both the subject and predicate are represented as shapes within the plane, and that the various premises and conclusions of the Aristotelian syllogisms can be represented as spatial relations between the shapes:
+These diagrams were popularized by Euler in the 18th century in his *Letters to a German Princess, On Different Subjects in Physics and Philosophy*.[^4] The idea is that both the subject and predicate are represented as shapes within the plane, and that the various premises and conclusions of the Aristotelian syllogisms can be represented as spatial relations between the shapes:
+
+[^4]: [Euler, Leonhard. 1802. “Letters CI-CVIII.” In Letters of Euler to a German Princess, on Different Subjects in Physics and Philosophy, 393–417. Murray and Highley.](https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20CI-CVIII.pdf). This is a translation of: Euler, Leonhard. 1775. Lettres à une princesse d’Allemagne sur divers sujets de physique et de philosophie. Chez la Société Typographique.
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20CI-CVIII-p-398.png" alt="Euler on propositions" width="500"/>
 
@@ -72,19 +74,19 @@ As one can see here, the spatial relation associated to positive universal state
 
 Euler thought that the virtue of these diagrams was that their diagrammatic nature made it easier to understand the Aristotelian syllogisms.[^1] Let us go through the four arguments in the first figure in turn.
 
-<p style="margin-left: 40px"> *Barbara*: All C are A, All A are B $\vdash$ All C are B.
+&nbsp; &nbsp; &nbsp; *Barbara*: All C are A, All A are B $\vdash$ All C are B.
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%208%20Barbara.png" alt="Euler's diagram of Barbara" width="250"/>
 
 The idea of the Euler diagrams becomes even more vivid if one writes out the premises of Barbara one-by-one. For, when you do so, you immediately see that the smallest cicle C is contained within the largest circle B.
 
-<p style="margin-left: 40px"> *Celarent*: No B are C, All A are B $\vdash$ No A are C.
+&nbsp; &nbsp; &nbsp; *Celarent*: No B are C, All A are B $\vdash$ No A are C.
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2011%20Celarent.png" alt="Euler's diagram of Celarent" width="250"/>
 
 The idea is again best seen if one actually writes out the premises. The diagram begins with "No B are C", and so two circles B,C which do not overlap. Then one draws the small A inside the B corresponding to "All A are B". From this, one should see almost immediately that A,C do not overlap.
 
-<p style="margin-left: 40px"> *Darii*: All A are B, Some C are A $\vdash$ Some C are B.
+&nbsp; &nbsp; &nbsp; *Darii*: All A are B, Some C are A $\vdash$ Some C are B.
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figures%209%20or%2010%20Darii.png" alt="Euler's diagram of Darrii" width="400"/>
 
@@ -92,7 +94,7 @@ The two figures here correspond to a decision you have to make if you are drawin
 
 Finally, we get to:
 
-<p style="margin-left: 40px"> *Ferio*: No A are B, Some C are A $\vdash$ Some C are not B
+&nbsp; &nbsp; &nbsp; *Ferio*: No A are B, Some C are A $\vdash$ Some C are not B
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figures%2018%20or%2019%20or%2020%20Ferio.png" alt="Euler's diagram of Ferio" width="700"/>
 
@@ -106,7 +108,7 @@ There are three possible pictures of this one. For, after you draw the "No A are
 
 Euler also was the first to use these diagrams to show invalidity:
 
-<p style="margin-left: 40px"> Some A are B, No B are C $\nvdash$ Some C are not A
+&nbsp; &nbsp; &nbsp; Some A are B, No B are C $\nvdash$ Some C are not A
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2024%20Invalid%201.png
 " alt="Euler diagram to show invalidity" width="400"/>
@@ -115,7 +117,7 @@ This shows the invalidity because the premises are true in the model. Some A are
 
 Here is a another simple example of invalidity:
 
-<p style="margin-left: 40px"> All A are B, Some B are C $\nvdash$ Some A are C
+&nbsp; &nbsp; &nbsp; All A are B, Some B are C $\nvdash$ Some A are C
 
 One can show the invalidity of this using the following Euler diagram:
 
@@ -132,13 +134,47 @@ These example illustrate well how to show invalidity of arguments using Euler di
 
 ## Leibniz and linear diagrams
 
-Euler recognized that for his purposes one could be drawing squares as opposed to circles. In an unpublished manuscript from a century earlier, Leibniz noted that one could do the same thing with lines.
+Euler recognized that for his purposes one could be drawing squares as opposed to circles. In an unpublished manuscript from about a century earlier, Leibniz noted that one could do the same thing with line segments.[^3]
+
+[^3]: [Leibniz, Gottfried Wilhelm. 1903. “De Formae Logicae Comprobatione per Linearum Ductus.” In Opuscules et Fragments Inedits de Leibniz Phil., VII, B, IV, 1–10., edited by Louis Couturat, 292–331](https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus.pdf)
 
 
+Here is Leibniz's diagram of Barbara, where to the very left the three properties are represented with circles like in Euler diagrams but in the center the three properties are represented with line segments:
 
+&nbsp; &nbsp; &nbsp; *Barbara*: All C are A, All A are B $\vdash$ All C are B.
 
-Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus.pdf
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Barbara.png
+" alt="Leibniz's diagram of Barbara" width="250"/>
 
+(The word "Omne" is Latin for "all" and the word "est" is Latin for "is").
+
+Now, in Euler diagrams the convention was that "All C are A" meant that the C shape was entirely contained within the A shape. In Leibniz's linear representation, the idea is as indicated in the below video:
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-line.mp4"/> </video>
+
+That is, in Leibniz's diagram, one is supposed to think of the line segments as all being parts of one and the same line which is obtained by vertically shifting them all to one and the same line. With that convention in place, the other syllogisms in the first figure can likewise be understood in terms of these linear diagrams:
+
+&nbsp; &nbsp; &nbsp; *Celarent*: No B are C, All A are B $\vdash$ No A are C.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Celerant.png" alt="Leibniz's diagram of Celarent" width="250"/>
+
+&nbsp; &nbsp; &nbsp; *Darii*: All A are B, Some C are A $\vdash$ Some C are B.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Darii.png" alt="Leibniz's diagram of Darii" width="250"/>
+
+&nbsp; &nbsp; &nbsp; *Ferio*: No A are B, Some C are A $\vdash$ Some C are not B
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Leibniz%201903%20-%20De%20formae%20logicae%20comprobatione%20per%20linearum%20ductus%20Ferio.png" alt="Leibniz's diagram of Ferio" width="250"/>
+
+What about the invalid arguments we went over in the previous section? Even though Leibniz himself does not go over this, one could easily describe this using these linear diagrams:
+
+&nbsp; &nbsp; &nbsp; Some A are B, No B are C $\nvdash$ Some C are not A
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-line.mp4"/> </video>
+
+&nbsp; &nbsp; &nbsp; All A are B, Some B are C $\nvdash$ Some A are C
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-euler-venn-leibniz-line.mp4"/> </video>
 
 <br>
 
