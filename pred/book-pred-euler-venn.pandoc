@@ -27,7 +27,7 @@ Euler's method of visually representing the Aristotelian syllogisms is described
 - [Leibniz and linear diagrams](#leibniz-and-linear-diagrams)
 - [Set theory and diagrams](#set-theory-and-diagrams)
 - [Set theory and diagrams and connectives](#set-theory-and-diagrams-and-connectives)
-- [Venn and concerns about diagramatic reasoning](#venn-and-concerns-about-diagramatic-reasoning)
+- [Venn and concerns about diagrammatic reasoning](#venn-and-concerns-about-diagrammatic-reasoning)
 
 
 <br>
@@ -282,6 +282,15 @@ One can check that the following are all true on this diagram:
 4. All $Q_4$ are not $P_1$
 5. No $Q_4$ are $P_1$
 
+<br>
+
+## Venn and concerns about diagrammatic reasoning
+
+We have been calling the diagrams drawn today *Euler diagrams*. There are more often today called *Venn diagrams*, after a 19th Century logician Venn who did a lot of work on them. However, Venn himself was animated primarily about what he saw as a failing of Euler diagrams. The first issue he noted was that there is no precise correspondence between Aristotelian propositions and the diagrams.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Large-Euler-Diagram.png" alt="Large Euler diagram" width="700"/>
+
+Venn and concerns about diagrammatic reasoning
 
 <br>
 
