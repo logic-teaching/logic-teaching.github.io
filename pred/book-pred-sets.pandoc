@@ -1,0 +1,253 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Elementary set theory notation
+
+We need a very small amount of set-theory notation for this course. The reason why is that we eventually want to define models and truth in a model, since models are to predicate logic what truth-tables are to propositional logic. And we will represent models with sets.
+
+
+- [Unordered list notation and membership](#unordered-list-notation-and-membership)
+- [The subset relation and emptyset](#the-subset-relation-and-emptyset)
+- [Ordered lists](#ordered-lists)
+- [Basic number systems](#basic-number-systems)
+- [Forming new sets](#forming-new-sets)
+- [Relations and subsets of Cartesian powers](#relations-and-subsets-of-cartesian-powers)
+- [Cartesian powers](#cartesian-powers)
+- [Functions](#functions)
+- [Summary of set theory notation](#summary-of-set-theory-notation)
+
+
+<p style="page-break-before: always">
+
+## Unordered list notation and membership
+
+If $x_1, \ldots, x_k$ are sets, then $\{x_1, \ldots, x_k\}$ is the set consisting just of $x_1, ..., x_k$, and we write $x_1\in \{x_1, \ldots, x_k\}$, ..., $x_k\in \{x_1, \ldots, x_k\}$. We call the set $\{x_1, \ldots, x_k\}$ the unordered list consisting of $x_1, ..., x_k$.
+
+This notation is organized so that order does not matter and repetitions do not matter. Hence $\{7,8,9\}=\{9,8,7\}=\{7,9,8\}$ and $\{4,4,5\}=\{4,5\}$ and $\{5,5\}=\{5\}$.
+
+The symbol $\in$ is the *membership symbol* and $x\in y$ is pronounced out loud as "$x$ is in $y$" or "$x$ is a member of $y$" or "$x$ is an element of $y$." Hence, $7\in \{6,7,8\}$ might be said out loud as "$7$ is in the set consisting of the elements $6,7,8$."
+
+The membership symbol is negated by writing a vertical stroke through it $\notin$. Thus, $4\notin \{6,7,8\}$ is just a compact way of saying that "it is not the case that $4\in \{6,7,8\}$."
+
+<br>
+
+<p style="page-break-before: always">
+
+## The subset relation and emptyset
+
+The *subset* symbol is $\subseteq$, and $X\subseteq Y$ just means that every element of $X$ is also in $Y$.
+
+Thus $\{1,2,3\}\subseteq \{1,2,3,4\}$, but it is not the case that $\{1,2,5\}\subseteq \{1,2,3,4\}$ because $5$ is in the first set but not in the second set.
+
+The subset symbol is negated by, again, putting a vertical stroke through it. Thus we write $\{1,2,5\}\nsubseteq \{1,2,3,4\}$ to indicate that "it is not true that $\{1,2,5\}\subseteq \{1,2,3,4\}$."
+
+Finally, note that $X\subseteq X$ is always true. That is, any set is a subset of itself.
+
+The symbol $\emptyset$ denotes the *empty set*, that is, the set with no elements. One always has $\emptyset \subseteq X$, that is, one always has that the emptyset is a subset of any set.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Ordered lists
+
+Suppose that $k$ is a natural number like $k=2$ or $k=3$. Then the set $\langle x_1, \ldots, x_k\rangle$ is the ordered $k$-tuple whose first entry is $x_1$, whose second entry is $x_2$, and ... whose $k$-th entry is $x_k$. When we type we repurpose the symbols `<` and `>` which we usually use for the number systems for the purpose of the brackets. One can also use alternative notation and write `[` and `]` instead of  `<` and `>`.
+
+For instance $\langle 8,2,4\rangle$ is the $3$-tuple whose first entry is $8$, whose second entry is $2$, and whose third entry is $4$. Likewise, $\langle 2,1,9,9\rangle$ is the $4$-tuple whose first entry is $2$, whose second entry is $1$, whose third entry is $9$, and whose fourth entry is $9$. If we used the alternative notation, one would write $[8,2,4]$ instead of $\langle 8,2,4\rangle$, and one would write $[2,1,9,9]$ instead of $\langle 2,1,9,9\rangle$.
+
+This is organized so that order *does* matter and repetitions *do* matter. Thus $\langle 9,8,7\rangle\neq \langle 8,9,7\rangle$ and $\langle 5,3,3,4\rangle \neq \langle 5,3,4\rangle$.
+
+One can form sets of $k$-tuples. For instance $\{\langle 5,4,6\rangle, \langle 1,5,8\rangle\}$ is the set which consists just of two $k$-tuples, namely $\langle 5,4,6\rangle$ and $\langle 1,5,8\rangle$.
+
+Note that e.g. $\{\langle 5,4,6\rangle, \langle 1,5,8\rangle\}=\{\langle 1,5,8\rangle, \langle 5,4,6\rangle\}$ since order does not matter as far as the elements of sets formed from the brackets $\{\ldots\}$ goes. But one has of course that $\{\langle 5,4,6\rangle, \langle 1,5,8\rangle\}\neq \{\langle 1,8,5\rangle, \langle 5,4,6\rangle\}$ since order does matter for the entries of a $k$-tuple.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Basic number systems
+
+There are some basic number systems which we frequently use. The first is the *natural numbers* $\mathbb{N} = \{0, 1, 2, 3, \ldots\}$, which simply consists of the non-negative whole numbers. They are ordered so that $0$ is least, $1$ is second, $2$ is third, etc.
+
+The ordering is written $\leq$: hence we have $0\leq 0$, $0\leq 1$, etc. One defines $x<y$ iff $x\leq y$ and $x\neq y$. Hence $0<1$ but $1\nless 1$.
+
+The *integers* $\mathbb{Z} = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\}$ is the set of the positive and negative whole numbers. It has an ordering which extends the ordering on the natural numbers, so that $\mathbb{Z}$ has no least element.
+
+The *rationals* $\mathbb{Q}$ is the set of fractions of integers. For instance, 1/2 and -3/4 are rationals.
+
+<br>
+
+
+<p style="page-break-before: always">
+
+## Forming new sets
+
+One can use extant sets to form new sets. For instance, the even numbers are the set $\{x\in \mathbb{N}: x\mbox{ is divisible by } 2\}$.
+
+Sometimes these sets are ones which one could already write via the unordered list notation. For instance $\{x\in \mathbb{N}: x<4\} = \{0,1,2,3\}$.
+
+ In general, if $X$ is a set and $P$ is any property, then there is a set $Y=\{x\in X: x \mbox{ has } P\}$ (pronounced "the set of elements of $X$ which have property $P$"). This set $Y$ is characterized by the fact that $x\in Y$ if and only if   both $x\in X$ and $x$ has $P$. Note that $Y\subseteq X$. That is, this way of forming sets only gives one subsets of sets which one already had.
+
+<br>
+
+
+<p style="page-break-before: always">
+
+## Cartesian powers
+
+We then define the *Cartesian powers* $A^k$ of a set $A$, where again $k$ is a natural number like $k=2$ or $k=3$. In particular, we define $A^k$ to be the set of all the $k$-tuples whose entries come from the set $A$. More formally, one has:
+
+<p style="margin-left: 40px"> $A^k = \{\langle a_1, \ldots, a_k\rangle: a_1\in A, \ldots, a_k\in A\}$
+
+For instance, $A^1 = A$ and $A^2=A\times A$ and $A^3=A\times A\times A$. Here we are using the familiar *product* notation for sets, namely:
+
+<p style="margin-left: 40px"> $A\times B = \{\langle a,b\rangle: a\in A, b\in B\}$
+
+For instance, $\{1,2\}\times \{2,3\} = \{\langle 1,2\rangle, \langle 1,3\rangle, \langle 2,2\rangle, \langle 2,3\rangle\}$. Thus $\langle 1,2\rangle$ is in this set, but $\langle 2,1\rangle$ is not in this set.
+
+The Cartesian powers are so-named because of the Cartesian plane. For instance, consider $\mathbb{N}\times \mathbb{N}$. We draw this with the first copy of the natural numbers $\mathbb{N}$ on the horizontal $x$-axis and the second copy of the natural numbers on the vertical $y$-axis, and we can draw points of the Cartesian power $\mathbb{N}\times \mathbb{N}$ by listing off points on the plane in terms of their familiar $\langle x,y\rangle$-coordinates.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Relations and subsets of Cartesian powers
+
+Consider $\{3,4\}\times \{3,4\} = \{\langle 3,3\rangle, \langle 3,4\rangle, \langle 4,3\rangle, \langle 4,4\rangle\}$.
+
+One could imagine 3,4 as representing two people (or other objects). One can then use subsets of the Cartesian power $\{3,4\}\times \{3,4\}$ to represent relations which these people stand in. For instance, suppose that 3 respects 4, 4 respects 3, and 4 respects herself but 3 does not respect herself. Then one could represent this relation as the following subset of the Cartesian power.
+
+<p style="margin-left: 40px"> $R = \{\langle 3,4\rangle, \langle 4,3\rangle, \langle 4,4\rangle\}$
+
+Such subsets can also be visually represented. One option is to use colors and another option is to draw lines.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Functions
+
+Suppose that $X,Y$ are two sets. Then a *function* $f:X\rightarrow Y$ is simply any operation which given an input $x$ from $X$ returns an output $y=f(x)$ from $Y$. In this context, $X$ is called the *domain* of the function $f$ and $Y$ is called *the codomain* of the function $f$. A synonym for "function" is "map."
+
+For instance, consider $f(x)=x^2$ with domain $\mathbb{N}$ and codomain $\mathbb{N}$. Then $f(3)=3^2 = 9$ and $f(4)=4^2 = 16$. Likewise, consider $g(x)=x/2$ with domain $\mathbb{N}$ and codomain $\mathbb{Q}$. Then $g(3)=3/2$ and $g(4)=2$.
+
+Suppose that $X,Y$ are two sets. Then a map $f:X\rightarrow Y$ is an *injection* if $f(x)=f(x^{\prime})$ implies $x=x^{\prime}$ for all $x,x^{\prime}$ in $X$. A map $f:X\rightarrow Y$ is a *surjection* if for all $y$ in $Y$ there is $x$ in $X$ such that $f(x)=y$. Finally, a function $f:X\rightarrow Y$ is a *bijection* if it is both an injection and a surjection.
+
+Suppose that $X=\{1,2,3\}$ and $Y=\{2,4,6\}$. Then $f:X\rightarrow Y$ given by $f(x)=2x$ is a bijection. For, suppose that $f(x)=f(x^{\prime})$. Then $2x=2x^{\prime}$, and dividing each side by $2$, we obtain $x=x^{\prime}$. Hence $f$ is injective. To see that $f$ is surjective, suppose that $y$ is in $Y$. Then by inspection, we see that $y/2$ is in $X$. Then by taking $x=y/2$, we find $f(x)=f(y/2)=2\cdot (y/2)=y$
+
+If $X$ is finite with $n$ elements and $Y$ is finite with $m$ elements, then there is a bijection $f:X\rightarrow Y$ if and only if $n=m$. However, when this equality obtains, it is not the case that all functions $g:X\rightarrow Y$ are bijections. For instance, consider again the two three-element sets $X=\{1,2,3\}$ and $Y=\{2,4,6\}$. Then consider $g(x)=2$ (that is, $g$ always outputs $2$). Then $g$ is not an injection since $g(1)=2=g(2)$ but $1\neq 2$. And $g$ is not a surjection since e.g. $g(x)\neq 4$ for any value $x$ from $X$.
+
+Finally, let us just record the standard notation for compositions. Suppose that $f:X\rightarrow Y$ and $g:Y\rightarrow Z$. Then define the *composition* $h=g\circ f:X\rightarrow Z$ ("$g$ follows $f$") by $h(x)=g(f(x))$. For instance, consider $f:\mathbb{N}\rightarrow \mathbb{N}$ by $f(x)=2x$ and $g:\mathbb{N}\rightarrow \mathbb{N}$ by $g(y)=y+3$. Then $(g\circ f)(2) = g(f(2)) = g(4)=7$ and $(f\circ g)(2)= f(g(2)) = f(5)=10$.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Summary of set theory notation
+
+Here is a summary of our set-theory notation:
+
+<table style="width:100%">
+  <tr>
+    <th>Symbol</th>
+    <th>Used to express</th>
+    <th>Symbol typeset</th>
+    <th>How to type on keyboard</th>
+  </tr>
+  <tr>
+    <td>Membership</td>
+    <td>when a set is another</td>
+    <td>$\in$</td>
+    <td> `∈` </td>
+  </tr>
+  <tr>
+    <td>Unordered list notation </td>
+    <td>forming unordered lists</td>
+    <td>$\{ , , ,\}$</td>
+    <td>`{, , ,}`</td>
+  </tr>
+  <tr>
+    <td>Subset </td>
+    <td>when all elements of a set are in another set</td>
+    <td>$\subseteq$</td>
+    <td>`⊆`</td>
+  </tr>
+  <tr>
+    <td>Empty set </td>
+     <td>the set which contains no members</td>
+    <td>$\emptyset$</td>
+    <td>`∅`</td>
+  </tr>
+  <tr>
+    <td>Ordered list notation </td>
+    <td>forming ordered lists</td>
+    <td>$\langle , , ,\rangle$ or $[, , ,]$</td>
+    <td>`<, , ,>` or `[, , ,]`</td>
+  </tr>
+  <tr>
+    <td>Set formation </td>
+    <td>forming sets from new sets</td>
+    <td>$\{x\in X: x \mbox{ has } P\}$ </td>
+    <td>`{x∈ X : x has P}`</td>
+  </tr>
+  <tr>
+    <td>Products </td>
+    <td>forming ordered pairs from sets</td>
+    <td>$A\times B$ </td>
+    <td>`A×B`</td>
+  </tr>
+  <tr>
+    <td>Cartesian powers </td>
+    <td>forming products of set with itself</td>
+    <td>$A^k$ </td>
+    <td>`A^k`</td>
+  </tr>
+  <tr>
+    <td>Functions </td>
+    <td>Map $f$ from domain $X$ to codomain $Y$</td>
+    <td>$f:X\rightarrow Y$ </td>
+    <td>`f:X->Y`</td>
+  </tr>
+  <tr>
+    <td>Function application </td>
+    <td>Obtains output $f(x)$ from input $x$</td>
+    <td>$f(x)=y$ </td>
+    <td>`f(x)=y`</td>
+  </tr>
+  <tr>
+    <td>Functional composition </td>
+    <td>function g follows function f (i.e. first do f, then g after that)</td>
+    <td>$g\circ f$ </td>
+    <td>`g∘f`</td>
+  </tr>
+</table>
+
+<br>
+
+Two quick notes:
+
+1. The only things that we will have to type frequently are the unordered list and ordered list notation, and so it is less important that one learns how to type these things. They will appear frequently in lecture notes, and so it is more important to learn how to read them.
+
+2. In the entries for the unordered list and ordered list notation, there can obviously be fewer than or more than four things in the list. I have written them with only three commas (hence four things) simply to save on space.
+
+<br>
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+
+[^3]: which is:
