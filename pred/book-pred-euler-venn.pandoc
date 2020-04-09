@@ -1,0 +1,78 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Euler and Venn diagrams
+
+INSERT
+
+<br>
+
+- [Recall Aristotle and the first figure](#Recall-Aristotle-and-the-first-figure)
+- [Euler diagrams of the first figure](#euler-diagrams-of-the-first-figure)
+- [Euler diagrams and invalidity](#euler-diagrams-and-invalidity)
+- [Leibniz and linear diagrams](#leibniz-and-linear-diagrams)
+- [Set theory and diagrams](#set theory and diagrams)
+- [Set theory and propositional connectives](#set-theory-and-propositional-connectives)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Recall Aristotle and the first figure
+
+Recall Aristotle's first figure:
+
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Valid argument</th>
+  </tr>
+  <tr>
+    <td>Barbara</td>
+    <td>All F are G, All G are H $\vdash$ All F are H</td>
+  </tr>
+  <tr>
+    <td>Celarent</td>
+    <td>No F are G, All H are F $\vdash$ No H are G</td>
+  <tr>
+    <td>Darii</td>
+    <td>All F are G, Some H are F $\vdash$ Some H are G</td>
+  </tr>
+  <tr>
+    <td>Ferio</td>
+    <td>No F are G, Some H are F $\vdash$ Some H are not G</td>
+  </tr>
+</table>
+
+Today we are going to look at diagrammatic representations of these arguments. Diagrams were not part of Aristotle's procedure: recall he simply enumerates these four paradigmatic valid arguments and gives examples which are suggestive of their validity. However, diagrams are often helpful in elucidating complex arguments, and this is how they are used in this context as well.
+
+<br>
+
+## Euler diagrams of the first figure
+
+These diagrams were popularized by Euler in the 18th century in his *Letters to a German Princess, On Different Subjects in Physics and Philosophy* (see [this edition](https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20CI-CVIII.pdf)). The idea is that both the subject and predicate are represented as shapes within the plane, and that the various premises and conclusions of the Aristotelian syllogisms can be represented as spatial relations between the shapes.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20CI-CVIII-p-398.png" alt="Euler on propositions" width="700"/>
+
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+
+[^3]: which is:
+
+<br>
