@@ -26,7 +26,8 @@ Euler's method of visually representing the Aristotelian syllogisms is described
 - [Euler diagrams and invalidity](#euler-diagrams-and-invalidity)
 - [Leibniz and linear diagrams](#leibniz-and-linear-diagrams)
 - [Set theory and diagrams](#set-theory-and-diagrams)
-- [Set theory and diagrams and connectives](set-theory-and-diagrams-and-connectives)
+- [Set theory and diagrams and connectives](#set-theory-and-diagrams-and-connectives)
+- [Venn and concerns about diagramatic reasoning](#venn-and-concerns-about-diagramatic-reasoning)
 
 
 <br>
@@ -218,7 +219,7 @@ To show the invalidity of this using sets, we could do the same thing with the s
 
 <br>
 
-As indicated, wen can then define the following sets:
+As indicated, we can then define the following sets:
 
 <p style="margin-left: 40px"> $A = \{x\in \mathbb{N}: 0\leq x \leq 40\}$  </p>
 <p style="margin-left: 40px"> $B = \{x\in \mathbb{N}: 0\leq x \leq 50\}$  </p>
@@ -232,8 +233,7 @@ These number-theoretic examples are useful because they are simple to describe a
 
 ## Set theory and diagrams and connectives
 
-
-There are some general principles connecting diagrams and sets which were implicit in what we just did:
+There are some general principles connecting diagrams and sets and connectives that were implicit in what we just did:
 
 <table style="width:120%">
   <tr>
@@ -248,8 +248,8 @@ There are some general principles connecting diagrams and sets which were implic
   </tr>
   <tr>
     <td>Some F are G</td>
+    <td>F and G overlap</td>
     <td>$F\cap G\neq \emptyset$</td>
-    <td></td>
   <tr>
     <td>Some F are not G</td>
     <td>F overlaps with some part outside of G</td>
@@ -262,41 +262,31 @@ There are some general principles connecting diagrams and sets which were implic
   </tr>
 </table>
 
+<br>
+
 In the last column we introduce some set-theoretic notation related to the propositional connectives:
 
-- Intersection of $X,Y$: $X\cap Y= \{x: x\in X \wedge x\in Y\}$
-- Difference of $X$ from $Y$: $X\setminus Y = \{x: x\in X \wedge x\notin Y\}$.
-- Union of $X,Y$: $X\cup Y =\{x: x\in X \vee x\in Y\}$
+- *Intersection of $X,Y$*: $X\cap Y= \{x: x\in X \wedge x\in Y\}$
+- *Difference of $X$ from $Y$*: $X\setminus Y = \{x: x\in X \wedge x\notin Y\}$.
+- *Union of $X,Y$*: $X\cup Y =\{x: x\in X \vee x\in Y\}$
 
-(The union operation was not deployed in the table, but it is a natural companion to the other two).
+(The union operation was not deployed in the table, but it is a natural companion to the other two). To illustrate all this, consider the following Euler diagram:
 
-To illustrate this, consider the following Euler diagram:
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Large-Euler-Diagram.png" alt="Large Euler diagram" width="700"/>
 
-Large-Euler-Diagram.png
+One can check that the following are all true on this diagram:
 
-To illustrate this, consider the model~$\mathcal{B}$ associated to the Venn diagram in Figure~\ref{Qsem:fig:2}. Using the table in the previous paragraph, one can quickly ascertain the following:
-\begin{align*}
-\mathcal{B}\models & \;\exists \; x \; (P_1(x) \wedge P_2(x)) \\
-\mathcal{B}\models & \;\exists \; x \; (P_1(x) \wedge \neg Q_3(x)) \\
-\mathcal{B}\models & \;\forall \; x \; (Q_1(x) \rightarrow P_1(x)) \\
-\mathcal{B}\models & \;\forall \; x \; (Q_4(x) \rightarrow \neg P_1(x)) \\
-\mathcal{B}\models & \;\neg \exists \; x \;  (Q_4(x) \wedge P_1(x))
-\end{align*}
-\begin{figure}
-\begin{center}
-\includegraphics[width=0.75\textwidth]{Qsem-fig-1}
-\caption{Venn diagram associated to model in second paragraph of \S\ref{Qsem:para:venn}.}
-\label{Qsem:fig:2}
-\end{center}
-\end{figure}
-\noindent To illustrate how these follow from the semantics introduced at the beginning of this chapter, consider the first of these, namely~$\mathcal{B}\models \;\exists \; x \; (P_1(x) \wedge P_2(x))$. Choose any point in both the two circles in the Figure~\ref{Qsem:fig:2}. Since we can assume that we are working in a Robinson flooding~$\mathcal{B}^{\prime}$ of~$\mathcal{B}$, choose for instance a constant symbol~$c$ with~$c_{\mathcal{B}^{\prime}} = (3\nicefrac{1}{2}, 3\nicefrac{1}{2})$. Then one has that~$\mathcal{B}^{\prime}\models P_1(c)$ and~$\mathcal{B}^{\prime}\models P_2(c)$ and thus~$\mathcal{B}^{\prime}\models P_1(c) \wedge P_2(c)$. Thus by the semantics for the existential quantifier, one has that~$\mathcal{B}\models \;\exists \; x \; (P_1(x) \wedge P_2(x))$.
-
+1. Some $P_1$ are $P_2$
+2. Some $P_1$ are not $Q_3$
+3. All $Q_1$ are $P_1$
+4. All $Q_4$ are not $P_1$
+5. No $Q_4$ are $P_1$
 
 
 <br>
 
-These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
 
-[^3]: which is:
+[^5]: which is:
 
 <br>
