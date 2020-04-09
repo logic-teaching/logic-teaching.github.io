@@ -15,17 +15,18 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Euler and Venn diagrams
+# Euler diagrams
 
-INSERT
+Euler's method of visually representing the Aristotelian syllogisms is described. We connect this to our prior study of sets.
 
 <br>
 
-- [Recall Aristotle and the first figure](#Recall-Aristotle-and-the-first-figure)
+- [Recall Aristotle and the first figure](#recall-aristotle-and-the-first-figure)
 - [Euler diagrams of the first figure](#euler-diagrams-of-the-first-figure)
 - [Euler diagrams and invalidity](#euler-diagrams-and-invalidity)
 - [Leibniz and linear diagrams](#leibniz-and-linear-diagrams)
-- [Set theory and diagrams](#set theory and diagrams)
+- [Set theory and diagrams](#set-theory-and-diagrams)
+- [Set theory and diagrams and connectives](set-theory-and-diagrams-and-connectives)
 
 
 <br>
@@ -113,7 +114,7 @@ Euler also was the first to use these diagrams to show invalidity:
 <p style="margin-left: 40px"> *Example of invalid argument 1*: Some A are B, No B are C $\nvdash$ Some C are not A  </p>
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2024%20Invalid%201.png
-" alt="Euler diagram to show invalidity" width="400"/>
+" alt="Euler diagram to show invalidity" width="300"/>
 
 This shows the invalidity because the premises are true in the model. Some A are B, as shown by the fact that the shapes overlap. And No B are C as shown by the fact that the B,C shapes do no overlap. And yet the conclusion is false in the model, since all C in the small inner circle to the left are A, and hence no C are not A.[^2]
 
@@ -123,7 +124,7 @@ Here is a another simple example of invalidity:
 
 One can show the invalidity of this using the following Euler diagram:
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2013%20Invalid%202.png" alt="Euler diagram to show invalidity" width="400"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2013%20Invalid%202.png" alt="Euler diagram to show invalidity" width="300"/>
 
 The premises are true. For, "All A are B" is true since the A shape is entirely contained within the B shape. And "Some B are C" is true since the B shape and the C shape overlap. But "Some A are C" is false since the A shape and the C shape do not overlap.
 
@@ -199,9 +200,9 @@ To show the invalidity of this using sets, one lets A, B, C be small subsets of 
 
 As the video suggests, we could define the following sets just by viewing A,B,C in the diagram up above as parts of the the natural number line up to the number 10:
 
-<p style="margin-left: 40px"> $B = {x\in \mathbb{N}: 0\leq x \leq 6}$  </p>
-<p style="margin-left: 40px"> $A = {x\in \mathbb{N}: 3\leq x \leq 10}$  </p>
-<p style="margin-left: 40px"> $C = {x\in \mathbb{N}: 8\leq x \leq 10}$  </p>
+<p style="margin-left: 40px"> $B = \{x\in \mathbb{N}: 0\leq x \leq 6\}$  </p>
+<p style="margin-left: 40px"> $A = \{x\in \mathbb{N}: 3\leq x \leq 10\}$  </p>
+<p style="margin-left: 40px"> $C = \{x\in \mathbb{N}: 8\leq x \leq 10\}$  </p>
 
 Then one can check that Some A are B (such as $x=3,4,5,6$) and No B are C (since B ends at 6 and C only starts at 8), and yet it is false that Some C are not A, since all the C are are in A.
 
@@ -219,13 +220,78 @@ To show the invalidity of this using sets, we could do the same thing with the s
 
 As indicated, wen can then define the following sets:
 
-<p style="margin-left: 40px"> $A = {x\in \mathbb{N}: 0\leq x \leq 40}$  </p>
-<p style="margin-left: 40px"> $B = {x\in \mathbb{N}: 0\leq x \leq 50}$  </p>
-<p style="margin-left: 40px"> $C = {x\in \mathbb{N}: 45\leq x \leq 47}$  </p>
+<p style="margin-left: 40px"> $A = \{x\in \mathbb{N}: 0\leq x \leq 40\}$  </p>
+<p style="margin-left: 40px"> $B = \{x\in \mathbb{N}: 0\leq x \leq 50\}$  </p>
+<p style="margin-left: 40px"> $C = \{x\in \mathbb{N}: 45\leq x \leq 47\}$  </p>
 
 One can then check that All A are B since any number between zero and 50 is also between 0 and 50. And Some B are C since the numbers $x=45,46,47$ are both B and C. However, it is not the case that "Some A are C" is true since this would require that there be some overlap between A and C, while A stops at 45 and C starts at 45.
 
 These number-theoretic examples are useful because they are simple to describe and because they can be easily mechanically checked for correctness since numbers are easy to computationally implement.
+
+<br>
+
+## Set theory and diagrams and connectives
+
+
+There are some general principles connecting diagrams and sets which were implicit in what we just did:
+
+<table style="width:120%">
+  <tr>
+    <th>Proposition</th>
+    <th>Diagrammatic Correlate</th>
+    <th>Set-theoretic Correlate</th>
+  </tr>
+  <tr>
+    <td>All F are G</td>
+    <td>F is entirely contained in G</td>
+    <td>$F\subseteq G$</td>
+  </tr>
+  <tr>
+    <td>Some F are G</td>
+    <td>$F\cap G\neq \emptyset$</td>
+    <td></td>
+  <tr>
+    <td>Some F are not G</td>
+    <td>F overlaps with some part outside of G</td>
+    <td>$F\setminus G\neq \emptyset$</td>
+  </tr>
+  <tr>
+    <td>No F are G</td>
+    <td>There is no overlap between F and G</td>
+    <td>$F\cap G=\emptyset$</td>
+  </tr>
+</table>
+
+In the last column we introduce some set-theoretic notation related to the propositional connectives:
+
+- Intersection of $X,Y$: $X\cap Y= \{x: x\in X \wedge x\in Y\}$
+- Difference of $X$ from $Y$: $X\setminus Y = \{x: x\in X \wedge x\notin Y\}$.
+- Union of $X,Y$: $X\cup Y =\{x: x\in X \vee x\in Y\}$
+
+(The union operation was not deployed in the table, but it is a natural companion to the other two).
+
+To illustrate this, consider the following Euler diagram:
+
+Large-Euler-Diagram.png
+
+To illustrate this, consider the model~$\mathcal{B}$ associated to the Venn diagram in Figure~\ref{Qsem:fig:2}. Using the table in the previous paragraph, one can quickly ascertain the following:
+\begin{align*}
+\mathcal{B}\models & \;\exists \; x \; (P_1(x) \wedge P_2(x)) \\
+\mathcal{B}\models & \;\exists \; x \; (P_1(x) \wedge \neg Q_3(x)) \\
+\mathcal{B}\models & \;\forall \; x \; (Q_1(x) \rightarrow P_1(x)) \\
+\mathcal{B}\models & \;\forall \; x \; (Q_4(x) \rightarrow \neg P_1(x)) \\
+\mathcal{B}\models & \;\neg \exists \; x \;  (Q_4(x) \wedge P_1(x))
+\end{align*}
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.75\textwidth]{Qsem-fig-1}
+\caption{Venn diagram associated to model in second paragraph of \S\ref{Qsem:para:venn}.}
+\label{Qsem:fig:2}
+\end{center}
+\end{figure}
+\noindent To illustrate how these follow from the semantics introduced at the beginning of this chapter, consider the first of these, namely~$\mathcal{B}\models \;\exists \; x \; (P_1(x) \wedge P_2(x))$. Choose any point in both the two circles in the Figure~\ref{Qsem:fig:2}. Since we can assume that we are working in a Robinson flooding~$\mathcal{B}^{\prime}$ of~$\mathcal{B}$, choose for instance a constant symbol~$c$ with~$c_{\mathcal{B}^{\prime}} = (3\nicefrac{1}{2}, 3\nicefrac{1}{2})$. Then one has that~$\mathcal{B}^{\prime}\models P_1(c)$ and~$\mathcal{B}^{\prime}\models P_2(c)$ and thus~$\mathcal{B}^{\prime}\models P_1(c) \wedge P_2(c)$. Thus by the semantics for the existential quantifier, one has that~$\mathcal{B}\models \;\exists \; x \; (P_1(x) \wedge P_2(x))$.
+
+
 
 <br>
 
