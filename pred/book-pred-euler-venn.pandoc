@@ -66,7 +66,7 @@ Today we are going to look at diagrammatic representations of these arguments. D
 
 These diagrams were popularized by Euler in the 18th century in his *Letters to a German Princess, On Different Subjects in Physics and Philosophy* (see [this edition](https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20CI-CVIII.pdf)). The idea is that both the subject and predicate are represented as shapes within the plane, and that the various premises and conclusions of the Aristotelian syllogisms can be represented as spatial relations between the shapes:
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20CI-CVIII-p-398.png" alt="Euler on propositions" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20CI-CVIII-p-398.png" alt="Euler on propositions" width="300"/>
 
 As one can see here, the spatial relation associated to positive universal statements "All A are B" is that of the A-shape being entirely contained within the B-shape. Likewise, the negative universal statement "No A are B" is handled via the A-shape not overlapping at all with the B-shape. Finally the positive particular proposition "Some A are B" is indicated by having the A-shape overlap with the B-shape, and the negative universal proposition "Some A are not B" is indicated by having the A-shape overlap with some of the diagram which is not B.
 
@@ -74,19 +74,19 @@ Euler thought that the virtue of these diagrams was that their diagrammatic natu
 
 Barbara: All C are A, All A are B $\vdash$ All C are B.
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%208%20Barbara.png" alt="Euler's diagram of Barbara" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%208%20Barbara.png" alt="Euler's diagram of Barbara" width="100"/>
 
 The idea of the Euler diagrams becomes even more vivid if one writes out the premises of Barbara one-by-one. For, when you do so, you immediately see that the smallest cicle C is contained within the largest circle B.
 
 Celarent: No B are C, All A are B $\vdash$ No A are C.
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2011%20Celarent.png" alt="Euler's diagram of Celarent" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figure%2011%20Celarent.png" alt="Euler's diagram of Celarent" width="200"/>
 
 The idea is again best seen if one actually writes out the premises. The diagram begins with "No B are C", and so two circles B,C which do not overlap. Then one draws the small A inside the B corresponding to "All A are B". From this, one should see almost immediately that A,C do not overlap.
 
 Darii: All A are B, Some C are A $\vdash$ Some C are B.
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figures%209%20or%2010%20Darii.png" alt="Euler's diagram of Darrii" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figures%209%20or%2010%20Darii.png" alt="Euler's diagram of Darrii" width="200"/>
 
 The two figures here correspond to a decision you have to make if you are drawing the pictures. After you have drawn "All A are B", you have to draw C, and then you have to decide whether C is entirely contained in B (Figure 9 on the left) or whether C is not entirely contained in B (Figure 10 to the left).
 
@@ -94,7 +94,7 @@ Finally, we get to:
 
 Ferio: No A are B, Some C are A $\vdash$ Some C are not B
 
-&nbsp; &nbsp; &nbsp;  <img src="Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figures%2018%20or%2019%20or%2020%20Ferio.png" alt="Euler's diagram of Ferio" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="Euler%201802%20-%20Letters%20of%20Euler%20to%20a%20German%20Princess,%20Plate%20I%20Figures%2018%20or%2019%20or%2020%20Ferio.png" alt="Euler's diagram of Ferio" width="400"/>
 
 There are three possible pictures of this one. For, after you draw the "No A are B" by making the two shapes A,B disjoint, you have to decide how to make C overlap with A in order to have "Some C are A." The left-most diagram represents if C just overlapped with A but not B. And the center diagram is the case where C contains all of B, and the right-most diagram represents when C not only overlapped with A but also with B.
 
