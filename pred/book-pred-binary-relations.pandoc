@@ -24,7 +24,7 @@ We extend what we have learned so far to the case of binary relations.
 - [Binary relations](#binary-relations)
 - [Quantifiers and diagrams of binary relations](#quantifiers-and-diagrams-of-binary-relations)
 - [Translations with binary relations](#translations-with-binary-relations)
-- [Truth and special classes of diagrams](#truth-and-special-classes-of-diagrams)
+- [Special classes of diagrams](#special-classes-of-diagrams)
 - [Invalidity and binary relations](#invalidity-and-binary-relations)
 - [Translating and relative clauses](#translating-and-relative-clauses)
 
@@ -44,7 +44,7 @@ Just like we diagrammatically represent unary relations with [Euler diagrams](ht
 
 The following diagram represents $(Rab \wedge Raa) \wedge (Rca \wedge Rac)$:
 
-<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-1.mp4"/> </video>
+<video autoplay  muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-1.mp4"/> </video>
 
 <br>
 
@@ -52,7 +52,7 @@ The following diagram represents $(Rab \wedge Raa) \wedge (Rca \wedge Rac)$:
 
 The following diagram represents $Rac\wedge (Rca\wedge Rbd)$:
 
-<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-2.mp4"/> </video>
+<video autoplay muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-2.mp4"/> </video>
 
 <br>
 
@@ -68,7 +68,9 @@ We can also represent quantified statements using diagrams.
 
 The following diagram represents $\forall \; x \; Rax$:
 
-<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-3.mp4"/> </video>
+<video autoplay muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-3.mp4"/> </video>
+
+<br>
 
 Note that we have to add the arrow corresponding to $Raa$. This is because "$\forall \; x \; Rax$" means that "Everything is pointed to by an arrow from $a$", and this entails that "$a$ is pointed to by an arrow from $a$".
 
@@ -78,7 +80,9 @@ Note that we have to add the arrow corresponding to $Raa$. This is because "$\fo
 
 The following diagram represents $\forall \; x \; Rxx$:
 
-<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-4.mp4"/> </video>
+<video autoplay muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-4.mp4"/> </video>
+
+<br>
 
 It is harder to say express this sentence naturally using our prior methods. Perhaps the best we can do is "Everything points to itself."
 
@@ -92,7 +96,7 @@ These examples merely pertained to one quantifier. We can also consider sentence
 The following diagram represents $\forall \;x \; \exists \; y \; Rxy$:
 
  <img src="https://logic-teaching.github.io/pred/vid/binary-5-part1.png
-" alt="Euler diagram to show invalidity" width="400"/>
+" alt="Diagram" width="400"/>
 
 Intuitively, the truth of this comes down to the fact that each of the three arrows respectively implies:
 
@@ -103,7 +107,7 @@ Intuitively, the truth of this comes down to the fact that each of the three arr
 Since there are only three constant symbols $a,b,c$ we have that the diagram represents $\forall \;x \; \exists \; y \; Rxy$. That is, "everything points to something." If we focus on the beginning of the arrows, we see that every dot is at the beginning of an arrow. To focus in this way, we might draw the beginning of the arrows in blue as follows:
 
  <img src="https://logic-teaching.github.io/pred/vid/binary-5-part2.png
-" alt="Euler diagram to show invalidity" width="400"/>
+" alt="Diagram" width="400"/>
 
 When we do so, we see that "all dots are blue" is true is represented in the diagram.
 
@@ -113,8 +117,8 @@ When we do so, we see that "all dots are blue" is true is represented in the dia
 
 The following diagram represents $\forall \; x \; \exists \; y \; Ryx$.
 
- <img src="https://logic-teaching.github.io/pred/vid/binary-6-part1.png
-" alt="Euler diagram to show invalidity" width="400"/>
+ <img src="https://logic-teaching.github.io/pred/vid/binary-6-part2.png
+" alt="Diagram" width="400"/>
 
 Again, this comes down to to the fact that each of the three arrows respectively imply:
 
@@ -124,8 +128,8 @@ Again, this comes down to to the fact that each of the three arrows respectively
 
 Since there are only three constant symbols $a,b,c$ we have that the diagram represents $\forall \; x \; \exists \; y \; Ryx$. That is "everything is pointed to by something." If we focus on the end of the arrows, we see that every dot is at the end of an arrow. To focus like this, we might draw the end of the arrows in orange as follows:
 
- <img src="https://logic-teaching.github.io/pred/vid/binary-6-part2.png
-" alt="Euler diagram to show invalidity" width="400"/>
+ <img src="https://logic-teaching.github.io/pred/vid/binary-6-part1.png
+" alt="Diagram" width="400"/>
 
 When we do so, we see that "all dots are orange" is represented in the diagram.
 
@@ -138,7 +142,7 @@ When we do so, we see that "all dots are orange" is represented in the diagram.
 The following diagram represents $\exists \; y \; \forall \; x \; Rxy$.
 
  <img src="https://logic-teaching.github.io/pred/vid/binary-7.png
-" alt="Euler diagram to show invalidity" width="400"/>
+" alt="Diagram" width="400"/>
 
 This is true since there is something, namely $a$ which everything points to. That is, $\exists \; y \; \forall \; x \; Rxy$ is represented in this diagram since the simpler fact $\forall \; x \; Rxa$ is. This simpler fact might be expressed as "everything points to $a$."
 
@@ -151,10 +155,11 @@ As this diagram indicates as well, it is not important to draw all of the dots o
 The following diagram represents $\exists \; x \; \forall \; y \; Rxy$.
 
  <img src="https://logic-teaching.github.io/pred/vid/binary-8.png
-" alt="Euler diagram to show invalidity" width="400"/>
+" alt="Diagram" width="400"/>
 
 This is true since there is something, namely $b$, which points to everything. That is, $\exists \; x \; \forall \; y \; Rxy$ is represented in this diagram since the simpler fact $\forall \; y \; Rby$ is. This simpler fact may be put as "everything is pointed to by $b$."
 
+<br>
 
 ## Translations with binary relations
 
@@ -170,10 +175,14 @@ Before describing the four-step process in words, here is a video of the process
 
 <video controls muted width="700" src="https://logic-teaching.github.io/pred/vid/binary-translation-1.mp4"/> </video>
 
+<br>
+
 1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "everyone" and the verb-phrase is "$x$ respects someone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
 2. *Translate the verb-phrase*. Since it involves "someone" we use the existential quantifier, and we translate as $\exists \; y \; Rxy$, since the someone in question, the $y$, is being respected by $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
 3. *Translate the noun-phrase*. Since the noun-phrase is "everyone", we translate with $\forall \;x$, using the same variable as in Step 1.
-4. *Put them together*. We combine Step 3 + Step 2 to get "$\forall \; x \; \exists \; y \; Rxy."
+4. *Put them together*. We combine Step 3 + Step 2 to get "$\forall \; x \; \exists \; y \; Rxy$."
+
+We can then input our answer here:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  AxEyRxy : Everyone respects someone.
@@ -192,10 +201,14 @@ Before illustrating the four-step process, here is a video of the process:
 
 <video controls muted width="700" src="https://logic-teaching.github.io/pred/vid/binary-translation-2.mp4"/> </video>
 
+<br>
+
 1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "everyone" and the verb-phrase is "$u$ is respected someone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
 2. *Translate the verb-phrase*. Since it involves "someone" we use the existential quantifier, and we translate as $\exists \; v \; Rvu$, since the someone in question, the $v$, is respecting our $u$. It does not matter what variable $v$ you use, so long as it is different than the variable you used in Step 1.
 3. *Translate the noun-phrase*. Since the noun-phrase is "everyone", we translate with $\forall \;u$, using the same variable as in Step 1.
-4. *Put them together*. We combine Step 3 + Step 2 to get "$\forall \; u \; \exists \; v \; Rvu."
+4. *Put them together*. We combine Step 3 + Step 2 to get "$\forall \; u \; \exists \; v \; Rvu$."
+
+Let us input in our answer here:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  AuEvRvu : Everyone is respected by someone.
@@ -212,10 +225,14 @@ Prior to illustrating the four-step process again, here is a video:
 
 <video controls muted width="700" src="https://logic-teaching.github.io/pred/vid/binary-translation-3.mp4"/> </video>
 
+<br>
+
 1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "someone" and the verb-phrase is "$x$ is respected by everyone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
 2. *Translate the verb-phrase*. Since it involves "everyone" we use the universal quantifier, and we translate as $\forall \; y \; Ryx$, since the every single $y$ is respecting our $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
 3. *Translate the noun-phrase*. Since the noun-phrase is "someone", we translate with $\exists \;x$, using the same variable as in Step 1.
-4. *Put them together*. We combine Step 3 + Step 2 to get "$\exists \;x\; \forall \; y \; Ryx."
+4. *Put them together*. We combine Step 3 + Step 2 to get "$\exists \;x\; \forall \; y \; Ryx$."
+
+We can then input our answer here:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ExAyRyx : Someone is respected by everyone.
@@ -232,16 +249,80 @@ Again, we first show the video:
 
 <video controls muted width="700" src="https://logic-teaching.github.io/pred/vid/binary-translation-4.mp4"/> </video>
 
+<br>
+
 1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "someone" and the verb-phrase is "$z$ respects everyone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
 2. *Translate the verb-phrase*. Since it involves "everyone" we use the universal quantifier, and we translate as $\forall \; y \; Rzy$, since the every single $y$ is being respected by our $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
 3. *Translate the noun-phrase*. Since the noun-phrase is "someone", we translate with $\exists \;z$, using the same variable as in Step 1.
-4. *Put them together*. We combine Step 3 + Step 2 to get "$\exists \;z\; \forall \; y \; Rzy."
+4. *Put them together*. We combine Step 3 + Step 2 to get "$\exists \;z\; \forall \; y \; Rzy$."
+
+We can again then input our answer:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  EzAyRzy : Someone respects everyone.
 |
 ~~~
 
+<br>
+
+## Special classes of diagrams
+
+We now describe some special classes of diagrams:
+
+*Definition*. An arrow diagram is *reflexive* if it represents $\forall \;x \; Rxx$. That is, every dot has an arrow to itself.
+
+*Definition*. An arrow diagram is *symmetry* if it represents $\forall \; x \; \forall \; y \; (Rxy\rightarrow Ryx)$. That is, for any two dots, if there is an arrow from the first to the second, then there is an arrow from the second to the first.
+
+*Definition*. An arrow diagram is *transitive* if it represents $\forall \; x \; \forall \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$. That is, for any three dots, if there is an arrow from the first to the second and from the second to the third, then there is an arrow from the first to the third.
+
+*Definition*. An arrow diagram is *an equivalence relation* if it is reflexive, symmetric, and transitive.
+
+These first three definitions are independent of one another in that one can have one or two of the three properties but not the others represented in a diagram. Often it is typical to associate these definitions not with diagrams *per se* but rather with the binary relation $R$ itself. These definitions are very important in propositional modal logic since they are the root of the classical correspondence results. They can also be used to describe different kinds of ordering relations on number systems.
+
+Here are four diagrams, named $M_1, M_2, M_3, M_4$:
+
+ <img src="https://logic-teaching.github.io/pred/vid/binary-four-models.png
+" alt="Diagram" width="700"/>
+
+This table summarizes which of these features the four diagrams have:
+
+<table style="width:100%">
+  <tr>
+    <th>Diagram</th>
+    <th>Reflexive</th>
+    <th>Symmetric</th>
+    <th>Transitive</th>
+    <th>Equivalence relation</th>
+  </tr>
+  <tr>
+    <td>$M_1$</td>
+    <td>yes </td>
+    <td>no </td>
+    <td>no </td>
+    <td>no </td>
+  </tr>
+  <tr>
+    <td>$M_2$</td>
+    <td>no </td>
+    <td>yes </td>
+    <td>no </td>
+    <td>no </td>
+  </tr>
+  <tr>
+    <td>$M_3$</td>
+    <td>no </td>
+    <td>no </td>
+    <td>yes </td>
+    <td>no </td>
+  </tr>
+  <tr>
+    <td>$M_1$</td>
+    <td>yes </td>
+    <td>yes </td>
+    <td>yes </td>
+    <td>yes </td>
+  </tr>
+</table>
 
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
