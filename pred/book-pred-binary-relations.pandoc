@@ -17,7 +17,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 # Binary relations and multiple quantifiers
 
-We extend what we have learned so far to the case of binary relations.
+We extend what we have learned so far to the case of binary relations and to formulas that involve binary relations and multiple quantifiers.
 
 <br>
 
@@ -33,9 +33,9 @@ We extend what we have learned so far to the case of binary relations.
 
 ## Binary relations
 
-Thus far we have been working with propositions like "All F are G" and "Some F are G", and their respective predicate logic analogues "$\forall \; x \; (Fx\rightarrow Gx)$" and "$\exists \; x \; (Fx\wedge Gx)$." If the objects in question are people, then it is individual people taken one-by-one that have these properties. Perhaps $Fa$ is true, and that is merely a matter of how things stand between the person picked out by $a$ and the relation $F$. And likewise perhaps $Fb$ is false, and that is again merely a matter of how things stand *vis-à-vis* the person picked out by $b$ and the collection of people picked out by $F$. But there are other properties that pertain to how individuals stand together with respect to one another and the property. For instance, if $a$ trusts $b$, then what makes that true is how things stand with $a$ and $b$ and trust, and it cannot intuitively be reduced to how things stand with respect to $a$ and trust alone and how things stand with respect to $b$ and trust alone. Properties which are involve two objects essentially are called *binary relations* or *two-place relations*. The name is chosen since properties like our F and G above which just involve one object are called *unary relations* or *one-place relations*.
+Thus far we have been working with propositions like "All F are G" and "Some F are G", and their respective predicate logic analogues "$\forall \; x \; (Fx\rightarrow Gx)$" and "$\exists \; x \; (Fx\wedge Gx)$." If the objects in question are people, then it is individual people taken one-by-one that have these properties. Perhaps $Fa$ is true, and that is merely a matter of how things stand between the person picked out by $a$ and the collection of people picked out by $F$. And likewise perhaps $Fb$ is false, and that is again merely a matter of how things stand *vis-à-vis* the person picked out by $b$ and the collection of people picked out by $F$. But there are other properties that pertain to how individuals stand *together* with respect to the property. For instance, if $a$ trusts $b$, then what makes that true is how things stand with $a$ and $b$ and the relation trust, and it cannot intuitively be reduced to how things stand with respect to $a$ and trust alone and how things stand with respect to $b$ and trust alone. Properties which are involve two objects essentially are called *binary relations* or *two-place relations*. The name is chosen because properties like our F and G above which just involve one object are called *unary relations* or *one-place relations*.
 
-Just like we diagrammatically represent unary relations with [Euler diagrams](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-euler-venn.pandoc#euler-diagrams-of-the-first-figure), we can diagrammatically represent binary relations with arrow diagrams. The convention on the arrow diagrams is that a diagram represents $Rab$ if and only if there is an arrow drawn from $a$ to $b$. The sense of represents is "make true," and we will see how to formalize this in a later lecture.
+Just like we diagrammatically represent unary relations with [Euler diagrams](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-euler-venn.pandoc#euler-diagrams-of-the-first-figure), so we can diagrammatically represent binary relations with arrow diagrams. The convention on the arrow diagrams is that a diagram represents $Rab$ if and only if there is an arrow drawn from $a$ to $b$. The sense of represents is "make true," and we will see how to formalize this in a later lecture.
 
 <br>
 
@@ -47,6 +47,11 @@ The following diagram represents $(Rab \wedge Raa) \wedge (Rca \wedge Rac)$:
 
 <br>
 
+One could also write the formula as $Rab \wedge (Raa \wedge (Rca \wedge Rac))$, since these are logically equivalent.
+
+
+<br>
+
 *Example 2*:
 
 The following diagram represents $Rac\wedge (Rca\wedge Rbd)$:
@@ -55,9 +60,11 @@ The following diagram represents $Rac\wedge (Rca\wedge Rbd)$:
 
 <br>
 
-Note that the use of "arrow" in "arrow diagrams" is distinct from and not to be confused with the arrows that we use to formalize conditional statements. This rarely causes confusion because if e.g. one looked at the above diagram and saw the arrow from $b$ to $d$, one would not read this as $b\rightarrow d$, since per our conventions, the lower-case Latin letters in the first two-thirds of the Latin alphabet are reserved for constant symbols, which pick out objects and not propositions.
+Note that the use of "arrow" in "arrow diagrams" is distinct from the arrows that we use to formalize conditional statements. This rarely causes confusion because if e.g. one looked at the above diagram and saw the arrow from $b$ to $d$, one would not read this as $b\rightarrow d$, since [per our conventions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-wffs-and-translations.pandoc#atomic-formulas), the lower-case Latin letters in the first two-thirds of the Latin alphabet are reserved for constant symbols, which pick out objects and not propositions.
 
 <br>
+
+<p style="page-break-before: always">
 
 ## Quantifiers and diagrams of binary relations
 
@@ -65,7 +72,7 @@ We can also represent quantified statements using diagrams.
 
 *Example 3*:
 
-The following diagram represents $\forall \; x \; Rax$:
+The following diagram represents the formula $\forall \; x \; Rax$ (which is pronounced as "for all $x$, $Rax$"):
 
 <video autoplay muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-3.mp4"/> </video>
 
@@ -77,22 +84,22 @@ Note that we have to add the arrow corresponding to $Raa$. This is because "$\fo
 
 *Example 4*:
 
-The following diagram represents $\forall \; x \; Rxx$:
+The following diagram represents the formula $\forall \; x \; Rxx$  (which is pronounced as "for all $x$, $Rxx$"):
 
 <video autoplay muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-4.mp4"/> </video>
 
 <br>
 
-It is harder to say express this sentence naturally using our prior methods. Perhaps the best we can do is "Everything points to itself."
+It is harder to express this sentence naturally using our prior methods. Perhaps the best we can do is "Everything points to itself."
 
 In the diagrams we have been drawing, sometimes there are three constant symbols, and sometimes there are four. Any number of such symbols is allowed, although if one makes too few of them (say under 3) then it is hard to have them represent interesting sentences, and if one makes too many of them (say above 8), then they become harder to draw.
 
 
-These examples merely pertained to one quantifier. We can also consider sentences involving multiple quantifiers.
+The examples so far involved only one quantifier. We can also consider sentences involving multiple quantifiers.
 
 *Example 5*:
 
-The following diagram represents $\forall \;x \; \exists \; y \; Rxy$:
+The following diagram represents $\forall \;x \; \exists \; y \; Rxy$  (which is pronounced as "for all $x$ there is $y$ such that $Rxy$"):
 
  <img src="https://logic-teaching.github.io/pred/vid/binary-5-part1.png
 " alt="Diagram" width="400"/>
@@ -103,7 +110,7 @@ Intuitively, the truth of this comes down to the fact that each of the three arr
 2. $\exists \; y \; Rby$ ("$b$ points to something, namely $c$")
 3. $\exists \; y \; Rcy$ ("$c$ points to something, namely $c$")
 
-Since there are only three constant symbols $a,b,c$ we have that the diagram represents $\forall \;x \; \exists \; y \; Rxy$. That is, "everything points to something." If we focus on the beginning of the arrows, we see that every dot is at the beginning of an arrow. To focus in this way, we might draw the beginning of the arrows in blue as follows:
+Since there are only three constant symbols $a,b,c$, these three statements 1-3 imply that the diagram represents $\forall \;x \; \exists \; y \; Rxy$. That is, "everything points to something." If we focus on the beginning of the arrows, we see that every dot is at the beginning of an arrow. To focus in this way, we might draw the beginning of the arrows in blue as follows:
 
  <img src="https://logic-teaching.github.io/pred/vid/binary-5-part2.png
 " alt="Diagram" width="400"/>
@@ -114,7 +121,7 @@ When we do so, we see that "all dots are blue" is true is represented in the dia
 
 *Example 6*:
 
-The following diagram represents $\forall \; x \; \exists \; y \; Ryx$.
+The following diagram represents $\forall \; x \; \exists \; y \; Ryx$ (which is pronounced as "for all $x$ there is $y$ such that $Ryx$"):
 
  <img src="https://logic-teaching.github.io/pred/vid/binary-6-part2.png
 " alt="Diagram" width="400"/>
@@ -125,7 +132,7 @@ Again, this comes down to to the fact that each of the three arrows respectively
 2. $\exists \; y \; Ryb$ ("$b$ is pointed to by something, namely $c$")
 3. $\exists \; y \; Ryc$ ("$c$ is pointed to by something, namely $b$")
 
-Since there are only three constant symbols $a,b,c$ we have that the diagram represents $\forall \; x \; \exists \; y \; Ryx$. That is "everything is pointed to by something." If we focus on the end of the arrows, we see that every dot is at the end of an arrow. To focus like this, we might draw the end of the arrows in orange as follows:
+Since there are only three constant symbols $a,b,c$, these three statements imply that the diagram represents $\forall \; x \; \exists \; y \; Ryx$. That is "everything is pointed to by something." If we focus on the end of the arrows, we see that every dot is at the end of an arrow. To focus like this, we might draw the end of the arrows in orange as follows:
 
  <img src="https://logic-teaching.github.io/pred/vid/binary-6-part1.png
 " alt="Diagram" width="400"/>
@@ -138,7 +145,7 @@ When we do so, we see that "all dots are orange" is represented in the diagram.
 
 *Example 7*:
 
-The following diagram represents $\exists \; y \; \forall \; x \; Rxy$.
+The following diagram represents $\exists \; y \; \forall \; x \; Rxy$ (which is pronounced as "there is $y$ such that for all $x$, $Rxy$"):
 
  <img src="https://logic-teaching.github.io/pred/vid/binary-7.png
 " alt="Diagram" width="400"/>
@@ -151,7 +158,7 @@ As this diagram indicates as well, it is not important to draw all of the dots o
 
 *Example 8*:
 
-The following diagram represents $\exists \; x \; \forall \; y \; Rxy$.
+The following diagram represents $\exists \; x \; \forall \; y \; Rxy$ (which is pronounced as "there is $x$ such that for all $y$, $Rxy$"):
 
  <img src="https://logic-teaching.github.io/pred/vid/binary-8.png
 " alt="Diagram" width="400"/>
@@ -160,9 +167,11 @@ This is true since there is something, namely $b$, which points to everything. T
 
 <br>
 
+<p style="page-break-before: always">
+
 ## Translations with binary relations
 
-There is a simple four-step procedure for translating into formulas like those in the previous section. We illustrate with respect to the binary relation of respects, which helpfully starts with the letter $R$.
+There is a simple four-step procedure for translating English sentences into formulas like those in the previous section. We illustrate with respect to the binary relation of $r$espects, which helpfully starts with the letter $R$. In this, we understand $Rab$ to hold if and only if $a$ respects $b$. If one his thinking about the diagrams (which is a useful thing to keep in the back of one's mind when doing these problems), one has that $a$ respects $b$ if and only if there is an arrow going from $a$ to $b$. We further deploy, in these problems, our understanding of actives and passives in natural language, to wit our knowledge that $a$ respects $b$ if and only if $b$ is respected by $a$.
 
 <br>
 
@@ -178,12 +187,12 @@ Before describing the four-step process in words, here is a video of the process
 
 Here are the four steps:
 
-1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "everyone" and the verb-phrase is "$x$ respects someone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
+1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "everyone" and the verb-phrase is "$x$ respects someone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use: we used $x$.
 2. *Translate the verb-phrase*. Since it involves "someone" we use the existential quantifier, and we translate as $\exists \; y \; Rxy$, since the someone in question, the $y$, is being respected by $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
 3. *Translate the noun-phrase*. Since the noun-phrase is "everyone", we translate with $\forall \;x$, using the same variable as in Step 1.
 4. *Put them together*. We combine Step 3 + Step 2 to get "$\forall \; x \; \exists \; y \; Rxy$."
 
-We can then input our answer here:
+We can then input our answer in the below box. One can either just copy-and-paste the $\forall \; x \; \exists \; y \; Rxy$, or one can type `AxEyRxy` and then press "return":
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  AxEyRxy : Everyone respects someone.
@@ -206,7 +215,7 @@ Before illustrating the four-step process, here is a video of the process:
 
 Here are the four steps:
 
-1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "everyone" and the verb-phrase is "$u$ is respected someone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
+1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "everyone" and the verb-phrase is "$u$ is respected by someone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use: we used $u$.
 2. *Translate the verb-phrase*. Since it involves "someone" we use the existential quantifier, and we translate as $\exists \; v \; Rvu$, since the someone in question, the $v$, is respecting our $u$. It does not matter what variable $v$ you use, so long as it is different than the variable you used in Step 1.
 3. *Translate the noun-phrase*. Since the noun-phrase is "everyone", we translate with $\forall \;u$, using the same variable as in Step 1.
 4. *Put them together*. We combine Step 3 + Step 2 to get "$\forall \; u \; \exists \; v \; Rvu$."
@@ -224,7 +233,7 @@ Let us input in our answer here:
 
 Translate "Someone is respected by everyone".
 
-Prior to illustrating the four-step process again, here is a video:
+Prior to illustrating the four-step process again in prose, here is a video:
 
 <video controls muted width="700" src="https://logic-teaching.github.io/pred/vid/binary-translation-3.mp4"/> </video>
 
@@ -232,7 +241,7 @@ Prior to illustrating the four-step process again, here is a video:
 
 Here are the four steps:
 
-1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "someone" and the verb-phrase is "$x$ is respected by everyone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
+1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "someone" and the verb-phrase is "$x$ is respected by everyone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use: we used $x$.
 2. *Translate the verb-phrase*. Since it involves "everyone" we use the universal quantifier, and we translate as $\forall \; y \; Ryx$, since the every single $y$ is respecting our $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
 3. *Translate the noun-phrase*. Since the noun-phrase is "someone", we translate with $\exists \;x$, using the same variable as in Step 1.
 4. *Put them together*. We combine Step 3 + Step 2 to get "$\exists \;x\; \forall \; y \; Ryx$."
@@ -258,7 +267,7 @@ Again, we first show the video:
 
 Here are the four steps:
 
-1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "someone" and the verb-phrase is "$z$ respects everyone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
+1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "someone" and the verb-phrase is "$z$ respects everyone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use. We used $z$.
 2. *Translate the verb-phrase*. Since it involves "everyone" we use the universal quantifier, and we translate as $\forall \; y \; Rzy$, since the every single $y$ is being respected by our $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
 3. *Translate the noun-phrase*. Since the noun-phrase is "someone", we translate with $\exists \;z$, using the same variable as in Step 1.
 4. *Put them together*. We combine Step 3 + Step 2 to get "$\exists \;z\; \forall \; y \; Rzy$."
@@ -272,15 +281,17 @@ We can again then input our answer:
 
 <br>
 
+<p style="page-break-before: always">
+
 ## Special classes of diagrams
 
-We now describe some special classes of diagrams:
+We now describe some special classes of arrow diagrams:
 
 *Definition*. An arrow diagram is *reflexive* if it represents $\forall \;x \; Rxx$. That is, every dot has an arrow to itself.
 
-*Definition*. An arrow diagram is *symmetry* if it represents $\forall \; x \; \forall \; y \; (Rxy\rightarrow Ryx)$. That is, for any two dots, if there is an arrow from the first to the second, then there is an arrow from the second to the first.
+*Definition*. An arrow diagram is *symmetric* if it represents $\forall \; x \; \forall \; y \; (Rxy\rightarrow Ryx)$. That is, for any two dots, if there is an arrow from the first to the second, then there is an arrow from the second to the first.
 
-*Definition*. An arrow diagram is *transitive* if it represents $\forall \; x \; \forall \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$. That is, for any three dots, if there is an arrow from the first to the second and from the second to the third, then there is an arrow from the first to the third.
+*Definition*. An arrow diagram is *transitive* if it represents $\forall \; x \; \forall \; y\; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$. That is, for any three dots, if there is an arrow from the first to the second and from the second to the third, then there is an arrow from the first to the third.
 
 *Definition*. An arrow diagram is *an equivalence relation* if it is reflexive, symmetric, and transitive.
 
@@ -336,10 +347,12 @@ This table summarizes which of these features the four diagrams have:
 A couple of notes:
 
 1. $M_2$ is not reflexive even though there is one dot ($c$) with an arrow to itself: for reflexivity requires that all dots have arrows to themselves.
-2. $M_3$ is transitive since there is an arrow from $a$ to $b$ and from $b$ to $c$, but that there is also one (at the bottom) from $a$ to $c$. The lack of this last arrow in $M_1$ is what makes $M_1$ not transitive.
-3. $M_4$ satisfies transitivity because there are arrows from $a$ to $b$ and from $b$ to $b$, and trivially there is an arrow from $a$ to $b$. The "disconnectedness" of $c$ from the other dots is characteristic of equivalence relations, if has diagrams with sufficiently many dots. In some ways the ideas of an equivalence relation is to partition the diagram into pieces, each of which is such that every dot in the piece has an arrow to every other dot in the piece. These pieces are sometimes called *equivalence classes* associated to the equivalence relation.
+2. $M_3$ is transitive since there is an arrow from $a$ to $b$ and from $b$ to $c$, and further there is also one (at the bottom) from $a$ to $c$. The lack of this last arrow from $a$ to $c$ in $M_1$ is what makes $M_1$ not transitive.
+3. $M_4$ satisfies transitivity because there are arrows from $a$ to $b$ and from $b$ to $b$, and trivially there is an arrow from $a$ to $b$. The "disconnectedness" of $c$ from the other dots is characteristic of equivalence relations, if one has diagrams with sufficiently many dots. In some ways the idea of an equivalence relation is to partition the diagram into pieces, each of which is such that every dot in the piece has an arrow to every other dot in the piece. These pieces are sometimes called *the equivalence classes* associated to the equivalence relation.
 
 <br>
+
+<p style="page-break-before: always">
 
 ## Invalidity and binary relations
 
@@ -347,43 +360,56 @@ Here we turn to invalidity:
 
 *Example 13*
 
-This example shows that "everyone respects someone" does not imply "someone respects everyone". To solve it, we just think about Example 5 above, and put the number domain $0,1,2$ in for $a,b,c$. Likewise, we use our [set theory notation for ordered lists](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc#summary-of-set-theory-notation) to type the relation $R$ as $[0,1], [1,2], [2,2]$.
+Show: $\forall \; x \; \exists \; y \; Rxy\nvdash \exists \; y \; \forall \; x \; Rxy$.
 
-```{.CounterModeler .Validity system="gamutND"}
+```{.CounterModeler .Validity system="gamutND" submission="none"}
  AxEyRxy :|-: EyAxRxy
 ```
 
-Note that even though the problem is using the symbol $\vdash$ up above, what you are showing is that $\forall \; x \; \exists \; y \; Rxy\nvdash \exists \; y \; \forall \; x \; Rxy$.
+For instance, this problem is in effect asking one to show that  "everyone respects someone" does not imply "someone respects everyone". To solve it, we just think about e.g. Example 5 above, and put the number domain $0,1,2$ in respectively for $a,b,c$. Likewise, we use our [set theory notation for ordered lists](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc#summary-of-set-theory-notation) to type the relation $R$ as $[0,1], [1,2], [2,2]$. That is, we enter in $[a,b]$ if and only if there is an arrow from $a$ to $b$ in the arrow diagram.
+
+Note that even though the problem is using the symbol $\vdash$ in the checker `AxEyRxy :|-: EyAxRxy`, what you are showing is that $\forall \; x \; \exists \; y \; Rxy\nvdash \exists \; y \; \forall \; x \; Rxy$. This never causes confusion, since problems like this will be clearly marked as "invalidity problems" or the prompt will clearly ask you to show that the argument in question is *invalid*.
 
 <br>
 
 *Example 14*
 
-This examples shows that "someone respects everyone" does not entail "someone is respected by everyone". To solve it, we just think about Example 7 above, and put the number domain $0,1,2,3$ in for $a,b,c,d$. Likewise, we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,0], [2,0], [3,0]$.
+Show: $\exists \; y \; \forall \; x \; Rxy \nvdash \exists \; y \; \forall \; x \; Ryx$.
 
-```{.CounterModeler .Validity system="gamutND"}
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
  EyAxRxy :|-: EyAxRyx
 ```
+
+To solve it, we just think about e.g. Example 7 above, and put the number domain $0,1,2,3$ in for $a,b,c,d$. Likewise, we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,0], [2,0], [3,0]$.
+
+This example shows that e.g. "someone respects everyone" does not entail "someone is respected by everyone".
+
+There are other ways to solve this problem. For instance, one could put in the number domain $5,6$ and the ordering $[5,5]$ and $[5,6]$. In practice, one will have to experiment before finding the correct solution, and this experimentation might involve drawing arrow diagrams.
 
 <br>
 
 *Example 15*
 
-This examples shows that "someone respects everyone" does not entail "someone is respected by everyone". To solve it, we just think about Example 7 above, and put the number domain $0,1,2,3$ in for $a,b,c,d$. Likewise, we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,0], [2,0], [3,0]$.
+Show: $\exists \; y \; \forall \; x \; Rxy\nvdash \exists \; y \; \forall \; x \; Ryx$.
 
-```{.CounterModeler .Validity system="gamutND"}
+```{.CounterModeler .Validity system="gamutND" submission="none"}
  EyAxRxy :|-: EyAxRyx
 ```
+
+This problem is asking you to show that e.g. "someone respects everyone" does not entail "someone is respected by everyone". To solve it, we just think about Example 7 above, and put the number domain $0,1,2,3$ in respectively for $a,b,c,d$. Likewise, we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,0], [2,0], [3,0]$.
 
 <br>
 
 *Example 16*
 
-This examples asks you to check that reflexivity does not imply symmetry. To solve it we just think about $M_1$ above, and we put the number domain $0,1,2$ in for $a,b,c$. Then we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,1], [2,2], [0,1],[1,2]$.
+Show $\forall \; x \; Rxx\nvdash \forall x \; \forall \; y \; (Rxy\rightarrow Ryx)$
 
 ```{.CounterModeler .Validity system="gamutND"}
  AxRxx :|-: AxAy(Rxy->Ryx)
 ```
+
+This problem asks you to check that reflexivity does not imply symmetry. To solve it we just think about $M_1$ above, and we put the number domain $0,1,2$ in for $a,b,c$. Then we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,1], [2,2], [0,1],[1,2]$.
 
 
 <br>

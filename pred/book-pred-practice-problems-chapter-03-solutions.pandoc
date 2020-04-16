@@ -1,0 +1,183 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Practice problems *with solutions*
+
+These are practice problems for Week 3.
+
+- [Translations with unary relations and single quantifiers](#translations-with-unary-relations-and-single-quantifiers)
+- [Translations with binary relations and multiple quantifiers](#translations-with-binary-relations-and-multiple-quantifiers)
+- [Truth and unary and binary relations](#truth-and-unary-and-binary-relations)
+- [Invalidity and binary relations](#invalidity-and-binary-relations)
+
+These have the solutions filled in.
+
+<p style="page-break-before: always">
+
+
+## Translations with unary relations and single quantifiers
+
+Prior to doing these translation exercises, consider reviewing [Atomic formulas](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-wffs-and-translations.pandoc#atomic-formulas) and [Translating the Aristotelian propositions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-wffs-and-translations.pandoc#translating-the-aristotelian-propositions).
+
+In these problems, we use the following key:
+
+| $a$  =  Atlanta
+| $b$  =  Boston
+| $c$  =  Chicago
+| $O$  =  "is on the Ocean"
+| $C$  =  "is a capital city"
+| $S$  =  "has a subway"
+| $F$  =  "has a football team"
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.01 Fa->ExFx : If Atlanta has a football team, then someplace has a football team.
+|Fa->ExFx
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.02 Ax(Ox->Sx) : Everyplace on the Ocean has a subway.
+|Ax(Ox->Sx)
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.03 Ax(Ox->~Sx) : Everyplace on the Ocean does not have a subway.
+|Ax(Ox->~Sx)
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.04 ~Ex(Sx/\Fx) : No place which has a subway has a football team.
+|~Ex(Sx/\Fx)
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.05 Ex(Ox/\Sx)->Ex(Cx/\Sx) : If someplace on the ocean has a subway, then someplace which is a capital city has a subway.
+|Ex(Ox/\Sx)->Ex(Cx/\Sx)
+~~~
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Translations with binary relations and multiple quantifiers
+
+Prior to doing these problems, consider reviewing [Translations with binary relations](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-binary-relations.pandoc#translations-with-binary-relations)
+
+In these problems, we use the following key:
+
+| $Txy$  =  $x$ trusts $y$
+| $Hxy$  =  $x$ helps $y$
+| $Fx$  =  $x$ is a French major
+| $Gx$  =  $y$ is a Geography major
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.06 EyAxTxy :  Someone is trusted by everyone.
+|EyAxTxy
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.07 ExAyTxy :  Someone trusts everyone.
+|ExAyTxy
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.08 ExAyTxy->AxEyTxy :  If someone trusts everyone, then everyone trusts someone.
+|ExAyTxy->AxEyTxy
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.09 AxEy(Txy/\Fy)  :  Everyone trusts some French major.
+|AxEy(Txy/\Fy)
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.10 Ay(Gy->Ex(Txy/\Fx))  :  All Geography majors are trusted by some French major.
+|Ay(Gy->Ex(Txy/\Fx)
+~~~
+
+<br>
+
+<p style="page-break-before: always">
+
+## Truth and unary and binary relations
+
+These problems are just asking you to come up with some situation in which the displayed formula is true. The situation is one in which the domain is numbers, and so just choose some numbers-- usually 0,1,2,3 suffices. For the unary relations, just list some numbers from the domain, separated by commas. And for the binary relations just list some ordered pairs of numbers from the domain, separate by commas. Prior to beginning these problems, consider reviewing [our set theory notation for ordered lists](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc#summary-of-set-theory-notation) as well as [Special Classes of Diagrams](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-binary-relations.pandoc#special-classes-of-diagrams). For the constant symbols, just choose some number for them to stand for. For instance, if one enters in `1` right after the prompt `a:` then this will make $a$ stand for the number $1$ in the situation.
+
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.11 (Ha/\~Hb)/\AxRax
+```
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.12 (Ga/\~Hb)/\Ax(Gx->Hx)
+```
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.13 AxAy(Rxy->Ryx)
+```
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.14 Rab/\(AxAy(Rxy->Ryx)/\Ex~Rxx)
+```
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.15 (Tab/\~Tba)/\AxEyTxy
+```
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Invalidity and binary relations
+
+Prior to attempting these problems, consider reviewing [Invalidity and binary relations](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-binary-relations.pandoc#invalidity-and-binary-relations). The goal in these problems is to describe a situation where the premises are all true and the conclusion is false.
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+03.16 AxRxx, Rab :|-: AxAyRxy
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+03.17 AxAy(Txy->Tyx), Rab :|-: AxTxx
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+03.18 AxEyRxy, ~Rab :|-: EyAxRxy
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+03.19 Ax(Fx->Ey(Txy/\Gx)), Fa, ~Fb, ~Fc :|-: AxEyTxy
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+03.20 Ey(Fy/\Ray), Rab, ~Fb :|-: AxRxa
+```
+
+
+<br>
+
+
+These are practice problems written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>
