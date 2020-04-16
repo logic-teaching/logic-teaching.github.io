@@ -1,0 +1,161 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Binary relations and multiple quantifiers
+
+We extend what we have learned so far to the case of binary relations.
+
+<br>
+
+- [Binary relations](#binary-relations)
+- [Quantifiers and diagrams of binary relations](#quantifiers-and-diagrams-of-binary-relations)
+- [Translations involving multiple quantifiers and binary relations](#translations-involving-multiple-quantifiers-and-binary-relations)
+- [Truth and special classes of diagrams](#truth-and-special-classes-of-diagrams)
+- [Invalidity and binary relations](#invalidity-and-binary-relations)
+- [Translating and relative clauses](#translating-and-relative-clauses)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Binary relations
+
+Thus far we have been working with propositions like "All F are G" and "Some F are G", and their respective predicate logic analogues "$\forall \; x \; (Fx\rightarrow Gx)$" and "\exists \; x \; (Fx\wedge Gx)$." If the objects in question are people, then it is individual people taken one-by-one that have these properties. Perhaps $Fa$ is true, and that is merely a matter of how things stand between the person picked out by $a$ and the relation $F$. And likewise perhaps $Fb$ is false, and that is again merely a matter of how things stand *vis-à-vis* the person picked out by $b$ and the collection of people picked out by $F$. But there are other properties that pertain to how individuals stand together with respect to one another and the property. For instance, if $a$ trusts $b$, then what makes that true is how things stand with $a$ and $b$ and trust, and it cannot intuitively be reduced to how things stand with respect to $a$ and trust alone and how things stand with respect to $b$ and trust alone. Properties which are involve two objects essentially are called *binary relations* or *two-place relations*. The name is chosen since properties like our F and G above which just involve one object are called *unary relations* or *one-place relations*.
+
+Just like we diagrammatically represent unary relations with [Euler diagrams](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-euler-venn.pandoc#euler-diagrams-of-the-first-figure), we can diagrammatically represent binary relations with arrow diagrams. The convention on the arrow diagrams is that a diagram represents $Rab$ if and only if there is an arrow drawn from $a$ to $b$. The sense of represents is "make true," and we will see how to formalize this in a later lecture.
+
+<br>
+
+*Example 1*:
+
+The following diagram represents $(Rab \wedge Raa) \wedge (Rca \wedge Rac)$:
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-1.mp4"/> </video>
+
+<br>
+
+*Example 2*:
+
+The following diagram represents $Rac\wedge (Rca\wedge Rbd)$:
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-2.mp4"/> </video>
+
+<br>
+
+Note that the use of "arrow" in "arrow diagrams" is distinct from and not to be confused with the arrows that we use to formalize conditional statements. This rarely causes confusion because if e.g. one looked at the above diagram and saw the arrow from $b$ to $d$, one would not read this as $b\rightarrow d$, since per our conventions, the lower-case Latin letters in the first two-thirds of the Latin alphabet are reserved for constant symbols, which pick out objects and not propositions.
+
+<br>
+
+## Quantifiers and diagrams of binary relations
+
+We can also represent quantified statements using diagrams.
+
+*Example 3*:
+
+The following diagram represents $\forall \; x \; Rax$:
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-3.mp4"/> </video>
+
+Note that we have to add the arrow corresponding to $Raa$. This is because "$\forall \; x \; Rax$" means that "Everything is pointed to by an arrow from $a$", and this entails that "$a$ is pointed to by an arrow from $a$".
+
+<br>
+
+*Example 4*:
+
+The following diagram represents $\forall \; x \; Rxx$:
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-4.mp4"/> </video>
+
+It is harder to say express this sentence naturally using our prior methods. Perhaps the best we can do is "Everything points to itself."
+
+In the diagrams we have been drawing, sometimes there are three constant symbols, and sometimes there are four. Any number of such symbols is allowed, although if one makes too few of them (say under 3) then it is hard to have them represent interesting sentences, and if one makes too many of them (say above 8), then they become harder to draw.
+
+
+These examples merely pertained to one quantifier. We can also consider sentences involving multiple quantifiers.
+
+*Example 5*:
+
+The following diagram represents $\forall \;x \; \exists \; y \; Rxy$:
+
+ <img src="https://logic-teaching.github.io/pred/vid/binary-5-part1.png
+" alt="Euler diagram to show invalidity" width="400"/>
+
+Intuitively, the truth of this comes down to the fact that each of the three arrows respectively implies:
+
+1. $\exists \; y \; Ray$ ("$a$ points to something, namely $b$")
+2. $\exists \; y \; Rby$ ("$b$ points to something, namely $c$")
+3. $\exists \; y \; Rcy$ ("$c$ points to something, namely $c$")
+
+Since there are only three constant symbols $a,b,c$ we have that the diagram represents $\forall \;x \; \exists \; y \; Rxy$. That is, "everything points to something." If we focus on the beginning of the arrows, we see that every dot is at the beginning of an arrow. To focus in this way, we might draw the beginning of the arrows in blue as follows:
+
+ <img src="https://logic-teaching.github.io/pred/vid/binary-5-part2.png
+" alt="Euler diagram to show invalidity" width="400"/>
+
+When we do so, we see that "all dots are blue" is true is represented in the diagram.
+
+<br>
+
+*Example 6*:
+
+The following diagram represents $\forall \; x \; \exists \; y \; Ryx$.
+
+ <img src="https://logic-teaching.github.io/pred/vid/binary-6-part1.png
+" alt="Euler diagram to show invalidity" width="400"/>
+
+Again, this comes down to to the fact that each of the three arrows respectively imply:
+
+1. $\exists \; y \; Rya$ ("$a$ is pointed to by something, namely $b$")
+2. $\exists \; y \; Ryb$ ("$b$ is pointed to by something, namely $c$")
+3. $\exists \; y \; Ryc$ ("$c$ is pointed to by something, namely $b$")
+
+Since there are only three constant symbols $a,b,c$ we have that the diagram represents $\forall \; x \; \exists \; y \; Ryx$. That is "everything is pointed to by something." If we focus on the end of the arrows, we see that every dot is at the end of an arrow. To focus like this, we might draw the end of the arrows in orange as follows:
+
+ <img src="https://logic-teaching.github.io/pred/vid/binary-6-part2.png
+" alt="Euler diagram to show invalidity" width="400"/>
+
+When we do so, we see that "all dots are orange" is represented in the diagram.
+
+
+
+<br>
+
+*Example 7*:
+
+The following diagram represents $\exists \; y \; \forall \; x \; Rxy$.
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-7.png"/> </video>
+
+This is true since there is something, namely $a$ which everything points to. That is, $\exists \; y \; \forall \; x \; Rxy$ is represented in this diagram since the simpler fact $\forall \; x \; Rxa$ is. This simpler fact might be expressed as "everything points to $a$."
+
+As this diagram indicates as well, it is not important to draw all of the dots on a line.
+
+<br>
+
+*Example 8*:
+
+The following diagram represents $\exists \; x \; \forall \; y \; Rxy$.
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-8.png"/> </video>
+
+This is true since there is something, namely $b$, which points to everything. That is, $\exists \; x \; \forall \; y \; Rxy$ is represented in this diagram since the simpler fact $\forall \; y \; Rby$ is. This simpler fact may be put as "everything is pointed to by $b$."
+
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>

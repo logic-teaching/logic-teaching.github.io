@@ -48,8 +48,83 @@ We need a very small amount of set-theory notation for this course. The reason w
 ```
 
 ```{.CounterModeler .Validity system="gamutND"}
-1.6 AxRxx :|-: AxRxfx
+1.7 AxRxx :|-: Rcc
 ```
+
+```{.CounterModeler .Validity system="gamutND"}
+1.8 AsRss :|-: Raa
+```
+
+```{.CounterModeler .Validity system="gamutND"}
+1.9 EzRz :|-: Ra
+```
+
+```{.CounterModeler .Validity system="gamutND"}
+1.10 EzRz :|-: Rfa
+```
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.11 Ax((Cx/\Lx)->Rx) : Every cheerful  law student is relaxed.
+~~~
+
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.12 Ex((Fx/\Lx)/\Tx)->Ex((Fx/\Lx)/\Rx) : If some festive law student likes table-tennis, then some festive law student is relaxed.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.13 AxAy((Cxy/\Lxy)->Rxy) : Every cheerful  law student is relaxed.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.14 Ax((Cxfx/\Lxfx)->Rxfx) : Every cheerful  law student is relaxed.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.15 AxAyx=y : Something.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.16 ExEy x=y : Something.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.17 ExEy Pxy : Something.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.18 ExEy P x y : Something.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.19 ExEy P fx fy : Something.
+~~~
+
+```{.ProofChecker .GamutND init="now"}
+1.20 AxPx :|-: Pc
+```
+
+
+```{.ProofChecker .GamutND init="now"}
+1.21 AxAyPxy :|-: AxAyPyx
+```
+
+
+```{.ProofChecker .ForallxQL init="now"}
+1.22 AxAyPxy :|-: AxAyPyx
+```
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.23 AxPx : Something.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.24 Pc : Something.
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+1.25 Pv : Something.
+~~~
 
 
 <br>

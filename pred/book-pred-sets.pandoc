@@ -200,7 +200,7 @@ Here is a summary of our set-theory notation:
   </tr>
   <tr>
     <td>Set formation </td>
-    <td>forming sets from new sets</td>
+    <td>forming sets from prior sets</td>
     <td>$\{x\in X: x \mbox{ has } P\}$ </td>
     <td>`{x∈ X : x has P}`</td>
   </tr>
@@ -240,7 +240,7 @@ Here is a summary of our set-theory notation:
 
 Two quick notes:
 
-1. The only things that we will have to type frequently are the unordered list and ordered list notation, and so it is less important that one learns how to type these things. They will appear frequently in lecture notes, and so it is more important to learn how to read them.
+1. The only things that we will have to type frequently are the unordered list and ordered list notation, and so it is less important that one learns how to type the other things. But these other things will appear frequently in lecture notes, and so it is more important to learn how to read them.
 
 2. In the entries for the unordered list and ordered list notation, there can obviously be fewer than or more than four things in the list. I have written them with only three commas (hence four things) simply to save on space.
 
