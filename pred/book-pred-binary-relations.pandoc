@@ -26,7 +26,6 @@ We extend what we have learned so far to the case of binary relations.
 - [Translations with binary relations](#translations-with-binary-relations)
 - [Special classes of diagrams](#special-classes-of-diagrams)
 - [Invalidity and binary relations](#invalidity-and-binary-relations)
-- [Translating and relative clauses](#translating-and-relative-clauses)
 
 <br>
 
@@ -348,17 +347,19 @@ Here we turn to invalidity:
 
 *Example 13*
 
-This example shows that "everyone respects someone" does not imply "someone respects everyone". To solve it, we just think about Example 5 above, and put the numbers $0,1,2$ in place of $a,b,c$ respectively. Likewise, we use our [set theory notation for ordered lists](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc#summary-of-set-theory-notation) to type the relation $R$ as $[0,1], [1,2], [2,2].
+This example shows that "everyone respects someone" does not imply "someone respects everyone". To solve it, we just think about Example 5 above, and put the number domain $0,1,2$ in for $a,b,c$. Likewise, we use our [set theory notation for ordered lists](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc#summary-of-set-theory-notation) to type the relation $R$ as $[0,1], [1,2], [2,2]$.
 
 ```{.CounterModeler .Validity system="gamutND"}
  AxEyRxy :|-: EyAxRxy
 ```
 
+Note that even though the problem is using the symbol $\vdash$ up above, what you are showing is that $\forall \; x \; \exists \; y \; Rxy\nvdash \exists \; y \; \forall \; x \; Rxy$.
+
 <br>
 
 *Example 14*
 
-This examples shows that "someone respects everyone" does not entail "someone is respected by everyone". To solve it, we just think about Example 7 above, and put the numbers $0,1,2,3$ in place of $a,b,c,d$ respectively. Likewise, we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,0], [2,0], [3,0].
+This examples shows that "someone respects everyone" does not entail "someone is respected by everyone". To solve it, we just think about Example 7 above, and put the number domain $0,1,2,3$ in for $a,b,c,d$. Likewise, we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,0], [2,0], [3,0]$.
 
 ```{.CounterModeler .Validity system="gamutND"}
  EyAxRxy :|-: EyAxRyx
@@ -368,7 +369,7 @@ This examples shows that "someone respects everyone" does not entail "someone is
 
 *Example 15*
 
-This examples shows that "someone respects everyone" does not entail "someone is respected by everyone". To solve it, we just think about Example 7 above, and put the numbers $0,1,2,3$ in place of $a,b,c,d$ respectively. Likewise, we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,0], [2,0], [3,0].
+This examples shows that "someone respects everyone" does not entail "someone is respected by everyone". To solve it, we just think about Example 7 above, and put the number domain $0,1,2,3$ in for $a,b,c,d$. Likewise, we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,0], [2,0], [3,0]$.
 
 ```{.CounterModeler .Validity system="gamutND"}
  EyAxRxy :|-: EyAxRyx
@@ -378,7 +379,7 @@ This examples shows that "someone respects everyone" does not entail "someone is
 
 *Example 16*
 
-This examples asks you to check that reflexivity does not imply symmetry. To solve it we just think about $M_1$ above, and we put the numbers $0,1,2$ in place of $a,b,c$ respectively. Then we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,1], [2,2], [0,1],[1,2]$.
+This examples asks you to check that reflexivity does not imply symmetry. To solve it we just think about $M_1$ above, and we put the number domain $0,1,2$ in for $a,b,c$. Then we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,1], [2,2], [0,1],[1,2]$.
 
 ```{.CounterModeler .Validity system="gamutND"}
  AxRxx :|-: AxAy(Rxy->Ryx)
