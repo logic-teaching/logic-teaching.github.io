@@ -177,6 +177,8 @@ Before describing the four-step process in words, here is a video of the process
 
 <br>
 
+Here are the four steps:
+
 1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "everyone" and the verb-phrase is "$x$ respects someone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
 2. *Translate the verb-phrase*. Since it involves "someone" we use the existential quantifier, and we translate as $\exists \; y \; Rxy$, since the someone in question, the $y$, is being respected by $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
 3. *Translate the noun-phrase*. Since the noun-phrase is "everyone", we translate with $\forall \;x$, using the same variable as in Step 1.
@@ -203,6 +205,8 @@ Before illustrating the four-step process, here is a video of the process:
 
 <br>
 
+Here are the four steps:
+
 1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "everyone" and the verb-phrase is "$u$ is respected someone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
 2. *Translate the verb-phrase*. Since it involves "someone" we use the existential quantifier, and we translate as $\exists \; v \; Rvu$, since the someone in question, the $v$, is respecting our $u$. It does not matter what variable $v$ you use, so long as it is different than the variable you used in Step 1.
 3. *Translate the noun-phrase*. Since the noun-phrase is "everyone", we translate with $\forall \;u$, using the same variable as in Step 1.
@@ -227,6 +231,8 @@ Prior to illustrating the four-step process again, here is a video:
 
 <br>
 
+Here are the four steps:
+
 1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "someone" and the verb-phrase is "$x$ is respected by everyone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
 2. *Translate the verb-phrase*. Since it involves "everyone" we use the universal quantifier, and we translate as $\forall \; y \; Ryx$, since the every single $y$ is respecting our $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
 3. *Translate the noun-phrase*. Since the noun-phrase is "someone", we translate with $\exists \;x$, using the same variable as in Step 1.
@@ -250,6 +256,8 @@ Again, we first show the video:
 <video controls muted width="700" src="https://logic-teaching.github.io/pred/vid/binary-translation-4.mp4"/> </video>
 
 <br>
+
+Here are the four steps:
 
 1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "someone" and the verb-phrase is "$z$ respects everyone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use.
 2. *Translate the verb-phrase*. Since it involves "everyone" we use the universal quantifier, and we translate as $\forall \; y \; Rzy$, since the every single $y$ is being respected by our $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
@@ -316,13 +324,68 @@ This table summarizes which of these features the four diagrams have:
     <td>no </td>
   </tr>
   <tr>
-    <td>$M_1$</td>
+    <td>$M_4$</td>
     <td>yes </td>
     <td>yes </td>
     <td>yes </td>
     <td>yes </td>
   </tr>
 </table>
+
+<br>
+
+A couple of notes:
+
+1. $M_2$ is not reflexive even though there is one dot ($c$) with an arrow to itself: for reflexivity requires that all dots have arrows to themselves.
+2. $M_3$ is transitive since there is an arrow from $a$ to $b$ and from $b$ to $c$, but that there is also one (at the bottom) from $a$ to $c$. The lack of this last arrow in $M_1$ is what makes $M_1$ not transitive.
+3. $M_4$ satisfies transitivity because there are arrows from $a$ to $b$ and from $b$ to $b$, and trivially there is an arrow from $a$ to $b$. The "disconnectedness" of $c$ from the other dots is characteristic of equivalence relations, if has diagrams with sufficiently many dots. In some ways the ideas of an equivalence relation is to partition the diagram into pieces, each of which is such that every dot in the piece has an arrow to every other dot in the piece. These pieces are sometimes called *equivalence classes* associated to the equivalence relation.
+
+<br>
+
+## Invalidity and binary relations
+
+Here we turn to invalidity:
+
+*Example 13*
+
+This example shows that "everyone respects someone" does not imply "someone respects everyone". To solve it, we just think about Example 5 above, and put the numbers $0,1,2$ in place of $a,b,c$ respectively. Likewise, we use our [set theory notation for ordered lists](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc#summary-of-set-theory-notation) to type the relation $R$ as $[0,1], [1,2], [2,2].
+
+```{.CounterModeler .Validity system="gamutND"}
+ AxEyRxy :|-: EyAxRxy
+```
+
+<br>
+
+*Example 14*
+
+This examples shows that "someone respects everyone" does not entail "someone is respected by everyone". To solve it, we just think about Example 7 above, and put the numbers $0,1,2,3$ in place of $a,b,c,d$ respectively. Likewise, we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,0], [2,0], [3,0].
+
+```{.CounterModeler .Validity system="gamutND"}
+ EyAxRxy :|-: EyAxRyx
+```
+
+<br>
+
+*Example 15*
+
+This examples shows that "someone respects everyone" does not entail "someone is respected by everyone". To solve it, we just think about Example 7 above, and put the numbers $0,1,2,3$ in place of $a,b,c,d$ respectively. Likewise, we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,0], [2,0], [3,0].
+
+```{.CounterModeler .Validity system="gamutND"}
+ EyAxRxy :|-: EyAxRyx
+```
+
+<br>
+
+*Example 16*
+
+This examples asks you to check that reflexivity does not imply symmetry. To solve it we just think about $M_1$ above, and we put the numbers $0,1,2$ in place of $a,b,c$ respectively. Then we use our set theory notation for ordered lists to type the relation $R$ as $[0,0], [1,1], [2,2], [0,1],[1,2]$.
+
+```{.CounterModeler .Validity system="gamutND"}
+ AxRxx :|-: AxAy(Rxy->Ryx)
+```
+
+
+<br>
 
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
