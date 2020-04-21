@@ -24,7 +24,7 @@ These are practice problems for Week 3.
 - [Truth and unary and binary relations](#truth-and-unary-and-binary-relations)
 - [Invalidity and binary relations](#invalidity-and-binary-relations)
 
-These have the solutions filled in.
+These have **the solutions** filled in.
 
 <p style="page-break-before: always">
 
@@ -110,7 +110,7 @@ In these problems, we use the following key:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
 03.10 Ay(Gy->Ex(Txy/\Fx))  :  All Geography majors are trusted by some French major.
-|Ay(Gy->Ex(Txy/\Fx)
+|Ay(Gy->Ex(Txy/\Fx))
 ~~~
 
 <br>
@@ -122,24 +122,47 @@ In these problems, we use the following key:
 These problems are just asking you to come up with some situation in which the displayed formula is true. The situation is one in which the domain is numbers, and so just choose some numbers-- usually 0,1,2,3 suffices. For the unary relations, just list some numbers from the domain, separated by commas. And for the binary relations just list some ordered pairs of numbers from the domain, separate by commas. Prior to beginning these problems, consider reviewing [our set theory notation for ordered lists](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc#summary-of-set-theory-notation) as well as [Special Classes of Diagrams](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-binary-relations.pandoc#special-classes-of-diagrams). For the constant symbols, just choose some number for them to stand for. For instance, if one enters in `1` right after the prompt `a:` then this will make $a$ stand for the number $1$ in the situation.
 
 
+While this version has **solutions** filled in, please keep in mind that in this section and the next section of the practice problems, there are many equally good solutions available to any given problem.
+
+
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.11 (Ha/\~Hb)/\AxRax
+|Domain:0,1,2
+|H(_):1
+|R(_,_):[1,0],[1,1],[1,2]
+|a:1
+|b:2
 ```
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.12 (Ga/\~Hb)/\Ax(Gx->Hx)
+|Domain:0,1,2
+|G(_):1
+|H(_):0,1
+|a:1
+|b:2
 ```
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.13 AxAy(Rxy->Ryx)
+|Domain:0,1,2
+|R(_,_):[0,1],[1,0],[0,0],[1,1],[2,2]
 ```
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.14 Rab/\(AxAy(Rxy->Ryx)/\Ex~Rxx)
+|Domain:0,1,2
+|R(_,_):[0,2],[2,0]
+|a:0
+|b:2
 ```
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.15 (Tab/\~Tba)/\AxEyTxy
+|Domain:0,1,2
+|T(_,_):[0,2],[1,0],[2,2]
+|a:0
+|b:2
 ```
 
 
@@ -154,22 +177,46 @@ Prior to attempting these problems, consider reviewing [Invalidity and binary re
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 03.16 AxRxx, Rab :|-: AxAyRxy
+|Domain:0,1,2
+|R(_,_):[0,0],[1,1],[2,2],[0,1]
+|a:0
+|b:1
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
-03.17 AxAy(Txy->Tyx), Rab :|-: AxTxx
+03.17 AxAy(Txy->Tyx), Tab :|-: AxTxx
+|Domain:0,1,2
+|T(_,_):[0,1],[1,0],[2,2]
+|a:0
+|b:1
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 03.18 AxEyRxy, ~Rab :|-: EyAxRxy
+|Domain:0,1,2
+|R(_,_):[0,1],[1,1],[2,0]
+|a:1
+|b:0
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
-03.19 Ax(Fx->Ey(Txy/\Gx)), Fa, ~Fb, ~Fc :|-: AxEyTxy
+03.19 Ax(Fx->Ey(Txy/\Gy)), Fa, ~Fb, ~Fc :|-: AxEyTxy
+|Domain:0,1,2
+|F(_):0
+|G(_):1
+|T(_,_):[0,1]
+|a:0
+|b:1
+|c:2
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 03.20 Ey(Fy/\Ray), Rab, ~Fb :|-: AxRxa
+|Domain:0,1,2
+|F(_):2
+|R(_,_):[0,1],[0,2]
+|a:0
+|b:1
 ```
 
 

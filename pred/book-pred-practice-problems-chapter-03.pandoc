@@ -155,7 +155,7 @@ Prior to attempting these problems, consider reviewing [Invalidity and binary re
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
-03.17 AxAy(Txy->Tyx), Rab :|-: AxTxx
+03.17 AxAy(Txy->Tyx), Tab :|-: AxTxx
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
@@ -163,7 +163,7 @@ Prior to attempting these problems, consider reviewing [Invalidity and binary re
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
-03.19 Ax(Fx->Ey(Txy/\Gx)), Fa, ~Fb, ~Fc :|-: AxEyTxy
+03.19 Ax(Fx->Ey(Txy/\Gy)), Fa, ~Fb, ~Fc :|-: AxEyTxy
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
