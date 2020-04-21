@@ -27,6 +27,8 @@ We discuss Tarski's definition of truth of a well-formed formula in a model. Pri
 
 <br>
 
+<p style="page-break-before: always">
+
 ## Signatures and examples thereof
 
 A *signature* is just a collection of constant and relation symbols. Before we give examples, [recall our conventions on constant and relation symbols](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-wffs-and-translations.pandoc#atomic-formulas):
@@ -69,6 +71,8 @@ Further, consider the following:
 In the signature $c_1, c_2, R$, one has that $c_1$ and $c_2$ are constant symbols and $R$ is a two-place relation symbol.
 
 <br>
+
+<p style="page-break-before: always">
 
 ## Models and examples thereof
 
@@ -159,11 +163,13 @@ This example illustrates well the arbitrary nature of models: this model interpr
 
 <br>
 
+<p style="page-break-before: always">
+
 ## Tarski and his definition of truth in a model
 
 Now we define truth in a model:[^6]
 
-[^6]: This definition is from [Tarski, Alfred. 1956. “The Concept of Truth in Formalized Languages.” In Logic, Semantics, Metamathematics: Papers from 1923 to 1938, edited by J. H. Woodger, 152–278. Oxford: Clarendon Press.](https://logic-teaching.github.io/pred/texts/Tarski%201956%20-%20The%20Concept%20of%20Truth%20in%20Formalized%20Languages.pdf) Tarski was not using set-theory per se, but rather type-theory, and his paper is thus a little harder for us to read nowadays. 
+[^6]: This definition is from [Tarski, Alfred. 1956. “The Concept of Truth in Formalized Languages.” In Logic, Semantics, Metamathematics: Papers from 1923 to 1938, edited by J. H. Woodger, 152–278. Oxford: Clarendon Press.](https://logic-teaching.github.io/pred/texts/Tarski%201956%20-%20The%20Concept%20of%20Truth%20in%20Formalized%20Languages.pdf) Tarski was not using set-theory per se, but rather type-theory, and his paper is thus a little harder for us to read nowadays.
 
 Suppose that $\mathcal{M}$ is a model in a signature, and assume that every element of the underlying domain is interpreted by some constant symbol. Then for a well-formed formula $\phi$ we define $M\models \phi$ as follows:
 
@@ -200,6 +206,8 @@ We likewise negate membership $\in$ by putting a vertical line through it $\noti
 Finally, note that the definition of truth in a model is only operative under the presupposition that every element of the underlying domain is interpreted by some constant symbol. That is, it presupposes that for every element $a$ of $M$ there is a constant symbol $c$ with $c^{\mathcal{M}}=a$. This condition was met in Example 3 and Example 5 up above, but it was not met in Example 4 and Example 6 up above. For these latter cases, one simply expands the language by new constant symbols that ensure that every element is picked out by a constant symbol. The reason why we need this condition is the clauses for the quantifiers go through the constant symbols.
 
 <br>
+
+<p style="page-break-before: always">
 
 ## Examples of truth in a model
 
@@ -292,8 +300,8 @@ To argue for this through Tarski's definition of truth, one proceeds as follows.
 
 1. We have $\mathcal{M}_3\models Gb$ because $b^{\mathcal{M}_3}=0\in \{0,2\}=G^{\mathcal{M}_3}$.
 2. We have $\mathcal{M}_3\models \neg Gc$ because $c^{\mathcal{M}_3}=1\notin \{0,2\}=G^{\mathcal{M}_3}$.
-3. We have $\mathcal{M}_3\models Rbc\wedge \neg Gc$ because $c^{\mathcal{M}_3}=1\notin \{0,2\}=G^{\mathcal{M}_3}$ and $[b^{\mathcal{M}_3}, c^{\mathcal{M}_3}]=[0,1]\in R^{\mathcal{M}_3}$. Then $\mathcal{M}_3\models \exists \; x \; Rbx\wedge \neg Gx$.
-4. We have $\mathcal{M}_3\models Rbd\wedge Gd$ because $d^{\mathcal{M}_3}=2\in \{0,2\}=G^{\mathcal{M}_3}$ and $[b^{\mathcal{M}_3}, d^{\mathcal{M}_3}]=[0,2]\in R^{\mathcal{M}_3}$. Then $\mathcal{M}_3\models \exists \; x \; Rbx\wedge Gx$.
+3. We have $\mathcal{M}_3\models Rbc\wedge \neg Gc$ because $c^{\mathcal{M}_3}=1\notin \{0,2\}=G^{\mathcal{M}_3}$ and $[b^{\mathcal{M}_3}, c^{\mathcal{M}_3}]=[0,1]\in R^{\mathcal{M}_3}$. Then $\mathcal{M}_3\models \exists \; x \; Rbx\wedge \neg Gx$. This is because $Rbc\wedge \neg Gc$ results from $Rbx\wedge \neg Gx$ by replacing $x$ by $c$.
+4. We have $\mathcal{M}_3\models Rbd\wedge Gd$ because $d^{\mathcal{M}_3}=2\in \{0,2\}=G^{\mathcal{M}_3}$ and $[b^{\mathcal{M}_3}, d^{\mathcal{M}_3}]=[0,2]\in R^{\mathcal{M}_3}$. Then $\mathcal{M}_3\models \exists \; x \; Rbx\wedge Gx$. This is because $Rbd\wedge Gd$ results from $Rbx\wedge Gx$ by replacing $x$ by $d$.
 
 After one works through several examples like this, one can quickly just skip over the steps 1-4. We include them here just to show how the derivation from the clauses of Tarski's definition of truth works.
 
@@ -334,6 +342,8 @@ This answer is ostensibly a little less efficient than the earlier answers: one 
 
 
 <br>
+
+<p style="page-break-before: always">
 
 ## Tarski and Field on truth and physicalism
 
@@ -382,7 +392,7 @@ One can enhance this sense of the non-explanatory character of the T-schema itse
 - "Bäume sind grün" is true if and only if trees are green.
 - "Bäume sind weiss" is true if and only if trees are white.
 
-Hence, if there is going to be much by way of scientific explanation offered by Tarski's derivation of the T-schemas, Field stresses that the constituent notion of model is going to have to be amenable to scientific explication or physical reduction. And what is the notion of model $\mathcal{M}$? Well, it is what in philosophy of language we sometimes call "reference": the relation of a name $c$ picking out a person $c^{\mathcal{M}}$, or the relation of a predicate word $F$ picking out a collection of objects $F^{\mathcal{M}}$. It is only if this relation can be explicated in physical terms that one can say in good faith that truth has been so explicated. There is much work on this in contemporary philosophy of language and mind, and lies outside of logic proper.[^4]
+Hence, if there is going to be much by way of scientific explanation offered by Tarski's derivation of the T-schemas, Field stresses that the constituent notion of model is going to have to be amenable to scientific explication or physical reduction. And what is the notion of model $\mathcal{M}$? Well, it is what in philosophy of language we sometimes call "reference": the relation of a name $c$ picking out a person $c^{\mathcal{M}}$, or the relation of a predicate word $F$ picking out a collection of objects $F^{\mathcal{M}}$. It is only if this relation can be explicated in physical terms that one can say in good faith that truth has been so explicated. There is much work on this in contemporary philosophy of language and mind, and it lies outside of logic proper.[^4]
 
 [^4]: For a helpful survey, see [Neander, Karen. 2006. “Naturalistic Theories of Reference.” In The Blackwell Guide to the Philosophy of Language, edited by &. R. Hanley M. Devitt, 374–91. Wiley Online Library.](https://logic-teaching.github.io/pred/texts/Neander%202006%20-%20Naturalistic%20theories%20of%20reference.pdf)
 
