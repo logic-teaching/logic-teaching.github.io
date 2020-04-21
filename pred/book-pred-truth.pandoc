@@ -315,7 +315,9 @@ One can enhance this sense of the non-explanatory character of the T-schema by p
 - "Les arbres sont verts" is true if and only if trees are green.
 - "Les arbres sont blancs" is true if and only if trees are white.
 
-Hence, if there is going to be much by way of scientific explanation offered by Tarski's derivation of the T-schemas, Field stresses that the constituent notion of model is going to have to be amenable to scientific explication or physical reduction. And what is the notion of model $\mathcal{M}$? Well, it is what in philosophy of language we sometimes call "reference": the relation of a name $c$ picking out a person $c^{\mathcal{M}}$, or the relation of a predicate word $F$ picking out a collection of objects $F^{\mathcal{M}}$. It is only if this relation can be explicated in physical terms that one can say in good faith that truth has been so explicated.
+Hence, if there is going to be much by way of scientific explanation offered by Tarski's derivation of the T-schemas, Field stresses that the constituent notion of model is going to have to be amenable to scientific explication or physical reduction. And what is the notion of model $\mathcal{M}$? Well, it is what in philosophy of language we sometimes call "reference": the relation of a name $c$ picking out a person $c^{\mathcal{M}}$, or the relation of a predicate word $F$ picking out a collection of objects $F^{\mathcal{M}}$. It is only if this relation can be explicated in physical terms that one can say in good faith that truth has been so explicated. There is much work on this in contemporary philosophy of language and mind, but it would draw us a bit outside of logic proper.[^4]
+
+[^4]: For a helpful survey, see [Neander, Karen. 2006. “Naturalistic Theories of Reference.” In The Blackwell Guide to the Philosophy of Language, edited by &. R. Hanley M. Devitt, 374–91. Wiley Online Library.](https://logic-teaching.github.io/pred/texts/Neander%202006%20-%20Naturalistic%20theories%20of%20reference.pdf)
 
 
 <br>
