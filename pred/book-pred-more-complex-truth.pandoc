@@ -1,0 +1,124 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# More on Tarski's definition of truth
+
+- [Sentences with many quantifiers](#signatures-and-examples-thereof)
+- [Sentences with only infinite models](#models-and-examples-thereof)
+- [Davidson and Tarski](#davidson-and-tarski)
+- [Quine and ontological commitment](#quine-and-ontological-commitment)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Sentences with many quantifiers
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ is happy </p>
+<p style="margin-left: 40px"> $Rxy$ = $x$ respects $y$  </p>
+<p style="margin-left: 40px"> $Txy$ = $x$ trusts $y$  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Fx->Hx) : All French majors are happy.
+|
+~~~
+
+This one is just slightly different and uses "everyone who is a . . ." instead of "all":
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Fx->Hx) : Everyone who is a French major is happy.
+|
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Fx->EyTxy) : Everyone who is a French major trusts someone.
+|
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(EyRxy->Hx) : Everyone who respects someone is happy.
+|
+~~~
+
+By replacing "happy" with "trusts someone" we get "Everyone who respects someone trusts someone." To make it more similar to how we might say it out loud, we insert an "also" to get:
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(EyRxy->EyTxy) : Everyone who respects someone also trusts someone.
+|
+~~~
+
+We can make a model of this as follows, first by drawing in a diagram, then by writing in the manner that our computer program prefers, and then by writing in the traditional notation:
+
+<video autoplay muted width="400" src="https://logic-teaching.github.io/pred/vid/more-tarski-complicated.mp4"/> </video>
+
+One can then enter this into the computer system to check:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+ Ax(EyRxy->EyTxy)
+```
+
+We can also check this using Tarski's definition of truth. For this purpose, we introduce new constant symbols $a^{\mathcal{M}}=0$ and $b^{\mathcal{M}}=1$ and $c^{\mathcal{M}}=2$.
+
+To check that $\mathcal{M}\models\forall \;x \; (\exists \; y \; Rxy\rightarrow \exists \; y \; Txy)$ by the clause for the universal quantifier we have to check that the following three things are true:
+
+- $\mathcal{M}\models \exists \; y \; Ray\rightarrow \exists \; y \; Tay$
+- $\mathcal{M}\models \exists \; y \; Rby\rightarrow \exists \; y \; Tby$
+- $\mathcal{M}\models \exists \; y \; Rcy\rightarrow \exists \; y \; Tcy$
+
+These are all conditional statements, and we can argue that each is true as follows:
+
+- We have that the first holds because $\mathcal{M}\models Rab$ and $\mathcal{M}\models Tac$, due to the fact that $[a^{\mathcal{M}}, b^{\mathcal{M}}]=[0,1]\in R^{\mathcal{M}}$ and $[a^{\mathcal{M}}, c^{\mathcal{M}}]=[0,2]\in T^{\mathcal{M}}$. Then by the clause for the existential quantifier $\mathcal{M}\models \exists \; y \; Ray$ and $\mathcal{M}\models \exists \; y \; Tay$.
+
+- We have that the second holds because $\mathcal{M}\models Rbc$ and $\mathcal{M}\models Tba$, due to the fact that $[b^{\mathcal{M}}, c^{\mathcal{M}}]=[1,2]\in R^{\mathcal{M}}$ and $[b^{\mathcal{M}}, a^{\mathcal{M}}]=[1,0]\in T^{\mathcal{M}}$. Then by the clause for the existential quantifier $\mathcal{M}\models \exists \; y \; Rby$ and $\mathcal{M}\models \exists \; y \; Tby$.
+
+- We have that the third holds because the antecedent does not hold, i.e. $\mathcal{M}\nvDash \exists \; y \; Rcy$. For, suppose not. Then $\mathcal{M}\models \exists \; y \; Rcy$. Then there is a constant symbol $d$ in the signature such that $\mathcal{M}\models Rcd$. Then $[c^{\mathcal{M}},d^{\mathcal{M}}]=[2,d^{\mathcal{M}}]\in R^{\mathcal{M}}$. But by inspection of $R^{\mathcal{M}}$ up above, we see that there is no ordered pair in $R^{\mathcal{M}}$ whose first component begins with $2$.
+
+This is a very formal way of showing that $\mathcal{M}\models\forall \;x \; (\exists \; y \; Rxy\rightarrow \exists \; y \; Txy)$. But it illustrates well how one would formally apply Tarksi's definition of truth in a model. Usually in practice we can proceed less formally. In a more intuitive sense, the reason why $\mathcal{M}\models\forall \;x \; (\exists \; y \; Rxy\rightarrow \exists \; y \; Txy)$ holds is because for every dot in the model, if it has green line to something, then it has a red line to something. Of course, put this way, what we are obviously doing is employing our prior knowledge of how "some" and "all" claims work in diagrams in order show something about how "some" and "all" claims work with models.
+
+<br>
+
+## Sentences with only infinite models
+
+Thus far we have only been working with very small models. However, in predicate logic there are also sentences that are only true on models which are infinite. These sentences are also good practice in working with Tarski's definition of truth.
+
+Perhaps the paradigmatic example of an infinite model is the natural numbers $\mathbb{N}=\{0,1,2,3,\ldots\}$. Perhaps the simplest signature for this structure is the one where we just have a single binary relation $Rxy$ which holds if and only if $x<y$. Hence we would describe this model $\mathcal{N}$ as follows:
+
+<p style="margin-left: 40px"> $N = \mathbb{N}$ </p>
+<p style="margin-left: 40px"> $R^{\mathcal{N}} = \{\langle x,y\rangle\in \mathbb{N}^2: x<y\}$  </p>
+
+Consider the following formulas in this signature:
+
+1. $\forall x \; \neg Rxx$
+2. $\forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$
+3. $\forall \; x \; \exists \; y \; Rxy$
+
+These formulas are all true on $\mathcal{N}$, due to familiar facts about numbers, namely:
+
+- No natural number is strictly less than itself.
+- Strict-less-than is transitive
+- For every natural number there is a natural number that is strictly greater.
+
+There are other models of the formulas 1-3 besides the natural numbers.
+
+more-tarski-complicated-2.mp4
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
