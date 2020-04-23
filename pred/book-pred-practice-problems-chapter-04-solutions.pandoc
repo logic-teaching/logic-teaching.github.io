@@ -1,0 +1,401 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Practice problems **with solutions**
+
+These are practice problems for Week 4.
+
+- [Tarski and his definition of truth](#Tarski-and-his-definition-of-truth)
+- [Building models that make formulas true](#building-models-that-make-formulas-true)
+- [Translations with many quantifiers](#translations-with-many-quantifiers)
+- [Truth and many quantifiers](#truth-and-many-quantifiers)
+
+
+
+
+<br>
+
+This version has **the solutions** filled in. They are below the multiple choice problems and just filled in the solution spot for all the other problems.
+
+
+<p style="page-break-before: always">
+
+
+<br>
+
+## Tarski and his definition of truth
+
+Prior to doing these translation exercises, consider reviewing [Tarski's definition of truth](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-truth.pandoc#tarski-and-his-definition-of-truth-in-a-model).
+
+In Examples 1-5, we work with the following model:
+
+<p style="margin-left: 40px"> $M=\mathbb{Z}=\{. . . -2, -1, 0, 1, 2, . . . \}$ </p>
+<p style="margin-left: 40px"> $a^{\mathcal{M}} = -1$ </p>
+<p style="margin-left: 40px"> $b^{\mathcal{M}} = 1$ </p>
+<p style="margin-left: 40px"> $R^{\mathcal{M}}=\{\langle x,y\rangle\in \mathbb{Z}^2: x<y\}$ </p>
+<p style="margin-left: 40px"> $T^{\mathcal{M}}=\{\langle x,y\rangle\in \mathbb{Z}^2: y=\left|x\right|\}$ </p>
+
+In the last clause $\left|x\right|$ denotes the absolute value of $x$. For instance $\left|-3\right|=3$ and $\left|3\right|=3$.
+
+In what follows, by "truth-condition", we just mean "what you can derive from Tarski's definition of truth" and the definition of the model, like we did at the outset of the section [Davidson and Tarski](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-more-complex-truth.pandoc#davidson-and-tarski).
+
+<br>
+
+
+*Example 1*
+
+What is the truth-condition for $Rab\wedge Tab$ in this model?
+
+- Option A: 1 &lt; -1 and |-1|=1
+- Option B: -1 &lt; 1 and |-1|=1
+- Option C: -1 &lt; 1 and |1|=-1
+- Option D: 1 &lt; -1 and |1|=-1
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+3.01 Which is it?
+| Option A
+| +Option B
+| Option C
+| Option D
+```
+
+**The solution** is Option B.
+
+
+<br>
+
+*Example 2*
+
+What is the truth-condition for $Rba\wedge Tab$ in this model?
+
+- Option A: 1 &lt; -1 and |-1|=1
+- Option B: -1 &lt; 1 and |-1|=1
+- Option C: -1 &lt; 1 and |1|=-1
+- Option D: 1 &lt; -1 and |1|=-1
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+3.02 Which is it?
+| +Option A
+| Option B
+| Option C
+| Option D
+```
+
+**The solution** is Option A.
+
+<br>
+
+*Example 3*
+
+What is the truth-condition for $\exists \; x \; \exists \; y \; ((Rxa\wedge Rby)\wedge Txy)$ in this model?
+
+
+- Option A: There are integers x,y with -1 &lt; x and 1 &lt; y and |x|=y
+- Option B: There are integers x,y with x &lt; -1 and y &lt; 1 and |x|=y
+- Option C: There are integers x,y with x &lt; -1 and y &lt; 1 and |y|=x
+- Option D: There are integers x,y with x &lt; -1 and 1 &lt; y and |x|=y
+```
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+3.03 Which is it?
+| Option A
+| Option B
+| Option C
+| +Option D
+```
+
+**The solution** is Option D.
+
+<br>
+
+*Example 4*
+
+What is the truth-condition for $\forall \; x \; \forall \; y \; (Rxy\vee Ryx)$ in this model?
+
+
+- Option A:  For any integers x,y one has |x|=y or |y|=x.
+- Option B:  For any integers x,y one has x &lt; y or y &lt; x.
+- Option C:  For any integer x and for any integer y one has x &lt; y.
+- Option D:  For any integers x,y, one has x &lt; y or for any integers x,y one has y &lt; x.
+
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+3.04 Which is it?
+| Option A
+| +Option B
+| Option C
+| Option D
+```
+
+**The solution** is Option B.
+
+<br>
+
+
+*Example 5*
+
+What is the truth-condition for $\forall \; x \; \exists \; y \; (Rxy \wedge Txy)$ in this model?
+
+- Option A: For every integer x there is an integer y with x &lt; y and |y|=x.
+- Option B: For every integer x there is an integer y with x &lt; y and |x|=y.
+- Option C: For every integer x there is an integer y with y &lt; x and |y|=x.
+- Option D: For every integer x there is an integer y with y &lt; x and |x|=y.
+
+```{.QualitativeProblem .MultipleChoice  options="check"}
+3.05 Which is it?
+| Option A
+| +Option B
+| Option C
+| Option D
+```
+
+**The solution** is Option B.
+
+<br>
+
+## Building models that make formulas true
+
+<br>
+
+**A solution** is given for each problem. Keep in mind that there are many good solutions to these problems.
+
+<br>
+
+*Example 6*
+
+Where $\mathcal{M}$ is the model from Examples 1-5, one can check that $\mathcal{M}\nvDash \forall \; x \; \exists \; y \; (Rxy \wedge Txy)$. Find a model which makes the sentence true, and which has at least two constants in it and which interprets $R$ and $T$ differently (this is what the second formula requires).
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.06 AxEy(Rxy/\Txy), (Rab/\~Tab)
+|Domain:0,1
+|R(_,_):[0,1],[1,1],[1,0]
+|T(_,_):[0,1],[1,1]
+|a:1
+|b:0
+```
+
+<br>
+
+*Example 7*
+
+Find a model where the following is true:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.07 (Fa/\~Ga), (~Fb/\Gb), (Rab/\~Rba)
+|Domain:0,1
+|F(_):0
+|G(_):1
+|R(_,_):[0,1]
+|a:0
+|b:1
+```
+
+<br>
+
+*Example 8*
+
+Find a model where the following is true:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.08 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Rxy/\~Ryx)))
+|Domain:0,1
+|F(_):0
+|G(_):1
+|R(_,_):[0,1]
+|a:0
+|b:1
+```
+
+<br>
+
+*Example 9*
+
+Find a model where the following is true:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.09 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Ryx/\~Rxy)))
+|Domain:0,1
+|F(_):0
+|G(_):1
+|R(_,_):[1,0]
+```
+
+<br>
+
+*Example 10*
+
+Explain why there is no model which makes $\forall \; x \; \forall \; y \; (Fx\wedge \neg Gx)\wedge ((\neg Fy\wedge Gy)\wedge(Ryx\wedge \neg Rxy))$ true.
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+3.10 Which is it?
+| It would require that any two objects both satisfy R and satisfy not R.
+| The quantifiers are "AxAy" but then the variables are listed "Ryx" towards the end.
+| +It would require that everything is F and everything is not F.
+| +It would require that everything is G and everything is not G.
+```
+
+**The solution** is the third or the fourth one.
+
+<br>
+
+## Translations with many quantifiers
+
+In these problems we use the
+
+<p style="margin-left: 40px"> $Gx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ is a History major </p>
+<p style="margin-left: 40px"> $Rxy$ = $x$ is more well-read than $y$  </p>
+<p style="margin-left: 40px"> $Txy$ = $x$ is more well-traveled than $y$  </p>
+
+
+<br>
+
+*Example 11*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+3.11 ExAyRxy : Someone is more well-read than everyone.
+|ExAyRxy
+~~~
+
+*Example 12*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+3.12 ExAy(Fy->Rxy) : Someone is more well-read than all French majors.
+|ExAy(Fy->Rxy)
+~~~
+
+<br>
+
+*Example 13*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+3.13 Ex(Hx/\Ay(Fy->Rxy)) : Some History major is more well-read than all French majors.
+|Ex(Hx/\Ay(Fy->Rxy))
+~~~
+
+
+<br>
+
+*Example 14*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+3.14 Ax(Fx->Ey(Hy/\Txy)) : Every French major is more well-traveled than some History major.
+|Ax(Fx->Ey(Hy/\Txy))
+~~~
+
+
+*Example 15*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+3.15 Ax(Ey(Fy/\Rxy)->Ey(Hy/\Txy)) : Everyone who is more well-read than some French major is more well-traveled than some History major.
+|Ax(Ey(Fy/\Rxy)->Ey(Hy/\Txy))
+~~~
+
+<br>
+
+## Truth and many quantifiers
+
+These problems just ask you to find models where all the displayed sentences are true. They all begin with the formulas $Fa\wedge (Fb\wedge \neg Fc)$ and $(Ga\wedge (\neg Gb \wedge \neg Gc))$. These have the effect of requiring you to make models with at least three distinct elements, since $a$ is required to have both $F$ and $G$, and $b$ has the first but not the second, and $c$ has neither.
+
+<br>
+
+**A solution** is given for each problem. Keep in mind that there are many good solutions to these problems. The domain and the interpretation of the constants and the unary relations are the same in these solutions, and we just vary the interpretation of the binary relation symbol.
+
+<br>
+
+*Example 16*
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.16 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), (Raa/\Rab), Ey(~Fy/\(AxRax->AxRyx))
+|Domain:0,1,2
+|F(_):0,1
+|G(_):0
+|R(_,_):[0,0],[0,1],[2,0],[2,1]
+|a:0
+|b:1
+|c:2
+```
+
+<br>
+
+*Example 17*
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.17 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), AxRax, Ay(~Fy->AxRyx)
+|Domain:0,1,2
+|F(_):0,1
+|G(_):0
+|R(_,_):[0,0],[0,1],[0,2],[2,0],[2,1],[2,2]
+|a:0
+|b:1
+|c:2
+```
+
+
+<br>
+
+*Example 18*
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.18 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), Ax(Ey(Fy/\Rxy)->Ey(Gy/\Ryx))
+|Domain:0,1,2
+|F(_):0,1
+|G(_):0
+|R(_,_):[2,0],[0,2]
+|a:0
+|b:1
+|c:2
+```
+
+<br>
+
+*Example 19*
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.19 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), EyEz(AxRxy/\Ax~Rxz)
+|Domain:0,1,2
+|F(_):0,1
+|G(_):0
+|R(_,_):[0,0],[1,0],[2,0]
+|a:0
+|b:1
+|c:2
+```
+
+<br>
+
+*Example 20*
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.20 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), AyAz(AxRxy\/Ax~Rxz)
+|Domain:0,1,2
+|F(_):0,1
+|G(_):0
+|R(_,_):[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2],
+|a:0
+|b:1
+|c:2
+```
+
+
+
+
+These are practice problems written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>
