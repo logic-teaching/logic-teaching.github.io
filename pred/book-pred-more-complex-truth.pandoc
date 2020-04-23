@@ -20,7 +20,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 - [Sentences with many quantifiers](#signatures-and-examples-thereof)
 - [Sentences with only infinite models](#models-and-examples-thereof)
 - [Davidson and Tarski](#davidson-and-tarski)
-- [Quine and ontological commitment](#quine-and-ontological-commitment)
 
 <br>
 
@@ -155,15 +154,32 @@ Davidson's idea was that the same thing that was happening with truth in the nat
 - "Trees are green" is true if and only if trees are green.
 - "Trees are white" is true if and only if trees are white.
 
-Tarski had suggested that these T-schemas had connected words on the left-hand side to physical things on the right-hand side. Davidson looks at these T-schemas and sees a series of theorems that together suggest how the truth-conditions of formulas are systematically derived.[^1] One of the more thorough attempts to pursue this idea is due to Larson and Segal who write:
+Tarski had suggested that these T-schemas had connected words on the left-hand side to physical things on the right-hand side. Davidson looks at these T-schemas and sees a series of theorems that together suggest how the truth-conditions of formulas are systematically derived.[^1] One of the more thorough attempts to pursue this idea is due to Larson and Segal who write:[^2]
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Larson%20and%20Segal%201995%20-%20Knowledge%20of%20Meaning%20-%20An%20Introduction%20to%20Semantic%20Theory%20p.%2033.png" alt="Larson and Segal" width="250"/>
 
 In this, their $L$ is short for "natural language" very much like our models $\mathcal{N}$ up above, or maybe a class of such models. And their $T$ is just the $T$-schema.
 
+The notion of "interpretative" in their account points to something important about how we use these biconditionals we get from Tarski's definition of truth. First, one can just as easily derive each of the following from Tarski's definition of truth:
 
+- "Snow is white" is true if and only if snow is white.
+- "Snow is white" is true if and only if snow is white or snow is white.
 
-[^1]: [Davidson, Donald. 1967. “Truth and Meaning.” Synthese 17 (1): 304–23](Davidson%201967%20-%20Truth%20and%20meaning.pdf).
+Even though we would recognize the right-hand side of the second as logically equivalent to the right-hand side of the first, in some obvious sense the second is a less natural candidate for explicating the truth-conditions of "Snow is white." And indeed, one can note that we have done several derivations using Tarski's definition of truth, and we never did anything like the second one: while derivable, it is somehow less relevant to what we are doing with Tarski's definition.
+
+The second important point which Larson and Segal bring up is that our use of the biconditionals for Tarski's definition of truth are not intended to convey merely the sense of the conjunction of two material conditionals. For instance, since snow is indeed white, and since trees are indeed green, one can infer from 1-4 to 5:
+
+1. "Snow is white" is true if and only if snow is white.
+2. "Trees are green" is true if and only if trees are green.
+3. Snow is white.
+4. Trees are green.
+5. "Snow is white" is true if and only if trees are green.
+
+Item 5 is true simply because both sides of the biconditional are true. However, it is not telling you anything particularly interesting about the truth-condition of "Snow is white." If pressed to say why, we might point to the fact that if trees happened not to be green but perhaps yellow (say due to different environmental conditions), then the truth-condition described in 5 would be wrong. This points to something important about how we use Tarski's definition of truth to derive instances of the T-schema. Usually when we are doing derivations of biconditonals from Tarski's definition of truth, we ignore "empirical information" like 3 and 4 and restrict ourselves to information about logic and information about how the model interprets the symbols, i.e. what the model says the symbols mean. It is more challenging for Davidson to say why restricting to this kind of information is important since he wanted a theory which explicated truth-conditions for all sentences in the language-- both empirical and logical alike-- which did not go through a postulation of a realm of meanings above and beyond the instances of the T-schema.
+
+[^1]: [Davidson, Donald. 1967. “Truth and Meaning.” Synthese 17 (1): 304–23](https://logic-teaching.github.io/pred/texts/Davidson%201967%20-%20Truth%20and%20meaning.pdf).
+
+[^2]: See [Selections from Chapter 2 of: Larson, Richard K., and Gabriel Segal. 1995. Knowledge of Meaning: An Introduction to Semantic Theory. Bradford Books.](https://logic-teaching.github.io/pred/texts/Larson%20and%20Segal%201995%20-%20Knowledge%20of%20Meaning%20-%20An%20Introduction%20to%20Semantic%20Theory.pdf).
 
 <br>
 
