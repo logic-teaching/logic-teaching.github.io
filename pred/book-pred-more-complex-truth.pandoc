@@ -155,9 +155,15 @@ Davidson's idea was that the same thing that was happening with truth in the nat
 - "Trees are green" is true if and only if trees are green.
 - "Trees are white" is true if and only if trees are white.
 
-Tarski had suggested that these T-schemas had connected words on the left-hand side to physical things on the right-hand side. Davidson looks at these T-schemas and sees a series of theorems that together suggest how the truth-conditions of formulas are systematically derived.[^1] As
+Tarski had suggested that these T-schemas had connected words on the left-hand side to physical things on the right-hand side. Davidson looks at these T-schemas and sees a series of theorems that together suggest how the truth-conditions of formulas are systematically derived.[^1] One of the more thorough attempts to pursue this idea is due to Larson and Segal who write:
 
-[^1]: Davidson, Donald. 1967. “Truth and Meaning.” Synthese 17 (1): 304–23.
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Larson%20and%20Segal%201995%20-%20Knowledge%20of%20Meaning%20-%20An%20Introduction%20to%20Semantic%20Theory%20p.%2033.png" alt="Larson and Segal" width="250"/>
+
+In this, their $L$ is short for "natural language" very much like our models $\mathcal{N}$ up above, or maybe a class of such models. And their $T$ is just the $T$-schema.
+
+
+
+[^1]: [Davidson, Donald. 1967. “Truth and Meaning.” Synthese 17 (1): 304–23](Davidson%201967%20-%20Truth%20and%20meaning.pdf).
 
 <br>
 
