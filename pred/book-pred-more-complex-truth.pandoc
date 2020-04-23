@@ -113,9 +113,51 @@ These formulas are all true on $\mathcal{N}$, due to familiar facts about number
 - Strict-less-than is transitive
 - For every natural number there is a natural number that is strictly greater.
 
-There are other models of the formulas 1-3 besides the natural numbers.
+There are other models of the formulas 1-3 besides the natural numbers. For instance, here is a model where as usual we draw $Rxy$ by an arrow from $x$ to $y$. It is intended that the diagram keeps on going over to the left-- we have merely drawn the first couple of "stages" of the diagram.
 
-more-tarski-complicated-2.mp4
+<video autoplay muted width="400" src="https://logic-teaching.github.io/pred/vid/more-tarski-complicated-2.mp4"/> </video>
+
+A good illustration of Tarski's definition of truth is that there is no model $\mathcal{M}$ of 1-3 which has only finitely many elements in its domain.
+
+For, suppose not. Then there would be a model $\mathcal{M}$ of 1-3 such that $M$ was finite, say it had at exactly $n$ elements, where $n$ is a natural number. As usual, we assume that there are constant symbols naming all of the elements of the underlying domain $M$. Choose an element in $M$, and suppose that it is named by say constant $c_1$. Then by formula 3 there is a constant symbol $c_2$ such that $\mathcal{M}\models Rc_1c_2$. Continue picking constant symbols like this until you have gotten to $c_{n+1}$, so that $\mathcal{M}\models Rc_1c_2 \wedge \cdots \wedge Rc_nc_{n+1}$. Now since there are exactly $n$ elements but we have $n+1$ constant symbols, it must be the case that $c_{n+1}^{\mathcal{M}}=c_i^{\mathcal{M}}$ for some $1\leq i\leq n$, that is the last constant must pick out the same object as one of the earlier constants. Since $\mathcal{M}\models Rc_ic_{i+1}$, we have that $[c^{\mathcal{M}}_i, c^{\mathcal{M}}_{i+1}] \in R^{\mathcal{M}}$. But since $c_{n+1}^{\mathcal{M}}=c_i^{\mathcal{M}}$, we also have that $[c_{n+1}^{\mathcal{M}}, c^{\mathcal{M}}_{i+1}] \in R^{\mathcal{M}}$. But then $\mathcal{M}\models Rc_{n+1}c_{i+1}$. If $i=n$ then we contradict formula 1. And if $i\neq n$, then we have $\mathcal{M}\models Rc_{n+1}c_{i+1} \wedge Rc_{i+1}c_{i+2} \wedge \cdots \wedge Rc_{n}c_{n+1}$. Then by repeated applications of formula 2, we have $\mathcal{M}\models Rc_{n+1}c_{n+1}$, again contradicting formula 1.
+
+This proof might have seemed complicated at first, but can draw specific cases of it. For instance, here is the case of $n=4$ and $i=2$:
+
+<video autoplay muted width="400" src="https://logic-teaching.github.io/pred/vid/more-tarski-complicated-3.mp4"/> </video>
+
+<br>
+
+## Davidson and Tarski
+
+Let's continue working with the example, expanded by some new constant symbols $b_n$ which picks out $n$:
+
+<p style="margin-left: 40px"> $N = \mathbb{N}$ </p>
+<p style="margin-left: 40px"> $R^{\mathcal{N}} = \{\langle x,y\rangle\in \mathbb{N}^2: x<y\}$  </p>
+<p style="margin-left: 40px"> $b_n^{\mathcal{N}} = n$  </p>
+
+Let's show that $\mathcal{N}\models \exists \; y \; \forall \; x \; \neg Rxy$ by first computing the truth-conditions assigned to this formula by Tarski's definition of truth:
+
+1. By the clause of Tarski's definition of truth for the existential and the fact that the constants are in one-one correspondence with the natural numbers themselves, this happens if and only if there is natural number $n$ such that $\mathcal{N}\models \forall \; x \; \neg Rxb_n$.
+2. By the clause for the universal, this happens if and only if there is a natural number $n$ such that for all natural numbers $m$ one has $\mathcal{N}\models \neg Rb_mb_n$.
+3. By the clause for negation and atomics, this happens if and only if there is a natural number $n$ such that for all natural numbers $m$ one has $[b_m^{\mathcal{N}}, b_n^{\mathcal{N}]\notin R^{\mathcal{N}}$.
+4. By the interpretation of $R$ in $\mathcal{N}$ and the interpretation of the constant symbols, this happens if and only if there is a natural number $n$ such that for all natural numbers $m$ one has that $m\nless n$.
+
+Hence, in sum: $\mathcal{N}\models \exists \; y \; \forall \; x \; \neg Rxy$ if and only if: there is a natural number $n$ such that for all natural numbers $m$ one has that $m\nless n$.
+
+The right-hand side of this biconditional holds because zero is a natural number such that for all natural numbers $m$ one has $m\nless 0$. This is why the left-hand side of the biconditional $\mathcal{N}\models \exists \; y \; \forall \; x \; \neg Rxy$ holds.
+
+One way of thinking about this example is that Tarski's definition of truth helped you to learn what was meant by the left-side of the biconditional $\mathcal{N}\models \exists \; y \; \forall \; x \; \neg Rxy$. It was only by stepping through the derivation in 1-4 that one came to see what this meant about natural numbers.
+
+Davidson's idea was that the same thing that was happening with truth in the natural numbers in this example also happens with truth in natural languages like English. Let's recall the instances of the T-schema from last time:
+
+- "Snow is white" is true if and only if snow is white.
+- "Snow is green" is true if and only if snow is green.
+- "Trees are green" is true if and only if trees are green.
+- "Trees are white" is true if and only if trees are white.
+
+Tarski had suggested that these T-schemas had connected words on the left-hand side to physical things on the right-hand side. Davidson looks at these T-schemas and sees a series of theorems that together suggest how the truth-conditions of formulas are systematically derived.[^1] As
+
+[^1]: Davidson, Donald. 1967. “Truth and Meaning.” Synthese 17 (1): 304–23.
 
 <br>
 
