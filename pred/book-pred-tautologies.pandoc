@@ -150,11 +150,16 @@ These can be iterated as follows:
 
 $\neg \forall \;x \; \exists \; y \; Rxy$ is equivalent to $\exists \; x \; \forall \; y \; \neg Rxy$.
 
+<video controls width="500" src="https://logic-teaching.github.io/pred/vid/demorgan-q1.mp4"/> </video>
+
 <br>
 
 *Example 8*:
 
 $\neg \exists \;x \; \forall \; y \; Rxy$ is equivalent to $\forall \; x \; \exists \; y \; \neg Rxy$.
+
+<video controls width="500" src="https://logic-teaching.github.io/pred/vid/demorgan-q2.mp4"/> </video>
+
 
 <br>
 
@@ -162,11 +167,16 @@ $\neg \exists \;x \; \forall \; y \; Rxy$ is equivalent to $\forall \; x \; \exi
 
 $\neg \forall \;x \; \exists \; y \; \forall \; z \; (Rxy\wedge Ryz)$ is equivalent to $\exists \; x \; \forall \; y \; \exists \; z \; (\neg Rxy\vee \neg Ryz)$.
 
+<video controls width="500" src="https://logic-teaching.github.io/pred/vid/demorgan-q3.mp4"/> </video>
+
+
 <br>
 
 *Example 10*:
 
 $\neg \exists \;x \; \forall \; y \; \exists \; z \; (Rxy\wedge Ryz)$ is equivalent to $\forall \; x \; \exists \; y \; \forall \; z \; (\neg Rxy\vee \neg Ryz)$.
+
+<video controls width="500" src="https://logic-teaching.github.io/pred/vid/demorgan-q4.mp4"/> </video>
 
 
 <br>
