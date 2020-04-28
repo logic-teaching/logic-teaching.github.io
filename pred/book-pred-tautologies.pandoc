@@ -27,35 +27,67 @@ We define logical consequence and look at examples of valid arguments, tautologi
 
 Intuitively, an argument is valid if whenever its premises are true, its conclusion is true. In this, an *argument* is understood to be a list of premises $\phi_1, \ldots, \phi_n$ together we a conclusion $\phi$. Now that we have defined truth in a model following Tarski, we can present a formal definition of validity.
 
-We define an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ to be *valid* if for any model $\mathcal{M}$ which interprets all of the constants and relation symbols in the argument, one has that if $\mathcal{M}\models \phi_1, \ldots, \mathcal{M}\models \phi_n$, then $\mathcal{M}\models \phi$. Since models are our representations of situations or circumstances, this is to say that a valid argument is one such that in any circumstance in which the premises are all true, the conclusion is also true.
+We define an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ to be *valid* if for any model $\mathcal{M}$ which interprets all of the constants and relation symbols in the argument, one has that if $\mathcal{M}\models \phi_1, \ldots, \mathcal{M}\models \phi_n$, then $\mathcal{M}\models \phi$. Since models are our representations of circumstances, this is to say that a valid argument is one such that in any circumstance in which the premises are all true, the conclusion is also true.
 
-We use the consequence relation $\vdash$ to symbolize that an argument is valid. We do this by writing the premises to the left of the symbol and the conclusion to the right of the symbol. That is, $\phi_1, \ldots, \phi_n\vdash \phi$ is just another way of saying that the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ is valid. Some authors use the symbol $\models$ for this purpose as well. Hence, $\phi_1, \ldots, \phi_n\models \phi$ is just another way of saying that the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ is valid.
+We use the consequence relation $\vdash$ to symbolize that an argument is valid. We do this by writing the premises to the left of the symbol and the conclusion to the right of the symbol. That is, $\phi_1, \ldots, \phi_n\vdash \phi$ is just another way of saying that "the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ is valid." One sometimes says this out loud as "$\phi_1, \ldots, \phi_n$ validly implies $\phi$" or "$\phi_1, \ldots, \phi_n$ entails $\phi$."
 
-One should be warned that some authors prefer $\vdash$ to be defined in terms of proofs, which we will do later, and reserve $\models$ for validity as defined above. It turns out that these things extensionally align.
+(Some authors use the symbol $\models$ for $\vdash$. Hence, $\phi_1, \ldots, \phi_n\models \phi$ is just another way of saying that the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ is valid. But should be warned that some authors prefer $\vdash$ to be defined in terms of proofs, which we will do later, and reserve $\models$ for validity as defined above. It turns out that these things extensionally align, and so this never causes one to make wrong predictions about the status of arguments, but it can cause a mild sort of confusion when one does not know from context whether the author means to be talking primarily about proofs or about models.)
 
-<br>
-
-## Simple examples including Universal Elimination and Existential Introduction
-
-Here are the two simplest examples of valid arguments:
+Recall that the consequence relation $\vdash$ is negated by putting a vertical stroke though it like this $\nvdash$. Hence, $\phi_1, \ldots, \phi_n\nvdash \phi$ means that there is a model $\mathcal{M}$ such that $\mathcal{M}\models \phi_1$, . . ., $\mathcal{M}\models \phi_n$, and $\mathcal{M}\models \neg \phi$. One says $\phi_1, \ldots, \phi_n\nvdash \phi$ out loud as "the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ is not valid" or "$\phi_1, \ldots, \phi_n$ does not validly imply $\phi$" or "$\phi_1, \ldots, \phi_n$ does not entail $\phi$."
 
 <br>
 
-*Example 1* (Universal Elimination): $\forall x \; Fx\vdash Fa$.
+## Universal Elimination and Existential Introduction
+
+Here are the simplest examples of valid arguments:
+
+<br>
+
+*Example 1*: $\forall x \; Fx\vdash Fa$.
 
 For, suppose that $\mathcal{M}$ is a model where $\mathcal{M}\models \forall \; x \; Fx$. Then by the universal clause in Tarski's definition of truth, we have $\mathcal{M}\models Fc$ for all constant symbols $c$ in the signature. The signature of the model includes $a$ since this constant symbol features in the conclusion of the argument. Then $\mathcal{M}\models Fa$.
 
 <br>
 
-*Example 2* (Existential Introduction): $Fa\vdash \exists \; x \; Fx$.
+*Example 2*: $\forall x \; Rxa\vdash Raa$.
 
-For, suppose that $\mathcal{M}\models Fa$. Then by the existential clause in Tarski's definition of truth, we have that $\mathcal{M}\models \exists \; x \; Fx$.
-
-It is clear that the converse of Example 1 and Example 2 does not hold. That is, we have $Fa\nvdash \forall \; x \; Fx$ and $\exists \; x \; Fx\nvdash Fa$. One can use e.g. the following simple models:
+For, suppose that $\mathcal{M}$ is a model where $\mathcal{M}\models \forall \; x \; Rxa$. Then by the universal clause in Tarski's definition of truth, we have $\mathcal{M}\models Rca$ for all constant symbols $c$ in the signature. The signature of the model includes $a$ since this constant symbol features in the conclusion of the argument. Then $\mathcal{M}\models Raa$.
 
 <br>
 
-*Example 3*: $Fa\nvdash \forall \; x \; Fx$.
+What these two previous examples have in common is this:
+
+*Example 3* (Universal Elimination): $\forall \; x \; \phi(x)\vdash \phi(a)$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
+
+For, suppose that $\mathcal{M}$ is a model where $\mathcal{M}\models \forall \; x \; \phi(x)$. Then by the universal clause in Tarski's definition of truth, we have $\mathcal{M}\models \phi(c)$ for all constant symbols $c$ in the signature, where $\phi(c)$ results from $\phi(x)$ by replacing all instances of $x$ by $c$. The signature of the model includes $a$ since this constant symbol features in the conclusion of the argument. Then $\mathcal{M}\models \phi(a)$.
+
+<br>
+
+*Example 4*: $Fa\vdash \exists \; x \; Fx$.
+
+For, suppose that $\mathcal{M}\models Fa$. Then by the existential clause in Tarski's definition of truth, we have that $\mathcal{M}\models \exists \; x \; Fx$.
+
+<br>
+
+*Example 5*: $Raa\vdash \exists \; x \; Rxa$.
+
+For, suppose that $\mathcal{M}\models Raa$. Then by the existential clause in Tarski's definition of truth, we have that $\mathcal{M}\models \exists \; x \; Rxa$, since $Raa$ results from $Rxa$ by replacing all instances of $x$ by $a$.
+
+<br>
+
+What these two previous examples have in common is this:
+
+*Example 6* (Existential Introduction): $\phi(a)\vdash \exists \; x \; \phi(x)$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
+
+For, suppose that $\mathcal{M}\models \phi(a)$. Then by the existential clause in Tarski's definition of truth, we have that $\mathcal{M}\models \exists \; x \; \phi(x)$.
+
+<br>
+
+It is clear that the converse these examples does not hold. We illustrate this with respect to the simplest ones:
+
+<br>
+
+*Example 7*: $Fa\nvdash \forall \; x \; Fx$.
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  Fa :|-: AxFx
@@ -70,7 +102,7 @@ Note that this model is a model $\mathcal{M}$ where $\mathcal{M}\models Fa$ and 
 
 <br>
 
-*Example 4*: $\exists \; x \; Fx \nvdash Fa$
+*Example 8*: $\exists \; x \; Fx \nvdash Fa$
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  ExFx :|-: Fa
@@ -81,15 +113,15 @@ Note that this model is a model $\mathcal{M}$ where $\mathcal{M}\models Fa$ and 
 
 <br>
 
-*Example 5*: $\forall \; x \; \forall \; y \; Rxy\vdash \forall \; x \; Rxx$.
+*Example 9*: $\forall \; x \; \forall \; y \; Rxy\vdash \forall \; x \; Rxx$.
 
-Suppose that $\mathcal{M}\models \; \forall \; x \; \forall \; y \; Rxy$. To show $\mathcal{M}\models \; \forall \; x \; Rxx$, suppose that $c$ is a constant symbol. We must show that $\mathcal{M}\models Rcc$. But by the premise and universal elimination, we have that $\mathcal{M}\models \; forall \; y \; Rxc$. Then by universal elimination again, we have that $\mathcal{M}\models Rcc$.
+Suppose that $\mathcal{M}\models \; \forall \; x \; \forall \; y \; Rxy$. To show $\mathcal{M}\models \; \forall \; x \; Rxx$, suppose that $c$ is a constant symbol. We must show that $\mathcal{M}\models Rcc$. But by the premise and universal elimination, we have that $\mathcal{M}\models \; \forall \; y \; Rxc$. Then by Universal Elimination again, we have that $\mathcal{M}\models Rcc$.
 
 <br>
 
-*Example 6*: $\exists \; y \; Ray$, $\forall \; y \; (Ray\rightarrow Rby)$ $\vdash$ $\exists \; y \; Rby$.
+*Example 10*: $\exists \; y \; Ray$, $\forall \; y \; (Ray\rightarrow Rby)$ $\vdash$ $\exists \; y \; Rby$.
 
-For, suppose that $\mathcal{M}\models \exists \; y \; Ray$ and $\mathcal{M}\models \forall \; y \; (Ray\rightarrow Rby)$. By the first premise and the clause of Tarski's definition of truth for existentials, choose constant $c$ such that $\mathcal{M}\models Rac$. By the second premise and the clause of Tarski's definition of truth for universals, one has $\mathcal{M}\models Rab\rightarrow Rbc$. Then by the clause of Tarski's definition of truth for the conditional, one has $\mathcal{M}\models Rbc$. By existential introduction, one has $\mathcal{M}\models \exists \; y \; Rby$.
+For, suppose that $\mathcal{M}\models \exists \; y \; Ray$ and $\mathcal{M}\models \forall \; y \; (Ray\rightarrow Rby)$. By the first premise and the clause of Tarski's definition of truth for existentials, choose constant $c$ such that $\mathcal{M}\models Rac$. By the second premise and Universal Elimianation, one has $\mathcal{M}\models Rab\rightarrow Rbc$. Then by the clause of Tarski's definition of truth for the conditional, one has $\mathcal{M}\models Rbc$. By existential introduction, one has $\mathcal{M}\models \exists \; y \; Rby$.
 
 
 <br>
@@ -113,7 +145,9 @@ Here is a list of named tautologies and equivalences, all of which pertain to th
 - *Law of distribution for disjunction*: $\phi\vee (\psi\wedge \xi)$ is equivalent to $(\phi\vee \psi)\wedge (\phi\vee \xi)$.
 - *DeMorgan*: $\neg (\phi\wedge \psi)$ is equivalent to $\neg \phi \vee \neg \psi$.
 - *DeMorgan*: $\neg (\phi\vee \psi)$ is equivalent to $\neg \phi \wedge \neg \psi$.
-- *Negated conditionals*: $\neg (\phi\rightarrow \psi)$ is equivalent to $\phi \wedge \neg \psi$.
+- *Negated conditionals and conjunctive statements*: $\neg (\phi\rightarrow \psi)$ is equivalent to $\phi \wedge \neg \psi$.
+- *Conditionals and disjunctive statements*: $\phi\rightarrow \psi$ is equivalent to $\neg \phi \vee  \psi$.
+- *Contraposition*: $\phi\rightarrow \psi$ if and only if $\neg \psi\rightarrow \neg \phi$.
 
 These can all be verified via truth-tables. For instance, the following table verifies that the law of the excluded middle is a tautology:
 
@@ -123,7 +157,7 @@ These can all be verified via truth-tables. For instance, the following table ve
 | FTTF
 ~~~
 
-To see that $\phi \vee \neg \phi$ is a tautology of propositional logic, suppose that there is a model $\mathcal{M}$. If $\mathcal{M}\models \phi$ then as in the first row of the truth-table we have $\mathcal{M}\models \phi \vee \neg \phi$. If $\mathcal{M}\models \neg \phi$ then as in the second row of the truth-table we have $\mathcal{M}\models \phi \vee \neg \phi$.
+To see that $\phi \vee \neg \phi$ is a tautology of *predicate* logic, suppose that there is a model $\mathcal{M}$. If $\mathcal{M}\models \phi$ then as in the first row of the truth-table we have $\mathcal{M}\models \phi \vee \neg \phi$. If $\mathcal{M}\models \neg \phi$ then as in the second row of the truth-table we have $\mathcal{M}\models \phi \vee \neg \phi$.
 
 The arguments for the other named tautologies and equivalences is similar: one does a truth-table for the propositional variants and then one simply follows the truth-table to verify the relevant claim about every model. This works because the propositional clauses in Tarski's definition of truth are the same as the rules enshrined in the truth-tables.
 
@@ -142,11 +176,13 @@ We also have the following version of DeMorgan for the quantifiers:
 - *DeMorgan*: $\neg \forall \;x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$.
 - *DeMorgan*: $\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$.
 
-These can be iterated as follows:
+A helpful way to remember these involves thinking about writing them out from left to right on the page. One imagines the negation sign moving from left to right across the quantifier and affixing to the symbol to the immediate right of the quantifier, whilst switching the universal quantifier to an existential quantifier and vice-versa. (To the extent that images can help one remember, maybe think about the negation sign moving so fast from left to right that it flips the quantifiers).
+
+These can be iterated as follows, where we slowly write out the applications of DeMorgan one-by-one:
 
 <br>
 
-*Example 7*:
+*Example 11*:
 
 $\neg \forall \;x \; \exists \; y \; Rxy$ is equivalent to $\exists \; x \; \forall \; y \; \neg Rxy$.
 
@@ -154,7 +190,7 @@ $\neg \forall \;x \; \exists \; y \; Rxy$ is equivalent to $\exists \; x \; \for
 
 <br>
 
-*Example 8*:
+*Example 12*:
 
 $\neg \exists \;x \; \forall \; y \; Rxy$ is equivalent to $\forall \; x \; \exists \; y \; \neg Rxy$.
 
@@ -163,7 +199,7 @@ $\neg \exists \;x \; \forall \; y \; Rxy$ is equivalent to $\forall \; x \; \exi
 
 <br>
 
-*Example 9*:
+*Example 13*:
 
 $\neg \forall \;x \; \exists \; y \; \forall \; z \; (Rxy\wedge Ryz)$ is equivalent to $\exists \; x \; \forall \; y \; \exists \; z \; (\neg Rxy\vee \neg Ryz)$.
 
@@ -172,7 +208,7 @@ $\neg \forall \;x \; \exists \; y \; \forall \; z \; (Rxy\wedge Ryz)$ is equival
 
 <br>
 
-*Example 10*:
+*Example 14*:
 
 $\neg \exists \;x \; \forall \; y \; \exists \; z \; (Rxy\wedge Ryz)$ is equivalent to $\forall \; x \; \exists \; y \; \forall \; z \; (\neg Rxy\vee \neg Ryz)$.
 
@@ -181,9 +217,29 @@ $\neg \exists \;x \; \forall \; y \; \exists \; z \; (Rxy\wedge Ryz)$ is equival
 
 <br>
 
+## Structural features of the consequence relation
+
+There are not many features of the consequence relation $\vdash$ that hold in general. We mention four of them:
+
+- *Condensing premises*: $\phi_1, \ldots, \phi\vdash \psi$ if and only if $\phi_1\wedge \cdots \wedge \phi_n\vdash \psi$. That is, premises validly imply their conclusion if and only if the conjunction of the premises validly  implies the conclusion.
+- *Transitivity*: if $\phi\vdash \psi$ and $\psi\vdash \xi$ then $\phi\vdash \xi$. That is, if first thing validly implies second thing and second thing validly implies third thing, then first thing validly implies third thing.
+- *Monotonicity*: if $\phi\vdash xi$ then $\phi, \psi\vdash \xi$. That is, one can always add assumptions to a valid  implication and maintain validity.
+- *Deduction Theorem*: $\phi_1, \ldots, \phi_n,\phi\vdash\psi$ if and only if $\phi_1, \ldots, \phi_n\vdash \phi\rightarrow \psi$. That is, one can move premises from the left-hand side to the right-hand side of the consequence relation so long as one puts them in the antecedent of a conditional.
+
+(In settings where one has formulas with free variables in it, the statement of the deduction theorem is complicated, since such formulas are not assessable for truth or falsity per se, but only once the value of their variables has been settled.)
+
+Here is a simple example where we deploy many of these properties in turn:
+
+1. $\phi\vdash \phi$, trivially since any model of $\phi$ is a model of $\phi$.
+2. $\phi,\psi\vdash \phi$, by Monotonicity.
+3. $\phi\wedge \psi\vdash \phi$, by Condensing premises.
+4. $\vdash (\phi\wedge \psi)\rightarrow \phi$, by the Deduction Theorem.
+
+<br>
+
 ## Validity of the Aristotelian syllogism
 
-Perhaps the easiest example of valid arguments of predicate logic are the Aristotelian syllogism. Here is [the first figure](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-aristotelian.pandoc#the-first-figure) together with their formalization into predciate logic [](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-wffs-and-translations.pandoc#translating-the-aristotelian-propositions).
+Let us now show that the Aristotelian syllogisms are valid. Let us focus on [the conversions and the first figure](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-aristotelian.pandoc#summary-of-conversions-and-first-figure) as formalized into predicate logic using the [formalization scheme from before](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-wffs-and-translations.pandoc#translating-the-aristotelian-propositions).
 
 <table style="width:120%">
   <tr>
@@ -192,27 +248,111 @@ Perhaps the easiest example of valid arguments of predicate logic are the Aristo
     <th>Formalization</th>
   </tr>
   <tr>
+    <td>First Conversion</td>
+    <td>Some F are G $\vdash$ Some G are F</td>
+    <td>$\exists \; x \; (Fx\wedge Gx)\vdash \exists \; x \; (Gx\wedge Fx)$</td>
+  </tr>
+    <td>Second Conversion</td>
+    <td>No F are G $\vdash$ No G are F</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx) \vdash \neg \exists \; x \; (Gx\wedge Fx)$</td>
+  <tr>
+    <td>Third Conversion</td>
+    <td>No F are G $\vdash$ All F are not G</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx) \vdash \forall \; x\; (Fx\rightarrow \neg Gx)$</td>
+  </tr>
+    <td>Fourth Conversion (with Existential Premise)</td>
+    <td>All F are G, There are some F $\vdash$ Some F are G</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx), \exists \; x \; Fx \vdash \exists \; x \; (Fx\wedge Gx)$</td>
+  <tr>
     <td>Barbara</td>
     <td>All F are G, All G are H $\vdash$ All F are H</td>
-    <td>$\forall \; x \; (Fx\rightarrow Gx)$, $\forall \; x \; (Gx\rightarrow Fx)$ $\vdash$ $\forall \; x \; (Fx\rightarrow Hx)$</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx), \forall \; x \; (Gx\rightarrow Hx) \vdash \forall \; x \; (Fx\rightarrow Hx)$</td>
   </tr>
   <tr>
     <td>Celarent</td>
     <td>No F are G, All H are F $\vdash$ No H are G</td>
-    <td>$\neg \exists \; x \; (Fx\wedge Gx)$, $\forall \; x \; (Fx\rightarrow Gx)$ $\vdash$ $\neg \exists \; x \; (Hx\wedge Gx)$</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx), \forall \; x \; (Hx\rightarrow Fx) \vdash \neg \exists \; x \; (Hx\wedge Gx)$</td>
   <tr>
     <td>Darii</td>
     <td>All F are G, Some H are F $\vdash$ Some H are G</td>
-    <td>$\forall \; x \; (Fx\rightarrow Gx)$, $\exists \; x \; (Hx \wedge Fx)$ $\vdash$ $\exists \; x \; Fx \wedge Gx$</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx), \exists \; x \; (Hx \wedge Fx) \vdash \exists \; x \; (Hx \wedge Gx)$</td>
   </tr>
   <tr>
     <td>Ferio</td>
     <td>No F are G, Some H are F $\vdash$ Some H are not G</td>
-    <td>$\neg \exists \; x \; (Fx\wedge Gx)$, $\exists \; x \; (Hx\wedge Fx)$ $\vdash$ $\exists \; x \; (Hx\wedge Gx)$</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx), \exists \; x \; (Hx\wedge Fx) \vdash \exists \; x \; (Hx\wedge \neg Gx)$</td>
   </tr>
 </table>
 
+<br>
+
+We have modified the Fourth Conversion so as to include the existential premise that there are some $F$'s. As mentioned in the discussion of [conversions and existential import](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-aristotelian.pandoc#conversions-and-existential-import), Aristotle seemed to presume this. One can quickly check that the argument without this existential premise is invalid simply by considering the situation in which there are no $F$'s:
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ Ax(Fx->Gx) :|-: Ex(Fx/\Gx)
+|Domain:0,1
+|F(_):
+|G(_):0
+```
+
+Some of these Aristotelian syllogisms can be shown to be valid using our earlier named tautologies and equivalences. For instance, the Third Conversion is actually an equivalence, as one can see as follows:
+
+<br>
+
+*Example 15*: $\neg \exists \; x \; (Fx\wedge Gx)$ is equivalent to $\forall \; x\; (Fx\rightarrow \neg Gx)$
+
+<video controls width="500" src="https://logic-teaching.github.io/pred/vid/aristotle-derive-third.mp4"/> </video>
+
+<br>
+
+For others of the Aristotelian syllogisms, we can give comparatively short arguments for them using Tarski's definition of truth:
+
+<br>
+
+*Example 16* (Darii): $\forall \; x \; (Fx\rightarrow Gx)$, $\exists \; x \; (Hx \wedge Fx)$ $\vdash$ $\exists \; x \; (Hx \wedge Gx)$
+
+Suppose that $\mathcal{M}$ is a model with $\mathcal{M}\models \forall \; x \; (Fx\rightarrow Gx)$ and $\mathcal{M}\models \exists \; x \; (Hx \wedge Fx)$. Then by the second premise and the existential clause in Tarski's definition of truth, there is a constant symbol $c$ such that $\mathcal{M}\models Hc\wedge Fc$. By the conjunctive clause in Tarski's definition of truth, we have $\mathcal{M}\models Hc$ and $\mathcal{M}\models Fc$. By the first premise and the universal clause in Tarski's definition of truth, we have $\mathcal{M}\models Fc\rightarrow Gc$. By the these last two conclusions combined and the conditional clause in Tarski's definition of truth, we have $\mathcal{M}\models Gc$. Then putting this together with our earlier conclusion that $\mathcal{M}\models Hc$, we have $\mathcal{M}\models Hc\wedge Gc$. Then by the existential clause in Tarski's definition of truth, we have $\mathcal{M}\models \exists \; x \; (Hx \wedge Gx)$.
+
+<br>
+
+The argument for Celerant is, by contrast, a little more challenging since we have to do a reductio proof.
+
+*Example 17* (Celarent): $\neg \exists \; x \; (Fx\wedge Gx)$, $\forall \; x \; (Hx\rightarrow Fx)$ $\vdash$ $\neg \exists \; x \; (Hx\wedge Gx)$
+
+Suppose that $\mathcal{M}$ is a model with $\mathcal{M}\models \neg \exists \; x \; (Fx\wedge Gx)$ and $\mathcal{M}\models \neg \exists \; x \; (Fx\wedge Gx)$. We want to show $\mathcal{M}\models \neg \exists \; x \; (Hx\wedge Gx)$. Hence, we assume that $\mathcal{M}\models \exists \; x \; (Hx\wedge Gx)$, and we try to deduce a contradiction-- this assumption is sometimes called the *reductio* hypothesis. By the reductio hypothesis and by the existential clause of Tarski's definition of truth, we have that $\mathcal{M}\models Hc\wedge Gc$ for some constant symbol $c$. By the conjunctive clause of Tarski's definition of truth, we have that $\mathcal{M}\models Hc$ and $\mathcal{M}\models Gc$. Then by the second premise and the universal clause of Tarski's definition of truth, we have that $\mathcal{M}\models Hc\rightarrow Fc$. By this and $\mathcal{M}\models Hc$ and the conditional clause of Tarski's definition of truth, one has that $\mathcal{M}\models Fc$. By this and the earlier conclusion that $\mathcal{M}\models Gc$ and the conjunctive clause of Tarski's definition of truth, we have that $\mathcal{M}\models Fc\wedge Gc$. Then by the existential clause of Tarski's definition of truth, we have that $\mathcal{M}\models \exists \; x \; (Fx\wedge Gx)$. But this contradicts the first premise of the argument.
 
 
 <br>
+
+## Universal Introduction and Existential Elimination
+
+Now we turn to two further conditional validities:
+
+*Example 18* (Universal Introduction): If $\phi_1, \ldots, \phi_n\vdash \phi(c)$ where $c$ does not appear in $\phi_1,\ldots, \phi_n$, then $\phi_1, \ldots, \phi_n\vdash \forall \; x \; \phi(x)$.
+
+Suppose that $\phi_1, \ldots, \phi_n\vdash \phi(c)$, where $c$ does not appear in $\phi_1,\ldots, \phi_n$. By the universal clause of Tarski's definition of truth, it suffices to show the claim that for all constant symbols $d$ not appearing in $\phi_1,\ldots, \phi_n$, we have that $\phi_1, \ldots, \phi_n\vdash \phi(d)$. For suppose that $\mathcal{N}$ is a model with $\mathcal{N}\models \phi_1$, . . ., $\mathcal{N}\models \phi_n$. Let $d$ be a constant symbol which picks out an element $d^{\mathcal{N}}$ in the underlying domain $N$ of $\mathcal{N}$. Consider the model $\mathcal{M}$ which is just like $\mathcal{N}$ except that $c^{\mathcal{M}}=d^{\mathcal{N}}$, that is, $\mathcal{M}$ interprets $c$ just like $\mathcal{N}$ interpreted $d$. Then since the two models agree on how they interpret $\phi_1, \ldots, \phi_n$, we have that $\mathcal{M}\models \phi(c)$. Since $\mathcal{M}$ interprets $c$ just like $\mathcal{N}$ interpreted $d$ and they agree on everything else, we have that $\mathcal{N}\models \phi(d)$. For instance, if $\phi(c)$ was $Fc$, then we would have $\mathcal{M}\models \phi(c)$ iff $\mathcal{M}\models Fc$ iff $c^{\mathcal{M}}\in F^{\mathcal{M}}$ iff $d^{\mathcal{N}}\in F^{\mathcal{N}}$, where the last biconditional follows from $\mathcal{M}$ interprets $c$ just like $\mathcal{N}$ interpreted $d$ and the two models agreeing on how they interpret the rest, including the unary relation symbol. Hence, we have succeeding in proving the claim.
+
+<br>
+
+Here is a simple application of Universal Introduction. An example of this inference would be: "if any two people are such that the first respects the second, then any two people are such that the second respects the first":
+
+*Example 19*: $\forall \; x \; \forall \; y \; Rxy\vdash \forall \; x\; \forall \; y \; Ryx$.
+
+For, by one application of universal elimination, we have $\forall \; x \; \forall \; y \; Rxy\vdash \forall \; y \; Rcy$, for some constant symbol $c$. Then by another application of universal elimination, we have that $\forall \; y \; Rcy\vdash Rcd$ for a distinct constant symbol $d$. Putting these two things together we have that $\forall \; x \; \forall \; y \; Rxy\vdash Rcd$. Then by universal introduction we have $\forall \; x \; \forall \; y \; Rxy\vdash \forall \; y \; Ryd$. Then by universal introduction again we have $\forall \; x \; \forall \; y \; Rxy\vdash \forall \; x \; \forall \; y \; Ryx$.
+
+<br>
+
+*Example 20* (Existential Elimination): If $\phi_1, \ldots, \phi_n\vdash \phi(c)\rightarrow \psi$, then $\phi_1, \ldots, \phi_n\vdash \exists \; x \; \phi(x)\rightarrow \psi$ for any constant $c$ not appearing in $\phi_1, \ldots, \phi_n, \psi$.
+
+Suppose that $\phi_1, \ldots, \phi_n\vdash \phi(c)\rightarrow \psi$. Then by contraposition, we have $\phi_1, \ldots, \phi_n\vdash \neg \psi\rightarrow \neg\phi(c)$. Then by Deduction Theorem, we have $\phi_1, \ldots, \phi_n, \neg \psi\vdash \neg\phi(c)$. Then by Universal Introduction $\phi_1, \ldots, \phi_n, \neg \psi\vdash \forall \; x \; \neg \phi(x)$. Then by Deduction Theorem we have $\phi_1, \ldots, \phi_n\vdash \neg \psi\rightarrow \forall \; x \; \neg \phi(x)$. But by contraposition, law of double-negation and DeMoragn, we have that this conclusion is equivalent to $\exists \; x \; \phi(x)\rightarrow \psi$.
+
+<br>
+
+Here's a simple application of Existential Elimination:
+
+*Example 21*: $\exists \; x \; Rxx\vdash \exists \; x \; \exists \; y \; Rxy$.
+
+First, we claim that it suffices to show $Rcc\vdash \exists \; x \; \exists \; y \; Rxy$. For, suppose we succeed in doing this. Then by the Deduction Theorem $\vdash Rcc\rightarrow \exists \; x \; \exists \; y \; Rxy$. Then by Existential Elimination, we have $\vdash \exists \; x \; Rxx\rightarrow \exiests \; x \; \exists \; y \; Rxy$. Then by Deduction Theorem again we have $\exists \;x \; Rxx\vdash \exists \; x \; \exists \; y \; Rxy$.
+
+To show $Rcc\vdash \exists \; x \; \exists \; y \; Rxy$ we just do two applications of Existential Introduction. First we do it to get $Rcc\vdash \exists \; y \; Rcy$. Second we do it to get $\exists \; y \; Rcy\vdash \exists \; x \; \exists \; y \; Rxy$.
 
