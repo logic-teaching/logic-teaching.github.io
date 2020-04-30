@@ -237,9 +237,9 @@ $\neg \exists \;x \; \forall \; y \; \exists \; z \; (Rxy\wedge Ryz)$ is equival
 
 There are not many features of the consequence relation $\vdash$ that hold in general. We mention four of them:
 
-- *Condensing premises*: $\phi_1, \ldots, \phi\vdash \psi$ if and only if $\phi_1\wedge \cdots \wedge \phi_n\vdash \psi$. That is, premises validly imply their conclusion if and only if the conjunction of the premises validly  implies the conclusion.
+- *Condensing premises*: $\phi_1, \ldots, \phi_n\vdash \psi$ if and only if $\phi_1\wedge \cdots \wedge \phi_n\vdash \psi$. That is, premises validly imply their conclusion if and only if the conjunction of the premises validly  implies the conclusion.
 - *Transitivity*: if $\phi\vdash \psi$ and $\psi\vdash \xi$ then $\phi\vdash \xi$. That is, if first thing validly implies second thing and second thing validly implies third thing, then first thing validly implies third thing.
-- *Monotonicity*: if $\phi\vdash xi$ then $\phi, \psi\vdash \xi$. That is, one can always add assumptions to a valid  implication and maintain validity.
+- *Monotonicity*: if $\phi\vdash \xi$ then $\phi, \psi\vdash \xi$. That is, one can always add assumptions to a valid  implication and maintain validity.
 - *Deduction Theorem*: $\phi_1, \ldots, \phi_n,\phi\vdash\psi$ if and only if $\phi_1, \ldots, \phi_n\vdash \phi\rightarrow \psi$. That is, one can move premises from the left-hand side to the right-hand side of the consequence relation so long as one puts them in the antecedent of a conditional.
 
 (In settings where one has formulas with free variables in it, the statement of the deduction theorem is complicated, since such formulas are not assessable for truth or falsity per se, but only once the value of their variables has been settled.)
