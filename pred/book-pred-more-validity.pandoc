@@ -22,7 +22,7 @@ We define logical consequence and look at examples of valid arguments, tautologi
 - [Consistency](#consistency)
 - [Tarski on logical consequence](#tarski-on-logical-consequence)
 - [Existential import again](#existential-import-again)
-- [Reflection and absolute generality](#reflection-and-absolute-generality)
+- [Consequence and all-inclusive domains](#consequence-and-all-inclusive-domains)
 - [Prenex normal form](#prenex-normal-form)
 
 <br>
@@ -176,7 +176,57 @@ Another way to see this as follows:
 
 This way of putting the argument makes it clear that the key premise is 2, namely that we want to organize predicate logic so that it is an extension of propositional logic. The cost of this is that we have to countenance the existence of at least one thing as a logical truth.
 
+<br>
 
+<p style="page-break-before: always">
+
+## Consequence and all-inclusive domains
+
+Presumably the reason why we are interested in validities and tautologies is something like the following. We are reasoning about some subject matter, e.g. chemistry or biology. With some effort, we learn some things about the world, call them $\phi_1, \ldots, \phi_n$. Now we want to learn more about the world merely by reasoning about the stuff we already know, rather than going and looking at the world again. With effort, we learn that the argument with $\phi_1, \ldots, \phi_n$ as a premise and $\phi$ as a conclusion is valid. We conclude on the basis of this that since $\phi_1, \ldots, \phi_n$ is true, it must also be the case that $\phi$ is true. This is useful since this conclusion follows without our going to have to check empirically with the world whether $\phi$ is true or not.
+
+Granting the usefulness of this conclusion, we should ask: is this conclusion warranted? It would seem to presuppose that the world of chemistry or biology was could be treated as a model. If it could be treated as a model $\mathcal{M}$, then of course the conclusion follows, for the simple reason that if $\phi_1, \ldots, \phi_n\vdash \phi$ and if $\mathcal{M}\models \phi_1, \ldots, \phi_n$ then $\mathcal{M}\models \phi$. That is just the definition of validity.
+
+But can the world always be treated like a model? Basically, it can in 99% of cases. For, while models are formally sets, there are a lot of sets and one can build very complicated sets very easily. This is , in some sense, the purpose of sets.
+
+There is, however, one case where this does not work out so cleanly. One might want to model not just the world of biology and the world of chemistry, but one might want to model the world writ large, inclusive of all world of biology, the world of chemistry, and the world of sets. And it turns out that there is no set which contains all sets. This is the famous Russell paradox:
+
+*Example 7*: There is no set $V$ which contains all sets.
+
+For, suppose that there was a set $V$ which contained all sets. Consider the set $y=\{x\in V: x\notin x\}$. Then there are two cases: $y\in y$ or $y\notin y$. If $y\in y$ then $y\in V$ and $y\notin y$, a contradiction. If $y\notin y$, then since $y$ is a set we have $y\in V$. That is to say, we have $y\in V$ and $y\notin y$, and so by the definition of $y$ we have $y\in y$, a contradiction.
+
+Hence, there is no all-inclusive domain which is itself a set. Hence, there is no model with an underlying domain which includes everything, i.e. there is no model whose underlying domain is the world writ large. This interacts with logical consequence due to the following consideration: if $\phi$ is a tautology then why should we believe that $\phi$ is true of the world writ large? We can no longer say that it is because tautologies are true on all models, since the world writ large is not a model in this sense.
+
+There are ways to start answering to this question, but they are not answers which we can easily state at this point in our study of logic.[^4]
+
+[^4]: See [Florio, Salvatore. 2014. “Unrestricted Quantification.” Philosophy Compass 9 (7): 441–54.](https://logic-teaching.github.io/pred/texts/Florio%202014%20-%20Unrestricted%20Quantification.pdf) Principles which license an inference from provability to truth are also sometimes called "reflection principles."
+
+<p style="page-break-before: always">
+
+## Prenex normal form
+
+We close by mentioning a helpful set of equivalences which allow us to write formulas in a way with the quantifiers all in the front. It uses DeMorgan, some propositional equivalences, and the following equivalences, wherein $x$ does not appear in $\phi$:
+
+1. $(\exists \; x \; \psi(x))\vee \phi$ is equivalent to $\exists \; x \; (\psi(x) \vee \phi)$.
+2. $(\forall \; x \; \psi(x))\vee \phi$ is equivalent to $\forall \; x \; (\psi(x) \vee \phi)$.
+3. $(\exists \; x \; \psi(x))\wedge \phi$ is equivalent to $\exists \; x \; (\psi(x) \wedge \phi)$.
+4. $(\forall \; x \; \psi(x))\wedge \phi$ is equivalent to $\forall \; x \; (\psi(x) \wedge \phi)$.
+
+By successively applying these, one can find an equivalent formula where all the quantifiers appear at the beginning. Forms where all the quantifiers occur at the beginning of the formula are called *prenex normal forms*.
+
+<br>
+
+*Example 8*: Put the formula $\forall \; x \; \exists \; y \; Rxy\rightarrow \forall \; u \; \exists \; v \; Ruv$ into prenex normal form.
+
+~~~{.Translate .FOL system="gamutND" submission="none" tests="PNF"}
+ AyExAuEv(~Rxy\/Ruv) : Put the formula in prenex normal form.
+|
+~~~
+
+Here is a video of how one gets to the prenex normal form using 1-4:
+
+<video controls width="500" src="https://logic-teaching.github.io/pred/vid/prenex-ex1.mp4"/> </video>
+
+The procedure for putting the formulas into prenex normal form presupposes that you do not have variables appearing immediately behind two different quantifiers. For instance, the above formula is logically equivalent to $\forall \; x \; \exists \; y \; Rxy\rightarrow \forall \; x \; \exists \; y \; Rxy$. But if we tried to apply 1-4 to put this into prenex normal form, then we would not suceed since the $x$ is showing up behind two different quantifiers, and so we would not fufill the precondition of the equivalences of 1-4, namely that they do not share variables.
 
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
