@@ -209,7 +209,7 @@ By successively applying these, one can find an equivalent formula where all the
 
 <br>
 
-*Example 10*: Put the formula $\forall \; x \; \exists \; y \; Rxy\rightarrow \forall \; u \; \exists \; v \; Ruv$ into prenex normal form.
+*Example 10*: Put the formula $\exists \; y \; \forall \; x \; Rxy\rightarrow \forall \; u \; \exists \; v \; Ruv$ into prenex normal form.
 
 ~~~{.Translate .FOL system="gamutND" submission="none" tests="PNF"}
  AyExAuEv(~Rxy\/Ruv) : Put the formula in prenex normal form.

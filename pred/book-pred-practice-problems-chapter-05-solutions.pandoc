@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Practice problems
+# Practice problems *with solutions*
 
 These are practice problems for Week 5.
 
@@ -25,6 +25,8 @@ These are practice problems for Week 5.
 - [Prenex normal form](#prenex-normal-form)
 
 <p style="page-break-before: always">
+
+This version has **the solutions** in it. They are just filled in. Keep in mind that there can, in most cases, be several correct solutions to a given problem.
 
 <br>
 
@@ -42,7 +44,7 @@ $\neg (p\vee \neg q)$.
 
 ~~~{.Translate .Prop system="gamutPND" tests="maxNeg:1 maxOr:0" submission="none"}
 4.01 ~p/\q :
-|
+|~p/\q
 ~~~
 
 <br>
@@ -53,7 +55,7 @@ $\neg (p\wedge (q\wedge r))$.
 
 ~~~{.Translate .Prop system="gamutPND" tests="maxAnd:0" submission="none"}
 4.02 ~p\/(~q\/~r) :
-|
+|~p\/(~q\/~r)
 ~~~
 
 <br>
@@ -64,7 +66,7 @@ $p\rightarrow (q\rightarrow r)$.
 
 ~~~{.Translate .Prop system="gamutPND" tests="maxIf:0" submission="none"}
 4.03 ~p\/(~q\/r) :
-|
+|~p\/(~q\/r)
 ~~~
 
 <br>
@@ -75,7 +77,7 @@ $(p\rightarrow q)\rightarrow r$.
 
 ~~~{.Translate .Prop system="gamutPND" tests="maxIf:0 maxOr:1" submission="none"}
 4.04 (~p/\~q)\/r :
-|
+|(~p/\~q)\/r
 ~~~
 
 <br>
@@ -86,7 +88,7 @@ $\neg (p\rightarrow q)\rightarrow \neg (q\rightarrow p)$.
 
 ~~~{.Translate .Prop system="gamutPND" tests="maxIf:0 maxAnd:1 maxOr:2" submission="none"}
 4.05 (~p\/q)\/(q/\~p) :
-|
+|(~p\/q)\/(q/\~p)
 ~~~
 
 
@@ -108,7 +110,7 @@ $\neg \forall \; x \; \exists \; y \; Rxy$.
 
 ~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
 4.06 ExAy~Rxy :
-|
+|ExAy~Rxy
 ~~~
 
 <br>
@@ -119,7 +121,7 @@ $\neg \forall \; x \; \exists \; y \; \neg Rxy$
 
 ~~~{.Translate .FOL system="gamutND" tests="maxNeg:0" submission="none"}
 4.07 ExAyRxy :
-|
+|ExAyRxy
 ~~~
 
 <br>
@@ -130,7 +132,7 @@ $\neg \forall \; x \; \neg \exists \; y \; Rxy$
 
 ~~~{.Translate .FOL system="gamutND" tests="maxNeg:0 PNF" submission="none"}
 4.08 ExEyRxy :
-|
+|ExEyRxy
 ~~~
 
 <br>
@@ -141,7 +143,7 @@ $\neg \forall \; x \; \exists \; y \; \forall \; z \; (Rxy\wedge Ryz)$
 
 ~~~{.Translate .FOL system="gamutND" tests="maxAnd:0 PNF" submission="none"}
 4.09 ExAyEz(~Rxy\/~Ryz) :
-|
+|ExAyEz(~Rxy\/~Ryz)
 ~~~
 
 <br>
@@ -153,7 +155,7 @@ $\forall \; x \; \exists \; y \; \forall \; z \; (Rxy\wedge Ryz) \rightarrow \ne
 
 ~~~{.Translate .FOL system="gamutND" tests="maxAnd:0 maxIf:0" submission="none"}
 4.10 ExAyEz(~Rxy\/~Ryz)\/ExEy(~Rxy\/~Rxx) :
-|
+|ExAyEz(~Rxy\/~Ryz)\/ExEy(~Rxy\/~Rxx)
 ~~~
 
 <br>
@@ -172,7 +174,7 @@ $\neg \exists \; x \; (Fx\wedge \neg Gx)$
 
 ~~~{.Translate .FOL system="gamutND" tests="maxAnd:0 maxNeg:0" submission="none"}
 4.11 Ax(Fx->Gx) :
-|
+|Ax(Fx->Gx)
 ~~~
 
 <br>
@@ -183,7 +185,7 @@ $\neg \forall \; x \; (\neg Fx\vee \neg Gx)$
 
 ~~~{.Translate .FOL system="gamutND" tests="maxNeg:0" submission="none"}
 4.12 Ex(Fx/\Gx) :
-|
+|Ex(Fx/\Gx)
 ~~~
 
 <br>
@@ -194,7 +196,7 @@ $\exists \; x \; (Hx \wedge \neg Gx)$
 
 ~~~{.Translate .FOL system="gamutND" tests="maxAnd:0 maxOr:0" submission="none"}
 4.13 ~Ax(Hx->Gx) :
-|
+|~Ax(Hx->Gx)
 ~~~
 
 <br>
@@ -205,7 +207,7 @@ $\neg \exists \; x \; (Hx \rightarrow \neg Gx)$
 
 ~~~{.Translate .FOL system="gamutND" tests="maxNeg:0" submission="none"}
 4.14 Ax(Hx/\Gx) :
-|
+|Ax(Hx/\Gx)
 ~~~
 
 <br>
@@ -216,7 +218,7 @@ $\neg \forall \; x \; (Gx \rightarrow \neg Hx)$
 
 ~~~{.Translate .FOL system="gamutND" tests="maxNeg:0" submission="none"}
 4.15 Ex(Gx/\Hx) :
-|
+|Ex(Gx/\Hx)
 ~~~
 
 <br>
@@ -237,7 +239,7 @@ $\forall \; x \; \exists \; y \; Rxy \vee \exists \; z \; Fz$
 
 ~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
 4.16 AxEyEz(Rxy\/Fz) :
-|
+|AxEyEz(Rxy\/Fz)
 ~~~
 
 <br>
@@ -248,7 +250,7 @@ $\forall \; x \; \exists \; y \; \neg Rxy \wedge \forall \; z \; Fz$
 
 ~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
 4.17 AxEyAz(~Rxy/\Fz) :
-|
+|AxEyAz(~Rxy/\Fz)
 ~~~
 
 <br>
@@ -259,7 +261,7 @@ $\forall \; x \; \exists \; y \; Rxy \rightarrow \forall \; u \; \exists \; v \;
 
 ~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
 4.18 ExAyAuEv(~Rxy\/Rvu) :
-|
+|ExAyAuEv(~Rxy\/Rvu)
 ~~~
 
 <br>
@@ -270,7 +272,7 @@ $\neg \forall \; x \; \exists \; y \; Rxy \rightarrow \neg \forall \; u \; \exis
 
 ~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
 4.19 AxEyEuAv(Rxy\/~Rvu) :
-|
+|AxEyEuAv(Rxy\/~Rvu)
 ~~~
 
 <br>
@@ -281,7 +283,7 @@ $(\neg \forall \; x \; \exists \; y \; Rxy \rightarrow \neg \forall \; u \; \exi
 
 ~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
 4.20 EzExAyAuEv((~Rxy/\Rvu)\/Fz) :
-|
+|EzExAyAuEv((~Rxy/\Rvu)\/Fz)
 ~~~
 
 
