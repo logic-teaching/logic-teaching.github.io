@@ -151,7 +151,11 @@ For, if there is just one element, and there are $x,y$ with $Rxy$, then since th
 
 ## Existential import again
 
-We 
+It is worth dwelling on other slightly unintuitive features of logical consequence. There are a couple related to existential import. First, note that when there are no $F$'s, we trivially have that all formulas of the form "All F's are G's" holds:
+
+*Example 6*: $\neg \exists \; x \; Fx\vdash \forall \; x \; (Fx\rightarrow Gx)$.
+
+To see this, suppose that $\mathcal{M}\models \neg \exists \; x \; Fx$. We want to show that $\mathcal{M}\models \forall \; x \; (Fx\rightarrow Gx)$. For reductio, suppose not. Then $\mathcal{M}\models \neg \forall \; x \; (Fx\rightarrow Gx)$. By DeMorgan and the relation between negated conditionals and conjunction, we have that $\mathcal{M}\models \exists \; x \; (Fx\wedge \neg Gx)$. Then there is 
 
 
 
