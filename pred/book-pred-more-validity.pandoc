@@ -151,11 +151,31 @@ For, if there is just one element, and there are $x,y$ with $Rxy$, then since th
 
 ## Existential import again
 
-It is worth dwelling on other slightly unintuitive features of logical consequence. There are a couple related to existential import. First, note that when there are no $F$'s, we trivially have that all formulas of the form "All F's are G's" holds:
+It is worth dwelling on other slightly unintuitive features of logical consequence. There are a couple features related to existential import. First, note that when there are no $F$'s, we trivially have that all formulas of the form "All F's are G's" holds:
+
+<br>
 
 *Example 6*: $\neg \exists \; x \; Fx\vdash \forall \; x \; (Fx\rightarrow Gx)$.
 
-To see this, suppose that $\mathcal{M}\models \neg \exists \; x \; Fx$. We want to show that $\mathcal{M}\models \forall \; x \; (Fx\rightarrow Gx)$. For reductio, suppose not. Then $\mathcal{M}\models \neg \forall \; x \; (Fx\rightarrow Gx)$. By DeMorgan and the relation between negated conditionals and conjunction, we have that $\mathcal{M}\models \exists \; x \; (Fx\wedge \neg Gx)$. Then there is 
+To see this, suppose that $\mathcal{M}\models \neg \exists \; x \; Fx$. We want to show that $\mathcal{M}\models \forall \; x \; (Fx\rightarrow Gx)$. For reductio, suppose not. Then $\mathcal{M}\models \neg \forall \; x \; (Fx\rightarrow Gx)$. By DeMorgan and the relation between negated conditionals and conjunction, we have that $\mathcal{M}\models \exists \; x \; (Fx\wedge \neg Gx)$. Then the existential clause of Tarski's definition of truth, we have $\mathcal{M}\models Fa\wedge \neg Ga$ for some constant symbol $a$. Then by the conjunctive clause, we have $\mathcal{M}\models Fa$ and $\mathcal{M}\models \neg Ga$. But since $\mathcal{M}\models Fa$, by the existential clause we have $\mathcal{M}\models \exists \;x \; Fx$, which contradicts our initial hypothesis.
+
+<br>
+
+The other potentially unintuitive feature of logical consequence is that it is logical truth that there exists at least one thing:
+
+*Example 7*: $\vdash \exists \; x\; (Fx\vee \neg Fx)$.
+
+One way to see this is just to take a model $\mathcal{M}$. By the definition of a model, its underlying domain $M$ is non-empty, and so contains at least one element. Choose a constant symbol $c$ such that $c^{\mathcal{M}}$ names this element. Then $\mathcal{M}\models Fc\vee \neg Fc$. Then by the existential clause of Tarski's definition of truth $\mathcal{M}\models \exists \; x \; (Fx\vee \neg Fx)$.
+
+Another way to see this as follows:
+
+1. The law of the excluded middle $p\vee \neg p$ is a tautology of propositional logic.
+2. Any substitution instance of a tautology of propositional logic is a tautology of predicate logic.
+3. Therefore, $Fc\vee \neg Fc$ is a tautology of predicate logic.
+4. By existential introduction, we have $Fc\vee \neg Fc \vdash \exists \; x\; (Fx\vee \neg Fx)$.
+
+This way of putting the argument makes it clear that the key premise is 2, namely that we want to organize predicate logic so that it is an extension of propositional logic. The cost of this is that we have to countenance the existence of at least one thing as a logical truth.
+
 
 
 
