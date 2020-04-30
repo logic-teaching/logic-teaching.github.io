@@ -20,7 +20,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 We define logical consequence and look at examples of valid arguments, tautologies, and equivalences.
 
 - [Consistency](#consistency)
-- [Extra-logicality](#extra-logicality)
+- [Tarski on logical consequence](#tarski-on-logical-consequence)
 - [Existential import again](#existential-import-again)
 - [Reflection and absolute generality](#reflection-and-absolute-generality)
 - [Prenex normal form](#prenex-normal-form)
@@ -58,6 +58,16 @@ This Euler diagram can then be easily converted into a number-theoretic model in
 |F(_):0
 |G(_):1
 ```
+
+## Tarski on logical consequence
+
+We can use this notion of semantic consistency to relate one traditional criticism of Tarski's views on logical consequence. Tarski thought that the formal notion $\phi_1, \ldots, \phi_n\vdash \phi$ was a successful conceptual analysis of the intuitive notion of the conclusion following from the premises:[^1]
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Tarski%201956%20-%20On%20the%20Concept%20of%20Logical%20Consequence%20p.%20417.png" alt="Tarski on logical consequence" width="500"/>
+
+[^1]: From p. 417 of: [Tarski, Alfred. 1956. “On the Concept of Logical Consequence.” In Logic, Semantics, Metamathematics: Papers from 1923 to 1938, edited by J. H. Woodger, 409–20. Oxford: Clarendon Press.](https://logic-teaching.github.io/pred/texts/Tarski%201956%20-%20On%20the%20Concept%20of%20Logical%20Consequence.pdf)
+
+One traditional criticism of this view pertains to arguments which are invalid only due to their being sufficiently large sets. 
 
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
