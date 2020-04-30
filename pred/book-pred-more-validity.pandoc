@@ -48,7 +48,9 @@ This is simple principle just follows directly from definition: to say that $\ph
 
 To show this, one simply finds a model $\mathcal{M}\models \forall \; x \; (Fx\vee Gx)$ and yet $\mathcal{M}\models \neg (\forall \; x \; Fx\vee \forall \; x \; Gx)$. By DeMorgan, the latter is the same as $\mathcal{M}\models \exists \; x\; \neg Fx \wedge \exists \; x \; \neg Gx$. Hence, one just thinks of an Euler diagram where the F-shape and the G-shape together cover all the points and yet neither the F-shape itself nor the G-shape itself covers all the points, like so:
 
-INSERT
+<video controls width="500" src="https://logic-teaching.github.io/pred/vid/more-valid-ex1.mp4"/> </video>
+
+<br>
 
 This Euler diagram can then be easily converted into a number-theoretic model in any number of ways, e.g.:
 
@@ -58,6 +60,10 @@ This Euler diagram can then be easily converted into a number-theoretic model in
 |F(_):0
 |G(_):1
 ```
+
+<p style="page-break-before: always">
+
+## Consistency
 
 ## Tarski on logical consequence
 
@@ -115,19 +121,20 @@ And again, it was necessary that we have three elements in this domain:
 
 *Example 5*: For all models $\mathcal{M}$ of anti-reflexivity and transitivity with fewer than three elements, one has that $\mathcal{M}\models \forall \; x \; \forall \; y\; \forall \; z \; ~Rxy\vee ~Ryz$.
 
-For, if there were fewer than three elements, and there are $x,y,z$ with $Rxy\wedge Ryz$, then at least two of those three will be the same. If $x$ and $y$ are the same, then we violate anti-reflexivity, and simialrly if $y$ and $z$ are the same. If $x,z$ are the same, then by transitivity and $Rxy\wedge Ryz$ we have $Rxz$, and we again violate anti-reflexivity.
+For, if there were fewer than three elements, and there are $x,y,z$ with $Rxy\wedge Ryz$, then at least two of those three will be the same. If $x$ and $y$ are the same, then we violate anti-reflexivity, and similarly if $y$ and $z$ are the same. If $x,z$ are the same, then by transitivity and $Rxy\wedge Ryz$ we have $Rxz$, and we again violate anti-reflexivity.
 
 In general, one has the following:
 
-For any $n\geq 2$, there is a formula $\phi_n$ such that the argument with premises anti-reflexivity and transitivity and conclusion $\phi_n$ is not valid, and yet for any model $\mathcal{M}$ of anti-reflexivity and transitivity with fewer than $n$-elements one has that $\mathcal{M}\models \phi_n$.
+- For any $n\geq 2$, there is a formula $\phi_n$ such that the argument with premises anti-reflexivity and transitivity and conclusion $\phi_n$ is not valid, and yet for any model $\mathcal{M}$ of anti-reflexivity and transitivity with fewer than $n$-elements one has that $\mathcal{M}\models \phi_n$.
 
 The formula $\phi_n$ just says that there are $x_1, \ldots, x_n$ such that $Rx_1x_2\wedge \cdots Rx_{n-1}x_n$.
 
 <br>
 
-These kinds of examples were the basis of Etchemendy's criticism of Tarski's claims that logical consequence explicated well the intuitive notion of logical consequence. For, examples like these suggest that Tarski's assessment of the validity of arguments is "dependent on a nonlogical feature of the world, the size of the universe."[^3]
+These kinds of examples were the basis of Etchemendy's criticism of Tarski's claims that logical consequence explicated well the intuitive notion of logical consequence. For, examples like these suggest that Tarski's assessment of the validity of arguments is "dependent on a nonlogical feature of the world, the size of the universe."[^3] The idea is that clearly it is a non-logical and empirical fact about how many elements in the world there are: it is, for instance, it is an empirical fact that there are fewer than 50 billion people on the planet. And whether or not an argument is valid in a logical sense should not depend on empirical facts. And yet, as we have seen, there is such a dependence, and we have found an argument that is not valid but would be valid if there were only finitely many objects out of which we could build our models.
 
 [^3]: p. 115 of: [Etchemendy, John. 1999. “Substantive Generalizations.” In The Concept of Logical Consequence, 107–24. Cambridge University Press.](https://logic-teaching.github.io/pred/texts/Etchemendy%201999%20-%20Substantive%20Generalizations.pdf)
+
 
 
 <br>
