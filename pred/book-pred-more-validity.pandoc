@@ -79,9 +79,9 @@ One traditional criticism of this view pertains to arguments that are invalid on
 
 *Example 2*: $\forall \; x \; \neg Rxx, \forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)\nvdash \forall \; x \; \forall \; y\; \neg Rxy$
 
-Recall that the second premise is transitivity. The first premise is sometimes called *anti-reflexivity* since it is like the complete contrary of reflexivity. To see that anti-reflexivity and transitivity do not imply this conclusion, we need to find a model of these principles together with $\neg \forall \; x \; \forall \; y\; \neg Rxy$. But by DeMorgan, that is the same as $\exists \;x  \; \exists \; y \; Rxy$. But a simple number model can be found on which $Rxy$ iff $x<y$, as illustrated below:
+Recall that the second premise is transitivity. The first premise is sometimes called *anti-reflexivity* since it is like the complete contrary of reflexivity. To see that anti-reflexivity and transitivity do not imply this conclusion, we need to find a model of these principles together with $\neg \forall \; x \; \forall \; y\; \neg Rxy$. But by DeMorgan, that is the same as $\exists \;x  \; \exists \; y \; Rxy$. But a simple arrow model can be found, as illustrated below:
 
-INSERT
+ <img src="https://logic-teaching.github.io/pred/texts/simple-number-model-2.png" alt="Simple arrow model 1" width="250"/>
 
 And using this diagram we can quickly formalize the arguments invalidity as follows:
 
@@ -105,9 +105,9 @@ We can iterate this as follows:
 
 *Example 4*: $\forall \; x \; \neg Rxx, \forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)\nvdash \forall \; x \; \forall \; y\; \forall \; z \; ~Rxy\vee ~Ryz$
 
-By DeMorgan, $\neg \forall \; x \; \forall \; y\; ~Rxy\/~Ryz$ is equivalent to $\exists \;x  \; \exists \; y \; \exists \; z \; Rxy\wedge Ryz$. But a simple number model can be found on which $Rxy$ iff $x<y$, as illustrated below:
+By DeMorgan, $\neg \forall \; x \; \forall \; y\; ~Rxy\/~Ryz$ is equivalent to $\exists \;x  \; \exists \; y \; \exists \; z \; Rxy\wedge Ryz$. But again a simple arrow model can be found:
 
-INSERT
+ <img src="https://logic-teaching.github.io/pred/texts/simple-number-model-2.png" alt="Simple arrow model 2" width="250"/>
 
 And using this diagram we can quickly formalize the arguments invalidity as follows:
 
@@ -145,6 +145,13 @@ Note however, that the invalidity of this argument could not be established with
 
 For, if there is just one element, and there are $x,y$ with $Rxy$, then since there is just one element these two objects have to be the same, and so $Rxx$, contrary to anti-relfexivity.
 
+<br>
+
+<p style="page-break-before: always">
+
+## Existential import again
+
+We 
 
 
 
