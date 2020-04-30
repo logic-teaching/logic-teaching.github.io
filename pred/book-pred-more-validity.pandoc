@@ -1,0 +1,67 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# More on consequence
+
+We define logical consequence and look at examples of valid arguments, tautologies, and equivalences.
+
+- [Consistency](#consistency)
+- [Extra-logicality](#extra-logicality)
+- [Existential import again](#existential-import-again)
+- [Reflection and absolute generality](#reflection-and-absolute-generality)
+- [Prenex normal form](#prenex-normal-form)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Consistency
+
+There are two important notions of consistency which apply to a collection of premises $\phi_1, \ldots, \phi_n$:
+
+- The premises $\phi_1, \ldots, \phi_n$ is *semantically consistent* if there is a model $\mathcal{M}\models \phi_1, \ldots, \phi_n$.
+- The premises $\phi_1, \ldots, \phi_n$ is *deductively consistent* if there is no derivation of a contradiction from $\phi_1, \ldots, \phi_n$.
+
+We will look at the notion of deductive consistency later, and as we will see later it turns out that these two notions are equivalent. For the moment, we focus on the relation between semantic consistency and consequence, which is enshrined in the following:
+
+- $\phi_1, \ldots, \phi_n\nvdash \phi$ if and only if $\phi_1, \ldots, \phi_n, \neg \phi$ is semantically consistent.
+
+This is simple principle just follows directly from definition: to say that $\phi_1, \ldots, \phi_n\nvdash \phi$ is just to say that there is at least one model $\mathcal{M}$ such that $\mathcal{M}\models \phi_1, \ldots, \mathcal{M}\models \phi_n$ and yet $\mathcal{M}\nvDash \phi$. And this happens if and only if $\mathcal{M}\models \phi_1, \ldots, \mathcal{M}\models \phi_n, \mathcal{M}\models \neg phi$. More intuitively still, the principle is saying that there the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ is invalid if there is a model of the premises $\phi_1, \ldots, \phi_n$ and the negation $\neg \phi$ of the conclusion of the argument. This corresponds to a basic but elementary feature of our practice in evaluating arguments: we often point out that the conclusion does not necessarily follow from the premises by pointing to a situation where the premises are all true but the conclusion is false. Here is a simple example, which can help us practice DeMorgan:
+
+<br>
+
+*Example 1*: $\forall \; x \; (Fx\vee Gx)\nvdash \forall \; x \; Fx\vee \forall \; x \; Gx$.
+
+To show this, one simply finds a model $\mathcal{M}\models \forall \; x \; (Fx\vee Gx)$ and yet $\mathcal{M}\models \neg (\forall \; x \; Fx\vee \forall \; x \; Gx)$. By DeMorgan, the latter is the same as $\mathcal{M}\models \exists \; x\; \neg Fx \wedge \exists \; x \; \neg Gx$. Hence, one just thinks of an Euler diagram where the F-shape and the G-shape together cover all the points and yet neither the F-shape itself nor the G-shape itself covers all the points, like so:
+
+INSERT
+
+This Euler diagram can then be easily converted into a number-theoretic model in any number of ways, e.g.:
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ Ax(Fx\/Gx) :|-: AxFx\/AxGx
+|Domain:0,1
+|F(_):0
+|G(_):1
+```
+
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+
+[^3]: which is:
+
+<br>
