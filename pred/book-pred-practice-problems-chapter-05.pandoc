@@ -1,0 +1,92 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Practice problems
+
+These are practice problems for Week 5.
+
+-
+<p style="page-break-before: always">
+
+<br>
+
+## Title
+
+*Example 1*. Use DeMorgan to find an equivalent of $\neg \forall \; x \; \exists \; y \; Rxy$.
+
+~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
+4.01 ExAy~Rxy : Use DeMorgan to find an equivalent of the formula.
+|
+~~~
+
+<br>
+
+*Example 2*. Use DeMorgan and propositional equivalences to find an equivalent of $\neg \forall \; x \; \exists \; y \; \neg Rxy$ which contains no negations.
+
+~~~{.Translate .FOL system="gamutND" tests="maxNeg:0"}
+4.02 ExAyRxy : Use DeMorgan and double-negation to find an equivalent of the formula.
+|
+~~~
+
+<br>
+
+*Example 3*. Use DeMorgan and propositional equivalences to find an equivalent of $\neg \forall \; x \; \neg \exists \; y \; Rxy$ which contains no negations.
+
+~~~{.Translate .FOL system="gamutND" tests="maxNeg:0 PNF"}
+4.03 ExEyRxy : Use DeMorgan to find an equivalent of the formula.
+|
+~~~
+
+<br>
+
+*Example 4*. Use DeMorgan and propositional equivalences to find an equivalent of $\neg \forall \; x \; \exists \; y \; \forall \; y \; (Rxy\wedge Ryz)$ which contains no conjunctions.
+
+~~~{.Translate .FOL system="gamutND" tests="maxAnd:0 PNF"}
+4.04 ExAyEz(~Rxy\/~Ryz) : Use DeMorgan to find an equivalent of the formula.
+|
+~~~
+
+<br>
+
+
+*Example 5*. Use DeMorgan and propositional equivalences to find an equivalent of $\forall \; x \; \exists \; y \; \forall \; y \; (Rxy\wedge Ryz) \rightarrow \neg \forall \; x \; \forall \; y \; (Rxy\wedge Rxx)$ which contains no conjunctions and no conditionals.
+
+~~~{.Translate .FOL system="gamutND" tests="maxAnd:0 maxIf:0"}
+4.05 ExAyEz(~Rxy\/~Ryz)\/ExEy(~Rxy\/~Rxx) : Use DeMorgan to find an equivalent of the formula.
+|
+~~~
+
+<br>
+
+
+<br>
+
+
+*Example 20*
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+04.20 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), AyAz(AxRxy\/Ax~Rxz)
+```
+
+
+
+
+These are practice problems written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>
