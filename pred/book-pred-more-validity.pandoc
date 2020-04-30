@@ -67,7 +67,78 @@ We can use this notion of semantic consistency to relate one traditional critici
 
 [^1]: From p. 417 of: [Tarski, Alfred. 1956. “On the Concept of Logical Consequence.” In Logic, Semantics, Metamathematics: Papers from 1923 to 1938, edited by J. H. Woodger, 409–20. Oxford: Clarendon Press.](https://logic-teaching.github.io/pred/texts/Tarski%201956%20-%20On%20the%20Concept%20of%20Logical%20Consequence.pdf)
 
-One traditional criticism of this view pertains to arguments which are invalid only due to their being sufficiently large sets. 
+One traditional criticism of this view pertains to arguments that are invalid only due to their being sufficiently large sets.
+
+<br>
+
+*Example 2*: $\forall \; x \; \neg Rxx, \forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)\nvdash \forall \; x \; \forall \; y\; \neg Rxy$
+
+Recall that the second premise is transitivity. The first premise is sometimes called *anti-reflexivity* since it is like the complete contrary of reflexivity. To see that anti-reflexivity and transitivity do not imply this conclusion, we need to find a model of these principles together with $\neg \forall \; x \; \forall \; y\; \neg Rxy$. But by DeMorgan, that is the same as $\exists \;x  \; \exists \; y \; Rxy$. But a simple number model can be found on which $Rxy$ iff $x<y$, as illustrated below:
+
+INSERT
+
+And using this diagram we can quickly formalize the arguments invalidity as follows:
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAy~Rxy
+|Domain:0,1
+|R(_,_):[0,1]
+```
+
+<br>
+
+Note however, that the invalidity of this argument could not be established with just an element with one model:
+
+*Example 3*: For all models $\mathcal{M}$ of anti-reflexivity and transitivity with fewer than two elements, one has that $\mathcal{M}\models \forall \; x \; \forall \; y\; \neg Rxy$.
+
+For, if there are fewer than two elements, and there are $x,y$ with $Rxy$, then since there is just one element these two objects have to be the same, and so $Rxx$, contrary to anti-reflexivity.
+
+<br>
+
+We can iterate this as follows:
+
+*Example 4*: $\forall \; x \; \neg Rxx, \forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)\nvdash \forall \; x \; \forall \; y\; \forall \; z \; ~Rxy\vee ~Ryz$
+
+By DeMorgan, $\neg \forall \; x \; \forall \; y\; ~Rxy\/~Ryz$ is equivalent to $\exists \;x  \; \exists \; y \; \exists \; z \; Rxy\wedge Ryz$. But a simple number model can be found on which $Rxy$ iff $x<y$, as illustrated below:
+
+INSERT
+
+And using this diagram we can quickly formalize the arguments invalidity as follows:
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAyAz~Rxy\/~Ryz
+|Domain:0,1,2
+|R(_,_):[0,1],[1,2],[0,2]
+```
+
+And again, it was necessary that we have three elements in this domain:
+
+*Example 5*: For all models $\mathcal{M}$ of anti-reflexivity and transitivity with fewer than three elements, one has that $\mathcal{M}\models \forall \; x \; \forall \; y\; \forall \; z \; ~Rxy\vee ~Ryz$.
+
+For, if there were fewer than three elements, and there are $x,y,z$ with $Rxy\wedge Ryz$, then at least two of those three will be the same. If $x$ and $y$ are the same, then we violate anti-reflexivity, and simialrly if $y$ and $z$ are the same. If $x,z$ are the same, then by transitivity and $Rxy\wedge Ryz$ we have $Rxz$, and we again violate anti-reflexivity.
+
+In general, one has the following:
+
+For any $n\geq 2$, there is a formula $\phi_n$ such that the argument with premises anti-reflexivity and transitivity and conclusion $\phi_n$ is not valid, and yet for any model $\mathcal{M}$ of anti-reflexivity and transitivity with fewer than $n$-elements one has that $\mathcal{M}\models \phi_n$.
+
+The formula $\phi_n$ just says that there are $x_1, \ldots, x_n$ such that $Rx_1x_2\wedge \cdots Rx_{n-1}x_n$.
+
+<br>
+
+These kinds of examples were the basis of Etchemendy's criticism of Tarski's claims that logical consequence explicated well the intuitive notion of logical consequence. For, examples like these suggest that Tarski's assessment of the validity of arguments is "dependent on a nonlogical feature of the world, the size of the universe."[^3]
+
+[^3]: p. 115 of: [Etchemendy, John. 1999. “Substantive Generalizations.” In The Concept of Logical Consequence, 107–24. Cambridge University Press.](https://logic-teaching.github.io/pred/texts/Etchemendy%201999%20-%20Substantive%20Generalizations.pdf)
+
+
+<br>
+
+Note however, that the invalidity of this argument could not be established with just an element with one model:
+
+*Example 3*: For all models $\mathcal{M}$ of anti-reflexivity and transitivity with just one element, one has that $\mathcal{M}\models \forall \; x \; \forall \; y\; \neg Rxy$.
+
+For, if there is just one element, and there are $x,y$ with $Rxy$, then since there is just one element these two objects have to be the same, and so $Rxx$, contrary to anti-relfexivity.
+
+
 
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
