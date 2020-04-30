@@ -22,7 +22,7 @@ We define logical consequence and look at examples of valid arguments, tautologi
 - [Consistency](#consistency)
 - [Tarski on logical consequence](#tarski-on-logical-consequence)
 - [Existential import again](#existential-import-again)
-- [Consequence and all-inclusive domains](#consequence-and-all-inclusive-domains)
+- [All-inclusive domains](#all-inclusive-domains)
 - [Prenex normal form](#prenex-normal-form)
 
 <br>
@@ -31,16 +31,18 @@ We define logical consequence and look at examples of valid arguments, tautologi
 
 ## Consistency
 
-There are two important notions of consistency which apply to a collection of premises $\phi_1, \ldots, \phi_n$:
+There are two important notions of consistency which apply to a collection of premises:
 
-- The premises $\phi_1, \ldots, \phi_n$ is *semantically consistent* if there is a model $\mathcal{M}\models \phi_1, \ldots, \phi_n$.
-- The premises $\phi_1, \ldots, \phi_n$ is *deductively consistent* if there is no derivation of a contradiction from $\phi_1, \ldots, \phi_n$.
+- The premises $\phi_1, \ldots, \phi_n$ are *semantically consistent* if there is a model $\mathcal{M}\models \phi_1, \ldots, \phi_n$.
+- The premises $\phi_1, \ldots, \phi_n$ are *deductively consistent* if there is no derivation of a contradiction from $\phi_1, \ldots, \phi_n$.
 
-We will look at the notion of deductive consistency later, and as we will see later it turns out that these two notions are equivalent. For the moment, we focus on the relation between semantic consistency and consequence, which is enshrined in the following:
+We will look at the notion of deductive consistency later, and as we will see later it is equivalent to semantic consistency. For the moment, we focus on the relation between semantic consistency and consequence, which is enshrined in the following:
 
 - $\phi_1, \ldots, \phi_n\nvdash \phi$ if and only if $\phi_1, \ldots, \phi_n, \neg \phi$ is semantically consistent.
 
-This is simple principle just follows directly from definition: to say that $\phi_1, \ldots, \phi_n\nvdash \phi$ is just to say that there is at least one model $\mathcal{M}$ such that $\mathcal{M}\models \phi_1, \ldots, \mathcal{M}\models \phi_n$ and yet $\mathcal{M}\nvDash \phi$. And this happens if and only if $\mathcal{M}\models \phi_1, \ldots, \mathcal{M}\models \phi_n, \mathcal{M}\models \neg phi$. More intuitively still, the principle is saying that there the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ is invalid if there is a model of the premises $\phi_1, \ldots, \phi_n$ and the negation $\neg \phi$ of the conclusion of the argument. This corresponds to a basic but elementary feature of our practice in evaluating arguments: we often point out that the conclusion does not necessarily follow from the premises by pointing to a situation where the premises are all true but the conclusion is false. Here is a simple example, which can help us practice DeMorgan:
+This is simple principle just follows directly from definition: to say that $\phi_1, \ldots, \phi_n\nvdash \phi$ is just to say that there is at least one model $\mathcal{M}$ such that $\mathcal{M}\models \phi_1, \ldots, \mathcal{M}\models \phi_n$ and yet $\mathcal{M}\nvDash \phi$. And this happens if and only if $\mathcal{M}\models \phi_1, \ldots, \mathcal{M}\models \phi_n, \mathcal{M}\models \neg \phi$. More intuitively still, the principle is saying that there the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ is invalid if there is a model of the premises $\phi_1, \ldots, \phi_n$ and the negation $\neg \phi$ of the conclusion. This corresponds to a basic but elementary feature of our practice in evaluating arguments: we often point out that the conclusion does not necessarily follow from the premises by pointing to a situation where the premises are all true but the conclusion is false.
+
+Here is a simple example, which can help us practice DeMorgan:
 
 <br>
 
@@ -63,17 +65,15 @@ This Euler diagram can then be easily converted into a number-theoretic model in
 
 <p style="page-break-before: always">
 
-## Consistency
-
 ## Tarski on logical consequence
 
-We can use this notion of semantic consistency to relate one traditional criticism of Tarski's views on logical consequence. Tarski thought that the formal notion $\phi_1, \ldots, \phi_n\vdash \phi$ was a successful conceptual analysis of the intuitive notion of the conclusion following from the premises:[^1]
+We can use this notion of semantic consistency to describe one traditional criticism of Tarski's views on logical consequence. Tarski thought that the formal notion $\phi_1, \ldots, \phi_n\vdash \phi$ was a successful conceptual analysis of the intuitive notion of the conclusion following from the premises:[^1]
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Tarski%201956%20-%20On%20the%20Concept%20of%20Logical%20Consequence%20p.%20417.png" alt="Tarski on logical consequence" width="500"/>
 
 [^1]: From p. 417 of: [Tarski, Alfred. 1956. “On the Concept of Logical Consequence.” In Logic, Semantics, Metamathematics: Papers from 1923 to 1938, edited by J. H. Woodger, 409–20. Oxford: Clarendon Press.](https://logic-teaching.github.io/pred/texts/Tarski%201956%20-%20On%20the%20Concept%20of%20Logical%20Consequence.pdf)
 
-One traditional criticism of this view pertains to arguments that are invalid only due to their being sufficiently large sets.
+One traditional criticism of this view pertains to arguments that are invalid only due to their being sufficiently large sets:
 
 <br>
 
@@ -81,7 +81,7 @@ One traditional criticism of this view pertains to arguments that are invalid on
 
 Recall that the second premise is transitivity. The first premise is sometimes called *anti-reflexivity* since it is like the complete contrary of reflexivity. To see that anti-reflexivity and transitivity do not imply this conclusion, we need to find a model of these principles together with $\neg \forall \; x \; \forall \; y\; \neg Rxy$. But by DeMorgan, that is the same as $\exists \;x  \; \exists \; y \; Rxy$. But a simple arrow model can be found, as illustrated below:
 
- <img src="https://logic-teaching.github.io/pred/texts/simple-number-model-2.png" alt="Simple arrow model 1" width="250"/>
+ <img src="https://logic-teaching.github.io/pred/texts/simple-number-model.png" alt="Simple arrow model 1" width="500"/>
 
 And using this diagram we can quickly formalize the arguments invalidity as follows:
 
@@ -93,7 +93,7 @@ And using this diagram we can quickly formalize the arguments invalidity as foll
 
 <br>
 
-Note however, that the invalidity of this argument could not be established with just an element with one model:
+Note however, that the invalidity of this argument could not be established with an element with one model:
 
 *Example 3*: For all models $\mathcal{M}$ of anti-reflexivity and transitivity with fewer than two elements, one has that $\mathcal{M}\models \forall \; x \; \forall \; y\; \neg Rxy$.
 
@@ -103,47 +103,37 @@ For, if there are fewer than two elements, and there are $x,y$ with $Rxy$, then 
 
 We can iterate this as follows:
 
-*Example 4*: $\forall \; x \; \neg Rxx, \forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)\nvdash \forall \; x \; \forall \; y\; \forall \; z \; ~Rxy\vee ~Ryz$
+*Example 4*: $\forall \; x \; \neg Rxx, \forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)\nvdash \forall \; x \; \forall \; y\; \forall \; z \; (\neg Rxy\vee \neg Ryz)$
 
-By DeMorgan, $\neg \forall \; x \; \forall \; y\; ~Rxy\/~Ryz$ is equivalent to $\exists \;x  \; \exists \; y \; \exists \; z \; Rxy\wedge Ryz$. But again a simple arrow model can be found:
+By DeMorgan, $\neg \forall \; x \; \forall \; y\; \forall \; z \; (\neg Rxy\vee \neg Ryz)$ is equivalent to $\exists \;x  \; \exists \; y \; \exists \; z \; (Rxy\wedge Ryz)$. But again a simple arrow model can be found:
 
- <img src="https://logic-teaching.github.io/pred/texts/simple-number-model-2.png" alt="Simple arrow model 2" width="250"/>
+ <img src="https://logic-teaching.github.io/pred/texts/simple-number-model-2.png" alt="Simple arrow model 2" width="500"/>
 
 And using this diagram we can quickly formalize the arguments invalidity as follows:
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
- Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAyAz~Rxy\/~Ryz
+ Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAyAz(~Rxy\/~Ryz)
 |Domain:0,1,2
 |R(_,_):[0,1],[1,2],[0,2]
 ```
 
 And again, it was necessary that we have three elements in this domain:
 
-*Example 5*: For all models $\mathcal{M}$ of anti-reflexivity and transitivity with fewer than three elements, one has that $\mathcal{M}\models \forall \; x \; \forall \; y\; \forall \; z \; ~Rxy\vee ~Ryz$.
+*Example 5*: For all models $\mathcal{M}$ of anti-reflexivity and transitivity with fewer than three elements, one has that $\mathcal{M}\models \forall \; x \; \forall \; y\; \forall \; z \; (\neg Rxy\vee \neg Ryz)$.
 
 For, if there were fewer than three elements, and there are $x,y,z$ with $Rxy\wedge Ryz$, then at least two of those three will be the same. If $x$ and $y$ are the same, then we violate anti-reflexivity, and similarly if $y$ and $z$ are the same. If $x,z$ are the same, then by transitivity and $Rxy\wedge Ryz$ we have $Rxz$, and we again violate anti-reflexivity.
 
 In general, one has the following:
 
-- For any $n\geq 2$, there is a formula $\phi_n$ such that the argument with premises anti-reflexivity and transitivity and conclusion $\phi_n$ is not valid, and yet for any model $\mathcal{M}$ of anti-reflexivity and transitivity with fewer than $n$-elements one has that $\mathcal{M}\models \phi_n$.
+- For any $n\geq 2$, there is a formula $\phi_n$ such that the argument with premises of anti-reflexivity and transitivity and conclusion $\phi_n$ is not valid, and yet for any model $\mathcal{M}$ of anti-reflexivity and transitivity with fewer than $n$-elements one has that $\mathcal{M}\models \phi_n$.
 
-The formula $\phi_n$ just says that there are $x_1, \ldots, x_n$ such that $Rx_1x_2\wedge \cdots Rx_{n-1}x_n$.
+The formula $\phi_n$ just says that there are $x_1, \ldots, x_n$ such that $Rx_1x_2\wedge \cdots \wedge Rx_{n-1}x_n$.
 
 <br>
 
-These kinds of examples were the basis of Etchemendy's criticism of Tarski's claims that logical consequence explicated well the intuitive notion of logical consequence. For, examples like these suggest that Tarski's assessment of the validity of arguments is "dependent on a nonlogical feature of the world, the size of the universe."[^3] The idea is that clearly it is a non-logical and empirical fact about how many elements in the world there are: it is, for instance, it is an empirical fact that there are fewer than 50 billion people on the planet. And whether or not an argument is valid in a logical sense should not depend on empirical facts. And yet, as we have seen, there is such a dependence, and we have found an argument that is not valid but would be valid if there were only finitely many objects out of which we could build our models.
+These kinds of examples were the basis of Etchemendy's criticism of Tarski's claims that logical consequence explicated well the intuitive notion of logical consequence. For, examples like these suggest that Tarski's assessment of the validity of arguments is "dependent on a nonlogical feature of the world, the size of the universe."[^3] How many elements in the world there are is an empirical and non-logical fact. It is, for instance, an empirical fact that there are fewer than 50 billion people on the planet. And whether or not an argument is valid in a logical sense should not depend on empirical facts. And yet, as we have seen, there is such a dependence, and we have found an argument that is not valid but would be valid if there were only finitely many objects out of which we could build our models.
 
 [^3]: p. 115 of: [Etchemendy, John. 1999. “Substantive Generalizations.” In The Concept of Logical Consequence, 107–24. Cambridge University Press.](https://logic-teaching.github.io/pred/texts/Etchemendy%201999%20-%20Substantive%20Generalizations.pdf)
-
-
-
-<br>
-
-Note however, that the invalidity of this argument could not be established with just an element with one model:
-
-*Example 3*: For all models $\mathcal{M}$ of anti-reflexivity and transitivity with just one element, one has that $\mathcal{M}\models \forall \; x \; \forall \; y\; \neg Rxy$.
-
-For, if there is just one element, and there are $x,y$ with $Rxy$, then since there is just one element these two objects have to be the same, and so $Rxx$, contrary to anti-relfexivity.
 
 <br>
 
@@ -155,15 +145,15 @@ It is worth dwelling on other slightly unintuitive features of logical consequen
 
 <br>
 
-*Example 6*: $\neg \exists \; x \; Fx\vdash \forall \; x \; (Fx\rightarrow Gx)$.
+*Example 7*: $\neg \exists \; x \; Fx\vdash \forall \; x \; (Fx\rightarrow Gx)$.
 
-To see this, suppose that $\mathcal{M}\models \neg \exists \; x \; Fx$. We want to show that $\mathcal{M}\models \forall \; x \; (Fx\rightarrow Gx)$. For reductio, suppose not. Then $\mathcal{M}\models \neg \forall \; x \; (Fx\rightarrow Gx)$. By DeMorgan and the relation between negated conditionals and conjunction, we have that $\mathcal{M}\models \exists \; x \; (Fx\wedge \neg Gx)$. Then the existential clause of Tarski's definition of truth, we have $\mathcal{M}\models Fa\wedge \neg Ga$ for some constant symbol $a$. Then by the conjunctive clause, we have $\mathcal{M}\models Fa$ and $\mathcal{M}\models \neg Ga$. But since $\mathcal{M}\models Fa$, by the existential clause we have $\mathcal{M}\models \exists \;x \; Fx$, which contradicts our initial hypothesis.
+To see this, suppose that $\mathcal{M}\models \neg \exists \; x \; Fx$. We want to show that $\mathcal{M}\models \forall \; x \; (Fx\rightarrow Gx)$. For reductio, suppose not. Then $\mathcal{M}\models \neg \forall \; x \; (Fx\rightarrow Gx)$. By DeMorgan and the relation between negated conditionals and conjunction, we have that $\mathcal{M}\models \exists \; x \; (Fx\wedge \neg Gx)$. Then by the existential clause of Tarski's definition of truth, we have $\mathcal{M}\models Fa\wedge \neg Ga$ for some constant symbol $a$. Then by the conjunctive clause, we have $\mathcal{M}\models Fa$ and $\mathcal{M}\models \neg Ga$. But since $\mathcal{M}\models Fa$, by the existential clause we have $\mathcal{M}\models \exists \;x \; Fx$, which contradicts our initial hypothesis.
 
 <br>
 
 The other potentially unintuitive feature of logical consequence is that it is logical truth that there exists at least one thing:
 
-*Example 7*: $\vdash \exists \; x\; (Fx\vee \neg Fx)$.
+*Example 8*: $\vdash \exists \; x\; (Fx\vee \neg Fx)$.
 
 One way to see this is just to take a model $\mathcal{M}$. By the definition of a model, its underlying domain $M$ is non-empty, and so contains at least one element. Choose a constant symbol $c$ such that $c^{\mathcal{M}}$ names this element. Then $\mathcal{M}\models Fc\vee \neg Fc$. Then by the existential clause of Tarski's definition of truth $\mathcal{M}\models \exists \; x \; (Fx\vee \neg Fx)$.
 
@@ -174,25 +164,29 @@ Another way to see this as follows:
 3. Therefore, $Fc\vee \neg Fc$ is a tautology of predicate logic.
 4. By existential introduction, we have $Fc\vee \neg Fc \vdash \exists \; x\; (Fx\vee \neg Fx)$.
 
-This way of putting the argument makes it clear that the key premise is 2, namely that we want to organize predicate logic so that it is an extension of propositional logic. The cost of this is that we have to countenance the existence of at least one thing as a logical truth.
+This way of putting the argument makes it clear that the key premise is 2, namely that we want to organize predicate logic so that it is an extension of propositional logic. The cost of this is that we have to countenance the existence of at least one object, as a logical truth.
 
 <br>
 
 <p style="page-break-before: always">
 
-## Consequence and all-inclusive domains
+## All-inclusive domains
 
 Presumably the reason why we are interested in validities and tautologies is something like the following. We are reasoning about some subject matter, e.g. chemistry or biology. With some effort, we learn some things about the world, call them $\phi_1, \ldots, \phi_n$. Now we want to learn more about the world merely by reasoning about the stuff we already know, rather than going and looking at the world again. With effort, we learn that the argument with $\phi_1, \ldots, \phi_n$ as a premise and $\phi$ as a conclusion is valid. We conclude on the basis of this that since $\phi_1, \ldots, \phi_n$ is true, it must also be the case that $\phi$ is true. This is useful since this conclusion follows without our going to have to check empirically with the world whether $\phi$ is true or not.
 
-Granting the usefulness of this conclusion, we should ask: is this conclusion warranted? It would seem to presuppose that the world of chemistry or biology was could be treated as a model. If it could be treated as a model $\mathcal{M}$, then of course the conclusion follows, for the simple reason that if $\phi_1, \ldots, \phi_n\vdash \phi$ and if $\mathcal{M}\models \phi_1, \ldots, \phi_n$ then $\mathcal{M}\models \phi$. That is just the definition of validity.
+Granting the usefulness of this conclusion, we should ask: is this conclusion warranted? It would seem to presuppose that the world of e.g. chemistry or biology could be treated as a model. If it could be treated as a model $\mathcal{M}$, then of course the conclusion follows, for the simple reason that if $\phi_1, \ldots, \phi_n\vdash \phi$ and if $\mathcal{M}\models \phi_1, \ldots, \phi_n$ then $\mathcal{M}\models \phi$. That is just the definition of validity.
 
 But can the world always be treated like a model? Basically, it can in 99% of cases. For, while models are formally sets, there are a lot of sets and one can build very complicated sets very easily. This is , in some sense, the purpose of sets.
 
 There is, however, one case where this does not work out so cleanly. One might want to model not just the world of biology and the world of chemistry, but one might want to model the world writ large, inclusive of all world of biology, the world of chemistry, and the world of sets. And it turns out that there is no set which contains all sets. This is the famous Russell paradox:
 
-*Example 7*: There is no set $V$ which contains all sets.
+*Example 9*: There is no set $V$ which contains all sets.
 
-For, suppose that there was a set $V$ which contained all sets. Consider the set $y=\{x\in V: x\notin x\}$. Then there are two cases: $y\in y$ or $y\notin y$. If $y\in y$ then $y\in V$ and $y\notin y$, a contradiction. If $y\notin y$, then since $y$ is a set we have $y\in V$. That is to say, we have $y\in V$ and $y\notin y$, and so by the definition of $y$ we have $y\in y$, a contradiction.
+For, suppose that there was a set $V$ which contained all sets. Consider the set
+
+- $y=\{x\in V: x\notin x\}$
+
+Then there are two cases: $y\in y$ or $y\notin y$. If $y\in y$ then by the definition of being a member of $y$ we have $y\in V$ and $y\notin y$, a contradiction. If $y\notin y$, then since $y$ is a set we have $y\in V$. That is to say, we have $y\in V$ and $y\notin y$, and so by the definition of $y$ we have $y\in y$, a contradiction.
 
 Hence, there is no all-inclusive domain which is itself a set. Hence, there is no model with an underlying domain which includes everything, i.e. there is no model whose underlying domain is the world writ large. This interacts with logical consequence due to the following consideration: if $\phi$ is a tautology then why should we believe that $\phi$ is true of the world writ large? We can no longer say that it is because tautologies are true on all models, since the world writ large is not a model in this sense.
 
@@ -204,7 +198,7 @@ There are ways to start answering to this question, but they are not answers whi
 
 ## Prenex normal form
 
-We close by mentioning a helpful set of equivalences which allow us to write formulas in a way with the quantifiers all in the front. It uses DeMorgan, some propositional equivalences, and the following equivalences, wherein $x$ does not appear in $\phi$:
+We close by mentioning a helpful set of equivalences which allow us to write formulas in a way with the quantifiers all in the front. It uses DeMorgan, some propositional equivalences, and the following equivalences, wherein it is assumed that $x$ does not appear in $\phi$:
 
 1. $(\exists \; x \; \psi(x))\vee \phi$ is equivalent to $\exists \; x \; (\psi(x) \vee \phi)$.
 2. $(\forall \; x \; \psi(x))\vee \phi$ is equivalent to $\forall \; x \; (\psi(x) \vee \phi)$.
@@ -215,7 +209,7 @@ By successively applying these, one can find an equivalent formula where all the
 
 <br>
 
-*Example 8*: Put the formula $\forall \; x \; \exists \; y \; Rxy\rightarrow \forall \; u \; \exists \; v \; Ruv$ into prenex normal form.
+*Example 10*: Put the formula $\forall \; x \; \exists \; y \; Rxy\rightarrow \forall \; u \; \exists \; v \; Ruv$ into prenex normal form.
 
 ~~~{.Translate .FOL system="gamutND" submission="none" tests="PNF"}
  AyExAuEv(~Rxy\/Ruv) : Put the formula in prenex normal form.
@@ -226,11 +220,13 @@ Here is a video of how one gets to the prenex normal form using 1-4:
 
 <video controls width="500" src="https://logic-teaching.github.io/pred/vid/prenex-ex1.mp4"/> </video>
 
+<br>
+
 The procedure for putting the formulas into prenex normal form presupposes that you do not have variables appearing immediately behind two different quantifiers. For instance, the above formula is logically equivalent to $\forall \; x \; \exists \; y \; Rxy\rightarrow \forall \; x \; \exists \; y \; Rxy$. But if we tried to apply 1-4 to put this into prenex normal form, then we would not suceed since the $x$ is showing up behind two different quantifiers, and so we would not fufill the precondition of the equivalences of 1-4, namely that they do not share variables.
 
 
-These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
 
-[^3]: which is:
+[^5]: which is:
 
 <br>
