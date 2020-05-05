@@ -198,7 +198,7 @@ Likewise, the following proof does not work. The application of the introduction
 
 Here is the elimination rule for negation: if you have $\phi$ on line $\ell_1$ and you have $\neg \phi$ on line $\ell_2$, then you may write $\bot$ on any subsequent line $\ell>\ell_1, \ell_2$.
 
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_elimination_redeux_redeux.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/ND-E~vid.mp4"/> </video>
 
 <br>
 
