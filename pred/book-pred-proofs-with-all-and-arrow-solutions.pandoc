@@ -1,7 +1,7 @@
 <br>
 <br>
 
-# Natural deduction for predicate logic
+# Natural deduction for predicate logic **with solutions**
 
 We introduce a simple proof system for predicate logic, based on natural deduction. We focus on the universal quantifier, conjunction, the conditional, and negation.
 
@@ -15,6 +15,9 @@ We introduce a simple proof system for predicate logic, based on natural deducti
 - [The introduction rule for negation](#the-introduction-rule-for-negation)
 
 <br>
+
+This version is just like the version we went over in lecture, except it has **the solutions** filled in.
+
 <br>
 
 ## Elimination rule for universal
@@ -32,6 +35,8 @@ Here are two simple examples of this rule:
 ```{.ProofChecker .GamutNDPlus submission="none"}
  AxAy(Fx/\Gy) :|-: Fa/\Gb
 |AxAy(Fx/\Gy) :assumption
+|Ay(Fa/\Gy)            :EA1
+|Fa/\Gb :EA2
 ```
 
 *Example 2*
@@ -39,6 +44,8 @@ Here are two simple examples of this rule:
 ```{.ProofChecker .GamutNDPlus submission="none"}
  AxAyRxy :|-: Raa
 |AxAyRxy :assumption
+|AyRay            :EA1
+|Raa :EA2
 ```
 
 <br>
@@ -56,6 +63,9 @@ The rule is: if you have $\phi \wedge \psi$ on line $\ell_1$, then you may write
 ```{.ProofChecker .GamutNDPlus submission="none"}
  AxFx/\(AxGx/\AxHx) :|-: Ga
 |AxFx/\(AxGx/\AxHx) :assumption
+|AxGx/\AxHx :E/\1
+|AxGx :E/\2
+|Ga :EA3
 ```
 
 <br>
@@ -75,6 +85,11 @@ In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
  (Fa->Fb)/\(Fa->Fc), Fa :|-: Fb/\Fc
 |(Fa->Fb)/\(Fa->Fc) :assumption
 |Fa :assumption
+|Fa->Fb :E/\1
+|Fa->Fc :E/\1
+|Fb :E->2,3
+|Fc :E->2,4
+|Fb/\Fc :I/\5,6
 ```
 
 <br>
@@ -97,6 +112,10 @@ We extend this terminology to the ordinary premises, and sometimes say that the 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Fa->AyRay :|-: Fa->Rab
 |Fa->AyRay :assumption
+| Fa :assumption
+| AyRay :E->1,2
+| Rab :EA3
+|Fa->Rab :I->2-4
 ```
 
 Note that in the proof checker, to get the bracket one **inserts a space** before the formulas.
@@ -117,6 +136,10 @@ In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ax(Fx/\Gx) :|-: Ga/\Fa
 |Ax(Fx/\Gx) :assumption
+|Fa/\Ga :EA1
+|Fa :E/\2
+|Ga :E/\2
+|Ga/\Fa :I/\3,4
 ```
 
 <br>
@@ -135,8 +158,14 @@ The rule is: if you have $\phi(a)$ on a line $\ell_1$, and if $a$ does not appea
  Ax(Fx->Gx), Ax(Gx->Hx) :|-: Ax(Fx->Hx)
 |Ax(Fx->Gx) :assumption
 |Ax(Gx->Hx) :assumption
+| Fb :assumption
+| Fb->Gb :EA1
+| Gb :E->3,4
+| Gb->Hb :EA2
+| Hb :E->5,6
+|Fb->Hb :I->3-7
+|Ax(Fx->Hx) :IA8
 ```
-
 
 By contrast, the following proof does not work. The application of the introduction rule for universal at line 8 is flawed since the constant $b$ appears from line 7 appears in the open assumption in line 2. The proof checker describes this error as "b not being fresh".
 
@@ -184,6 +213,8 @@ Here is the elimination rule for negation: if you have $\phi$ on line $\ell_1$ a
  AxFx, ~Fb :|-: ⊥
 |AxFx :assumption
 |~Fb :assumption
+|Fb :EA1
+|⊥ :E~2,3
 ```
 
 <br>
@@ -204,6 +235,10 @@ Here is a picture of the rule:
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ~Rbb :|-: ~AxRxx
 |~Rbb :assumption
+| AxRxx :assumption
+| Rbb :EA2
+| ⊥ :E~1,3
+|~AxRxx :I~2-4
 ```
 
 <br>

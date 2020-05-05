@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Practice problems
+# Practice problems **with solutions**
 
 These are practice problems for Week 6.
 
@@ -25,6 +25,10 @@ These are practice problems for Week 6.
 - [Aristotelian syllogisms](#aristotelian-syllogisms)
 
 <p style="page-break-before: always">
+
+<br>
+
+This version has **the solutions** filled in. Please keep in mind that there are multiple good proofs of any one problem.
 
 <br>
 
@@ -41,6 +45,11 @@ This problem is good practice with the elimination rule for universals, together
 |∀xFx :assumption
 |∀xGx :assumption
 |∀x((Fx ∧ Gx) → Hx) :assumption
+|Fa :EA1
+|Ga :EA2
+|Fa/\Ga :I/\4,5
+|(Fa/\Ga)->Ha :EA3
+|Ha :E->6,7
 ```
 
 <br>
@@ -54,6 +63,12 @@ On this problem, think about how to minimally expand your answer to the previous
 |∀xFx :assumption
 |∀xGx :assumption
 |∀x((Fx ∧ Gx) → Hx) :assumption
+|Fa :EA1
+|Ga :EA2
+|Fa/\Ga :I/\4,5
+|(Fa/\Ga)->Ha :EA3
+|Ha :E->6,7
+|AxHx :IA8
 ```
 
 <br>
@@ -66,6 +81,12 @@ This problem is only tricky in that first you should think about how to get `Fa/
 05.03 Rab, AxAy(Rxy->(Fx/\Gy)) :|-: Gb/\Fa
 |Rab :assumption
 |AxAy(Rxy->(Fx/\Gy)) :assumption
+|Ay(Ray->(Fa/\Gy)) :EA2
+|Rab->(Fa/\Gb) :EA3
+|Fa/\Gb :E->1,4
+|Fa :E/\5
+|Gb :E/\5
+|Gb/\Fa :I/\6,7
 ```
 
 <br>
@@ -79,6 +100,18 @@ The intuition behind this problem should be clear: first go from `Rab` and the t
 |Rab :assumption
 |AxAy(Rxy->Ryx) :assumption
 |AxAy(Rxy->(Fx/\Gy)) :assumption
+|Ay(Ray->Rya) :EA2
+|Rab->Rba :EA4
+|Rba :E->1,5
+|Ay(Ray->(Fa/\Gy)) :EA3
+|Rab->(Fa/\Gb) :EA7
+|Fa/\Gb :E->1,8
+|Fa :E/\9
+|Ay(Rby->(Fb/\Gy)) :EA3
+|Rba->(Fb/\Ga) :EA11
+|Fb/\Ga :E->6,12
+|Ga :E/\13
+|Fa/\Ga :I/\10,14
 ```
 
 <br>
@@ -92,6 +125,12 @@ This one is challenging only in that you need to "start from the bottom" and rea
 |AxAy((Fx/\Rxy)->Fy) :assumption
 |AyRay :assumption
 |Fa :assumption
+|Ay((Fa/\Ray)->Fy) :EA1
+|(Fa/\Rab)->Fb :EA4
+|Rab :EA2
+|Fa/\Rab :I/\3,6
+|Fb :E->5,7
+|AyFy :IA8
 ```
 
 
@@ -117,6 +156,15 @@ For this problem, just take your solution to Problem 5 and try to transform it, 
 |AxAy((Fx/\Rxy)->Fy) :assumption
 |AyRay :assumption
 |~AyFy :assumption
+| Fa :assumption
+| Ay((Fa/\Ray)->Fy) :EA1
+| (Fa/\Rab)->Fb :EA5
+| Rab :EA2
+| Fa/\Rab :I/\4,7
+| Fb :E->6,8
+| AyFy :IA9
+| ⊥ :E~3,10
+|~Fa :I~4-11
 ```
 
 <br>
@@ -133,6 +181,14 @@ On this problem, you need to work from the bottom and realize that to get the co
 05.07 Ax(Fx->Gx), Ax(Gx->Hx) :|-: AxFx->AxHx
 |Ax(Fx->Gx) :assumption
 |Ax(Gx->Hx) :assumption
+| AxFx :assumption
+| Fb :EA3
+| Fb->Gb :EA1
+| Gb :E->4,5
+| Gb->Hb :EA2
+| Hb :E->6,7
+| AxHx :IA8
+|AxFx->AxHx :I->3-9
 ```
 
 <br>
@@ -144,6 +200,14 @@ On this problem, you need to work from the bottom and realize that to get the co
 ```{.ProofChecker .GamutNDPlus submission="none"}
 05.08 Ax(Fx->(Gx->Hx)) :|-: Ax(Gx->(Fx->Hx))
 |Ax(Fx->(Gx->Hx)) :assumption
+| Ga :assumption
+|  Fa :assumption
+|  Fa->(Ga->Ha) :EA1
+|  Ga->Ha :E->3,4
+|  Ha :E->2,5
+| Fa->Ha :I->3-6
+|Ga->(Fa->Ha) :I->2-7
+|Ax(Gx->(Fx->Hx)) :IA8
 ```
 
 <br>
@@ -157,6 +221,17 @@ On this next problem, to pump intuition think of $Rxy$ as $x<y$ on numbers:
 05.09 AxAyAz((Rxy/\Ryz)->Rxz), Ax~Rxx :|-: Rab->~Rba
 |AxAyAz((Rxy/\Ryz)->Rxz) :assumption
 |Ax~Rxx :assumption
+| Rab :assumption
+|  Rba :assumption
+|  Rab/\Rba :I/\3,4
+|  AyAz((Ray/\Ryz)->Raz) :EA1
+|  Az((Rab/\Rbz)->Raz) :EA6
+|  (Rab/\Rba)->Raa :EA7
+|  Raa :E->5,8
+|  ~Raa :EA2
+|  ⊥ :E~9,10
+| ~Rba :I~4-11
+|Rab->~Rba :I->3-12
 ```
 
 
@@ -170,6 +245,15 @@ The following is a good example of nested brackets. This problem is closely rela
 ```{.ProofChecker .GamutNDPlus submission="none"}
 05.10 Ax(Fx->(Gx->Hx)) :|-: Ax((Fx->Gx)->(Fx->Hx))
 |Ax(Fx->(Gx->Hx)) :assumption
+| Fa->Ga :assumption
+|  Fa :assumption
+|  Ga :E->2,3
+|  Fa->(Ga->Ha) :EA1
+|  Ga->Ha :E->3,5
+|  Ha :E->4,6
+| Fa->Ha :I->3-7
+|(Fa->Ga)->(Fa->Ha) :I->2-8
+|Ax((Fx->Gx)->(Fx->Hx)) :IA9
 ```
 
 <br>
@@ -189,6 +273,8 @@ This is a simple example of introduction of existentials. In thinking through th
 ```{.ProofChecker .GamutNDPlus submission="none"}
 05.11 (Fa/\Ga)/\(Fb/\~Gb) :|-: ExEy((Fx/\Gx)/\(Fy/\~Gy))
 |(Fa/\Ga)/\(Fb/\~Gb) :assumption
+|Ey((Fa/\Ga)/\(Fy/\~Gy)) :IE1
+|ExEy((Fx/\Gx)/\(Fy/\~Gy)) :IE2
 ```
 
 <br>
@@ -203,6 +289,13 @@ This is a simple example of existential elimination. To apply this rule, you wil
 |Ax(Fx->Gx) :assumption
 |Ax(Gx->Ha) :assumption
 |ExFx :assumption
+| Fb :assumption
+| Fb->Gb :EA1
+| Gb :E->4,5
+| Gb->Ha :EA2
+| Ha :E->6,7
+|Fb->Ha :I->4-8
+|Ha :EE3,9
 ```
 
 <br>
@@ -215,6 +308,11 @@ This is one-half of one of the DeMorgan laws for the quantifiers. Again, startin
 ```{.ProofChecker .GamutNDPlus submission="none"}
 05.13 ~ExFx :|-: Ax~Fx
 |~ExFx :assumption
+| Fa :assumption
+| ExFx :IE2
+| ⊥ :E~1,3
+|~Fa :I~2-4
+|Ax~Fx :IA5
 ```
 
 <br>
@@ -226,6 +324,13 @@ This is the other half of it this instance of DeMorgan. Again, consider writing 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 05.14 Ax~Fx :|-: ~ExFx
 |Ax~Fx :assumption
+| ExFx :assumption
+|  Fa :assumption
+|  ~Fa :EA1
+|  ⊥ :E~3,4
+| Fa->⊥ :I->3-5
+| ⊥ :EE2,6
+|~ExFx :I~2-7
 ```
 
 <br>
@@ -237,6 +342,16 @@ For this, use the previous problem and the proof-transformation method discussed
 ```{.ProofChecker .GamutNDPlus submission="none"}
 05.15 ExFx :|-: ~Ax~Fx
 |ExFx :assumption
+| Ax~Fx :assumption
+|  ExFx :assumption
+|   Fa :assumption
+|   ~Fa :EA2
+|   ⊥ :E~4,5
+|  Fa->⊥ :I->4-6
+|  ⊥ :EE1,7
+| ~ExFx :I~3-8
+| ⊥ :E~1,9
+|~Ax~Fx :I~2-10
 ```
 
 <br>
@@ -255,6 +370,8 @@ Please do not attempt these problems until after Lecture 2 this week. We will co
 05.16 ~Ex(Fx/\Gx), Ax(Hx->Gx) :|-: ~Ex(Hx/\Fx)
 |~Ex(Fx/\Gx) :assumption
 |Ax(Hx->Gx) :assumption
+|~Ex(Gx/\Fx) :CV2 1
+|~Ex(Hx/\Fx) :Ce 2,3
 ```
 
 <br>
@@ -266,6 +383,9 @@ Please do not attempt these problems until after Lecture 2 this week. We will co
 05.17 Ax(Fx->Gx), ~Ex(Hx/\Gx) :|-: ~Ex(Hx/\Fx)
 |Ax(Fx->Gx) :assumption
 |~Ex(Hx/\Gx) :assumption
+|~Ex(Gx/\Hx) :CV2 2
+|~Ex(Fx/\Hx) :Ce 1,3
+|~Ex(Hx/\Fx) :CV2 4
 ```
 
 <br>
@@ -277,6 +397,8 @@ Please do not attempt these problems until after Lecture 2 this week. We will co
 05.18 ~Ex(Fx/\Gx), Ex(Hx/\Gx) :|-: Ex(Hx/\~Fx)
 |~Ex(Fx/\Gx) :assumption
 |Ex(Hx/\Gx) :assumption
+|~Ex(Gx/\Fx) :CV2 1
+|Ex(Hx/\~Fx) :Fe 3,2
 ```
 
 <br>
