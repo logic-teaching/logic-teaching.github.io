@@ -192,34 +192,20 @@ And the following does not work since the constant $b$ appears in the assumption
 
 Here is the elimination rule for negation: if you have $\phi$ on line $\ell_1$ and you have $\neg \phi$ on line $\ell_2$, then you may write $\bot$ on any subsequent line $\ell>\ell_1, \ell_2$.
 
-Here is a picture of the rule:
-
 <video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_elimination_redeux_redeux.mp4"/> </video>
 
 <br>
 
-In this rule too, it does not matter whether the line with $\phi$ comes before or after the line with $\neg \phi$.
+*Example 8*.
 
-<br>
-
-*Example 1*. $p\rightarrow \neg q, q, p \vdash \bot$.
-
-First we do it by hand:
-
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_1.mp4"/> </video>
-
-<br>
-
-Second, you can try to input it into the proof-checker yourself, or come back later and practice:
-
-```{.ProofChecker .GamutMPND submission="none"}
- p->~q, q, p :|-: ⊥
-|p->~q :assumption
-|q :assumption
-|p :assumption
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxFx, ~Fb :|-: ⊥
+|AxFx :assumption
+|~Fb :assumption
+|Fb :AE1
+|⊥ :E~2,3
 ```
 
-<br>
 <br>
 
 ## Introduction rule for negation
@@ -233,22 +219,17 @@ Here is a picture of the rule:
 
 <br>
 
-*Example 2*. $p\vdash \neg \neg p$.
+*Example 9* (*à la* the Third Conversion).
 
-First we do it by hand:
-
-<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_2.mp4"/> </video>
-
-<br>
-
-Second, you can try to input it into the proof-checker yourself, or come back later and practice:
-
-```{.ProofChecker .GamutMPND submission="none"}
- p :|-: ~~p
-|p :assumption
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~Rbb :|-: ~AxRxx
+|~Rbb :assumption
+| AxRxx :assumption
+| Rbb :AE2
+| ⊥ :E~1,3
+|~AxRxx :I~2-4
 ```
 
-<br>
 <br>
 
 <br>
