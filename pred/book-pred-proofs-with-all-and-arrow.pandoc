@@ -21,7 +21,7 @@ We introduce a simple proof system for predicate logic, based on natural deducti
 
 The rule is: if you have $\forall \; x \; \phi(x)$ on line $\ell_1$, then you can write $\phi(a)$ on any subsequent line $\ell$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
 
-<video controls width="600" src="https://logic-teaching.github.io/pred/vid/ND-EA-vid.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/pred/vid/ND-EAredo-vid.mp4"/> </video>
 
 <br>
 
@@ -72,7 +72,7 @@ In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
 *Example 4*:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
- (Fa->Fb)/\(Fa->Fc), Fa :|-: Fb/\Fc
+ (Fa->Fb)/\(Fa->Fc), Fa :|-: Fb
 |(Fa->Fb)/\(Fa->Fc) :assumption
 |Fa :assumption
 ```
@@ -174,7 +174,7 @@ To describe the introduction and elimination rules for negation, we need to intr
 
 Here is the elimination rule for negation: if you have $\phi$ on line $\ell_1$ and you have $\neg \phi$ on line $\ell_2$, then you may write $\bot$ on any subsequent line $\ell>\ell_1, \ell_2$.
 
-<video controls width="700" src="https://logic-teaching.github.io/pred/vid/ND-Enegvid.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/ND-Erenegvid.mp4"/> </video>
 
 <br>
 
