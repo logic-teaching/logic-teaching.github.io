@@ -21,7 +21,7 @@ We introduce a simple proof system for predicate logic, based on natural deducti
 
 The rule is: if you have $\forall \; x \; \phi(x)$ on line $\ell_1$, then you can write $\phi(a)$ on any subsequent line $\ell$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
 
-<video controls width="600" src="https://logic-teaching.github.io/prep/vid/elim-forall-redeux.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/pred/vid/elim-forall-redeux.mp4"/> </video>
 
 <br>
 
@@ -49,7 +49,7 @@ Here are two simple examples of this rule:
 
 ## Elimination rule for conjunction
 
-The rule is: if you have $\varphi \wedge \psi$ on line $\ell_1$, then you may write $\varphi$ on any subsequent line $\ell>\ell_1$, and likewise you may write $\psi$ on any subsequent line $\ell>\ell_1$.
+The rule is: if you have $\phi \wedge \psi$ on line $\ell_1$, then you may write $\phi$ on any subsequent line $\ell>\ell_1$, and likewise you may write $\psi$ on any subsequent line $\ell>\ell_1$.
 
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_03_and_elim1.mp4"/> </video>
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_04_and_elim2.mp4"/> </video>
@@ -69,7 +69,7 @@ The rule is: if you have $\varphi \wedge \psi$ on line $\ell_1$, then you may wr
 
 ## Elimination rule for implication
 
-The rule is: if you have $\varphi$ on line $\ell_1$, and you have $\varphi\rightarrow \psi$ on line $\ell_2$, then you may write $\psi$ on any subsequent line $\ell>\ell_1, \ell_2$.
+The rule is: if you have $\phi$ on line $\ell_1$, and you have $\phi\rightarrow \psi$ on line $\ell_2$, then you may write $\psi$ on any subsequent line $\ell>\ell_1, \ell_2$.
 
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_06_arrow_elim-redeux.mp4"/> </video>
 <br>
@@ -93,10 +93,16 @@ In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
 
 ## The introduction rule for implication
 
-The rule is: suppose that consecutive lines $\ell_1-\ell_n$ constitute a proof with premise $\varphi$ and conclusion $\psi$. Then one may introduce $\varphi\rightarrow \psi$ at line $\ell_n+1$, so long as one brackets off $\ell_1-\ell_n$ and never appeals to them again.
+The rule is: suppose that consecutive lines $\ell_1-\ell_n$ constitute a proof with premise $\phi$ and conclusion $\psi$. Then one may introduce $\phi\rightarrow \psi$ at line $\ell_n+1$, so long as one brackets off $\ell_1-\ell_n$ and never appeals to them again.
 
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_08_arrow_intro.mp4"/> </video>
 <br>
+
+The top line of a bracketed line is justified as an assumption, but really it is a temporary assumption: you are saying that if you temporarily assume $\phi$, then you can get to $\psi$, and that this is a good reason to write down $\phi\rightarrow \psi$.
+
+We also use the expression of *open* and *closed* to describe when you are allowed to appeal to the top lines of brackets. Before finishing the bracket, the top line is called an *open* assumption and can be appealed to in order to justify other lines. But after finishing the bracket, the top line of the bracket is called a *closed* assumption and cannot be appealed to in order to justify other lines.
+
+We extend this terminology to the ordinary premises, and sometimes say that the ordinary premises of the proof, usually enumerated at the top and justified as assumptions, are always open assumptions and are never closed. 
 
 *Example 5*
 
@@ -115,7 +121,7 @@ Note that in the proof checker, to get the bracket one **inserts a space** befor
 
 ## The introduction rule for conjunction
 
-The rule is: if you have $\varphi$ on a line $\ell_1$, and you have $\psi$ on line $\ell_2$, then you may write $\varphi \wedge \psi$ on any subsequent line $\ell> \ell_1, \ell_2$.
+The rule is: if you have $\phi$ on a line $\ell_1$, and you have $\psi$ on line $\ell_2$, then you may write $\phi \wedge \psi$ on any subsequent line $\ell> \ell_1, \ell_2$.
 
 <video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_01_and_intro_v2.mp4"/> </video>
 <br>
@@ -137,7 +143,7 @@ In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
 
 ## The introduction rule for universal
 
-The rule is: if you have $\phi(c)$ on a line $\ell_1$, and if $c$ does not appear in any of the open assumptions, then you may write $\forall \; x \; \phi(x)$ on any subsequent line $\ell>\ell_1$.
+The rule is: if you have $\phi(a)$ on a line $\ell_1$, and if $a$ does not appear in any of the open assumptions, then you may write $\forall \; x \; \phi(x)$ on any subsequent line $\ell>\ell_1$.
 
 <video controls width="600" src="https://logic-teaching.github.io/pred/vid/intro-forall-redeux.mp4"/> </video>
 
@@ -158,7 +164,7 @@ The rule is: if you have $\phi(c)$ on a line $\ell_1$, and if $c$ does not appea
 |Ax(Fx->Hx) :IA8
 ```
 
-Likewise, the following does not work since the constant $b$ appears in the open assumption in line 2:
+By contrast, the following proof does not work. The application of the introduction rule for universal at line 8 is flawed since the constant $b$ appears from line 7 appears in the open assumption in line 2. The proof checker describes this error as "b not being fresh".
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ax(Fx->Gx), Ax(Gx->Hx) :|-: Fb->AxHx
@@ -173,7 +179,7 @@ Likewise, the following does not work since the constant $b$ appears in the open
 |Fb->AxHx :I->3-8
 ```
 
-And the following does not work since the constant $b$ appears in the assumption in line 2:
+Likewise, the following proof does not work. The application of the introduction rule for universal at line 8 is flawed since the the constant $b$ in line 7 appears in the open assumption at line 3:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ax(Fx->Gx), Ax(Gx->Hx), Fb :|-: AxHx
@@ -202,13 +208,13 @@ Here is the elimination rule for negation: if you have $\phi$ on line $\ell_1$ a
  AxFx, ~Fb :|-: ⊥
 |AxFx :assumption
 |~Fb :assumption
-|Fb :AE1
+|Fb :EA1
 |⊥ :E~2,3
 ```
 
 <br>
 
-## Introduction rule for negation
+## The introduction rule for negation
 
 Here is the introduction rule for negation: suppose that consecutive lines $\ell_1-\ell_n$ constitute a bracketed proof with premise $\phi$ and conclusion $\bot$. Then one may introduce $\neg \phi$ at any subsequent line $\ell>\ell_n$.
 
