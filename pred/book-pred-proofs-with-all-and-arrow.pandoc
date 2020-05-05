@@ -71,7 +71,7 @@ The rule is: if you have $\phi \wedge \psi$ on line $\ell_1$, then you may write
 
 The rule is: if you have $\phi$ on line $\ell_1$, and you have $\phi\rightarrow \psi$ on line $\ell_2$, then you may write $\psi$ on any subsequent line $\ell>\ell_1, \ell_2$.
 
-<video controls width="600" src="https://logic-teaching.github.io/pred/vid/ND-E->vid.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/pred/vid/ND-Earrow-vid.mp4"/> </video>
 <br>
 
 In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
@@ -200,7 +200,7 @@ To describe the introduction and elimination rules for negation, we need to intr
 
 Here is the elimination rule for negation: if you have $\phi$ on line $\ell_1$ and you have $\neg \phi$ on line $\ell_2$, then you may write $\bot$ on any subsequent line $\ell>\ell_1, \ell_2$.
 
-<video controls width="700" src="https://logic-teaching.github.io/pred/vid/ND-E~vid.mp4"/> </video>
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/ND-Enegvid.mp4"/> </video>
 
 <br>
 
