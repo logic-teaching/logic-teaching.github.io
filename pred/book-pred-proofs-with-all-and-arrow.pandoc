@@ -143,39 +143,113 @@ The rule is: if you have $\phi(c)$ on a line $\ell_1$, and if $c$ does not appea
 
 <br>
 
-*Example 7*
+*Example 7 (Barbara)*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
- Ax(Fx->Gx), AxFx :|-: AxGx
+ Ax(Fx->Gx), Ax(Gx->Hx) :|-: Ax(Fx->Hx)
 |Ax(Fx->Gx) :assumption
-|AxFx :assumption
-|Fb :EA2
-|Fb->Gb :EA1
-|Gb :E->3,4
-|AxGx :IA5
+|Ax(Gx->Hx) :assumption
+| Fb :assumption
+| Fb->Gb :EA1
+| Gb :E->3,4
+| Gb->Hb :EA2
+| Hb :E->5,6
+|Fb->Hb :I->3-7
+|Ax(Fx->Hx) :IA8
 ```
 
-The following proof does not work since the constant $b$ appears in the assumption:
-
-```{.ProofChecker .GamutNDPlus submission="none"}
- Ax(Fx->Gx), Fb :|-: AxGx
-|Ax(Fx->Gx) :assumption
-|Fb :assumption
-|Fb->Gb :EA1
-|Gb :E->2,3
-|AxGx :IA4
-```
 Likewise, the following does not work since the constant $b$ appears in the open assumption in line 2:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
- Ax(Fx->Gx) :|-: Fb->AxGx
+ Ax(Fx->Gx), Ax(Gx->Hx) :|-: Fb->AxHx
 |Ax(Fx->Gx) :assumption
+|Ax(Gx->Hx) :assumption
 | Fb :assumption
 | Fb->Gb :EA1
-| Gb :E->2,3
-| AxGx :IA4
-|Fb->AxGx :I->2-5
+| Gb :E->3,4
+| Gb->Hb :EA2
+| Hb :E->5,6
+| AxHx :IA7
+|Fb->AxHx :I->3-8
 ```
+
+And the following does not work since the constant $b$ appears in the assumption in line 2:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Gx), Ax(Gx->Hx), Fb :|-: AxHx
+|Ax(Fx->Gx) :assumption
+|Ax(Gx->Hx) :assumption
+|Fb :assumption
+|Fb->Gb :EA1
+|Gb :E->3,4
+|Gb->Hb :EA2
+|Hb :E->5,6
+|AxHx :IA7
+```
+
+
+## The elimination rule for negation
+
+Here is the elimination rule for negation: if you have $\phi$ on line $\ell_1$ and you have $\neg \phi$ on line $\ell_2$, then you may write $\bot$ on any subsequent line $\ell>\ell_1, \ell_2$.
+
+Here is a picture of the rule:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_elimination_redeux_redeux.mp4"/> </video>
+
+<br>
+
+In this rule too, it does not matter whether the line with $\phi$ comes before or after the line with $\neg \phi$.
+
+<br>
+
+*Example 1*. $p\rightarrow \neg q, q, p \vdash \bot$.
+
+First we do it by hand:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_1.mp4"/> </video>
+
+<br>
+
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p->~q, q, p :|-: ⊥
+|p->~q :assumption
+|q :assumption
+|p :assumption
+```
+
+<br>
+<br>
+
+## Introduction rule for negation
+
+Here is the introduction rule for negation: suppose that consecutive lines $\ell_1-\ell_n$ constitute a bracketed proof with premise $\phi$ and conclusion $\bot$. Then one may introduce $\neg \phi$ at any subsequent line $\ell>\ell_n$.
+
+
+Here is a picture of the rule:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_introduction.mp4"/> </video>
+
+<br>
+
+*Example 2*. $p\vdash \neg \neg p$.
+
+First we do it by hand:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_negation_example_2.mp4"/> </video>
+
+<br>
+
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ p :|-: ~~p
+|p :assumption
+```
+
+<br>
+<br>
 
 <br>
 <br>
