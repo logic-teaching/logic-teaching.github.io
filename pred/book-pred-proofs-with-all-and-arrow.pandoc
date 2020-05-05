@@ -196,6 +196,8 @@ Likewise, the following proof does not work. The application of the introduction
 
 ## The elimination rule for negation
 
+To describe the introduction and elimination rules for negation, we need to introduce a special symbol. This symbol is ⊥ and is called falsum or bottom or bot. Intuitively, it’s a special symbol for a contradiction, something that’s always false. The falsum symbol ⊥ can be typed either by just cutting and pasting from this screen, or by typing `!?`.
+
 Here is the elimination rule for negation: if you have $\phi$ on line $\ell_1$ and you have $\neg \phi$ on line $\ell_2$, then you may write $\bot$ on any subsequent line $\ell>\ell_1, \ell_2$.
 
 <video controls width="700" src="https://logic-teaching.github.io/pred/vid/ND-E~vid.mp4"/> </video>
