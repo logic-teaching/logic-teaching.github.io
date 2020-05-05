@@ -1,0 +1,62 @@
+<br>
+<br>
+
+# Natural deduction for predicate logic
+
+We introduce a simple proof system for predicate logic, based on natural deduction. We focus on the universal quantifier, conjunction, the conditional, and negation.
+
+- [Elimination rule for universal](#elimination-rule-for-universal)
+- [Elimination rule for conjunction](#elimination-rule-for-conjunction)
+- [Elimination rule for implication](#elimination-rule-for-implication)
+- [The introduction rule for implication](#the-introduction-rule-for-implication)
+- [The introduction rule for conjunction](#the-introduction-rule-for-conjunction)
+- [The introduction rule universal](#the-introduction-rule-for-universal)
+- [The elimination rule for negation](#the-elimination-rule-for-negation)
+- [The introduction rule for negation](#the-introduction-rule-for-negation)
+
+<br>
+<br>
+
+## Elimination rule for universal
+
+
+<br>
+
+[Recall from our study of validity](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-tautologies.pandoc#universal-elimination-and-existential-introduction) that we had the following validity which showed how to eliminate the universal quantifier:
+
+$\forall \; x \; \phi(x)\vdash \phi(a)$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
+
+We start out our proof system by building a rule for this validity:
+
+<video controls width="600" src="https://logic-teaching.github.io/prep/vid/natural-deduction-EA.mp4"/> </video>
+
+<br>
+
+Here are two simple examples of this rule:
+
+<br>
+
+*Example 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxAy(Fx/\Gy) :|-: Fa/\Fb
+|Ay(Fa/\Gy)            :EA1
+|Fa/\Gb :EA2
+```
+
+<br>
+
+*Example 2*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxAyRxy :|-: Raa
+|AyRay            :EA1
+|Raa :EA2
+```
+
+<br>
+
+
+
+<br>
+<br>
