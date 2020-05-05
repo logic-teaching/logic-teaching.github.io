@@ -21,7 +21,7 @@ We introduce a simple proof system for predicate logic, based on natural deducti
 
 The rule is: if you have $\forall \; x \; \phi(x)$ on line $\ell_1$, then you can write $\phi(a)$ on any subsequent line $\ell$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
 
-<video controls width="600" src="https://logic-teaching.github.io/pred/vid/elim-forall-redeux.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/pred/vid/ND-EA-vid.mp4"/> </video>
 
 <br>
 
@@ -71,7 +71,7 @@ The rule is: if you have $\phi \wedge \psi$ on line $\ell_1$, then you may write
 
 The rule is: if you have $\phi$ on line $\ell_1$, and you have $\phi\rightarrow \psi$ on line $\ell_2$, then you may write $\psi$ on any subsequent line $\ell>\ell_1, \ell_2$.
 
-<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_06_arrow_elim-redeux.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/pred/vid/ND-E->vid.mp4"/> </video>
 <br>
 
 In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
@@ -102,7 +102,7 @@ The top line of a bracketed line is justified as an assumption, but really it is
 
 We also use the expression of *open* and *closed* to describe when you are allowed to appeal to the top lines of brackets. Before finishing the bracket, the top line is called an *open* assumption and can be appealed to in order to justify other lines. But after finishing the bracket, the top line of the bracket is called a *closed* assumption and cannot be appealed to in order to justify other lines.
 
-We extend this terminology to the ordinary premises, and sometimes say that the ordinary premises of the proof, usually enumerated at the top and justified as assumptions, are always open assumptions and are never closed. 
+We extend this terminology to the ordinary premises, and sometimes say that the ordinary premises of the proof, usually enumerated at the top and justified as assumptions, are always open assumptions and are never closed.
 
 *Example 5*
 
