@@ -19,44 +19,162 @@ We introduce a simple proof system for predicate logic, based on natural deducti
 
 ## Elimination rule for universal
 
+The rule is: if you have $\forall \; x \; \phi(x)$ on line $\ell_1$, then you can write $\phi(a)$ on any subsequent line $\ell$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
 
-<br>
-
-[Recall from our study of validity](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-tautologies.pandoc#universal-elimination-and-existential-introduction) that we had the following validity which showed how to eliminate the universal quantifier:
-
-$\forall \; x \; \phi(x)\vdash \phi(a)$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
-
-We start out our proof system by building a rule for this validity:
-
-<video controls width="600" src="https://logic-teaching.github.io/prep/vid/natural-deduction-EA.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prep/vid/natural-deduction-EA-again.mp4"/> </video>
 
 <br>
 
 Here are two simple examples of this rule:
 
-<br>
-
 *Example 1*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
- AxAy(Fx/\Gy) :|-: Fa/\Fb
+ AxAy(Fx/\Gy) :|-: Fa/\Gb
+|AxAy(Fx/\Gy) :assumption
 |Ay(Fa/\Gy)            :EA1
 |Fa/\Gb :EA2
 ```
-
-<br>
 
 *Example 2*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  AxAyRxy :|-: Raa
+|AxAyRxy :assumption
 |AyRay            :EA1
 |Raa :EA2
 ```
 
 <br>
 
+## Elimination rule for conjunction
 
+The rule is: if you have $\varphi \wedge \psi$ on line $\ell_1$, then you may write $\varphi$ on any subsequent line $\ell>\ell_1$, and likewise you may write $\psi$ on any subsequent line $\ell>\ell_1$.
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_03_and_elim1.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_04_and_elim2.mp4"/> </video>
+<br>
+
+*Example 3*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxFx/\(AxGx/\AxHx) :|-: Ga
+|AxFx/\(AxGx/\AxHx) :assumption
+|AxGx/\AxHx :E/\1
+|AxGx :E/\2
+|Ga :EA3
+```
+
+<br>
+
+## Elimination rule for implication
+
+The rule is: if you have $\varphi$ on line $\ell_1$, and you have $\varphi\rightarrow \psi$ on line $\ell_2$, then you may write $\psi$ on any subsequent line $\ell>\ell_1, \ell_2$.
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_06_arrow_elim-redeux.mp4"/> </video>
+<br>
+
+In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
+
+*Example 4*:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ (Fa->Fb)/\(Fa->Fc), Fa :|-: Fb/\Fc
+|(Fa->Fb)/\(Fa->Fc) :assumption
+|Fa :assumption
+|Fa->Fb :E/\1
+|Fa->Fc :E/\1
+|Fb :E->2,3
+|Fc :E->2,4
+|Fb/\Fc :I/\5,6
+```
+
+<br>
+
+## The introduction rule for implication
+
+The rule is: suppose that consecutive lines $\ell_1-\ell_n$ constitute a proof with premise $\varphi$ and conclusion $\psi$. Then one may introduce $\varphi\rightarrow \psi$ at line $\ell_n+1$, so long as one brackets off $\ell_1-\ell_n$ and never appeals to them again.
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_08_arrow_intro.mp4"/> </video>
+<br>
+
+*Example 5*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa->AyRay :|-: Fa->Rab
+|Fa->AyRay :assumption
+| Fa :assumption
+| AyRay :E->1,2
+| Rab :EA3
+|Fa->Rab :I->2-4
+```
+
+Note that in the proof checker, to get the bracket one **inserts a space** before the formulas.
+
+<br>
+
+## The introduction rule for conjunction
+
+The rule is: if you have $\varphi$ on a line $\ell_1$, and you have $\psi$ on line $\ell_2$, then you may write $\varphi \wedge \psi$ on any subsequent line $\ell> \ell_1, \ell_2$.
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_01_and_intro_v2.mp4"/> </video>
+<br>
+
+In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
+
+*Example 6*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx/\Gx) :|-: Ga/\Fa
+|Ax(Fx/\Gx) :assumption
+|Fa/\Ga :EA1
+|Fa :E/\2
+|Ga :E/\2
+|Ga/\Fa :I/\3,4
+```
+
+<br>
+
+## The introduction rule for universal
+
+The rule is: if you have $\phi(c)$ on a line $\ell_1$, and if $c$ does not appear in any of the open assumptions, then you may write $\forall \; x \; \phi(x)$ on any subsequent line $\ell>\ell_1$.
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_01_and_intro_v2.mp4"/> </video>
+<br>
+
+*Example 7*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Gx), AxFx :|-: AxGx
+|Ax(Fx->Gx) :assumption
+|AxFx :assumption
+|Fb :EA2
+|Fb->Gb :EA1
+|Gb :E->3,4
+|AxGx :IA5
+```
+
+The following proof does not work since the constant $b$ appears in the assumption:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Gx), Fb :|-: AxGx
+|Ax(Fx->Gx) :assumption
+|Fb :assumption
+|Fb->Gb :EA1
+|Gb :E->2,3
+|AxGx :IA4
+```
+Likewise, the following does not work since the constant $b$ appears in the open assumption in line 2:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Gx) :|-: Fb->AxGx
+|Ax(Fx->Gx) :assumption
+| Fb :assumption
+| Fb->Gb :EA1
+| Gb :E->2,3
+| AxGx :IA4
+|Fb->AxGx :I->2-5
+```
 
 <br>
 <br>
