@@ -21,7 +21,7 @@ We introduce a simple proof system for predicate logic, based on natural deducti
 
 The rule is: if you have $\forall \; x \; \phi(x)$ on line $\ell_1$, then you can write $\phi(a)$ on any subsequent line $\ell$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
 
-<video controls width="600" src="https://logic-teaching.github.io/prep/vid/elim-forall.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prep/vid/elim-forall-redeux.mp4"/> </video>
 
 <br>
 
@@ -139,11 +139,11 @@ In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
 
 The rule is: if you have $\phi(c)$ on a line $\ell_1$, and if $c$ does not appear in any of the open assumptions, then you may write $\forall \; x \; \phi(x)$ on any subsequent line $\ell>\ell_1$.
 
-<video controls width="600" src="https://logic-teaching.github.io/prop/vid/intro-forall.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/intro-forall-redeux.mp4"/> </video>
 
 <br>
 
-*Example 7 (Barbara)*
+*Example 7 (Barbara)*:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ax(Fx->Gx), Ax(Gx->Hx) :|-: Ax(Fx->Hx)
@@ -219,13 +219,13 @@ Here is a picture of the rule:
 
 <br>
 
-*Example 9* (*à la* the Third Conversion).
+*Example 9*.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ~Rbb :|-: ~AxRxx
 |~Rbb :assumption
 | AxRxx :assumption
-| Rbb :AE2
+| Rbb :EA2
 | ⊥ :E~1,3
 |~AxRxx :I~2-4
 ```
