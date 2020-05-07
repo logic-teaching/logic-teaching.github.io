@@ -1,0 +1,211 @@
+<br>
+<br>
+
+# Natural deduction for predicate logic, continued
+
+We continue with our presentation of the natural deduction proof system, focusing on the rules for the existential quantifier, disjunction. We further discuss additional rules pertaining to falsum and negation.
+
+- [The introduction rule for existential](#the-introduction-rule-for-existential)
+- [The introduction rule for disjunction](#the-introduction-rule-for-disjunction)
+- [The elimination rule for existential](#the-elimination-rule-for-existential)
+- [The elimination rule for disjunction](#the-elimination-rule-for-disjunction)
+- [Ex falso and intuitionistic logic](#ex-falso-and-intuitionistic-logic)
+- [Double-negation and classical logic](#double-negation-and-classical-logic)
+
+<br>
+<br>
+
+## The introduction rule for existential
+
+The rule is: if you have $\phi(a)$ on line $\ell_1$, then you can write $\exists \; x \; \phi(x)$ on any subsequent line $\ell$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
+
+<video controls width="600" src="https://logic-teaching.github.io/pred/vid/ND-IE.mp4"/> </video>
+
+<br>
+
+Here are two simple examples of this rule:
+
+*Example 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Rab :|-: ExEyRxy
+|Rab :assumption
+|EyRay :IE
+```
+
+*Example 2*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxAyRxy :|-: Raa
+|AxAyRxy :assumption
+```
+
+<br>
+
+## Elimination rule for conjunction
+
+The rule is: if you have $\phi \wedge \psi$ on line $\ell_1$, then you may write $\phi$ on any subsequent line $\ell>\ell_1$, and likewise you may write $\psi$ on any subsequent line $\ell>\ell_1$.
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_03_and_elim1.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_04_and_elim2.mp4"/> </video>
+<br>
+
+*Example 3*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxFx/\(AxGx/\AxHx) :|-: Ga
+|AxFx/\(AxGx/\AxHx) :assumption
+```
+
+<br>
+
+## Elimination rule for implication
+
+The rule is: if you have $\phi$ on line $\ell_1$, and you have $\phi\rightarrow \psi$ on line $\ell_2$, then you may write $\psi$ on any subsequent line $\ell>\ell_1, \ell_2$.
+
+<video controls width="600" src="https://logic-teaching.github.io/pred/vid/ND-Earrow-vid.mp4"/> </video>
+<br>
+
+In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
+
+*Example 4*:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ (Fa->Fb)/\(Fa->Fc), Fa :|-: Fb
+|(Fa->Fb)/\(Fa->Fc) :assumption
+|Fa :assumption
+```
+
+<br>
+
+## The introduction rule for implication
+
+The rule is: suppose that consecutive lines $\ell_1-\ell_n$ constitute a proof with premise $\phi$ and conclusion $\psi$. Then one may introduce $\phi\rightarrow \psi$ at line $\ell_n+1$, so long as one brackets off $\ell_1-\ell_n$ and never appeals to them again.
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_08_arrow_intro.mp4"/> </video>
+<br>
+
+The top line of a bracketed line is justified as an assumption, but really it is a temporary assumption: you are saying that if you temporarily assume $\phi$, then you can get to $\psi$, and that this is a good reason to write down $\phi\rightarrow \psi$.
+
+We also use the expression of *open* and *closed* to describe when you are allowed to appeal to the top lines of brackets. Before finishing the bracket, the top line is called an *open* assumption and can be appealed to in order to justify other lines. But after finishing the bracket, the top line of the bracket is called a *closed* assumption and cannot be appealed to in order to justify other lines.
+
+We extend this terminology to the ordinary premises, and sometimes say that the ordinary premises of the proof, usually enumerated at the top and justified as assumptions, are always open assumptions and are never closed.
+
+*Example 5*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa->AyRay :|-: Fa->Rab
+|Fa->AyRay :assumption
+```
+
+Note that in the proof checker, to get the bracket one **inserts a space** before the formulas.
+
+<br>
+
+## The introduction rule for conjunction
+
+The rule is: if you have $\phi$ on a line $\ell_1$, and you have $\psi$ on line $\ell_2$, then you may write $\phi \wedge \psi$ on any subsequent line $\ell> \ell_1, \ell_2$.
+
+<video controls width="600" src="https://logic-teaching.github.io/prop/vid/natural_deduction_and_arrow_01_and_intro_v2.mp4"/> </video>
+<br>
+
+In the rule, it does not matter whether $\ell_1$ or $\ell_2$ comes first.
+
+*Example 6*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx/\Gx) :|-: Ga/\Fa
+|Ax(Fx/\Gx) :assumption
+```
+
+<br>
+
+## The introduction rule for universal
+
+The rule is: if you have $\phi(a)$ on a line $\ell_1$, and if $a$ does not appear in any of the open assumptions, then you may write $\forall \; x \; \phi(x)$ on any subsequent line $\ell>\ell_1$.
+
+<video controls width="600" src="https://logic-teaching.github.io/pred/vid/ND-IA-vid.mp4"/> </video>
+
+<br>
+
+*Example 7 (Barbara)*:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Gx), Ax(Gx->Hx) :|-: Ax(Fx->Hx)
+|Ax(Fx->Gx) :assumption
+|Ax(Gx->Hx) :assumption
+```
+
+
+By contrast, the following proof does not work. The application of the introduction rule for universal at line 8 is flawed since the constant $b$ appears from line 7 appears in the open assumption in line 2. The proof checker describes this error as "b not being fresh".
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Gx), Ax(Gx->Hx) :|-: Fb->AxHx
+|Ax(Fx->Gx) :assumption
+|Ax(Gx->Hx) :assumption
+| Fb :assumption
+| Fb->Gb :EA1
+| Gb :E->3,4
+| Gb->Hb :EA2
+| Hb :E->5,6
+| AxHx :IA7
+|Fb->AxHx :I->3-8
+```
+
+Likewise, the following proof does not work. The application of the introduction rule for universal at line 8 is flawed since the the constant $b$ in line 7 appears in the open assumption at line 3:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Gx), Ax(Gx->Hx), Fb :|-: AxHx
+|Ax(Fx->Gx) :assumption
+|Ax(Gx->Hx) :assumption
+|Fb :assumption
+|Fb->Gb :EA1
+|Gb :E->3,4
+|Gb->Hb :EA2
+|Hb :E->5,6
+|AxHx :IA7
+```
+
+
+## The elimination rule for negation
+
+To describe the introduction and elimination rules for negation, we need to introduce a special symbol. This symbol is ⊥ and is called falsum or bottom or bot. Intuitively, it’s a special symbol for a contradiction, something that’s always false. The falsum symbol ⊥ can be typed either by just cutting and pasting from this screen, or by typing `!?`.
+
+Here is the elimination rule for negation: if you have $\phi$ on line $\ell_1$ and you have $\neg \phi$ on line $\ell_2$, then you may write $\bot$ on any subsequent line $\ell>\ell_1, \ell_2$.
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/ND-Erenegvid.mp4"/> </video>
+
+<br>
+
+*Example 8*.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxFx, ~Fb :|-: ⊥
+|AxFx :assumption
+|~Fb :assumption
+```
+
+<br>
+
+## The introduction rule for negation
+
+Here is the introduction rule for negation: suppose that consecutive lines $\ell_1-\ell_n$ constitute a bracketed proof with premise $\phi$ and conclusion $\bot$. Then one may introduce $\neg \phi$ at any subsequent line $\ell>\ell_n$.
+
+
+Here is a picture of the rule:
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/ND-I~-vid.mp4"/> </video>
+
+<br>
+
+*Example 9*.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~Rbb :|-: ~AxRxx
+|~Rbb :assumption
+```
+
+<br>
+
+<br>
+<br>
