@@ -19,7 +19,7 @@ We continue with our presentation of the natural deduction proof system, focusin
 
 The rule is: if you have $\phi(a)$ on line $\ell_1$, then you can write $\exists \; x \; \phi(x)$ on any subsequent line $\ell$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
 
-<video controls width="600" src="https://logic-teaching.github.io/pred/vid/ND-IE.mp4"/> </video>
+<video controls width="600" src="https://logic-teaching.github.io/pred/vid/ND-IE-v2.mp4"/> </video>
 
 <br>
 
