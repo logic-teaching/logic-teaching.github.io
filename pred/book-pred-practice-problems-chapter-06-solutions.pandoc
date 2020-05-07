@@ -403,7 +403,35 @@ Please do not attempt these problems until after Lecture 2 this week. We will co
 
 <br>
 
-The remaining three problems will be added before Lecture 2 this week.
+*Problem 19 (Baroco)*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+05.19 Ax(Fx->Gx), Ex(Hx/\~Gx) :|-: Ex(Hx/\~Fx)
+|Ax(Fx->Gx) :assumption
+|Ex(Hx/\~Gx) :assumption
+| ~Ex(Hx/\~Fx) :assumption
+| Ax(Hx->~~Fx) :CV3 3
+|  Hc :assumption
+|  Hc->~~Fc :EA4
+|  ~~Fc :E->5,6
+|  Fc :~~7
+| Hc->Fc :I->5-8
+| Ax(Hx->Fx) :IA9
+| Ex(~Gx/\Hx) :CV1 2
+| Ex(~Gx/\Fx) :Da 10,11
+| Ex(~Gx/\Gx) :Da 1,12
+|  ~Ga/\Ga :assumption
+|  ~Ga :E/\14
+|  Ga :E/\14
+|  ⊥ :E~15,16
+| (~Ga/\Ga)->⊥ :I->14-17
+| ⊥ :EE13,18
+|~~Ex(Hx/\~Fx) :I~3-19
+|Ex(Hx/\~Fx) :~~20
+```
+
+
+<br>
 
 These are practice problems written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
 

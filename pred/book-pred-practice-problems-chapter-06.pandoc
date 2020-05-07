@@ -281,7 +281,16 @@ Please do not attempt these problems until after Lecture 2 this week. We will co
 
 <br>
 
-The remaining three problems will be added before Lecture 2 this week.
+*Problem 19 (Baroco)*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+05.19 Ax(Fx->Gx), Ex(Hx/\~Gx) :|-: Ex(Hx/\~Fx)
+|Ax(Fx->Gx) :assumption
+|Ex(Hx/\~Gx) :assumption
+```
+
+<br>
+
 
 These are practice problems written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
 
