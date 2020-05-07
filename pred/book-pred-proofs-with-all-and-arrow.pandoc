@@ -10,7 +10,7 @@ We introduce a simple proof system for predicate logic, based on natural deducti
 - [Elimination rule for implication](#elimination-rule-for-implication)
 - [The introduction rule for implication](#the-introduction-rule-for-implication)
 - [The introduction rule for conjunction](#the-introduction-rule-for-conjunction)
-- [The introduction rule universal](#the-introduction-rule-for-universal)
+- [The introduction rule for universal](#the-introduction-rule-for-universal)
 - [The elimination rule for negation](#the-elimination-rule-for-negation)
 - [The introduction rule for negation](#the-introduction-rule-for-negation)
 
@@ -208,5 +208,6 @@ Here is a picture of the rule:
 
 <br>
 
-<br>
-<br>
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+
+[^3]: which is:
