@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Natural deduction, definitions, and normalization
+# Natural deduction, definitions, and normalization **with solutions**
 
 <br>
 
@@ -23,6 +23,10 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 - [Prior and tonk](#prior-and-tonk)
 - [Conservation and the subformula property](#conservation-and-the-subformula-property)
 - [The subformula property and normalization](#the-subformula-property-and-normalization)
+
+<br>
+
+This version has **the solutions** filled in. The solutions, in this case, just consist of proofs.
 
 <br>
 
@@ -48,26 +52,34 @@ The first premise $\phi\rightarrow \psi$ of arrow elimination means, "in the sen
 
 <br>
 
-More concretely, one can get the sense in which Gentzen thinks that the elimination rule for arrow is a consequence of the introduction rule for arrow by looking at the following three proofs. In the first, try to do a very simple arrow elimination proof:
+More concretely, one can get the sense in which Gentzen thinks that the elimination rule for arrow is a consequence of the introduction rule for arrow by looking at the following three proofs. In the first, we do a very simple arrow elimination proof:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  (Fa/\Fb)/\Fc, ((Fa/\Fb)/\Fc)->Fb :|-: Fb
 |(Fa/\Fb)/\Fc :assumption
 |((Fa/\Fb)/\Fc)->Fb :assumption
+|Fb :E->1,2
 ```
 
-In the second, we take the meaning of the arrow statement in the premise to be: there is a proof taking us from $((Fa\wedge Fb)\wedge Fc)$ to $Fb$. Expand the previous proof so that the end of the proof is the same, but it has above it a line which reads `((Fa/\Fb)/\Fc)->Fb` and which is justified by an arrow introduction:
+In the second, we take the meaning of the arrow statement in the premise to be: there is a proof taking us from $((Fa\wedge Fb)\wedge Fc)$ to $Fb$. Then we expand the previous proof by producing the natural proof of this arrow statement:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  (Fa/\Fb)/\Fc :|-: Fb
 |(Fa/\Fb)/\Fc :assumption
+| (Fa/\Fb)/\Fc :assumption
+| Fa/\Fb :E/\2
+| Fb :E/\3
+|((Fa/\Fb)/\Fc)->Fb :I->2-4
+|Fb :E->1,5
 ```
 
-In the third, try to do a proof which removes both the introduction and elimination of arrow at the end and which just works by conjunction elimination:
+In the third, we simply reduce to the natural proof by removing the introduction and the elimination of the arrow at the end:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  (Fa/\Fb)/\Fc :|-: Fb
 |(Fa/\Fb)/\Fc :assumption
+|Fa/\Fb :E/\1
+|Fb :E/\2
 ```
 
 This example illustrates how the introduction rule for arrow can be taken as a definition of arrow: the arrow in $\phi\rightarrow \psi$ is defined as there being a proof going from antecedent $\phi$ to consequent $\psi$. The elimination rule is then said to follow from this definition since it tells one how to move from premises $\phi\rightarrow \psi$ and $\phi$ to conclusion $\psi$ by putting the proof associated to $\phi\rightarrow \psi$ together with the proof of $\phi$ to get a proof of $\psi$.
@@ -78,9 +90,10 @@ But one obvious limitation of this is is that it only works when the assertion o
  Na, Na->Nb :|-: Nb
 |Na :assumption
 |Na->Nb :assumption
+|Nb :E->1,2
 ```
 
-We can complete this proof by doing arrow elimination, but there is no way to expand this proof so that we have `Na->Nb` not as an assumption but as the conclusion of an instance of arrow introduction.
+That is, there is no way to expand this proof so that we have `Na->Nb` not as an assumption but as the conclusion of an instance of arrow introduction.
 
 There are various ways around this. For instance, one can consider idealized proof systems in which there is a rule like "from Adriana being nice, infer Briana being nice," and perhaps one can consider typical assertions of conditionals as happening in such a system.[^2]
 
@@ -151,29 +164,45 @@ We will speak, in a moment, about the reason why this holds. But let us just not
 
 ## The subformula property and normalization
 
-The reason why the subformula property holds is a feature of our proof-system called normalization. The formula definition of normalization is a little beyond what we are able to formally state here, but it is easy to give an intuitive idea since in some sense we have been working with it all along.[^8] Namely, the way to produce normal proofs is to apply elimination rules at the top of the proof and introduction rules down at the bottom of the proof. Here is a simple example where it is easy to produce a normal proof using conjunction elimination at the top and disjunction introduction at the bottom:
+The reason why the subformula property holds is a feature of our proof-system called normalization. The formula definition of normalization is a little beyond what we are able to formally state here, but it is easy to give an intuitive idea since in some sense we have been working with it all along.[^8] Namely, the way to produce normal proofs is to apply elimination rules at the top of the proof and introduction rules down at the bottom of the proof. Here is a simple example of a normal proof using conjunction and disjunction:
 
 [^8]: For more details, see any textbook treatment of an introduction to proof-theory, like: Negri, Sara and von Plato, Jan. 2008. Structural Proof Theory. Cambridge University Press.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  (Fa/\Fb)/\Fc :|-: Fb\/Fd
 |(Fa/\Fb)/\Fc :assumption
+|Fa/\Fb :E/\1
+|Fb :E/\2
+|Fb\/Fd :I\/3
 ```
 
 It is easy to see that this proof has the subformula property, by inspection. Moreover, it is at least plausible to think that any proof which worked via elimination rules at the top and introduction rules at the bottom would have the subformula property. For, lines near the top would be subformulas of premises since that is how elimination rules work; and lines near the bottom would be subformulas of conclusions since that it is how the introduction rules work.
 
-But how could a proof fail to have the subformula property? Well, we just introduce the phenomena that Gentzen himself drew attention to: an introduction rule for a connective followed immediately by an elimination rule for that same connective. For instance, even though our previous example only pertained to conjunction and disjunction, we could easily introduce extraneous lines involving arrow, by adding a line that says, for instance, `((Fa/\Fb)/\Fc)->Fb` and which is justified by arrow introduction follow by an arrow elimination:
+But how could a proof fail to have the subformula property? Well, we just introduce the phenomena that Gentzen himself drew attention to: an introduction rule for a connective followed immediately by an elimination rule for that same connective. For instance, even though our previous example only pertained to conjunction and disjunction, we could introduce extraneous lines involving arrow in it as follows:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  (Fa/\Fb)/\Fc :|-: Fb\/Fd
 |(Fa/\Fb)/\Fc :assumption
+| (Fa/\Fb)/\Fc :assumption
+| Fa/\Fb :E/\2
+| Fb :E/\3
+|((Fa/\Fb)/\Fc)->Fb :I->2-4
+|Fb :E->1,5
+|Fb\/Fd :I\/6
 ```
 
-Proofs like this-- *non-normal proofs*-- seem kind of frivolous, as if they would not actually occur in the practice of giving arguments. But they are actually the proofs that occur most frequently in the practice of giving arguments. This is because we like to separate out arguments into discrete parts which we then combine, and the act of combination produces non-normal proofs. To take a simple example, first complete the proof of "someone is respected by everyone implies everyone respects someone":
+Proofs like this-- *non-normal proofs*-- seem kind of frivolous, as if they would not actually occur in the practice of giving arguments. But they are actually the proofs that occur most frequently in the practice of giving arguments. This is because we like to separate out arguments into discrete parts which we then combine, and the act of combination produces non-normal proofs. To take a simple example, consider our proof of "someone is respected by everyone implies everyone respects someone":
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  :|-: EyAxRxy->AxEyRxy
 | EyAxRxy :assumption
+|  AxRxb :assumption
+|  Rab :EA2
+|  EyRay :IE3
+|  AxEyRxy :IA4
+| AxRxb->AxEyRxy :I->2-5
+| AxEyRxy :EE1,6
+|EyAxRxy->AxEyRxy :I->1-7
 ```
 
 This proof is rather tricky, and we would prefer not to have to redo it over and over again. Suppose that we are given the problem
@@ -187,19 +216,47 @@ For instance, this corresponds to an inference like: "if someone is both $r$espe
 3. Repeat the previous proof with respect to $S$.
 4. Combine the two conclusions with a conjunction.
 
-Try to follow this strategy to complete the following proof:
+Formally, this would look like the following proof, where the repetition of of the previous proof with respect to $R$ happens in lines 13, 15-23 and the repetition of the previous proof with respect to $S$ happens in lines 14, 24-32. In lines 2-12, we are completing step 1 above, and in line 33 we are completing step 4 above.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  EyAx(Rxy/\Sxy) :|-: AxEyRxy/\AxEySxy
 |EyAx(Rxy/\Sxy) :assumption
+| Ax(Rxb/\Sxb) :assumption
+| Rab/\Sab :EA2
+| Rab :E/\3
+| Sab :E/\3
+| AxRxb :IA4
+| AxSxb :IA5
+| EyAxRxy :IE6
+| EyAxSxy :IE7
+| EyAxRxy/\EyAxSxy :I/\8,9
+|Ax(Rxb/\Sxb)->(EyAxRxy/\EyAxSxy) :I->2-10
+|(EyAxRxy/\EyAxSxy) :EE1,11
+|EyAxRxy :E/\12
+|EyAxSxy :E/\12
+| EyAxRxy :assumption
+|  AxRxb :assumption
+|  Rab :EA16
+|  EyRay :IE17
+|  AxEyRxy :IA18
+| AxRxb->AxEyRxy :I->16-19
+| AxEyRxy :EE15,20
+|EyAxRxy->AxEyRxy :I->15-21
+|AxEyRxy :E->13,22
+| EyAxSxy :assumption
+|  AxSxb :assumption
+|  Sab :EA25
+|  EySay :IE26
+|  AxEySxy :IA27
+| AxSxb->AxEySxy :I->25-28
+| AxEySxy :EE24,29
+|EyAxSxy->AxEySxy :I->24-30
+|AxEySxy :E->14,31
+|AxEyRxy/\AxEySxy :I/\23,32
 ```
 
-Your version of the proof should have two separate instances of the introduction rule for arrow followed by the elimination rule for arrow. Now try to do a "normal" proof which does not have this feature:
+Note that this proof has two instances of an introduction rule for arrow followed immediately by an elimination rule for arrow: once at lines 22-23 and once at lines 31-32. This is precisely the "shape" to which Gentzen drew our attention in the opening quotation. Hence, non-normal proofs where there are instances of introduction rules followed immediately by elimination rules are the inevitable result of cutting and pasting together arguments.
 
-```{.ProofChecker .GamutNDPlus submission="none"}
- EyAx(Rxy/\Sxy) :|-: AxEyRxy/\AxEySxy
-|EyAx(Rxy/\Sxy) :assumption
-```
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
 
