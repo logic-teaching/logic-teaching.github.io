@@ -92,8 +92,12 @@ There are various ways around this. For instance, one can consider idealized pro
 
 It was with this kind of view that Prior was interested:
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Gentzen%201969%20-%20Investigations%20into%20Logical%20Deduction%20p.%2080.png
-" alt="Euler on propositions" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Prior%201960%20-%20The%20runabout%20inference-ticket-again.png
+" alt="Prior on " width="700"/>
+
+Prior's famous counterexample to this was an imaginary connective he called *tonk*, which has an introduction rule like disjunction and an elimination rule like conjunction:
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/conv-arrow.mp4"/>
 
 Prior%201960%20-%20The%20runabout%20inference-ticket.pdf
 
