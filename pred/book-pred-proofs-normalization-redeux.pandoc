@@ -1,0 +1,257 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Natural deduction, definitions, and normalization
+
+- [The rules as definitions](#the-rules-as-definitions)
+- [Prior and tonk](#prior-and-tonk)
+- [Conservation and the subformula property](#conservation-and-the-subformula-property)
+
+<br>
+<br>
+
+## The rules as definitions
+
+In this course we started with models, from which we can define validity, and then we turned to proof systems. From this vantage point, it looks like what is happening in a proof system is that we are taking certain valid arguments as primitive rules, and then we are deriving other validities from these. This then raises the question of how and by what means one chooses the rules. Why choose one set of validities as opposed to another set of validities? Is the idea that some are more easily justified than others, and if so by what means?
+
+One answer to these questions comes from Gentzen, who first articulated natural deduction proof systems:[^1]
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Gentzen%201969%20-%20Investigations%20into%20Logical%20Deduction%20p.%2080.png
+" alt="Gentzen on definitions" width="700"/>
+
+[^1]: p. 80 of: [Gentzen, Gerhard. 1969. “Investigations into Logical Deduction.” In The Collected Papers of Gerhard Gentzen, edited by M. E. Sazbo, 68–131. Studies in Logic and the Foundations of Mathematics. Amsterdam: North-Holland.](https://logic-teaching.github.io/pred/texts/Gentzen%201969%20-%20Investigations%20into%20Logical%20Deduction.pdf).
+
+To get the sense of Gentzen's answer, we can ask the specific question: what justifies the elimination rule for arrow? The first premise $\phi\rightarrow \psi$ of arrow elimination means that there is a proof from $\phi$ to $\psi$. If one write this proof out, the $\phi$ at the top of the bracket is justified as a hypothetical assumption. But the second premise $\phi$ of arrow elimination, when deployed in a proof, comes with some reason to believe $\phi$, say rule XYZ. Then simply put this justification in place of the hypothetical assumption, and one has a proof from $\phi$ to $\psi$, and since one has a reason for $\phi$, one then has a reason for $\psi$. In a picture:
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/conv-arrow.mp4"/> </video>
+
+<br>
+
+One can get the sense in which Gentzen thinks that the elimination rule for arrow is a consequence of the introduction rule for arrow by looking at the following three proofs. In the first, we do a very simple arrow elimination proof:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ (Fa/\Fb)/\Fc, ((Fa/\Fb)/\Fc)->Fb :|-: Fb
+|(Fa/\Fb)/\Fc :assumption
+|((Fa/\Fb)/\Fc)->Fb :assumption
+|Fb :E->1,2
+```
+
+In the second, we take the meaning of the arrow statement in the premise to be: there is a proof taking us from $((Fa\wedge Fb)\wedge Fc)$ to $Fb$. Then we expand the previous proof by producing the natural proof of this arrow statement:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ (Fa/\Fb)/\Fc :|-: Fb
+|(Fa/\Fb)/\Fc :assumption
+| (Fa/\Fb)/\Fc :assumption
+| Fa/\Fb :E/\2
+| Fb :E/\3
+|((Fa/\Fb)/\Fc)->Fb :I->2-4
+|Fb :E->1,5
+```
+
+In the third, we simply reduce to the natural proof by removing the introduction and the elimination of the arrow at the end:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ (Fa/\Fb)/\Fc :|-: Fb
+|(Fa/\Fb)/\Fc :assumption
+|Fa/\Fb :E/\1
+|Fb :E/\2
+```
+
+This example illustrates how the introduction rule for arrow can be taken as a definition of arrow: the arrow in $\phi\rightarrow \psi$ is defined as there being a proof going from antecedent $\phi$ to consequent $\psi$. The elimination rule is then said to follow from this definition since it tells one how to move from $\phi\rightarrow \psi$ and $\phi$ to $\psi$ by putting the proof associated to $\phi\rightarrow \psi$ together with the proof of $\phi$ to get a proof of $\psi$.
+
+But one obvious limitation of this is is that it only works when the assertion of $\phi\rightarrow \psi$ can be thought of as a proof going from $\phi$ to $\psi$. In the above illustration, it could be so conceived, but sometimes when we assert a conditional we do not have such a proof in mind. For instance, if I say "if Adriana is nice then Brianna is nice," then I do not seem to have any such proof in mind. And there is no way to carry out the procedure described up above for the simple associated proof:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Na, Na->Nb :|-: Nb
+|Na :assumption
+|Na->Nb :assumption
+|Nb :E->1,2
+```
+
+There are various ways around this. For instance, one can consider idealized proof systems in which there is a rule like "from Adriana being nice, infer Briana being nice," and perhaps one can consider typical assertions of conditionals as happening in such a system.[^2]
+
+[^2]: These are the *atomic system(s)* in the literature on proof-theoretic semantics, e.g. [Schroeder-Heister, Peter. 2018. “Proof-Theoretic Semantics.” In The Stanford Encyclopedia of Philosophy, edited by Edward N. Zalta, Spring 2018. Metaphysics Research Lab, Stanford University.](https://plato.stanford.edu/archives/spr2018/entries/proof-theoretic-semantics/).
+
+<br>
+
+## Prior's example of tonk
+
+It was with this kind of view that Prior was interested:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Prior%201960%20-%20The%20runabout%20inference-ticket-again.png
+" alt="Prior on " width="700"/>
+
+Prior's famous counterexample to this was an imaginary connective he called *tonk*, which has an introduction rule like disjunction and an elimination rule like conjunction:[^3]
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/tonk-intro.mp4"/> </video>
+
+<br>
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/tonk-elimination.mp4"/> </video>
+
+<br>
+
+[^3]: [Prior, Arthur N. 1960. “The Runabout Inference-Ticket.” Analysis 21 (2): 38–39.](https://logic-teaching.github.io/pred/texts/Prior%201960%20-%20The%20runabout%20inference-ticket.pdf).
+
+The problem with saying that the validity of these inferences is given simply by the meaning of "tonk" is, in Prior's view, that from these rules one can derive anything. For instance, here is the a derivation that $Fa\vdash Ga$:
+
+1. Fa :assumption
+2. Fa tonk Ga :I tonk 1.
+3. Ga :E tonk 2
+
+There are obviously some properties $F,G$ and objects $a$ such that we want to say that we can infer from $Fa$ to $Ga$, but we certainly do not want to be committed to this in general.
+
+An obvious reaction to Prior's counterexample is that the introduction and elimination rules for "tonk" are mismatched in a way in which the introduction and elimination rules for the propositional connectives and quantifiers are not. But it is difficult to say more about what this "mismatch" amounts to. Another reaction is to note that Gentzen's proposal was more specific than "any collection of introduction and elimination rules determines a meaning." However, one way to think about Prior is as issuing a challenge to Gentzen: if it is okay to "lay down" the introduction rule as a definition, why is it not similarly okay to "lay down" pairs of introduction rules and elimination rules as definitions?
+
+<br>
+
+## Conservation and the subformula property
+
+Belnap suggested that what distinguishes tonk from the usual propositional connectives is conservativitiy.[^4] Suppose that we have a system of rules which allows us to define a validity relation $\vdash_1$. And suppose we add a new set of rules governing some new connectives to get a validity relation $\vdash_2$. Since we are thinking that the old rules apply to the new connective, we trivially have:
+
+[^4]: [Belnap, Nuel D. 1962. “Tonk, Plonk and Plink.” Analysis 22 (6): 130–34.](https://logic-teaching.github.io/pred/texts/Belnap%201962%20-%20Tonk,%20plonk%20and%20plink.pdf)
+
+- If $\phi_1, \ldots, \phi_n\vdash_1 \phi$ then $\phi_1, \ldots, \phi_n \vdash_2 \phi$, for all formulas $\phi_1, \ldots, \phi_n, \phi$, regardless of whether they contain the old or new connectives.
+
+We say that the new validity relation is *conservative* over the old validity relation if the converse happens, for formulas which do not involve the new connectives:
+
+ - If $\phi_1, \ldots, \phi_n\vdash_2 \phi$ then $\phi_1, \ldots, \phi_n \vdash_1 \phi$, for all formulas $\phi_1, \ldots, \phi_n, \phi$, for all formulas $\phi_1, \ldots, \phi_n, \phi$ formed from the old connectives.
+
+This is just a way of saying that the new connectives and rules do not allow us to prove anything about the old connectives which we could not already prove from the rules governing the old connectives themselves.
+
+Obviously Prior's tonk example violates the conservation constraint, since we can prove anything using the tonk rules, and hence things like:
+
+1. Fa->Fb :assumption
+2. (Fa->Fb) tonk (Ga->Gb) :I tonk 1.
+3. Ga->Gb :E tonk 2
+
+Hence, if we added tonk to our logic to get a validity relation $\vdash_2$, then we would have $Fa\rightarrow Fb \vdash_2 \; Ga\rightarrow Gb$, even though we clearly cannot prove $Fa\rightarrow Fb \vdash Ga\rightarrow Gb$ using the rules for arrow and the other connectives we have learned.
+
+This then raises the question of whether the rules we have learned for the connectives are conservative. One way to state the question would be as to whether our validity relation $\vdash$ is conservative over the smaller set of rules formed by deleting the introduction and elimination rules for any given connective. Concretely: is our validity relation $\vdash$ which includes the introduction and elimination rules for arrow conservative over the smaller system $\vdash_0$ which does not include the introduction and elimination rules for arrow? This is to ask: is any fact about conjunction or disjunction provable using the facts about arrow already provable from the rules governing conjunction and disjunction itself?
+
+It turns out that the answer to this question is "yes" and relates to a property of the rules we have been learning called the *subformula* property. One formula is a subformula of a second just if the first formula is part of what one cites when one describes why the second formula is a formula. For instance:
+
+- $Fa$ is a subformula of $Fa\wedge Fb$
+- $Fa\wedge Fb$ is a subformula of $(Fa\wedge Fb)\wedge Fc$
+- $Fa\wedge Fb$ is *not* a subformula of $Fa\wedge (Fb\wedge Fc)$
+
+It turns out that the rules for the connectives and quantifiers which we have been learning so far have the following feature:
+
+- (Subformula Theorem): If $\phi_1, \ldots, \phi_n\vdash \phi$, then there is a proof of this in which each formula appearing on a line of the proof is a subformula of either the premises $\phi_1, \ldots, \phi_n$ or the conclusion $\psi$.
+
+We will speak, in a moment, about the reason why this holds. But let us just note that this suffices to get conservativity. For, suppose that we proved some fact about conjunction or disjunction using the rules for arrow, and suppose that the proof was e.g. $\phi_1, \ldots, \phi_n \vdash \phi$, where $\phi_1, \ldots, \phi_n, \phi$ did not involve arrow but only conjunction and disjunction. Then there is a proof of it where all the formulas in the proof are subformulas of $\phi_1, \ldots, \phi_n, \phi$ and hence involve only conjunction and disjunction. Since the rules are tied to the main connectives, this means that there are no arrow rules deployed in this proof. Hence, we have a proof of this which uses only facts about conjunction and disjunction.
+
+<br>
+
+## The subformula property and normalization
+
+The reason why the subformula property holds is a feature of our proof-system called normalization. The formula definition of normalization is a little beyond what we are able to formally state here, but it is easy to give an intuitive idea since in some sense we have been working with it all along. Namely, the way to produce normal proofs is to apply elimination rules at the top of the proof and introduction rules down at the bottom of the proof. Here is a simple example of a normal proof using conjunction and disjunction:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ (Fa/\Fb)/\Fc :|-: Fb\/Fd
+|(Fa/\Fb)/\Fc :assumption
+|Fa/\Fb :E/\1
+|Fb :E/\2
+|Fb\/Fd :I\/3
+```
+
+It is easy to see that this proof has the subformula property, by inspection. Moreover, it is at least plausible to think that any proof which did elimination rules at the top and introduction rules at the bottom would have the subformula property. For, lines near the top would be subformulas of premises since that is how elimination rules work; and lines near the bottom would be subformulas of conclusions since that it is how the introduction rules work.
+
+But how could a proof fail to have the subformula property? Well, we just introduce the phenomena that Gentzen himself drew attention to: an introduction rule for a connective followed immediately by an elimination rule for that same connective. For instance, even though our previous example only pertained to conjunction and disjunction, we could introduce extraneous lines involving arrow in it as follows:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ (Fa/\Fb)/\Fc :|-: Fb\/Fd
+|(Fa/\Fb)/\Fc :assumption
+| (Fa/\Fb)/\Fc :assumption
+| Fa/\Fb :E/\2
+| Fb :E/\3
+|((Fa/\Fb)/\Fc)->Fb :I->2-4
+|Fb :E->1,5
+|Fb\/Fd :I\/6
+```
+
+Proofs like this-- *non-normal proofs*-- seem kind of frivolous, as if they would not actually occur in the practice of giving arguments. But they are actually the proofs that occur most frequently in the practice of giving arguments. This is because we like to separate out arguments into discrete parts which we then combine, and the act of combination produces non-normal proofs. To take a simple example, consider our proof of "someone is respected by everyone implies everyone respects someone":
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ :|-: EyAxRxy->AxEyRxy
+| EyAxRxy :assumption
+|  AxRxb :assumption
+|  Rab :EA2
+|  EyRay :IE3
+|  AxEyRxy :IA4
+| AxRxb->AxEyRxy :I->2-5
+| AxEyRxy :EE1,6
+|EyAxRxy->AxEyRxy :I->1-7
+```
+
+This proof is rather tricky, and we would prefer not to have to redo it over and over again. Suppose that we are given the problem
+
+$\exists \; y \; \forall \; x \; (Rxy\wedge Sxy)\vdash \forall \; x \; \exists \; y \; Rxy \wedge \forall x \; \exists \; y \; Sxy$.
+
+For instance, this corresponds to an inference like: "if someone is both $r$espected by and is held in high e$s$teem by everyone, then everyone respects someone and everyone holds someone in high esteem." The natural way to prove this one would be to follow the following steps:
+
+1. Realize that the premise $\exists \; y \; \forall \; x \; (Rxy\wedge Sxy)$ implies $\exists \; y \; \forall \; x \; Rxy$ and $\exists \; y \; \forall \; x \; Sxy$.
+2. Repeat the previous proof with respect to $R$.
+3. Repeat the previous proof with respect to $S$.
+4. Combine the two conclusions with a conjunction.
+
+Formally, this would look like the following proof, where the repetition of of the previous proof with respect to $R$ happens in lines 13, 15-23 and the repetition of the previous proof with respect to $S$ happens in lines 14, 24-32. In lines 2-12, we are completing step 1 above, and in line 33 we are completing step 2 above.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ EyAx(Rxy/\Sxy) :|-: AxEyRxy/\AxEySxy
+|EyAx(Rxy/\Sxy) :assumption
+| Ax(Rxb/\Sxb) :assumption
+| Rab/\Sab :EA2
+| Rab :E/\3
+| Sab :E/\3
+| AxRxb :IA4
+| AxSxb :IA5
+| EyAxRxy :IE6
+| EyAxSxy :IE7
+| EyAxRxy/\EyAxSxy :I/\8,9
+|Ax(Rxb/\Sxb)->(EyAxRxy/\EyAxSxy) :I->2-10
+|(EyAxRxy/\EyAxSxy) :EE1,11
+|EyAxRxy :E/\12
+|EyAxSxy :E/\12
+| EyAxRxy :assumption
+|  AxRxb :assumption
+|  Rab :EA16
+|  EyRay :IE17
+|  AxEyRxy :IA18
+| AxRxb->AxEyRxy :I->16-19
+| AxEyRxy :EE15,20
+|EyAxRxy->AxEyRxy :I->15-21
+|AxEyRxy :E->13,22
+| EyAxSxy :assumption
+|  AxSxb :assumption
+|  Sab :EA25
+|  EySay :IE26
+|  AxEySxy :IA27
+| AxSxb->AxEySxy :I->25-28
+| AxEySxy :EE24,29
+|EyAxSxy->AxEySxy :I->24-30
+|AxEySxy :E->14,31
+|AxEyRxy/\AxEySxy :I/\23,32
+```
+
+Note that this proof has two instances of an introduction rule for arrow followed immediately by an elimination rule for arrow: once at lines 22-23 and once at lines 31-32. This is precisely the "shape" to which Gentzen drew our attention in the opening quotation. Hence, non-normal proofs where there are instances of introduction rules followed immediately by elimination rules, are the inevitable result of cutting and pasting together arguments.
+
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
