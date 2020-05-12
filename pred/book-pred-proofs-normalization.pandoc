@@ -95,11 +95,24 @@ It was with this kind of view that Prior was interested:
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Prior%201960%20-%20The%20runabout%20inference-ticket-again.png
 " alt="Prior on " width="700"/>
 
-Prior's famous counterexample to this was an imaginary connective he called *tonk*, which has an introduction rule like disjunction and an elimination rule like conjunction:
+Prior's famous counterexample to this was an imaginary connective he called *tonk*, which has an introduction rule like disjunction and an elimination rule like conjunction:[^3]
 
-<video controls width="700" src="https://logic-teaching.github.io/pred/vid/conv-arrow.mp4"/>
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/tonk-intro.mp4"/>
 
-Prior%201960%20-%20The%20runabout%20inference-ticket.pdf
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/tonk-elim.mp4"/>
+
+[^3]: [Prior, Arthur N. 1960. “The Runabout Inference-Ticket.” Analysis 21 (2): 38–39.](https://logic-teaching.github.io/pred/text/Prior%201960%20-%20The%20runabout%20inference-ticket.pdf).
+
+The problem with saying that the validity of these inferences is given simply by the meaning of "tonk" is, in Prior's view, that from these rules one can derive anything. For instance, here is the a derivation that $Fa\vdash Ga$:
+
+1. Fa :assumption
+2. Fa tonk Ga :I tonk 1.
+3. Ga :E tonk 2
+
+There are obviously some properties $F,G$ and objects $a$ such that we want to say that we can infer from $Fa$ to $Ga$, but we certainly do not want to be committed to this in general.
+
+An obvious reaction to Prior's counterexample is that the introduction and elimination rules for "tonk" are mismatched in a way in which the introduction and elimination rules for the propositional connectives and quantifiers are not. But it is difficult to say more about what this "mismatch" amounts to. Another reaction is to note that Gentzen's proposal was more specific than "any collection of introduction and elimination rules determines a meaning." However, one way to think about Prior is as issuing a challenge to Gentzen: if it is okay to "lay down" the introduction rule as a definition, why is it not similarly okay to "lay down" pairs of introduction rules and elimination rules as definitions?
+
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
 
