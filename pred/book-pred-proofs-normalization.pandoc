@@ -1,0 +1,47 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Natural deduction, definitions, and normalization
+
+
+
+- [The introduction rule for existential](#the-introduction-rule-for-existential)
+
+<br>
+<br>
+
+## The rules as definitions
+
+In this course we started with models, from which we can define validity, and then we turned to proof systems. From that vantage point, it looks like what is happening in a proof system is that we are taking certain valid arguments as primitive rules, and then we are deriving other validities from these. This then raises the question of how and by what means one chooses the rules. Why choose one set of validities as opposed to another set of validities?
+
+One answer to this question comes from Gentzen, who first articulated natural deduction proof systems. Genzten writes:[^1]
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Gentzen%201969%20-%20Investigations%20into%20Logical%20Deduction%20p.%2080.png
+" alt="Euler on propositions" width="500"/>
+
+[^1]: p. 80 of: [Gentzen, Gerhard. 1969. “Investigations into Logical Deduction.” In The Collected Papers of Gerhard Gentzen, edited by M. E. Sazbo, 68–131. Studies in Logic and the Foundations of Mathematics. Amsterdam: North-Holland.](https://logic-teaching.github.io/pred/texts/Gentzen%201969%20-%20Investigations%20into%20Logical%20Deduction.pdf).
+
+The idea seems to be: what justifies the elimination rule for arrow? The first premise $\phi\rightarrow \psi$ of arrow elimination means that there is a proof from $\phi$ to $\psi$. If one write this proof out, the $\phi$ at the top of the bracket is justified as a hypothetical assumption. But the second premise $\phi$ of arrow elimination, when deployed in a proof, comes with some reason to believe $\phi$, say rule XYZ. then simply put this justification in place of the hypothetical assumption, and one has a proof from $\phi$ to $\psi$, and since one has a reason for $\phi$, one then has a reason for $\psi$. In a picture:
+
+<video controls width="600" src="https://logic-teaching.github.io/pred/vid/conv-arrow.mp4.mp4"/>
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+
+[^3]: which is:
+
