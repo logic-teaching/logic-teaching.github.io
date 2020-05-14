@@ -111,7 +111,7 @@ An obvious reaction to Prior's counterexample is that the introduction and elimi
 
 ## Conservation and the subformula property
 
-Belnap suggested that what distinguishes tonk from the usual propositional connectives is conservativitiy.[^4] Suppose that we have a system of rules which allows us to define a validity relation $\vdash_1$. And suppose we add a new set of rules governing some new connectives to get a validity relation $\vdash_2$. Since we are thinking that the old rules apply to the new connective, we trivially have:
+Belnap suggested that what distinguishes tonk from the usual propositional connectives is conservativity.[^4] Suppose that we have a system of rules which allows us to define a validity relation $\vdash_1$. And suppose we add a new set of rules governing some new connectives to get a validity relation $\vdash_2$. Since we are thinking that the old rules apply to the new connective, we trivially have:
 
 [^4]: [Belnap, Nuel D. 1962. “Tonk, Plonk and Plink.” Analysis 22 (6): 130–34.](https://logic-teaching.github.io/pred/texts/Belnap%201962%20-%20Tonk,%20plonk%20and%20plink.pdf)
 

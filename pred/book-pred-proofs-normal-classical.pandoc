@@ -1,0 +1,134 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Natural deduction, definitions, and normalization
+
+<br>
+
+- [Another example of combining proofs](#another-example-of-combining-proofs)
+- [Double-negation and Derivation of DeMorgan](#double-negation-and-derivation-of-demorgan)
+
+<br>
+
+## Another example of combining proofs
+
+First we begin with two simple proofs:
+
+*Example 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa/\Ga  :|-: Ex(Fx/\Gx)
+|Fa/\Ga :assumption
+|Ex(Fx/\Gx)  :IE1
+```
+
+*Example 2*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ex(Fx/\Gx)  :|-: ExFx
+|Ex(Fx/\Gx) :assumption
+| Fb/\Gb :assumption
+| Fb :E/\2
+| ExFx :IE3
+|(Fb/\Gb)->ExFx :I->2-4
+|ExFx :EE1,5
+```
+
+*Example 3*
+
+Then we prove this by combining the two previous proofs:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa/\Ga  :|-: ExFx
+|Fa/\Ga :assumption
+|Ex(Fx/\Gx)  :IE1
+| Fb/\Gb :assumption
+| Fb :E/\3
+| ExFx :IE4
+|(Fb/\Gb)->ExFx :I->3-5
+|ExFx :EE2,6
+```
+
+Note that when we have finished this proof in Example 3 we have an introduction of existential followed immediately by an elimination of existential. This inevitably happens when one pastes together different proofs.
+
+*Example 4*
+
+Here, in this example, we give the direct proof. One can see this arising simply by following the strategy of "apply elimination rules at top, and then introduction rules at bottom." It also arises from taking our proof in Example 3 and moving what is in the brackets upwards and changing the letter `b` to `a`.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa/\Ga  :|-: ExFx
+|Fa/\Ga :assumption
+|Fa :E/\1
+|ExFx :IE2
+```
+
+<br>
+
+## Double-negation and Derivation of DeMorgan
+
+The deductive system we have been working with up to this point is called intuitionistic predicate logic. Now we extend the system further with another rule called double-negation that says that $\phi$ is equivalent to $\neg \neg \phi$. We add this to our deductive system using the abbreviation `DN`. We write the rule like follows:
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/DN.mp4"/> </video>
+
+<br>
+
+(Note that that the version on the right-hand side is in fact derivable from the other rules).
+
+
+The law of double-negation can help us prove the remaining DeMorgan laws for the quantifiers:
+
+- *DeMorgan*: $\neg \forall \;x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$.
+- *DeMorgan*: $\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$.
+
+The second one was already covered in the Practice Problems from last week. We now handle the first one, and we split it into two parts:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~AxFx  :|-: Ex~Fx
+|~AxFx :assumption
+| ~Ex~Fx :assumption
+|  ~Fc :assumption
+|  Ex~Fx :IE3
+|  ⊥ :E~2,4
+| ~~Fc :I~3-5
+| Fc :DN6
+| AxFx :IA7
+| ⊥ :E~1,8
+|~~Ex~Fx :I~2-9
+|Ex~Fx :DN10
+```
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ex~Fx  :|-: ~AxFx
+|Ex~Fx :assumption
+| AxFx :assumption
+|  Ex~Fx :assumption
+|   ~Fc :assumption
+|   Fc :EA2
+|   ⊥ :E~4,5
+|  ~Fc->⊥ :I->4-6
+|  ⊥ :EE3,7
+| ~Ex~Fx :I~3-8
+| ⊥ :E~1,9
+|~AxFx :I~2-10
+```
+
+
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+

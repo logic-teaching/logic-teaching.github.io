@@ -124,7 +124,7 @@ An obvious reaction to Prior's counterexample is that the introduction and elimi
 
 ## Conservation and the subformula property
 
-Belnap suggested that what distinguishes tonk from the usual propositional connectives is conservativitiy.[^4] Suppose that we have a system of rules which allows us to define a validity relation $\vdash_1$. And suppose we add a new set of rules governing some new connectives to get a validity relation $\vdash_2$. Since we are thinking that the old rules apply to the new connective, we trivially have:
+Belnap suggested that what distinguishes tonk from the usual propositional connectives is conservativity.[^4] Suppose that we have a system of rules which allows us to define a validity relation $\vdash_1$. And suppose we add a new set of rules governing some new connectives to get a validity relation $\vdash_2$. Since we are thinking that the old rules apply to the new connective, we trivially have:
 
 [^4]: [Belnap, Nuel D. 1962. “Tonk, Plonk and Plink.” Analysis 22 (6): 130–34.](https://logic-teaching.github.io/pred/texts/Belnap%201962%20-%20Tonk,%20plonk%20and%20plink.pdf)
 
@@ -256,6 +256,23 @@ Formally, this would look like the following proof, where the repetition of of t
 ```
 
 Note that this proof has two instances of an introduction rule for arrow followed immediately by an elimination rule for arrow: once at lines 22-23 and once at lines 31-32. This is precisely the "shape" to which Gentzen drew our attention in the opening quotation. Hence, non-normal proofs where there are instances of introduction rules followed immediately by elimination rules are the inevitable result of cutting and pasting together arguments.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ EyAx(Rxy/\Sxy) :|-: AxEyRxy/\AxEySxy
+|EyAx(Rxy/\Sxy) :assumption
+|EyAx(Rxy/\Sxy) :assumption
+| Ax(Rxb/\Sxb) :assumption
+| Rab/\Sab :EA2
+| Rab :E/\3
+| Sab :E/\3
+| EyRay :IE4
+| EySay :IE5
+| AxEyRxy :IA6
+| AxEySxy :IA7
+| AxEyRxy/\AxEySxy :I/\8,9
+|Ax(Rxb/\Sxb)->(AxEyRxy/\AxEySxy) :I->2-10
+|AxEyRxy/\AxEySxy :EE1,11
+```
 
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]

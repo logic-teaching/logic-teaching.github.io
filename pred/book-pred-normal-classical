@@ -1,0 +1,105 @@
+
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa/\Ga :|-: Ex(Fx/\Gx)
+```
+
+
+
+
+## Comparing proofs round 3
+
+*Problem 13*
+
+For this one, the last line is an arrow introduction, going from `ExRxx` to `ExEyRxy` inside a bracket. The last line of the bracket will be justified by existential elimination, justified by recourse to `ExRxx` and a line `Raa->ExEyRxy`, where `a` is a new constant symbol. To get the latter, you'll need to do arrow introduction.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.13  :|-: ExRxx->ExEyRxy
+| ExRxx :assumption
+|  Raa :assumption
+|  EyRay :IE2
+|  ExEyRxy :IE3
+| Raa->ExEyRxy :I->2-4
+| ExEyRxy :EE1,5
+```
+
+<br>
+
+*Problem 14*
+
+This one has a similar overall structure as the previous one. Whereas in the previous one you needed to get the line `Raa->ExEyRxy`, in this one you need to get the line `(Raa/\Saa)->(ExRxx/\ExSxx)`, where `a` is a new constant symbol.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.14  :|-: Ex(Rxx/\Sxx)->(ExRxx/\ExSxx)
+| Ex(Rxx/\Sxx) :assumption
+|  Raa/\Saa :assumption
+|  Raa :E/\2
+|  Saa :E/\2
+|  ExRxx :IE3
+|  ExSxx :IE4
+|  ExRxx/\ExSxx :I/\5,6
+| (Raa/\Saa)->(ExRxx/\ExSxx) :I->2-7
+| ExRxx/\ExSxx :EE1,8
+|Ex(Rxx/\Sxx)->(ExRxx/\ExSxx) :I->1-9
+```
+
+<br>
+
+*Problem 15*
+
+For this problem, proceed by copying and pasting your previous proofs. First copy in your proof to Problem 14 and change the line numbers in the justifications. Then do arrow elimination and conjunction elimination to get two line which say `ExRxx` and `ExSxx` respectively. Then copy in your proof for Problem 13 twice, once unchanged and then once with `R` changed to `S`. Along the way, you'll have to change the line numbers in the justifications.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.15 Ex(Rxx/\Sxx) :|-: ExEyRxy/\ExEySxy
+|Ex(Rxx/\Sxx) :assumption
+| Ex(Rxx/\Sxx) :assumption
+|  Raa/\Saa :assumption
+|  Raa :E/\3
+|  Saa :E/\3
+|  ExRxx :IE4
+|  ExSxx :IE5
+|  ExRxx/\ExSxx :I/\6,7
+| (Raa/\Saa)->(ExRxx/\ExSxx) :I->3-8
+| ExRxx/\ExSxx :EE2,9
+|Ex(Rxx/\Sxx)->(ExRxx/\ExSxx) :I->2-10
+|ExRxx/\ExSxx :E->1,11
+|ExRxx :E/\12
+|ExSxx :E/\12
+| ExRxx :assumption
+|  Raa :assumption
+|  EyRay :IE16
+|  ExEyRxy :IE17
+| Raa->ExEyRxy :I->16-18
+| ExEyRxy :EE15,19
+|ExRxx->ExEyRxy :I->15-20
+|ExEyRxy :E->13,21
+| ExSxx :assumption
+|  Saa :assumption
+|  EySay :IE24
+|  ExEySxy :IE25
+| Saa->ExEySxy :I->24-26
+| ExEySxy :EE23,27
+|ExSxx->ExEySxy :I->23-28
+|ExEySxy :E->14,29
+|ExEyRxy/\ExEySxy :I/\22,30
+```
+
+<br>
+
+*Problem 16*
+
+For this problem, produce a direct proof. One way to do this is just deploy the strategy of "elimination rules at the top . . . introduction rules at the bottom . . . repeat . . . try to meet in the middle." Another way to is to take your proof in Problem 15 and fuse the three brackets corresponding to the existential eliminations into one.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.16 Ex(Rxx/\Sxx) :|-: ExEyRxy/\ExEySxy
+|Ex(Rxx/\Sxx) :assumption
+| Raa/\Saa :assumption
+| Raa :E/\2
+| Saa :E/\2
+| EyRay :IE3
+| EySay :IE4
+| ExEyRxy :IE5
+| ExEySxy :IE6
+| ExEyRxy/\ExEySxy :I/\7,8
+|(Raa/\Saa)->(ExEyRxy/\ExEySxy) :I->2-9
+|ExEyRxy/\ExEySxy :EE1,10
