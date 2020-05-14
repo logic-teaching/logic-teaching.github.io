@@ -142,7 +142,20 @@ Here is the other half of this version of DeMorgan, which does not in fact requi
 
 Against the other rules of intuitionistic predicate logic, double-negation is equivalent to law of the excluded middle, which we designate as `LEM` in our proof system. This law says that one can write $\phi \vee \neg \phi$ on any line, and justify it merely as `LEM`. (The proof of the equivalence of double-negation and law of excluded middle is written up in the last section of the practice problems for this week).
 
+Why believe double-negation and law of the excluded middle? These rules do not seem to be introduction rules or elimination rules for any symbol. Hence, Gentzen's specific proposal for how to think about the rules as offering definitions will not work. Maybe there is a more general sense of definition-- sometimes called "implicit definition"-- on which double-negation and law of the excluded middle are simply describing the contours of some notion we are already interested in.
 
+But that would push the question back to why we are interested in the notion as described by double-negation and law of the excluded middle. One easy answer is simply that they follow rather trivially from the truth-tables for negation (and disjunction), or the associated clauses in Tarski's definition of truth in a model. But then it would seem that the primary or fundamental object of study would be the truth-tables or models, and it is even hard to see why one would be interested in proofs *per se*.
+
+One answer to this kind of concern is voiced powerfully in the work of Frege, who was the first to develop first-order classical predicate logic, in his 1879 work *Begriffschrift*, whose title loosely translates as "Concept writing." Frege's idea was of the purpose of proof-system was that:[^1]
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Frege%201967%20-%20Begriffsschrift%20-%20Preface%20quotation%20p.%206.png
+" alt="Frege on proofs" width="700"/>
+
+[^1]: p. 6 of: [Frege, Gottlob. 1967. “Begriffsschrift.” In From Frege to Gödel: A Source Book in Mathematical Logic, 1879-1931, edited by Jean Van Heijenoort, 1–83. Harvard University Press.](https://logic-teaching.github.io/pred/texts/Frege%201967%20-%20Begriffsschrift.pdf). The original is: [Frege, Gottlob. 1879. Begriffsschrift, Eine Der Arithmetischen Nachgebildete Formelsprache Des Reinen Denkens. Halle: Nebert.]()
+
+He goes onto suggest that proof-theory is to reasoning what a microscope is to vision: it helps one zoom in and see details of the derivation which one might not have otherwise been able to see. Frege's general picture was that the proofs produced thereby probably are not evident or obvious: their value rather was that they are gapless, and one does not need to worry that other premises besides the ones cited have snuck into one's proof. As to what makes a logical law a logical law, Frege has a rather quietest attitude towards this question: while we can say things like logical laws make demands on us and have maximally wide applicability, perhaps there is nothing informative that one can ultimately say to the reason why a logical law is a logical law.[^2] His brief remarks on why double-negation is true and the other laws of predicate logic are true seem to go through proto-semantic notions like truth-tables and model-like notions, and unlike Gentzen he does not suggest laws of logic could even be thought of as definitions in any interesting sense.
+
+[^2]:
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
 
