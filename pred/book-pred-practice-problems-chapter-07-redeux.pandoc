@@ -1,0 +1,330 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Practice problems
+
+These are practice problems for Week 7
+
+- [Simple normalization](#simple-normalization)
+- [Comparing proofs round 1](#comparing-proofs-round-1)
+- [Comparing proofs round 2](#comparing-proofs-round-2)
+- [Comparing proofs round 3](#comparing-proofs-round-3)
+- [Classicality](#classicality)
+
+<p style="page-break-before: always">
+
+<br>
+
+## Simple normalization
+
+*Problem 1*
+
+This proof lacks some line numbers in its justifications and includes an instance of conjunction introduction followed by an conjunction elimination. Remove this instance of conjunction introduction following by conjunction elimination and fill in the line numbers to produce a correct proof.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.01 (Fa/\Fb)/\Fc, Fd :|-: Fb
+|(Fa/\Fb)/\Fc :assumption
+|Fd :assumption
+|(Fa/\Fb) :E/\
+|(Fa/\Fb)/\Fd :I/\
+|(Fa/\Fb) :E/\4
+|Fb :E/\
+```
+
+<br>
+
+*Problem 2*
+
+This proof lacks line numbers in its justifications and includes an instance of arrow introduction followed by an arrow elimination. Remove this instance of arrow introduction following by arrow elimination and fill in the line numbers to produce a correct proof.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.02 (Fa/\Fb)/\Fc, Fd :|-: Fb/\Fd
+|(Fa/\Fb)/\Fc :assumption
+|Fd :assumption
+| (Fa/\Fb)/\Fc :assumption
+| Fa/\Fb :E/\
+| Fb :E/\
+| Fb/\Fd :I/\
+|((Fa/\Fb)/\Fc)->(Fb/\Fd) :I->
+|Fb/\Fd :E->
+```
+
+
+<br>
+
+*Problem 3*
+
+This proof lacks line numbers in its justifications and includes an instance of disjunction introduction followed by an disjunction elimination. Remove this instance of disjunction introduction following by disjunction elimination and fill in the line numbers to produce a correct proof.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.03 (Fa/\Fb)/\Fc :|-: Fb
+|(Fa/\Fb)/\Fc :assumption
+|Fa/\Fb :E/\
+|Fc:E/\
+|Fc\/Fd :I\/
+| Fc :assumption
+| Fb :E/\
+|Fc->Fb :I->
+| Fd :assumption
+| Fb :E/\2
+|Fd->Fb :I->
+|Fb :E\/4,7,10
+```
+
+<br>
+
+*Problem 4*
+
+This proof lacks line numbers in its justifications and includes an instance of universal introduction followed by an universal elimination. Remove this instance of universal introduction following by universal elimination and fill in the line numbers to produce a correct proof. (You may have to readjust the constants featuring in the proof).
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.04 AxFx, Ax(Fx->Gx) :|-: Gc
+|AxFx :assumption
+|Ax(Fx->Gx) :assumption
+|Fa :EA
+|Fa->Ga :EA
+|Ga :E->
+|AxGx :IA
+|Gc :EA
+```
+
+<br>
+
+## Comparing proofs round 1
+
+<br>
+
+The previous set of practice problems might have seemed strange, and you might think to yourself: why would I ever introduce a symbol only to immediately eliminate it? One idea from Lecture 1 this week was that this is precisely what happens when we "cut and paste" proofs together, which we do often since we don't like to repeat arguments, and since we like to find lemmas which we deploy again and again without repeating their proofs. Further, there is sometimes an intuition that when we find proofs without the introduction of a symbol and then the repetition of it, we are producing a more direct argument, which is a bit more constructive. This set of problems is designed to help one see this, and to simultaneously just practice with proofs. It consists of four problems. The first two are just easy short proofs. The third asks you to cut and paste the first two together and to note that the cut and pasted proof contains a line where there is the introduction of a symbol which is then immediately eliminated. The fourth proof asks you to remove this, and to thereby find the more direct proof.
+
+<br>
+
+*Problem 5*
+
+This proof is just a simple exercise in elimination and introduction of conjunction.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.05 (Fa/\Ga)/\(Ha/\Ja) :|-: Fa/\Ha
+|(Fa/\Ga)/\(Ha/\Ja) :assumption
+```
+
+<br>
+
+*Problem 6*
+
+This proof is just a simple exercise in elimination of conjunction and arrow, along with a little bit of disjunction introduction.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.06 Fa/\Ha, (Ha\/Gc)->Hb :|-: Hb\/Gb
+|Fa/\Ha :assumption
+|(Ha\/Gc)->Hb :assumption
+```
+
+<br>
+
+*Problem 7*
+
+For this problem, simply copy and paste your two previous proofs for Problem 5 and Problem 6. When you are copying and pasting, don't copy and paste the assumption lines from Problem 5 and Problem 6. When you have done so, note that the formula `Fa/\Ha` which is the conclusion of Problem 5 and an assumption of Problem 6 will be a middle line in this proof. After having copied and pasted, there will be some errors in the proof, but these can be fixed by updating the line numbers. The formula `Fa/\Ha` which is the conclusion of Problem 5 will then justify the one of the top lines of your proof that you pasted in from Problem 6.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.07 (Fa/\Ga)/\(Ha/\Ja), ((Ha \/ Gc) -> Hb) :|-: Hb\/Gb
+|(Fa/\Ga)/\(Ha/\Ja) :assumption
+|(Ha\/Gc)->Hb :assumption
+```
+
+<br>
+
+*Problem 8*
+
+For this problem, produce a direct proof. One way to do this is just deploy the strategy of "elimination rules at the top . . . introduction rules at the bottom . . . repeat . . . try to meet in the middle." Another way to is to take your proof in Problem 7 and remove the line in the middle where you introduced the conjunction in `Fa/\Ha` and then immediately eliminated it.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.08 (Fa/\Ga)/\(Ha/\Ja), ((Ha \/ Gc) -> Hb) :|-: Hb\/Gb
+|(Fa/\Ga)/\(Ha/\Ja) :assumption
+|(Ha\/Gc)->Hb :assumption
+```
+
+<br>
+
+## Comparing proofs round 2
+
+<br>
+
+*Problem 9*
+
+For this one the key idea in the center of the proof will be to eliminate the disjunction `Rba\/Rab`, where `b` is a new constant. Do this by getting lines `Rab->(Nb\/Pb)` and `Rba->(Nb\/Pb)`. Getting these lines causes the proof to become a little long, circa 15-20 lines long.
+
+If one wants some intuition on this problem, think of the objects as integers (positive and negative whole numbers, including zero), and think of $Rxy$ as $x\leq y$ and think of $a$ as zero and think of $Nx$ as $x$ being negative (as in $\leq 0$) and $Px$ as $x$ being positive (as in $\geq 0$).
+
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.09 AxAy(Rxy\/Ryx), Ax(Rxa->Nx), Ax(Rax->Px) :|-: Ax(Nx\/Px)
+|AxAy(Rxy\/Ryx) :assumption
+|Ax(Rxa->Nx) :assumption
+|Ax(Rax->Px) :assumption
+```
+
+<br>
+
+*Problem 10*
+
+For this one, the key is to do disjunction elimination to get rid of the `Nc\/Pc`. This requires getting `Nc->Pc` and `Pc->Pc`. One of them will go through EFSQ, and one through the repeat rule.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.10 Ax(Nx\/Px), ~Nc :|-: Pc
+|Ax(Nx\/Px) :assumption
+|~Nc :assumption
+```
+
+<br>
+
+*Problem 11*
+
+For this problem, simply copy and paste your two previous proofs for Problem 9 and Problem 10. When you are copying and pasting, don't copy and paste the assumption lines from Problem 9 and Problem 10. When you have done so, note that the formula `Ax(Nx\/Px)` which is the conclusion of Problem 9 and an assumption of Problem 10 will be a middle line in this proof. After having copied and pasted, there will be some errors in the proof, but these can be fixed by updating the line numbers. The formula `Ax(Nx\/Px)` which is the conclusion of Problem 9 will then justify the one of the top lines of your proof that you pasted in from Problem 10.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.11 AxAy(Rxy\/Ryx), Ax(Rxa->Nx), Ax(Rax->Px), ~Nc :|-: Pc
+|AxAy(Rxy\/Ryx) :assumption
+|Ax(Rxa->Nx) :assumption
+|Ax(Rax->Px) :assumption
+|~Nc :assumption
+```
+
+<br>
+
+*Problem 12*
+
+For this problem, produce a direct proof. One way to do this is just deploy the strategy of "elimination rules at the top . . . introduction rules at the bottom . . . repeat . . . try to meet in the middle." Another way to is to take your proof in Problem 11 and combine the two disjunction eliminations. That is, if you look at your solution to Problem 11, there should be four brackets-- try to combine them so that there are just two. When you do this, switch the constant `c` back to `b`.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.12 AxAy(Rxy\/Ryx), Ax(Rxa->Nx), Ax(Rax->Px), ~Nb :|-: Pb
+|AxAy(Rxy\/Ryx) :assumption
+|Ax(Rxa->Nx) :assumption
+|Ax(Rax->Px) :assumption
+|~Nb :assumption
+```
+
+<br>
+
+
+## Comparing proofs round 3
+
+*Problem 13*
+
+For this one, the last line is an arrow introduction, going from `ExRxx` to `ExEyRxy` inside a bracket. The last line of the bracket will be justified by existential elimination, justified by recourse to `ExRxx` and a line `Raa->ExEyRxy`, where `a` is a new constant symbol. To get the latter, you'll need to do arrow introduction.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.13  :|-: ExRxx->ExEyRxy
+```
+
+<br>
+
+*Problem 14*
+
+This one has a similar overall structure as the previous one. Whereas in the previous one you needed to get the line `Raa->ExEyRxy`, in this one you need to get the line `(Raa/\Saa)->(ExRxx/\ExSxx)`, where `a` is a new constant symbol.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.14  :|-: Ex(Rxx/\Sxx)->(ExRxx/\ExSxx)
+```
+
+<br>
+
+*Problem 15*
+
+For this problem, proceed by copying and pasting your previous proofs. First copy in your proof to Problem 14 and change the line numbers in the justifications. Then do arrow elimination and conjunction elimination to get two line which say `ExRxx` and `ExSxx` respectively. Then copy in your proof for Problem 13 twice, once unchanged and then once with `R` changed to `S`. Along the way, you'll have to change the line numbers in the justifications.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.15 Ex(Rxx/\Sxx) :|-: ExEyRxy/\ExEySxy
+|Ex(Rxx/\Sxx) :assumption
+```
+
+<br>
+
+*Problem 16*
+
+For this problem, produce a direct proof. One way to do this is just deploy the strategy of "elimination rules at the top . . . introduction rules at the bottom . . . repeat . . . try to meet in the middle." Another way to is to take your proof in Problem 15 and fuse the three brackets corresponding to the existential eliminations into one.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.16 Ex(Rxx/\Sxx) :|-: ExEyRxy/\ExEySxy
+|Ex(Rxx/\Sxx) :assumption
+```
+
+
+<br>
+
+## Classicality
+
+
+<br>
+
+*Problem 17*
+
+Here is the derivation of Law of the Excluded Middle (`LEM`). The proof is complete but just lacks some of the justifications. Fill these in.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.17  :|-: Fa\/~Fa
+| ~(Fa\/~Fa) :assumption
+|  Fa :assumption
+|  Fa\/~Fa :
+|  ⊥ :E~1,3
+| ~Fa :
+| Fa\/~Fa :I\/5
+| ⊥ :E~1
+|~~(Fa\/~Fa) :I~1-7
+|Fa\/~Fa :DN8
+```
+
+<br>
+
+*Problem 18*
+
+Nothing in the above proof depends on the formula being `Fa` as opposed to anything else. Prove the following using the same proof:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.18  :|-: AxFx\/~AxFx
+```
+
+<br>
+
+*Problem 19*
+
+We can likewise prove double-negation from law of the excluded middle. Prove the following, using law of the excluded middle `LEM`. The second line has been filled out for you-- just do a disjunction elimination to eliminate it. To do this, try to get arrows `Fa->Fa` and `~Fa->Fa`. For the latter, try an EFSQ.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.19 ~~Fa :|-: Fa
+|~~Fa :assumption
+|Fa\/~Fa :LEM
+```
+
+<br>
+
+*Problem 20*
+
+This is a simple problem involving classicality. Just use double-negation `DN` to solve the problem quickly. Hint: you will need three separate applications of `DN`.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+07.20 ~~Ax(~~Fx->~~Gx) :|-: Ax(Fx->Gx)
+|~~Ax(~~Fx->~~Gx) :assumption
+```
+
+
+<br>
+
+These are practice problems written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>

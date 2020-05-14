@@ -15,12 +15,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Natural deduction, definitions, and normalization
+# Classical predicate logic
 
 <br>
 
 - [Another example of combining proofs](#another-example-of-combining-proofs)
 - [Double-negation and Derivation of DeMorgan](#double-negation-and-derivation-of-demorgan)
+- [Frege and Aristotle on double-negation and law of excluded middle](#frege-and-aristotle-on-double-negation-and-law-of-excluded-middle)
+
+We introduce classical predicate logic, and talk a bit about its motivation. Before we do that, we review a bit one of the ideas from last time about combining proofs.
 
 <br>
 
@@ -86,8 +89,7 @@ The deductive system we have been working with up to this point is called intuit
 
 <br>
 
-(Note that that the version on the right-hand side is in fact derivable from the other rules).
-
+(Note that that the version on the right-hand side is in fact derivable from the other rules). The logic which results from adding double-negation to our system is called *classical predicate logic*.
 
 The law of double-negation can help us prove the remaining DeMorgan laws for the quantifiers:
 
@@ -95,6 +97,8 @@ The law of double-negation can help us prove the remaining DeMorgan laws for the
 - *DeMorgan*: $\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$.
 
 The second one was already covered in the Practice Problems from last week. We now handle the first one, and we split it into two parts:
+
+*Example 5*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ~AxFx  :|-: Ex~Fx
@@ -111,6 +115,12 @@ The second one was already covered in the Practice Problems from last week. We n
 |Ex~Fx :DN10
 ```
 
+Before we turn to the other half of this instance of DeMorgan, let us note that this proof illustrates that classical predicate logic does not have the subformula property. In particular `~~Ex~Fx` in the second-to-last line is not a subformula of either the premise `~AxFx` or the conclusion `Ex~Fx`.
+
+Here is the other half of this version of DeMorgan, which does not in fact require the subformula property:
+
+*Example 6*
+
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ex~Fx  :|-: ~AxFx
 |Ex~Fx :assumption
@@ -125,6 +135,12 @@ The second one was already covered in the Practice Problems from last week. We n
 | ⊥ :E~1,9
 |~AxFx :I~2-10
 ```
+
+<br>
+
+## Frege and Aristotle on double-negation and law of excluded middle
+
+Against the other rules of intuitionistic predicate logic, double-negation is equivalent to law of the excluded middle, which we designate as `LEM` in our proof system. This law says that one can write $\phi \vee \neg \phi$ on any line, and justify it merely as `LEM`. (The proof of the equivalence of double-negation and law of excluded middle is written up in the last section of the practice problems for this week).
 
 
 
