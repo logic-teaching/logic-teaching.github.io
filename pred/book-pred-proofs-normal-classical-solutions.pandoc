@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Classical predicate logic
+# Classical predicate logic *with solutions*
 
 <br>
 
@@ -28,6 +28,10 @@ We introduce classical predicate logic, and talk a bit about its motivation. Bef
 
 <br>
 
+This version has *the solutions* filled in. Keep in mind that there are many good proofs of any given result.
+
+<br>
+
 ## More on combining proofs
 
 First we begin with two simple proofs:
@@ -37,6 +41,7 @@ First we begin with two simple proofs:
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Fa/\Ga  :|-: Ex(Fx/\Gx)
 |Fa/\Ga :assumption
+|Ex(Fx/\Gx)  :IE1
 ```
 
 *Example 2*
@@ -44,6 +49,11 @@ First we begin with two simple proofs:
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ex(Fx/\Gx)  :|-: ExFx
 |Ex(Fx/\Gx) :assumption
+| Fb/\Gb :assumption
+| Fb :E/\2
+| ExFx :IE3
+|(Fb/\Gb)->ExFx :I->2-4
+|ExFx :EE1,5
 ```
 
 *Example 3*
@@ -53,6 +63,12 @@ Then we prove this by combining the two previous proofs:
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Fa/\Ga  :|-: ExFx
 |Fa/\Ga :assumption
+|Ex(Fx/\Gx)  :IE1
+| Fb/\Gb :assumption
+| Fb :E/\3
+| ExFx :IE4
+|(Fb/\Gb)->ExFx :I->3-5
+|ExFx :EE2,6
 ```
 
 Note that when we have finished this proof in Example 3 we have an introduction of existential followed immediately by an elimination of existential. This inevitably happens when one pastes together different proofs.
@@ -64,6 +80,8 @@ Here, in this example, we give the direct proof. One can see this arising simply
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Fa/\Ga  :|-: ExFx
 |Fa/\Ga :assumption
+|Fa :E/\1
+|ExFx :IE2
 ```
 
 <br>
@@ -90,6 +108,16 @@ The second one was already covered in the Practice Problems from last week. We n
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ~AxFx  :|-: Ex~Fx
 |~AxFx :assumption
+| ~Ex~Fx :assumption
+|  ~Fc :assumption
+|  Ex~Fx :IE3
+|  ⊥ :E~2,4
+| ~~Fc :I~3-5
+| Fc :DN6
+| AxFx :IA7
+| ⊥ :E~1,8
+|~~Ex~Fx :I~2-9
+|Ex~Fx :DN10
 ```
 
 Before we turn to the other half of this instance of DeMorgan, let us note that this proof illustrates that classical predicate logic does not have the subformula property. In particular `~~Ex~Fx` in the second-to-last line is not a subformula of either the premise `~AxFx` or the conclusion `Ex~Fx`.
@@ -101,6 +129,16 @@ Here is the other half of this version of DeMorgan, which does not in fact doubl
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ex~Fx  :|-: ~AxFx
 |Ex~Fx :assumption
+| AxFx :assumption
+|  Ex~Fx :assumption
+|   ~Fc :assumption
+|   Fc :EA2
+|   ⊥ :E~4,5
+|  ~Fc->⊥ :I->4-6
+|  ⊥ :EE3,7
+| ~Ex~Fx :I~3-8
+| ⊥ :E~1,9
+|~AxFx :I~2-10
 ```
 
 <br>
@@ -112,6 +150,9 @@ Finally, for the sake of completeness, here is the simple proof that one directi
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Fa  :|-: ~~Fa
 |Fa :assumption
+| ~Fa :assumption
+| ⊥ :E~1,2
+|~~Fa :I~2-3
 ```
 
 <br>
@@ -147,6 +188,11 @@ For the sake of completeness, here is the proof that the principle of non-contra
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
    :|-: ~(Fa/\~Fa)
+| Fa/\~Fa :assumption
+| Fa :E/\1
+| ~Fa :E/\1
+| ⊥ :E~2,3
+|~(Fa/\~Fa) :I~1-4
 ```
 
 <br>
@@ -163,6 +209,14 @@ First, consider the following simple proof:
  Ga\/~Ex~Fx, Ex~Fx  :|-: Ga
 |Ga\/~Ex~Fx :assumption
 |Ex~Fx :assumption
+| Ga :assumption
+| Ga :rep3
+|Ga->Ga :I->3-4
+| ~Ex~Fx :assumption
+| ⊥ :E~2,6
+| Ga :EFSQ7
+|~Ex~Fx->Ga :I->6-8
+|Ga :E\/1,5,9
 ```
 
 Second, let's try to paste Example 9 and Example 6 together to prove the following:
@@ -175,6 +229,24 @@ Second, let's try to paste Example 9 and Example 6 together to prove the followi
  Ga\/~Ex~Fx, ~AxFx  :|-: Ga
 |Ga\/~Ex~Fx :assumption
 |~AxFx :assumption
+| ~Ex~Fx :assumption
+|  ~Fc :assumption
+|  Ex~Fx :IE4
+|  ⊥ :E~3,5
+| ~~Fc :I~4-6
+| Fc :DN7
+| AxFx :IA8
+| ⊥ :E~2,9
+|~~Ex~Fx :I~3-10
+|Ex~Fx :DN11
+| Ga :assumption
+| Ga :rep13
+|Ga->Ga :I->13-14
+| ~Ex~Fx :assumption
+| ⊥ :E~12,16
+| Ga :EFSQ17
+|~Ex~Fx->Ga :I->16-18
+|Ga :E\/1,15,19
 ```
 
 When we combine these proofs, there is no place in the proof where there is an introduction rule followed immediately by an elimination rule. Hence, the opportunity for simplification which Gentzen drew our attention to is not available. We have seen through many examples that this process of simplification seems to collate with an intuition about the directness of the proof. Is there a more direct proof of the above result? Perhaps we could tuck the first bracket into the third bracket, but this does not have the kind of simplifying nature that we have seen in previous examples.
