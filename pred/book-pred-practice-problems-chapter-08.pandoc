@@ -1,0 +1,544 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Practice problems **with solutions**
+
+These are practice problems for Week 8
+
+- [Problems with just equivalences](#problems-with-just-equivalences)
+- [Problems with disjunctive syllogism and tautologies](#problems-with-disjunctive-syllogism-and-tautologies)
+- [Problems with arrow and prenex-normal form](#problems-with-arrow-and-prenex-normal-form)
+- [Problems about sets](#problems-about-sets)
+
+<p style="page-break-before: always">
+
+This version has **the solutions** filled in.
+
+<br>
+
+## Problems with just equivalences
+
+<br>
+
+These problems use the following equivalences, which we list here for ease of reference:
+
+<br>
+
+<table style="width:100%">
+  <tr>
+    <th>Name of Law/Rule</th>
+    <th>Abbreviation</th>
+    <th>First equivalent</th>
+    <th>Second equivalent</th>
+  </tr>
+  <tr>
+    <td>Double-negation</td>
+    <td>`DN`</td>
+    <td>$\phi$</td>
+    <td>$\neg \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Commutativity for conjunction</td>
+    <td>`LCC`</td>
+    <td>$\phi\wedge \psi$</td>
+    <td>$\psi\wedge \phi$</td>
+  </tr>
+  <tr>
+    <td>Commutativity for disjunction</td>
+    <td>`LCD`</td>
+    <td>$\phi\vee \psi$</td>
+    <td>$\psi\vee \phi$</td>
+  </tr>
+  <tr>
+    <td>Associativity for conjunction</td>
+    <td>`LAC`</td>
+    <td>$(\phi\wedge \psi)\wedge \xi$</td>
+    <td>$\phi\wedge (\psi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Associativity for disjunction</td>
+    <td>`LAD`</td>
+    <td>$(\phi\vee \psi)\vee \xi$</td>
+    <td>$\phi\vee (\psi\vee \xi)$</td>
+  </tr>
+  <tr>
+    <td>Distribution (with initial $c$onjunction)</td>
+    <td>`LDC`</td>
+    <td>$\phi\wedge (\psi\vee \xi)$</td>
+    <td>$(\phi\wedge \psi)\vee (\phi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Distribution (with initial $d$isjunction)</td>
+    <td>`LDD`</td>
+    <td>$\phi\vee (\psi\wedge \xi)$</td>
+    <td>$(\phi\vee \psi)\wedge (\phi\vee \xi)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan (with ending *or*)</td>
+    <td>`DMOR`</td>
+    <td>$\neg (\phi\wedge \psi)$</td>
+    <td>$\neg \phi \vee \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan (with ending *and*)</td>
+    <td>`DMAND`</td>
+    <td> $\neg (\phi\vee \psi)$</td>
+    <td>$\neg \phi \wedge \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan (with ending *some*)</td>
+    <td>`DMSOME`</td>
+    <td>$\neg \forall \; x \; \phi(x)$</td>
+    <td>$\exists \; x \; \neg \phi(x)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan (with ending *all*)</td>
+    <td>`DMALL`</td>
+    <td>$\neg \exists \; x \; \phi(x)$</td>
+    <td>$\forall \; x \; \neg \phi(x)$</td>
+  </tr>
+</table>
+
+<br>
+
+*Problem 1*
+
+This one is practice with DeMorgan plus a little bit of distribution.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.01 ~AxEyAz(~Fx\/(~Gx/\~Hx)) :|-: ExAyEz((Fx/\Gx)\/(Fx/\Hx))
+|~AxEyAz(~Fx\/(~Gx/\~Hx)) :assumption
+|Ex~EyAz(~Fx\/(~Gx/\~Hx)) :DMSOME1
+|ExAy~Az(~Fx\/(~Gx/\~Hx)) :DMALL2
+|ExAyEz~(~Fx\/(~Gx/\~Hx)) :DMSOME3
+|ExAyEz(~~Fx/\~(~Gx/\~Hx)) :DMAND4
+|ExAyEz(Fx/\~(~Gx/\~Hx)) :DN5
+|ExAyEz(Fx/\(~~Gx\/~~Hx)) :DMOR6
+|ExAyEz(Fx/\(Gx\/~~Hx)) :DN7
+|ExAyEz(Fx/\(Gx\/Hx)) :DN8
+|ExAyEz((Fx/\Gx)\/(Fx/\Hx)) :LDC9
+```
+
+<br>
+
+*Problem 2*
+
+For this one, think about using distribution and DeMorgan. And before you begin, sketch out how the proof of $(\forall \; x \; \phi(x)\wedge \psi(x))\vdash \forall \; x \; \phi(x)$ goes.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.02 Ax((Fx/\Gx)\/(Fx/\Hx)), AxFx->~AxEyRxy  :|-: ExAy~Rxy
+|Ax((Fx/\Gx)\/(Fx/\Hx)) :assumption
+|AxFx->~AxEyRxy :assumption
+|Ax(Fx/\(Gx\/Hx)) :LDC1
+|Fc/\(Gc\/Hc) :EA3
+|Fc :E/\4
+|AxFx :IA5
+|~AxEyRxy :E->2,6
+|Ex~EyRxy :DMSOME7
+|ExAy~Rxy :DMALL8
+```
+
+<br>
+
+*Problem 3*
+
+For this one, think about using some double-negation and DeMorgan and associativity. Before you begin, sketch out how the proof of $\exists \; x \; \phi(x)\vdash \exists \; x \; \exists \; y \; (\phi(x)\vee \phi(y))$ goes.
+
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.03 ~~ExFx, ExEy(Fx\/Fy)->(Ga/\(~~Gb/\Gc)) :|-: (Ga/\Gb)/\Gc
+|~~ExFx :assumption
+|ExEy(Fx\/Fy)->(Ga/\(~~Gb/\Gc)) :assumption
+|ExFx :DN1
+| Fd :assumption
+| Fd\/Fe :I\/4
+| Ey(Fd\/Fy) :IE5
+| ExEy(Fx\/Fy) :IE6
+|Fd->ExEy(Fx\/Fy) :I->4-7
+|ExEy(Fx\/Fy) :EE3,8
+|Ga/\(~~Gb/\Gc) :E->2,9
+|Ga/\(Gb/\Gc) :DN10
+|(Ga/\Gb)/\Gc :LAC11
+```
+
+<br>
+
+*Problem 4*
+
+For this one, try to start out with some elimination of universal, turn to introduction of conjunction, and then think about the other distribution rule, and try to finish it off with some introduction of existential. There's some commutativity of disjunction that gets deployed in the middle of the proof as well.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.04 AxFx, (Fa/\(Fb/\Fc))->((Ga\/Gb)/\(Gc\/Ga)) :|-:ExEyEz(Gx\/(Gy/\Gz))
+|AxFx :assumption
+|(Fa/\(Fb/\Fc))->((Ga\/Gb)/\(Gc\/Ga)) :assumption
+|Fa :EA1
+|Fb :EA1
+|Fc :EA1
+|Fb/\Fc :I/\4,5
+|Fa/\(Fb/\Fc) :I/\3,6
+|(Ga\/Gb)/\(Gc\/Ga) :E->2,7
+|(Ga\/Gb)/\(Ga\/Gc) :LCD8
+|Ga\/(Gb/\Gc) :LDD9
+|Ez(Ga\/(Gb/\Gz)) :IE10
+|EyEz(Ga\/(Gy/\Gz)) :IE11
+|ExEyEz(Gx\/(Gy/\Gz)) :IE12
+```
+
+<br>
+
+*Problem 5*
+
+Despite having a lot of quantifiers in it, this one can be done without using the rules for the quantifiers. Rather, one can just use DeMorgan together with distribution.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.05 ~ExEyEz(Gx\/(Gy/\Gz)) :|-: AxAyAz(~(Gx\/Gy)\/~(Gx\/Gz))
+|~ExEyEz(Gx\/(Gy/\Gz)) :assumption
+|Ax~EyEz(Gx\/(Gy/\Gz)) :DMALL1
+|AxAy~Ez(Gx\/(Gy/\Gz)) :DMALL2
+|AxAyAz~(Gx\/(Gy/\Gz)) :DMALL3
+|AxAyAz(~Gx/\~(Gy/\Gz)) :DMAND4
+|AxAyAz(~Gx/\(~Gy\/~Gz)) :DMOR5
+|AxAyAz((~Gx/\~Gy)\/(~Gx/\~Gz)) :LDC6
+|AxAyAz(~(Gx\/Gy)\/(~Gx/\~Gz)) :DMAND7
+|AxAyAz(~(Gx\/Gy)\/~(Gx\/Gz)) :DMAND8
+```
+
+<br>
+
+
+
+<br>
+
+## Problems with tautologies and disjunctive syllogism:
+
+<br>
+
+These problems pertain to the tautologies we get associated to double-negation and to the disjunctive syllogism rules. We use some modus tollens in these problems as well:
+
+<br>
+
+<table style="width:100%">
+  <tr>
+    <th>Name of Tautology/Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement of Tautology/Rule</th>
+  </tr>
+  <tr>
+    <td>Excluded middle</td>
+    <td>`LEM`</td>
+    <td>$\phi\vee \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Non-contradiction</td>
+    <td>`LNC`</td>
+    <td>$\neg (\phi\wedge \neg \phi)$</td>
+  </tr>
+  <tr>
+    <td>Positive Disjunctive Syllogism</td>
+    <td>`PDS`</td>
+    <td>$\phi\vee \psi, \neg \phi \vdash \psi$</td>
+  </tr>
+  <tr>
+    <td>Negative Disjunctive Syllogism</td>
+    <td>`NDS`</td>
+    <td>$\neg (\phi\wedge \psi), \phi \vdash \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>Modus Tollens</td>
+    <td>`MT`</td>
+    <td>$\phi\rightarrow \psi \vdash \neg \psi\rightarrow \neg \phi$</td>
+  </tr>
+</table>
+
+<br>
+
+*Problem 6*
+
+This one is practice with DeMorgan and positive disjunctive syllogism. The last part of it is an exercise in existential elimination. For this part, consider sketching out the proof of $\exist \; y \; Say, \forall \; x \; \forall \; y \; (Sxy\rightarrow Rxc)\vdash Rac$ before beginning.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.06 AxEyRxy\/AxEySxy, ExAy~Rxy, AxAy(Sxy->Rxc) :|-: Rac
+|AxEyRxy\/AxEySxy :assumption
+|ExAy~Rxy :assumption
+|AxAy(Sxy->Rxc) :assumption
+|Ex~EyRxy :DMALL2
+|~AxEyRxy :DMSOME4
+|AxEySxy :PDS1,5
+|EySay :EA6
+| Sab :assumption
+| Ay(Say->Rac) :EA3
+| Sab->Rac :EA9
+| Rac :E->8,10
+|Sab->Rac :I->8-11
+|Rac :EE7,12
+```
+
+<br>
+
+*Problem 7*
+
+This one begins with a negative disjunctive syllogism, and then one has to end with an existential elimination. For this last part, consider sketching out the proof of $\exists \; y \; (Fb\vee Rby), \neg Fb \vdash \existx \; y \; Rby$ first; note that the bracket will require another disjunctive syllogism.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.07 ~(Fa/\ExAy~(Fx\/Rxy)), Fa, ~Fb :|-: EyRby
+|~(Fa/\ExAy~(Fx\/Rxy)) :assumption
+|Fa :assumption
+|~Fb :assumption
+|~ExAy~(Fx\/Rxy) :NDS 1,2
+|Ax~Ay~(Fx\/Rxy) :DMALL4
+|AxEy~~(Fx\/Rxy) :DMSOME5
+|AxEy(Fx\/Rxy) :DN6
+|Ey(Fb\/Rby) :EA7
+| Fb\/Rbc :assumption
+| Rbc :PDS3,9
+| EyRby :IE10
+|(Fb\/Rbc)->EyRby :I->9-11
+|EyRby :EE8,12
+```
+
+<br>
+
+*Problem 8*
+
+For this one use DeMorgan to get the antecedent of the first assumption. Then wrap it up with some modus tollens.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.08 (Ax(~Fx\/~Gx)\/Ex(Fx/\Gx))->(Fa->Fb), ~Fb :|-: ~Fa
+|(Ax(~Fx\/~Gx)\/Ex(Fx/\Gx))->(Fa->Fb) :assumption
+|~Fb :assumption
+|Ex(Fx/\Gx)\/~Ex(Fx/\Gx) :LEM
+|Ex(Fx/\Gx)\/Ax~(Fx/\Gx) :DMALL3
+|Ex(Fx/\Gx)\/Ax(~Fx\/~Gx) :DMOR4
+|Ax(~Fx\/~Gx)\/Ex(Fx/\Gx) :LCD5
+|Fa->Fb :E->1,6
+|~Fa :MT2,7
+```
+
+<br>
+
+*Problem 9*
+
+For this one, try some repeated modus tollens and then positive disjunctive syllogism.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.09  :|-:
+|Raa->Rbb :assumption
+|Rbb->Rcc :assumption
+|Rcc->Rdd :assumption
+|~Rdd :assumption
+|AxRxx\/AxSxx :assumption
+|~Rcc :MT3,4
+|~Rbb :MT2,6
+|~Raa :MT1,7
+|Ex~Rxx :IE8
+|~AxRxx :DMSOME9
+|AxSxx :PDS5,10
+|Saa :EA11
+```
+
+
+<br>
+
+*Problem 10*
+
+For this one, just use the principle of non-contradiction to get the antecedent.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.10 AxAy(~(Rxx/\~Rxx)->Ryy) :|-: AyRyy
+|AxAy(~(Rxx/\~Rxx)->Ryy) :assumption
+|~(Raa/\~Raa) :LNC
+|Ay(~(Raa/\~Raa)->Ryy) :EA1
+|~(Raa/\~Raa)->Rbb :EA3
+|Rbb :E->2,4
+|AyRyy :IA5
+```
+
+
+
+
+<br>
+
+## Problems with arrow and prenex-normal form
+
+<br>
+
+These are problems which look at the interaction of arrow and prenex-normal form. These use the following related equivalences:
+
+<br>
+
+<table style="width:100%">
+  <tr>
+    <th>Name of Law/Rule</th>
+    <th>Abbreviation</th>
+    <th>First equivalent</th>
+    <th>Second equivalent</th>
+  </tr>
+  <tr>
+    <td>Negated conditionals</td>
+    <td>`NC`</td>
+    <td>$\neg (\phi \rightarrow \psi)$</td>
+    <td>$\phi \wedge \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>Disjunctions and conidtionals</td>
+    <td>`DC`</td>
+    <td>$\phi\rightarrow \psi$ </td>
+    <td>$\neg \phi \vee \psi$</td>
+  </tr>
+  <tr>
+    <td>Contraposition</td>
+    <td>`CP`</td>
+    <td>$\phi\rightarrow \psi$</td>
+    <td>$\neg \psi\rightarrow \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Equivalence for prenex normal form</td>
+    <td>`PASS`</td>
+    <td>$(\exists \; x \; \psi(x))\vee \phi$</td>
+    <td>$\exists \; x \; (\psi(x) \vee \phi)$</td>
+  </tr>
+  <tr>
+    <td>Equivalence for prenex normal form</td>
+    <td>`PASS`</td>
+    <td>$(\forall \; x \; \psi(x))\vee \phi$</td>
+    <td>$\forall \; x \; (\psi(x) \vee \phi)$</td>
+  </tr>
+  <tr>
+    <td>Equivalence for prenex normal form</td>
+    <td>`PASS`</td>
+    <td>$(\exists \; x \; \psi(x))\wedge \phi$</td>
+    <td>$\exists \; x \; (\psi(x) \wedge \phi)$</td>
+  </tr>
+  <tr>
+    <td>Equivalence for prenex normal form</td>
+    <td>`PASS`</td>
+    <td>$(\forall \; x \; \psi(x))\wedge \phi$</td>
+    <td>$\forall \; x \; (\psi(x) \wedge \phi)$</td>
+  </tr>
+</table>
+
+
+<br>
+
+*Problem 11*
+
+For this one, just use the principle of non-contradiction to get the antecedent.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.11 ~(AxEyRxy->AzGz) :|-: AxEyEz(Rxy/\~Gz)
+|~(AxEyRxy->AzGz) :assumption
+|AxEyRxy/\~AzGz :NC1
+|AxEyRxy/\Ez~Gz :DMSOME2
+|Ax(EyRxy/\Ez~Gz) :PASS3
+|AxEy(Rxy/\Ez~Gz) :PASS4
+|AxEyEz(Rxy/\~Gz) :PASS5
+```
+
+<br>
+
+*Problem 12*
+
+For this one, use `DC` to replace the arrow by a disjunction appropriately, and then convert into prenex normal form (watching the order of the universals in the conclusion), and then use `DC` again to conver the disjunction back to an arrow.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.12 (AxEyRxy->AzGz) :|-: ExAzAy(Rxy->Gz)
+|(AxEyRxy->AzGz) :assumption
+|~AxEyRxy\/AzGz :DC1
+|Ex~EyRxy\/AzGz :DMSOME2
+|ExAy~Rxy\/AzGz :DMALL3
+|Ex(Ay~Rxy\/AzGz) :PASS4
+|ExAz(Ay~Rxy\/Gz) :PASS5
+|ExAzAy(~Rxy\/Gz) :PASS6
+|ExAzAy(Rxy->Gz) :DC7
+```
+
+<br>
+
+*Problem 13*
+
+For this, you can go from `AxFx` to `AuFu` in one line and justify it by `rep`. That is, you can "rename bound variables" using our repeat rule. The conclusion of this one isn't exactly in prenex normal form, but with this many quantifiers applying the `PASS` rule can be confusing, and so we try to keep it a little simple.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.13 AyRay, AxRxb, AxFx:|-: Au(AxAy(Rxb/\Ray)/\Fu)
+AyRay :assumption
+AxRxb :assumption
+AxFx :assumption
+AuFu :rep3
+AxRxb/\AyRay :I/\1,2
+Ax(Rxb/\AyRay) :PASS5
+AxAy(Rxb/\Ray) :PASS6
+AxAy(Rxb/\Ray)/\AuFu :I/\4,7
+Au(AxAy(Rxb/\Ray)/\Fu) :PASS8
+```
+
+<br>
+
+*Problem 14*
+
+This one starts out with some modus tollens. The result of this helps one get to `AyRay`, and then you can use this and the third assumption to get `AxRxa`. Then we can put these two things together and apply `PASS` twice at the bottom.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.14 ~Fb, ~AxFx->Fb, AxAy(Rxy->Ryx) :|-: AxAy(Rxa/\Ray)
+|~Fb :assumption
+|~AxFx->Fb :assumption
+|Ax(Fx->AyRxy) :assumption
+|AxAy(Rxy->Ryx) :assumption
+|~~AxFx :MT1,2
+|AxFx :DN5
+|Fa->AyRay :EA3
+|Fa :EA6
+|AyRay :E->7,8
+|Ay(Ray->Rya) :EA4
+|Rac->Rca :EA10
+|Rac :EA9
+|Rca :E->11,12
+|AxRxa :IA13
+|AxRxa/\AyRay :I/\9,14
+|Ax(Rxa/\AyRay) :PASS15
+|AxAy(Rxa/\Ray) :PASS16
+```
+
+<br>
+
+*Problem 15*
+
+For this one, one jsut uses famliar rules from previous weeks to get to `Ax(Fx->Hx)` and `EuEvRuv`. Then just combine and put into prenex normal form.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.15 Ax(Fx->Gx), Ax(Gx->Hx), Rab :|-: AxEuEv((Fx->Hx)/\Ruv))
+|Ax(Fx->Gx) :assumption
+|Ax(Gx->Hx) :assumption
+|Rab :assumption
+|Ax(Fx->Hx) :Ba1,2
+|EvRav :IE3
+|EuEvRuv :IE5
+|Ax(Fx->Hx)/\EuEvRuv :I/\4,6
+|Ax((Fx->Hx)/\EuEvRuv) :PASS7
+|AxEu((Fx->Hx)/\EvRuv) :PASS8
+|AxEuEv((Fx->Hx)/\Ruv)) :PASS9
+```
+
+
+
+
+<br>
+
+These are practice problems written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>

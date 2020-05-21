@@ -1,0 +1,249 @@
+<br>
+<br>
+
+# A deductive system for classical predicate logic **with solutions**
+
+We expand our deductive system for classical predicate logic by adding on a large number of helpful derived rules.
+
+- [Recall double-negation](#Recall double-negation)
+- [DeMorgan for quantifiers](#deMorgan-for-quantifiers)
+- [Disjunctive syllogism and quantifiers](#disjunctive-syllogism-and-quantifiers)
+- [Prenex normal form](#prenex-normal-form)
+- [Arrow statements in classical logic](#arrow-statements-in-classical-logic)
+
+<br>
+
+This version contains **the solutions**. But keep in mind that there are many correct proofs of one and the same result. What is provided below is just one of the many correct proofs.
+
+<br>
+
+## Recall double-negation
+
+As described last time, we form predicate logic by adding laws for double-negation. We list this law, along with its abbreviation `DN`, and two associated laws:
+
+- *The law of double-negation*: $\phi$ is equivalent to $\neg \neg \phi$. Abbreviation: `DN`
+- *Law of excluded middle*: $\phi\vee \neg \phi$ is a tautology. Abbreviation: `LEM`
+- *Law of non-contradiction*: $\neg (\phi\wedge \neg \phi)$ is a tautology. Abbreviation: `LNC`
+
+<br>
+
+## DeMorgan for quantifiers
+
+As we saw last time, we can derive the DeMorgan laws for the quantifiers in classical predicate logic. Hence, we add on rules for these, and include the associated laws for pertaining to the propositional connectives of conjunction and disjunction along the way:
+
+- $\neg \forall \; x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$. Abbreviation: `DMSOME` (since it ends in a some statement)
+- $\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$. Abbreviation: `DMALL` (since it ends in an all statement)
+- $\neg (\phi\wedge \psi)$ is equivalent to $\neg \phi \vee \neg \psi$. Abbreviation: `DMOR` (since it ends in an or statement)
+- $\neg (\phi\vee \psi)$ is equivalent to $\neg \phi \wedge \neg \psi$. Abbreviation: `DMAND` (since it ends in an and statement)
+
+Here are some examples where we apply these rules:
+
+
+*Example 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~AxEyAz(Rxy/\Sxz) :|-: ExAyEz(~Rxy\/~Sxz)
+|~AxEyAz(Rxy/\Sxz) :assumption
+|Ex~EyAz(Rxy/\Sxz) :DMSOME 1
+|ExAy~Az(Rxy/\Sxz) :DMALL 2
+|ExAyEz~(Rxy/\Sxz) :DMSOME 3
+|ExAyEz(~Rxy\/~Sxz) :DMOR 4
+```
+
+<br>
+
+*Example 2*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~ExAyEz(Rxy/\Sxz) :|-: AxEyAz(~Rxy\/~Sxz)
+|~ExAyEz(Rxy/\Sxz) :assumption
+|Ax~AyEz(Rxy/\Sxz) :DMALL1
+|AxEy~Ez(Rxy/\Sxz) :DMSOME2
+|AxEyAz~(Rxy/\Sxz) :DMALL3
+|AxEyAz(~Rxy\/~Sxz) :DMOR4
+```
+
+<br>
+
+
+## Disjunctive syllogism and quantifiers
+
+It is not hard to see that the following rules pertaining to disjunction are valid:
+
+- *Disjunctive syllogism*. $\phi\vee \psi, \neg \phi \vdash \psi$. Abbreviation: `PDS` (for positive disjunctive syllogism, since it starts with an initial unnegated "positive" disjunction).
+- *Disjunctive syllogism*. $\neg (\phi\wedge \psi), \phi \vdash \neg \psi$. Abbreviation: `NDS` (for negative disjunctive syllogism, since it starts with a negated conjunction).
+
+Here are some simple examples in which these propositional rules interact with quantifiers:
+
+*Example 3*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxFx\/AxGx, Ex~Fx :|-: AxGx
+|AxFx\/AxGx :assumption
+|Ex~Fx :assumption
+|~AxFx :DMSOME2
+|AxGx :PDS 1,3
+```
+
+<br>
+
+*Example 4*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~(ExFx/\ExGx), Fa :|-: Ax~Gx
+|~(ExFx/\ExGx) :assumption
+|Fa :assumption
+|ExFx :IE2
+|~ExGx :NDS1,3
+|Ax~Gx :DMALL4
+```
+<br>
+
+
+
+<br>
+
+## Prenex normal form
+
+We likewise build in validities associated to prenex normal form, and we refer to any of these as `PASS` (short for *pass*ing the quantifier to the outside). In these, it is assumed that $x$ does not appear in $\phi$:
+
+- $(\exists \; x \; \psi(x))\vee \phi$ is equivalent to $\exists \; x \; (\psi(x) \vee \phi)$.
+- $(\forall \; x \; \psi(x))\vee \phi$ is equivalent to $\forall \; x \; (\psi(x) \vee \phi)$.
+- $(\exists \; x \; \psi(x))\wedge \phi$ is equivalent to $\exists \; x \; (\psi(x) \wedge \phi)$.
+- $(\forall \; x \; \psi(x))\wedge \phi$ is equivalent to $\forall \; x \; (\psi(x) \wedge \phi)$.
+
+
+*Example 5*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxFx/\Ga :|-: Ax(Fx/\Ga)
+|AxFx/\Ga :assumption
+|Ax(Fx/\Ga) :PASS 1
+```
+
+<br>
+
+*Example 6*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa\/EyGy :|-: Ey(Fa\/Gy)
+|Fa\/EyGy :assumption
+|Ey(Fa\/Gy) :PASS 1
+```
+
+<br>
+
+*Example 7*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxFx/\EyGy :|-: AxEy(Fx/\Gy)
+|AxFx/\EyGy :assumption
+|Ax(Fx/\EyGy) :PASS 1
+|AxEy(Fx/\Gy) :PASS 2
+```
+
+<br>
+
+*Example 8*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxFx\/EyGy :|-: AxEy(Fx\/Gy)
+|AxFx\/EyGy :assumption
+|Ax(Fx\/EyGy) :PASS 1
+|AxEy(Fx\/Gy) :PASS 2
+```
+
+<br>
+
+*Example 9*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxEyRxy\/AzFz :|-: AxEyAz(Rxy\/Fz)
+|AxEyRxy\/AzFz :assumption
+|Ax(EyRxy\/AzFz) :PASS1
+|AxEy(Rxy\/AzFz) :PASS2
+|AxEyAz(Rxy\/Fz) :PASS3
+```
+
+<br>
+
+*Example 10*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxEyRxy/\AzFz :|-: AxEyAz(Rxy/\Fz)
+|AxEyRxy/\AzFz :assumption
+|Ax(EyRxy/\AzFz) :PASS1
+|AxEy(Rxy/\AzFz) :PASS2
+|AxEyAz(Rxy/\Fz) :PASS3
+```
+
+<br>
+
+*Example 11*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ExAyRxy/\AzFz :|-: ExAyAz(Rxy/\Fz)
+|ExAyRxy/\AzFz :assumption
+|Ex(AyRxy/\AzFz) :PASS1
+|ExAy(Rxy/\AzFz) :PASS2
+|ExAyAz(Rxy/\Fz) :PASS3
+```
+
+<br>
+
+*Example 12*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ExAyRxy\/AzFz :|-: ExAyAz(Rxy\/Fz)
+|ExAyRxy\/AzFz :assumption
+|Ex(AyRxy\/AzFz) :PASS1
+|ExAy(Rxy\/AzFz) :PASS2
+|ExAyAz(Rxy\/Fz) :PASS3
+```
+
+<br>
+
+## Arrow statements in classical logic
+
+We also add on rules derivable in classical logic which provide equivalents of arrow statements:
+
+-  *Negated conditionals and conjunctive statements*: $\neg (\phi \rightarrow \psi)$ is equivalent to $\phi \wedge \neg \psi$. Abbreviation: `NC`
+- *Conditionals and disjunctive statements*: $\phi\rightarrow \psi$ is equivalent to $\neg \phi \vee \psi$. Abbreviation: `DC`
+- *Contraposition*: $\phi\rightarrow \psi$ if and only if $\neg \psi\rightarrow \neg \phi$. Abbreviation: `CP`
+- *Modus ponens*. $\phi\rightarrow \psi, \phi \vdash \psi$. Abbreviation: `E->`
+- *Modus tollens*. $\phi\rightarrow \psi, \neg \psi \vdash \neg \phi$. Abbreviation: `MT`
+
+<br>
+
+*Example 13*
+
+In this example, we use `DC` to give a short proof of statements involving disjunction by first translating them into arrow statements and then using simple arrow inferences:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(~Fx\/Gx), Ax(~Gx\/Hx) :|-: Ax(~Fx\/Hx)
+|Ax(~Fx\/Gx) :assumption
+|Ax(~Gx\/Hx) :assumption
+|Ax(Fx->Gx) :DC1
+|Ax(Gx->Hx) :DC2
+|Ax(Fx->Hx) :Ba3,4
+|Ax(~Fx\/Hx) :DC5
+```
+
+*Example 14*
+
+In this example, we use `DC` to translate an arrow statement into a disjunctive statement and then use disjunctive syllogism:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax~Rxx->AxSxx, ~ExRxx :|-: AxSxx
+|Ax~Rxx->AxSxx :assumption
+|~ExRxx :assumption
+|~Ax~Rxx\/AxSxx :DC1
+|Ex~~Rxx\/AxSxx :DMSOME3
+|ExRxx\/AxSxx :DN4
+|AxSxx :PDS2,5
+```
+
+<br>
+
+
+
