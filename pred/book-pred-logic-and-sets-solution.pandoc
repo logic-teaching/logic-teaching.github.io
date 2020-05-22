@@ -1,0 +1,385 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Classical predicate logic and set theory **with solutions**
+
+We discuss some of the connections between classical predicate logic and set theory.
+
+<br>
+
+- [Soundness and Completeness](#soundness-and-completeness)
+- [Set-theoretic operations](#set-theoretic-operations)
+- [Infinite set-theoretic operations](#infinite-set-theoretic-operationss)
+
+<br>
+
+This version has **the solutions** filled in.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Soundness and Completeness
+
+The Soundness and Completeness Theorems say that $\phi$ is true in all models if and only if $\phi$ is provable. The proof of these theorems is beyond what we are able to do in this course, but they are important results because it indicates that Tarski's definition of truth in a model and the attendant notion of being true in all models aligns extensionally with the method of developing proofs that we have been studying in the most recent weeks.
+
+There are also versions of these theorems which allow for premises:
+
+- Soundness Theorem: if there is a proof of $\phi$ from $\phi_1, \ldots, \phi_n$, then any model that makes $\phi_1, \ldots, \phi_n$ true also makes $\phi$ true.
+- Completeness Theorem: if any model that makes $\phi_1, \ldots, \phi_n$ true also makes $\phi$ true, then there is a proof of $\phi$ from $\phi_1, \ldots, \phi_n$.
+
+The reason why the Soundness Theorem is true is imply that we have chosen the rules and axioms of our deductive system so that they preserve truth. The reason why the Completeness Theorem is true is more challenging to succinctly say, but it suffices to note that the proof of this Theorem does require double-negation and is rather non-constructive in nature.
+
+An elementary consequence of Soundness and Completeness is that for any $\phi_1, \ldots, \phi_n,\phi$, exactly one of the following two things happens:
+
+1. There is a proof of $\phi$ from $\phi_1, \ldots, \phi_n$.
+2. There is a model of $\phi_1, \ldots, \phi_n$ and not $\phi$.
+
+At least one of these happens, since if 2 fails then any model of $\phi_1, \ldots, \phi_n$ is a model of $\phi$, and then by the Completeness Theorem 1 happens. And at most one of these happens since if 1 happens then by Soundness any model of $\phi_1, \ldots, \phi_n$ has to be a model of $\phi$. The model produced in 2 is sometimes called the *countermodel* since it is a counterexample to the validity of the argument.
+
+We can hence pose lots of problems of the form: find a proof or find a countermodel. This is what the next examples illustrate. In each case, there is a proof-box and a model-box. If there is a proof of the conclusion from the premises, then fill out the proof-box. If there is a model of the premises but not the conclusion, then fill out the model-box.
+
+<br>
+
+*Example 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx\/Gx) :|-: AxFx\/AxGx
+|Ax(Fx\/Gx) :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ Ax(Fx\/Gx) :|-: AxFx\/AxGx
+|Domain:0,1,2
+|F(_):0,1
+|G(_):1,2
+```
+
+<br>
+
+*Example 2*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxFx\/AxGx :|-: Ax(Fx\/Gx)
+|AxFx\/AxGx :assumption
+| AxFx :assumption
+| Fa :EA2
+| Fa\/Ga :I\/3
+| Ax(Fx\/Gx) :IA4
+|AxFx->Ax(Fx\/Gx) :I->2-5
+| AxGx :assumption
+| Ga :EA7
+| Fa\/Ga :I\/8
+| Ax(Fx\/Gx) :IA9
+|AxGx->Ax(Fx\/Gx) :I->7-10
+|Ax(Fx\/Gx) :E\/1,6,11
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ AxFx\/AxGx :|-: Ax(Fx\/Gx)
+```
+
+
+<br>
+
+*Example 3*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxEyRxy, AxAy(Rxy->Syx) :|-: AxEySyx
+|AxEyRxy :assumption
+|AxAy(Rxy->Syx) :assumption
+|EyRay :EA1
+| Rab :assumption
+| Ay(Ray->Sya) :EA2
+| Rab->Sba :EA5
+| Sba :E->4,6
+| EySya :IE7
+|Rab->EySya :I->4-8
+|EySya :EE3,9
+|AxEySyx :IA10
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ AxEyRxy, AxAy(Rxy->Syx) :|-: AxEySyx
+```
+
+<br>
+
+*Example 4*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Ey(Gy/\Rxy)), Ax(Fx\/Gx), ~Ex(Fx/\Gx)  :|-: Ax(Fx->Ay(Rxy->Gy))
+|Ax(Fx->Ey(Gy/\Rxy)) :assumption
+|Ax(Fx\/Gx) :assumption
+|~Ex(Fx/\Gx) :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ Ax(Fx->Ey(Gy/\Rxy)), Ax(Fx\/Gx), ~Ex(Fx/\Gx) :|-: Ax(Fx->Ay(Rxy->Gy))
+|Domain:0,1,2
+|F(_):0,1
+|G(_):2
+|R(_,_):[0,1],[0,2],[1,2]
+```
+
+To help one decide whether to try to prove the result or find a countermodel, it is helpful to be able to quickly use DeMorgan to calculate what the negation of the conclusion is. It is not too hard to see, in this case, that the negation of the conclusion is $\exists \; x \; (Fx \wedge \exists \; y \; (Rxy\wedge \neg Gy))$. This is useful because it tells you what kind of model you want to build, if you want to try to build a countermodel.
+
+<br>
+
+## Set-theoretic operations
+
+Recall from our study of Euler diagrams that we introduced the following set-theoretic operations:
+
+<br>
+
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Definition</th>
+  </tr>
+  <tr>
+    <td>Intersection of $X,Y$</td>
+    <td>$X\cap Y$</td>
+    <td>$X\cap Y= \{x: x\in X \wedge x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Union of $X,Y$</td>
+    <td>$X\cup Y$</td>
+    <td>$X\cup Y= \{x: x\in X \vee x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Difference of $X$ from $Y$</td>
+    <td>$X\setminus Y$</td>
+    <td>$X\setminus Y = \{x: x\in X \wedge x\notin Y\}$</td>
+  </tr>
+  <tr>
+    <td>Relative complement of $Y$</td>
+    <td>$Y^c$</td>
+    <td>$Y^c = \{x\in M: x\notin Y\}$ </td>
+  </tr>
+</table>
+
+<br>
+
+Only this last one is new, and it operates under the presupposition that the set $Y$ is a subset of the set $M$, which is somehow fixed by context. This is an innocuous assumption in practice, since most of the time we are interested only in subsets of some given set (like the points in the plane, or the natural numbers). Usually this ambient set is fixed by the topic at hand.
+
+There are some systematic parallels between equivalences in classical logic and set-theoretic identities, which we can summarize here, along with the names for the equivalences in our deductive system for classical logic:
+
+<br>
+
+<table style="width:100%">
+  <tr>
+    <th>Name of Law/Rule</th>
+    <th>Abbreviation</th>
+    <th>Equivalence in classical logic</th>
+    <th>Identity of sets</th>
+  </tr>
+  <tr>
+    <td>Double-negation</td>
+    <td>`DN`</td>
+    <td>$\phi\leftrightarrow\neg \neg \phi$</td>
+    <td>$X=(X^c)^c$</td>
+  </tr>
+  <tr>
+    <td>Commutativity for conjunction</td>
+    <td>`LCC`</td>
+    <td>$(\phi\wedge \psi)\leftrightarrow(\psi\wedge \phi)$</td>
+    <td>$X\cap Y = Y\cap X$</td>
+  </tr>
+  <tr>
+    <td>Commutativity for disjunction</td>
+    <td>`LCD`</td>
+    <td>$(\phi\vee \psi)\leftrightarrow(\psi\vee \phi)$</td>
+    <td>$X\cup Y = Y\cup X$</td>
+  </tr>
+  <tr>
+    <td>Associativity for conjunction</td>
+    <td>`LAC`</td>
+    <td>$((\phi\wedge \psi)\wedge \xi)\leftrightarrow(\phi\wedge (\psi\wedge \xi))$</td>
+    <td>$(X\cap Y)\cap Z= X\cap (Y\cap Z)$
+  </tr>
+  <tr>
+    <td>Associativity for disjunction</td>
+    <td>`LAD`</td>
+    <td>$((\phi\vee \psi)\vee \xi)\leftrightarrow(\phi\vee (\psi\vee \xi))$</td>
+    <td>$(X\cup Y)\cup Z = X\cup (Y\cup Z)$</td>
+  </tr>
+  <tr>
+    <td>Distribution (with initial $c$onjunction)</td>
+    <td>`LDC`</td>
+    <td>$(\phi\wedge (\psi\vee \xi))\leftrightarrow((\phi\wedge \psi)\vee (\phi\wedge \xi))$</td>
+    <td>$X\cap (Y\cup Z)=(X\cap Y)\cup (X\cap Z)$</td>
+  </tr>
+  <tr>
+    <td>Distribution (with initial $d$isjunction)</td>
+    <td>`LDD`</td>
+    <td>$(\phi\vee (\psi\wedge \xi))\leftrightarrow((\phi\vee \psi)\wedge (\phi\vee \xi))$</td>
+    <td>$X\cup (Y\cap Z)=(X\cup Y)\cap (X\cup Z)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan (with ending *or*)</td>
+    <td>`DMOR`</td>
+    <td>$\neg (\phi\wedge \psi)\leftrightarrow (\neg \phi \vee \neg \psi)$</td>
+    <td>$(X\cap Y)^c = X^c\cup Y^c$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan (with ending *and*)</td>
+    <td>`DMAND`</td>
+    <td> $\neg (\phi\vee \psi)\leftrightarrow(\neg \phi \wedge \neg \psi)$</td>
+    <td>$(X\cup Y)^c=X^c\cap Y^c$</td>
+  </tr>
+</table>
+
+<br>
+
+The Soundness Theorem gives a very simple explanation for why there is this systematic parallel. For instance, take the commutativity of conjunction. Why does this explain the set-theoretic identity $X\cap Y =Y\cap X$ about sets? Well, suppose that $X,Y$ are both subsets of some set $M$. Define a model $\mathcal{M}$ on $M$ by setting $F^{\mathcal{M}}=X$ and $G^{\mathcal{M}}=Y$. Then one has that
+$$ X\cap Y = F^{\mathcal{M}}\cap G^{\mathcal{M}} = \{a\in M: \mathcal{M}\models Fa\wedge Ga\} =  \{a\in M: \mathcal{M}\models Ga\wedge Fa\} =  G^{\mathcal{M}}\cap F^{\mathcal{M}} = Y\cap X$$
+
+The middle identity follows from soundness since any model which makes $Fa\wedge Ga$ true also makes $Ga\wedge Fa$ true.
+
+There is a similar simple explanation for all of the other set-theoretic identities. Basically, since the set-theoretic operations are defined in terms of the propositional connectives, and since we interpret predicates as sets when we build models, the Soundness Theorem requires that anything we can prove about just conjunction, disjunction, and negation will have consequences for identities between sets.
+
+Here is a simple examples of these ideas, based on our working knowledge of DeMorgan:
+
+*Example 5*
+
+Suppose that $X=\{0,1,2,3,4,5\}$ and $Y=\{x\in \mathbb{N}: x>8\}$, and suppose that we are only interested in subsets of natural numbers $\mathbb{N}$. What is $(X\cup Y)^c$?
+
+Solution: $(X\cup Y)^c = X^c\cap Y^c = \{x\in \mathbb{N}: x>5\}\cap \{x\in \mathbb{N}: x\leq 8\} = \{6,7,8\}$.
+
+<br>
+
+## Infinite set-theoretic operations
+
+There is a similar set of considerations about infinitary set-theoretic operations. These are relative to a set-up where one has an index set $I$ and a collection of sets $X_i$, where $i$ comes from $I$. One defines:
+
+<br>
+
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Definition</th>
+  </tr>
+  <tr>
+    <td>Intersection of $X_i$</td>
+    <td>$\bigcap_{i\in I}\; X_i$</td>
+    <td>$\bigcap_{i\in I}\; X_i= \{x: \forall i\in I, x\in X_i\}$</td>
+  </tr>
+  <tr>
+    <td>Union of $X_i$</td>
+    <td>$\bigcup_{i\in I}\; X_i$</td>
+    <td>$\bigcup_{i\in I}\; X_i= \{x: \exists i\in I, x\in X_i\}$</td>
+  </tr>
+</table>
+
+<br>
+
+
+<br>
+
+One then has that the set-theoretic analogues of the DeMorgan rules for the quantifiers are the following:
+
+<br>
+
+<table style="width:100%">
+  <tr>
+    <th>Name of Law/Rule</th>
+    <th>Abbreviation</th>
+    <th>Equivalence in classical logic</th>
+    <th>Identity of sets</th>
+  </tr>
+  <tr>
+   <td>DeMorgan (with ending *some*)</td>
+   <td>`DMSOME`</td>
+    <td>$\neg \forall \; x \; \phi(x) \leftrightarrow \exists \; x \; \neg \phi(x)$</td>
+    <td>$(\bigcap_{i\in I}\; X_i)^c = \bigcup_{i\in I}\; X_i^c$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan (with ending *all*)</td>
+    <td>`DMALL`</td>
+    <td>$\neg \exists \; x \; \phi(x)\leftrightarrow \forall \; x \; \neg \phi(x)$</td>
+    <td>$(\bigcup_{i\in I}\; X_i)^c = \bigcap_{i\in I}\; X_i^c$</td>
+  </tr>
+</table>
+
+<br>
+
+To illustrate, here's some another simple example:
+
+*Example 6*
+
+Suppose that $I=\mathbb{N}$ and $X_i=\{x\in \mathbb{Z} : x< -i \vee x> i\}$. For instance, $X_0=\{\ldots, -3,-2,-1,1,2,3,\ldots\}$ and $X_1=\{\ldots, -4,-3,-2,2,3,4,\ldots\}$ and $X_2=\{\ldots, -5,-4,-3,3,4,5\ldots\}$. Then one has that $(\bigcup_{i\in I}X_i)^c = \bigcap_{i\in I}X_i^c = \bigcap_{i\in I} \{x\in \mathbb{Z}: -i\leq x\leq i\} = \{0\}$.
+
+<br>
+
+There are some related systematic connections between arrow statements and subsets. Suppose that $\phi$ and $\psi$ are two sentences which correspond, after the above fashion, to the sets $X$ and $Y$ respectively. Then If $\phi\vdash \psi$ then $X\subseteq Y$.
+
+<br>
+
+*Example 7*.
+
+Recall the proof
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ EyAxRxy  :|-: AxEyRxy
+|EyAxRxy :assumption
+| AxRxb :assumption
+| Rab :EA2
+| EyRay :IE3
+| AxEyRxy :IA4
+|AxRxb->AxEyRxy :I->2-5
+|AxEyRxy :EE1,6
+```
+
+Suppose that our index set $I$ is again the natural numbers. And suppose that for each pair of natural numbers $i,j$ we have that $R_{i,j}$. Then the above proof implies the following about sets:
+
+- $\bigcup_{j\in I} \bigcap_{i\in I} \;R_{i,j}\subseteq \bigcap_{i\in I}\bigcup_{j\in I} \;R_{i,j}$.
+
+The set-theoretic proof that this is so follows the above proof word-for-word.
+
+1. Suppose that $w$ is in $\bigcup_{j\in I} \bigcap_{i\in I} \; R_{i,j}$.
+2. Suppose $b$ is such that $w$ is in $\bigcap_{i\in I} \; R_{i,b}$.
+3. Let $a$ be given. Then $w$ is in $R_{a,b}$.
+4. Then $w$ is in $\bigcup_{j\in I} \; R_{a,j}$.
+5. Since $a$ was arbitrary, $w$ is in $\bigcap_{i\in I}\bigcup_{j\in J} \; R_{i,j}$.
+6. Hence, if there is $b$ such that $w$ is in $\bigcap_{i\in I} \; R_{i,b}$, then $w$ is in $\bigcap_{i\in I}\bigcup_{j\in J} \; R_{i,j}$.
+7. By 1 and 6, we have that $w$ is in $\bigcap_{i\in I}\bigcup_{j\in J} \; R_{i,j}$.
+
+And indeed, in some simple cases, we can show that the converse does not hold. We might express that the first set is properly smaller in some cases than the second set by writing:
+
+- $\bigcup_{j\in I} \bigcap_{i\in I} \; R_{i,j}\subsetneq \bigcap_{i\in I}\bigcup_{j\in I} \; R_{i,j}$.
+
+Here is a simple case where the first set is indeed smaller than the second set:
+
+- Let $R_{i,j}$ be empty if $i\neq j$, while let $R_{i,j}$ contain just zero if $i=j$.
+
+- If we fix $j$, we have that $\bigcap_{i\in I} \; R_{i,j}=\emptyset$. For by choosing $i\neq j$ we have that $R_{i,j}=\emptyset$ and when you intersect a set with the empty set, you get the empty set. Hence $\bigcup_{j\in I} \bigcap_{i\in I} \; R_{i,j}$ is too empty, since when you union a bunch of empty sets together, you get the empty set. Hence $\bigcup_{j\in I} \bigcap_{i\in I} \; R_{i,j}$ has no elements.
+
+- If we fix $i$, we have that $\bigcup_{j\in I} \; R_{i,j}=\{0\}$, since we can choose $j=i$ and get $R_{i,j}=\{0\}$ and in all other cases it is empty. Since $\bigcup_{j\in I} \; R_{i,j}=\{0\}$ holds for all $j$, we have that $\bigcap_{i\in I}\bigcup_{j\in I} \; R_{i,j}=\{0\}$ as well. Hence $\bigcap_{i\in I}\bigcup_{j\in I} \; R_{i,j}$ has exactly one element.
+
+
+
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>

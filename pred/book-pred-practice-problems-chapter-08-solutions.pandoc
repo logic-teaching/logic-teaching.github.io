@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Practice problems
+# Practice problems **with solutions**
 
 These are practice problems for Week 8
 
@@ -25,6 +25,8 @@ These are practice problems for Week 8
 - [Proof or refutation](#proof-or-refutation)
 
 <p style="page-break-before: always">
+
+This version has **the solutions** filled in.
 
 <br>
 
@@ -120,6 +122,15 @@ This one is practice with DeMorgan plus a little bit of distribution.
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.01 ~AxEyAz(~Fx\/(~Gx/\~Hx)) :|-: ExAyEz((Fx/\Gx)\/(Fx/\Hx))
 |~AxEyAz(~Fx\/(~Gx/\~Hx)) :assumption
+|Ex~EyAz(~Fx\/(~Gx/\~Hx)) :DMSOME1
+|ExAy~Az(~Fx\/(~Gx/\~Hx)) :DMALL2
+|ExAyEz~(~Fx\/(~Gx/\~Hx)) :DMSOME3
+|ExAyEz(~~Fx/\~(~Gx/\~Hx)) :DMAND4
+|ExAyEz(Fx/\~(~Gx/\~Hx)) :DN5
+|ExAyEz(Fx/\(~~Gx\/~~Hx)) :DMOR6
+|ExAyEz(Fx/\(Gx\/~~Hx)) :DN7
+|ExAyEz(Fx/\(Gx\/Hx)) :DN8
+|ExAyEz((Fx/\Gx)\/(Fx/\Hx)) :LDC9
 ```
 
 <br>
@@ -132,6 +143,13 @@ For this one, think about using distribution and DeMorgan. And before you begin,
 08.02 Ax((Fx/\Gx)\/(Fx/\Hx)), AxFx->~AxEyRxy  :|-: ExAy~Rxy
 |Ax((Fx/\Gx)\/(Fx/\Hx)) :assumption
 |AxFx->~AxEyRxy :assumption
+|Ax(Fx/\(Gx\/Hx)) :LDC1
+|Fc/\(Gc\/Hc) :EA3
+|Fc :E/\4
+|AxFx :IA5
+|~AxEyRxy :E->2,6
+|Ex~EyRxy :DMSOME7
+|ExAy~Rxy :DMALL8
 ```
 
 <br>
@@ -145,6 +163,16 @@ For this one, think about using some double-negation and DeMorgan and associativ
 08.03 ~~ExFx, ExEy(Fx\/Fy)->(Ga/\(~~Gb/\Gc)) :|-: (Ga/\Gb)/\Gc
 |~~ExFx :assumption
 |ExEy(Fx\/Fy)->(Ga/\(~~Gb/\Gc)) :assumption
+|ExFx :DN1
+| Fd :assumption
+| Fd\/Fe :I\/4
+| Ey(Fd\/Fy) :IE5
+| ExEy(Fx\/Fy) :IE6
+|Fd->ExEy(Fx\/Fy) :I->4-7
+|ExEy(Fx\/Fy) :EE3,8
+|Ga/\(~~Gb/\Gc) :E->2,9
+|Ga/\(Gb/\Gc) :DN10
+|(Ga/\Gb)/\Gc :LAC11
 ```
 
 <br>
@@ -157,6 +185,17 @@ For this one, try to start out with some elimination of universal, turn to intro
 08.04 AxFx, (Fa/\(Fb/\Fc))->((Ga\/Gb)/\(Gc\/Ga)) :|-:ExEyEz(Gx\/(Gy/\Gz))
 |AxFx :assumption
 |(Fa/\(Fb/\Fc))->((Ga\/Gb)/\(Gc\/Ga)) :assumption
+|Fa :EA1
+|Fb :EA1
+|Fc :EA1
+|Fb/\Fc :I/\4,5
+|Fa/\(Fb/\Fc) :I/\3,6
+|(Ga\/Gb)/\(Gc\/Ga) :E->2,7
+|(Ga\/Gb)/\(Ga\/Gc) :LCD8
+|Ga\/(Gb/\Gc) :LDD9
+|Ez(Ga\/(Gb/\Gz)) :IE10
+|EyEz(Ga\/(Gy/\Gz)) :IE11
+|ExEyEz(Gx\/(Gy/\Gz)) :IE12
 ```
 
 <br>
@@ -168,6 +207,14 @@ Despite having a lot of quantifiers in it, this one can be done without using th
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.05 ~ExEyEz(Gx\/(Gy/\Gz)) :|-: AxAyAz(~(Gx\/Gy)\/~(Gx\/Gz))
 |~ExEyEz(Gx\/(Gy/\Gz)) :assumption
+|Ax~EyEz(Gx\/(Gy/\Gz)) :DMALL1
+|AxAy~Ez(Gx\/(Gy/\Gz)) :DMALL2
+|AxAyAz~(Gx\/(Gy/\Gz)) :DMALL3
+|AxAyAz(~Gx/\~(Gy/\Gz)) :DMAND4
+|AxAyAz(~Gx/\(~Gy\/~Gz)) :DMOR5
+|AxAyAz((~Gx/\~Gy)\/(~Gx/\~Gz)) :LDC6
+|AxAyAz(~(Gx\/Gy)\/(~Gx/\~Gz)) :DMAND7
+|AxAyAz(~(Gx\/Gy)\/~(Gx\/Gz)) :DMAND8
 ```
 
 <br>
@@ -176,7 +223,7 @@ Despite having a lot of quantifiers in it, this one can be done without using th
 
 <br>
 
-## Problems with tautologies and disjunctive syllogism
+## Problems with tautologies and disjunctive syllogism:
 
 <br>
 
@@ -227,6 +274,17 @@ This one is practice with DeMorgan and positive disjunctive syllogism. The last 
 08.06 AxEyRxy\/AxEySxy, ExAy~Rxy, AxAy(Sxy->Rxc) :|-: Rac
 |AxEyRxy\/AxEySxy :assumption
 |ExAy~Rxy :assumption
+|AxAy(Sxy->Rxc) :assumption
+|Ex~EyRxy :DMALL2
+|~AxEyRxy :DMSOME4
+|AxEySxy :PDS1,5
+|EySay :EA6
+| Sab :assumption
+| Ay(Say->Rac) :EA3
+| Sab->Rac :EA9
+| Rac :E->8,10
+|Sab->Rac :I->8-11
+|Rac :EE7,12
 ```
 
 <br>
@@ -240,6 +298,16 @@ This one begins with a negative disjunctive syllogism, and then one has to end w
 |~(Fa/\ExAy~(Fx\/Rxy)) :assumption
 |Fa :assumption
 |~Fb :assumption
+|~ExAy~(Fx\/Rxy) :NDS 1,2
+|Ax~Ay~(Fx\/Rxy) :DMALL4
+|AxEy~~(Fx\/Rxy) :DMSOME5
+|AxEy(Fx\/Rxy) :DN6
+|Ey(Fb\/Rby) :EA7
+| Fb\/Rbc :assumption
+| Rbc :PDS3,9
+| EyRby :IE10
+|(Fb\/Rbc)->EyRby :I->9-11
+|EyRby :EE8,12
 ```
 
 <br>
@@ -252,6 +320,12 @@ For this one use DeMorgan to get the antecedent of the first assumption. Then wr
 08.08 (Ax(~Fx\/~Gx)\/Ex(Fx/\Gx))->(Fa->Fb), ~Fb :|-: ~Fa
 |(Ax(~Fx\/~Gx)\/Ex(Fx/\Gx))->(Fa->Fb) :assumption
 |~Fb :assumption
+|Ex(Fx/\Gx)\/~Ex(Fx/\Gx) :LEM
+|Ex(Fx/\Gx)\/Ax~(Fx/\Gx) :DMALL3
+|Ex(Fx/\Gx)\/Ax(~Fx\/~Gx) :DMOR4
+|Ax(~Fx\/~Gx)\/Ex(Fx/\Gx) :LCD5
+|Fa->Fb :E->1,6
+|~Fa :MT2,7
 ```
 
 <br>
@@ -267,6 +341,13 @@ For this one, try some repeated modus tollens and then positive disjunctive syll
 |Rcc->Rdd :assumption
 |~Rdd :assumption
 |AxRxx\/AxSxx :assumption
+|~Rcc :MT3,4
+|~Rbb :MT2,6
+|~Raa :MT1,7
+|Ex~Rxx :IE8
+|~AxRxx :DMSOME9
+|AxSxx :PDS5,10
+|Saa :EA11
 ```
 
 
@@ -279,6 +360,11 @@ For this one, just use the principle of non-contradiction to get the antecedent.
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.10 AxAy(~(Rxx/\~Rxx)->Ryy) :|-: AyRyy
 |AxAy(~(Rxx/\~Rxx)->Ryy) :assumption
+|~(Raa/\~Raa) :LNC
+|Ay(~(Raa/\~Raa)->Ryy) :EA1
+|~(Raa/\~Raa)->Rbb :EA3
+|Rbb :E->2,4
+|AyRyy :IA5
 ```
 
 
@@ -355,6 +441,11 @@ This one is just some use of `NC` and DeMorgan followed by `PASS`.
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.11 ~(AxEyRxy->AzGz) :|-: AxEyEz(Rxy/\~Gz)
 |~(AxEyRxy->AzGz) :assumption
+|AxEyRxy/\~AzGz :NC1
+|AxEyRxy/\Ez~Gz :DMSOME2
+|Ax(EyRxy/\Ez~Gz) :PASS3
+|AxEy(Rxy/\Ez~Gz) :PASS4
+|AxEyEz(Rxy/\~Gz) :PASS5
 ```
 
 <br>
@@ -366,6 +457,13 @@ For this one, use `DC` to replace the arrow by a disjunction appropriately, and 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.12 (AxEyRxy->AzGz) :|-: ExAzAy(Rxy->Gz)
 |(AxEyRxy->AzGz) :assumption
+|~AxEyRxy\/AzGz :DC1
+|Ex~EyRxy\/AzGz :DMSOME2
+|ExAy~Rxy\/AzGz :DMALL3
+|Ex(Ay~Rxy\/AzGz) :PASS4
+|ExAz(Ay~Rxy\/Gz) :PASS5
+|ExAzAy(~Rxy\/Gz) :PASS6
+|ExAzAy(Rxy->Gz) :DC7
 ```
 
 <br>
@@ -379,6 +477,12 @@ For this, you can go from `AxFx` to `AuFu` in one line and justify it by `rep`. 
 |AyRay :assumption
 |AxRxb :assumption
 |AxFx :assumption
+|AuFu :rep3
+|AxRxb/\AyRay :I/\1,2
+|Ax(Rxb/\AyRay) :PASS5
+|AxAy(Rxb/\Ray) :PASS6
+|AxAy(Rxb/\Ray)/\AuFu :I/\4,7
+|Au(AxAy(Rxb/\Ray)/\Fu) :PASS8
 ```
 
 <br>
@@ -393,6 +497,19 @@ This one starts out with some modus tollens. The result of this helps one get to
 |~AxFx->Fb :assumption
 |Ax(Fx->AyRxy) :assumption
 |AxAy(Rxy->Ryx) :assumption
+|~~AxFx :MT1,2
+|AxFx :DN5
+|Fa->AyRay :EA3
+|Fa :EA6
+|AyRay :E->7,8
+|Ay(Ray->Rya) :EA4
+|Rac->Rca :EA10
+|Rac :EA9
+|Rca :E->11,12
+|AxRxa :IA13
+|AxRxa/\AyRay :I/\9,14
+|Ax(Rxa/\AyRay) :PASS15
+|AxAy(Rxa/\Ray) :PASS16
 ```
 
 <br>
@@ -405,6 +522,14 @@ For this one, one just uses famliar rules from previous weeks to get to `Ax(Fx->
 08.15 Ax(Fx->Gx), Ax(Gx->Hx), Rab :|-: AxEuEv((Fx->Hx)/\Ruv)
 |Ax(Fx->Gx) :assumption
 |Ax(Gx->Hx) :assumption
+|Rab :assumption
+|Ax(Fx->Hx) :Ba1,2
+|EvRav :IE3
+|EuEvRuv :IE5
+|Ax(Fx->Hx)/\EuEvRuv :I/\4,6
+|Ax((Fx->Hx)/\EuEvRuv) :PASS7
+|AxEu((Fx->Hx)/\EvRuv) :PASS8
+|AxEuEv((Fx->Hx)/\Ruv) :PASS9
 ```
 
 ## Proof or refutation
@@ -425,6 +550,10 @@ For this problem, either prove or refute the following.
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 08.16 ExFx, ExGx, Ax(Fx->Hx), Ax(Gx->Hx) :|-: Ex(Fx/\Gx)
+|Domain:0,1,2
+|F(_):0
+|G(_):1
+|H(_):0,1
 ```
 
 <br>
@@ -436,6 +565,27 @@ For this problem, either prove or refute the following.
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.17 ExAy(Fx/\Rxy)\/ExAy(Fx/\Sxy) :|-: AyEx(Fx/\(Rxy\/Sxy))
 |ExAy(Fx/\Rxy)\/ExAy(Fx/\Sxy) :assumption
+| ExAy(Fx/\Rxy) :assumption
+|  Ay(Fa/\Ray) :assumption
+|  Fa/\Rab :EA3
+|  (Fa/\Rab)\/(Fa/\Sab) :I\/4
+|  Fa/\(Rab\/Sab) :LDC5
+|  Ex(Fx/\(Rxb\/Sxb)) :IE6
+|  AyEx(Fx/\(Rxy\/Sxy)) :IA7
+| Ay(Fa/\Ray)->AyEx(Fx/\(Rxy\/Sxy)) :I->3-8
+| AyEx(Fx/\(Rxy\/Sxy)) :EE2,9
+|ExAy(Fx/\Rxy)->AyEx(Fx/\(Rxy\/Sxy)) :I->2-10
+| ExAy(Fx/\Sxy) :assumption
+|  Ay(Fa/\Say) :assumption
+|  Fa/\Sab :EA13
+|  (Fa/\Rab)\/(Fa/\Sab) :I\/14
+|  Fa/\(Rab\/Sab) :LDC15
+|  Ex(Fx/\(Rxb\/Sxb)) :IE16
+|  AyEx(Fx/\(Rxy\/Sxy)) :IA17
+| Ay(Fa/\Say)->AyEx(Fx/\(Rxy\/Sxy)) :I->13-18
+| AyEx(Fx/\(Rxy\/Sxy)) :EE12,19
+|ExAy(Fx/\Sxy)->AyEx(Fx/\(Rxy\/Sxy)) :I->12-20
+|AyEx(Fx/\(Rxy\/Sxy)) :E\/1,11,21
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
@@ -456,6 +606,8 @@ For this problem, either prove or refute the following.
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 08.18 AxAy(Rxy->Ez(Rxy/\Ryz)), AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAy(Rxy\/Ryx)
+|Domain:0,1,2
+|R(_,_):[0,1],[0,2],[0,0],[1,1],[2,2]
 ```
 
 <br>
@@ -467,6 +619,14 @@ For this problem, either prove or refute the following.
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.19 AuEvAx(Rxv->Rxu) :|-: AuAxEv(Rxv->Rxu)
 |AuEvAx(Rxv->Rxu) :assumption
+|EvAx(Rxv->Rxa) :EA1
+| Ax(Rxb->Rxa) :assumption
+| Rcb->Rca :EA3
+| Ev(Rcv->Rca) :IE4
+| AxEv(Rxv->Rxa) :IA5
+|Ax(Rxb->Rxa)->AxEv(Rxv->Rxa) :I->3-6
+|AxEv(Rxv->Rxa) :EE2,7
+|AuAxEv(Rxv->Rxu) :IA8
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
@@ -488,6 +648,9 @@ For this problem, either prove or refute the following.
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 08.20 AxAy(Rxy->Sxy), AxRxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAyAz((Sxy/\Syz)->Sxz)
+|Domain:0,1,2
+|R(_,_):[0,0],[1,1],[2,2],[0,1],[1,2],[0,2]
+|S(_,_):[0,0],[1,1],[2,2],[0,1],[1,2],[0,2], [2,1],[1,0]
 ```
 
 

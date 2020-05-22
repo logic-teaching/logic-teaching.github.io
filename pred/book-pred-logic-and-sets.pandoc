@@ -40,7 +40,7 @@ There are also versions of these theorems which allow for premises:
 
 The reason why the Soundness Theorem is true is imply that we have chosen the rules and axioms of our deductive system so that they preserve truth. The reason why the Completeness Theorem is true is more challenging to succinctly say, but it suffices to note that the proof of this Theorem does require double-negation and is rather non-constructive in nature.
 
-An elementary consequence of Soundness and Completeness is that for any $\phi_1, \ldots, \phi_n$, exactly one of the following two things happens:
+An elementary consequence of Soundness and Completeness is that for any $\phi_1, \ldots, \phi_n,\phi$, exactly one of the following two things happens:
 
 1. There is a proof of $\phi$ from $\phi_1, \ldots, \phi_n$.
 2. There is a model of $\phi_1, \ldots, \phi_n$ and not $\phi$.
@@ -54,17 +54,31 @@ We can hence pose lots of problems of the form: find a proof or find a countermo
 *Example 1*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
- Ax(Fx\/Gx) :|-: Ax(Fx\/Gx)
+ Ax(Fx\/Gx) :|-: AxFx\/AxGx
 |Ax(Fx\/Gx) :assumption
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
- Ax(Fx\/Gx) :|-: Ax(Fx\/Gx)
+ Ax(Fx\/Gx) :|-: AxFx\/AxGx
 ```
 
 <br>
 
 *Example 2*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxFx\/AxGx :|-: Ax(Fx\/Gx)
+|AxFx\/AxGx :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ AxFx\/AxGx :|-: Ax(Fx\/Gx)
+```
+
+
+<br>
+
+*Example 3*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  AxEyRxy, AxAy(Rxy->Syx) :|-: AxEySyx
@@ -78,7 +92,7 @@ We can hence pose lots of problems of the form: find a proof or find a countermo
 
 <br>
 
-*Example 3*
+*Example 4*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ax(Fx->Ey(Gy/\Rxy)), Ax(Fx\/Gx), ~Ex(Fx/\Gx)  :|-: Ax(Fx->Ay(Rxy->Gy))
@@ -211,9 +225,9 @@ There is a similar simple explanation for all of the other set-theoretic identit
 
 Here is a simple examples of these ideas, based on our working knowledge of DeMorgan:
 
-*Example 4*
+*Example 5*
 
-Suppose that $X=\{1,2,3,4,5\}$ and $Y=\{x\in \mathbb{N}: x>8\}$, and suppose that we are only interested in subsets of natural numbers $\mathbb{N}$. What is $(X\cup Y)^c$?
+Suppose that $X=\{0,1,2,3,4,5\}$ and $Y=\{x\in \mathbb{N}: x>8\}$, and suppose that we are only interested in subsets of natural numbers $\mathbb{N}$. What is $(X\cup Y)^c$?
 
 Solution: $(X\cup Y)^c = X^c\cap Y^c = \{x\in \mathbb{N}: x>5\}\cap \{x\in \mathbb{N}: x\leq 8\} = \{6,7,8\}$.
 
@@ -233,13 +247,13 @@ There is a similar set of considerations about infinitary set-theoretic operatio
   </tr>
   <tr>
     <td>Intersection of $X_i$</td>
-    <td>$\bigcap_{i\in I} X_i$</td>
-    <td>$\bigcap_{i\in I} X_i= \{x: \forall i\in I, x\in X_i\}$</td>
+    <td>$\bigcap_{i\in I}\; X_i$</td>
+    <td>$\bigcap_{i\in I}\; X_i= \{x: \forall i\in I, x\in X_i\}$</td>
   </tr>
   <tr>
     <td>Union of $X_i$</td>
-    <td>$\bigcup_{i\in I} X_i$</td>
-    <td>$\bigcup_{i\in I} X_i= \{x: \exists i\in I, x\in X_i\}$</td>
+    <td>$\bigcup_{i\in I}\; X_i$</td>
+    <td>$\bigcup_{i\in I}\; X_i= \{x: \exists i\in I, x\in X_i\}$</td>
   </tr>
 </table>
 
@@ -263,13 +277,13 @@ One then has that the set-theoretic analogues of the DeMorgan rules for the quan
    <td>DeMorgan (with ending *some*)</td>
    <td>`DMSOME`</td>
     <td>$\neg \forall \; x \; \phi(x) \leftrightarrow \exists \; x \; \neg \phi(x)$</td>
-    <td>$(\bigcap_{i\in I} X_i)^c = \bigcup_{i\in I} X_i^c$</td>
+    <td>$(\bigcap_{i\in I}\; X_i)^c = \bigcup_{i\in I}\; X_i^c$</td>
   </tr>
   <tr>
     <td>DeMorgan (with ending *all*)</td>
     <td>`DMALL`</td>
     <td>$\neg \exists \; x \; \phi(x)\leftrightarrow \forall \; x \; \neg \phi(x)$</td>
-    <td>$(\bigcup_{i\in I} X_i)^c = \bigcap_{i\in I} X_i^c$</td>
+    <td>$(\bigcup_{i\in I}\; X_i)^c = \bigcap_{i\in I}\; X_i^c$</td>
   </tr>
 </table>
 
@@ -277,35 +291,54 @@ One then has that the set-theoretic analogues of the DeMorgan rules for the quan
 
 To illustrate, here's some another simple example:
 
-*Example 5*
+*Example 6*
 
 Suppose that $I=\mathbb{N}$ and $X_i=\{x\in \mathbb{Z} : x< -i \vee x> i\}$. For instance, $X_0=\{\ldots, -3,-2,-1,1,2,3,\ldots\}$ and $X_1=\{\ldots, -4,-3,-2,2,3,4,\ldots\}$ and $X_2=\{\ldots, -5,-4,-3,3,4,5\ldots\}$. Then one has that $(\bigcup_{i\in I}X_i)^c = \bigcap_{i\in I}X_i^c = \bigcap_{i\in I} \{x\in \mathbb{Z}: -i\leq x\leq i\} = \{0\}$.
 
 <br>
 
-There are some related systematic connections between arrow statements and subsets. Suppose that $\phi$ and $\psi$ are two sentences which correspond, after the above fashion, to the sets $X$ and $Y$ respectively. Then If $\phi\vdash \psi$ then $X\subseteq Y$. We can illustrate this with respect to a couple of different examples:
+There are some related systematic connections between arrow statements and subsets. Suppose that $\phi$ and $\psi$ are two sentences which correspond, after the above fashion, to the sets $X$ and $Y$ respectively. Then If $\phi\vdash \psi$ then $X\subseteq Y$.
 
 <br>
 
-*Example 6*.
+*Example 7*.
 
 Recall the proof
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  EyAxRxy  :|-: AxEyRxy
 |EyAxRxy :assumption
-| AxRxb :assumption
-| Rab :EA2
-| EyRay :IE3
-| AxEyRxy :IA4
-|AxRxb->AxEyRxy :I->2-5
-|AxEyRxy :EE1,6
 ```
 
-Suppose that our index set is again the natural numbers. And suppose that for each pair of natural numbers $i,j$ we have that $R_{i,j}$ is a set. Then the above proof implies the following about sets: $\bigcup_{j\in I} \bigcap_{i\in I} R_{i,j}\subseteq \bigcap_{i\in I}\bigcup_{j\in I} R_{i,j}$.
+Suppose that our index set $I$ is again the natural numbers. And suppose that for each pair of natural numbers $i,j$ we have that $R_{i,j}$. Then the above proof implies the following about sets:
+
+- $\bigcup_{j\in I} \bigcap_{i\in I} \;R_{i,j}\subseteq \bigcap_{i\in I}\bigcup_{j\in I} \;R_{i,j}$.
+
+The set-theoretic proof that this is so follows the above proof word-for-word.
+
+1. Suppose that $w$ is in $\bigcup_{j\in I} \bigcap_{i\in I} \; R_{i,j}$.
+2. Suppose $b$ is such that $w$ is in $\bigcap_{i\in I} \; R_{i,b}$.
+3. Let $a$ be given. Then $w$ is in $R_{a,b}$.
+4. Then $w$ is in $\bigcup_{j\in I} \; R_{a,j}$.
+5. Since $a$ was arbitrary, $w$ is in $\bigcap_{i\in I}\bigcup_{j\in J} \; R_{i,j}$.
+6. Hence, if there is $b$ such that $w$ is in $\bigcap_{i\in I} \; R_{i,b}$, then $w$ is in $\bigcap_{i\in I}\bigcup_{j\in J} \; R_{i,j}$.
+7. By 1 and 6, we have that $w$ is in $\bigcap_{i\in I}\bigcup_{j\in J} \; R_{i,j}$.
+
+And indeed, in some simple cases, we can show that the converse does not hold. We might express that the first set is properly smaller in some cases than the second set by writing:
+
+- $\bigcup_{j\in I} \bigcap_{i\in I} \; R_{i,j}\subsetneq \bigcap_{i\in I}\bigcup_{j\in I} \; R_{i,j}$.
+
+Here is a simple case where the first set is indeed smaller than the second set:
+
+- Let $R_{i,j}$ be empty if $i\neq j$, while let $R_{i,j}$ contain just zero if $i=j$.
+
+- If we fix $j$, we have that $\bigcap_{i\in I} \; R_{i,j}=\emptyset$. For by choosing $i\neq j$ we have that $R_{i,j}=\emptyset$ and when you intersect a set with the empty set, you get the empty set. Hence $\bigcup_{j\in I} \bigcap_{i\in I} \; R_{i,j}$ is too empty, since when you union a bunch of empty sets together, you get the empty set. Hence $\bigcup_{j\in I} \bigcap_{i\in I} \; R_{i,j}$ has no elements.
+
+- If we fix $i$, we have that $\bigcup_{j\in I} \; R_{i,j}=\{0\}$, since we can choose $j=i$ and get $R_{i,j}=\{0\}$ and in all other cases it is empty. Since $\bigcup_{j\in I} \; R_{i,j}=\{0\}$ holds for all $j$, we have that $\bigcap_{i\in I}\bigcup_{j\in I} \; R_{i,j}=\{0\}$ as well. Hence $\bigcap_{i\in I}\bigcup_{j\in I} \; R_{i,j}$ has exactly one element.
 
 
-<br>
+
+
 <br>
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
