@@ -1,0 +1,441 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Identity
+
+We add identity to predicate logic.
+
+- [Rules for identity](#rules-for-identity)
+- [Translations with identity](#translations-with-identity)
+- [Semantics for identity](#semantics-for-identity)
+- [Equivalence relations and identity](#equivalence-relations-and-identity)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Rules for identity
+
+We add identity to our deductive system by formulating introduction and elimination rules.
+
+The introduction rule simply says that one can write $a=a$ on any given line, for any constant $a$, and justify it as `I=`.
+
+The elimination rule says that from $a=b$ and $\phi(a)$, one can infer $\phi(b)$, and justify it as `E=`. In this, $a,b$ are constant symbols, and one obtains $\phi(b)$ from $\phi(a)$ by replacing instances of $a$ by $b$. The elimination rule for identity is sometimes called the *indiscernibility of identicals*, and is expressive of the idea that if two things are identical then they share all the same properties.
+
+<br>
+
+*Example 1*
+
+Here is an example where we use both the introduction and elimination rule:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxAy(x=y->Rxy) :|-: AxRxx
+|AxAy(x=y->Rxy) :assumption
+|Ay(a=y->Ray) :EA1
+|a=a->Raa :EA2
+|a=a :I=
+|Raa :E->3,4
+|AxRxx :IA5
+```
+
+<br>
+
+*Example 2*
+
+Note that only some of the instances of the one constant symbol need to be replaced when applying identity elimination:
+
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa/\Ga, a=b :|-: Fa/\Gb
+|Fa/\Ga :assumption
+|a=b :assumption
+|Fa/\Gb :E=1,2
+```
+
+<br>
+
+*Example 3*
+
+Here is an example where we work with a negated version of identity. Note that usually we would write a negated identity as e.g. $a\neq b$. However, our proof-checker prefers us to write this as `~a=b`.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa, ~Fb :|-: ~a=b
+|Fa :assumption
+|~Fb :assumption
+| a=b :assumption
+| Fb :E=1,3
+| !? :E~2,4
+|~a=b :I~3-5
+```
+<br>
+
+
+
+## Translations with identity
+
+*Example 4*
+
+Often statements of identity are expressed in English just with the "is" of identity. In the antecedent in this statement we have an "is" of identity and in the consequent we have an "is" of predication.
+
+<p style="margin-left: 40px"> $a$ = Allison </p>
+<p style="margin-left: 40px"> $b$ = Dr. Baker  </p>
+<p style="margin-left: 40px"> $D$ = is a doctor  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ a=b->Da : If Allison is Dr. Baker, then Allison is a doctor.
+|a=b->Da
+~~~
+
+<br>
+
+It is rather undetermined by the English sentence itself whether one should translate "is Dr. Baker" by an identity statement involving `b` rather than some kind of predicate. If one has identity available, it can be shown that every identity statement `x=b` can be replaced by a predication `Bx`, provided one defines it so that this predicate holds of and only the x's which are identical to `b`. We illustrate this with the next two examples.
+
+
+*Example 5*
+
+This examples shows how we would translate with a predicate rather than an identity symbol. Again, this translation is underdetermined by the English sentence itself. What tells us to do the translation with the predicate here is simply that we don't have a `b` in the key:
+
+<p style="margin-left: 40px"> $a$ = Allison </p>
+<p style="margin-left: 40px"> $B$ = is Dr. Baker  </p>
+<p style="margin-left: 40px"> $D$ = is a doctor  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ba->Da : If Allison is Dr. Baker, then Allison is a doctor.
+|Ba->Da
+~~~
+
+<br>
+
+*Example 6*
+
+This proof shows us that if we define a predicate so that it holds of only an individual, we can prove that the two translations given in the two previous examples are equivalent.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(x=b->Bx), Ax(Bx->x=b), Ba->Da :|-: a=b->Da
+|Ax(x=b->Bx) :assumption
+|Ax(Bx->x=b) :assumption
+|Ba->Da :assumption
+| a=b :assumption
+| a=b->Ba :EA1
+| Ba :E->4,5
+| Da :E->3,6
+|a=b->Da :I->4-7
+```
+
+<br>
+
+
+*Example 7*
+
+<p style="margin-left: 40px"> $a$ = Allison </p>
+<p style="margin-left: 40px"> $D$ = did it  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Dx->~x=a) : Whoever did it wasn't Allison.
+|Ax(Dx->~x=a)
+~~~
+
+*Examples 8-9*
+
+<p style="margin-left: 40px"> $a$ = Allison </p>
+<p style="margin-left: 40px"> $H$ = was here  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(~x=a->Hx) : Everyone except Allison was here.
+|Ax(~x=a->Hx)
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(~x=a/\Hx) : Someone besides Allison was here.
+|Ex(~x=a/\Hx)
+~~~
+
+<br>
+
+## Semantics for identity
+
+Recall that the clause for atomics and conjunctions read as follows:
+
+- *(Unary) Atomics*: If $F$ is a one-place relation symbol, then $\mathcal{M}\models Fa$ if and only if $a^{\mathcal{M}}$ is in $F^{\mathcal{M}}$.
+
+- *Conjunction*: $\mathcal{M}\models \phi\wedge \psi$ if and only if $\mathcal{M}\models \phi$ and $\mathcal{M}\models \psi$.
+
+We simply add a clause to handle identity statements:
+
+- *Identity*: If $a,b$ are constants, then $\mathcal{M}\models a=b$ if and only if $a^{\mathcal{M}}=b^{\mathcal{M}}$
+
+That is, we just interpret identity statements in a model by identity in the metatheory. This is non-trivial since distinct constant symbols can be interpreted by one and the same object in a model.
+
+<br>
+
+*Example 10*
+
+This example illustrates a situation in which two distinct constant symbols must be interpreted as one and the same.
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+ a=b, Fa, Fb
+|Domain:0
+|F(_):0
+|a:0
+|b:0
+```
+
+*Example 11*
+
+Here is a distinct situation in which they must be interpreted the same:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+ Raa, Rab, Ay(Ray->a=b)
+|Domain:0
+|R(_,_):[0,0]
+|a:0
+|b:0
+```
+
+
+
+*Example 12*
+
+Using modus tollens on the indiscernibility of identicals, this is a situation in which the two constant symbols have to be interpreted differently:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+ Fa, ~Fb
+|Domain:0,1
+|F(_):0
+|a:0
+|b:1
+```
+
+*Example 13*
+
+To model the following sentence, one needs more than one object, not to handle the displayed constant symbol, but to handle the negated identity `~y=z` under the existential quantifiers.
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+ EyEz((Ray/\Raz)/\~y=z)
+|Domain:0,1,2
+|R(_,_):[0,1],[0,2]
+|a:0
+```
+
+<br>
+
+*Example 14*
+
+Here we expand upon the previous example by a distinct another constant which must be interpreted differently, and by making the same existential claim about it.
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+ ~a=b, EyEz((Ray/\Raz)/\~y=z), EyEz((Rby/\Rbz)/\~y=z)
+|Domain:0,1,2,3,4,5
+|R(_,_):[0,1],[0,2],[3,4],[4,5]
+|a:0
+|b:3
+```
+
+<br>
+
+*Example 15*
+
+Here we make what was common to `a` and `b` in the previous example into a universal claim. Note that this universal claim now applies to the `y,z`. Finally, the additional axiom `Ax(x=a\/x=b)` will force us to  make the pair `y,z` associated to `a` the same as the pair `y,z` associated to `b.`
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+ ~a=b, AxEyEz((Rxy/\Rxz)/\~y=z), Ax(x=a\/x=b)
+|Domain:0,1
+|R(_,_):[0,0],[0,1],[1,0],[1,1]
+|a:0
+|b:1
+```
+
+<br>
+
+By inspection, one sees that the previous example had the feature that `AxRxx` was true. Later we we will investigate whether there is any necessity to this.
+
+<br>
+
+## Equivalence relations and identity
+
+Recall that a binary relation $R$ is an *equivalence relation* if it satisfies:
+
+- *Reflexivity*: $\forall \;x \; Rxx$
+
+- *Symmetry*: if $\forall \; x \; \forall \; y \; (Rxy\rightarrow Ryx)$.
+
+- *Transitivity*: $\forall \; x \; \forall \; y\; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$.
+
+<br>
+
+In the following three proofs, we prove that identity is an equivalence relation:
+
+<br>
+
+*Example 16*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+  :|-: Ax x=x
+|a=a :I=
+|Ax x=x :IA1
+```
+
+<br>
+
+*Example 17*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+  :|-: AxAy(x=y->y=x)
+| a=b :assumption
+| a=a :I=
+| b=a :E=1,2
+|a=b->b=a :I->1-3
+|Ay(a=y->y=a) :IA4
+|AxAy(x=y->y=x) :IA5
+```
+
+<br>
+
+*Example 18*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+  :|-: AxAyAz((x=y/\y=z)->x=z)
+| a=b/\b=c :assumption
+| a=b :E/\1
+| b=c :E/\1
+| a=c :E=2,3
+|(a=b/\b=c)->a=c :I->1-4
+|Az((a=b/\b=z)->a=z) :IA5
+|AyAz((a=y/\y=z)->a=z) :IA6
+|AxAyAz((x=y/\y=z)->x=z) :IA7
+```
+
+<br>
+
+*Example 19*
+
+Often in proofs about identity one ends up replicating these steps. For instance, in the following, we replicate the proof of symmetry twice over:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(x=a\/x=b)  :|-: a=c\/b=c
+|Ax(x=a\/x=b) :assumption
+|c=a\/c=b :EA1
+| c=a :assumption
+| c=c :I=
+| a=c :E=3,4
+| a=c\/b=c :I\/5
+|c=a->(a=c\/b=c) :I->3-6
+| c=b :assumption
+| c=c :I=
+| b=c :E=8,9
+| a=c\/b=c :I\/10
+|c=b->(a=c\/b=c) :I->8-11
+|a=c\/b=c :E\/2,7,12
+```
+
+<br>
+
+*Example 20*
+
+Here is a proof that identity is the smallest equivalence relation:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAy(x=y->Rxy)
+|AxRxx :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+| c=d :assumption
+| Rcc :EA1
+| Rcd :E=4,5
+|c=d->Rcd :I->4-6
+|Ay(c=y->Rcy) :IA7
+|AxAy(x=y->Rxy) :IA8
+```
+
+<br>
+
+*Example 21*
+
+A natural question is whether identity can be defined in terms of other notions. In certain simple cases, one can. The relevant constraints are: there are only finitely many elements, and each element is uniquely described by some property. In the below example, there are only two elements, which are uniquely described as respectively being `the F` and `the not-F`
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa, ~Fb, Ax(x=a\/x=b) :|-: AxAy(x=y->((Fx/\Fy)\/(~Fx/\~Fy)))/\AxAy(((Fx/\Fy)\/(~Fx/\~Fy))->x=y)
+|Fa :assumption
+|~Fb :assumption
+|Ax(x=a\/x=b) :assumption
+| c=d :assumption
+| c=a\/c=b :EA3
+|  c=a :assumption
+|  Fc :E=1,6
+|  Fd :E=4,7
+|  Fc/\Fd :I/\7,8
+|  (Fc/\Fd)\/(~Fc/\~Fd) :I\/9
+| c=a->((Fc/\Fd)\/(~Fc/\~Fd)) :I->6-10
+|  c=b :assumption
+|  ~Fc :E=2,12
+|  ~Fd :E=4,13
+|  ~Fc/\~Fd :I/\13,14
+|  (Fc/\Fd)\/(~Fc/\~Fd) :I\/15
+| c=b->((Fc/\Fd)\/(~Fc/\~Fd)) :I->12-16
+| (Fc/\Fd)\/(~Fc/\~Fd) :E\/5,11,17
+|c=d->((Fc/\Fd)\/(~Fc/\~Fd)) :I->4-18
+|Ay(c=y->((Fc/\Fy)\/(~Fc/\~Fy))) :IA19
+|AxAy(x=y->((Fx/\Fy)\/(~Fx/\~Fy))) :IA20
+| (Fc/\Fd)\/(~Fc/\~Fd) :assumption
+|  Fc/\Fd :assumption
+|  Fc :E/\23
+|  Fd :E/\23
+|  c=a\/c=b :EA3
+|  c=b\/c=a :LCD26
+|   c=b :assumption
+|   ~Fc :E=2,28
+|   !? :E~24,29
+|  ~c=b :I~28-30
+|  c=a :PDS27,31
+|  d=a\/d=b :EA3
+|  d=b\/d=a :LCD33
+|   d=b :assumption
+|   ~Fd :E=2,35
+|   !? :E~25,36
+|  ~d=b :I~35-37
+|  d=a :PDS34,38
+|  c=d :E=32,39
+| (Fc/\Fd)->c=d :I->23-40
+|  ~Fc/\~Fd :assumption
+|  ~Fc :E/\42
+|  ~Fd :E/\42
+|  c=a\/c=b :EA3
+|   c=a :assumption
+|   Fc :E=1,46
+|   !? :E~47,43
+|  ~c=a :I~46-48
+|  c=b :PDS45,49
+|  d=a\/d=b :EA3
+|   d=a :assumption
+|   Fd :E=1,52
+|   !? :E~44,53
+|  ~d=a :I~52-54
+|  d=b :PDS51,55
+|  c=d :E=50,56
+| (~Fc/\~Fd)->c=d :I->42-57
+| c=d :E\/22,41,58
+|((Fc/\Fd)\/(~Fc/\~Fd))->c=d :I->22-59
+|Ay(((Fc/\Fy)\/(~Fc/\~Fy))->c=y) :IA60
+|AxAy(((Fx/\Fy)\/(~Fx/\~Fy))->x=y) :IA61
+|AxAy(x=y->((Fx/\Fy)\/(~Fx/\~Fy)))/\AxAy(((Fx/\Fy)\/(~Fx/\~Fy))->x=y) :I/\21,62
+```
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is
