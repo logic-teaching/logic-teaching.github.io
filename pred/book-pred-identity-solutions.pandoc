@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Identity
+# Identity **with solutions**
 
 We add identity to predicate logic, and look at derivations with identity, the semantics of identity, and translations with identity. Along the way, we introduce and distinguish the indiscernibility of identicals and the identity of indiscernibles.
 
@@ -23,6 +23,10 @@ We add identity to predicate logic, and look at derivations with identity, the s
 - [Translations with identity](#translations-with-identity)
 - [Semantics for identity](#semantics-for-identity)
 - [Equivalence relations and identity](#equivalence-relations-and-identity)
+
+<br>
+
+This version has the **the solutions** written into it.
 
 <br>
 
@@ -47,6 +51,11 @@ Here is an example where we use the introduction rule:
 ```{.ProofChecker .GamutNDPlus submission="none"}
  AxAy(x=y->Rxy) :|-: AxRxx
 |AxAy(x=y->Rxy) :assumption
+|Ay(a=y->Ray) :EA1
+|a=a->Raa :EA2
+|a=a :I=
+|Raa :E->3,4
+|AxRxx :IA5
 ```
 
 <br>
@@ -55,10 +64,12 @@ Here is an example where we use the introduction rule:
 
 Note that only some of the instances of the one constant symbol need to be replaced when applying identity elimination:
 
+
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Fa/\Ga, a=b :|-: Fa/\Gb
 |Fa/\Ga :assumption
 |a=b :assumption
+|Fa/\Gb :E=1,2
 ```
 
 <br>
@@ -71,6 +82,10 @@ Here is an example where we work with a negated version of identity. Note that u
  Fa, ~Fb :|-: ~a=b
 |Fa :assumption
 |~Fb :assumption
+| a=b :assumption
+| Fb :E=1,3
+| !? :E~2,4
+|~a=b :I~3-5
 ```
 <br>
 
@@ -90,7 +105,7 @@ Often statements of identity are expressed in English just with the "is" of iden
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  a=b->Da : If Allison is Dr. Baker, then Allison is a doctor.
-|
+|a=b->Da
 ~~~
 
 <br>
@@ -108,7 +123,7 @@ This example shows how we would translate with a predicate rather than an identi
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ba->Da : If Allison is Dr. Baker, then Allison is a doctor.
-|
+|Ba->Da
 ~~~
 
 <br>
@@ -122,6 +137,11 @@ This proof shows us that if we define a predicate so that it holds of only an in
 |Ax(x=b->Bx) :assumption
 |Ax(Bx->x=b) :assumption
 |Ba->Da :assumption
+| a=b :assumption
+| a=b->Ba :EA1
+| Ba :E->4,5
+| Da :E->3,6
+|a=b->Da :I->4-7
 ```
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
@@ -129,6 +149,11 @@ This proof shows us that if we define a predicate so that it holds of only an in
 |Ax(x=b->Bx) :assumption
 |Ax(Bx->x=b) :assumption
 |a=b->Da :assumption
+| Ba :assumption
+| Ba->a=b :EA2
+| a=b :E->4,5
+| Da :E->3,6
+|Ba->Da :I->4-7
 ```
 
 <br>
@@ -143,7 +168,7 @@ In this example, we again have the "is" (or "was") of identity:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax(Dx->~x=a) : Whoever did it wasn't Allison.
-|
+|Ax(Dx->~x=a)
 ~~~
 
 *Examples 8-9*
@@ -155,12 +180,12 @@ These examples show that identity can be used to give truth-conditions for expre
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ax(~x=a->Hx) : Everyone except Allison was here.
-|
+|Ax(~x=a->Hx)
 ~~~
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex(~x=a/\Hx) : Someone besides Allison was here.
-|
+|Ex(~x=a/\Hx)
 ~~~
 
 <br>
@@ -189,6 +214,10 @@ This example illustrates a situation in which two distinct constant symbols must
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
  a=b, Fa, Fb
+|Domain:0
+|F(_):0
+|a:0
+|b:0
 ```
 
 *Example 11*
@@ -197,6 +226,10 @@ Here is a distinct situation in which they must be interpreted the same:
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
  Raa, Rab, AyAz((Ray/\Raz)->y=z)
+|Domain:0
+|R(_,_):[0,0]
+|a:0
+|b:0
 ```
 
 
@@ -207,6 +240,10 @@ Using modus tollens on the indiscernibility of identicals, this is a situation i
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
  Fa, ~Fb
+|Domain:0,1
+|F(_):0
+|a:0
+|b:1
 ```
 
 *Example 13*
@@ -215,6 +252,9 @@ To model the following sentence, one needs more than one object to handle the ne
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
  EyEz((Ray/\Raz)/\~y=z)
+|Domain:0,1,2
+|R(_,_):[0,1],[0,2]
+|a:0
 ```
 
 <br>
@@ -225,6 +265,10 @@ Here we expand upon the previous example by a distinct another constant which mu
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
  ~a=b, EyEz((Ray/\Raz)/\~y=z), EyEz((Rby/\Rbz)/\~y=z)
+|Domain:0,1,2,3,4,5
+|R(_,_):[0,1],[0,2],[3,4],[3,5]
+|a:0
+|b:3
 ```
 
 <br>
@@ -235,6 +279,10 @@ Here we make what was common to `a` and `b` in the previous example into a unive
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
  ~a=b, AxEyEz((Rxy/\Rxz)/\~y=z), Ax(x=a\/x=b)
+|Domain:0,1
+|R(_,_):[0,0],[0,1],[1,0],[1,1]
+|a:0
+|b:1
 ```
 
 <br>
@@ -264,18 +312,34 @@ In the following three proofs, we prove that identity is an equivalence relation
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
   :|-: Ax x=x
+|a=a :I=
+|Ax x=x :IA1
 ```
 
 *Symmetry of identity*:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
   :|-: AxAy(x=y->y=x)
+| a=b :assumption
+| a=a :I=
+| b=a :E=1,2
+|a=b->b=a :I->1-3
+|Ay(a=y->y=a) :IA4
+|AxAy(x=y->y=x) :IA5
 ```
 
 *Transitivity of identity*:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
   :|-: AxAyAz((x=y/\y=z)->x=z)
+| a=b/\b=c :assumption
+| a=b :E/\1
+| b=c :E/\1
+| a=c :E=2,3
+|(a=b/\b=c)->a=c :I->1-4
+|Az((a=b/\b=z)->a=z) :IA5
+|AyAz((a=y/\y=z)->a=z) :IA6
+|AxAyAz((x=y/\y=z)->x=z) :IA7
 ```
 
 <br>
@@ -287,6 +351,18 @@ Often in proofs about identity one ends up replicating these steps. For instance
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ax(x=a\/x=b)  :|-: a=c\/b=c
 |Ax(x=a\/x=b) :assumption
+|c=a\/c=b :EA1
+| c=a :assumption
+| c=c :I=
+| a=c :E=3,4
+| a=c\/b=c :I\/5
+|c=a->(a=c\/b=c) :I->3-6
+| c=b :assumption
+| c=c :I=
+| b=c :E=8,9
+| a=c\/b=c :I\/10
+|c=b->(a=c\/b=c) :I->8-11
+|a=c\/b=c :E\/2,7,12
 ```
 
 <br>
@@ -300,6 +376,12 @@ Here is a proof that identity is the smallest equivalence relation:
 |AxRxx :assumption
 |AxAy(Rxy->Ryx) :assumption
 |AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+| c=d :assumption
+| Rcc :EA1
+| Rcd :E=4,5
+|c=d->Rcd :I->4-6
+|Ay(c=y->Rcy) :IA7
+|AxAy(x=y->Rxy) :IA8
 ```
 
 <br>
@@ -318,6 +400,18 @@ Let us show that this is an equivalence relation:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  :|-: Ax(((Fx->Fx)/\(Fx->Fx))/\((Gx->Gx)/\(Gx->Gx)))
+| Fc :assumption
+| Fc :rep1
+|Fc->Fc :I->1-2
+|Fc->Fc :rep3
+|(Fc->Fc)/\(Fc->Fc) :I/\3,4
+| Gc :assumption
+| Gc :rep6
+|Gc->Gc :I->6-7
+|Gc->Gc :rep8
+|(Gc->Gc)/\(Gc->Gc) :I/\8,9
+|((Fc->Fc)/\(Fc->Fc))/\((Gc->Gc)/\(Gc->Gc)) :I/\5,10
+|Ax(((Fx->Fx)/\(Fx->Fx))/\((Gx->Gx)/\(Gx->Gx))) :IA11
 ```
 
 <br>
@@ -326,6 +420,13 @@ Let us show that this is an equivalence relation:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  AxAy(((Fx->Fy)/\(Fy->Fx))/\((Gx->Gy)/\(Gy->Gx))) :|-: AxAy(((Fy->Fx)/\(Fx->Fy))/\((Gy->Gx)/\(Gx->Gy)))
+|AxAy(((Fx->Fy)/\(Fy->Fx))/\((Gx->Gy)/\(Gy->Gx))) :assumption
+|Ay(((Fc->Fy)/\(Fy->Fc))/\((Gc->Gy)/\(Gy->Gc))) :EA1
+|((Fc->Fd)/\(Fd->Fc))/\((Gc->Gd)/\(Gd->Gc)) :EA2
+|((Fd->Fc)/\(Fc->Fd))/\((Gc->Gd)/\(Gd->Gc)) :LCC3
+|((Fd->Fc)/\(Fc->Fd))/\((Gd->Gc)/\(Gc->Gd)) :LCC4
+|Ay(((Fy->Fc)/\(Fc->Fy))/\((Gy->Gc)/\(Gc->Gy))) :IA5
+|AxAy(((Fy->Fx)/\(Fx->Fy))/\((Gy->Gx)/\(Gx->Gy))) :IA6
 ```
 
 <br>
@@ -334,6 +435,44 @@ Let us show that this is an equivalence relation:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  :|-: AxAyAz(((((Fx->Fy)/\(Fy->Fx))/\((Gx->Gy)/\(Gy->Gx)))/\(((Fy->Fz)/\(Fz->Fy))/\((Gy->Gz)/\(Gz->Gy))))->(((Fx->Fz)/\(Fz->Fx))/\((Gx->Gz)/\(Gz->Gx))))
+| (((Fc->Fd)/\(Fd->Fc))/\((Gc->Gd)/\(Gd->Gc)))/\(((Fd->Fe)/\(Fe->Fd))/\((Gd->Ge)/\(Ge->Gd))) :assumption
+| (((Fc->Fd)/\(Fd->Fc))/\((Gc->Gd)/\(Gd->Gc))) :E/\1
+| ((Fc->Fd)/\(Fd->Fc)) :E/\2
+| (Fc->Fd) :E/\3
+| (Fd->Fc) :E/\3
+| ((Gc->Gd)/\(Gd->Gc)) :E/\2
+| (Gc->Gd) :E/\6
+| (Gd->Gc) :E/\6
+| (((Fd->Fe)/\(Fe->Fd))/\((Gd->Ge)/\(Ge->Gd))) :E/\1
+| ((Fd->Fe)/\(Fe->Fd)) :E/\9
+| ((Gd->Ge)/\(Ge->Gd)) :E/\9
+| (Fd->Fe) :E/\10
+| (Fe->Fd) :E/\10
+| (Gd->Ge) :E/\11
+| (Ge->Gd) :E/\11
+|  Fc :assumption
+|  Fd :E->4,16
+|  Fe :E->17,12
+| Fc->Fe :I->16-18
+|  Fe :assumption
+|  Fd :E->20,13
+|  Fc :E->5,21
+| Fe->Fc :I->20-22
+| ((Fc->Fe)/\(Fe->Fc)) :I/\19,23
+|  Gc :assumption
+|  Gd :E->25,7
+|  Ge :E->14,26
+| Gc->Ge :I->25-27
+|  Ge :assumption
+|  Gd :E->29,15
+|  Gc :E->8,30
+| Ge->Gc :I->29-31
+| ((Gc->Ge)/\(Ge->Gc)) :I/\28,32
+| (((Fc->Fe)/\(Fe->Fc))/\((Gc->Ge)/\(Ge->Gc))) :I/\24,33
+|((((Fc->Fd)/\(Fd->Fc))/\((Gc->Gd)/\(Gd->Gc)))/\(((Fd->Fe)/\(Fe->Fd))/\((Gd->Ge)/\(Ge->Gd))))->(((Fc->Fe)/\(Fe->Fc))/\((Gc->Ge)/\(Ge->Gc))) :I->1-34
+|Az(((((Fc->Fd)/\(Fd->Fc))/\((Gc->Gd)/\(Gd->Gc)))/\(((Fd->Fz)/\(Fz->Fd))/\((Gd->Gz)/\(Gz->Gd))))->(((Fc->Fz)/\(Fz->Fc))/\((Gc->Gz)/\(Gz->Gc)))) :IA35
+|AyAz(((((Fc->Fy)/\(Fy->Fc))/\((Gc->Gy)/\(Gy->Gc)))/\(((Fy->Fz)/\(Fz->Fy))/\((Gy->Gz)/\(Gz->Gy))))->(((Fc->Fz)/\(Fz->Fc))/\((Gc->Gz)/\(Gz->Gc)))) :IA36
+|AxAyAz(((((Fx->Fy)/\(Fy->Fx))/\((Gx->Gy)/\(Gy->Gx)))/\(((Fy->Fz)/\(Fz->Fy))/\((Gy->Gz)/\(Gz->Gy))))->(((Fx->Fz)/\(Fz->Fx))/\((Gx->Gz)/\(Gz->Gx)))) :IA37
 ```
 
 <br>
@@ -344,11 +483,17 @@ However, one can show that such indiscernibility does not establish identity:
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  (((Fc->Fd)/\(Fd->Fc))/\((Gc->Gd)/\(Gd->Gc))) :|-: c=d
+|Domain:0,1,2
+|F(_):0,1
+|G(_):0,1,2
+|c:0
+|d:1
 ```
 
 A situation in which indiscernibility with respect to some group of properties sufficed for identity is said to be a situation in which the *identity of indiscernibles* holds. Earlier, we saw that for each object $b$, we could define a predicate $Bx$ iff $x=b$. Hence, if there are only finitely many objects $b_1, b_2, \ldots, b_n$, and we add on predicates $B_1, B_2, \ldots, B_n$ in this way, then indiscernibility with respect to these predicates will trivially suffice for identity. However, often we are not in a situation where there are only finitely many objects: imagine, for instance, a situation in which we are trying to describe objects which are as fine-grained as the real numbers. And likewise, often we are not really interested in properties like $Bx$ iff $x=b$, and are rather interested in *qualitative* properties like "blue" or "red" which can be explicated without recourse to identity. The question of whether the identity of indiscernibles holds in this kind of setting is the question of whether any two objects which satisfy all of the same qualitative properties are identical.[^1]
 
 [^1]: See Black's famous example of the two spheres. [Black, Max. 1952. “The Identity of Indiscernibles.” Mind; a Quarterly Review of Psychology and Philosophy 61 (242): 153–64.](https://www.jstor.org/stable/2252291).
+
 
 
 <br>

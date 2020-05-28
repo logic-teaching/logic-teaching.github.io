@@ -1,0 +1,377 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Expressibility with identity
+
+<br>
+
+- [Exact numerical quantifiers](#exact-numerical-quantifiers)
+- [Finitude](#finitude)
+- [Functions](#functions)
+- [Linear orders](#linear-orders)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Exact numerical quantifiers
+
+<br>
+
+Using identity, we can express the so-called exact numerical quantifiers:
+
+<br>
+
+<table style="width:100%">
+  <tr>
+    <th>Expression</th>
+    <th>Formula</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>There is at least one $F$</td>
+    <td>$\exists \; x_1 \; Fx_1$</td>
+    <td>`Ex_1 Fx_1`</td>
+  </tr>
+  <tr>
+    <td>There are at least two $F$'s</td>
+    <td>$\exists \; x_1 \; \exists \; x_2 \; ((Fx_1\wedge Fx_2)\wedge x_1\neq x_2$)</td>
+    <td>`Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)`
+  </tr>
+  <tr>
+    <td>There are at least three $F$'s</td>
+    <td>$\exists \; x_1 \; \exists \; x_2 \; \exists \; x_3 \; ((Fx_1\wedge (Fx_2\wedge Fx_3))\wedge (x_1\neq x_2\wedge (x_1\neq x_3 \wedge x_2\neq x_3)))$</td>
+    <td>`Ex_1Ex_2Ex_3((Fx_1/\(Fx_2/\Fx_3))/\(~x_1=x_2/\(~x_1=x_3/\~x_2=x_3)))` </td>
+  </tr>
+    <tr>
+      <td>There is at most one $F$</td>
+      <td>$\exists \; x_1 \; \forall \; y \; (Fy\rightarrow y=x_1)$</td>
+      <td>`Ex_1Ay(Fy->y=x_1)`</td>
+    </tr>
+    <tr>
+      <td>There are at most two $F$'s'</td>
+      <td>$\exists \; x_1 \; \exists \; x_2 \; \forall \; y \; (Fy\rightarrow (y=x_1\vee y=x_2))$</td>
+      <td>`Ex_1Ex_2Ay(Fy->(y=x_1\/y=x_2))`</td>
+    </tr>
+    <tr>
+      <td>There are at most three $F$'s'</td>
+      <td>$\exists \; x_1 \; \exists \; x_2 \; \exists \; x_3 \; \forall \; y \; (Fy\rightarrow (y=x_1\vee (y=x_2\vee y=x_3)))$</td>
+      <td>`Ex_1Ex_2Ex_3Ay(Fy->(y=x_1\/(y=x_2\/y=x_3)))`</td>
+    </tr>
+    <tr>
+      <td>There is exactly one $F$</td>
+      <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))$</td>
+      <td>`Ex(Fx/\Ay(Fy->y=x))`</td>
+    </tr>
+    <tr>
+      <td>There are exactly two $F$'s'</td>
+      <td>$\exists \; x_1 \; \exists \; x_2 \; (((Fx_1\wedge Fx_2)\wedge x_1\neq x_2)\wedge \forall \; y \; (Fy\rightarrow (y=x_1 \vee y=x_2))))$</td>
+      <td>`Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2)))`</td>
+    </tr>
+    <tr>
+      <td>There are exactly three $F$'s'</td>
+      <td>$\exists \; x_1 \; \exists \; x_2 \; \; \exists \; x_3 \; (((Fx_1\wedge (Fx_2\wedge Fx_3))\wedge (x_1\neq x_2\wedge (x_1\neq x_3 \wedge x_2\neq x_3)))\wedge \forall \; y \; (Fy\rightarrow (y=x_1\vee (y=x_2\vee y=x_3))))$</td>
+      <td>`Ex_1Ex_2Ex_3(((Fx_1/\(Fx_2/\Fx_3))/\(~x_1=x_2/\(~x_1=x_3/\ ~x_2=x_3)))/\ Ay(Fy-> (y=x_1\/(y=x_2\/y=x_3))))`</td>
+</table>
+
+<br>
+
+One can then do translations with these. It might be advisable to proceed by doing some cutting and pasting from up above.
+
+*Example 1*
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ is happy  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)->Ex_1Ex_2((Hx_1/\Hx_2)/\~x_1=x_2) : If there are at least two French majors, then there are at least two happy students.
+|Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)->Ex_1Ex_2((Hx_1/\Hx_2)/\~x_1=x_2)
+~~~
+
+<br>
+
+*Example 2*
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)/\Ex_1Ay(Fy->y=x_1))->Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2))) : If there are at least two French majors and there are at most two French majors, then there are exactly two French majors.
+|(Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)/\Ex_1Ay(Fy->y=x_1))->Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2)))
+~~~
+
+<br>
+
+*Example 3*
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is a German major </p>
+<p style="margin-left: 40px"> $Lx$ = $x$ is a student who majors in a language </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Ex_1 Fx_1/\Ex_1 Gx_1)->Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2) : If there is at least one French major and there is at least one German major, then there are at least two students who major in language.
+~~~
+
+<br>
+
+*Example 4*
+
+Presumably it is implicit in the previous example that all French majors are students who major in a language, and similarly for German. But even this is not enough to get to the conclusion validly:
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ Ex_1 Fx_1, Ex_1 Gx_1, Ax(Fx->Lx), Ax(Gx->Lx) :|-: Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2)
+|Domain:0,1
+|F(_):0
+|G(_):0
+|L(_):0
+```
+
+
+*Example 5*
+
+If we further add the premise that the $F$'s and $G$'s are disjoint, we can get to the conclusion:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ex_1 Fx_1, Ex_1 Gx_1, ~Ex(Fx/\Gx), Ax(Fx->Lx), Ax(Gx->Lx) :|-: Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2)
+|Ex_1 Fx_1 :assumption
+|Ex_1 Gx_1 :assumption
+|~Ex(Fx/\Gx) :assumption
+|Ax(Fx->Lx) :assumption
+|Ax(Gx->Lx) :assumption
+| Fa :assumption
+|  Gb :assumption
+|  Fa->La :EA4
+|  La :E->6,8
+|  Gb->Lb :EA5
+|  Lb :E->7,10
+|  La/\Lb :I/\9,11
+|   a=b :assumption
+|   Ga :E=13,7
+|   Fa/\Ga :I/\6,14
+|   Ex(Fx/\Gx) :IE15
+|   !? :E~3,16
+|  ~a=b :I~13-17
+|  (La/\Lb)/\~a=b :I/\12,18
+|  Ey((La/\Ly)/\~a=y) :IE19
+|  ExEy((Lx/\Ly)/\~x=y) :IE20
+| Gb->ExEy((Lx/\Ly)/\~x=y) :I->7-21
+| ExEy((Lx/\Ly)/\~x=y) :EE2,22
+|Fa->ExEy((Lx/\Ly)/\~x=y) :I->6-23
+|ExEy((Lx/\Ly)/\~x=y) :EE1,24
+```
+
+<br>
+
+## Finitude
+
+The exact numerical quantifiers give us a way to say that "there are exactly $n$-many $F$'s" just using predicate logic with identity.
+
+Does this mean that numbers are ultimately a logical notion? After introducing the exact numerical quantifiers, Frege suggested the following reasons for thinking that the exact numerical quantifiers themselves were *not* a reason to answer this question in the affirmative:[^1]
+
+1. The definitions of the exact numerical quantifiers do not tell us what a number is, and whether e.g. numbers are physical objects or not.
+
+2. We cannot express, in predicate logic with identity, generalities about numbers, such as: "for every $n$,$m$, if there are exactly $n$ $F$'s and there are exactly $m$ $F$'s, then $n=m$". For, we don't have a way of saying "every $n$" in predicate logic which would allow us to use this $n$ later to specify the length of a long series of conjunctions appearing in the exact numerical quantifier.
+
+[^1]: This is from p. 68, section 56 of: Frege, Gottlob. 1980. The Foundations of Arithmetic: A Logico-Mathematical Enquiry Into the Concept of Number. Northwestern University Press.
+
+A related question is: just as we can express "there are exactly $n$-many $F$'s" for each natural number $n$, so too can we express "there are finitely many $F$'s"? It turns out that the answer to this question is negative. The reasons for this go a bit beyond what we are able to do in this course. Suffice it to say that the tools that allow one to prove the Soundness and Completeness Theorem also give one the resources to resolve this issue.
+
+<br>
+
+## Functions
+
+With identity, one can also describe when binary relations are functional, that is, when they describe the graphs of functions.
+
+Suppose that $N,M$ are two unary predicates. Then recall that a function $f:M\rightarrow N$ is given by a rule or operation which given an input $x$ from $M$ outputs a single result $f(x)$ in $M$. This results in a binary relation $R$ such that $Rxy$ iff $Mx$ and $Ny$ and $f(x)=y$. This binary relation is sometimes called the graph of the function. It turns out that we can use the graph of the function to simulate the function in our predicate logic with identity. The key feature which distinguishs the graphs of functions from arbitrary binary relations is simply what we call *functionality*:
+
+<table style="width:100%">
+  <tr>
+    <th>Expression</th>
+    <th>Formula</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>$R$ is functional</td>
+    <td>$\forall \; x \; \exists \; y \; (Rxy\wedge \forall \; z \; (Rxz\rightarrow y=z))$</td>
+    <td>`AxEy(Rxy/\Az(Rxz->y=z))`</td>
+  </tr>
+  <tr>
+    <td>$R$ is injective</td>
+    <td>$\forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Rxz)\rightarrow y=z)$</td>
+    <td>`AxAyAz((Rxz/\Ryz)->x=y)`
+  </tr>
+  <tr>
+    <td>$R$ is surjective</td>
+    <td>$\forall \; y \; \exists \; x \; Rxy$</td>
+    <td>`AyExRxy`
+  </tr>
+</table>
+
+<br>
+
+Injectivity and surjectivity are two properties that functions can have. Intuitively, a function is injective if it never sends two distinct inputs the same output, and a function is surjective if it every element is outputted by it.
+
+<br>
+
+These next two examples show that functionality does not imply either injectivity or surjectivity of the function.
+
+<br>
+
+*Example 6*
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ AxEy(Rxy/\Az(Rxz->y=z)) :|-: AxAyAz((Rxz/\Ryz)->x=y)
+|Domain:0,1,2
+|R(_):[0,1], [1,1], [2,2]
+```
+
+<br>
+
+*Example 7*
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ AxEy(Rxy/\Az(Rxz->y=z)) :|-: AyExRxy
+|Domain:0,1,2
+|R(_):[0,1], [1,1], [2,1]
+```
+
+<br>
+
+*Example 8*
+
+This is a proof that the inverse of an injective and surjective function is also a function.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxEy(Rxy/\Az(Rxz->y=z)), AxEy(Rxy/\Az(Rxz->y=z)), AxAyAz((Rxz/\Ryz)->x=y), AxAy(Rxy->Syx), AxAy(Sxy->Ryx) :|-: AxEy(Sxy/\Az(Sxz->y=z))
+|AxEy(Rxy/\Az(Rxz->y=z)) :assumption
+|AxAyAz((Rxz/\Ryz)->x=y) :assumption
+|AyExRxy :assumption
+|AxAy(Rxy->Syx) :assumption
+|AxAy(Sxy->Ryx) :assumption
+|ExRxd :EA3
+| Rcd :assumption
+| Ay(Rcy->Syc) :EA4
+| Rcd->Sdc :EA8
+| Sdc :E->7,9
+|  Sdb :assumption
+|  Ay(Sdy->Ryd) :EA5
+|  Sdb->Rbd :EA12
+|  Rbd :E->11,13
+|  AyAz((Rcz/\Ryz)->c=y) :EA2
+|  Az((Rcz/\Rbz)->c=b) :EA15
+|  (Rcd/\Rbd)->c=b :EA16
+|  Rcd/\Rbd :I/\7,14
+|  c=b :E->17,18
+| Sdb->c=b :I->11-19
+| Az(Sdz->c=z) :IA20
+| Sdc/\Az(Sdz->c=z) :I/\10,21
+| Ey(Sdy/\Az(Sdz->y=z)) :IE22
+|Rcd->Ey(Sdy/\Az(Sdz->y=z)) :I->7-23
+|Ey(Sdy/\Az(Sdz->y=z)) :EE6,24
+|AxEy(Sxy/\Az(Sxz->y=z)) :IA25
+```
+
+<br>
+
+## Linear orders
+
+Another basic concept which becomes expressible with identity is that of a linear order. In these examples, we are thinking of $Rxy$ like $x<y$ or $x\leq y$ on the number systems, rather than like the graph of a function. Here are some basic properties that orders may have. We have seen many of these before:
+
+<table style="width:100%">
+  <tr>
+    <th>Expression</th>
+    <th>Formula</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>$R$ is reflexive</td>
+    <td>$\forall \; x \; Rxx$</td>
+    <td>`AxRxx`</td>
+  </tr>
+  <tr>
+    <td>$R$ is anti-reflexive</td>
+    <td>$\forall \; x \; \neg Rxx$</td>
+    <td>`~AxRxx`</td>
+  </tr>
+  <tr>
+    <td>$R$ is symmetric</td>
+    <td>$\forall x \; \forall \; y \; (Rxy\rightarrow Ryx)$</td>
+    <td>`AxAy(Rxy->Ryx)`</td>
+  </tr>
+  <tr>
+    <td>$R$ is anti-symmetric</td>
+    <td>$\forall \; x \; \forall \; y \; ((Rxy\wedge Ryx)\rightarrow x=y)$</td>
+    <td>`AxAy((Rxy/\Ryx)->x=y)`</td>
+  </tr>
+  <tr>
+    <td>$R$ is transitive </td>
+    <td>$\forall x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$</td>
+    <td>`AxAyAz((Rxy/\Ryz)->Rxz)`</td>
+  </tr>
+  <tr>
+    <td>$R$ is linear </td>
+    <td>$\forall \; x \; \forall \; y \; ((Rxy\vee Ryx)\vee x=y)$</td>
+    <td>`AxAyAz((Rxy\/Ryx)\/x=y)`</td>
+  </tr>
+</table>
+
+<br>
+
+We have seen earlier that equivalence relations are those binary relations which are reflexive, symmetric, and transitive. Futher, the relation $x\leq y$ on the natural numbers has the properties of reflexivity, anti-symmetry, transitivity, and linearity. And the relation $x<y$ on the natural numbers has the properties of anti-reflexivity, transitivity, and linearity. The next examples show that linearity is not implied by these other properties:
+
+<br>
+
+*Example 7*
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAyAz((Rxy\/Ryx)\/x=y)
+|Domain:0,1,2
+|R(_):[0,0], [1,1], [2,2], [0,1],[0,2]
+```
+
+<br>
+
+*Example 8*
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+ Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAyAz((Rxy\/Ryx)\/x=y)
+|Domain:0,1,2
+|R(_):[0,1],[0,2]
+```
+
+<br>
+
+*Example 9*
+
+Here is a simple proof which shows that e.g. if for all $x$ there is $y$ with $x<y$, then there is no $y$ such that for all $x$ one has $x<y$. In other words, if everything is strictly below something, then nothing is strictly above everything.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+Ax~Rxx, AxEyRxy :|-: ~EyAxRxy
+|Ax~Rxx :assumption
+|AxEyRxy :assumption
+| EyAxRxy :assumption
+|  AxRxd :assumption
+|  Rdd :EA4
+|  ~Rdd :EA1
+|  !? :E~5,6
+| AxRxd->!? :I->4-7
+| !? :EE3,8
+|~EyAxRxy :I~3-9
+```
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is

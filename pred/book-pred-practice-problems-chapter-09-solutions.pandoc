@@ -1,0 +1,330 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Practice problems
+
+These are practice problems for Week 9
+
+- [Translations and proofs with identity and equivalence relations](#translations-and-proofs-with-identity-and-equivalence relations)
+- [Proof or refutation with identity](#proof-or-refutation-with-identity)
+- [Translations and proofs with definite descriptions](#translations-and-proofs-with-definite-descriptions)
+- [Proof or refutation with definite descriptions](#proof-or-refutation-with-definite-descriptions)
+
+<p style="page-break-before: always">
+
+<br>
+
+## Translations and proofs with identity and equivalence relations
+
+<br>
+
+<br>
+
+<table style="width:100%">
+  <tr>
+    <th>Name of Rule</th>
+    <th>Abbreviation</th>
+    <th>Rule</th>
+  </tr>
+  <tr>
+    <td>Introduction for identity</td>
+    <td>`I=`</td>
+    <td>$a=a$</td>
+  </tr>
+  <tr>
+    <td>Elimination for identity</td>
+    <td>`E=`</td>
+    <td>$a=b, \phi(a)\vdash \phi(b)$</td>
+  </tr>
+  <tr>
+    <td>Symmetry of identity</td>
+    <td>`S=`</td>
+    <td>$a=b\vdash b=a$</td>
+  </tr>
+</table>
+
+<br>
+
+Note that the symmetry of identity can also be applied as an equivalence underneath quantifiers. For instance, one can go from `AxAy(x=y->Rxy)` to `AxAy(y=x->Rxy)` using symmetry of identity in one step.
+
+<br>
+
+Finally, before we begin, some brief notes on parentheses conventions with identity:
+
+- When the main connective is identity, there are no parentheses. For instance, `a=b` is well-formed, but `(a=b)` is not. Likewise, `Ax x=x` is well-formed, but `Ax(x=x)` is not.
+- We negate identity by putting an negation symbol immediately to the left. That is `~a=b` is how we write $a\neq b$ in the proof-checker.
+
+<br>
+
+*Problem 1*
+
+<p style="margin-left: 40px"> $a$ = Alex </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ helps  </p>
+<p style="margin-left: 40px"> $Rxy$ = $x$ respects $y$  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+09.01 Ax(~x=a->Hx)->(AxAy(~y=a->Rxy)) : If everyone except Alex helps, then everyone respects everyone except Alex.
+|Ax(~x=a->Hx)->(AxAy(~y=a->Rxy))
+~~~
+
+<br>
+
+*Problem 2*
+
+<p style="margin-left: 40px"> $a$ = Alex </p>
+<p style="margin-left: 40px"> $b$ = Brianna </p>
+<p style="margin-left: 40px"> $c$ = Carlos </p>
+<p style="margin-left: 40px"> $Rxy$ = $x$ respects $y$  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+09.02 Rba->Ex(~x=c/\Rxa) : If Brianna respects Alex, then someone besides Carlos respects Alex.
+|Rba->Ex(~x=c/\Rxa)
+~~~
+
+<br>
+
+*Problem 3*
+
+This one involves the elimination rule for identity plus a little disjunction elimination.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.03 Fa, Gb, Ax(x=a\/x=b)  :|-: Ax(Fx\/Gx)
+|Fa :assumption
+|Gb :assumption
+|Ax(x=a\/x=b) :assumption
+|c=a\/c=b :EA3
+| c=a :assumption
+| Fc :E=1,5
+| Fc\/Gc :I\/6
+|c=a->(Fc\/Gc) :I->5-7
+| c=b :assumption
+| Gc :E=2,9
+| Fc\/Gc :I\/10
+|c=b->(Fc\/Gc) :I->9-11
+|Fc\/Gc :E\/4,8,12
+|Ax(Fx\/Gx) :IA13
+```
+
+<br>
+
+*Problem 4*
+
+This one involves the introduction rule for identity together with a little distribution `LDC`.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.04 Fa, Gb, Ax(x=a\/x=b)  :|-: Ax(Fx\/Gx)
+|AxAy(x=y->(Fx\/Gy)) :assumption
+|Ay(a=y->(Fa\/Gy)) :EA1
+|a=a->(Fa\/Ga) :EA2
+|a=a :I=
+|Fa\/Ga :E->3,4
+|Ay(b=y->(Fb\/Gy)) :EA1
+|b=b->(Fb\/Gb) :EA6
+|b=b :I=
+|Fb\/Gb :E->7,8
+|(Fa\/Ga)/\(Fb\/Gb) :I/\5,9
+|((Fa\/Ga)/\Fb)\/((Fa\/Ga)/\Gb) :LDC10
+|Ay(((Fa\/Ga)/\Fy)\/((Fa\/Ga)/\Gy)) :IA11
+|AxAy(((Fx\/Gx)/\Fy)\/((Fx\/Gx)/\Gy)) :IA12
+```
+
+
+<br>
+
+
+*Problem 5*.
+
+Consider an equivalence relation $R$. Suppose that `~Rab`. This problem asks one to show that `~Ey(Ray/\Rby)`.
+
+One way to do this is as follows: introduce the negation at the end, and hence go from `Ey(Ray/\Rby)` to falsum inside a bracket. To get rid of the existential, you'll have to do existential elimination, and hence go from `Rac/\Rbc` to falsum inside a second bracket.
+
+Another way to do this is follows: first prove `Ax(Ray->~Rby)`, and then use double-negation and DeMorgan and the principle relating conditionals to negation (`NC`) to go from this to `Ey(Ray/\Rby)`.
+
+In each of these proofs strategies, one ends up applying symmetry and transitivity to go from `Rac` and `Rbc` to `Rac` and `Rcb` (via symmetry), and then to `Rab` (via transitivity).
+
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.05 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~Rab :|-: ~Ey(Ray/\Rby)
+|AxRxx :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+|~Rab :assumption
+| Ey(Ray/\Rby) :assumption
+|  Rac/\Rbc :assumption
+|  Rac :E/\6
+|  Rbc :E/\6
+|  Ay(Rby->Ryb) :EA2
+|  Rbc->Rcb :EA9
+|  Rcb :E->8,10
+|  AyAz((Ray/\Ryz)->Raz) :EA3
+|  Az((Rac/\Rcz)->Raz) :EA12
+|  (Rac/\Rcb)->Rab :EA13
+|  Rac/\Rcb :I/\7,11
+|  Rab :E->14,15
+|  !? :E~4,16
+| (Rac/\Rbc)->!? :I->6-17
+| !? :EE5,18
+|~Ey(Ray/\Rby) :I~5-19
+```
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.05 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~Rab :|-: ~Ey(Ray/\Rby)
+|AxRxx :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+|~Rab :assumption
+| Rac :assumption
+|  Rbc :assumption
+|  Ay(Rby->Ryb) :EA2
+|  Rbc->Rcb :EA7
+|  Rcb :E->6,8
+|  AyAz((Ray/\Ryz)->Raz) :EA3
+|  Az((Rac/\Rcz)->Raz) :EA10
+|  (Rac/\Rcb)->Rab :EA11
+|  Rac/\Rcb :I/\5,9
+|  Rab :E->12,13
+|  !? :E~4,14
+| ~Rbc :I~6-15
+|Rac->~Rbc :I->5-16
+|Ay(Ray->~Rby) :IA17
+|~~Ay(Ray->~Rby) :DN18
+|~Ey~(Ray->~Rby) :DMSOME19
+|~Ey(Ray/\~~Rby) :NC20
+|~Ey(Ray/\Rby) :DN21
+```
+
+<br>
+
+## Proof or refutation with identity
+
+<br>
+
+*Problem 6*
+
+For this problem, either prove or refute the following. Before beginning, try to draw an Euler diagram of the premises, with the predicates as figures (squares, circles, etc.) and with the constants as points.
+
+```{.ProofChecker .GamutNDPlus}
+09.06 Ax((x=a\/x=b)\/(x=c\/x=d)), (Fa/\Fb)/\(Fc/\~Fd), (~Ga/\Gb)/\(Gc/\Gd) :|-: ~b=d
+|
+```
+
+```{.CounterModeler .Validity system="gamutND"}
+09.06 Ax((x=a\/x=b)\/(x=c\/x=d)), (Fa/\Fb)/\(Fc/\~Fd), (~Ga/\Gb)/\(Gc/\Gd) :|-: ~b=d
+```
+
+<br>
+
+
+*Problem 7*
+
+For this problem, either prove or refute the following. Before beginning, try to draw an Euler diagram of the premises, with the predicates as figures (squares, circles, etc.) and with the constants as points.
+
+```{.ProofChecker .GamutNDPlus}
+09.07 Ax((x=a\/x=b)\/(x=c\/x=d)), (Fa/\Fb)/\(Fc/\~Fd), (~Ga/\Gb)/\(Gc/\Gd) :|-: ~b=c
+|
+```
+
+```{.CounterModeler .Validity system="gamutND"}
+09.07 Ax((x=a\/x=b)\/(x=c\/x=d)), (Fa/\Fb)/\(Fc/\~Fd), (~Ga/\Gb)/\(Gc/\Gd) :|-: ~b=c
+```
+
+<br>
+
+
+*Problem 8*
+
+For this problem, either prove or refute the following. Before beginning, try to draw an Euler diagram of the premises, with the constants as points and with the binary relation drawn with an arrow.
+
+```{.ProofChecker .GamutNDPlus}
+09.08 AyRyy, Ay(Rby->Ray), Ay(y=c->Rby) :|-: AuAv((Rbu/\Rbv)->u=v)
+|
+```
+
+```{.CounterModeler .Validity system="gamutND"}
+09.08 AyRyy, Ay(Rby->Ray), Ay(y=c->Rby) :|-: AuAv((Rbu/\Rbv)->u=v)
+```
+
+<br>
+
+
+*Problem 9*
+
+For this problem, either prove or refute the following. Before beginning, try to draw an Euler diagram of the premises, with the constants as points and with the binary relation drawn with an arrow.
+
+```{.ProofChecker .GamutNDPlus}
+09.09 AyRyy, Ay(Ray->Rby), Ay(Rby->y=c) :|-: a=c
+|
+```
+
+```{.CounterModeler .Validity system="gamutND"}
+09.09 AyRyy, Ay(Ray->Rby), Ay(Rby->y=c) :|-: a=c
+```
+
+<br>
+
+
+
+*Problem 10*
+
+For this problem, either prove or refute the following. Before beginning, try to draw an Euler diagram of the premises, with the predicates as figures (squares, circles, etc.) and with the constants as points.
+
+```{.ProofChecker .GamutNDPlus}
+09.10 Ax(Fx->Ey(Fy/\~x=y)), Ax(Fx->Ey(Fy/\~x=y)), ~Ez(Fz/\Gz), Fa, Gb  :|-: Au(u=a\/u=b)
+|
+```
+
+```{.CounterModeler .Validity system="gamutND"}
+09.10 Ax(Fx->Ey(Fy/\~x=y)), Ax(Fx->Ey(Fy/\~x=y)), ~Ez(Fz/\Gz), Fa, Gb  :|-: Au(u=a\/u=b)
+```
+
+<br>
+
+## Translations and proofs with definite descriptions
+
+
+
+*Problem 11*
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a farmer </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ is happy  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+09.11 HiyFy : If the farmer is not happy, then some farmer is unhappy.
+~~~
+
+<br>
+
+## Translations and proofs with definite descriptions
+
+*Problem 12*
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a farmer </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ is happy  </p>
+<p style="margin-left: 40px"> $Ox$ = $x$ is an owner  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+09.12 iyFy=izOz : If the farmer is not owner, then everyone besides the owner is unhappy.
+~~~
+
+
+<br>
+
+These are practice problems written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>
