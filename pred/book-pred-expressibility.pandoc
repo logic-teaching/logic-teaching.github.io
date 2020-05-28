@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Expressibility with identity *with solutions*
+# Expressibility with identity
 
 <br>
 
@@ -27,10 +27,6 @@ We continue our study of identity by looking at concepts that become expressible
 - [Finitude](#finitude)
 - [Functions](#functions)
 - [Orders](#orders)
-
-<br>
-
-This version has **the solutions** filled in. Keep in mind that on proofs, there can be many correct proofs of any one problem.
 
 <br>
 
@@ -107,7 +103,7 @@ One can then do translations with these. It might be advisable to proceed by doi
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)->Ex_1Ex_2((Hx_1/\Hx_2)/\~x_1=x_2) : If there are at least two French majors, then there are at least two happy students.
-|Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)->Ex_1Ex_2((Hx_1/\Hx_2)/\~x_1=x_2)
+|
 ~~~
 
 <br>
@@ -118,7 +114,7 @@ One can then do translations with these. It might be advisable to proceed by doi
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  (Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)/\Ex_1Ay(Fy->y=x_1))->Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2))) : If there are at least two French majors and there are at most two French majors, then there are exactly two French majors.
-|(Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)/\Ex_1Ay(Fy->y=x_1))->Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2)))
+|
 ~~~
 
 <br>
@@ -131,7 +127,7 @@ One can then do translations with these. It might be advisable to proceed by doi
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  (Ex_1 Fx_1/\Ex_1 Gx_1)->Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2) : If there is at least one French major and there is at least one German major, then there are at least two students who major in language.
-|(Ex_1 Fx_1/\Ex_1 Gx_1)->Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2)
+|
 ~~~
 
 <br>
@@ -142,10 +138,6 @@ Presumably it is implicit in the previous example that all French majors are stu
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  Ex_1 Fx_1, Ex_1 Gx_1, Ax(Fx->Lx), Ax(Gx->Lx) :|-: Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2)
-|Domain:0,1
-|F(_):0
-|G(_):0
-|L(_):0
 ```
 
 
@@ -155,31 +147,6 @@ If we further add the premise that the $F$'s and $G$'s are disjoint, we can get 
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ex_1 Fx_1, Ex_1 Gx_1, ~Ex(Fx/\Gx), Ax(Fx->Lx), Ax(Gx->Lx) :|-: Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2)
-|Ex_1 Fx_1 :assumption
-|Ex_1 Gx_1 :assumption
-|~Ex(Fx/\Gx) :assumption
-|Ax(Fx->Lx) :assumption
-|Ax(Gx->Lx) :assumption
-| Fa :assumption
-|  Gb :assumption
-|  Fa->La :EA4
-|  La :E->6,8
-|  Gb->Lb :EA5
-|  Lb :E->7,10
-|  La/\Lb :I/\9,11
-|   a=b :assumption
-|   Ga :E=13,7
-|   Fa/\Ga :I/\6,14
-|   Ex(Fx/\Gx) :IE15
-|   !? :E~3,16
-|  ~a=b :I~13-17
-|  (La/\Lb)/\~a=b :I/\12,18
-|  Ey((La/\Ly)/\~a=y) :IE19
-|  ExEy((Lx/\Ly)/\~x=y) :IE20
-| Gb->ExEy((Lx/\Ly)/\~x=y) :I->7-21
-| ExEy((Lx/\Ly)/\~x=y) :EE2,22
-|Fa->ExEy((Lx/\Ly)/\~x=y) :I->6-23
-|ExEy((Lx/\Ly)/\~x=y) :EE1,24
 ```
 
 <br>
@@ -243,8 +210,6 @@ These next two examples show that functionality does not imply either injectivit
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  AxEy(Rxy/\Az(Rxz->y=z)) :|-: AxAyAz((Rxz/\Ryz)->x=y)
-|Domain:0,1,2
-|R(_,_):[0,1], [1,1], [2,2]
 ```
 
 <br>
@@ -253,8 +218,6 @@ These next two examples show that functionality does not imply either injectivit
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  AxEy(Rxy/\Az(Rxz->y=z)) :|-: AyExRxy
-|Domain:0,1,2
-|R(_,_):[0,1], [1,1], [2,1]
 ```
 
 <br>
@@ -270,27 +233,6 @@ This is a proof that the inverse of an injective and surjective function is also
 |AyExRxy :assumption
 |AxAy(Rxy->Syx) :assumption
 |AxAy(Sxy->Ryx) :assumption
-|ExRxd :EA3
-| Rcd :assumption
-| Ay(Rcy->Syc) :EA4
-| Rcd->Sdc :EA8
-| Sdc :E->7,9
-|  Sdb :assumption
-|  Ay(Sdy->Ryd) :EA5
-|  Sdb->Rbd :EA12
-|  Rbd :E->11,13
-|  AyAz((Rcz/\Ryz)->c=y) :EA2
-|  Az((Rcz/\Rbz)->c=b) :EA15
-|  (Rcd/\Rbd)->c=b :EA16
-|  Rcd/\Rbd :I/\7,14
-|  c=b :E->17,18
-| Sdb->c=b :I->11-19
-| Az(Sdz->c=z) :IA20
-| Sdc/\Az(Sdz->c=z) :I/\10,21
-| Ey(Sdy/\Az(Sdz->y=z)) :IE22
-|Rcd->Ey(Sdy/\Az(Sdz->y=z)) :I->7-23
-|Ey(Sdy/\Az(Sdz->y=z)) :EE6,24
-|AxEy(Sxy/\Az(Sxz->y=z)) :IA25
 ```
 
 <br>
@@ -347,8 +289,6 @@ We have seen earlier that equivalence relations are those binary relations which
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAyAz((Rxy\/Ryx)\/x=y)
-|Domain:0,1,2
-|R(_,_):[0,0], [1,1], [2,2], [0,1],[0,2]
 ```
 
 <br>
@@ -357,8 +297,6 @@ We have seen earlier that equivalence relations are those binary relations which
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAyAz((Rxy\/Ryx)\/x=y)
-|Domain:0,1,2
-|R(_,_):[0,1],[0,2]
 ```
 
 <br>
@@ -371,14 +309,6 @@ Here is a simple proof which shows that e.g. if for all $x$ there is $y$ with $x
  Ax~Rxx, AxEyRxy :|-: ~EyAxRxy
 |Ax~Rxx :assumption
 |AxEyRxy :assumption
-| EyAxRxy :assumption
-|  AxRxd :assumption
-|  Rdd :EA4
-|  ~Rdd :EA1
-|  !? :E~5,6
-| AxRxd->!? :I->4-7
-| !? :EE3,8
-|~EyAxRxy :I~3-9
 ```
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]

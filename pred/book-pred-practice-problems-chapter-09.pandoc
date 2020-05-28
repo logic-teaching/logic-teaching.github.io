@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Practice problems *with solutions*
+# Practice problems
 
 These are practice problems for Week 9
 
@@ -23,10 +23,6 @@ These are practice problems for Week 9
 - [Proof or refutation with identity](#proof-or-refutation-with-identity)
 - [Proof or refutation with exact numerical quantifiers](#proof-or-refutation-with-exact-numerical-quantifiers)
 - [Refutations with functions and orders](#refutations-with-functions-and-orders)
-
-<br>
-
-This version has *the solutions* filled in. Keep in mind that on proofs, there are many equally correct proofs of any one problem.
 
 <p style="page-break-before: always">
 
@@ -45,7 +41,7 @@ This version has *the solutions* filled in. Keep in mind that on proofs, there a
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
 09.01 Ax(~x=a->Hx)->AxAy(~y=a->Rxy) : If everyone except Alex helps, then everyone respects everyone except Alex.
-|Ax(~x=a->Hx)->AxAy(~y=a->Rxy)
+|
 ~~~
 
 <br>
@@ -59,7 +55,7 @@ This version has *the solutions* filled in. Keep in mind that on proofs, there a
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
 09.02 Rba->Ex(~x=c/\Rxa) : If Brianna respects Alex, then someone besides Carlos respects Alex.
-|Rba->Ex(~x=c/\Rxa)
+|
 ~~~
 
 <br>
@@ -73,17 +69,6 @@ This one involves the elimination rule for identity plus a little disjunction el
 |Fa :assumption
 |Gb :assumption
 |Ax(x=a\/x=b) :assumption
-|c=a\/c=b :EA3
-| c=a :assumption
-| Fc :E=1,5
-| Fc\/Gc :I\/6
-|c=a->(Fc\/Gc) :I->5-7
-| c=b :assumption
-| Gc :E=2,9
-| Fc\/Gc :I\/10
-|c=b->(Fc\/Gc) :I->9-11
-|Fc\/Gc :E\/4,8,12
-|Ax(Fx\/Gx) :IA13
 ```
 
 <br>
@@ -95,18 +80,6 @@ This one involves the introduction rule for identity together with a little dist
 ```{.ProofChecker .GamutNDPlus submission="none"}
 09.04 AxAy(x=y->(Fx\/Gy))  :|-: AxAy(((Fx\/Gx)/\Fy)\/((Fx\/Gx)/\Gy))
 |AxAy(x=y->(Fx\/Gy)) :assumption
-|Ay(a=y->(Fa\/Gy)) :EA1
-|a=a->(Fa\/Ga) :EA2
-|a=a :I=
-|Fa\/Ga :E->3,4
-|Ay(b=y->(Fb\/Gy)) :EA1
-|b=b->(Fb\/Gb) :EA6
-|b=b :I=
-|Fb\/Gb :E->7,8
-|(Fa\/Ga)/\(Fb\/Gb) :I/\5,9
-|((Fa\/Ga)/\Fb)\/((Fa\/Ga)/\Gb) :LDC10
-|Ay(((Fa\/Ga)/\Fy)\/((Fa\/Ga)/\Gy)) :IA11
-|AxAy(((Fx\/Gx)/\Fy)\/((Fx\/Gx)/\Gy)) :IA12
 ```
 
 
@@ -130,22 +103,6 @@ In each of these proofs strategies, one ends up applying symmetry and transitivi
 |AxAy(Rxy->Ryx) :assumption
 |AxAyAz((Rxy/\Ryz)->Rxz) :assumption
 |~Rab :assumption
-| Ey(Ray/\Rby) :assumption
-|  Rac/\Rbc :assumption
-|  Rac :E/\6
-|  Rbc :E/\6
-|  Ay(Rby->Ryb) :EA2
-|  Rbc->Rcb :EA9
-|  Rcb :E->8,10
-|  AyAz((Ray/\Ryz)->Raz) :EA3
-|  Az((Rac/\Rcz)->Raz) :EA12
-|  (Rac/\Rcb)->Rab :EA13
-|  Rac/\Rcb :I/\7,11
-|  Rab :E->14,15
-|  !? :E~4,16
-| (Rac/\Rbc)->!? :I->6-17
-| !? :EE5,18
-|~Ey(Ray/\Rby) :I~5-19
 ```
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
@@ -154,24 +111,6 @@ In each of these proofs strategies, one ends up applying symmetry and transitivi
 |AxAy(Rxy->Ryx) :assumption
 |AxAyAz((Rxy/\Ryz)->Rxz) :assumption
 |~Rab :assumption
-| Rac :assumption
-|  Rbc :assumption
-|  Ay(Rby->Ryb) :EA2
-|  Rbc->Rcb :EA7
-|  Rcb :E->6,8
-|  AyAz((Ray/\Ryz)->Raz) :EA3
-|  Az((Rac/\Rcz)->Raz) :EA10
-|  (Rac/\Rcb)->Rab :EA11
-|  Rac/\Rcb :I/\5,9
-|  Rab :E->12,13
-|  !? :E~4,14
-| ~Rbc :I~6-15
-|Rac->~Rbc :I->5-16
-|Ay(Ray->~Rby) :IA17
-|~~Ay(Ray->~Rby) :DN18
-|~Ey~(Ray->~Rby) :DMSOME19
-|~Ey(Ray/\~~Rby) :NC20
-|~Ey(Ray/\Rby) :DN21
 ```
 
 <br>
@@ -189,14 +128,6 @@ For this problem, either prove or refute the following. Before beginning, try to
 |Ax((x=a\/x=b)\/(x=c\/x=d)) :assumption
 |(Fa/\Fb)/\(Fc/\~Fd) :assumption
 |(~Ga/\Gb)/\(Gc/\Gd) :assumption
-| b=d :assumption
-| Fa/\Fb :E/\2
-| Fb :E/\5
-| Fc/\~Fd :E/\2
-| ~Fd :E/\7
-| ~Fb :E=4,8
-| !? :E~6,9
-|~b=d :I~4-10
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
@@ -219,13 +150,6 @@ For this problem, either prove or refute the following. Before beginning, try to
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 09.07 Ax((x=a\/x=b)\/(x=c\/x=d)), (Fa/\Fb)/\(Fc/\~Fd), (~Ga/\Gb)/\(Gc/\Gd) :|-: ~b=c
-|Domain:0,1,2
-|F(_):0,1
-|G(_):1,2
-|a:0
-|b:1
-|c:1
-|d:2
 ```
 
 <br>
@@ -244,11 +168,6 @@ For this problem, either prove or refute the following. Before beginning, try to
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 09.08 AyRyy, Ay(Rby->Ray), Ay(y=c->Rby) :|-: AuAv((Rbu/\Rbv)->u=v)
-|Domain:0,1,2
-|R(_,_):[0,1],[0,2],[0,0],[1,1],[2,2],[1,2],[1,0]
-|b:0
-|a:0
-|c:2
 ```
 
 <br>
@@ -263,11 +182,6 @@ For this problem, either prove or refute the following. Before beginning, try to
 |AyRyy :assumption
 |Ay(Ray->Rby) :assumption
 |Ay(Rby->y=c) :assumption
-|Raa :EA1
-|Raa->Rba :EA2
-|Rba :E->4,5
-|Rba->a=c :EA3
-|a=c :E->6,7
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
@@ -293,11 +207,6 @@ For this problem, either prove or refute the following. Before beginning, try to
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 09.10 Ax(Fx->Ey(Fy/\~x=y)), Ax(Gx->Ey(Gy/\~x=y)), ~Ez(Fz/\Gz), Fa, Gb  :|-: Au(u=a\/u=b)
-|Domain:0,1,2,3
-|F(_):0,1
-|G(_):2,3
-|a:0
-|b:2
 ```
 
 <br>
@@ -321,8 +230,6 @@ For this problem, either prove or refute the following.
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 09.11 Ex_1Ex_2Ay(Fy->(y=x_1\/y=x_2)) :|-: Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)
-|Domain:0,1
-|F(_):0
 ```
 
 <br>
@@ -335,15 +242,6 @@ For this problem, either prove or refute the following.
 ```{.ProofChecker .GamutNDPlus submission="none"}
 09.12 Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2) :|-: Ex_1 Fx_1
 |Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2) :assumption
-| Ex_2((Fc/\Fx_2)/\~c=x_2) :assumption
-|  (Fc/\Fd)/\~c=d :assumption
-|  Fc/\Fd :E/\3
-|  Fc :E/\4
-|  Ex_1Fx_1 :IE5
-| ((Fc/\Fd)/\~c=d)->Ex_1Fx_1 :I->3-6
-| Ex_1Fx_1 :EE2,7
-|Ex_2((Fc/\Fx_2)/\~c=x_2)->Ex_1Fx_1 :I->2-8
-|Ex_1Fx_1 :EE1,9
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
@@ -364,9 +262,6 @@ For this problem, either prove or refute the following.
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 09.13 Ex_1Ex_2(((Fx_1\/Gx_1)/\(Fx_2\/Gx_2))/\~x_1=x_2) :|-: Ex_1Ex_2(((Fx_1/\Gx_1)/\(Fx_2/\Gx_2))/\~x_1=x_2)
-|Domain:0,1
-|F(_):0
-|G(_):1
 ```
 
 <br>
@@ -385,9 +280,6 @@ For this problem, either prove or refute the following.
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 09.14 Ex_1Ex_2Ay(Fy->(y=x_1\/y=x_2)), Ax(Fx->Gx) :|-: Ex_1Ex_2Ay(Gy->(y=x_1\/y=x_2))
-|Domain:0,1,2
-|F(_):0,1
-|G(_):0,1,2
 ```
 
 <br>
@@ -402,49 +294,6 @@ For this problem, either prove or refute the following.
 |Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2))) :assumption
 |Fa/\Ga :assumption
 |Fb/\~Gb :assumption
-|Fa :E/\2
-|Ga :E/\2
-|Fb :E/\3
-|~Gb :E/\3
-| Ex_2(((Fc/\Fx_2)/\~c=x_2)/\Ay(Fy->(y=c\/y=x_2))) :assumption
-|  ((Fc/\Fd)/\~c=d)/\Ay(Fy->(y=c\/y=d)) :assumption
-|  (Fc/\Fd)/\~c=d :E/\9
-|  Ay(Fy->(y=c\/y=d)) :E/\9
-|  Fa->(a=c\/a=d) :EA11
-|  a=c\/a=d :E->4,12
-|  Fb->(b=c\/b=d) :EA11
-|  b=c\/b=d :E->14,6
-|   a=c :assumption
-|    b=c :assumption
-|    Gc :E=5,16
-|    ~Gc :E=7,17
-|    !? :E~18,19
-|   ~b=c :I~17-20
-|   b=d :PDS15,21
-|   Fe->(e=c\/e=d) :EA11
-|   Fe->(e=a\/e=d) :E=16,23
-|   Fe->(e=a\/e=b) :E=22,24
-|   Ax(Fx->(x=a\/x=b)) :IA25
-|  a=c->Ax(Fx->(x=a\/x=b)) :I->16-26
-|   a=d :assumption
-|    b=d :assumption
-|    Gd :E=5,28
-|    ~Gd :E=7,29
-|    !? :E~30,31
-|   ~b=d :I~29-32
-|   b=d\/b=c :LCD15
-|   b=c :PDS33,34
-|   Fe->(e=c\/e=d) :EA11
-|   Fe->(e=b\/e=d) :E=35,36
-|   Fe->(e=b\/e=a) :E=37,28
-|   Fe->(e=a\/e=b) :LCD38
-|   Ax(Fx->(x=a\/x=b)) :IA39
-|  a=d->Ax(Fx->(x=a\/x=b)) :I->28-40
-|  Ax(Fx->(x=a\/x=b)) :E\/13,27,41
-| (((Fc/\Fd)/\~c=d)/\Ay(Fy->(y=c\/y=d)))->Ax(Fx->(x=a\/x=b)) :I->9-42
-| Ax(Fx->(x=a\/x=b)) :EE8, 43
-|Ex_2(((Fc/\Fx_2)/\~c=x_2)/\Ay(Fy->(y=c\/y=x_2)))->Ax(Fx->(x=a\/x=b)) :I->8-44
-|Ax(Fx->(x=a\/x=b)) :EE1,45
 ```
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
@@ -468,11 +317,6 @@ Note that `AxRxx` is reflexivity, but when the binary relation is functional, th
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 09.16 AxEy(Rxy/\Az(Rxz->y=z)), AxAyAz((Rxz/\Ryz)->x=y), ~a=b, ~b=c, ~a=c :|-: AxRxx
-|Domain:0,1,2
-|R(_,_):[0,1],[1,0],[2,2]
-|a:0
-|b:1
-|c:2
 ```
 
 <br>
@@ -481,11 +325,6 @@ Note that `AxRxx` is reflexivity, but when the binary relation is functional, th
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 09.17 AxEy(Rxy/\Az(Rxz->y=z)), AxAyAz((Rxz/\Ryz)->x=y), ~a=b, ~b=c, ~a=c, ~ExEyEz((Rxy/\Ryz)/\Rzx) :|-: ExRxx
-|Domain:0,1,2,3
-|R(_,_):[0,1],[1,0],[2,3],[3,2]
-|a:0
-|b:1
-|c:2
 ```
 
 <br>
@@ -494,11 +333,6 @@ Note that `AxRxx` is reflexivity, but when the binary relation is functional, th
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 09.18 ~AxRxx, AxAyAz((Rxy/\Ryz)->Rxz), Rab, Rbc :|-: AxAyAz((Rxy\/Ryx)\/x=y)
-|Domain:0,1,2,3
-|R(_,_):[0,1],[1,2],[0,2]
-|a:0
-|b:1
-|c:2
 ```
 
 <br>
@@ -509,12 +343,6 @@ Note that `AxRxx` is reflexivity, but when the binary relation is functional, th
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 09.19  ~AxRxx, AxAyAz((Rxy/\Ryz)->Rxz), AxAyAz((Rxy\/Ryx)\/x=y), Rab, Rbc, Rcd :|-: ExAy(x=y\/Rxy)->~EyAx(x=y\/Rxy)
-|Domain:0,1,2,3
-|R(_,_):[0,1],[1,2],[0,2],[2,3],[0,3],[1,3]
-|a:0
-|b:1
-|c:2
-|d:3
 ```
 
 <br>
@@ -523,12 +351,6 @@ Note that `AxRxx` is reflexivity, but when the binary relation is functional, th
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
 09.20  AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz), AxAyAz(Rxy\/Ryx), Rab/\~a=b, Rbc/\~b=c, Rcd/\~c=d :|-: ExAyRxy->~EyAxRxy
-|Domain:0,1,2,3
-|R(_,_):[0,0],[1,1],[2,2],[3,3],[0,1],[1,2],[0,2],[2,3],[0,3],[1,3]
-|a:0
-|b:1
-|c:2
-|d:3
 ```
 
 <br>
