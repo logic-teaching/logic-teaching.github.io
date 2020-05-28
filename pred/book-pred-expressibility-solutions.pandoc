@@ -19,6 +19,10 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
+We continue our study of identity by looking at concepts that become expressible in predicate logic by recourse to identity.
+
+<br>
+
 - [Exact numerical quantifiers](#exact-numerical-quantifiers)
 - [Finitude](#finitude)
 - [Functions](#functions)
@@ -123,13 +127,14 @@ One can then do translations with these. It might be advisable to proceed by doi
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  (Ex_1 Fx_1/\Ex_1 Gx_1)->Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2) : If there is at least one French major and there is at least one German major, then there are at least two students who major in language.
+|(Ex_1 Fx_1/\Ex_1 Gx_1)->Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2)
 ~~~
 
 <br>
 
 *Example 4*
 
-Presumably it is implicit in the previous example that all French majors are students who major in a language, and similarly for German. But even this is not enough to get to the conclusion validly:
+Presumably it is implicit in the previous example that all French majors are students who major in a language, and similarly for German. But even this is not enough to get to the conclusion:
 
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  Ex_1 Fx_1, Ex_1 Gx_1, Ax(Fx->Lx), Ax(Gx->Lx) :|-: Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2)
@@ -179,15 +184,15 @@ If we further add the premise that the $F$'s and $G$'s are disjoint, we can get 
 
 The exact numerical quantifiers give us a way to say that "there are exactly $n$-many $F$'s" just using predicate logic with identity.
 
-Does this mean that numbers are ultimately a logical notion? After introducing the exact numerical quantifiers, Frege suggested the following reasons for thinking that the exact numerical quantifiers themselves were *not* a reason to answer this question in the affirmative:[^1]
+Does this mean that numbers are ultimately a logical notion? After introducing the exact numerical quantifiers, Frege suggested the following reasons for thinking that the exact numerical quantifiers themselves were *not* a reason to think that numbers were ultimately logical in character:[^1]
 
-1. The definitions of the exact numerical quantifiers do not tell us what a number is, and whether e.g. numbers are physical objects or not.
+1. The definitions of the exact numerical quantifiers do not tell us what a number is, or what kind of objects numbers are.
 
-2. We cannot express, in predicate logic with identity, generalities about numbers, such as: "for every $n$,$m$, if there are exactly $n$ $F$'s and there are exactly $m$ $F$'s, then $n=m$". For, we don't have a way of saying "every $n$" in predicate logic which would allow us to use this $n$ later to specify the length of a long series of conjunctions appearing in the exact numerical quantifier.
+2. We cannot express, in predicate logic with identity, generalities about numbers, such as: "for every $n$,$m$, if there are exactly $n$ $F$'s and there are exactly $m$ $F$'s, then $n=m$". For, we don't have a way of saying "every $n$" in predicate logic which would allow us to use this $n$ later in the sentence to specify the length of a long series of conjunctions appearing in the exact numerical quantifier. Perhaps put more plainly: if you look at the the definition of the formula for "there are exactly $n$ $F$'s", then number $n$ does not appear as a variable in there anywhere.
 
 [^1]: This is from p. 68, section 56 of: Frege, Gottlob. 1980. The Foundations of Arithmetic: A Logico-Mathematical Enquiry Into the Concept of Number. Northwestern University Press.
 
-A related question is: just as we can express "there are exactly $n$-many $F$'s" for each natural number $n$, so too can we express "there are finitely many $F$'s"? It turns out that the answer to this question is negative. The reasons for this go a bit beyond what we are able to do in this course. Suffice it to say that the tools that allow one to prove the Soundness and Completeness Theorem also give one the resources to resolve this issue.
+A related question is: just as we can express "there are exactly $n$-many $F$'s" for each natural number $n$, so too can we express "there are finitely many $F$'s"? It turns out that the answer to this question is negative. The reasons for this go a bit beyond what we are able to do in this course. Suffice it to say that the tools that allow one to prove the Soundness and Completeness Theorem also give one the resources to resolve this issue. The inexpressibility of finitude in first-order predicate logic (with identity) is part of what one studies in metalogic.
 
 <br>
 
@@ -235,7 +240,7 @@ These next two examples show that functionality does not imply either injectivit
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  AxEy(Rxy/\Az(Rxz->y=z)) :|-: AxAyAz((Rxz/\Ryz)->x=y)
 |Domain:0,1,2
-|R(_):[0,1], [1,1], [2,2]
+|R(_,_):[0,1], [1,1], [2,2]
 ```
 
 <br>
@@ -245,7 +250,7 @@ These next two examples show that functionality does not imply either injectivit
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  AxEy(Rxy/\Az(Rxz->y=z)) :|-: AyExRxy
 |Domain:0,1,2
-|R(_):[0,1], [1,1], [2,1]
+|R(_,_):[0,1], [1,1], [2,1]
 ```
 
 <br>
@@ -255,7 +260,7 @@ These next two examples show that functionality does not imply either injectivit
 This is a proof that the inverse of an injective and surjective function is also a function.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
- AxEy(Rxy/\Az(Rxz->y=z)), AxEy(Rxy/\Az(Rxz->y=z)), AxAyAz((Rxz/\Ryz)->x=y), AxAy(Rxy->Syx), AxAy(Sxy->Ryx) :|-: AxEy(Sxy/\Az(Sxz->y=z))
+ AxEy(Rxy/\Az(Rxz->y=z)), AxAyAz((Rxz/\Ryz)->x=y), AyExRxy, AxAy(Rxy->Syx), AxAy(Sxy->Ryx) :|-: AxEy(Sxy/\Az(Sxz->y=z))
 |AxEy(Rxy/\Az(Rxz->y=z)) :assumption
 |AxAyAz((Rxz/\Ryz)->x=y) :assumption
 |AyExRxy :assumption
@@ -339,7 +344,7 @@ We have seen earlier that equivalence relations are those binary relations which
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAyAz((Rxy\/Ryx)\/x=y)
 |Domain:0,1,2
-|R(_):[0,0], [1,1], [2,2], [0,1],[0,2]
+|R(_,_):[0,0], [1,1], [2,2], [0,1],[0,2]
 ```
 
 <br>
@@ -349,7 +354,7 @@ We have seen earlier that equivalence relations are those binary relations which
 ```{.CounterModeler .Validity system="gamutND" submission="none"}
  Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAyAz((Rxy\/Ryx)\/x=y)
 |Domain:0,1,2
-|R(_):[0,1],[0,2]
+|R(_,_):[0,1],[0,2]
 ```
 
 <br>
@@ -359,7 +364,7 @@ We have seen earlier that equivalence relations are those binary relations which
 Here is a simple proof which shows that e.g. if for all $x$ there is $y$ with $x<y$, then there is no $y$ such that for all $x$ one has $x<y$. In other words, if everything is strictly below something, then nothing is strictly above everything.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-Ax~Rxx, AxEyRxy :|-: ~EyAxRxy
+ Ax~Rxx, AxEyRxy :|-: ~EyAxRxy
 |Ax~Rxx :assumption
 |AxEyRxy :assumption
 | EyAxRxy :assumption
