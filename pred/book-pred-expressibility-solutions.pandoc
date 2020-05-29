@@ -117,8 +117,8 @@ One can then do translations with these. It might be advisable to proceed by doi
 <p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- (Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)/\Ex_1Ay(Fy->y=x_1))->Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2))) : If there are at least two French majors and there are at most two French majors, then there are exactly two French majors.
-|(Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)/\Ex_1Ay(Fy->y=x_1))->Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2)))
+ (Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)/\Ex_1Ex_2Ay(Fy->(y=x_1\/y=x_2)))->Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2))) : If there are at least two French majors and there are at most two French majors, then there are exactly two French majors.
+|(Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)/\Ex_1Ex_2Ay(Fy->(y=x_1\/y=x_2)))->Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2)))
 ~~~
 
 <br>
@@ -204,7 +204,7 @@ A related question is: just as we can express "there are exactly $n$-many $F$'s"
 
 With identity, one can also describe when binary relations are functional, that is, when they describe the graphs of functions.
 
-Suppose that $N,M$ are two unary predicates. Then recall that a function $f:M\rightarrow N$ is given by a rule or operation which given an input $x$ from $M$ outputs a single result $f(x)$ in $M$. This results in a binary relation $R$ such that $Rxy$ iff $Mx$ and $Ny$ and $f(x)=y$. This binary relation is sometimes called the graph of the function. It turns out that we can use the graph of the function to simulate the function in our predicate logic with identity. The key feature which distinguishs the graphs of functions from arbitrary binary relations is simply what we call *functionality*:
+Suppose that $N,M$ are two unary predicates. Then recall that a function $f:M\rightarrow N$ is given by a rule or operation which given an input $x$ from $M$ outputs a single result $f(x)$ in $N$. This results in a binary relation $R$ such that $Rxy$ iff $Mx$ and $Ny$ and $f(x)=y$. This binary relation is sometimes called the graph of the function. When $M,N$ are the domain of the model, it turns out that we can use the graph of the function to simulate the function in our predicate logic with identity. The key feature which distinguishs the graphs of functions from arbitrary binary relations is simply what we call *functionality*:
 
 <table style="width:100%">
   <tr>
@@ -219,7 +219,7 @@ Suppose that $N,M$ are two unary predicates. Then recall that a function $f:M\ri
   </tr>
   <tr>
     <td>$R$ is injective</td>
-    <td>$\forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Rxz)\rightarrow y=z)$</td>
+    <td>$\forall \; x \; \forall \; y \; \forall \; z \; ((Rxz\wedge Ryz)\rightarrow x=y)$</td>
     <td>`AxAyAz((Rxz/\Ryz)->x=y)`
   </tr>
   <tr>
