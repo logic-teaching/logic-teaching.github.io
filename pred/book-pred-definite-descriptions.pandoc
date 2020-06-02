@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Definite descriptions **with solutions**
+# Definite descriptions
 
 We add definite descriptions to predicate logic, and look at translations and semantics and proofs with this added resource.
 
@@ -23,10 +23,6 @@ We add definite descriptions to predicate logic, and look at translations and se
 - [Semantics](#semantics)
 - [Divergences](#divergences)
 - [Derivations](#derivations)
-
-<br>
-
-This version has the **the solutions** written into it.
 
 <br>
 
@@ -45,7 +41,7 @@ Consider the following three translation examples, which should seem familiar to
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  Ex(Fx/\Gx) : Some French major is generous.
-|Ex(Fx/\Gx)
+|
 ~~~
 
 <br>
@@ -57,7 +53,7 @@ Consider the following three translation examples, which should seem familiar to
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  Ax(Fx->Gx) : All French majors are generous.
-|Ax(Fx->Gx)
+|
 ~~~
 
 <br>
@@ -69,7 +65,7 @@ Consider the following three translation examples, which should seem familiar to
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  Ga : Alex is generous.
-|Ga
+|
 ~~~
 
 <br>
@@ -87,7 +83,7 @@ One option, due to Russell, is to translate it roughly as "There is exactly one 
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  Ex(Fx/\(Ay(Fy->y=x)/\Gx)) : The French major is generous.
-|Ex(Fx/\(Ay(Fy->y=x)/\Gx))
+|
 ~~~
 
 Read slowly and out loud, this translation says: there is an $F$ and there is exactly one $F$ and it is $G$. Hence, to figure out whether the sentence is true, you ask whether there is an $F$, whether there is exactly one $F$, and whether this thing is $G$.
@@ -103,7 +99,7 @@ Another option, due to Frege, is to introduce a new object $℩xFx$ which is sho
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  G℩xFx : The French major is generous.
-|G℩xFx
+|
 ~~~
 
 In this, `℩xFx` is read out loud as "iota x Fx", where "iota" is how one says the Greek lower-case letter ℩ out loud. (You can also write `i` for `℩`). Hence, the entire sentence is: Gy, where $y=℩xFx$. That is, it is saying that the object which is the F has the G property. In this, the ℩ is acting like the quantifiers in that it binds a variable. The presence of a quantifier-like device makes it similar to Example 1-2. But in some sense its truth-conditions are similar to Example 3. To figure out whether it is true, one goes and identifies a certain object- namely the F- and then sees whether this object has the G property.
@@ -152,12 +148,12 @@ In this one, the description has a conjunction embedded in it.
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  Ex((Hx/\Fx)/\(Ay((Hy/\Fy)->x=y)/\Gx)) : The happy French major is generous.
-|Ex((Hx/\Fx)/\(Ay((Hy/\Fy)->x=y)/\Gx))
+|
 ~~~
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  G℩x(Hx/\Fx) : The happy French major is generous.
-|G℩x(Hx/\Fx)
+|
 ~~~
 
 <br>
@@ -172,12 +168,12 @@ In this one, the property ascribed to the object satisfying the definite descrip
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  Ex((Gx/\Fx)/\(Ay((Gy/\Fy)->x=y)/\AzRzx)) : Everyone respects the generous French major.
-|Ex((Gx/\Fx)/\(Ay((Gy/\Fy)->x=y)/\AzRzx))
+|
 ~~~
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  AzRz℩x(Gx/\Fx) : Everyone respects the generous French major.
-|AzRz℩x(Gx/\Fx)
+|
 ~~~
 
 <br>
@@ -193,12 +189,12 @@ This one contains two definite descriptions:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Rxu))))  : The New York City mayor trusts the LA mayor.
-|Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Rxu))))
+|
 ~~~
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  R℩x(Nx/\Mx)℩u(Lu/\Mu) : The New York City mayor trusts the LA mayor.
-|R℩x(Nx/\Mx)℩u(Lu/\Mu)
+|
 ~~~
 
 <br>
@@ -237,9 +233,6 @@ Translation of "the F is G":
 
 ```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
  Ex(Fx/\Ay(Fy->x=y)), Ex(Fx/\(Ay(Fy->x=y)/\Gx)), G℩xFx,
-|Domain:0,1,2,3
-|F(_):1
-|G(_):0,1,2
 ```
 
 <br>
@@ -254,10 +247,6 @@ Translation of "The H-and-F is G":
 
 ```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
  Ex((Hx/\Fx)/\Ay((Hy/\Fy)->x=y)), Ex((Hx/\Fx)/\(Ay((Hy/\Fy)->x=y)/\Gx)), G℩x(Hx/\Fx)
-|Domain:0,1,2,3,4
-|H(_):0,1
-|F(_):1,2
-|G(_):1,4
 ```
 
 <br>
@@ -272,10 +261,6 @@ Translation of "Everyone/thing bears the R-relation to the G-and-F":
 
 ```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
  Ex((Gx/\Fx)/\Ay((Gy/\Fy)->x=y)), Ex((Gx/\Fx)/\(Ay((Gy/\Fy)->x=y)/\AzRzx)), AzRz℩x(Gx/\Fx)
-|Domain:0,1,2,3,4
-|G(_):0,1,2
-|F(_):2,3,4
-|R(_,_):[0,2],[1,2],[2,2],[3,2],[4,2]
 ```
 
 <br>
@@ -292,11 +277,6 @@ Translation of "The N-and-M bears the R-relation to the L-and-M":
 
 ```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
  Ex((Nx/\Mx)/\Ay((Ny/\My)->x=y)), Eu((Lu/\Mu)/\Av((Lv/\Mv)->u=v)), Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Rxu)))), R℩x(Nx/\Mx)℩u(Lu/\Mu)
-|Domain:0,1,2,3,4
-|N(_):1,2
-|M(_):0,2,4
-|L(_):3,4
-|R(_,_):[2,4]
 ```
 
 <br>
@@ -317,14 +297,6 @@ Obviously both failures cannot happen simultaneously. But, in the semantics, one
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ~ExFx :|-: ~Ex(Fx/\(Ay(Fy->y=x)/\Gx))
 |~ExFx :assumption
-| Ex(Fx/\(Ay(Fy->y=x)/\Gx)) :assumption
-|  Fa/\(Ay(Fy->y=a)/\Ga) :assumption
-|  Fa :E/\3
-|  ExFx :IE4
-|  ⊥ :E~1,5
-| (Fa/\(Ay(Fy->y=a)/\Ga))->⊥ :I->3-6
-| ⊥ :EE2,7
-|~Ex(Fx/\(Ay(Fy->y=x)/\Gx)) :I~2-8
 ```
 
 <br>
@@ -334,29 +306,6 @@ Obviously both failures cannot happen simultaneously. But, in the semantics, one
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ExEy((Fx/\Fy)/\~x=y) :|-: ~Ex(Fx/\(Ay(Fy->y=x)/\Gx))
 |ExEy((Fx/\Fy)/\~x=y) :assumption
-| Ex(Fx/\(Ay(Fy->y=x)/\Gx)) :assumption
-|  Fa/\(Ay(Fy->y=a)/\Ga) :assumption
-|  (Ay(Fy->y=a)/\Ga) :E/\3
-|  Ay(Fy->y=a) :E/\4
-|   Ey((Fb/\Fy)/\~b=y) :assumption
-|    (Fb/\Fc)/\~b=c :assumption
-|    Fb/\Fc :E/\7
-|    Fb :E/\8
-|    Fc :E/\8
-|    ~b=c :E/\7
-|    Fb->b=a :EA5
-|    Fc->c=a :EA5
-|    b=a :E->9,12
-|    c=a :E->10,13
-|    b=c :E=14,15
-|    ⊥ :E~11,16
-|   ((Fb/\Fc)/\~b=c)->⊥ :I->7-17
-|   ⊥ :EE6,18
-|  Ey((Fb/\Fy)/\~b=y)->⊥ :I->6-19
-|  ⊥ :EE1,20
-| (Fa/\(Ay(Fy->y=a)/\Ga))->⊥ :I->3-21
-| ⊥ :EE2,22
-|~Ex(Fx/\(Ay(Fy->y=x)/\Gx)) :I~2-23
 ```
 
 <br>
@@ -371,9 +320,6 @@ Frege's own solution was to simply designate a fixed element of the model as the
 
 ```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
  ~ExFx, ℩xFx=a
-|Domain:0,1,2,3
-|F(_):
-|a:0
 ```
 
 <br>
@@ -382,11 +328,6 @@ Frege's own solution was to simply designate a fixed element of the model as the
 
 ```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
  Fb, Fc, ~b=c, ℩xFx=a
-|Domain:0,1,2,3
-|F(_):1,2
-|a:0
-|b:1
-|c:2
 ```
 
 This method of always having "the F" designate the same fixed individual when there is not exactly one F resolves the aforementioned problems for the Fregan, since there is always some referent for "the F." Further, clearly we cannot have both "the F is G" and "the F is not G" be false, since this would be saying that zero has both G and not G. However, as Russell complained, "this procedure, though it may not lead to actual logical error, is plainly artificial."
@@ -432,22 +373,6 @@ We can use the introduction rule to show that the Russellian translation of "the
 ```{.ProofChecker .GamutNDDesc submission="none"}
  Ex(Fx/\(Ay(Fy->y=x)/\Gx)) :|-: GixFx
 |Ex(Fx/\(Ay(Fy->y=x)/\Gx)) :assumption
-| Fa/\(Ay(Fy->y=a)/\Ga) :assumption
-| (Fa/\Ay(Fy->y=a))/\Ga :LAC2
-| Fa/\Ay(Fy->y=a) :E/\3
-| Ex(Fx/\Ay(Fy->y=x)) :IE4
-|(Fa/\(Ay(Fy->y=a)/\Ga))->Ex(Fx/\Ay(Fy->y=x)) :I->2-5
-|Ex(Fx/\Ay(Fy->y=x)) :EE1,6
-|FixFx :Ii7
-| Fb/\(Ay(Fy->y=b)/\Gb) :assumption
-| Ay(Fy->y=b)/\Gb :E/\9
-| Ay(Fy->y=b) :E/\10
-| Gb :E/\10
-| FixFx->ixFx=b :EA11
-| ixFx=b :E->8,13
-| GixFx :E=12,14
-|(Fb/\(Ay(Fy->y=b)/\Gb))->GixFx :I->9-15
-|GixFx :EE1,16
 ```
 
 <br>
@@ -460,18 +385,6 @@ And conversely we can use the introduction rule to show that the Fregean transla
  GixFx, Ex(Fx/\Ay(Fy->y=x)) :|-: Ex(Fx/\(Ay(Fy->y=x)/\Gx))
 |GixFx :assumption
 |Ex(Fx/\Ay(Fy->y=x)) :assumption
-|F℩xFx :Ii2
-| Fa/\Ay(Fy->y=a) :assumption
-| Fa :E/\4
-| Ay(Fy->y=a) :E/\4
-| F℩xFx->℩xFx=a :EA6
-| ℩xFx=a :E->3,7
-| Ga :E=1,8
-| Ay(Fy->y=a)/\Ga :I/\6,9
-| Fa/\(Ay(Fy->y=a)/\Ga) :I/\5,10
-| Ex(Fx/\(Ay(Fy->y=x)/\Gx)) :IE11
-|(Fa/\Ay(Fy->y=a))->Ex(Fx/\(Ay(Fy->y=x)/\Gx)) :I->4-12
-|Ex(Fx/\(Ay(Fy->y=x)/\Gx)) :EE2,13
 ```
 
 <br>
@@ -483,16 +396,6 @@ Finally, we can use the elimination rule to show that when F is uninstantiated, 
 ```{.ProofChecker .GamutNDDesc submission="none"}
  ~ExFx :|-: ixFx=ix⊥
 |~ExFx :assumption
-| ~ixFx=ix⊥ :assumption
-| Ex(Fx/\Ay(Fy->y=x)) :Ei2
-|  Fa/\Ay(Fy->y=a) :assumption
-|  Fa :E/\4
-|  ExFx :IE5
-|  ⊥ :E~1,6
-| (Fa/\Ay(Fy->y=a))->!? :I->4-7
-| ⊥ :EE3,8
-|~~ixFx=ix⊥ :I~2-9
-|ixFx=ix⊥ :DN10
 ```
 
 <br>
@@ -506,20 +409,6 @@ And similarly, we can use the elimination rule to show that when F is multiply i
 |Fa :assumption
 |Fb :assumption
 |~a=b :assumption
-| ~ixFx=ix⊥ :assumption
-| Ex(Fx/\Ay(Fy->y=x)) :Ei4
-|  Fc/\Ay(Fy->y=c) :assumption
-|  Ay(Fy->y=c) :E/\6
-|  Fa->a=c :EA7
-|  a=c :E->1,8
-|  Fb->b=c :EA7
-|  b=c :E->10,2
-|  a=b :E=9,11
-|  ⊥ :E~3,12
-| (Fc/\Ay(Fy->y=c))->⊥ :I->6-13
-| ⊥ :EE5,14
-|~~ixFx=ix⊥ :I~4-15
-|ixFx=ix⊥ :DN16
 ```
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
