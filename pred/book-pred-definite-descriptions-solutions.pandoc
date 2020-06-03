@@ -192,13 +192,13 @@ This one contains two definite descriptions:
 <p style="margin-left: 40px"> $Txy$ = $x$ trusts $y$  </p>
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
- Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Rxu))))  : The New York City mayor trusts the LA mayor.
-|Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Rxu))))
+ Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Txu))))  : The New York City mayor trusts the LA mayor.
+|Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Txu))))
 ~~~
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
- R℩x(Nx/\Mx)℩u(Lu/\Mu) : The New York City mayor trusts the LA mayor.
-|R℩x(Nx/\Mx)℩u(Lu/\Mu)
+ T℩x(Nx/\Mx)℩u(Lu/\Mu) : The New York City mayor trusts the LA mayor.
+|T℩x(Nx/\Mx)℩u(Lu/\Mu)
 ~~~
 
 <br>
@@ -282,21 +282,21 @@ Translation of "Everyone/thing bears the R-relation to the G-and-F":
 
 *Example 12*
 
-Translation of "The N-and-M bears the R-relation to the L-and-M":
+Translation of "The N-and-M bears the T-relation to the L-and-M":
 
 - Exactly one clause 1: `Ex((Nx/\Mx)/\Ay((Ny/\My)->x=y))`
 - Exactly one clause 2: `Eu((Lu/\Mu)/\Av((Lv/\Mv)->u=v))`
-- Russellian translation: `Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Rxu))))`
-- Fregean translation: `R℩x(Nx/\Mx)℩u(Lu/\Mu)`
+- Russellian translation: `Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Txu))))`
+- Fregean translation: `T℩x(Nx/\Mx)℩u(Lu/\Mu)`
 
 
 ```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
- Ex((Nx/\Mx)/\Ay((Ny/\My)->x=y)), Eu((Lu/\Mu)/\Av((Lv/\Mv)->u=v)), Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Rxu)))), R℩x(Nx/\Mx)℩u(Lu/\Mu)
+ Ex((Nx/\Mx)/\Ay((Ny/\My)->x=y)), Eu((Lu/\Mu)/\Av((Lv/\Mv)->u=v)), Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Txu)))), T℩x(Nx/\Mx)℩u(Lu/\Mu)
 |Domain:0,1,2,3,4
 |N(_):1,2
 |M(_):0,2,4
 |L(_):3,4
-|R(_,_):[2,4]
+|T(_,_):[2,4]
 ```
 
 <br>
@@ -521,6 +521,8 @@ And similarly, we can use the elimination rule to show that when F is multiply i
 |~~ixFx=ix⊥ :I~4-15
 |ixFx=ix⊥ :DN16
 ```
+
+<br>
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
 
