@@ -1,0 +1,462 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Review
+
+We review what we have done, focusing on the materials from Week 8,9,10.
+
+- [Key ideas](#key-ideas)
+- [Week 8](#week-8)
+- [Week 9](#week-9)
+- [Week 10](#week-10)
+
+<br>
+
+## Key ideas
+
+*Example 1*
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a football player </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ is a hockey player  </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ex(Fx/\Hx) : Some football player is a hockey player.
+|
+~~~
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ax(Fx->Hx) : All football players are hockey players.
+|
+~~~
+
+<br>
+
+*Example 2*:
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is generous  </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ax(Fx->Gx) : All French majors are generous.
+|
+~~~
+
+<br>
+
+*Example 3*:
+
+<p style="margin-left: 40px"> $a$ = Alex </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is generous  </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ga : Alex is generous.
+|
+~~~
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Translations
+
+Consider the following three translation examples, which should seem familiar to us:
+
+<br>
+
+*Example 1*
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is generous  </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ex(Fx/\Gx) : Some French major is generous.
+|
+~~~
+
+<br>
+
+*Example 2*:
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is generous  </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ax(Fx->Gx) : All French majors are generous.
+|
+~~~
+
+<br>
+
+*Example 3*:
+
+<p style="margin-left: 40px"> $a$ = Alex </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is generous  </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ga : Alex is generous.
+|
+~~~
+
+<br>
+
+How should we translate the following: "The French major is generous"? In some ways, it turns on how to translate "the F", which is sometimes called a definite description, since the presence of the predicate F makes it descriptive and since the definite article "the" indicates a certain kind of definiteness.
+
+One option, due to Russell, is to translate it roughly as "There is exactly one French major and she is generous" where the former gets translated via the exact numerical quantifier:[^1]
+
+[^1]: [Russell, Bertrand. 1905. "On Denoting." Mind 14 (56): 479-93](https://logic-teaching.github.io/pred/texts/Russell%201905%20-%20On%20Denoting.pdf).
+
+*Example 4*:
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is generous  </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ex(Fx/\(Ay(Fy->y=x)/\Gx)) : The French major is generous.
+|
+~~~
+
+Read slowly and out loud, this translation says: there is an $F$ and there is exactly one $F$ and it is $G$. Hence, to figure out whether the sentence is true, you ask whether there is an $F$, whether there is exactly one $F$, and whether this thing is $G$.
+
+Another option, due to Frege, is to introduce a new object $℩xFx$ which is short for "the F", and to translate it like Example 3, so that you stick the object $℩xFx$ into the $G$-predicate:[^2]
+
+[^2]: See section 11 pp. 49-51 of: [Frege, Gottlob. 1964. "Introduction and Sections 1-33." In The Basic Laws of Arithmetic: Exposition of the System. University of California Press.](https://logic-teaching.github.io/pred/texts/Frege%201964%20-%20Introduction%20and%20sections%201-33.pdf).
+
+*Example 5*:
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is generous  </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ G℩xFx : The French major is generous.
+|
+~~~
+
+In this, `℩xFx` is read out loud as "iota x Fx", where "iota" is how one says the Greek lower-case letter ℩ out loud. (You can also write `i` for `℩`). Hence, the entire sentence is: Gy, where $y=℩xFx$. That is, it is saying that the object which is the F has the G property. In this, the ℩ is acting like the quantifiers in that it binds a variable. The presence of a quantifier-like device makes it similar to Example 1-2. But in some sense its truth-conditions are similar to Example 3. To figure out whether it is true, one goes and identifies a certain object- namely the F- and then sees whether this object has the G property.
+
+Today we will compare and contrast the Russellian and Fregean option. For the moment, we just record them in the following table, and then we practice with them via more translation examples. We include two typed versions, one with variables from `x,y` and one from variables `u,v` since sometimes we need both of them for one and the same sentence and we can just cut and paste from this table:
+
+<table style="width:100%">
+  <tr>
+    <th>Option</th>
+    <th>Translation</th>
+    <th>Typed</th>
+    <th>Typed (change of variables)</th>
+  </tr>
+  <tr>
+    <td>Russellian translation of "the F is G"</td>
+    <td>$\exists \; x \; (Fx\wedge (\forall \; y \; (Fy\rightarrow y=x)\wedge Gx))$</td>
+    <td>`Ex(Fx/\(Ay(Fy->y=x)/\Gx))`</td>
+    <td>`Eu(Fu/\(Av(Fv->v=u)/\Gu))`</td>
+  </tr>
+  <tr>
+    <td>Fregean translation of "the F is G"</td>
+    <td>$G\iota x Fx$</td>
+    <td>`G℩xFx`</td>
+    <td>`G℩uFu`</td>
+  </tr>
+</table>
+
+<br>
+
+Again, `℩` is the Greek letter iota, but you can type the Roman letter `i` instead.
+
+<br>
+
+In the following examples, there are two translation boxes. Use the first to translate it via the Russellian option, and use the second to translate it via the Fregean option:
+
+<br>
+
+*Example 6*:
+
+In this one, the description has a conjunction embedded in it.
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is generous  </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ is happy </p>
+
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ex((Hx/\Fx)/\(Ay((Hy/\Fy)->x=y)/\Gx)) : The happy French major is generous.
+|
+~~~
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ G℩x(Hx/\Fx) : The happy French major is generous.
+|
+~~~
+
+<br>
+
+*Example 7*:
+
+In this one, the property ascribed to the object satisfying the definite description requires a quantifier to express.
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is generous  </p>
+<p style="margin-left: 40px"> $Rxy$ = $x$ respects $y$  </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ex((Gx/\Fx)/\(Ay((Gy/\Fy)->x=y)/\AzRzx)) : Everyone respects the generous French major.
+|
+~~~
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ AzRz℩x(Gx/\Fx) : Everyone respects the generous French major.
+|
+~~~
+
+<br>
+
+*Example 8*:
+
+This one contains two definite descriptions:
+
+<p style="margin-left: 40px"> $Mx$ = $x$ is a mayor </p>
+<p style="margin-left: 40px"> $Nx$ = $x$ is from New York city </p>
+<p style="margin-left: 40px"> $Lx$ = $x$ is from LA  </p>
+<p style="margin-left: 40px"> $Txy$ = $x$ trusts $y$  </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Txu))))  : The New York City mayor trusts the LA mayor.
+|
+~~~
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ T℩x(Nx/\Mx)℩u(Lu/\Mu) : The New York City mayor trusts the LA mayor.
+|
+~~~
+
+<br>
+
+As one can see from these examples, the Russellian approach is usually longer than the Fregean approach. This is because the Russellian approach requires us to go inside the sentence, search for all the instances of the definite article "the", replace with a variable, put the "exactly one" clause out front (where the quantifier uses the same variable as before), and then translate the resulting sentence.
+
+<br>
+
+## Semantics
+
+But does this difference between the Russellian and Fregean approach really result in any deep disagreement? One way to answer this question is to set up the semantics. For the Russellian approach, there is nothing more to do for the semantics, since on this approach the definite descriptions just get translated with quantifiers and identity, and we already have semantics for quantifiers and identity. For the Fregean approach, we have to say something more about the semantics.
+
+We add the following clause to Tarski's definition of truth:
+
+- If $\mathcal{M}\models \exists \; x \; (Fx\wedge (\forall \; y \; (Fy\rightarrow y=x)))$ and if $c$ is a constant such that $\mathcal{M}\models Fc$, then $\mathcal{M}\models G(\iota x Fx)$ if and only if $\mathcal{M}\models Gc$.
+
+This looks a little different than the usual clauses of Tarski's definition of truth. One innocuous way in which it is different is that we have specified the clause in terms of $Fx$ and $Gx$ rather than the more general $\phi(x)$ and $\psi(x)$. But this is just to enhance readability-- one can just replace $Fx$ by $\phi(x)$ and replace $Gx$ by $\psi(x)$. The weightier way in which it is different from the usual clauses of Tarski's definition of truth is that we have not said when $\mathcal{M}\models G(\iota x Fx)$ is true in the case where there is not exactly one $F$ in the model. We shall return to this point in the next section.
+
+But this definition should hopefully make it clear that there will be great agreement between the Russellian and Fregean approaches. In particular, under the assumption that there is exactly one $F$ in the model, one will have that
+
+- $\mathcal{M}\models \exists \; x \; (Fx\wedge (\forall \; y \; (Fy\rightarrow y=x)\wedge Gx))$ if and only if $\mathcal{M}\models G(\iota x Fx)$.
+
+The argument for this just goes through the previous expansion of Tarski's definition of truth and our prior familiarity with quantifiers. As usual, it can best be illustrated by way of example.
+
+The first sentence in the below examples just expresses that there is exactly one element of the domain satisfying the definite description, and then we give the Russellian and Fregean translations. Given what we said up above, one should not be able to find a model where the Russellian translation is true and the Fregean false, and vice-versa. In these below examples, we are just trying to build a model where all of the formulas listed are true.
+
+<br>
+
+*Example 9*
+
+Translation of "the F is G":
+
+- Exactly one clause: `Ex(Fx/\Ay(Fy->x=y))`
+- Russellian translation: `Ex(Fx/\(Ay(Fy->x=y)/\Gx))`
+- Fregean translation: `G℩xFx`
+
+```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
+ Ex(Fx/\Ay(Fy->x=y)), Ex(Fx/\(Ay(Fy->x=y)/\Gx)), G℩xFx,
+```
+
+<br>
+
+*Example 10*
+
+Translation of "The H-and-F is G":
+
+- Exactly one clause: `Ex((Hx/\Fx)/\Ay((Hy/\Fy)->x=y))`
+- Russellian translation: `Ex((Hx/\Fx)/\(Ay((Hy/\Fy)->x=y)/\Gx))`
+- Fregean translation: `G℩x(Hx/\Fx)`
+
+```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
+ Ex((Hx/\Fx)/\Ay((Hy/\Fy)->x=y)), Ex((Hx/\Fx)/\(Ay((Hy/\Fy)->x=y)/\Gx)), G℩x(Hx/\Fx)
+```
+
+<br>
+
+*Example 11*
+
+Translation of "Everyone/thing bears the R-relation to the G-and-F":
+
+- Exactly one clause: `Ex((Gx/\Fx)/\Ay((Gy/\Fy)->x=y))`
+- Russellian translation: `Ex((Gx/\Fx)/\(Ay((Gy/\Fy)->x=y)/\AzRzx))`
+- Fregean translation: `AzRz℩x(Gx/\Fx)`
+
+```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
+ Ex((Gx/\Fx)/\Ay((Gy/\Fy)->x=y)), Ex((Gx/\Fx)/\(Ay((Gy/\Fy)->x=y)/\AzRzx)), AzRz℩x(Gx/\Fx)
+```
+
+<br>
+
+*Example 12*
+
+Translation of "The N-and-M bears the T-relation to the L-and-M":
+
+- Exactly one clause 1: `Ex((Nx/\Mx)/\Ay((Ny/\My)->x=y))`
+- Exactly one clause 2: `Eu((Lu/\Mu)/\Av((Lv/\Mv)->u=v))`
+- Russellian translation: `Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Txu))))`
+- Fregean translation: `T℩x(Nx/\Mx)℩u(Lu/\Mu)`
+
+
+```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
+ Ex((Nx/\Mx)/\Ay((Ny/\My)->x=y)), Eu((Lu/\Mu)/\Av((Lv/\Mv)->u=v)), Ex((Nx/\Mx)/\(Ay((Ny/\My)->x=y)/\Eu((Lu/\Mu)/\(Av((Lv/\Mv)->u=v)/\Txu)))), T℩x(Nx/\Mx)℩u(Lu/\Mu)
+```
+
+<br>
+
+## Divergences
+
+But this leaves open what happens when the "exactly one" clause fails. There are in fact two ways in which "there is exactly one F" can fail:
+
+- Existence failure: there are in fact no $F$'s.
+- Uniqueness failure: there is in fact more than one $F$.
+
+Obviously both failures cannot happen simultaneously. But, in the semantics, one has that under either type of failure, every sentence of the form "it is not the case that the F is G" comes out true under the Russellian translation. One can show this using a derivation, since the derivations are sound for the semantics.
+
+<br>
+
+*Example 13*:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~ExFx :|-: ~Ex(Fx/\(Ay(Fy->y=x)/\Gx))
+|~ExFx :assumption
+```
+
+<br>
+
+*Example 14*:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ExEy((Fx/\Fy)/\~x=y) :|-: ~Ex(Fx/\(Ay(Fy->y=x)/\Gx))
+|ExEy((Fx/\Fy)/\~x=y) :assumption
+```
+
+<br>
+
+This, of course, causes some pressure for the Russellian translation, since we are accustomed to pass and forth between "it is not the case that the F is G" and "the F is not G". However, this back and forth is only justified under the presupposition that there is exactly one F. For instance, when there is no F, the Russellian translation has to insist that it is literally false that "the F is G", for any property G. This gets uncomfortable when one considers "the F is G_1" and "the F is G_2", where G_1 and G_2 are incompatible properties. For instance, on the Russellian approach, "the present king of France is bald" is false and "the present king of France is not bald" is false.
+
+What would the Fregean say about cases of "the F is G" when there is not exactly one F? Well, she runs into problems both in the case of existence failure and in the case of uniqueness failure. For, her idea was to check for the truth of "the F is G" by finding the F in the domain of the model and then asking whether it is G. If there is no F, then she has no object to check to see whether it falls in the interpretation of G. If there is more than one F, then then one of the Fs might have G while the other might not, and so there would not be one truth-value to associate to "the F is G."
+
+Frege's own solution was to simply designate a fixed element of the model as the referent of "the F" when there was not exactly one F. In our model-checkers, this individual is always zero. Hence one can check e.g.
+
+*Example 15*:
+
+```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
+ ~ExFx, ℩xFx=a
+```
+
+<br>
+
+*Example 16*:
+
+```{.CounterModeler .Simple system="gamutNDDesc" submission="none"}
+ Fb, Fc, ~b=c, ℩xFx=a
+```
+
+This method of always having "the F" designate the same fixed individual when there is not exactly one F resolves the aforementioned problems for the Fregan, since there is always some referent for "the F." Further, clearly we cannot have both "the F is G" and "the F is not G" be false, since this would be saying that zero has both G and not G. However, as Russell complained, "this procedure, though it may not lead to actual logical error, is plainly artificial."
+
+<br>
+
+## Derivations
+
+How can we expand our proof system with definite descriptions? If we take the Russellian approach, then there is nothing to do, since we already have a proof system. By contrast, if we take the Fregean approach, then there is still something remaining to be done. Keeping with our previous practice, we lay down both an introduction and elimination rule:
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Statement</th>
+    <th>Typed</th>
+    <th>Typed (change of variables)</th>
+  </tr>
+  <tr>
+    <td>Introduction `Ii`</td>
+    <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x)\vdash F\iota x Fx$</td>
+    <td>`Ex(Fx/\(Ay(Fy->y=x))) :|-: F℩xFx`</td>
+    <td>`Eu(Fu/\(Av(Fv->v=u))) :|-: F℩uFu`</td>
+  </tr>
+  <tr>
+    <td>Elimination `Ei`</td>
+    <td>$\iota x Fx\neq \iota x. \bot \vdash \exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x)$</td>
+    <td>`~℩xFx=℩x⊥ :|-:Ex(Fx/\(Ay(Fy->y=x)))`</td>
+    <td>`~℩uFu=℩u⊥ :|-:Eu(Fu/\(Av(Fv->v=u)))`</td>
+  </tr>
+</table>
+
+<br>
+
+More intuitively, the introduction rule says that when there is exacly one F, then "the F is F". And the elimination rule says that when the F is distinct from the referent of some uninstantiated concept like falsum, then there is exactly one F.
+
+
+<br>
+
+*Example 17*
+
+We can use the introduction rule to show that the Russellian translation of "the F is G" implies the Fregean translation:
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+ Ex(Fx/\(Ay(Fy->y=x)/\Gx)) :|-: GixFx
+|Ex(Fx/\(Ay(Fy->y=x)/\Gx)) :assumption
+```
+
+<br>
+
+*Example 18*
+
+And conversely we can use the introduction rule to show that the Fregean translation of "the F is G" implies the Russellian translation of "the F is G" when there is exactly one F.
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+ GixFx, Ex(Fx/\Ay(Fy->y=x)) :|-: Ex(Fx/\(Ay(Fy->y=x)/\Gx))
+|GixFx :assumption
+|Ex(Fx/\Ay(Fy->y=x)) :assumption
+```
+
+<br>
+
+*Example 19*
+
+Finally, we can use the elimination rule to show that when F is uninstantiated, we have $\iota x Fx=\iota x \bot$.
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+ ~ExFx :|-: ixFx=ix⊥
+|~ExFx :assumption
+```
+
+<br>
+
+*Example 19*
+
+And similarly, we can use the elimination rule to show that when F is multiply instantiated, we likewise have $\iota x Fx=\iota x \bot$.
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+ Fa, Fb, ~a=b :|-: ixFx=ix⊥
+|Fa :assumption
+|Fb :assumption
+|~a=b :assumption
+```
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is
