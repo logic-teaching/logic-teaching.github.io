@@ -1,0 +1,387 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Practice problems *with solutions*
+
+These are practice problems for Week 10
+
+<br>
+
+- [Translations](#translations)
+- [Refutations](#refutations)
+- [Proofs](#proofs)
+- [Nesting](#nesting)
+
+<br>
+
+This version has *the solutions* filled in. Keep in mind that on proofs, there are many equally correct proofs of any one problem.
+
+<p style="page-break-before: always">
+
+## Translations
+
+*Problems 1-2*
+
+Here is the key, and from this is evident that we are talking about cities:
+
+<p style="margin-left: 40px"> $Lx$ = $x$ is large </p>
+<p style="margin-left: 40px"> $Mx$ = $x$ is Midwestern </p>
+<p style="margin-left: 40px"> $Ox$ = $x$ has an opera </p>
+<p style="margin-left: 40px"> $Sx$ = $x$ has a subway </p>
+
+First give the *Russellian translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+10.01 Ex((Lx/\Mx)/\(Ay((Ly/\My)->y=x)/\(Ox/\Sx))) : The large Midwestern city has an opera and a subway.
+|Ex((Lx/\Mx)/\(Ay((Ly/\My)->y=x)/\(Ox/\Sx)))
+~~~
+
+Second give the *Fregean translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+10.02 Oix(Lx/\Mx)/\Six(Lx/\Mx), Oix(Mx/\Lx)/\Six(Mx/\Lx) : The large Midwestern city has an opera and a subway.
+|Oix(Lx/\Mx)/\Six(Lx/\Mx)
+~~~
+
+<br>
+
+*Problems 3-4*
+
+Here is the key for these problems-- evidently, we are talking about campuses:
+
+<p style="margin-left: 40px"> $b$ = UC Santa Barbara </p>
+<p style="margin-left: 40px"> $Lxy$ = $x$ is larger than $y$  </p>
+<p style="margin-left: 40px"> $Nx$ = $x$ is Northern  </p>
+<p style="margin-left: 40px"> $Ox$ = $x$ is old  </p>
+
+First give the *Russellian translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+10.03 Ex((Ox/\Nx)/\(Ay((Oy/\Ny)->y=x)/\Eu(Lub/\Lux))) : Some old campus is both larger than UC Santa Barbara and larger than the old Northern campus.
+|Ex((Ox/\Nx)/\(Ay((Oy/\Ny)->y=x)/\Eu(Lub/\Lux)))
+~~~
+
+Second give the *Fregean translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+10.04 Eu(Lub/\Luix(Ox/\Nx)) : Some old campus is both larger than UC Santa Barbara and larger than the old Northern campus.
+|Eu(Lub/\Luix(Ox/\Nx))
+~~~
+
+<br>
+
+*Problem 5*
+
+Here is the key-- and here we are talking about baseball:
+
+<p style="margin-left: 40px"> $Cx$ = $x$ is a catcher </p>
+<p style="margin-left: 40px"> $Ox$ = $x$ is an outfielder  </p>
+<p style="margin-left: 40px"> $Tx$ = $x$ is tall  </p>
+<p style="margin-left: 40px"> $Rxy$ = $x$ has higher RBI than $y$  </p>
+
+On this problem, either give the Russellian translation or the Fregean translation (your choice):
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+10.05 Ex((Tx/\Cx)/\(Ay((Ty/\Cy)->y=x)/\Au((Tu/\Ou)->Rux))), Au((Tu/\Ou)->Ruix(Tx/\Cx))  : Every tall outfielder has a higher RBI than the tall catcher.
+|Ex((Tx/\Cx)/\(Ay((Ty/\Cy)->y=x)/\Au((Tu/\Ou)->Rux)))
+~~~
+
+<br>
+
+## Refutations
+
+<br>
+
+*Problems 6-7*
+
+Recall that the Fregean and Russellian interpretations agree when there is exactly one object meeting the definite description. Hence, these two problems pertain to cases where there is not exactly one object meeting the definite description.
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none"}
+10.06 GixFx/\HixFx, Ga, Hb, ~ExFx :|-: Ex(Fx/\(Ay(Fy->x=y)/\(Gx/\Hx)))
+|Domain:0,1,2,3
+|F(_):
+|G(_):0,1
+|H(_):0,2
+|a:1
+|b:2
+```
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none"}
+10.07 Gix(Fx/\Hx), Ex(Fx/\Ay(Fy->y=x)), Ex(Hx/\Ay(Hy->y=x)), Ay(Fy->~Hy), Ax(Fx\/(Gx\/Hx)) :|-: Ex((Fx/\Hx)/\(Ay((Fy/\Hy)->x=y)/\Gx))
+|Domain:0,1,2
+|F(_):1
+|G(_):0
+|H(_):2
+```
+
+<br>
+
+These next two problems are about definite descriptions where the description has some logical structure, i.e. has a propositional connective in it.
+
+*Problems 8-9*
+
+
+This one shows that "the F is G does not imply the F-or-H is G", in a Russellian framework:
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none"}
+10.08 Ex(Fx/\(Ay(Fy->x=y)/\Gx)) :|-:  Ex((Fx\/Hx)/\(Ay((Fy\/Hy)->y=x)/\Gx))
+|Domain:0,1,2,3
+|F(_):1
+|G(_):1,2
+|H(_):0
+```
+
+And then in a Fregean framework (where we further presuppose that there is at least one F):
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none"}
+10.09 GixFx, ExFx :|-: Gix(Fx\/Hx)
+|Domain:0,1,2,3
+|F(_):1
+|G(_):1,2,3
+|H(_):0
+```
+
+<br>
+
+*Problem 10*
+
+This one illustrates that the definite description operator does not commute with the quantifiers, i.e. you can't pull quantifiers out of definite description operators.
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none"}
+10.10 GixAyRxy, AyRay/\Au(AyRuy->u=a), EuEv(Ruv/\(Rvu/\~u=v)) :|-: AyGixRxy
+|Domain:0,1,2
+|F(_):1
+|G(_):1,2
+|R(_,_):[1,0],[1,1],[1,2],[2,1]
+|a:1
+```
+
+<br>
+
+## Proofs
+
+For ease of reference, here are the rules pertaining to the definite descriptions:
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Statement</th>
+    <th>Typed</th>
+    <th>Typed (change of variables)</th>
+  </tr>
+  <tr>
+    <td>Introduction `Ii`</td>
+    <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x)\vdash F\iota x Fx$</td>
+    <td>`Ex(Fx/\(Ay(Fy->y=x))) :|-: F℩xFx`</td>
+    <td>`Eu(Fu/\(Av(Fv->v=u))) :|-: F℩uFu`</td>
+  </tr>
+  <tr>
+    <td>Elimination `Ei`</td>
+    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x)$</td>
+    <td>`~℩xFx=℩x⊥ :|-:Ex(Fx/\(Ay(Fy->y=x)))`</td>
+    <td>`~℩uFu=℩u⊥ :|-:Eu(Fu/\(Av(Fv->v=u)))`</td>
+  </tr>
+</table>
+
+
+<br>
+
+*Problem 11*
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+10.11 Fa/\Ga, Ay(Fy->y=a) :|-: GixFx
+|Fa/\Ga :assumption
+|Ay(Fy->y=a) :assumption
+|Fa :E/\1
+|Fa/\Ay(Fy->y=a) :I/\2,3
+|Ex(Fx/\Ay(Fy->y=x)) :IE4
+|FixFx :Ii5
+|FixFx->ixFx=a :EA2
+|ixFx=a :E->6,7
+|Ga :E/\1
+|GixFx :E=8,9
+```
+
+<br>
+
+*Problem 12*:
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+10.12 ~ixFx=ix⊥, a=ixFx :|-: Fa
+|~ixFx=ix⊥ :assumption
+|a=ixFx :assumption
+|Ex(Fx/\Ay(Fy->y=x)) :Ei1
+|FixFx :Ii3
+|Fa :E=2,4
+```
+
+<br>
+
+*Problem 13*:
+
+For this one, you should be able to take your proof of the previous and simply replace `Fx` by `Fx/\Gx`. While mechanical, there will be some steps in this simple proof that become challenging to parse.
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+10.12 ~ix(Fx/\Gx)=ix⊥, a=ix(Fx/\Gx) :|-: Fa/\Ga
+|~ix(Fx/\Gx)=ix⊥ :assumption
+|a=ix(Fx/\Gx) :assumption
+|Ex((Fx/\Gx)/\Ay((Fy/\Gy)->y=x)) :Ei1
+|Fix(Fx/\Gx)/\Gix(Fx/\Gx) :Ii3
+|Fa/\Ga :E=2,4
+```
+
+<br>
+
+
+*Problem 14*
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+10.14 ~ixFx=ix⊥, ~ixGx=ix⊥, Ax(Fx->Hx), Ax(Gx->~Hx) :|-: ~ixFx=ixGx
+|~ixFx=ix⊥ :assumption
+|~ixGx=ix⊥ :assumption
+|Ax(Fx->Hx) :assumption
+|Ax(Gx->~Hx) :assumption
+| ixFx=ixGx :assumption
+| Ex(Fx/\Ay(Fy->y=x)) :Ei1
+| Ex(Gx/\Ay(Gy->y=x)) :Ei2
+| FixFx :Ii6
+| GixGx :Ii7
+| FixFx->HixFx :EA3
+| GixGx->~HixGx :EA4
+| HixFx :E->8,10
+| ~HixGx :E->9,11
+| ~HixFx :E=5,13
+| ⊥ :E~12,14
+|~ixFx=ixGx :I~5-15
+```
+
+<br>
+
+*Problem 15*
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+10.15 ~ixFx=ix⊥, GixFx, ExAy(Gy->y=x) :|-: ixFx=ixGx
+|~ixFx=ix⊥ :assumption
+|GixFx :assumption
+|ExAy(Gy->y=x) :assumption
+|Ex(Fx/\Ay(Fy->y=x)) :Ei1
+|FixFx :Ii4
+| Fa/\Ay(Fy->y=a) :assumption
+| Fa :E/\6
+| Ay(Fy->y=a) :E/\6
+| FixFx->ixFx=a :EA8
+| ixFx=a :E->5,9
+| Ga :E=2,10
+|  Ay(Gy->y=b) :assumption
+|  Ga->a=b :EA12
+|  a=b :E->11,13
+|  Ay(Gy->y=a) :E=12,14
+| Ay(Gy->y=b)->Ay(Gy->y=a) :I->12-15
+| Ay(Gy->y=a) :EE3,16
+| Ga/\Ay(Gy->y=a) :I/\11,17
+| Ex(Gx/\Ay(Gy->y=x)) :IE18
+|(Fa/\Ay(Fy->y=a))->Ex(Gx/\Ay(Gy->y=x)) :I->6-19
+|Ex(Gx/\Ay(Gy->y=x)) :EE4,20
+|GixGx :Ii21
+| Ay(Gy->y=c) :assumption
+| GixGx->ixGx=c :EA23
+| GixFx->ixFx=c :EA23
+| ixGx=c :E->22,24
+| ixFx=c :E->2,25
+| ixFx=ixGx :E=26,27
+|Ay(Gy->y=c)->ixFx=ixGx :I->23-28
+|ixFx=ixGx :EE3,29
+```
+<br>
+
+<br>
+
+## Nesting
+
+We can embed definite descriptions inside other definite descriptions-- which we might figuratively describe as "nesting". For instance, $\iota x (Fx\wedge Rx\iota{yGy})$ is "the $F$ which bears the $R$-relation to the $G$."
+
+
+*Problems 16-18*
+
+
+These problems use the following key, and so we are obviously talking about people:
+
+<p style="margin-left: 40px"> $b$ = Brianna  </p>
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major  </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is a German major  </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ is a History major  </p>
+<p style="margin-left: 40px"> $Rxy$ = $x$ respects $y$  </p>
+<p style="margin-left: 40px"> $Txy$ = $x$ teaches $y$  </p>
+
+<br>
+
+In each of Problem 16-18, please use the *Fregean translations* of the definite descriptions. 
+
+<br>
+
+This one does not have nesting, but is just a warm up.
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+10.16 Hix(Fx/\~Rbx) : The French major who Briana does not respect is a History major.
+|Hix(Fx/\~Rbx)
+~~~
+
+<br>
+
+This one has nesting:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+10.17 Eu(Tub/\Tuix(Fx/\~RiyGyx)) : Someone teaches both Briana and the French major who the German major does not respect.
+|Eu(Tub/\Tuix(Fx/\~RiyGyx))
+~~~
+
+This one has yet more nesting:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+10.18 Rbix(Hx/\TiyTybx) : Briana respects the history major who is taught by the teacher of Briana.
+|Rbix(Hx/\TiyTybx)
+~~~
+
+<br>
+
+*Problem 19*
+
+Here is a refutation with nesting:
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none"}
+10.19 Tbc, Tbix(Hx/\TxiyGy), AxTxx :|-: Hc/\TiyGyc
+|Domain:0,1,2,3,4
+|G(_):4
+|H(_):2
+|T(_,_):[1,2],[2,4],[0,0],[1,1],[2,2],[3,3],[4,4]
+|b:1
+|c:2
+```
+
+<br>
+
+*Problem 20*
+
+Here is another refutation with nesting:
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none"}
+10.20 ixFx=iy(Gy/\RyixFx), Ex(Fx/\Ey(Gy/\Ryx)) :|-: AxRxx
+|Domain:0,1,2
+|F(_):1
+|G(_):1
+|R(_,_):[1,1]
+```
