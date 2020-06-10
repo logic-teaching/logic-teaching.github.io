@@ -406,15 +406,15 @@ How can we expand our proof system with definite descriptions? If we take the Ru
   </tr>
   <tr>
     <td>Introduction `Ii`</td>
-    <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x)\vdash F\iota x Fx$</td>
-    <td>`Ex(Fx/\(Ay(Fy->y=x))) :|-: F℩xFx`</td>
-    <td>`Eu(Fu/\(Av(Fv->v=u))) :|-: F℩uFu`</td>
+    <td>$\exists \; x \; Fx\wedge \forall \; y \; (Fy\rightarrow y=x)\vdash F\iota x Fx$</td>
+    <td>`Ex(Fx/\Ay(Fy->y=x)) :|-: F℩xFx`</td>
+    <td>`Eu(Fu/\Av(Fv->v=u)) :|-: F℩uFu`</td>
   </tr>
   <tr>
     <td>Elimination `Ei`</td>
-    <td>$\iota x Fx\neq \iota x. \bot \vdash \exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x)$</td>
-    <td>`~℩xFx=℩x⊥ :|-:Ex(Fx/\(Ay(Fy->y=x)))`</td>
-    <td>`~℩uFu=℩u⊥ :|-:Eu(Fu/\(Av(Fv->v=u)))`</td>
+    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; Fx\wedge \forall \; y \; (Fy\rightarrow y=x)$</td>
+    <td>`~℩xFx=℩x⊥ :|-:Ex(Fx/\Ay(Fy->y=x))`</td>
+    <td>`~℩uFu=℩u⊥ :|-:Eu(Fu/\Av(Fv->v=u))`</td>
   </tr>
 </table>
 
