@@ -1,0 +1,392 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Practice problems
+
+These are practice problems for Chapter 2.
+
+The problems in this set fall into four groups:
+
+- [Set theory notation](#set-theory-notation)
+
+- [Euler diagrams](#euler-diagrams)
+
+- [Set theoretic operations](#set-theoretic-operations)
+
+- [Invalidity](#invalidity)
+
+
+<br>
+
+## Set theory notation
+
+Consider reviewing the [summary of set theory notation](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc#summary-of-set-theory-notation) before proceeding.
+
+*Problem 1*
+
+Consider the set $X=\{x\in \mathbb{N}: 0<x<5\}$ and $Y=\{x\in \mathbb{N}: 0<x<10 \wedge x\notin X\}$. What is the smallest member of $Y$?
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.01 Which is the smallest member of Y?
+| 4
+| *5
+| 6
+| 7
+```
+
+<br>
+
+*Problem 2*
+
+Consider the following sets:
+
+- $A = \{ 1, 2, 3, 4, 7, 10\}$
+
+- $B = \{ x\in \mathbb{N}: 1<x<10\}$
+
+- $C = \{ x\in \mathbb{N}: (x=1 \vee x\in B)\vee x=10 \}$
+
+One and only one of the following statements true. Which is it?
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.02 Which is true?
+| A ⊆ B
+| B ⊆ A
+| *A ⊆ C
+| C ⊆ A
+```
+
+<br>
+
+*Problem 3*
+
+Suppose $X=\{6,7\}$ and $Y=\{5,7\}$. One and only one of the following elements is in $X\times Y$. Which is it?
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.03 Which is it?
+| <5,7>
+| <6,6>
+| <7,6>
+| *<6,7>
+```
+
+<br>
+
+*Problem 4*
+
+Consider the following sets:
+
+- $X_1 = \{ 3, 4, 7, 9\}$
+
+- $X_2 = \{ x\in \mathbb{N}: x>6\}$
+
+- $X_3 = \{ x\in \mathbb{N}: x\in X_2 \wedge x\notin X_1\}$
+
+For $i=1,2,3$ let $x_i$ be the least element of $X_i$ in the ordering of the natural numbers. Identify $\langle x_1, x_2, x_3\rangle$ by selecting it from the following list.
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.04 Which is it?
+| <3,7,7>
+| *<3,7,8>
+| <3,6,7>
+| <3,6,9>
+```
+
+<br>
+
+*Problem 5*
+
+Suppose that $f:\mathbb{N}\rightarrow \mathbb{Z}\times \mathbb{Z}$ by $f(x)=\langle x,-x\rangle$. Suppose that $g:\mathbb{Z}\times \mathbb{Z}\rightarrow \mathbb{N}$ by $g(x,y)=\left|x-y\right|$.
+
+What is $f(g(f(5)))$?
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.05 Which is it?
+| <5,-5>
+| <5,-10>
+| <10,-5>
+| *<10,-10>
+```
+<br>
+
+## Euler diagrams
+
+Recall the arguments of [Aristotle's second figure](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-aristotelian.pandoc#the-second-figure):
+
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Valid argument</th>
+  </tr>
+  <tr>
+    <td>Cesare</td>
+    <td>No A are B, All C are B $\vdash$ No C are A</td>
+  </tr>
+  <tr>
+    <td>Camestres</td>
+    <td>All A are B, No C are B $\vdash$ No C are A</td>
+  <tr>
+    <td>Festino</td>
+    <td>No A are B, Some C are B $\vdash$ Some C are not A</td>
+  </tr>
+  <tr>
+    <td>Baroco</td>
+    <td>All A are B, Some C are not B $\vdash$ Some C are not A</td>
+  </tr>
+</table>
+
+<br>
+
+*Problem 6*
+
+The following Euler diagram makes true all of the premises of one and only one of the four arguments in the second figure. Which is it?
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/euler-practice-1.mp4"/> </video>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.06 Which is it?
+| Cesare
+| Camestres
+| *Festino
+| Baroco
+```
+
+<br>
+
+*Problem 7*
+
+The following Euler diagram makes true all of the premises of one and only one of the four arguments in the second figure. Which is it?
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/euler-practice-2.mp4"/> </video>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.07 Which is it?
+| *Cesare
+| Camestres
+| Festino
+| Baroco
+```
+
+<br>
+
+*Problem 8*
+
+The following Leibniz diagram makes true all of the premises of one and only one of the four arguments in the second figure. Which is it?
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/euler-practice-3.mp4"/> </video>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.08 Which is it?
+| Cesare
+| Camestres
+| Festino
+| *Baroco
+```
+
+<br>
+
+*Problem 9*
+
+Consider the following invalid argument: No A are B, Some C are B $\nvdash$ Some C are A.
+
+Suppose that $A=\{0,2,4,6,8,10\}$ and $B=\{1,3,5,7,9\}$. Which of the following sets should you choose to make $C$ so that the premises of the argument are true and the conclusion is false?
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.09 Which is it?
+| {1,2,3}
+| *{1, 3, 5}
+| {11, 13, 15}
+| {0,2,4}
+```
+
+<br>
+
+*Problem 10*
+
+Consider the following invalid argument: All A are B, Some C are not B $\nvdash$ Some A are not C</td>
+
+Suppose that $A=\{0,1,2\}$ and $B=\{0,1,2,3,4,5\}$. Which of the following sets should you choose to make $C$ so that the premises of the argument are true and the conclusion is false?
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.10 Which is it?
+| {0,1,4,5}
+| {1,2,5,6}
+| {2,3,4,5,6}
+| *{0,1,2,6,7}
+```
+
+
+<br>
+
+## Set theoretic operations
+
+These problems pertain to the set-theoretic operations of [intersection, difference, and union](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-euler-venn.pandoc#set-theory-and-diagrams-and-connectives).
+
+These five problems pertain to the following sets:
+
+- $A = \{0,1,2\}$
+- $B = \{2,3,4\}$
+- $C = \{0,2,4\}$
+
+
+<br>
+
+*Problem 11*
+
+What is $A\cap B$?
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.11 What is it?
+| {1}
+| *{2}
+| {3}
+| {4}
+```
+
+<br>
+
+*Problem 12*
+
+What is $A\setminus B$?
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.12 What is it?
+| {0}
+| *{0,1}
+| {0,2}
+| {1,2}
+```
+
+<br>
+
+*Problem 13*
+
+What is $(A\setminus B)\cup C$?
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.13 What is it?
+| {0,1}
+| {0,1,2}
+| *{0,1,2,4}
+| {0,1,2,3,4}
+```
+
+<br>
+
+*Problem 14*
+
+What is $(A\cup C)\setminus B$?
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.14 What is it?
+| {0,1,2,4}
+| {0,1,3,4}
+| {0,1,2}
+| *{0,1}
+```
+
+<br>
+
+*Problem 15*
+
+What is $B\setminus A$?
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+2.15 What is it?
+| {2,3}
+| *{3,4}
+| {2,4}
+| {0,2}
+```
+
+<br>
+
+## Invalidity
+
+The following problems ask you to choose values of A,B,C which illustrate the invalidity of the arguments. The choices of A,B,C are sets of natural numbers using [the unordered list notation](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc#unordered-list-notation-and-membership), that is they are just natural numbers separated by commas. Above each problem we also display the formulas of predicate logic which we will, in the weeks to come, use to translate the arguments-- you can just ignore that for the time being.
+
+For the `Domain` entry, just choose a big enough set of natural numbers to include all the numbers you want to include in A,B,C. These problems can be done with a very small domain like 0,1,2,3,4,5, which just means that you choose A,B,C to only include numbers from 0,1,2,3,5.
+
+<br>
+
+*Problem 16*
+
+Show that the following argument is not in fact valid:
+
+Some A are B, Some B are C $\vdash$ Some A are C
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+2.16 Ex(Ax/\Bx), Ex(Bx/\Cx) :|-: Ex(Ax/\Cx)
+```
+
+<br>
+
+*Problem 17*
+
+Show that the following argument is not in fact valid:
+
+All A are B, Some B are C $\vdash$ Some A are C
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+2.17 Ax(Ax->Bx), Ex(Bx/\Cx) :|-: Ex(Ax/\Cx)
+```
+
+<br>
+
+*Problem 18*
+
+Show that the following argument is not in fact valid:
+
+All A are B, No A are C $\vdash$ No B are C
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+2.18 Ax(Ax->Bx), ~Ex(Ax/\Cx) :|-: ~Ex(Bx/\Cx)
+```
+
+<br>
+
+*Problem 19*
+
+Show that the following argument is not in fact valid:
+
+No A are B, No B are C $\vdash$ No A are C
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+2.19 ~Ex(Ax/\Bx), ~Ex(Bx/\Cx) :|-: ~Ex(Ax/\Cx)
+```
+
+<br>
+
+*Problem 20*
+
+Show that the following argument is not in fact valid:
+
+No A are B, All B are C $\vdash$ All A are C
+
+```{.CounterModeler .Validity system="gamutND" submission="none"}
+2.20 ~Ex(Ax/\Bx), Ax(Bx->Cx) :|-: Ax(Ax->Cx)
+```
+
+<br>
+
+<br>

@@ -1,14 +1,14 @@
 <br>
 
-# Introductory Logic [^2]
+# [Introductory logic](https://ucla.in/31U89gS) [^2]
 
 <br>
 
 ### By [Sean Walsh](https://philosophy.ucla.edu/person/sean-walsh/)[^1]
 
-[^1]: <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Logic, First Course: Propositional Logic</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://carnap.io/shared/walsh@g.ucla.edu/book-prop-mainpage.pandoc" property="cc:attributionName" rel="cc:attributionURL">Sean Walsh</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/logic-teaching/logic-teaching.github.io/tree/master/prop" rel="dct:source">https://github.com/logic-teaching/logic-teaching.github.io/tree/master/prop</a>. It is written for the [carnap.io](http://carnap.io) platform, which is
+[^1]: <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Introductory Logic</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://carnap.io/shared/walsh@g.ucla.edu/book-mainpage.pandoc" property="cc:attributionName" rel="cc:attributionURL">Sean Walsh</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/logic-teaching/logic-teaching.github.io/tree/master/prop" rel="dct:source">https://github.com/logic-teaching/logic-teaching.github.io/tree/master/</a>. It is written for the [carnap.io](http://carnap.io) platform, which is
 
-[^2]: *Acknowledgements*: Many thanks to Graham Leach-Krouse for his work in developing [carnap.io](http://carnap.io) and for many helpful conversations about it. Likewise thanks to Ian Boon for talking through this material in the course of teaching it with me the first time round. Finally, thanks to the wonderful tutors Yasmine Ardehali, Lauren August, Scott Blomgren, Rocky Klein, Jordan Nakdimon, and Declan Trudel who helped many undergraduates work through many practice problems.
+[^2]: *Acknowledgements*: Many thanks to Graham Leach-Krouse for his work in developing [carnap.io](http://carnap.io) and for many helpful conversations about it. Likewise thanks to Ian Boon for talking through this material in the course of teaching it with me the first time round. Finally, thanks to the wonderful tutors Yasmine Ardehali, Lauren August, Scott Blomgren, Rocky Klein, Jordan Nakdimon, and Declan Trudel.
 
 [^3]: which is an:
 
@@ -17,7 +17,10 @@
 
 This is a first course in logic, divided into two parts, one on propositional logic and one of predicate logic. In each part, the basic idea is to start with translations and semantics, then introduce proofs in a natural deduction framework, and finally to cover topics, such as pragmatics and probability within the setting of propositional logic and definite descriptions within the setting of predicate logic.
 
-It was based on two ten-week courses, and hence there are twenty total chapters, with the parts of the chapter corresponding to the lectures or section meetings. Most every  chapter also comes with a list of practice problems. For many of the links below, there is a "Solution" link next to it, which is just like the page to its immediate left, but with the solutions filled in or indicated. If one is doing an online course, it might make sense to base the lecture on the version which does not contain the solutions and to do the problems together with the students as one goes along.
+
+It was based on two ten-week courses, and hence there are twenty total chapters, with the sections of the chapter corresponding to the lectures or section meetings. For contingent reasons, the second part of the book on predicate logic could not presuppose that students had done the first part on propositional logic, and so the second part can be done independently of the first part.
+
+Every chapter comes with a group of twenty practice problems. For many of the links below, there is a "Solution" link next to it, which is just like the page to its immediate left, but with the solutions filled in or indicated. If one is doing an online course, it might make sense to base the lecture on the version which does not contain the solutions and to do the problems together with the students as one goes along.
 
 Please report typos and suggest improvements at [this google form](https://docs.google.com/forms/d/1U_9AqYZYyH-dCQtjgsjcASI4_91b4OKMsa1NOWEuS9w/edit) that allows anonymous submissions. Also feel free to just send an email to walsh at ucla.edu. If you are an instructor and would like copies of homeworks and exams, feel free to email.
 
@@ -131,6 +134,8 @@ Please report typos and suggest improvements at [this google form](https://docs.
 
 ## Chapter 10
 
+<br>
+
 - [Review for final exam](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-final-exam-review.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-final-exam-review-solutions.pandoc)
 - [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter10.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter10-solutions.pandoc)
 
@@ -151,8 +156,7 @@ Please report typos and suggest improvements at [this google form](https://docs.
 
 - [Review of propositional connectives](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-prop-review.pandoc)
 - [The Aristotelian syllogisms](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-aristotelian.pandoc)
-
-<br>
+- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-01.pandoc)
 
 <br>
 
@@ -162,6 +166,7 @@ Please report typos and suggest improvements at [this google form](https://docs.
 
 - [Elementary set theory notation](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc)
 - [Euler diagrams](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-euler-venn.pandoc)
+- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-02.pandoc)
 
 <br>
 
@@ -212,6 +217,8 @@ Please report typos and suggest improvements at [this google form](https://docs.
 - [Natural deduction, definitions, and normalization](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-normalization-redeux.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-normalization-redeux-with-solutions.pandoc)
 - [Classical predicate logic](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-classical.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-classical-solutions.pandoc)
 - [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-07-redeux.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-07-solutions.pandoc)
+<br>
+
 <br>
 
 ## Chapter 8
