@@ -90,8 +90,8 @@ Using identity, we can express the so-called exact numerical quantifiers:
       <td>There are exactly three $F$'s'</td>
       <td>$\exists \; x_1 \; \exists \; x_2 \; \; \exists \; x_3 \; (((Fx_1\wedge (Fx_2\wedge Fx_3))\wedge (x_1\neq x_2\wedge (x_1\neq x_3 \wedge x_2\neq x_3)))\wedge \forall \; y \; (Fy\rightarrow (y=x_1\vee (y=x_2\vee y=x_3))))$</td>
       <td>`Ex_1Ex_2Ex_3(((Fx_1/\(Fx_2/\Fx_3))/\(~x_1=x_2/\(~x_1=x_3/\ ~x_2=x_3)))/\ Ay(Fy-> (y=x_1\/(y=x_2\/y=x_3))))`</td>
+      </tr>
 </table>
-
 <br>
 
 One can then do translations with these. It might be advisable to proceed by doing some cutting and pasting from up above.
