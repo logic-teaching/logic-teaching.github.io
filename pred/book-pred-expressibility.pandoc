@@ -54,7 +54,7 @@ Using identity, we can express the so-called exact numerical quantifiers:
   <tr>
     <td>There are at least two $F$'s</td>
     <td>$\exists \; x_1 \; \exists \; x_2 \; ((Fx_1\wedge Fx_2)\wedge x_1\neq x_2$)</td>
-    <td>`Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)`
+    <td>`Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)`</td>
   </tr>
   <tr>
     <td>There are at least three $F$'s</td>
