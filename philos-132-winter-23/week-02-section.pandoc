@@ -1,0 +1,337 @@
+Logic, Second Course, Spring 2020. Week 2, Section Activities.
+
+# Week 2, Section
+
+- [Practice with set notation and related concepts](#practice-with-set-notation-and-related-concepts)
+
+- [Practice with Euler diagrams](#practice-with-euler-diagrams)
+
+## Practice with set notation and related concepts
+
+These first few problems ask you to count the subsets of a given set.
+
+*Problem 1*
+
+List and count the subsets of $\{0,1,2\}$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.01 How many are there?
+| 3
+| 5
+| 6
+| *8
+```
+*Problem 2*
+
+List and count the subsets of $\{x\in \mathbb{N} :3\leq x\leq 12$ and $x$ is prime$\}$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.02 How many are there?
+| 4
+| 8
+| *16
+| 32
+```
+
+Questions (3)-(15) are all true/false problems. Let $X$, $Y$, and $Z$ be any set. Please assess the following claims:
+
+*Problem 3*
+
+If $a\in X\cup Y$ and $a\in X$, then $a \not\in Y$.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.03 True or false?
+| True
+| *False
+```
+
+*Problem 4*
+
+If $\{a,b\}\subseteq X\cap Y$, then $a\in X$ and $b\in Y$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.04 True or false?
+| *True
+| False
+```
+
+*Problem 5*
+
+If $\{a,b\}\subseteq X$, then $\{a\}\subseteq X$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.05 True or false?
+| *True
+| False
+```
+
+*Problem 6*
+
+If $a\in X\cup Y$ and $a\not\in X$, then $a\in Y$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.06 True or false?
+| *True
+| False
+```
+
+*Problem 7*
+
+$X \cup (Y\cup Z) = (X\cup Y) \cup Z$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.07 True or false?
+| *True
+| False
+```
+
+*Problem 8*
+
+$\emptyset \cap X = X$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.08 True or false?
+| True
+| *False
+```
+
+*Problem 9*
+
+$X \cap (Y\cap Z) = (X\cap Y) \cap Z$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.09 True or false?
+| *True
+| False
+```
+
+*Problem 10*
+
+$X \cup (Y\cap Z) = (X\cup Y)\cap (X\cup Z)$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.10 True or false?
+| *True
+| False
+```
+
+*Problem 11*
+
+If $\{a\}\in X$, then $\{a\}\subseteq X$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.11 True or false?
+| True
+| *False
+```
+
+*Problem 12*
+
+If $\{a,b\}\subseteq X$, then $a\in X\cup Y$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.12 True or false?
+| *True
+| False
+```
+
+*Problem 13*
+
+There is no set $X$ such that $X \subseteq \emptyset$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.13 True or false?
+| True
+| *False
+```
+
+*Problem 14*
+
+If $\{a,b\}\in X$, then $a\in X\cup Y$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.14 True or false?
+| True
+| *False
+```
+
+*Problem 15*
+
+$X\times Y=Y\times X$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.15 True or false?
+| True
+| *False
+```
+
+This next problem asks you to list and count the elements of a cartesian product.
+
+*Problem 16*
+
+List and count the elements of $\{a,b,c\}\times \{0,1,2\}$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.16 How many are there?
+| 3
+| 6
+| *9
+| 12
+```
+
+The last four problems in this section all concern functions.
+
+*Problem 17*
+
+Consider the function $f:\mathbb{N}\rightarrow\mathbb{N}$ given by $f(x)=x+1$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.17 Which statement about this function is true?
+| It is surjective but not injective
+| *It is injective but not surjective
+| It is neither injective nor surjective
+| It is bijective
+```
+
+*Problem 18*
+
+Consider the function $g:\mathbb{Z}\rightarrow\mathbb{Z}$ given by $g(x)=x+1$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.18 Which statement about this function is true?
+| It is surjective but not injective
+| It is injective but not surjective
+| It is neither injective nor surjective
+| *It is bijective
+```
+
+*Problem 19*
+
+Consider the function $h:\mathbb{Q}\rightarrow\mathbb{Q}$ given by $h(x)=x^2$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.19 Which statement about this function is true?
+| It is surjective but not injective
+| It is injective but not surjective
+| *It is neither injective nor surjective
+| It is bijective
+```
+
+*Problem 20*
+
+Consider the function $i:\mathbb{Q}\rightarrow\mathbb{Q}$ given by $i(x)=x^3-x$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.20 Which statement about this function is true?
+| *It is surjective but not injective
+| It is injective but not surjective
+| It is neither injective nor surjective
+| It is bijective
+```
+
+
+## Practice with Euler diagrams
+
+Try using Euler diagrams to assess whether or not the following argument forms are valid:
+
+*Problem 21*
+
+No A are B, All C are B $\vdash$ No C are A
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.21 Valid or invalid?
+| *Valid
+| Invalid
+```
+
+*Problem 22*
+
+Some A is B, Some B is C $\vdash$ Some A is C
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.2 Valid or invalid?
+| Valid
+| *Invalid
+```
+
+*Problem 23*
+
+No A is B, All A are C $\vdash$ No B is C
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.2 Valid or invalid?
+| Valid
+| *Invalid
+```
+
+*Problem 24*
+
+No A are B, Some C are B $\vdash$ Some C are not A
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.2 Valid or invalid?
+| *Valid
+| Invalid
+```
+
+*Problem 25*
+
+All A are B, Some C are not B $\vdash$ Some C are not A
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.2 Valid or invalid?
+| *Valid
+| Invalid
+```
+
+*Problem 26*
+
+All As are B, Some C is not A $\vdash$ Some C is not B
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.2 Valid or invalid?
+| Valid
+| *Invalid
+```
+
+*Problem 27*
+
+No A is B, No B is C $\vdash$ No A is C
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.2 Valid or invalid?
+| Valid
+| *Invalid
+```
+
+*Problem 28*
+
+No A is B, Some C is not A $\vdash$ Some C is B
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.2 Valid or invalid?
+| Valid
+| *Invalid
+```
+
+*Problem 29*
+
+All A are B, Some B is C $\vdash$ Some A is C
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.2 Valid or invalid?
+| Valid
+| *Invalid
+```
+
+*Problem 30*
+
+All A are B, No C are B $\vdash$ No C are A
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.30 Valid or invalid?
+| *Valid
+| Invalid
+```
+   
+
