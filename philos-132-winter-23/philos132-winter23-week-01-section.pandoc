@@ -2,20 +2,25 @@
 <br>
 
 
-# Review for midterm exam
+# Review of propositional logic
 
-These lecture is a review session for the midterm exam, which takes the form of a practice exam. Hence, the problems fall into groups corresponding to Chapters 1-4:
+This section meeting is an opportunity to review propositional logic together. Further, since we took our first logic course at different places using different books, we'll use this opportunity to just try to converge upon some common notation.
 
-- [Chapter 1 problems](#chapter-1-problems)
-- [Chapter 2 problems](#chapter-2-problems)
-- [Chapter 3 problems](#chapter-3-problems)
-- [Chapter 4 problems](#chapter-4-problems)
+As for the concepts of translations, tautologies, and valid arguments, many of these will no doubt seem familiar from your first logic course. If some of them seem unfamiliar, don't worry: in our study of predicate logic we'll run into them again and have lots of time to learn them well.
+
+There might be more problems than we can do in an hour. That's okay: our main goal here in week one is just to remind ourselves of our first logic course and to get to do some logic together.
+
+- [Main connectives and truth-tables](#main-connectives-and-truth-tables)
+- [Translations](#translations)
+- [Tautologies and equivalences](#tautologies-and-equivalences)
+- [Tautology or not](#tautology-or-not)
+- [Valid or not](#valid-or-not)
 
 <br>
 
-## Chapter 1 problems
+## Main connectives and truth-tables
 
-For the first two problems, draw the tree diagram associated to the formulas, by successively finding the main connectives of the formulas, starting with the big formulas and breaking them into smaller parts. On paper, simply draw the tree diagram. On the computer, successively find the main connectives (pressing 'return' to move to next connective), until the tree diagram has been drawn (ignore the "You may now submit your solution" remark after you finish, since this is just practice).
+For the first two problems, draw the tree diagram associated to the formulas, by successively finding the main connectives of the formulas, starting with the big formulas and breaking them into smaller parts. On paper, simply draw the tree diagram. On the computer, successively find the main connectives (pressing 'return' to move to next connective), until the tree diagram has been drawn. (If you get something wrong, and you are doing it on the computer, you may get some popups that tell you that it is wrong-- just click 'escape' on your keyboard to try again).
 
 <br>
 
@@ -75,44 +80,169 @@ For these next three problems, complete the truth-table. On the computer, you ca
 
 <br>
 
-## Chapter 2 problems
+## Translations
 
-The next two problems concern translations into *propositional logic*.
+In these translation exercises, we use the abbreviations:
+
+<p style="margin-left: 40px"> $a$ = Alex helps </p>
+<p style="margin-left: 40px"> $b$ = Briana helps </p>
+<p style="margin-left: 40px"> $c$ = Cynthia helps </p>
+<p style="margin-left: 40px"> $d$ = Dylan helps  </p>
 
 *Problem 6*
 
-<p style="margin-left: 40px"> $l$ = the planning zone was $l$arger  </p>
-<p style="margin-left: 40px"> $d$ = the planning zone that the company $d$ealt with was the fifteen (15) kilometre planning zone that was laid out </p>
-<p style="margin-left: 40px"> $k$ = I would $k$now about it </p>
-<p style="margin-left: 40px"> $m$ = I would take $m$easures </p>
-
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
- (l/\d)->(k/\m)  :   If the planning zone was larger and if the planning zone that the company dealt with was the fifteen (15) kilometre planning zone that was laid out, I would know about it and I would take measures.
+ (a\/c)->(d/\b) : If Anthony helps or Cynthia helps then Dylan helps and Briana helps.
+|
 ~~~
-
-<br>
 
 *Problem 7*
 
-<p style="margin-left: 40px"> $t$ = there are $t$wo articles in the literature  </p>
-<p style="margin-left: 40px"> $o$ = $o$ne reaches a conclusion about the efficacy of the instrument. </p>
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (d/\~b)->(~c\/a) : If Dylan helps and Briana does not help then Cynthia does not help or Anthony helps.
+|
+~~~
+
+*Problem 8*
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
- ~(t->o)  :  There being two articles in the literature was not sufficient for one reaching a conclusion about the efficacy of the instrument.
+ (a->~b)/\(~c->d) : If Anthony helps then Briana does not help, and if Claire does not help then Dylan helps.
+|
+~~~
+
+*Problem 9*
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (~b->(a/\c)): If Briana does not help then Anthony helps and Cynthia helps.
+|
+~~~
+
+*Problem 10*
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~(~a->b) : It is not the case that if Anthony does not help then Briana helps.
+|
 ~~~
 
 <br>
 
+## Tautologies and equivalences
+
 <br>
+
+A *tautology* is a well-formed formula that is always true. That is, when you look at its truth-table, you see all true's in the column under the main connective. (In a table, the rows go left to right, and the columns go up and down).
+
+*Problem 11*
+
+*Law of excluded middle*: $p\vee \neg p$ is a tautology.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p\/~p
+~~~
+
+*Problem 12*
+
+*Law of non-contradiction*: $\neg (p\wedge \neg p)$ is a tautology.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ ~(p/\~p)
+~~~
+
+<br>
+
+An *equivalence* is just two formulas $\phi$ and $\psi$ such that their biconditional $\phi\leftrightarrow \psi$ is a tautology. Equivalence are then useful because they are true or false in precisely the same circumstances.
+
+*Problem 13*
+
+*The law of double-negation*: $p$ is equivalent to $\neg \neg p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p, ~~p
+~~~
+
+The law of double-negation is an equivalence because for each row, the truth-values of the two formulas separated by a comma are the same. By definition, this means that $p\leftrightarrow \neg \neg p$ is a tautology, as you can see here:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p <-> ~~p
+~~~
+
+*Problem 14*
+
+*Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$.
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p/\q, q/\p
+~~~
+
+*Problem 15*
+
+*Law of distribution for conjunction*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$.
+
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
+ p/\(q\/r), (p/\q)\/(p/\r)
+|
+~~~
+
+## List of named tautologies and equivalences
+
+As we have seen above, there are some tautologies and equivalences which are named. Here is a list of some of the more frequently used tautologies and equivalences.
+
+1. *Law of excluded middle*: $p\vee \neg p$ is a tautology.
+2. *Law of non-contradiction*: $\neg (p\wedge \neg p)$ is a tautology.
+3. *The law of double-negation*: $p$ is equivalent to $\neg \neg p$.
+4. *Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$.
+5. *Law of commutativity for disjunction*: $p\vee q$ is equivalent to $q\vee p$.
+6. *Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$.
+7. *Law of associativity for disjunction*: $(p\vee q)\vee r$ is equivalent to $p\vee (q\vee r)$.
+8. *Law of distribution for conjunction*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$.
+9. *Law of distribution for disjunction*: $p\vee (q\wedge r)$ is equivalent to $(p\vee q)\wedge (p\vee r)$.
+10. *DeMorgan*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.
+11. *DeMorgan*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$.
+
+Sometimes it is useful, for the purposes of memorization and application, to be able to see versions of these with different letters than $p,q$. Here are two variant versions.
+
+## List of named tautologies and equivalences
+
+1. *Law of excluded middle*: $a\vee \neg a$ is a tautology.
+2. *Law of non-contradiction*: $\neg (a\wedge \neg a)$ is a tautology.
+3. *The law of double-negation*: $a$ is equivalent to $\neg \neg a$.
+4. *Law of commutativity for conjunction*: $a\wedge b$ is equivalent to $b\wedge a$.
+5. *Law of commutativity for disjunction*: $a\vee b$ is equivalent to $b\vee a$.
+6. *Law of associativity for conjunction*: $(a\wedge b)\wedge r$ is equivalent to $a\wedge (b\wedge c)$.
+7. *Law of associativity for disjunction*: $(a\vee b)\vee c$ is equivalent to $a\vee (b\vee c)$.
+8. *Law of distribution for conjunction*: $a\wedge (b\vee c)$ is equivalent to $(a\wedge b)\vee (a\wedge c)$.
+9. *Law of distribution for disjunction*: $a\vee (b\wedge c)$ is equivalent to $(a\vee b)\wedge (a\vee c)$.
+10. *DeMorgan*: $\neg (a\wedge b)$ is equivalent to $\neg a \vee \neg b$.
+11. *DeMorgan*: $\neg (a\vee b)$ is equivalent to $\neg a \wedge \neg b$.
+
+## List of named tautologies and equivalences
+
+1. *Law of excluded middle*: $c\vee \neg c$ is a tautology.
+2. *Law of non-contradiction*: $\neg (c\wedge \neg c)$ is a tautology.
+3. *The law of double-negation*: $c$ is equivalent to $\neg \neg c$.
+4. *Law of commutativity for conjunction*: $c\wedge d$ is equivalent to $d\wedge c$.
+5. *Law of commutativity for disjunction*: $c\vee d$ is equivalent to $d\vee c$.
+6. *Law of associativity for conjunction*: $(c\wedge d)\wedge r$ is equivalent to $c\wedge (d\wedge e)$.
+7. *Law of associativity for disjunction*: $(c\vee d)\vee e$ is equivalent to $c\vee (d\vee e)$.
+8. *Law of distribution for conjunction*: $c\wedge (d\vee e)$ is equivalent to $(c\wedge d)\vee (c\wedge e)$.
+9. *Law of distribution for disjunction*: $c\vee (d\wedge e)$ is equivalent to $(c\vee d)\wedge (c\vee e)$.
+10. *DeMorgan*: $\neg (c\wedge d)$ is equivalent to $\neg c \vee \neg d$.
+11. *DeMorgan*: $\neg (c\vee d)$ is equivalent to $\neg c \wedge \neg d$.
+
+<br>
+
+## Tautology or not
 
 In the next two problems, determine whether the formula is a tautology or not. If it is a tautology simply fill out the entire table and indicate that it is a tautology in the subsequent yes/no question. If it is not a tautology, indicate a row where it is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is not a tautology in the subsequent yes/no question.
 
 <br>
 
-*Problem 8*
+*Problem 16*
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
  ((p/\q)/\(q->p))->(q->p)
+|
 ~~~
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
@@ -125,7 +255,7 @@ In the next two problems, determine whether the formula is a tautology or not. I
 
 <br>
 
-*Problem 9*
+*Problem 17*
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
  (q->p)->((p/\q)/\(q->p))
@@ -137,31 +267,18 @@ In the next two problems, determine whether the formula is a tautology or not. I
 | *No.
 ```
 
-<br>
-
-*Problem 10*.
-
-Consider the tautology $\neg (\neg a\vee \neg b) \leftrightarrow (\neg \neg a\wedge \neg \neg b)$. Which of the following is this a substitution instance of?
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
- Which one?
-| Law of excluded middle.
-| Distribution.
-| The law of double-negation.
-| *DeMorgan.
-```
-
-Note: in an earlier published version of this, the answer was incorrectly marked in carnap.io as the law of double-negation.
 
 <br>
 
-## Chapter 3 problems
+## Valid or not
+
+Recall that a *valid argument* is one such that for all rows of the truth table, if all the premises are true in that row, then the conclusion is true in that row. Likewise, an *invalid argument* is one such that there is a row of the truth table such that all of the premises are true in that row, but one the conclusion is false in that row.(In a table, the rows go left to right, and the columns go up and down).
 
 In the next two problems, determine whether the argument is valid or not. If it is valid simply fill out the entire table and indicate that it is valid in the subsequent yes/no question. If it is not valid, indicate a row where the premises are all true and the conclusion is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is valid in the subsequent yes/no question.
 
 <br>
 
-*Problem 11*.
+*Problem 18*.
 
 ```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
  a\/b, c->a, c->b :|-: ~c
@@ -175,7 +292,7 @@ In the next two problems, determine whether the argument is valid or not. If it 
 
 <br>
 
-*Problem 12*.
+*Problem 19*.
 
 ```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
  a\/b, a->~c, b->~c :|-: ~c
@@ -188,37 +305,8 @@ In the next two problems, determine whether the argument is valid or not. If it 
 ```
 <br>
 
-*Problem 13*.
 
-The following is a valid argument:
-
-<p style="margin-left: 40px"> $(a\vee (b\vee c)), \neg b\wedge \neg c  \vdash \neg a$ </p>
-
-It can be obtained from disjunctive syllogism $p\vee q, \neg q \vdash p$ by doing a substitution, and then DeMorgan. Which substitution should you do in order to obtain it?
-
-```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
- Which substitution?
-| Substitute c for p, and substitute a\/b for q.
-| Substitute a\/b for p, and substitute c for q.
-| Substitute b\/c for p, and substitute a for q.
-| *Substitute a for p, and substitute b\/c for q.
-```
-
-*Problem 14*
-
-One and only one of the following is a valid argument. Which is it? *Hint: it can be obtained from distribution.*
-
-```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
- Which one is valid?
-| *a\/(b/\c) ⊢ a\/c
-| a\/(b/\c) ⊢ b\/c
-| a\/(b/\c) ⊢ a/\c
-| a\/(b/\c) ⊢ b/\c
-```
-
-<br>
-
-*Problem 15*
+*Problem 20*
 
 One and only one of the following statements is always true about valid arguments:
 
@@ -232,70 +320,5 @@ One and only one of the following statements is always true about valid argument
 
 <br>
 
-## Chapter 4 problems
-
-In the following four problems we use the following key:
-
-| $a$  =  "Atlanta"
-| $b$  =  "Baltimore"
-| $c$  =  "Chicago"
-| $F$  =  "has a football team"
-| $H$  =  "has a hockey team"
-| $I$  =  "is inland"
-| $M$  =  "is in the midwest"
-| $S$  =  "has a soccer team"
 
 
-<br>
-
-Remember that on the translation problems, to check them on the computer you just press 'return.'
-
-<br>
-
-*Problem 16*
-
-~~~{.Translate .FOL system="gamutND" submission="none"}
- (Sb/\Mb)->Ex(Sx/\Mx)  : If Baltimore has a soccer team and Baltimore is in the midwest, then someplace has a soccer team and is in the Midwest.
-~~~
-
-<br>
-
-
-*Problem 17*
-
-~~~{.Translate .FOL system="gamutND" submission="none"}
- Ax(Fx->~Hx)->~Ha  : If all places having football teams do not have hockey teams, then Atlanta does not have a hockey team.
-~~~
-
-
-<br>
-
-*Problem 18*
-
-~~~{.Translate .FOL system="gamutND" submission="none"}
- (Ia/\Ha)\/((Ib/\Hb)\/(Ic/\Hc)) : Find an equivalent of "someplace is inland and has a hockey team" in predicate logic without using a quantifier, under the hypothesis that there are only three places a,b,c.
-~~~
-
-<br>
-
-*Problem 19*
-
-<p style="margin-left: 40px"> $m$ = it is in the $m$idwest  </p>
-<p style="margin-left: 40px"> $s$ = it has a $s$occer team  </p>
-<p style="margin-left: 40px"> $h$ = it has a $h$ockey team  </p>
-
-~~~{.Translate .Prop system="gamutPND" submission="none"}
- m->(s/\~h) : Insert a propositional consequence of "All places in the midwest have soccer teams and not hockey teams".
-~~~
-
-<br>
-
-*Problem 20*
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
- Which of the following is ~Ex((~Fx/\~Gx)\/Hx) equivalent to?
-| *Ax((Fx\/Gx)/\~Hx)
-| Ax((~Fx\/Gx)/\~Hx)
-| Ax((~~Fx\/~~Gx)/\Hx)
-| Ax((Fx/\Gx)\/~Hx)
-```
