@@ -118,21 +118,21 @@ In these translation exercises, we use the abbreviations:
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (a\/c)->(d/\b) : If Anthony helps or Cynthia helps then Dylan helps and Briana helps.
-|
+|(a\/c)->(d/\b)
 ~~~
 
 *Problem 7*
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (d/\~b)->(~c\/a) : If Dylan helps and Briana does not help then Cynthia does not help or Anthony helps.
-|
+|(d/\~b)->(~c\/a)
 ~~~
 
 *Problem 8*
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (a->~b)/\(~c->d) : If Anthony helps then Briana does not help, and if Claire does not help then Dylan helps.
-|
+|(a->~b)/\(~c->d)
 ~~~
 
 *Problem 9*
@@ -146,7 +146,7 @@ In these translation exercises, we use the abbreviations:
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  ~(~a->b) : It is not the case that if Anthony does not help then Briana helps.
-|
+|~(~a->b)
 ~~~
 
 <br>
@@ -163,6 +163,8 @@ A *tautology* is a well-formed formula that is always true. That is, when you lo
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p\/~p
+|TTFT
+|FTTF
 ~~~
 
 *Problem 12*
@@ -171,6 +173,8 @@ A *tautology* is a well-formed formula that is always true. That is, when you lo
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  ~(p/\~p)
+|TTFFT
+|TFFTF
 ~~~
 
 <br>
@@ -183,12 +187,16 @@ An *equivalence* is just two formulas $\phi$ and $\psi$ such that their bicondit
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p, ~~p
+|TTFT
+|FFTF
 ~~~
 
 The law of double-negation is an equivalence because for each row, the truth-values of the two formulas separated by a comma are the same. By definition, this means that $p\leftrightarrow \neg \neg p$ is a tautology, as you can see here:
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p <-> ~~p
+|TTTFT
+|FTFTF
 ~~~
 
 *Problem 14*
@@ -197,6 +205,10 @@ The law of double-negation is an equivalence because for each row, the truth-val
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p/\q, q/\p
+|TTTTTT
+|TFFFFT
+|FFTTFF
+|FFFFFF
 ~~~
 
 *Problem 15*
@@ -206,7 +218,14 @@ The law of double-negation is an equivalence because for each row, the truth-val
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms nodash" submission="none"}
  p/\(q\/r), (p/\q)\/(p/\r)
-|
+|TTTTTTTTTTTT
+|TTTTFTTTTTFF
+|TTFTTTFFTTTT
+|TFFFFTFFFTFF
+|FFTTTFFTFFFT
+|FFTTFFFTFFFF
+|FFFTTFFFFFFT
+|FFFFFFFFFFFF
 ~~~
 
 <br>
@@ -241,12 +260,15 @@ In the next two problems, determine whether the formula is a tautology or not. I
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
  ((p/\q)/\(q->p))->(q->p)
-|
+|TTTTTTTTTTT
+|TFFFFTTTFTT
+|FFTFTFFTTFF
+|FFFFFTFTFTF
 ~~~
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
  Is the formula a tautology?
-| *Yes.
+| +Yes.
 | No.
 ```
 <br>
@@ -258,12 +280,18 @@ In the next two problems, determine whether the formula is a tautology or not. I
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash autoAtoms" counterexample-to="tautology" submission="none"}
  (q->p)->((p/\q)/\(q->p))
+|TTTTTTTTTTT
+|FTTFTFFFFTT
+|TFFTFFTFTFF
+|FTFFFFFFFTF
 ~~~
+
+*Note: the second row (TF) and the fourth row (FF) are the ones that show that this is not a tautology. Hence, press the 'Non-Tautology' button and enter in either TF or FF. The 'check' button is just making sure you filled in the table correctly.*
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
  Is the formula a tautology?
 | Yes.
-| *No.
+| +No.
 ```
 
 
@@ -271,37 +299,56 @@ In the next two problems, determine whether the formula is a tautology or not. I
 
 ## Valid or not
 
-Recall that a *valid argument* is one such that for all rows of the truth table, if all the premises are true in that row, then the conclusion is true in that row. Likewise, an *invalid argument* is one such that there is a row of the truth table such that all of the premises are true in that row, but one the conclusion is false in that row.(In a table, the rows go left to right, and the columns go up and down).
+Recall that a *valid argument* is one such that for all rows of the truth table, if all the premises are true in that row, then the conclusion is true in that row. Likewise, an *invalid argument* is one such that there is a row of the truth table such that all of the premises are true in that row, but one the conclusion is false in that row. (In a table, the rows go left to right, and the columns go up and down).
 
-In the next two problems, determine whether the argument is valid or not. If it is valid simply fill out the entire table and indicate that it is valid in the subsequent yes/no question. If it is not valid, indicate a row where the premises are all true and the conclusion is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is valid in the subsequent yes/no question.
+In the next two problems, determine whether the argument is valid or not. If it is valid simply fill out the entire table and indicate that it is valid in the subsequent yes/no question. If it is not valid, indicate a row where the premises are all true and the conclusion is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is valid in the subsequent yes/no question. Note that in the column under the consequence symbol $\model$, it is asking you to determine whether: if all the premises are true in the row, then the conclusion is also true.
 
 <br>
 
 *Problem 18*.
 
-```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+```{.TruthTable .Validity system="gamutPND" submission="none" options="double-turnstile nodash autoAtoms"}
  a\/b, c->a, c->b :|-: ~c
+|TTTTTTTTTFFT
+|TTTFTTFTTTTF
+|TTFTTTTFFTFT
+|TTFFTTFTFTTF
+|FTTTFFTTTTFT
+|FTTFTFFTTTTF
+|FFFTFFTFFTFT
+|FFFFTFFTFTTF
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
  It the argument valid?
 | Yes.
-| *No.
+| +No.
 ```
+
+*Note: the argument is invalid, since the first row (TTT) has all true premises but a false conclusion.*
 
 <br>
 
 *Problem 19*.
 
-```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+```{.TruthTable .Validity system="gamutPND" submission="none" options="double-turnstile nodash autoAtoms"}
  a\/b, a->~c, b->~c :|-: ~c
+|TTTTFFTTFFTTFT
+|TTTTTTFTTTFTTF
+|TTFTFFTFTFTTFT
+|TTFTTTFFTTFTTF
+|FTTFTFTTFFTTFT
+|FTTFTTFTTTFTTF
+|FFFFTFTFTFTTFT
+|FFFFTTFFTTFTTF
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
  It the argument valid?
-| *Yes.
+| +Yes.
 | No.
 ```
+
 <br>
 
 
@@ -313,7 +360,7 @@ One and only one of the following statements is always true about valid argument
  Which of the following is always true?
 | If a valid argument has a false conclusion, then it has a true premise.
 | If a valid argument has a false conclusion, then it has all false premises.
-| *If a valid argument has a false conclusion, then it has a false premise.
+| +If a valid argument has a false conclusion, then it has a false premise.
 | If a valid argument has a false conclusion, then it has all true premises.
 ```
 

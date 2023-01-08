@@ -246,15 +246,15 @@ In the next two problems, determine whether the formula is a tautology or not. I
 
 ## Valid or not
 
-Recall that a *valid argument* is one such that for all rows of the truth table, if all the premises are true in that row, then the conclusion is true in that row. Likewise, an *invalid argument* is one such that there is a row of the truth table such that all of the premises are true in that row, but one the conclusion is false in that row.(In a table, the rows go left to right, and the columns go up and down).
+Recall that a *valid argument* is one such that for all rows of the truth table, if all the premises are true in that row, then the conclusion is true in that row. Likewise, an *invalid argument* is one such that there is a row of the truth table such that all of the premises are true in that row, but one the conclusion is false in that row. (In a table, the rows go left to right, and the columns go up and down).
 
-In the next two problems, determine whether the argument is valid or not. If it is valid simply fill out the entire table and indicate that it is valid in the subsequent yes/no question. If it is not valid, indicate a row where the premises are all true and the conclusion is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is valid in the subsequent yes/no question.
+In the next two problems, determine whether the argument is valid or not. If it is valid simply fill out the entire table and indicate that it is valid in the subsequent yes/no question. If it is not valid, indicate a row where the premises are all true and the conclusion is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is valid in the subsequent yes/no question. Note that in the column under the consequence symbol $\model$, it is asking you to determine whether: if all the premises are true in the row, then the conclusion is also true.
 
 <br>
 
 *Problem 18*.
 
-```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+```{.TruthTable .Validity system="gamutPND" submission="none" options="double-turnstile nodash autoAtoms"}
  a\/b, c->a, c->b :|-: ~c
 ```
 
@@ -268,7 +268,7 @@ In the next two problems, determine whether the argument is valid or not. If it 
 
 *Problem 19*.
 
-```{.TruthTable .Validity system="gamutPND" submission="none" options="nodash autoAtoms"}
+```{.TruthTable .Validity system="gamutPND" submission="none" options="double-turnstile nodash autoAtoms"}
  a\/b, a->~c, b->~c :|-: ~c
 ```
 
