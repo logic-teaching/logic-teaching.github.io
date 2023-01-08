@@ -1,7 +1,7 @@
 <br>
 <br>
 
-# Review of propositional logic
+# Review of propositional logic with solutions
 
 This section meeting is an opportunity to review propositional logic together. Further, since we took our first logic course at different places using different books, we'll use this opportunity to just try to converge upon some common notation.
 
@@ -139,7 +139,7 @@ In these translation exercises, we use the abbreviations:
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (~b->(a/\c)): If Briana does not help then Anthony helps and Cynthia helps.
-|
+|(~b->(a/\c))
 ~~~
 
 *Problem 10*
@@ -301,7 +301,7 @@ In the next two problems, determine whether the formula is a tautology or not. I
 
 Recall that a *valid argument* is one such that for all rows of the truth table, if all the premises are true in that row, then the conclusion is true in that row. Likewise, an *invalid argument* is one such that there is a row of the truth table such that all of the premises are true in that row, but one the conclusion is false in that row. (In a table, the rows go left to right, and the columns go up and down).
 
-In the next two problems, determine whether the argument is valid or not. If it is valid simply fill out the entire table and indicate that it is valid in the subsequent yes/no question. If it is not valid, indicate a row where the premises are all true and the conclusion is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is valid in the subsequent yes/no question. Note that in the column under the consequence symbol $\model$, it is asking you to determine whether: if all the premises are true in the row, then the conclusion is also true.
+In the next two problems, determine whether the argument is valid or not. If it is valid simply fill out the entire table and indicate that it is valid in the subsequent yes/no question. If it is not valid, indicate a row where the premises are all true and the conclusion is false-- on the computer just enter the row, while on paper circle the row-- and then explicitly indicate that it is valid in the subsequent yes/no question. Note that in the column under the consequence symbol $\models$, it is asking you to determine whether: if all the premises are true in the row, then the conclusion is also true.
 
 <br>
 
