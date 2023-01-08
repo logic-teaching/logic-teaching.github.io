@@ -1,18 +1,18 @@
 <br>
 <br>
 
-
 # Review of propositional logic
 
 This section meeting is an opportunity to review propositional logic together. Further, since we took our first logic course at different places using different books, we'll use this opportunity to just try to converge upon some common notation.
 
 As for the concepts of translations, tautologies, and valid arguments, many of these will no doubt seem familiar from your first logic course. If some of them seem unfamiliar, don't worry: in our study of predicate logic we'll run into them again and have lots of time to learn them well.
 
-There might be more problems than we can do in an hour. That's okay: our main goal here in week one is just to remind ourselves of our first logic course and to get to do some logic together.
+There are probably more problems here than we can do in an hour. That's okay: our main goal here in week one is just to remind ourselves of our first logic course and to get to do some logic together. Take the problems we don't get to in section as an opportunity for further practice later on, on your own.
 
 - [Main connectives and truth-tables](#main-connectives-and-truth-tables)
 - [Translations](#translations)
 - [Tautologies and equivalences](#tautologies-and-equivalences)
+- [List of named tautologies and equivalences](#list-of-named-tautologies-and-equivalences)
 - [Tautology or not](#tautology-or-not)
 - [Valid or not](#valid-or-not)
 
@@ -31,6 +31,10 @@ For the first two problems, draw the tree diagram associated to the formulas, by
 ```
 <br>
 
+<video controls width="700" src="https://drive.google.com/file/d/1EYbjPkrikT99vPYMdVIwl37UMJjTAm1u/view?usp=share_link"/> </video>
+
+
+
 <br>
 
 <br>
@@ -43,6 +47,8 @@ For the first two problems, draw the tree diagram associated to the formulas, by
  (~p->(~q->~r))
 ```
 <br>
+
+<video controls width="700" src="https://drive.google.com/file/d/1G1MCUG0HdCJYA6sddIpq0QIVt0Z8HF4K/view?usp=share_link"/> </video>
 
 <br>
 
@@ -58,6 +64,14 @@ For these next three problems, complete the truth-table. On the computer, you ca
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  (~p\/(~q/\~r))
+|FTFFTFFT
+|FTFFTFTF
+|FTFTFFFT
+|FTTTFTTF
+|TFTFTFFT
+|TFTFTFTF
+|TFTTFFFT
+|TFTTFTTF
 ~~~
 
 
@@ -67,6 +81,14 @@ For these next three problems, complete the truth-table. On the computer, you ca
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  (~p->(~q->~r))
+|FTTFTTFT
+|FTTFTTTF
+|FTTTFFFT
+|FTTTFTTF
+|TFTFTTFT
+|TFTFTTTF
+|TFFTFFFT
+|TFTTFTTF
 ~~~
 
 <br>
@@ -75,6 +97,10 @@ For these next three problems, complete the truth-table. On the computer, you ca
 
 ~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
  ~~p/\~~q
+|TFTTTFT
+|TFTFFTF
+|FTFFTFT
+|FTFFFTF
 ~~~
 
 
@@ -184,6 +210,8 @@ The law of double-negation is an equivalence because for each row, the truth-val
 |
 ~~~
 
+<br>
+
 ## List of named tautologies and equivalences
 
 As we have seen above, there are some tautologies and equivalences which are named. Here is a list of some of the more frequently used tautologies and equivalences.
@@ -200,35 +228,7 @@ As we have seen above, there are some tautologies and equivalences which are nam
 10. *DeMorgan*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.
 11. *DeMorgan*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$.
 
-Sometimes it is useful, for the purposes of memorization and application, to be able to see versions of these with different letters than $p,q$. Here are two variant versions.
-
-## List of named tautologies and equivalences
-
-1. *Law of excluded middle*: $a\vee \neg a$ is a tautology.
-2. *Law of non-contradiction*: $\neg (a\wedge \neg a)$ is a tautology.
-3. *The law of double-negation*: $a$ is equivalent to $\neg \neg a$.
-4. *Law of commutativity for conjunction*: $a\wedge b$ is equivalent to $b\wedge a$.
-5. *Law of commutativity for disjunction*: $a\vee b$ is equivalent to $b\vee a$.
-6. *Law of associativity for conjunction*: $(a\wedge b)\wedge r$ is equivalent to $a\wedge (b\wedge c)$.
-7. *Law of associativity for disjunction*: $(a\vee b)\vee c$ is equivalent to $a\vee (b\vee c)$.
-8. *Law of distribution for conjunction*: $a\wedge (b\vee c)$ is equivalent to $(a\wedge b)\vee (a\wedge c)$.
-9. *Law of distribution for disjunction*: $a\vee (b\wedge c)$ is equivalent to $(a\vee b)\wedge (a\vee c)$.
-10. *DeMorgan*: $\neg (a\wedge b)$ is equivalent to $\neg a \vee \neg b$.
-11. *DeMorgan*: $\neg (a\vee b)$ is equivalent to $\neg a \wedge \neg b$.
-
-## List of named tautologies and equivalences
-
-1. *Law of excluded middle*: $c\vee \neg c$ is a tautology.
-2. *Law of non-contradiction*: $\neg (c\wedge \neg c)$ is a tautology.
-3. *The law of double-negation*: $c$ is equivalent to $\neg \neg c$.
-4. *Law of commutativity for conjunction*: $c\wedge d$ is equivalent to $d\wedge c$.
-5. *Law of commutativity for disjunction*: $c\vee d$ is equivalent to $d\vee c$.
-6. *Law of associativity for conjunction*: $(c\wedge d)\wedge r$ is equivalent to $c\wedge (d\wedge e)$.
-7. *Law of associativity for disjunction*: $(c\vee d)\vee e$ is equivalent to $c\vee (d\vee e)$.
-8. *Law of distribution for conjunction*: $c\wedge (d\vee e)$ is equivalent to $(c\wedge d)\vee (c\wedge e)$.
-9. *Law of distribution for disjunction*: $c\vee (d\wedge e)$ is equivalent to $(c\vee d)\wedge (c\vee e)$.
-10. *DeMorgan*: $\neg (c\wedge d)$ is equivalent to $\neg c \vee \neg d$.
-11. *DeMorgan*: $\neg (c\vee d)$ is equivalent to $\neg c \wedge \neg d$.
+For easy reference, [here](https://drive.google.com/file/d/1kxWJ7yFQuU3SoaFpcMditzWqkXUAwQZ-/view?usp=share_link) is this table as an image. And [here](https://drive.google.com/file/d/1h3tn0DMwSjUHX98hRnhiu1rD6d7F_r0k/view?usp=share_link) and [here](https://drive.google.com/file/d/1YhjttSDC_FqCo9nOKg_wptqihtVeOnw-/view?usp=share_link) are two versions with different letters besides $p,q$, which is sometimes useful for the purpose of memorization and application.
 
 <br>
 
