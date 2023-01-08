@@ -25,9 +25,8 @@ We begin with a simple review of the propositional connectives: conjunction, dis
 - [Truth-tables](#truth-tables)
 - [A more local view on truth-tables](#a-more-local-view-on-truth-tables)
 
-This is not intended to be one's first logic course. But it is useful to begin with a review of some of the basics from a first logic course. This is, in part, due to the fact that logic textbooks vary slightly in notation. Hence, in reviewing the basics at the outset, we can simultaneously fix notation.[^1]
+This is not intended to be one's first logic course. But it is useful to begin with a review of some of the basics from a first logic course. This is, in part, due to the fact that logic textbooks vary slightly in notation. Hence, in reviewing the basics at the outset, we can simultaneously fix notation.
 
-[^1]: Outside of the last section, this material comes from my version of [Logic, A First Course](https://ucla.in/2TRnKtc). But knowledge of my version is not presupposed in this course. Here in this course, we will build up everything as we go along.
 
 ## The propositional connectives
 
@@ -102,38 +101,44 @@ In predicate logic we will subject these propositions to further analysis. But t
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (a\/b)->(c/\d) : If Anthony attends or Briana attends then Cynthia attends and Dylan attends.
+|
 ~~~
 
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (a/\b)->(c\/d) : If Anthony attends and Briana attends then Cynthia attends or Dylan attends.
+|
 ~~~
 
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (a->b)/\(c->d) : If Anthony attends then Briana attends, and if Claire attends then Dylan attends.
+|
 ~~~
 
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (~a->b): If Anthony does not attend then Briana attends.
+|
 ~~~
 
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  ~(a->b) : It is not the case that if Anthony attends then Briana attends.
+|
 ~~~
 
 
 ~~~{.Translate .Prop system="gamutPND" submission="none"}
  (a<->~b) : Anthony attends if and only if Briana does not attend.
+|
 ~~~
 
 <br>
 
 ## The well-formed formulas
 
-The above translations seem intuitive, but this raises the question of what exactly counts as a possible translation and what exactly the rules are on how to build more complex formulas. For instance, there does not seem to be any exact analogue of parentheses in natural language, and one would want to know what the rules are for when to put these in.
+The above translations seem intuitive, but this raises the question of what exactly counts as a possible translation and what exactly the rules are on how to build more complex formulas. For instance, there does not seem to be an exact analogue of parentheses in natural language, and one would want to know what the rules are for when to put these in.
 
 To this end, let us define the well-formed formulas of propositional logic. Part of the reason for recalling this definition is that since we want to study predicate logic in this course, we will eventually want to define the well-formed formulas of predicate logic.
 
@@ -175,6 +180,16 @@ Here are some *non-examples* of well-formed formulas:
 Finally, some brief remarks on parentheses:
 
 - We always allow ourselves to drop outermost parentheses. For instance, we can write just $p\wedge q$ instead of $(p\wedge q)$. Likewise, we can just write $p\wedge (q\vee r)$ instead of $(p\wedge (q\vee r))$. However, we cannot drop inner parentheses, since e.g $p\wedge q\vee r$ is ambiguous in exactly the way we are trying to avoid. We maintain the convention of allowing ourselves to drop outermost parentheses throughout this course.
+
+- Negation adheres to the well-formed formula to its immediate right. For instance:
+
+  - $\neg p\vee r$ is a disjunction formed from $\neg p$ and $r$.
+
+  - $\neg (p\vee r)$ is the negation of $p\vee r$.
+
+  - $\neg p\vee \neg r$ is the disjunction of $\neg p$ and $\neg r$
+
+  - $\neg (p\vee \neg r)$ is the negation of the disjunction $p\vee \neg r$.
 
 - The usage of parentheses in logic borrows the usage in algebra. For instance, the way we write $(4+x)\times (1+y)$ indicates the order in which one is to do the operations, if one knew the values of the variables $x,y$. Likewise $(p\wedge q)\vee(r\rightarrow s)$ indicates the order in which one is to evaluate the truth of the formula if one knew the truth-value of the propositional letters $p,q,r,s$.
 
@@ -234,7 +249,7 @@ To see how to apply these five rules, consider the following formula:
 
 If there are many propositional letters, or if the formulas are complex, then writing out the entire truth-table becomes infeasible. But if one already knows what row one is interested in and what formula one is interested in, there is a more local way to proceed.
 
-Suppose that $V$ is a row of the truth-table, and so makes decisions about the truth or falsity of the basic propositional letters (the letter $V$ is traditional since it stands for valuation). Then another way to state the rules for truth-tables is as follows:
+Suppose that $V$ is a row of the truth-table, and so makes decisions about the truth or falsity of the basic propositional letters (the letter $V$ is traditional since it stands for *valuation*). Then another way to state the rules for truth-tables is as follows:
 
 - *Atomics*: $V\models p$ if and only if the row $V$ contains a $T$ under the $p$ column. (And similarly for other basic propositional letters).
 
@@ -252,7 +267,7 @@ These definitions are sometimes called *Tarski's definition of truth.* Since the
 
 The symbol $\models$ is sometimes called the *satisfaction symbol*. We pronounce $V\models \phi$ out loud as "$V$ satisfies $\phi$" or "$\phi$ is true in $V$." Likewise, we say $V\models \neg \phi$ out loud as "$V$ does not satsify $\phi$" or "$\phi$ is false in $V$."[^2]
 
-[^2]: The satisfaction symbol is closely related to the consequence symbol $\vdash\phi$ which we use to indicate that $\phi$ is a tautology, i.e. is true in all rows. Namely $\vdash \phi$ if and only if for all rows $V$ one has $V\models \phi$.
+[^2]: The satisfaction relation $\models$ is also used to indicatee the consequence relation $\models\phi$ which we use to indicate that $\phi$ is a tautology, i.e. is true in all rows. Namely $\models \phi$ if and only if for all rows $V$ one has $V\models \phi$.
 
 To illustrate, consider the row $V_1$ which makes all three letters $p,q,r$ true. We calculated up above that the truth-table for $((\neg p\wedge q)\rightarrow (q\vee r))\leftrightarrow r$ was true in this row. Let's show how to determine that using the clauses of Tarski's definition of truth. By the clause for atomics, we know that $V_1\models p$ and $V_1\models q$ and $V_1\models r$. Then by the clause for disjunction, we know that $V_1\models q\vee r$. And by clause for the conditional, we know that $V_1\models (\neg p\wedge q)\rightarrow (q\vee r)$ (this we know because we know that conditionals with true consequents are true). Finally, by the clause for biconditional, we know that $V_1\models ((\neg p\wedge q)\rightarrow (q\vee r))\leftrightarrow r$.
 
