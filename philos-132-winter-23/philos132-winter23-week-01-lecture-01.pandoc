@@ -154,7 +154,7 @@ Then we give some rules how to generate more complex well-formed formulas from s
 
 Finally, we say that nothing else is a well-formed formula besides what can be generated in the way described above. (Obviously the phrase "well-formed formula" is cumbersome. Hence, as a synonym, one will find people saying shorter things like: "formula", "proposition", or "wff".)
 
-Here are some *examples* of complex well-formed formulas. The syntax checker shows how the well-formed formula was built up out of the smaller parts. Press return after you have entered in the main connective to get to the next level. (Ignore the remark about submitting once you are done-- we are just practicing now).
+Here are some *examples* of complex well-formed formulas. The syntax checker shows how the well-formed formula was built up out of the smaller parts. Press return after you have entered in the main connective to get to the next level. (If you get a popup, you can click the 'escape' key to make it go away).
 
 ```{.SynChecker .Match system="gamutPND" submission="none"}
  (p/\q)->(~q\/r)
