@@ -4,235 +4,181 @@ Logic, Second Course, Spring 2020. Week 2, Section Activities.
 
 - [Practice with set notation and related concepts](#practice-with-set-notation-and-related-concepts)
 
-- [Practice with Euler diagrams](#practice-with-euler-diagrams)
+- [Venn diagrams and visualizing relations between sets](#venn-diagrams-and-visualizing-relations-between-sets)
 
 ## Practice with set notation and related concepts
 
-These first few problems ask you to count the subsets of a given set.
-
 *Problem 1*
 
-List and count the subsets of $\{0,1,2\}$
+Consider the set $X=\{x\in \mathbb{N}: 3<x\leq 6\}$
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.01 How many are there?
-| 3
-| 5
-| 6
-| *8
+1.01 Which of the following describes the elements of X?
+| 3,4,5
+| 36
+| *4,5,6
+| 3,x,7
 ```
+
 *Problem 2*
 
-List and count the subsets of $\{x\in \mathbb{N} :3\leq x\leq 12$ and $x$ is prime$\}$
+List and count the subsets of $\{5,6\}$
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 1.02 How many are there?
-| 4
-| 8
-| *16
-| 32
-```
-
-Questions (3)-(15) are all true/false problems. Let $X$, $Y$, and $Z$ be any set. Please assess the following claims:
-
-*Problem 3*
-
-If $a\in X\cup Y$ and $a\in X$, then $a \not\in Y$.
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.03 True or false?
-| True
-| *False
-```
-
-*Problem 4*
-
-If $\{a,b\}\subseteq X\cap Y$, then $a\in X$ and $b\in Y$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.04 True or false?
-| *True
-| False
-```
-
-*Problem 5*
-
-If $\{a,b\}\subseteq X$, then $\{a\}\subseteq X$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.05 True or false?
-| *True
-| False
-```
-
-*Problem 6*
-
-If $a\in X\cup Y$ and $a\not\in X$, then $a\in Y$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.06 True or false?
-| *True
-| False
-```
-
-*Problem 7*
-
-$X \cup (Y\cup Z) = (X\cup Y) \cup Z$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.07 True or false?
-| *True
-| False
-```
-
-*Problem 8*
-
-$\emptyset \cap X = X$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.08 True or false?
-| True
-| *False
-```
-
-*Problem 9*
-
-$X \cap (Y\cap Z) = (X\cap Y) \cap Z$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.09 True or false?
-| *True
-| False
-```
-
-*Problem 10*
-
-$X \cup (Y\cap Z) = (X\cup Y)\cap (X\cup Z)$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.10 True or false?
-| *True
-| False
-```
-
-*Problem 11*
-
-If $\{a\}\in X$, then $\{a\}\subseteq X$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.11 True or false?
-| True
-| *False
-```
-
-*Problem 12*
-
-If $\{a,b\}\subseteq X$, then $a\in X\cup Y$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.12 True or false?
-| *True
-| False
-```
-
-*Problem 13*
-
-There is no set $X$ such that $X \subseteq \emptyset$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.13 True or false?
-| True
-| *False
-```
-
-*Problem 14*
-
-If $\{a,b\}\in X$, then $a\in X\cup Y$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.14 True or false?
-| True
-| *False
-```
-
-*Problem 15*
-
-$X\times Y=Y\times X$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.15 True or false?
-| True
-| *False
-```
-
-This next problem asks you to list and count the elements of a cartesian product.
-
-*Problem 16*
-
-List and count the elements of $\{a,b,c\}\times \{0,1,2\}$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.16 How many are there?
 | 3
+| *4
+| 5
 | 6
-| *9
+```
+
+*Problems 3,4,5*
+
+Consider the set $X=\{(x,y)\in \mathbb{N}^2: x<3, y<2\}$.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.03 Which of the following is not in X?
+| (1,0)
+| (0,1)
+| (2,1)
+|* (1,2)
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.04 How many elements does X have in it?
+| 4
+| 5
+|* 6
 | 12
 ```
 
-The last four problems in this section all concern functions.
-
-*Problem 17*
-
-Consider the function $f:\mathbb{N}\rightarrow\mathbb{N}$ given by $f(x)=x+1$
-
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.17 Which statement about this function is true?
-| It is surjective but not injective
-| *It is injective but not surjective
-| It is neither injective nor surjective
-| It is bijective
+1.05 Which of the following is an equivalent way of describing X?
+| {0,1,2} x {0,1,2}
+| {0,1} x {0,1}
+| {0,1} x {0,1,2}
+|* {0,1,2} × {0,1}
 ```
 
-*Problem 18*
+## Venn diagrams and visualizing relations between sets
 
-Consider the function $g:\mathbb{Z}\rightarrow\mathbb{Z}$ given by $g(x)=x+1$
+There is a standard way to visualize certain relations between sets, assuming that they are all subsets of some large set $D$ (for 'domain') that one can already visualize, usually as as a subset of the Euclidean plane. These are called Venn diagrams, where shapes in the Euclidean plane are used to represet sets. The following table records the correspondence between the relation which can be seen in the diagram, the corresponding set-theoretic facts, and the corresponding Aristotelian proposition:
 
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.18 Which statement about this function is true?
-| It is surjective but not injective
-| It is injective but not surjective
-| It is neither injective nor surjective
-| *It is bijective
-```
+<table style="width:120%">
+  <tr>
+    <th>Diagrammatic relation</th>
+    <th>Set-theoretic relation</th>
+    <th>Aristotelian proposition</th>
+  </tr>
+  <tr>
+    <td>F is entirely contained in G</td>
+    <td>$F\subseteq G$</td>
+    <td>All F are G</td>
+  </tr>
+  <tr>
+    <td>F and G overlap</td>
+    <td>$F\cap G\neq \emptyset$</td>
+    <td>Some F are G</td>
+  <tr>
+    <td>F overlaps with some part outside of G</td>
+    <td>$F\setminus G\neq \emptyset$</td>
+    <td>Some F are not G</td>
+  </tr>
+  <tr>
+    <td>There is no overlap between F and G</td>
+    <td>$F\cap G=\emptyset$</td>
+    <td>No F are G</td>
+  </tr>
+  <tr>
+    <td>F is contained in the part outside of G</td>
+    <td>$F\subseteq G^c$ (equivalently, $F\subseteq D\setminus G$)</td>
+    <td>All F are not G</td>
+  </tr>
+</table>
 
-*Problem 19*
+<br>
 
-Consider the function $h:\mathbb{Q}\rightarrow\mathbb{Q}$ given by $h(x)=x^2$
+In the middle column we introduce some further common set-theoretic notation, for those sets that are all subsets of some larger set $D$ (for 'domain'):
 
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.19 Which statement about this function is true?
-| It is surjective but not injective
-| It is injective but not surjective
-| *It is neither injective nor surjective
-| It is bijective
-```
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Definition</th>
+  </tr>
+  <tr>
+    <td>Intersection of $X,Y$</td>
+    <td>$X\cap Y$</td>
+    <td>$X\cap Y= \{x\in D: x\in X \wedge x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Union of $X,Y$</td>
+    <td>$X\cup Y$</td>
+    <td>$X\cup Y= \{x\in D: x\in X \vee x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Difference of $X$ from $Y$</td>
+    <td>$X\setminus Y$</td>
+    <td>$X\setminus Y = \{x\in D: x\in X \wedge x\notin Y\}$</td>
+  </tr>
+  <tr>
+    <td>Relative compelment</td>
+    <td>$X^c$</td>
+    <td>$X^c = \{x\in D: x\notin X\}$</td>
+  </tr>
+</table>
 
-*Problem 20*
+Some authors also write $\overline{X}$ for $X^c$.
 
-Consider the function $i:\mathbb{Q}\rightarrow\mathbb{Q}$ given by $i(x)=x^3-x$
+<br>
 
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.20 Which statement about this function is true?
-| *It is surjective but not injective
-| It is injective but not surjective
-| It is neither injective nor surjective
-| It is bijective
-```
+To illustrate all this, consider the following Venn diagram:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Large-Euler-Diagram.png" alt="Large Euler diagram" width="700"/>
+
+One can check that the following relations between sets are all true on this diagram:
+
+<table style="width:120%">
+  <tr>
+    <th>Diagrammatic relation</th>
+    <th>Set-theoretic relation</th>
+    <th>Corresponding Aristotelian proposition</th>
+  </tr>
+  <tr>
+    <td> $P_1$ and $P_2$ overlap </td>
+    <td> $P_1\cap P_2\neq \emptyset$ </td>
+    <td> Some $P_1$ are $P_2$ </td>
+  </tr>
+  <tr>
+    <td> $P_1$ is partially outside of $Q_3$ </td>
+    <td> $P_1\setminus Q_3\neq \emptyset$ </td>
+    <td> Some $P_1$ are not $Q_3$ </td>
+  </tr>
+  <tr>
+    <td> $Q_1$ is contained entirely inside $P_1$ </td>
+    <td> $Q_1\subseteq P_1$ </td>
+    <td> All $Q_1$ are $P_1$ </td>
+  </tr>
+  <tr>
+    <td> $Q_4$ is contained entirely outside $P_1$ </td>
+    <td> $Q_1\subseteq P_1^c$ (equivalently, $Q_1\subseteq D\setminus P_1$) </td>
+    <td> All $Q_4$ are not $P_1$ </td>
+  </tr>
+  <tr>
+    <td> $Q_4$ has no overlap with $P_1$ </td>
+    <td> $Q_4\cap P_1=\emptyset$ </td>
+    <td> No $Q_4$ are $P_1$ </td>
+  </tr>
+</table>
+
+<br>
 
 
-## Practice with Euler diagrams
+<p style="page-break-before: always">
 
-Try using Euler diagrams to assess whether or not the following argument forms are valid:
+## Practice with Venn diagrams
+
+Try using Venn diagrams to assess whether or not the following argument forms are valid:
 
 *Problem 21*
 
@@ -333,5 +279,79 @@ All A are B, No C are B $\vdash$ No C are A
 | *Valid
 | Invalid
 ```
-   
 
+
+
+*Problem 15*
+
+$X\times Y=Y\times X$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.15 True or false?
+| True
+| *False
+```
+
+This next problem asks you to list and count the elements of a cartesian product.
+
+*Problem 16*
+
+List and count the elements of $\{a,b,c\}\times \{0,1,2\}$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.16 How many are there?
+| 3
+| 6
+| *9
+| 12
+```
+
+The last four problems in this section all concern functions.
+
+*Problem 17*
+
+Consider the function $f:\mathbb{N}\rightarrow\mathbb{N}$ given by $f(x)=x+1$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.17 Which statement about this function is true?
+| It is surjective but not injective
+| *It is injective but not surjective
+| It is neither injective nor surjective
+| It is bijective
+```
+
+*Problem 18*
+
+Consider the function $g:\mathbb{Z}\rightarrow\mathbb{Z}$ given by $g(x)=x+1$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.18 Which statement about this function is true?
+| It is surjective but not injective
+| It is injective but not surjective
+| It is neither injective nor surjective
+| *It is bijective
+```
+
+*Problem 19*
+
+Consider the function $h:\mathbb{Q}\rightarrow\mathbb{Q}$ given by $h(x)=x^2$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.19 Which statement about this function is true?
+| It is surjective but not injective
+| It is injective but not surjective
+| *It is neither injective nor surjective
+| It is bijective
+```
+
+*Problem 20*
+
+Consider the function $i:\mathbb{Q}\rightarrow\mathbb{Q}$ given by $i(x)=x^3-x$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.20 Which statement about this function is true?
+| *It is surjective but not injective
+| It is injective but not surjective
+| It is neither injective nor surjective
+| It is bijective
+```

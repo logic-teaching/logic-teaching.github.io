@@ -258,18 +258,18 @@ In axiomatic treatments of set theory, it is common to postulate *the axiom of e
 
 For example, using our set formation notation, let $X = \{x\in \mathbb{N}: x<5\}$. Using our unordered list notation, let $Y = \{0,1,2,3,4\}$. The sets $X,Y$ have the same members. The axiom of extensionality implies that $X=Y$.
 
-In one sense, this is a matter of convention: if we didn't stipulate the axiom of extensionality, we could just instead talk about the relation of "having the same member."
+In one sense, this is a matter of convention: if we didn't stipulate the axiom of extensionality, we could just instead talk about the relation of "having the same members."
 
 But in another sense, it is a useful simplification of the theory of sets. For instance, the axiom of extensionality allows us to precisely answer the question "How many subsets of $\{0,1,2\}$ are there?" There are exactly eight, which we can list below:
 
-- There is one empty subset, namely, the $\emptyset$
+- There is one empty subset, namely, the empty set $\emptyset$
 - There are three one element subsets, namely $\{0\}, \{1\}, \{2\}$
 - There are three two element subsets, namely, $\{0,1\}, \{0,2\}, \{1,2\}$.
-- There is one three element subsets namely $\{0,1,2\}$.
+- There is one three element subset namely $\{0,1,2\}$.
 
 There are no further subsets besides these, according to the axiom of extensionality. For, any other subsets would have zero members, exactly one member, exactly two members, or exactly three members. And we have explicitly listed out the options for these sizes.
 
-We might, for other purposes, want to distinguish between sets that have the same members. For instance, perhaps it is merely a contingent fact that "the set of people in this room who are philosopher majors" has the same members as "the set of people in this room who love reading both Plato's *Republic* and Wittgenstein's *Tractatus*." If one wants to do this, the common thing to do now is to say that this single set can be described in two different ways, or corresponds to two different properties. Or one can with the resources of modal logic (a different subject) articulate the notion of contingency underlying this example. All of these approaches are described as *intensional* since they articulate a notion which ends up violating, in certain ways, the principle of *extensionality*. While our extensional set theory is fairly standard and widely adopted, there is no similar widely accepted theory of intensionality. (That's part of the reason why there is still a lively discussion in metaphysics about the nature of properties, and a lively discussion in philosophical logic about different candidate intensional logics).
+We might, for other purposes, want to distinguish between sets that have the same members. For instance, perhaps it is merely a contingent fact that "the set of people in this room who are philosopher majors" has the same members as "the set of people in this room who love reading both Plato's *Republic* and Wittgenstein's *Tractatus*." (Perhaps, if things were different, some curious political science major would be in the second set but not in the first set.) If one wants to do this, the common thing to do now is to say that this single set can be described in two different ways. Or one could say that this single set is determined by two different properties. Or one can with the resources of modal logic (a different subject) articulate the notion of contingency underlying this example. All of these approaches are described as *intensional* since they articulate a notion which ends up violating, in certain ways, the principle of *extensionality*. While our extensional set theory is fairly standard and widely adopted, there is no similar widely accepted theory of intensionality. (That's part of the reason why there is still a lively discussion in metaphysics about the nature of properties, and a lively discussion in philosophical logic about different candidate intensional logics).
 
 <br>
 
@@ -279,7 +279,7 @@ We might, for other purposes, want to distinguish between sets that have the sam
 
 The notion of set can be further refined by thinking through a paradox called ``The Russell paradox.'' It shows that the principles of set-formation and the axiom of extensionality imply that there is no set of all sets.
 
-Suppose, for contradiction, that there was a set of all sets, call it V. By the princple of set-formation, consider the set $Y=\{x\in V: x\notin x\}$. That is, $Y$ is the set of all sets which are not members of themselves. We get a contradiction by considering two cases:
+Suppose, for contradiction, that there was a set of all sets, call it $V$. By the principle of set-formation, consider the set $Y=\{x\in V: x\notin x\}$. That is, $Y$ is the set of all sets which are not members of themselves. We get a contradiction by considering two cases:
 
 - First suppose that $Y$ is in $Y$. Then $Y$ satisfies the property which we used to form the set, namely not being a member of itself. Hence, $Y$ is not in $Y$, a contradiction to our case hypothesis.
 
@@ -287,23 +287,23 @@ Suppose, for contradiction, that there was a set of all sets, call it V. By the 
 
 In either case, we get a contradiction. Hence, as a matter of fact, there is no set of all sets. (If this seemed too quick and you want more details, don't worry-- we will be able to formalize this argument later, after we learn more predicate logic).
 
-What does this paradox tell us about the nature of sets? The widely accepted view is that the kinds of sets which are not subject to paradox are ``built from below'': we start with numbers (or people, or other some other basic things), and we form sets of them, and sets of sets of them, and sets of sets of sets of them, etc. This is the so-called *iterative conception of set*, which is arguably built into the most widely used set theory today, namely the Zermelo–Fraenkel set theory axioms for set theory (ZF set theory, for short).[^6]
+What does this paradox tell us about the nature of sets? A widely accepted view is that the kinds of sets that are not subject to paradox are "built from below": we start with numbers (or people, or other some other basic things), and we form sets of them, and sets of sets of them, and sets of sets of sets of them, etc. This is the so-called *iterative conception of set*, which is arguably built into the most widely used set theory today, namely the Zermelo–Fraenkel set theory axioms for set theory (ZF set theory, for short).[^6]
 
 [^6]: This is the kind of material covered in any modern set theory course. A good introductory book is: [Y. Moschovakis. Notes on Set Theory. Undergraduate Texts in Mathematics. Springer, New York, second edition, 2006](https://link.springer.com/book/10.1007/0-387-31609-4).
 
 But this solution requires some heavy restriction on set formation. You might have thought that to every property $P$ there corresponds a set $X=\{x: x \mbox{ has } P\}$ consisting of those things that have $P$. And if that is right, you might have thought that you could then form the set $V=\{x: x \mbox{ is a set}\}$. This "top down" approach is wrong, according to the solution in the previous paragraph.
 
-Russell was the first to articulate the paradox carefully. He was inclined initially to a "top down" approach, particularly since he was interested not only in sets, but in a broader class of notions like property, truth, and definability. He thought that some version of this paradox infected all these notions, and that a single common solution was required. He then articulated his *vicious circle principle* in his coauthored *Principa Mathematica*, which roughly says that what goes wrong in the paradox is a violation of a prohibition against circular definitions. More precisely, it says:
+Russell was the first to articulate the paradox carefully. He was inclined initially to a "top down" approach, particularly since he was interested not only in sets, but in a broader class of notions like property, truth, and definability. He thought that some version of this paradox infected all these notions, and that a single common solution was required. He then articulated his *vicious circle principle* in his coauthored *Principa Mathematica*, which roughly says that what goes wrong in the paradox is a violation of a prohibition against circular definitions. More precisely, *the vicious circle principle* says:
 
 > If, provided a certain collection had a total, it would have members only definable in terms of that total, then the said collection has no total.[^2]
 
-In this, read "a certain collection had a total" as a way of saying "a certain property determines a set." That is, Russell is using "collection" as a kind of synonym for "property."
+In this, read "a certain collection has a total" as a way of saying "a certain property determines a set." That is, Russell is using "collection" as a kind of synonym for "property."
 
-[^2]: p. 39 of: Whitehead, Alfred North, and Bertrand Russell. 1962. Principia Mathematica to $^\ast 56$. Cambridge University Press, New York. This is an abridged version of an initial segment of the second edition from 1927; the first edition was in 1910.
+[^2]: [p. 39 of: Whitehead, Alfred North, and Bertrand Russell. 1962. Principia Mathematica to $^\ast 56$. Cambridge University Press, New York](https://logic-teaching.github.io/philos-132-winter-23/texts/Whitehead%20and%20Russell%201962%20-%20Principia%20mathematica%20to%2056,%20pp.%2037-38,%2060-65.pdf). This is an abridged version of an initial segment of the second edition from 1927; the first edition was in 1910.
 
 Today, people still study the paradoxes that Russell identified, most prominently the liar paradox. But many people today agree with Russell's colleague Ramsey in separating the Russell paradox from other paradoxes like the liar paradox. Ramsey said there's no real paradox of sets-- the logic and mathematics just kind of works itself out there, perhaps by way of some kind of "bottom up" approach. And Ramsey thought that the liar paradox and the definability paradoxes pertain ultimately to "faulty ideas concering thought and language".[^4] Many people today might draw the line differently than Ramsey, but I think more people today agree with Ramsey than Russell.
 
-[^4]: p. 353 of: Ramsey, F. P. 1926. “The Foundations of Mathematics.” Proceedings of the London Mathematical Society. Third Series s2-25 (1): 338–84.
+[^4]: p. 353 of: [Ramsey, F. P. 1926. “The Foundations of Mathematics.” Proceedings of the London Mathematical Society. Third Series s2-25 (1): 338–84.](https://logic-teaching.github.io/philos-132-winter-23/texts/Ramsey%201926%20-%20The%20foundations%20of%20mathematics.pdf)
 
 <br>
 

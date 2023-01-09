@@ -30,7 +30,7 @@ We slowly motivate the constituent components of the definition of the well-form
 
 ## Atomic formulas
 
-In [the Aristotelian syllogism](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-aristotelian.pandoc), the propositions featuring in the premises and conclusions relate subjects to predicates, either in a universal or particular way. One of the ideas of contemporary predicate logic is to assume that universal and particular statements about subjects and predicates can be reduced down to simpler statements about objects and properties. The relevant sense of "object" is "basic, smallest type of entity" and the relevant sense of "property" is something like "collection of objects." Some examples will help to get the idea across:
+In [the Aristotelian syllogism](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc), the propositions featuring in the premises and conclusions relate subjects to predicates, either in a universal or particular way. One of the ideas of contemporary predicate logic is to assume that universal and particular statements about subjects and predicates can be reduced down to simpler statements about objects and properties. The relevant sense of "object" is "basic, smallest type of entity" and the relevant sense of "property" is something like "collection of objects." Some examples will help to get the idea across:
 
 - If we are talking about people, then the objects would be particular people like Allison, Brianna, Carlos, and Daniel and the properties would be things like "is in Debate club" or "is a history major."
 - If we are talking about cities, then the objects would be particular cities like Atlanta, Boston, Charlotte, Denver and the properties would be things like "is on the East Coast" and "has more than 5 million people."
@@ -273,6 +273,7 @@ Again, a good way to practice is to do some simple translation exercises:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  (AxHx\/AxGx)->Ax(Hx\/Gx) : If everyone is a History major or everyone is a Geography major, then everyone is a History major or a Geography major.
+|
 ~~~
 
 <br>
@@ -281,13 +282,14 @@ Again, a good way to practice is to do some simple translation exercises:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  AxHx->ExHx : If everyone is a History major, then someone is a history major.
+|
 ~~~
 
 <br>
 
 ## The well-formed formulas
 
-In parallel to [the earlier definition of well-formed formula of propositional logic](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-prop-review.pandoc#the-well-formed-formulas), we can now formally define the well-formed formulas of predicate logic:
+In parallel to [the earlier definition of well-formed formula of propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-01.pandoc#the-well-formed-formulas), we can now formally define the well-formed formulas of predicate logic:
 
 - All the atomic formulas are well-formed formulas and the main connective is the predicate symbol.
 - If $\phi$ is a well-formed formula, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$.
@@ -306,7 +308,7 @@ A couple of notes on our definition of well-formed formula:
 
 - As mentioned immediately before Example 10, the inner parentheses in $\phi(x)$ does not show up when we write out specific examples. For instance, we could go from $Pc$ to $\exists \; x \; Px$ or to $\forall \; x \; Px$, and there are no parentheses at all. As mentioned immediately before Example 10, this inner set of parentheses is used merely to help us see that we get the $\phi(x)$ in $\exists \; x \; \phi(x)$ or in $\forall \; x \; \phi(x)$ from the $\phi(c)$ by replacing the $c$ by $x$ in $\phi(c)$.
 
-- There is a slight difference between this presentation of predicate logic and other treatments of predicate logic which you may have seen. Namely, things like $Fx$ and $Gy$ do not count as formulas. In particular, the variables $x$ and $y$ will only be occurring to the right of quantifiers. That is, while $\exists \; x \; Fx$ and $\forall \; y \; Gy$ are well-formed formulas, the expressions $Fx$ and $Gy$ are not well-formed formulas.
+- Note that on this presentation of well-formed formulas, $Fx$ and $Gy$ do not count as well-formed formulas. Our presentation in this lecture is a "constants first, variables second" approach. Later we will see an approach that prioritizes variables.
 
 - Using this definition of well-formed formula, one can consecutively form sentences like the following: (i) $Fa\wedge Gb$ and (ii)  $\exists \;x \; (Fx\wedge Gb)$ and (iii) $\forall \; y \; \exists \; x \; (Fx\wedge Gy)$. We have not seen many like the last one, with multiple quantifiers in it, but we will focus on these kinds of formulas next time. For the remainder of today, we focus on formulas wherein every subformula has at most one quantifier in it.
 
@@ -316,7 +318,7 @@ See the section [Building-blocks of formulas of predicate logic](#building-block
 
 ## Translating the Aristotelian propositions
 
-Here are some common translation schemas that can be used to translate [the Aristotelian syllogisms](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-aristotelian.pandoc) into predicate logic:
+Here are some common translation schemas that can be used to translate [the Aristotelian syllogisms](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc) into predicate logic:
 
 <table style="width:100%">
   <tr>
