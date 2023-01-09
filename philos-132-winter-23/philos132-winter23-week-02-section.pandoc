@@ -134,7 +134,7 @@ Some authors also write $\overline{X}$ for $X^c$.
 
 To illustrate all this, consider the following Venn diagram:
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Large-Euler-Diagram.png" alt="Large Euler diagram" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Large-Euler-Diagram.png" alt="Large Venn diagram 1" width="700"/>
 
 One can check that the following relations between sets are all true on this diagram:
 
@@ -173,6 +173,52 @@ One can check that the following relations between sets are all true on this dia
 
 <br>
 
+Consider the following diagram:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/venn3.png" alt="Large Venn diagram 2" width="700"/>
+
+Consider the following table, which has some blanks in it:
+
+<table style="width:120%">
+  <tr>
+    <th>Diagrammatic relation</th>
+    <th>Set-theoretic relation</th>
+    <th>Corresponding Aristotelian proposition</th>
+  </tr>
+  <tr>
+    <td> $C$ is contained in $F$ </td>
+    <td> $C\subseteq F$ </td>
+    <td> All $C$ are $F$ </td>
+  </tr>
+  <tr>
+    <td> $C$ is contained entirely outset $G$ </td>
+    <td> $C\subseteq G^c$ (equivalently, $C\subseteq D\setminus G$) </td>
+    <td> All $C$ are not $G$ </td>
+  </tr>
+  <tr>
+    <td> $B$ and $H$ overlap </td>
+    <td> $B\cap H\neq \emptyset$ </td>
+    <td> Some $B$ are $H$ </td>
+  </tr>
+  <tr>
+    <td> $F$ and $H$ do not overlap </td>
+    <td> $F\cap H=\emptyset$ </td>
+    <td> No $F$ are $H$ </td>
+  </tr>
+  <tr>
+    <td> $B$ is partially outside $H$ </td>
+    <td> $B\setminus H\neq \emptyset$ </td>
+    <td> Some $B$ are not $H$ </td>
+  </tr>
+</table>
+
+*Problems 6-10*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.06 Which of the following are true of
+| *Valid
+| Invalid
+```
 
 <p style="page-break-before: always">
 
