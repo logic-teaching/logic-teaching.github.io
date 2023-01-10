@@ -149,7 +149,8 @@ For instance, consider $f(x)=x^2$ with domain $\mathbb{N}$ and codomain $\mathbb
 
 We can define functions whose operations are given by cases. For instance, consider the function $f:\mathbb{N}\rightarrow \mathbb{N}$ given by
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/sets-function-case-break.png" alt="Function defined by case break" width="300"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/sets-function-case-break.png" alt="Function defined by case break" width="700"/>
+
 
 For instance, $f(1)=1+5=6$, and $f(4)=2\cdot 4 = 8$. Even though the operation described by cases, it still suffices to determine an output for each input, and so we count it as a function.
 

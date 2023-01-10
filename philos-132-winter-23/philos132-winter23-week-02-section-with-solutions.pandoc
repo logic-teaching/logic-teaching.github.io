@@ -1,0 +1,502 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+# Practice with sets, with solutions
+
+<br>
+
+- [Practice with set notation](#practice-with-set-notation)
+
+- [Venn diagrams](#venn-diagrams)
+
+- [Validity and Venn diagrams](#validity-and-venn-diagrams)
+
+- [Practice with functions](#practice-with-functions)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Practice with set notation
+
+*Problem 1*
+
+Consider the set $X=\{x\in \mathbb{N}: 3<x\leq 6\}$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.01 Which of the following describes the elements of X?
+| 3, 4, 5
+| 36
+| +4, 5, 6
+| 3, x, 6
+```
+
+*Note*: $3$ does not get in there because of the $<$ in the definition of the set. And $6$ gets in there because of the $\leq$ in the definition of the set.
+
+*Problem 2*
+
+List and count the subsets of $\{5,6\}$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.02 How many are there?
+| 3
+| +4
+| 5
+| 6
+```
+
+*Note*: The four subsets are:
+
+- one zero element subset, namely the empty set $\emptyset$
+- two one element subsets, namely $\{5\}$ an $\{6\}$.
+- one two element subset, namely $\{5,6\}$.
+
+In general, if a set has exactly $n$ elements, then it has $2^n$ subsets. In this case, $n=2$.
+
+*Problems 3, 4, 5*
+
+Consider the set $X=\{\langle x,y\rangle\in \mathbb{N}^2: x<3, y<2\}$.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.03 Which of the following is not in X?
+| <1,0>
+| <0,1>
+| <2,1>
+|+ <1,2>
+```
+
+*Note*: $\langle 1,2\rangle$ is not in the set, since in this case the $y$-value is $2$, and so the $y$-value is not $<2$, which is what the definition of $X$ requires.
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.04 How many elements does X have in it?
+| 4
+| 5
+|+ 6
+| 12
+```
+
+<br>
+
+*Note*: they are
+
+- the two ordered pairs with $x$-value zero: $\langle 0, 0\rangle$, $\langle 0, 1\rangle$.
+- the two ordered pairs with $x$-value one: $\langle 1, 0\rangle$, $\langle 1, 1\rangle$.
+- the two ordered pairs with $x$-value two: $\langle 2, 0\rangle$, $\langle 2, 1\rangle$.
+
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.05 Which of the following is an equivalent way of describing X?
+| {0,1,2} x {0,1,2}
+| {0,1} x {0,1}
+| {0,1} x {0,1,2}
+|+ {0,1,2} × {0,1}
+```
+
+*Note*: it is $\{0,1,2\}\times \{0,1\}$ because the $x$-values range over natural numbers $<3$, which is $0,1,2$, and the $y$-values range over natural numbers $<2$, which is $0,1$.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Venn diagrams
+
+There is a standard way to visualize certain relations between sets, assuming that they are all subsets of some large set $D$ (for 'domain') that one can already visualize, usually a subset of the Euclidean plane. These are called Venn diagrams, where shapes in the Euclidean plane are used to represent sets. The following table records the correspondence between the shapes, the corresponding set-theoretic facts, and the corresponding Aristotelian proposition:
+
+<table style="width:120%">
+  <tr>
+    <th>Diagrammatic relation</th>
+    <th>Set-theoretic relation</th>
+    <th>Aristotelian proposition</th>
+  </tr>
+  <tr>
+    <td>F is contained in G</td>
+    <td>$F\subseteq G$</td>
+    <td>All F are G</td>
+  </tr>
+  <tr>
+    <td>F and G overlap</td>
+    <td>$F\cap G\neq \emptyset$</td>
+    <td>Some F are G</td>
+  <tr>
+    <td>F overlaps with some part outside of G</td>
+    <td>$F\setminus G\neq \emptyset$</td>
+    <td>Some F are not G</td>
+  </tr>
+  <tr>
+    <td>F and G do not overlap</td>
+    <td>$F\cap G=\emptyset$</td>
+    <td>No F are G</td>
+  </tr>
+  <tr>
+    <td>F is entirely outside of G</td>
+    <td>$F\subseteq G^c$ (equivalently, $F\subseteq D\setminus G$)</td>
+    <td>All F are not G</td>
+  </tr>
+</table>
+
+<br>
+
+In the middle column we introduce some further common set-theoretic notation (assuming, again, that all the sets are subsets of some larger set $D$, for 'domain'):
+
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Definition</th>
+  </tr>
+  <tr>
+    <td>Intersection of $X,Y$</td>
+    <td>$X\cap Y$</td>
+    <td>$X\cap Y= \{x\in D: x\in X \wedge x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Union of $X,Y$</td>
+    <td>$X\cup Y$</td>
+    <td>$X\cup Y= \{x\in D: x\in X \vee x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Difference of $X$ from $Y$</td>
+    <td>$X\setminus Y$</td>
+    <td>$X\setminus Y = \{x\in D: x\in X \wedge x\notin Y\}$</td>
+  </tr>
+  <tr>
+    <td>Relative complement</td>
+    <td>$X^c$</td>
+    <td>$X^c = \{x\in D: x\notin X\}$</td>
+  </tr>
+</table>
+
+<br>
+
+(Note some authors write relative complement $X^c$ just by putting an a horizontal line over the $X$.)
+
+<br>
+
+To illustrate all this, consider the following Venn diagram:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Large-Euler-Diagram.png" alt="Large Venn diagram 1" width="700"/>
+
+<br>
+
+One can check that the following relations between sets are all true on this diagram:
+
+<br>
+
+<table style="width:120%">
+  <tr>
+    <th>Diagrammatic relation</th>
+    <th>Set-theoretic relation</th>
+    <th>Aristotelian proposition</th>
+  </tr>
+  <tr>
+    <td> $P_1$ and $P_2$ overlap </td>
+    <td> $P_1\cap P_2\neq \emptyset$ </td>
+    <td> Some $P_1$ are $P_2$ </td>
+  </tr>
+  <tr>
+    <td> $P_1$ is partially outside of $Q_3$ </td>
+    <td> $P_1\setminus Q_3\neq \emptyset$ </td>
+    <td> Some $P_1$ are not $Q_3$ </td>
+  </tr>
+  <tr>
+    <td> $Q_1$ is contained in $P_1$ </td>
+    <td> $Q_1\subseteq P_1$ </td>
+    <td> All $Q_1$ are $P_1$ </td>
+  </tr>
+  <tr>
+    <td> $Q_4$ is entirely outside $P_1$ </td>
+    <td> $Q_1\subseteq P_1^c$ (equivalently, $Q_1\subseteq D\setminus P_1$) </td>
+    <td> All $Q_4$ are not $P_1$ </td>
+  </tr>
+  <tr>
+    <td> $Q_4$ has no overlap with $P_1$ </td>
+    <td> $Q_4\cap P_1=\emptyset$ </td>
+    <td> No $Q_4$ are $P_1$ </td>
+  </tr>
+</table>
+
+<br>
+
+Of course, the diagram displays a lot more than what we have recorded in the above table.
+
+<br>
+
+*Problems 6-10*
+
+<br>
+
+Consider the following diagram:
+
+<br>
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/venn3.png" alt="Large Venn diagram 2" width="700"/>
+
+<br>
+
+Consider the following table, which has some blanks in it:
+
+<br>
+
+<table style="width:120%">
+  <tr>
+    <th>Diagrammatic relation</th>
+    <th>Set-theoretic relation</th>
+    <th>Aristotelian proposition</th>
+  </tr>
+  <tr>
+    <td> _________________ </td>
+    <td> $C\subseteq F$ </td>
+    <td> All $C$ are $F$ </td>
+  </tr>
+  <tr>
+    <td> $C$ is entirely outside $G$ </td>
+    <td> $C\subseteq G^c$ (equivalently, $C\subseteq D\setminus G$) </td>
+    <td> ______________ </td>
+  </tr>
+  <tr>
+    <td> $B$ and $H$ overlap </td>
+    <td> ______________ </td>
+    <td> Some $B$ are $H$ </td>
+  </tr>
+  <tr>
+    <td> _________________ </td>
+    <td> $F\cap H=\emptyset$ </td>
+    <td> No $F$ are $H$ </td>
+  </tr>
+  <tr>
+    <td> $B$ is partially outside $H$ </td>
+    <td> _____________ </td>
+    <td> Some $B$ are not $H$ </td>
+  </tr>
+</table>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+1.06 What should you put in the blank in the first row?
+| C and F overlap
+|+ C is contained in F
+| C overlaps with some part outside F
+| C and F do not overlap
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+1.07 What should you put in the blank in the second row?
+| All C are G
+| No C are not G
+|+ All C are not G
+| Some C are not G
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+1.08 What should you put in the blank in the third row?
+| B ∩ H = ∅
+| B ∪ H ≠ ∅
+| B ∪ H = ∅
+|+ B ∩ H ≠ ∅
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+
+1.09 What should you put in the blank in the fourth row?
+|+ F and H do not overlap
+| F and H do overlap
+| F overlaps with some part outside H
+| F is contained in the part outside H.
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.10 What should you put in the blank in the fifth row?
+| B \ H = ∅
+| H \ B ≠ ∅
+|+ B \ H ≠ ∅
+| H \ B = ∅
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+## Validity and Venn diagrams
+
+<br>
+
+Given the above problems, it is kind of obvious that the one can use Venn diagrams to help test for invalidity of arguments, when the premises and conclusions of those arguments contain only Aristotelian propositions. One just looks for a Venn diagram which makes the premises true and the conclusion false. If one can't find one easily, that might be a sign that the argument is valid. It might follow, for instance, from some of the Aristotelian conversions and syllogisms. Later we will spend a lot of time developing other methods to establish validities.
+
+<br>
+
+*Problem 11*
+
+Some A is B, Some B is C $\vDash$ Some A is C
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
+1.11 Valid or invalid?
+| Valid
+| +Invalid
+```
+
+*Note*: for this one, just make $A,B,C$ be three shapes such that $A,B$ intersect, and $B,C$ intersect, but $A,C$ does not intersect.
+
+<br>
+
+*Problem 12*
+
+No A are B, All C are B $\vDash$ No C are A
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
+1.12 Valid or invalid?
+| +Valid
+| Invalid
+```
+
+*Note*: this one is valid. This can be seen, for instance, from Celarent and the second conversion.
+
+<br>
+
+*Problem 13*
+
+No A is B, All A are C $\vDash$ No B is C
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
+1.13 Valid or invalid?
+| Valid
+| +Invalid
+```
+
+*Note*: for this one, just make a small $A$ circle fit into a big $C$ circle, and make the big $C$ circle intersect an outer $B$ circle which is really far away from $A$ and does not touch $A$.
+
+<br>
+
+*Problem 14*
+
+No A are B, Some C are B $\vDash$ Some C are not A
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
+1.14 Valid or invalid?
+| +Valid
+| Invalid
+```
+
+*Note*: this one is valid. It follows from Ferio and the second conversion.
+
+<br>
+
+*Problem 15*
+
+All A are not B, Some C are not B $\vDash$ Some C are not A
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
+1.15 Valid or invalid?
+| Valid
+| +Invalid
+```
+
+*Note*: this one is invalid. To see this, just draw a small $C$ circle inside a big $A$ circle, and then draw a big $B$ circle disjoint from both of $A,C$.
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Practice with functions
+
+The last five problems in this section all concern [functions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#functions).
+
+*Problem 16*
+
+Consider the function $f:\mathbb{N}\rightarrow\mathbb{N}$ given by $f(x)=x+1$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.16 Which statement about this function is true?
+| It is surjective but not injective
+| +It is injective but not surjective
+| It is neither injective nor surjective
+| It is bijective
+```
+
+*Note*: this one is injective but not surjective. It is not surjective because zero is not in the range. It is injective because one can argue as follows: suppose $f(x)=f(x^{\prime})$. Then $x+1=x^{\prime}+1$. Then by subtracting one from both sides, we get $x=x^{\prime}$.
+
+<br>
+
+*Problem 17*
+
+Consider the function $g:\mathbb{Z}\rightarrow\mathbb{Z}$ given by $g(x)=x+1$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.17 Which statement about this function is true?
+| It is surjective but not injective
+| It is injective but not surjective
+| It is neither injective nor surjective
+| +It is bijective
+```
+
+*Note*: this one is bijective. The argument for injectivity is the same as the previous problem. For surjectivity, given $y$ in $\mathbb{Z}$, we need to find $x$ such that $g(x)=y$. Well, the latter would mean $x+1=y$. By subtracting one from both sides, we find $x=y-1$. And since integers are closed under subtraction, one has that $x$ is also an integer. And we can check that $g(x)=g(y-1)=(y-1)+1=y$.
+
+
+<br>
+
+*Problem 18*
+
+Consider the function $h:\mathbb{Q}\rightarrow\mathbb{Q}$ given by $h(x)=x^2$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.18 Which statement about this function is true?
+| It is surjective but not injective
+| It is injective but not surjective
+| +It is neither injective nor surjective
+| It is bijective
+```
+
+*Note*: this one is neither injective nor surjective. To see that injectivity fails, note that $h(2)=4$ and $h(-2)=4$. To see that surjectivity fails, note that all outputs of the function will be non-negative, and so there is no $x$ in the rationals with e.g. $h(x)=-5$.
+
+<br>
+
+*Problem 19*
+
+Consider the function $i:\mathbb{N}\rightarrow\mathbb{N}\times \mathbb{Z}$ given by $i(x)=(x+1,x-1)$.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.19 Which statement about this function is true?
+| It is surjective but not injective
+| +It is injective but not surjective
+| It is neither injective nor surjective
+| It is bijective
+```
+
+*Note*: this one is injective but not surjective. To see that it is injective, suppose that $i(x)=i(x^{\prime})$. Then $(x+1,x-1)=(x^{\prime}+1,x^{\prime}-1)$. Then $x+1=x^{\prime}+1$. Then by subtracting one, we get $x=x^{\prime}$. To see that it is not surjective, note that e.g. there is no natural number $x$ such that $i(x)=(-10,-30)$. For, if so, then $(x+1,x-1)=(-10, -30)$. Then $x+1=-10$ and $x-1=-30$. Then $x=-11$ and $x=-31$.
+
+<br>
+
+*Problem 20*
+
+Consider the function $f:\mathbb{N}\rightarrow \mathbb{N}$ given by the following case breaks:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/sets-function-case-break2.png" alt="Function defined by case break" width="500"/>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.20 Which statement about this function is true?
+| It is surjective but not injective
+| It is injective but not surjective
+| *It is neither injective nor surjective
+| It is bijective
+```
+
+<br>
+
+*Note*: this one is neither injective nor surjective. It is not injective since $f(1)=3+2=5$, and $f(3)=5$. It is not surjective since the outputs of $f$ are all $\geq 2$.

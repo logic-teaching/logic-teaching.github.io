@@ -14,11 +14,19 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 # Practice with sets
 
+<br>
+
 - [Practice with set notation](#practice-with-set-notation)
 
 - [Venn diagrams](#venn-diagrams)
 
 - [Validity and Venn diagrams](#validity-and-venn-diagrams)
+
+- [Practice with functions](#practice-with-functions)
+
+<br>
+
+<p style="page-break-before: always">
 
 ## Practice with set notation
 
@@ -48,14 +56,14 @@ List and count the subsets of $\{5,6\}$
 
 *Problems 3, 4, 5*
 
-Consider the set $X=\{(x,y)\in \mathbb{N}^2: x<3, y<2\}$.
+Consider the set $X=\{\langle x,y\rangle\in \mathbb{N}^2: x<3, y<2\}$.
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 1.03 Which of the following is not in X?
-| (1,0)
-| (0,1)
-| (2,1)
-|* (1,2)
+| <1,0>
+| <0,1>
+| <2,1>
+|* <1,2>
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
@@ -74,9 +82,13 @@ Consider the set $X=\{(x,y)\in \mathbb{N}^2: x<3, y<2\}$.
 |* {0,1,2} × {0,1}
 ```
 
+<br>
+
+<p style="page-break-before: always">
+
 ## Venn diagrams
 
-There is a standard way to visualize certain relations between sets, assuming that they are all subsets of some large set $D$ (for 'domain') that one can already visualize, usually as as a subset of the Euclidean plane. These are called Venn diagrams, where shapes in the Euclidean plane are used to represet sets. The following table records the correspondence between the relation which can be seen in the diagram, the corresponding set-theoretic facts, and the corresponding Aristotelian proposition:
+There is a standard way to visualize certain relations between sets, assuming that they are all subsets of some large set $D$ (for 'domain') that one can already visualize, usually a subset of the Euclidean plane. These are called Venn diagrams, where shapes in the Euclidean plane are used to represent sets. The following table records the correspondence between the shapes, the corresponding set-theoretic facts, and the corresponding Aristotelian proposition:
 
 <table style="width:120%">
   <tr>
@@ -104,7 +116,7 @@ There is a standard way to visualize certain relations between sets, assuming th
     <td>No F are G</td>
   </tr>
   <tr>
-    <td>F is contained in the part outside of G</td>
+    <td>F is entirely outside of G</td>
     <td>$F\subseteq G^c$ (equivalently, $F\subseteq D\setminus G$)</td>
     <td>All F are not G</td>
   </tr>
@@ -112,7 +124,7 @@ There is a standard way to visualize certain relations between sets, assuming th
 
 <br>
 
-In the middle column we introduce some further common set-theoretic notation, for those sets that are all subsets of some larger set $D$ (for 'domain'):
+In the middle column we introduce some further common set-theoretic notation (assuming, again, that all the sets are subsets of some larger set $D$, for 'domain'):
 
 <table style="width:120%">
   <tr>
@@ -136,7 +148,7 @@ In the middle column we introduce some further common set-theoretic notation, fo
     <td>$X\setminus Y = \{x\in D: x\in X \wedge x\notin Y\}$</td>
   </tr>
   <tr>
-    <td>Relative compelment</td>
+    <td>Relative complement</td>
     <td>$X^c$</td>
     <td>$X^c = \{x\in D: x\notin X\}$</td>
   </tr>
@@ -144,7 +156,7 @@ In the middle column we introduce some further common set-theoretic notation, fo
 
 <br>
 
-Note Some authors also write $\bar{X}$ for $X^c$.
+(Note some authors write relative complement $X^c$ just by putting an a horizontal line over the $X$.)
 
 <br>
 
@@ -152,7 +164,11 @@ To illustrate all this, consider the following Venn diagram:
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Large-Euler-Diagram.png" alt="Large Venn diagram 1" width="700"/>
 
+<br>
+
 One can check that the following relations between sets are all true on this diagram:
+
+<br>
 
 <table style="width:120%">
   <tr>
@@ -176,7 +192,7 @@ One can check that the following relations between sets are all true on this dia
     <td> All $Q_1$ are $P_1$ </td>
   </tr>
   <tr>
-    <td> $Q_4$ is contained outside $P_1$ </td>
+    <td> $Q_4$ is entirely outside $P_1$ </td>
     <td> $Q_1\subseteq P_1^c$ (equivalently, $Q_1\subseteq D\setminus P_1$) </td>
     <td> All $Q_4$ are not $P_1$ </td>
   </tr>
@@ -189,13 +205,25 @@ One can check that the following relations between sets are all true on this dia
 
 <br>
 
+Of course, the diagram displays a lot more than what we have recorded in the above table.
+
+<br>
+
 *Problems 6-10*
+
+<br>
 
 Consider the following diagram:
 
+<br>
+
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/venn3.png" alt="Large Venn diagram 2" width="700"/>
 
+<br>
+
 Consider the following table, which has some blanks in it:
+
+<br>
 
 <table style="width:120%">
   <tr>
@@ -209,7 +237,7 @@ Consider the following table, which has some blanks in it:
     <td> All $C$ are $F$ </td>
   </tr>
   <tr>
-    <td> $C$ is contained outset $G$ </td>
+    <td> $C$ is entirely outside $G$ </td>
     <td> $C\subseteq G^c$ (equivalently, $C\subseteq D\setminus G$) </td>
     <td> ______________ </td>
   </tr>
@@ -282,27 +310,33 @@ Consider the following table, which has some blanks in it:
 
 ## Validity and Venn diagrams
 
-Try using Venn diagrams to assess whether or not the following argument forms are valid:
+<br>
+
+Given the above problems, it is kind of obvious that the one can use Venn diagrams to help test for invalidity of arguments, when the premises and conclusions of those arguments contain only Aristotelian propositions. One just looks for a Venn diagram which makes the premises true and the conclusion false. If one can't find one easily, that might be a sign that the argument is valid. It might follow, for instance, from some of the Aristotelian conversions and syllogisms. Later we will spend a lot of time developing other methods to establish validities.
+
+<br>
 
 *Problem 11*
-
-No A are B, All C are B $\vDash$ No C are A
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
-1.11 Valid or invalid?
-| *Valid
-| Invalid
-```
-
-*Problem 12*
 
 Some A is B, Some B is C $\vDash$ Some A is C
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
-1.12 Valid or invalid?
+1.11 Valid or invalid?
 | Valid
 | *Invalid
 ```
+
+*Problem 12*
+
+No A are B, All C are B $\vDash$ No C are A
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
+1.12 Valid or invalid?
+| *Valid
+| Invalid
+```
+
+
 
 *Problem 13*
 
@@ -326,67 +360,81 @@ No A are B, Some C are B $\vDash$ Some C are not A
 
 *Problem 15*
 
-All A are B, Some C are not B $\vDash$ Some C are not A
+All A are not B, Some C are not B $\vDash$ Some C are not A
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
 1.15 Valid or invalid?
-| *Valid
-| Invalid
+| Valid
+| *Invalid
 ```
+
+<br>
+
+<p style="page-break-before: always">
 
 ## Practice with functions
 
-The last five problems in this section all concern functions.
+The last five problems in this section all concern [functions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#functions).
 
 *Problem 16*
-
-
-
-
-*Problem 17*
 
 Consider the function $f:\mathbb{N}\rightarrow\mathbb{N}$ given by $f(x)=x+1$
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.17 Which statement about this function is true?
+1.16 Which statement about this function is true?
 | It is surjective but not injective
 | *It is injective but not surjective
 | It is neither injective nor surjective
 | It is bijective
 ```
 
-*Problem 18*
+*Problem 17*
 
 Consider the function $g:\mathbb{Z}\rightarrow\mathbb{Z}$ given by $g(x)=x+1$
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.18 Which statement about this function is true?
+1.17 Which statement about this function is true?
 | It is surjective but not injective
 | It is injective but not surjective
 | It is neither injective nor surjective
 | *It is bijective
 ```
 
-*Problem 19*
+*Problem 18*
 
 Consider the function $h:\mathbb{Q}\rightarrow\mathbb{Q}$ given by $h(x)=x^2$
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.19 Which statement about this function is true?
+1.18 Which statement about this function is true?
 | It is surjective but not injective
 | It is injective but not surjective
 | *It is neither injective nor surjective
 | It is bijective
 ```
 
+
+*Problem 19*
+
+Consider the function $i:\mathbb{N}\rightarrow\mathbb{N}\times \mathbb{Z}$ given by $i(x)=(x+1,x-1)$.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+1.19 Which statement about this function is true?
+| It is surjective but not injective
+| *It is injective but not surjective
+| It is neither injective nor surjective
+| It is bijective
+```
+
 *Problem 20*
 
-Consider the function $i:\mathbb{Q}\rightarrow\mathbb{Q}$ given by $i(x)=x^3-x$
+Consider the function $f:\mathbb{N}\rightarrow \mathbb{N}$ given by the following case breaks:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/sets-function-case-break2.png" alt="Function defined by case break" width="500"/>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 1.20 Which statement about this function is true?
-| *It is surjective but not injective
+| It is surjective but not injective
 | It is injective but not surjective
-| It is neither injective nor surjective
+| *It is neither injective nor surjective
 | It is bijective
 ```
