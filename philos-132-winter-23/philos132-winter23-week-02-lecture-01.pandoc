@@ -147,6 +147,12 @@ Suppose that $X,Y$ are two sets. Then a *function* $f:X\rightarrow Y$ is simply 
 
 For instance, consider $f(x)=x^2$ with domain $\mathbb{N}$ and codomain $\mathbb{N}$. Then $f(3)=3^2 = 9$ and $f(4)=4^2 = 16$. Likewise, consider $g(x)=x/2$ with domain $\mathbb{N}$ and codomain $\mathbb{Q}$. Then $g(3)=3/2$ and $g(4)=2$.
 
+We can define functions whose operations are given by cases. For instance, consider the function $f:\mathbb{N}\rightarrow \mathbb{N}$ given by
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/sets-function-case-break.png" alt="Function defined by case break" width="300"/>
+
+For instance, $f(1)=1+5=6$, and $f(4)=2\cdot 4 = 8$. Even though the operation described by cases, it still suffices to determine an output for each input, and so we count it as a function.
+
 Suppose that $X,Y$ are two sets. Then a map $f:X\rightarrow Y$ is an *injection* if $f(x)=f(x^{\prime})$ implies $x=x^{\prime}$ for all $x,x^{\prime}$ in $X$. A map $f:X\rightarrow Y$ is a *surjection* if for all $y$ in $Y$ there is $x$ in $X$ such that $f(x)=y$. Finally, a function $f:X\rightarrow Y$ is a *bijection* if it is both an injection and a surjection.
 
 Suppose that $X=\{1,2,3\}$ and $Y=\{2,4,6\}$. Then $f:X\rightarrow Y$ given by $f(x)=2x$ is a bijection. For, suppose that $f(x)=f(x^{\prime})$. Then $2x=2x^{\prime}$, and dividing each side by $2$, we obtain $x=x^{\prime}$. Hence $f$ is injective. To see that $f$ is surjective, suppose that $y$ is in $Y$. Then by inspection, we see that $y/2$ is in $X$. Then by taking $x=y/2$, we find $f(x)=f(y/2)=2\cdot (y/2)=y$
