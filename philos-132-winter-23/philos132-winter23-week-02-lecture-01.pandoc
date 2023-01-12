@@ -127,15 +127,15 @@ The Cartesian powers are so-named because of the Cartesian plane. For instance, 
 
 ## Relations and subsets of Cartesian powers
 
-Consider $\{3,4\}\times \{3,4\} = \{\langle 3,3\rangle, \langle 3,4\rangle, \langle 4,3\rangle, \langle 4,4\rangle\}$.
+Consider the set $\{0,1,2\}$. One could imagine 0,1,2 as representing three people (or other objects). Then one can use subsets of the Cartesian power $\{0,1,2\}^2 = \{0,1,2\}\times \{0,1,2\}$ to represent relations which these people stand in. For instance, suppose that person 1 respects person 2, person 2 respects person 0, person 2 respects person 1, and both person 1 and person 2 respect themselves. Then one could represent this respecting relation as the following subset of the Cartesian power.
 
-One could imagine 3,4 as representing two people (or other objects). One can then use subsets of the Cartesian power $\{3,4\}\times \{3,4\}$ to represent relations which these people stand in. For instance, suppose that 3 respects 4, 4 respects 3, and 4 respects herself but 3 does not respect herself. Then one could represent this relation as the following subset of the Cartesian power.
+<p style="margin-left: 40px"> $R = \{\langle 1,2\rangle, \langle 2,0\rangle, \langle 2,1\rangle, \langle 1,1\rangle, \langle 2,2\rangle\}$
 
-<p style="margin-left: 40px"> $R = \{\langle 3,4\rangle, \langle 4,3\rangle, \langle 4,4\rangle\}$
+Such subsets can also be visually represented. One option is to use write out the Cartesian plane like normal and to use colors to color in the associated subset-- that's what we do to the left, below. Another option is to draw an arrow from person $n$ to person $m$ iff $n$ respects $m$, or equivalently iff $\langle n,m\rangle$ is in $R$-- that's what we do to the right, below.
 
-Such subsets can also be visually represented. One option is to use colors and another option is to draw lines.
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-relation-twoways.png" alt="Two ways of visualizing a relation" width="700"/>
 
-[INSERT]
+Obviously there's much that these "representations" miss: they are representing people by numbers, after all! But note that they get a lot right: there's five elements in the set $R$, and there are five orange dots in the diagram to the left, and there are five orange lines in the diagram to the right. What these representations have in common is that they have the same number of objects standing in the same relations-- they have "the same structure".
 
 <br>
 
@@ -154,7 +154,7 @@ Here is a summary of our set-theory notation:
   </tr>
   <tr>
     <td>Membership</td>
-    <td>when a set is another</td>
+    <td>when a set is in another</td>
     <td>$\in$</td>
     <td> `∈` </td>
   </tr>
