@@ -19,7 +19,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 We need a very small amount of set-theory notation for this course. The reason why is that we eventually want to define models and truth in a model, since models are to predicate logic what truth-tables are to propositional logic. And we will represent models with sets.
 
-
 - [Unordered list notation and membership](#unordered-list-notation-and-membership)
 - [The subset relation and emptyset](#the-subset-relation-and-emptyset)
 - [Ordered lists](#ordered-lists)
@@ -27,7 +26,6 @@ We need a very small amount of set-theory notation for this course. The reason w
 - [Forming new sets](#forming-new-sets)
 - [Relations and subsets of Cartesian powers](#relations-and-subsets-of-cartesian-powers)
 - [Cartesian powers](#cartesian-powers)
-- [Functions](#functions)
 - [Summary of set theory notation](#summary-of-set-theory-notation)
 - [Extensionality](#extensionality)
 - [The Russell paradox](#the-russell-paradox)
@@ -137,30 +135,7 @@ One could imagine 3,4 as representing two people (or other objects). One can the
 
 Such subsets can also be visually represented. One option is to use colors and another option is to draw lines.
 
-<br>
-
-<p style="page-break-before: always">
-
-## Functions
-
-Suppose that $X,Y$ are two sets. Then a *function* $f:X\rightarrow Y$ is simply any operation which given an input $x$ from $X$ returns an output $y=f(x)$ from $Y$. In this context, $X$ is called the *domain* of the function $f$ and $Y$ is called *the codomain* of the function $f$. A synonym for "function" is "map."
-
-For instance, consider $f(x)=x^2$ with domain $\mathbb{N}$ and codomain $\mathbb{N}$. Then $f(3)=3^2 = 9$ and $f(4)=4^2 = 16$. Likewise, consider $g(x)=x/2$ with domain $\mathbb{N}$ and codomain $\mathbb{Q}$. Then $g(3)=3/2$ and $g(4)=2$.
-
-We can define functions whose operations are given by cases. For instance, consider the function $f:\mathbb{N}\rightarrow \mathbb{N}$ given by
-
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/sets-function-case-break.png" alt="Function defined by case break" width="700"/>
-
-
-For instance, $f(1)=1+5=6$, and $f(4)=2\cdot 4 = 8$. Even though the operation described by cases, it still suffices to determine an output for each input, and so we count it as a function.
-
-Suppose that $X,Y$ are two sets. Then a map $f:X\rightarrow Y$ is an *injection* if $f(x)=f(x^{\prime})$ implies $x=x^{\prime}$ for all $x,x^{\prime}$ in $X$. A map $f:X\rightarrow Y$ is a *surjection* if for all $y$ in $Y$ there is $x$ in $X$ such that $f(x)=y$. Finally, a function $f:X\rightarrow Y$ is a *bijection* if it is both an injection and a surjection.
-
-Suppose that $X=\{1,2,3\}$ and $Y=\{2,4,6\}$. Then $f:X\rightarrow Y$ given by $f(x)=2x$ is a bijection. For, suppose that $f(x)=f(x^{\prime})$. Then $2x=2x^{\prime}$, and dividing each side by $2$, we obtain $x=x^{\prime}$. Hence $f$ is injective. To see that $f$ is surjective, suppose that $y$ is in $Y$. Then by inspection, we see that $y/2$ is in $X$. Then by taking $x=y/2$, we find $f(x)=f(y/2)=2\cdot (y/2)=y$
-
-If $X$ is finite with $n$ elements and $Y$ is finite with $m$ elements, then there is a bijection $f:X\rightarrow Y$ if and only if $n=m$. However, when this equality obtains, it is not the case that all functions $g:X\rightarrow Y$ are bijections. For instance, consider again the two three-element sets $X=\{1,2,3\}$ and $Y=\{2,4,6\}$. Then consider $g(x)=2$ (that is, $g$ always outputs $2$). Then $g$ is not an injection since $g(1)=2=g(2)$ but $1\neq 2$. And $g$ is not a surjection since e.g. $g(x)\neq 4$ for any value $x$ from $X$.
-
-Finally, let us just record the standard notation for compositions. Suppose that $f:X\rightarrow Y$ and $g:Y\rightarrow Z$. Then define the *composition* $h=g\circ f:X\rightarrow Z$ ("$g$ follows $f$") by $h(x)=g(f(x))$. For instance, consider $f:\mathbb{N}\rightarrow \mathbb{N}$ by $f(x)=2x$ and $g:\mathbb{N}\rightarrow \mathbb{N}$ by $g(y)=y+3$. Then $(g\circ f)(2) = g(f(2)) = g(4)=7$ and $(f\circ g)(2)= f(g(2)) = f(5)=10$.
+[INSERT]
 
 <br>
 
@@ -225,24 +200,6 @@ Here is a summary of our set-theory notation:
     <td>$A^k$ </td>
     <td>`A^k`</td>
   </tr>
-  <tr>
-    <td>Functions </td>
-    <td>Map $f$ from domain $X$ to codomain $Y$</td>
-    <td>$f:X\rightarrow Y$ </td>
-    <td>`f:X->Y`</td>
-  </tr>
-  <tr>
-    <td>Function application </td>
-    <td>Obtains output $f(x)$ from input $x$</td>
-    <td>$f(x)=y$ </td>
-    <td>`f(x)=y`</td>
-  </tr>
-  <tr>
-    <td>Functional composition </td>
-    <td>function g follows function f (i.e. first do f, then g after that)</td>
-    <td>$g\circ f$ </td>
-    <td>`g∘f`</td>
-  </tr>
 </table>
 
 <br>
@@ -276,7 +233,7 @@ But in another sense, it is a useful simplification of the theory of sets. For i
 
 There are no further subsets besides these, according to the axiom of extensionality. For, any other subsets would have zero members, exactly one member, exactly two members, or exactly three members. And we have explicitly listed out the options for these sizes.
 
-We might, for other purposes, want to distinguish between sets that have the same members. For instance, perhaps it is merely a contingent fact that "the set of people in this room who are philosopher majors" has the same members as "the set of people in this room who love reading both Plato's *Republic* and Wittgenstein's *Tractatus*." (Perhaps, if things were different, some curious political science major would be in the second set but not in the first set.) If one wants to do this, the common thing to do now is to say that this single set can be described in two different ways. Or one could say that this single set is determined by two different properties. Or one can with the resources of modal logic (a different subject) articulate the notion of contingency underlying this example. All of these approaches are described as *intensional* since they articulate a notion which ends up violating, in certain ways, the principle of *extensionality*. While our extensional set theory is fairly standard and widely adopted, there is no similar widely accepted theory of intensionality. (That's part of the reason why there is still a lively discussion in metaphysics about the nature of properties, and a lively discussion in philosophical logic about different candidate intensional logics).
+We might, for other purposes, want to distinguish between sets that have the same members. For instance, perhaps it is merely a contingent fact that "the set of people in this room who are philosopher majors" has the same members as "the set of people in this room who love reading both Plato's *Republic* and Wittgenstein's *Tractatus*." (Perhaps, if things were different, some curious political science major would be in the second set but not in the first set.) If one wants to do this, the common thing to do now is to say that this single set can be described in two different ways. Or one could say that this single set is determined by two different properties. Or one can with the resources of modal logic (a different subject) articulate the notion of contingency underlying this example. All of these approaches are said to be *intensional* since they involve a notion like description or property which need not obey the axiom of extensionality. While our extensional set theory is fairly standard and widely adopted, there is no similar widely accepted theory of intensionality. (That's part of the reason why there is still a lively discussion in metaphysics about the nature of properties, and a similarly lively discussion in philosophical logic about different candidate intensional logics).
 
 <br>
 
