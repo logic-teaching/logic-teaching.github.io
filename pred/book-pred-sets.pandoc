@@ -170,7 +170,7 @@ Here is a summary of our set-theory notation:
   </tr>
   <tr>
     <td>Membership</td>
-    <td>when a set is another</td>
+    <td>when a set is in another</td>
     <td>$\in$</td>
     <td> `∈` </td>
   </tr>
