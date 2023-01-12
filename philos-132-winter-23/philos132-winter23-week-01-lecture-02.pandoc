@@ -62,7 +62,7 @@ The other important notion that Aristotle introduces in Book 1, Chapter 1 is tha
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20deduction-v2.png" alt="Aristotle on deduction" width="700"/>
 
-This general idea is probably familiar from your first logic course, where we say that a *valid argument* is an argument whose premises guarantee the truth of its conclusion. In the quotation, what we today call "valid argument" is what Aristotle calls "deduction," and what we today call "premises" are what Aristotle calls "certain things being stated," and finally what we call the "conclusion" is what Aristotle calls that which "follows of necessity." Another traditional term for the type of deductions to which Aristotle called attention are "syllogisms."
+This general idea is probably familiar from your first logic course, where we say that a *valid argument* is an argument  such that whenever all the premises are true, then the conclusion is also true. We can think of this as a type of guarantee that when the premises are true, the conclusion is going to be true as well. In the quotation, what we today call "valid argument" is what Aristotle calls "deduction," and what we today call "premises" are what Aristotle calls "certain things being stated," and finally what we call the "conclusion" is what Aristotle calls that which "follows of necessity." Another traditional term for the type of deductions to which Aristotle called attention are "syllogisms."
 
 Part of what we strive to do in our first logic course is specify the sense in which the conclusion follows of necessity from the premises. One way we do that in the propositional setting is with truth-tables: we try to identify arguments where any row of the table is such that if all the premises are true, the conclusion is true. Another way we do that in the propositional setting is with proofs: we try to identify arguments where we can get from the premises to the conclusion using only certain specified rules. For instance, using either of these methods we can show that the argument with premise $p\wedge q$ and conclusion $p$ is a valid argument. Aristotle in these passage of the *Prior Analytics* does try to specify the sense of necessity he had in mind using cognate-notions like "because" and "by" (that is the second sentence of the above quotation). But perhaps the clearest way he specifies the sense of necessity is by all the examples of valid arguments (or deductions or syllogisms) which he gives.
 
@@ -104,7 +104,7 @@ Aristotle opens Book 1, Chapter 2 of *Prior Analytics* with what he calls "conve
   </tr>
 </table>
 <br>
-We list the third conversion twice just to emphasize that the entailment goes both ways-- that it goes both ways in the first and second conversion follows by interchanging the roles of F and G. In all of these, we use the $\vDash$ of contemporary logic to separate out the premise on the left from the conclusion on the right. Recall that $\vDash$ is the *consequence relation* which one can pronounce out loud as "therefore" or "hence" or "has as a consequence" or "entails."
+We list the third conversion twice just to emphasize that the entailment goes both ways-- that it goes both ways in the first and second conversion follows by interchanging the roles of F and G. In all of these, we use the $\vDash$ of contemporary logic to separate out the premise on the left from the conclusion on the right. Recall that $\vDash$ is the *consequence relation* which one can pronounce out loud as "therefore" or "hence" or "has as a consequence" or "entails." (The symbol $\vDash$ does double-duty in logic, and it is also used to indicate *satisfaction relation*. In this usage it is written as $V\vDash \varphi$ or $\mathcal{M}\models \varphi$, where this means that the valuation or model on the left-hand side satisfies, or makes true, the formula on the right-hand side).
 
 <p style="page-break-before: always">
 
@@ -437,8 +437,8 @@ Since it is a *reductio* proof, we prove that we can derive a contradiction from
 4. All C are not not A &nbsp; :Third Conversion, 3
 5. All C are A &nbsp; :Law of Double Negation, 4
 6. Some not B are C &nbsp; :First Conversion, 2
-7. Some not B are A &nbsp; :Darrii 5,6
-8. Some not B are B &nbsp; :Darrii 1,7
+7. Some not B are A &nbsp; :Darii 5,6
+8. Some not B are B &nbsp; :Darii 1,7
 
 And the last line is regarded as a contradiction.
 
