@@ -21,16 +21,7 @@ We need a very small amount of set-theory notation for this course. The reason w
 
 - [Summary of set theory notation](#summary-of-set-theory-notation)
 - [Unordered list notation and membership](#unordered-list-notation-and-membership)
-- [The subset relation and emptyset](#the-subset-relation-and-emptyset)
-- [Ordered lists](#ordered-lists)
-- [Basic number systems](#basic-number-systems)
-- [Forming new sets](#forming-new-sets)
-- [Set-theoretic operations and propositional connnectives](#set-theoretic-operations-and-propositional-connnectives)
-- [Cartesian powers](#cartesian-powers)
-- [Relations and subsets of Cartesian powers](#relations-and-subsets-of-cartesian-powers)
-
-- [Extensionality](#extensionality)
-- [The Russell paradox](#the-russell-paradox)
+- [Ordered list notation and Cartesian products](#ordered-list-notation-and-cartesian-products)
 
 
 <p style="page-break-before: always">
@@ -295,153 +286,59 @@ Here is a sampling of easy-to-pose questions which one can ask about the above s
 
 <p style="page-break-before: always">
 
-## The subset relation and emptyset
-
-The *subset* symbol is $\subseteq$, and $X\subseteq Y$ just means that every element of $X$ is also in $Y$.
-
-Thus $\{1,2,3\}\subseteq \{1,2,3,4\}$, but it is not the case that $\{1,2,5\}\subseteq \{1,2,3,4\}$ because $5$ is in the first set but not in the second set.
-
-The subset symbol is negated by, again, putting a vertical stroke through it. Thus we write $\{1,2,5\}\nsubseteq \{1,2,3,4\}$ to indicate that "it is not true that $\{1,2,5\}\subseteq \{1,2,3,4\}$."
-
-Finally, note that $X\subseteq X$ is always true. That is, any set is a subset of itself.
-
-The symbol $\emptyset$ denotes the *empty set*, that is, the set with no elements. One always has $\emptyset \subseteq X$, that is, one always has that the emptyset is a subset of any set.
+## Ordered list notation and Cartesian products
 
 <br>
 
-<p style="page-break-before: always">
+*Problems 6,7,8*
 
-## Ordered lists
-
-Suppose that $k$ is a natural number like $k=2$ or $k=3$. Then the set $\langle x_1, \ldots, x_k\rangle$ is the ordered $k$-tuple whose first entry is $x_1$, whose second entry is $x_2$, and ... whose $k$-th entry is $x_k$. When we type we repurpose the symbols `<` and `>` which we usually use for the number systems for the purpose of the brackets. One can also use alternative notation and write `[` and `]` instead of  `<` and `>`.
-
-For instance $\langle 8,2,4\rangle$ is the $3$-tuple whose first entry is $8$, whose second entry is $2$, and whose third entry is $4$. Likewise, $\langle 2,1,9,9\rangle$ is the $4$-tuple whose first entry is $2$, whose second entry is $1$, whose third entry is $9$, and whose fourth entry is $9$. If we used the alternative notation, one would write $[8,2,4]$ instead of $\langle 8,2,4\rangle$, and one would write $[2,1,9,9]$ instead of $\langle 2,1,9,9\rangle$.
-
-This is organized so that order *does* matter and repetitions *do* matter. Thus $\langle 9,8,7\rangle\neq \langle 8,9,7\rangle$ and $\langle 5,3,3,4\rangle \neq \langle 5,3,4\rangle$.
-
-One can form sets of $k$-tuples. For instance $\{\langle 5,4,6\rangle, \langle 1,5,8\rangle\}$ is the set which consists just of two $k$-tuples, namely $\langle 5,4,6\rangle$ and $\langle 1,5,8\rangle$.
-
-Note that e.g. $\{\langle 5,4,6\rangle, \langle 1,5,8\rangle\}=\{\langle 1,5,8\rangle, \langle 5,4,6\rangle\}$ since order does not matter as far as the elements of sets formed from the brackets $\{\ldots\}$ goes. But one has of course that $\{\langle 5,4,6\rangle, \langle 1,5,8\rangle\}\neq \{\langle 1,8,5\rangle, \langle 5,4,6\rangle\}$ since order does matter for the entries of a $k$-tuple.
+Consider the set $X=\{\langle x,y\rangle\in \mathbb{N}^2: x<3, y<2\}$.
 
 <br>
 
-<p style="page-break-before: always">
-
-## Basic number systems
-
-There are some basic number systems which we frequently use. The first is the *natural numbers* $\mathbb{N} = \{0, 1, 2, 3, \ldots\}$, which simply consists of the non-negative whole numbers. They are ordered so that $0$ is least, $1$ is second, $2$ is third, etc.
-
-The ordering is written $\leq$: hence we have $0\leq 0$, $0\leq 1$, etc. One defines $x<y$ iff $x\leq y$ and $x\neq y$. Hence $0<1$ but $1\nless 1$.
-
-The *integers* $\mathbb{Z} = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\}$ is the set of the positive and negative whole numbers. It has an ordering which extends the ordering on the natural numbers, so that $\mathbb{Z}$ has no least element.
-
-The *rationals* $\mathbb{Q}$ is the set of fractions of integers. For instance, 1/2 and -3/4 are rationals.
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.06 How many elements does X have in it?
+| 4
+| 5
+|+ 6
+| 12
+```
 
 <br>
 
-<p style="page-break-before: always">
+*Note*: they are
 
-## Forming new sets
-
-One can use extant sets to form new sets. For instance, the even numbers are the set $\{x\in \mathbb{N}: x\mbox{ is divisible by } 2\}$.
-
-Sometimes these sets are ones which one could already write via the unordered list notation. For instance $\{x\in \mathbb{N}: x<4\} = \{0,1,2,3\}$.
-
- In general, if $X$ is a set and $P$ is any property, then there is a set $Y=\{x\in X: x \mbox{ has } P\}$ (pronounced "the set of elements of $X$ which have property $P$"). This set $Y$ is characterized by the fact that $x\in Y$ if and only if   both $x\in X$ and $x$ has $P$. Note that $Y\subseteq X$. That is, this way of forming sets only gives one subsets of sets which one already had.
+- the two ordered pairs with $x$-value zero: $\langle 0, 0\rangle$, $\langle 0, 1\rangle$.
+- the two ordered pairs with $x$-value one: $\langle 1, 0\rangle$, $\langle 1, 1\rangle$.
+- the two ordered pairs with $x$-value two: $\langle 2, 0\rangle$, $\langle 2, 1\rangle$.
 
 <br>
 
-<p style="page-break-before: always">
-
-## Set-theoretic operations and propositional connnectives
-
-Using our set-formation principle, one can use propositional logic to form further sets. Suppose that $D$ is a set, and $X,Y$ are subsets of $D$. Then we define:
-
-<table style="width:120%">
-  <tr>
-    <th>Name</th>
-    <th>Symbol</th>
-    <th>Definition</th>
-  </tr>
-  <tr>
-    <td>Intersection of $X,Y$</td>
-    <td>$X\cap Y$</td>
-    <td>$X\cap Y= \{x\in D: x\in X \wedge x\in Y\}$</td>
-  </tr>
-  <tr>
-    <td>Union of $X,Y$</td>
-    <td>$X\cup Y$</td>
-    <td>$X\cup Y= \{x\in D: x\in X \vee x\in Y\}$</td>
-  </tr>
-  <tr>
-    <td>Difference of $X$ from $Y$</td>
-    <td>$X\setminus Y$</td>
-    <td>$X\setminus Y = \{x\in D: x\in X \wedge x\notin Y\}$</td>
-  </tr>
-  <tr>
-    <td>Relative complement</td>
-    <td>$X^c$</td>
-    <td>$X^c = \{x\in D: x\notin X\}$</td>
-  </tr>
-</table>
+Consider the following diagrammatic representation of $X$: its points are highlighted in orange, and one of them is additionally circled red.
 
 <br>
 
-(Note some authors write relative complement $X^c$ just by putting an a horizontal line over the $X$.)
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.07 Which one is circled red?
+| <1,0>
+| <0,1>
+|+ <2,1>
+| <1,2>
+```
+
+*Note: it is $\langle 2,1\rangle$, since the the first entry corresponds to the $x$-axis, and the second entry corresponds to the $y$-axis.
 
 <br>
 
-For instance, suppose that $D=\{0,1,2,3,4,5\}$ and $X=\{0,1,4\}$ and $Y=\{3,4,5\}$. Then one has
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.08 Which of the following is an equivalent way of describing X?
+| {0,1,2} x {0,1,2}
+| {0,1} x {0,1}
+| {0,1} x {0,1,2}
+|+ {0,1,2} × {0,1}
+```
 
- $X \cap Y = \{4\}$
-
- $X\cup Y = \{0,1,3,4,5\}$
-
- $X\setminus Y = \{0,1\}$
-
- $Y\setminus X = \{3,5\}$
-
- $X^c = \{2,3,5\}$
-
- $Y^c = \{0,1,2\}$
-
-<br>
-
-<p style="page-break-before: always">
-
-## Cartesian powers
-
-We define the *Cartesian powers* $A^k$ of a set $A$, where again $k$ is a natural number like $k=2$ or $k=3$. In particular, we define $A^k$ to be the set of all the $k$-tuples whose entries come from the set $A$. More formally, one has:
-
- $A^k = \{\langle a_1, \ldots, a_k\rangle: a_1\in A, \ldots, a_k\in A\}$
-
-For instance, $A^1 = A$ and $A^2=A\times A$ and $A^3=A\times A\times A$. Here we are using the familiar *product* notation for sets, namely:
-
- $A\times B = \{\langle a,b\rangle: a\in A, b\in B\}$
-
-For instance, $\{1,2\}\times \{2,3\} = \{\langle 1,2\rangle, \langle 1,3\rangle, \langle 2,2\rangle, \langle 2,3\rangle\}$. Thus $\langle 1,2\rangle$ is in this set, but $\langle 2,1\rangle$ is not in this set.
-
-The Cartesian powers are so-named because of the Cartesian plane. For instance, consider $\mathbb{N}\times \mathbb{N}$. We draw this with the first copy of the natural numbers $\mathbb{N}$ on the horizontal $x$-axis and the second copy of the natural numbers on the vertical $y$-axis, and we can draw points of the Cartesian power $\mathbb{N}\times \mathbb{N}$ by listing off points on the plane in terms of their familiar $\langle x,y\rangle$-coordinates.
-
-<br>
-
-<p style="page-break-before: always">
-
-## Relations and subsets of Cartesian powers
-
-Consider the set $\{0,1,2\}$. One could imagine 0,1,2 as representing three people (or other objects). Then one can use subsets of the Cartesian power $\{0,1,2\}^2 = \{0,1,2\}\times \{0,1,2\}$ to represent relations which these people stand in. For instance, suppose that person 1 respects person 2, person 2 respects person 0, person 2 respects person 1, and both person 1 and person 2 respect themselves. Then one could represent this respecting relation as the following subset of the Cartesian power.
-
- $R = \{\langle 1,2\rangle, \langle 2,0\rangle, \langle 2,1\rangle, \langle 1,1\rangle, \langle 2,2\rangle\}$
-
-Such subsets can also be visually represented. One option is to use write out the Cartesian plane like normal and to use colors to color in the associated subset-- that's what we do to the left, below. Another option is to draw an arrow from person $n$ to person $m$ iff $n$ respects $m$, or equivalently iff $\langle n,m\rangle$ is in $R$-- that's what we do to the right, below.
-
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-relation-twoways.png" alt="Two ways of visualizing a relation" width="700"/>
-
-While these diagrammatic representations are different, they are similar in ways that reflect the set $R$: namely, there's five elements in the set $R$, and there are five orange dots in the diagram to the left, and there are five orange lines in the diagram to the right.
-
-<br>
-
-<p style="page-break-before: always">
+*Note*: it is $\{0,1,2\}\times \{0,1\}$ because the $x$-values range over natural numbers $<3$, which is $0,1,2$, and the $y$-values range over natural numbers $<2$, which is $0,1$.
 
 
 
