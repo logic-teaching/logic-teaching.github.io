@@ -24,8 +24,9 @@ We need a very small amount of set-theory notation for this course. The reason w
 - [Ordered lists](#ordered-lists)
 - [Basic number systems](#basic-number-systems)
 - [Forming new sets](#forming-new-sets)
-- [Relations and subsets of Cartesian powers](#relations-and-subsets-of-cartesian-powers)
+- [Set-theoretic operations and propositional connnectives](#set-theoretic-operations-and-propositional-connnectives)
 - [Cartesian powers](#cartesian-powers)
+- [Relations and subsets of Cartesian powers](#relations-and-subsets-of-cartesian-powers)
 - [Summary of set theory notation](#summary-of-set-theory-notation)
 - [Extensionality](#extensionality)
 - [The Russell paradox](#the-russell-paradox)
@@ -91,7 +92,6 @@ The *rationals* $\mathbb{Q}$ is the set of fractions of integers. For instance, 
 
 <br>
 
-
 <p style="page-break-before: always">
 
 ## Forming new sets
@@ -104,6 +104,61 @@ Sometimes these sets are ones which one could already write via the unordered li
 
 <br>
 
+<p style="page-break-before: always">
+
+## Set-theoretic operations and propositional connnectives
+
+Using our set-formation principle, one can use propositional logic to form further sets. Suppose that $D$ is a set, and $X,Y$ are subsets of $D$. Then we define:
+
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Definition</th>
+  </tr>
+  <tr>
+    <td>Intersection of $X,Y$</td>
+    <td>$X\cap Y$</td>
+    <td>$X\cap Y= \{x\in D: x\in X \wedge x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Union of $X,Y$</td>
+    <td>$X\cup Y$</td>
+    <td>$X\cup Y= \{x\in D: x\in X \vee x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Difference of $X$ from $Y$</td>
+    <td>$X\setminus Y$</td>
+    <td>$X\setminus Y = \{x\in D: x\in X \wedge x\notin Y\}$</td>
+  </tr>
+  <tr>
+    <td>Relative complement</td>
+    <td>$X^c$</td>
+    <td>$X^c = \{x\in D: x\notin X\}$</td>
+  </tr>
+</table>
+
+<br>
+
+(Note some authors write relative complement $X^c$ just by putting an a horizontal line over the $X$.)
+
+<br>
+
+For instance, suppose that $D=\{0,1,2,3,4,5\}$ and $X=\{0,1,4\}$ and $Y=\{3,4,5\}$. Then one has
+
+- $X \cap Y = \{4\}$
+
+- $X\cup Y = \{0,1,3,4,5\}$
+
+- $X\setminus Y = \{0,1\}$
+
+- $Y\setminus X = \{3,5\}$
+
+- $X^c = \{2,3,5\}$
+
+- $Y^c = \{0,1,2\}$
+
+<br>
 
 <p style="page-break-before: always">
 
@@ -147,60 +202,75 @@ Here is a summary of our set-theory notation:
 
 <table style="width:100%">
   <tr>
+    <th>Name</th>
     <th>Symbol</th>
-    <th>Used to express</th>
-    <th>Symbol typeset</th>
-    <th>How to type on keyboard</th>
+    <th>Definition</th>
   </tr>
   <tr>
     <td>Membership</td>
-    <td>when a set is in another</td>
     <td>$\in$</td>
-    <td> `∈` </td>
+    <td>$a\in X$ iff $a$ is a member of $X$</td>
   </tr>
   <tr>
     <td>Unordered list notation </td>
-    <td>forming unordered lists</td>
     <td>$\{ , , ,\}$</td>
-    <td>`{, , ,}`</td>
+    <td>$\{a_1,\ldots, a_n\}$ is the set with just $a_1, \ldots, a_n$ in it.</td>
   </tr>
   <tr>
     <td>Subset </td>
-    <td>when all elements of a set are in another set</td>
     <td>$\subseteq$</td>
-    <td>`⊆`</td>
+    <td>$X\subseteq Y$ iff every member of $X$ is also a member of $Y$</td>
   </tr>
   <tr>
-    <td>Empty set </td>
-     <td>the set which contains no members</td>
+    <td>Empty set</td>
     <td>$\emptyset$</td>
-    <td>`∅`</td>
+     <td>the set which has no members</td>
   </tr>
   <tr>
-    <td>Ordered list notation </td>
-    <td>forming ordered lists</td>
+    <td>Ordered list notation</td>
     <td>$\langle , , ,\rangle$ or $[, , ,]$</td>
-    <td>`<, , ,>` or `[, , ,]`</td>
+    <td>$\langle a_1, \ldots, a_n\rangle$ </td>
   </tr>
   <tr>
-    <td>Set formation </td>
-    <td>forming sets from prior sets</td>
-    <td>$\{x\in X: x \mbox{ has } P\}$ </td>
-    <td>`{x∈ X : x has P}`</td>
+    <td>Set formation</td>
+    <td>$\{x\in D: x \mbox{ has } P\}$</td>
+    <td>The set of elements of $D$ with property $P$</td>
   </tr>
   <tr>
-    <td>Products </td>
-    <td>forming ordered pairs from sets</td>
-    <td>$A\times B$ </td>
-    <td>`A×B`</td>
+    <td>Intersection</td>
+    <td>$\cap$</td>
+    <td>$X\cap Y= \{x\in D: x\in X \wedge x\in Y\}$</td>
   </tr>
   <tr>
-    <td>Cartesian powers </td>
-    <td>forming products of set with itself</td>
-    <td>$A^k$ </td>
-    <td>`A^k`</td>
+    <td>Union</td>
+    <td>$\cup$</td>
+    <td>$X\cup Y= \{x\in D: x\in X \vee x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Difference</td>
+    <td>$\setminus$</td>
+    <td>$X\setminus Y = \{x\in D: x\in X \wedge x\notin Y\}$</td>
+  </tr>
+  <tr>
+    <td>Relative complement</td>
+    <td>$\cdot{}^c$</td>
+    <td>$X^c = \{x\in D: x\notin X\}$</td>
+  </tr>
+  <tr>
+    <td>Product </td>
+    <td>$\times $ </td>
+    <td>$X\times Y =\{\langle x,y\rangle: x\in X \wedge y\in Y\}</td>
+  </tr>
+  <tr>
+    <td>Cartesian power</td>
+    <td>$\cdot^k$ </td>
+    <td>$A^k =\{\langle x_1, \ldots, x_k\rangle: x_1\in A \wedge \cdots \wedge x_k\in A\}$</td>
   </tr>
 </table>
+
+
+
+
 
 <br>
 
