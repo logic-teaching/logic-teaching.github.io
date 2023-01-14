@@ -17,7 +17,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 # Elementary set theory notation
 
-We need a very small amount of set-theory notation for this course. The reason why is that we eventually want to define models and truth in a model, since models are to predicate logic what truth-tables are to propositional logic. And we will represent models with sets.
+We need a very small amount of set-theory notation for this course. The reason why is that we want to define models and truth in a model, since models are to predicate logic what truth-tables are to propositional logic. And we will represent models with sets.
 
 - [Unordered list notation and membership](#unordered-list-notation-and-membership)
 - [The subset relation and emptyset](#the-subset-relation-and-emptyset)
@@ -146,17 +146,17 @@ Using our set-formation principle, one can use propositional logic to form furth
 
 For instance, suppose that $D=\{0,1,2,3,4,5\}$ and $X=\{0,1,4\}$ and $Y=\{3,4,5\}$. Then one has
 
-- $X \cap Y = \{4\}$
+ $X \cap Y = \{4\}$
 
-- $X\cup Y = \{0,1,3,4,5\}$
+ $X\cup Y = \{0,1,3,4,5\}$
 
-- $X\setminus Y = \{0,1\}$
+ $X\setminus Y = \{0,1\}$
 
-- $Y\setminus X = \{3,5\}$
+ $Y\setminus X = \{3,5\}$
 
-- $X^c = \{2,3,5\}$
+ $X^c = \{2,3,5\}$
 
-- $Y^c = \{0,1,2\}$
+ $Y^c = \{0,1,2\}$
 
 <br>
 
@@ -164,13 +164,13 @@ For instance, suppose that $D=\{0,1,2,3,4,5\}$ and $X=\{0,1,4\}$ and $Y=\{3,4,5\
 
 ## Cartesian powers
 
-We then define the *Cartesian powers* $A^k$ of a set $A$, where again $k$ is a natural number like $k=2$ or $k=3$. In particular, we define $A^k$ to be the set of all the $k$-tuples whose entries come from the set $A$. More formally, one has:
+We define the *Cartesian powers* $A^k$ of a set $A$, where again $k$ is a natural number like $k=2$ or $k=3$. In particular, we define $A^k$ to be the set of all the $k$-tuples whose entries come from the set $A$. More formally, one has:
 
-<p style="margin-left: 40px"> $A^k = \{\langle a_1, \ldots, a_k\rangle: a_1\in A, \ldots, a_k\in A\}$
+ $A^k = \{\langle a_1, \ldots, a_k\rangle: a_1\in A, \ldots, a_k\in A\}$
 
 For instance, $A^1 = A$ and $A^2=A\times A$ and $A^3=A\times A\times A$. Here we are using the familiar *product* notation for sets, namely:
 
-<p style="margin-left: 40px"> $A\times B = \{\langle a,b\rangle: a\in A, b\in B\}$
+ $A\times B = \{\langle a,b\rangle: a\in A, b\in B\}$
 
 For instance, $\{1,2\}\times \{2,3\} = \{\langle 1,2\rangle, \langle 1,3\rangle, \langle 2,2\rangle, \langle 2,3\rangle\}$. Thus $\langle 1,2\rangle$ is in this set, but $\langle 2,1\rangle$ is not in this set.
 
@@ -184,13 +184,13 @@ The Cartesian powers are so-named because of the Cartesian plane. For instance, 
 
 Consider the set $\{0,1,2\}$. One could imagine 0,1,2 as representing three people (or other objects). Then one can use subsets of the Cartesian power $\{0,1,2\}^2 = \{0,1,2\}\times \{0,1,2\}$ to represent relations which these people stand in. For instance, suppose that person 1 respects person 2, person 2 respects person 0, person 2 respects person 1, and both person 1 and person 2 respect themselves. Then one could represent this respecting relation as the following subset of the Cartesian power.
 
-<p style="margin-left: 40px"> $R = \{\langle 1,2\rangle, \langle 2,0\rangle, \langle 2,1\rangle, \langle 1,1\rangle, \langle 2,2\rangle\}$
+ $R = \{\langle 1,2\rangle, \langle 2,0\rangle, \langle 2,1\rangle, \langle 1,1\rangle, \langle 2,2\rangle\}$
 
 Such subsets can also be visually represented. One option is to use write out the Cartesian plane like normal and to use colors to color in the associated subset-- that's what we do to the left, below. Another option is to draw an arrow from person $n$ to person $m$ iff $n$ respects $m$, or equivalently iff $\langle n,m\rangle$ is in $R$-- that's what we do to the right, below.
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-relation-twoways.png" alt="Two ways of visualizing a relation" width="700"/>
 
-Obviously there's much that these "representations" miss: they are representing people by numbers, after all! But note that they get a lot right: there's five elements in the set $R$, and there are five orange dots in the diagram to the left, and there are five orange lines in the diagram to the right. What these representations have in common is that they have the same number of objects standing in the same relations-- they have "the same structure".
+While these diagrammatic representations are different, they are similar in ways that reflect the set $R$: namely, there's five elements in the set $R$, and there are five orange dots in the diagram to the left, and there are five orange lines in the diagram to the right.
 
 <br>
 
@@ -214,7 +214,7 @@ Here is a summary of our set-theory notation:
   <tr>
     <td>Unordered list notation </td>
     <td>$\{ , , ,\}$</td>
-    <td>$\{a_1,\ldots, a_n\}$ is the set with just $a_1, \ldots, a_n$ in it.</td>
+    <td>e.g. $\{a_1,\ldots, a_n\}$ is the set with just $a_1, \ldots, a_n$ in it.</td>
   </tr>
   <tr>
     <td>Subset </td>
@@ -229,12 +229,12 @@ Here is a summary of our set-theory notation:
   <tr>
     <td>Ordered list notation</td>
     <td>$\langle , , ,\rangle$ or $[, , ,]$</td>
-    <td>$\langle a_1, \ldots, a_n\rangle$ </td>
+    <td>e.g. $\langle a_1, \ldots, a_n\rangle$ is the ordered list with $a_1$ first, $\ldots$, $a_n$ last </td>
   </tr>
   <tr>
     <td>Set formation</td>
-    <td>$\{x\in D: x \mbox{ has } P\}$</td>
-    <td>The set of elements of $D$ with property $P$</td>
+    <td>$\{x\in D: x \mbox{ has } P\;\}$</td>
+    <td>the set of elements of $D$ with property $P$</td>
   </tr>
   <tr>
     <td>Intersection</td>
@@ -258,8 +258,8 @@ Here is a summary of our set-theory notation:
   </tr>
   <tr>
     <td>Product </td>
-    <td>$\times $ </td>
-    <td>$X\times Y =\{\langle x,y\rangle: x\in X \wedge y\in Y\}</td>
+    <td>$\times$ </td>
+    <td>$X\times Y =\{\langle x,y\rangle: x\in X \wedge y\in Y\}$</td>
   </tr>
   <tr>
     <td>Cartesian power</td>
@@ -268,17 +268,14 @@ Here is a summary of our set-theory notation:
   </tr>
 </table>
 
-
-
+<br>
 
 
 <br>
 
-Two quick notes:
+In set formation, intersection, union, difference, and relative complement, the set $D$ is a given set, and the $X,Y$ are subsets of $D$.
 
-1. The only things that we will have to type frequently are the unordered list and ordered list notation, and so it is less important that one learns how to type the other things. But these other things will appear frequently in lecture notes, and so it is more important to learn how to read them.
-
-2. In the entries for the unordered list and ordered list notation, there can obviously be fewer than or more than four things in the list. I have written them with only three commas (hence four things) simply to save on space.
+The only set theory symbols we will have to type frequently are the unordered list notation $\{,,,\}$ which we type as `{,,,}`, and the ordered lists notation $\langle , , ,\rangle$ or $[,,,]$, which we will type as `<,,,>` or `[,,,]`.
 
 <br>
 
@@ -297,13 +294,13 @@ In one sense, this is a matter of convention: if we didn't stipulate the axiom o
 But in another sense, it is a useful simplification of the theory of sets. For instance, the axiom of extensionality allows us to precisely answer the question "How many subsets of $\{0,1,2\}$ are there?" There are exactly eight, which we can list below:
 
 - There is one empty subset, namely, the empty set $\emptyset$
-- There are three one element subsets, namely $\{0\}, \{1\}, \{2\}$
-- There are three two element subsets, namely, $\{0,1\}, \{0,2\}, \{1,2\}$.
-- There is one three element subset namely $\{0,1,2\}$.
+- There are three one-element subsets, namely $\{0\}, \{1\}, \{2\}$
+- There are three two-element subsets, namely, $\{0,1\}, \{0,2\}, \{1,2\}$.
+- There is one three-element subset namely $\{0,1,2\}$.
 
 There are no further subsets besides these, according to the axiom of extensionality. For, any other subsets would have zero members, exactly one member, exactly two members, or exactly three members. And we have explicitly listed out the options for these sizes.
 
-We might, for other purposes, want to distinguish between sets that have the same members. For instance, perhaps it is merely a contingent fact that "the set of people in this room who are philosopher majors" has the same members as "the set of people in this room who love reading both Plato's *Republic* and Wittgenstein's *Tractatus*." (Perhaps, if things were different, some curious political science major would be in the second set but not in the first set.) If one wants to do this, the common thing to do now is to say that this single set can be described in two different ways. Or one could say that this single set is determined by two different properties. Or one can with the resources of modal logic (a different subject) articulate the notion of contingency underlying this example. All of these approaches are said to be *intensional* since they involve a notion like description or property which need not obey the axiom of extensionality. While our extensional set theory is fairly standard and widely adopted, there is no similar widely accepted theory of intensionality. (That's part of the reason why there is still a lively discussion in metaphysics about the nature of properties, and a similarly lively discussion in philosophical logic about different candidate intensional logics).
+We might, for other purposes, want to distinguish between sets that have the same members. For instance, perhaps it is merely a contingent fact that "the set of people in this room who are philosopher majors" has the same members as "the set of people in this room who love reading both Plato's *Republic* and Wittgenstein's *Tractatus*." (Perhaps, if things were different, some curious political science major would be in the second set but not in the first set.) If one wants to do this, the common thing to do is to say that this single set can be described in two different ways. Or one could say that this single set is determined by two different properties.
 
 <br>
 
@@ -311,31 +308,31 @@ We might, for other purposes, want to distinguish between sets that have the sam
 
 ## The Russell paradox
 
-The notion of set can be further refined by thinking through a paradox called ``The Russell paradox.'' It shows that the principles of set-formation and the axiom of extensionality imply that there is no set of all sets.
+The notion of set can be further refined by thinking through a paradox called "The Russell paradox." It shows that the principles of set-formation and the axiom of extensionality imply that there is no set of all sets.
 
 Suppose, for contradiction, that there was a set of all sets, call it $V$. By the principle of set-formation, consider the set $Y=\{x\in V: x\notin x\}$. That is, $Y$ is the set of all sets which are not members of themselves. We get a contradiction by considering two cases:
 
-- First suppose that $Y$ is in $Y$. Then $Y$ satisfies the property which we used to form the set, namely not being a member of itself. Hence, $Y$ is not in $Y$, a contradiction to our case hypothesis.
+ First suppose that $Y$ is in $Y$. Then $Y$ satisfies the property which we used to form the set, namely not being a member of itself. Hence, $Y$ is not in $Y$, a contradiction to our case hypothesis.
 
-- Second suppose that $Y$ is not in $Y$. By our principle of set-formation, we know that $Y$ is a set. Hence, $Y$ is in $V$. And by our case hypothesis, we know that $Y$ is not in $Y$. Hence, by how we formed $Y$ using our principle of set-formation, we know that $Y$ is in $Y$. But this contradicts our case hypothesis.
+ Second suppose that $Y$ is not in $Y$. By our principle of set-formation, we know that $Y$ is a set. Hence, $Y$ is in $V$. And by our case hypothesis, we know that $Y$ is not in $Y$. Hence, by how we formed $Y$ using our principle of set-formation, we know that $Y$ is in $Y$. But this contradicts our case hypothesis.
 
 In either case, we get a contradiction. Hence, as a matter of fact, there is no set of all sets. (If this seemed too quick and you want more details, don't worry-- we will be able to formalize this argument later, after we learn more predicate logic).
 
-What does this paradox tell us about the nature of sets? A widely accepted view is that the kinds of sets that are not subject to paradox are "built from below": we start with numbers (or people, or other some other basic things), and we form sets of them, and sets of sets of them, and sets of sets of sets of them, etc. This is the so-called *iterative conception of set*, which is arguably built into the most widely used set theory today, namely the Zermelo–Fraenkel set theory axioms for set theory (ZF set theory, for short).[^6]
+What does this paradox tell us about the nature of sets? A widely accepted view is that the kinds of sets that are not subject to paradox are "built from below": we start with numbers (or people, or other some other basic things), and we form sets of them, and sets of sets of them, and sets of sets of sets of them, etc.[^6]
 
-[^6]: This is the kind of material covered in any modern set theory course. A good introductory book is: [Y. Moschovakis. Notes on Set Theory. Undergraduate Texts in Mathematics. Springer, New York, second edition, 2006](https://link.springer.com/book/10.1007/0-387-31609-4).
+[^6]: This "bottom up" approach is built into both contemporary *type theory* and *axiomatic set theory* (both of which presuppose that one already knows predicate logic very well). A good introduction to type theory is [Nederpelt, Rob, and Herman Geuvers. 2014. “Simply Typed Lambda Calculus.” In Type Theory and Formal Proof: An Introduction, 33–68. Cambridge University Press](https://www.cambridge.org/core/books/abs/type-theory-and-formal-proof/simply-typed-lambda-calculus/9691F1D03CA49D2E403A01A33134A952). A good introduction to axiomatic set theory is: [Y. Moschovakis. Notes on Set Theory. Undergraduate Texts in Mathematics. Springer, New York, second edition, 2006](https://link.springer.com/book/10.1007/0-387-31609-4).
 
 But this solution requires some heavy restriction on set formation. You might have thought that to every property $P$ there corresponds a set $X=\{x: x \mbox{ has } P\}$ consisting of those things that have $P$. And if that is right, you might have thought that you could then form the set $V=\{x: x \mbox{ is a set}\}$. This "top down" approach is wrong, according to the solution in the previous paragraph.
 
-Russell was the first to articulate the paradox carefully. He was inclined initially to a "top down" approach, particularly since he was interested not only in sets, but in a broader class of notions like property, truth, and definability. He thought that some version of this paradox infected all these notions, and that a single common solution was required. He then articulated his *vicious circle principle* in his coauthored *Principa Mathematica*, which roughly says that what goes wrong in the paradox is a violation of a prohibition against circular definitions. More precisely, *the vicious circle principle* says:
+Russell was the first to articulate the paradox carefully. He thought it infected all "top down" approaches to notions like property, truth, and definability, and that it required a common solution. Part of his solution involved the the *vicious circle principle* in his coauthored *Principa Mathematica*, which roughly says that what goes wrong in the paradox is a violation of a prohibition against circular definitions. More precisely, *the vicious circle principle* says:
 
-> If, provided a certain collection had a total, it would have members only definable in terms of that total, then the said collection has no total.[^2]
+> "Whatever involves *all* of a collection must not be one of the collection"; or conversely: "If, provided a certain collection had a total, it would have members only definable in terms of that total, then the said collection has no total."[^2]
 
 In this, read "a certain collection has a total" as a way of saying "a certain property determines a set." That is, Russell is using "collection" as a kind of synonym for "property."
 
 [^2]: [p. 39 of: Whitehead, Alfred North, and Bertrand Russell. 1962. Principia Mathematica to $^\ast 56$. Cambridge University Press, New York](https://logic-teaching.github.io/philos-132-winter-23/texts/Whitehead%20and%20Russell%201962%20-%20Principia%20mathematica%20to%2056,%20pp.%2037-38,%2060-65.pdf). This is an abridged version of an initial segment of the second edition from 1927; the first edition was in 1910.
 
-Today, people still study the paradoxes that Russell identified, most prominently the liar paradox. But many people today agree with Russell's colleague Ramsey in separating the Russell paradox from other paradoxes like the liar paradox. Ramsey said there's no real paradox of sets-- the logic and mathematics just kind of works itself out there, perhaps by way of some kind of "bottom up" approach. And Ramsey thought that the liar paradox and the definability paradoxes pertain ultimately to "faulty ideas concering thought and language".[^4] Many people today might draw the line differently than Ramsey, but I think more people today agree with Ramsey than Russell.
+Today, people still study the paradoxes that Russell identified, most prominently the liar paradox. But many people today agree with  Ramsey in separating the Russell paradox from other paradoxes like the liar paradox. Ramsey said there's no real paradox of sets-- the logic and mathematics just kind of works itself out there, perhaps by way of some kind of "bottom up" approach. And Ramsey thought that the liar paradox and the definability paradoxes pertain ultimately to "faulty ideas concerning thought and language".[^4] Many people today might draw the line differently than Ramsey, but I think more people today agree with Ramsey than Russell.
 
 [^4]: p. 353 of: [Ramsey, F. P. 1926. “The Foundations of Mathematics.” Proceedings of the London Mathematical Society. Third Series s2-25 (1): 338–84.](https://logic-teaching.github.io/philos-132-winter-23/texts/Ramsey%201926%20-%20The%20foundations%20of%20mathematics.pdf)
 
