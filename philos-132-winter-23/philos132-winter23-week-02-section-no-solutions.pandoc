@@ -22,6 +22,8 @@ We need a very small amount of set-theory notation for this course. The reason w
 - [Summary of set theory notation](#summary-of-set-theory-notation)
 - [Unordered list notation and membership](#unordered-list-notation-and-membership)
 - [Ordered list notation and Cartesian products](#ordered-list-notation-and-cartesian-products)
+- [Venn diagrams](#venn-diagrams)
+- [Further connections between set theory and propositional logic](#further-connections-between-set-theory-and-propositional-logic)
 
 
 <p style="page-break-before: always">
@@ -507,7 +509,6 @@ Consider the following table, which has some blanks in it:
 <br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-
 2.11 What should you put in the blank in the first row?
 | C and F overlap
 |+ C is contained in F
@@ -516,7 +517,6 @@ Consider the following table, which has some blanks in it:
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-
 2.12 What should you put in the blank in the second row?
 | All C are G
 | No C are not G
@@ -525,7 +525,6 @@ Consider the following table, which has some blanks in it:
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-
 2.13 What should you put in the blank in the third row?
 | B ∩ H = ∅
 | B ∪ H ≠ ∅
@@ -534,7 +533,6 @@ Consider the following table, which has some blanks in it:
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-
 2.14 What should you put in the blank in the fourth row?
 |+ F and H do not overlap
 | F and H do overlap
@@ -554,9 +552,143 @@ Consider the following table, which has some blanks in it:
 
 <p style="page-break-before: always">
 
-## Sets and propositional tautologies
+## Further connections between set theory and propositional logic
 
-Since the set-theoretic operations are defined in terms of the propositional connectives, it might be natural to anticipate some tighter connection between the two.
+Since the set-theoretic operations are defined in terms of the propositional connectives, it might be natural to anticipate a tight connection between the two.
 
+It turns out that any equivalence that involves just the propositional connectives $\wedge, \vee, \neg$ corresponds to an identity between sets formed similarly from the operators $\cap,\cup, \mbox{}^c$. Likewise, if all the sets in question are a subset of a set $D$ (our standing mnemonic for 'domain'), then any tautology corresponds to an identity between $D$ and the set similarly formed from the operators $\cap,\cup, \mbox{}^c$. Earlier, we had [a list of named tautologies and equivalences](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-section-no-solutions.pandoc#list-of-named-tautologies-and-equivalences). We recopy these here with the associated set-theoretic identities. In this list, when we encounter a tautology, we are assuming that the sets in question are all subsets of the set $D$.
+
+<table style="width:100%">
+  <tr>
+    <th>Propositional logic</th>
+    <th>Set theory</th>
+  </tr>
+  <tr>
+    <td>*Law of excluded middle*: $p\vee \neg p$ is a tautology.</td>
+    <td>$A\cup A^c = D$</td>
+  </tr>
+  <tr>
+    <td>*Law of non-contradiction*: $\neg (p\wedge \neg p)$ is a tautology.</td>
+    <td>$(A\cap A^c)^c = D$, equivalently $(A\cap A^c)=\emptyset$</td>
+  </tr>
+  <tr>
+    <td>*The law of double-negation*: $p$ is equivalent to $\neg \neg p$.</td>
+    <td>$(A^c)^c=A$</td>
+  </tr>
+  <tr>
+    <td>*Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$.</td>
+    <td>$A\cap B=B\cap A$</td>
+  </tr>
+  <tr>
+    <td>*Law of commutativity for disjunction*: $p\vee q$ is equivalent to $q\vee p$.</td>
+    <td>$A\cup B=B\cup A$</td>
+  </tr>
+  <tr>
+    <td>*Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$.</td>
+    <td>$(A\cap B)\cap C= A\cap (B\cap C)$</td>
+  </tr>
+  <tr>
+    <td> *Law of associativity for disjunction*: $(p\vee q)\vee r$ is equivalent to $p\vee (q\vee r)$.</td>
+    <td>$(A\cup B)\cup C = A\cup (B\cup C)$</td>
+  </tr>
+  <tr>
+    <td>*Law of distribution for conjunction*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$.</td>
+    <td>$A\cap (B\cup C) = (A\cap B)\cup (A\cap C)$</td>
+  </tr>
+  <tr>
+    <td>*Law of distribution for disjunction*: $p\vee (q\wedge r)$ is equivalent to $(p\vee q)\wedge (p\vee r)$.</td>
+    <td>$A\cup (B\cap C)=(A\cup B)\cap (A\cup C)$</td>
+  </tr>
+  <tr>
+    <td>*DeMorgan*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.</td>
+    <td>$(A\cap B)^c = A^c\cup B^c$</td>
+  </tr>
+  <tr>
+    <td>*DeMorgan*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$.</td>
+    <td>$(A\cup B)^c = A^c\cap B^c$</td>
+  </tr>
+  <tr>
+</table>
+
+<br>
+
+There is a similar observation for validities of propositional logic and the subset relation on sets. The general rule is:
+
+1. Suppose that $\varphi_1\rightarrow \psi_1, \ldots, \varphi_n\rightarrow \psi_n \vdash \varphi\rightarrow \psi$ is a valid argument in propositional logic, where $\varphi_i, \varphi, \psi_i, \psi$ are formed from $\wedge, \vee, \neg$.
+
+2. Let $A_i, A, B_i, B$ be formed similarly from $\cap, \cup, \mbox{}^c$.
+
+3. Then the following is always true: if $A_1\subseteq B_1, \ldots, A_n\subseteq B_n$ then $A\subseteq B$.
+
+For instance, we have the following correspondences:
+
+<table style="width:100%">
+  <tr>
+    <th>Propositional logic</th>
+    <th>Set theory</th>
+  </tr>
+  <tr>
+    <td>$p\rightarrow q\vdash \neg q\rightarrow \neg p$ </td>
+    <td>if $A\subseteq B$, then $B^c \subseteq A^c$</td>
+  </tr>
+  <tr>
+    <td>$p\rightarrow q, q\rightarrow r \vdash p\rightarrow r$ </td>
+    <td>if $A\subseteq B$ and $B\subseteq C$, then $A\subseteq C$</td>
+  </tr>
+  <tr>
+    <td>$p\rightarrow (q_1\vee q_2), q_1\rightarrow r, q_2\rightarrow r \vdash p\rightarrow r$ </td>
+    <td>if $A\subseteq (B_1\cup B_2)$ and $B_1\subseteq C$ and $B_2\subseteq C$, then $A\subseteq C$</td>
+  </tr>
+  <tr>
+    <td>$p\rightarrow (q_1\vee q_2), p\rightarrow \neg q_1 \vdash p\rightarrow q_2$ </td>
+    <td>if $A\subseteq (B_1\cup B_2)$ and $A\subseteq B_1^c$, then $A\subseteq B_2$</td>
+  </tr>
+</table>
+
+<br>
+
+None of the valid arguments has a traditional name *per se*, although the first is a kind of minor variant of modus tollens, the second might be called "transitivity of arrow", and the third and fourth are variants on disjunctive syllogism.
+
+Using these tables, and the general correspondences which generate them, one should be able to use one's prior knowledge of propositional logic to quickly answer the following questions:
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.16 Is it always true that if A⊆B then A⊆(B∪C)
+|+ Yes
+| No
+```
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.17 Is it always true that if A⊆B then A⊆(B∩C)
+| Yes
+|+ No
+```
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.18 Is it always true that A∩B=A∪B
+| Yes
+|+ No
+```
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.19 Is it always true that (A∩(B∪C))^c = A^c ∪ (B^c ∩ C^c)
+|+ Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.20 Is it always true that (A∪(B∩C))^c = A^c ∪ (A^c ∩ B^c)
+| Yes
+|+ No
+```
+
+<br>
 
 [^3]: which is:

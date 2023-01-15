@@ -176,7 +176,7 @@ For instance, $\{1,2\}\times \{2,3\} = \{\langle 1,2\rangle, \langle 1,3\rangle,
 
 The Cartesian powers are so-named because of the Cartesian plane. For instance, consider $\mathbb{N}\times \mathbb{N}$. We draw this with the first copy of the natural numbers $\mathbb{N}$ on the horizontal $x$-axis and the second copy of the natural numbers on the vertical $y$-axis, and we can draw points of the Cartesian power $\mathbb{N}\times \mathbb{N}$ by listing off points on the plane in terms of their familiar $\langle x,y\rangle$-coordinates. Here is a diagram which represents a small part of $\mathbb{N}\times \mathbb{N}$, and in the digram two points $\langle 8,2\rangle$ and $\langle 2,8\rangle$ are marked.
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/sets-cartesian-plane.png" alt="Cartesian plane" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-cartesian-plane.png" alt="Cartesian plane" width="700"/>
 
 
 <br>
@@ -195,7 +195,7 @@ Such subsets can also be visually represented. One option is to use write out th
 
 While these diagrammatic representations are different, they are similar in ways that reflect the set $R$: namely, there's five elements in the set $R$, and there are five orange dots in the diagram to the left, and there are five orange lines in the diagram to the right.
 
-(Note the type of diagram to the right is only possible if the relation $R$ is a subset of some $A^2$, where $A$ is one of the number systems, or a subset thereof. The type of diagram to the left is possible for any relation $R$ which is a subset of $A\times B$, where $A,B$ might be different numbers systems, or subsets thereof.)
+(Note that the type of "arrow" diagram to the right is only possible if the relation $R$ is a subset of $A^2$, for some set $A$: one draws the points of $A$ as dots and one draws the elements $\langle x,y\rangle$ of $R$ as an arrow from $x$ to $y$. The type of "subset of plane" diagram to the left is only possible if the relation $R$ is a subset of $A\times B$, where each of $A,B$ is one of the traditional number systems, or subsets thereof.)
 
 <br>
 
