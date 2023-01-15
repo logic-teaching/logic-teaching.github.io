@@ -174,7 +174,10 @@ For instance, $A^1 = A$ and $A^2=A\times A$ and $A^3=A\times A\times A$. Here we
 
 For instance, $\{1,2\}\times \{2,3\} = \{\langle 1,2\rangle, \langle 1,3\rangle, \langle 2,2\rangle, \langle 2,3\rangle\}$. Thus $\langle 1,2\rangle$ is in this set, but $\langle 2,1\rangle$ is not in this set.
 
-The Cartesian powers are so-named because of the Cartesian plane. For instance, consider $\mathbb{N}\times \mathbb{N}$. We draw this with the first copy of the natural numbers $\mathbb{N}$ on the horizontal $x$-axis and the second copy of the natural numbers on the vertical $y$-axis, and we can draw points of the Cartesian power $\mathbb{N}\times \mathbb{N}$ by listing off points on the plane in terms of their familiar $\langle x,y\rangle$-coordinates.
+The Cartesian powers are so-named because of the Cartesian plane. For instance, consider $\mathbb{N}\times \mathbb{N}$. We draw this with the first copy of the natural numbers $\mathbb{N}$ on the horizontal $x$-axis and the second copy of the natural numbers on the vertical $y$-axis, and we can draw points of the Cartesian power $\mathbb{N}\times \mathbb{N}$ by listing off points on the plane in terms of their familiar $\langle x,y\rangle$-coordinates. Here is a diagram which represents a small part of $\mathbb{N}\times \mathbb{N}$, and in the digram two points $\langle 8,2\rangle$ and $\langle 2,8\rangle$ are marked.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/sets-cartesian-plane.png" alt="Cartesian plane" width="700"/>
+
 
 <br>
 
