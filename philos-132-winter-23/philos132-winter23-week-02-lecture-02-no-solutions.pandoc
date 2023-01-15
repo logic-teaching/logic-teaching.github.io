@@ -54,7 +54,13 @@ Here is a simple set of examples of constant symbols and relation symbols pertai
 <p style="margin-left: 40px"> $H$ = is a History major  </p>
 <p style="margin-left: 40px"> $I$ = is in Improv Club  </p>
 
-The basic idea is that one gets an *atomic proposition* by putting a constant symbol right after a relation symbol. Then we can put these propositions together with the propositional connectives. The following translations exercises help one get the idea of this:
+The basic idea is that one gets an *atomic proposition* by putting a constant symbol right after a relation symbol. Then we can put these propositions together with the propositional connectives. The following translations exercises help one get the idea of this.
+
+<br>
+
+For these translation problems, **press return** to check your work.
+
+<br>
 
 *Example 1*
 
@@ -551,9 +557,13 @@ For future reference, we include the following summary of the components of the 
 
 Notes on typing quantifiers in the computer system:
 
-1. Do *not* put parentheses immediately outside quantifiers. For example, write `ExPx` and not `(ExPx)`.
+1. Do *not* put parentheses immediately outside quantifiers when the quantifier is the main connective. For example, write `AxPx` and not `(AxPx)`. But write `(AxPx/\AxQx)->Ax(Px/\Qx)` and not `AxPx/\AxQx->Ax(Px/\Qx)` since the latter is ambiguous between the former and `AxPx/\(AxQx->Ax(Px/\Qx))`.
 
 2. Put parentheses immediately inside a quantifier only if the main connective of that inner formula is a two-place propositional connective. For example, write `Ex(Px/\Rx)` and not `ExPx/\Rx`. But write `ExPx` and not `Ex(Px)`. And write `Ex~Px` and not `Ex(~Px)`.
+
+<br>
+
+On the translation problems: **press return** to check your work.
 
 <br>
 
