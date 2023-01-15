@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Well-formed formulas of predicate logic, with solutions
+# The quantifiers and well-formed formulas, with solutions
 
 We slowly describe the constituent components of the definition of the well-formed formulas of predicate logic.
 

@@ -12,76 +12,311 @@ th, td {
 tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 
-# Practice with sets, with solutions
-
+<br>
 <br>
 
-- [Practice with set notation](#practice-with-set-notation)
+# Practice with sets, with solutions
 
-- [Venn diagrams](#venn-diagrams)
+This section meeting is an opportunity to practice more with sets. After the summary, the next two parts of this document are just straightforward practice with the material from lecture. The last two parts of this document help you integrate sets further with concepts like Venn diagrams and propositional logic.
 
-- [Validity and Venn diagrams](#validity-and-venn-diagrams)
+There are probably more problems here than we can do in an hour, and so in section we will be selective with what problems we do. Take the problems we don't get to in section as an opportunity for further practice later on, on your own.
 
-- [Practice with functions](#practice-with-functions)
+- [Summary of set theory notation](#summary-of-set-theory-notation)
+- [Unordered list notation and set-theoretic operations](#unordered-list-notation-and-set-theoretic-operations)
+- [Ordered list notation and Cartesian products](#ordered-list-notation-and-cartesian-products)
+- [Venn diagrams and Aristotelian propositions](#venn-diagrams-and-aristotelian-propositions)
+- [Further connections between set theory and propositional logic](#further-connections-between-set-theory-and-propositional-logic)
 
 <br>
 
 <p style="page-break-before: always">
 
-## Practice with set notation
 
-*Problem 1*
+## Summary of set theory notation
 
-Consider the set $X=\{x\in \mathbb{N}: 3<x\leq 6\}$
+Here is a repeat of [the summary of our set-theory notation](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#summary-of-set-theory-notation):
 
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.01 Which of the following describes the elements of X?
-| 3, 4, 5
-| 36
-| +4, 5, 6
-| 3, x, 6
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Definition</th>
+  </tr>
+  <tr>
+    <td>Membership</td>
+    <td>$\in$</td>
+    <td>$a\in X$ iff $a$ is a member of $X$</td>
+  </tr>
+  <tr>
+    <td>Unordered list notation </td>
+    <td>$\{ , , ,\}$</td>
+    <td>e.g. $\{a_1,\ldots, a_n\}$ is the set with just $a_1, \ldots, a_n$ in it.</td>
+  </tr>
+  <tr>
+    <td>Subset </td>
+    <td>$\subseteq$</td>
+    <td>$X\subseteq Y$ iff every member of $X$ is also a member of $Y$</td>
+  </tr>
+  <tr>
+    <td>Empty set</td>
+    <td>$\emptyset$</td>
+     <td>the set which has no members</td>
+  </tr>
+  <tr>
+    <td>Ordered list notation</td>
+    <td>$\langle , , ,\rangle$ or $[, , ,]$</td>
+    <td>e.g. $\langle a_1, \ldots, a_n\rangle$ is the ordered list with $a_1$ first, $\ldots$, $a_n$ last </td>
+  </tr>
+  <tr>
+    <td>Set formation</td>
+    <td>$\{x\in D: x \mbox{ has } P\;\}$</td>
+    <td>the set of elements of $D$ with property $P$</td>
+  </tr>
+  <tr>
+    <td>Intersection</td>
+    <td>$\cap$</td>
+    <td>$X\cap Y= \{x\in D: x\in X \wedge x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Union</td>
+    <td>$\cup$</td>
+    <td>$X\cup Y= \{x\in D: x\in X \vee x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Difference</td>
+    <td>$\setminus$</td>
+    <td>$X\setminus Y = \{x\in D: x\in X \wedge x\notin Y\}$</td>
+  </tr>
+  <tr>
+    <td>Relative complement</td>
+    <td>$\cdot{}^c$</td>
+    <td>$X^c = \{x\in D: x\notin X\}$</td>
+  </tr>
+  <tr>
+    <td>Product </td>
+    <td>$\times$ </td>
+    <td>$X\times Y =\{\langle x,y\rangle: x\in X \wedge y\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Cartesian power</td>
+    <td>$\cdot^k$ </td>
+    <td>$A^k =\{\langle x_1, \ldots, x_k\rangle: x_1\in A \wedge \cdots \wedge x_k\in A\}$</td>
+  </tr>
+</table>
+
+<br>
+
+
+<br>
+
+In set formation, intersection, union, difference, and relative complement, the set $D$ is a given set, and the $X,Y$ are subsets of $D$.
+
+The only set theory symbols we will have to type frequently are the unordered list notation $\{,,,\}$ which we type as `{,,,}`, and the ordered lists notation $\langle , , ,\rangle$ or $[,,,]$, which we will type as `<,,,>` or `[,,,]`.
+
+<br>
+
+<p style="page-break-before: always">
+
+
+## Unordered list notation and set-theoretic operations
+
+<br>
+
+These problems combine [the unordered list notation](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#unordered-list-notation-and-membership) and [the set-theoretic operations](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc) associated to the propositional connectives.
+
+Consider the following four sets:
+
+<p style="margin-left: 40px">  $A=\{0,1,2,3,4,5\}$   </p>
+
+<p style="margin-left: 40px">   $B=\{4,5,6,7,8\}$   </p>
+
+<p style="margin-left: 40px"> $C=\{0,2,4,6,8\}$    </p>
+
+<p style="margin-left: 40px"> $D=\{0,1,2,3,4,5,6,7,8\}$    </p>
+
+That is, $A$ is the natural numbers 0-5, $B$ is the natural numbers 4-8, and $C$ is the even numbers in the interval 0-8 (and we count zero as even), and $D$ is the natural numbers 0-8.
+
+These are all subsets of the natural numbers $\mathbb{N}=\{0,1,2,3,\ldots\}$. An important feature of the natural numbers is that every non-empty subset has a least element. The sets $A,B,C,D$ are also all finite sets, and so one can identify their size and the size of each of their subsets. (The size of a set is also sometimes called its *cardinality*).
+
+Practice with sets by filling out the below table. After the table, we include five easy-to-pose questions which one can ask about these sets, which essentially ask about specific parts of the table. (In the section meeting, we will only fill out the parts of the table needed to answer the below five questions).
+
+<table style="width:100%">
+  <tr>
+    <th>Set</th>
+    <th>Elements, in unordered list notation</th>
+    <th>Least element (if non-empty)</th>
+    <th>Size</th>
+  </tr>
+  <tr>
+    <td>$A\cap B$</td>
+    <td>$\{4,5\}$</td>
+    <td>4</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>$A\cup B$</td>
+    <td>$\{0,1,2,3,4,5,6,7,8\}$</td>
+    <td>0</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>$A\setminus B$</td>
+    <td>$\{0,1,2,3\}$</td>
+    <td>0</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>$B\setminus A$</td>
+    <td>$\{6,7,8\}$</td>
+    <td>6</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>$A\cap C$</td>
+    <td>$\{0,2,4\}$</td>
+    <td>0</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>$A\cup C$</td>
+    <td>$\{0,1,2,3,4,5,6,8\}$</td>
+    <td>0</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>$A\setminus C$</td>
+    <td>$\{1,3,5\}$</td>
+    <td>1</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>$C\setminus A$</td>
+    <td>$\{6,8\}$</td>
+    <td>6</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>$C\cap B$</td>
+    <td>$\{4,6,8\}$</td>
+    <td>4</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>$C\cup B$</td>
+    <td>$\{0,2,4,5,6,7,8\}$</td>
+    <td>0</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>$C\setminus B$</td>
+    <td>$\{0,2\}$</td>
+    <td>0</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>$B\setminus C$</td>
+    <td>$\{5,7\}$</td>
+    <td>5</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>$A\cup (B\cap C)$</td>
+    <td>$\{0,1,2,3,4,5,6,8\}$</td>
+    <td>0</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>$A\cap (B\cup C)$</td>
+    <td>$\{0,2,4,5\}$</td>
+    <td>0</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>$A\setminus (B\cup C)$</td>
+    <td>$\{1,3\}$</td>
+    <td>1</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>$(A\cap B)\setminus C$</td>
+    <td>$\{5\}$</td>
+    <td>5</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>$A^c$</td>
+    <td>$\{6,7,8\}$</td>
+    <td>6</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>$B^c$</td>
+    <td>$\{0,1,2,3\}$</td>
+    <td>0</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>$C^c$</td>
+    <td>$\{1,3,5,7\}$</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>$D^c$</td>
+    <td>$\emptyset$</td>
+    <td>na</td>
+    <td>0</td>
+  </tr>
+</table>
+
+<br>
+
+*Note*: we have written the elements of our sets using the natural order on the natural numbers. But this was inessential in the *un*ordered set notation. For instance, it is also true that $A\cap B=\{5,4\}$. Note further that the least element and size of these sets does not depend on e.g. whether one writes $A\cap B=\{4,5\}$ or $A\cap B=\{5,4\}$: either way, the least element of this set is 4 and it has size 2.
+
+<br>
+
+
+```{.QualitativeProblem .Numerical submission="none" options="check"}
+2.01 4 : What is the least element of A ∩ B ?
+| 4
 ```
 
-*Note*: $3$ does not get in there because of the $<$ in the definition of the set. And $6$ gets in there because of the $\leq$ in the definition of the set.
-
-*Problem 2*
-
-List and count the subsets of $\{5,6\}$
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.02 How many are there?
+```{.QualitativeProblem .Numerical submission="none" options="check"}
+2.02 3 : What is the size of B \ A?
 | 3
-| +4
-| 5
-| 6
 ```
 
-*Note*: The four subsets are:
-
-- one zero element subset, namely the empty set $\emptyset$
-- two one element subsets, namely $\{5\}$ an $\{6\}$.
-- one two element subset, namely $\{5,6\}$.
-
-In general, if a set has exactly $n$ elements, then it has $2^n$ subsets. In this case, $n=2$.
-
-*Problems 3, 4, 5*
-
-Consider the set $X=\{\langle x,y\rangle\in \mathbb{N}^2: x<3, y<2\}$.
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.03 Which of the following is not in X?
-| <1,0>
-| <0,1>
-| <2,1>
-|+ <1,2>
+```{.QualitativeProblem .Numerical submission="none" options="check"}
+2.03 4 : What is the least element of C ∩ B ?
+| 4
 ```
 
-*Note*: $\langle 1,2\rangle$ is not in the set, since in this case the $y$-value is $2$, and so the $y$-value is not $<2$, which is what the definition of $X$ requires.
+```{.QualitativeProblem .Numerical submission="none" options="check"}
+2.04 8 : What is the size of A ∪ (B∩C)?
+| 8
+```
+
+```{.QualitativeProblem .Numerical submission="none" options="check"}
+2.05 4 : What is the size of B^c?
+| 4
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+## Ordered list notation and Cartesian products
+
+<br>
+
+*Problems 6,7,8*
+
+In these three problems, consider the set $X=\{\langle x,y\rangle\in \mathbb{N}^2: x<3, y<2\}$.
 
 <br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.04 How many elements does X have in it?
+2.06 How many elements does X have in it?
 | 4
 | 5
 |+ 6
@@ -96,9 +331,26 @@ Consider the set $X=\{\langle x,y\rangle\in \mathbb{N}^2: x<3, y<2\}$.
 - the two ordered pairs with $x$-value one: $\langle 1, 0\rangle$, $\langle 1, 1\rangle$.
 - the two ordered pairs with $x$-value two: $\langle 2, 0\rangle$, $\langle 2, 1\rangle$.
 
+<br>
+
+Consider the following diagrammatic representation of $X$: its points are highlighted in orange, and one of them is additionally circled red.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/section-problem-visualize-set.png" alt="Cartesian product example" width="700"/>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.05 Which of the following is an equivalent way of describing X?
+2.07 Which one is circled red?
+| <1,0>
+| <0,1>
+|+ <2,1>
+| <1,2>
+```
+
+*Note*: it is $\langle 2,1\rangle$, since the the first entry corresponds to the $x$-axis, and the second entry corresponds to the $y$-axis.
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.08 Which of the following is an equivalent way of describing X?
 | {0,1,2} x {0,1,2}
 | {0,1} x {0,1}
 | {0,1} x {0,1,2}
@@ -109,11 +361,46 @@ Consider the set $X=\{\langle x,y\rangle\in \mathbb{N}^2: x<3, y<2\}$.
 
 <br>
 
+*Problems 9, 10*
+
+For these two problems, consider the following four subsets $R,S,T,U$ of $\{0,1,2,3\}^2 = \{0,1,2,3\}\times \{0,1,2,3\}$:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/section-problem-visualize-relations.png" alt="Visualizing relations" width="700"/>
+
+<br>
+
+We would write out $R$, for example, as $R=\{\langle 0, 0\rangle, \langle 0,1\rangle, \langle 1,0\rangle, \langle 1,3\rangle\}$.
+
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.09 How would you write out S?
+| {<0,1>, <1,2>, <2,2>, <3,3>}
+|+ {<0,0>, <1,2>, <2,3>, <3,3>}
+| {<0,0>, <1,2>, <2,3>}
+| {<0,0>, <2,1>, <3,2>, <3,3>}
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.10 How would you write out T?
+| {<0,1>, <2,1>, <3,2>, <3,3>}
+| {<1,0>, <2,1>, <3,2>, <3,3>}
+| {<0,1>, <1,2>, <3,3>}
+|+ {<0,1>, <1,2>, <3,2>, <3,3>}
+```
+
+(A tricky issue is how you would write out $U$. It turns out that it would be written as $\emptyset$, since it has no elements, i.e. there are no orange arrows in $U$).
+
+
+<br>
+
 <p style="page-break-before: always">
 
-## Venn diagrams
 
-There is a standard way to visualize certain relations between sets, assuming that they are all subsets of some large set $D$ (for 'domain') that one can already visualize, usually a subset of the Euclidean plane. These are called Venn diagrams, where shapes in the Euclidean plane are used to represent sets. The following table records the correspondence between the shapes, the corresponding set-theoretic facts, and the corresponding Aristotelian proposition:
+## Venn diagrams and Aristotelian propositions
+
+Recall that Venn diagrams are a standard way to visualize certain relations between sets, assuming that they are all subsets of some large set $D$ (for 'domain') that one can already visualize. The following table records the correspondence between the shapes in the Venn diagram, the corresponding set-theoretic facts, and the corresponding Aristotelian proposition:
 
 <table style="width:120%">
   <tr>
@@ -147,41 +434,6 @@ There is a standard way to visualize certain relations between sets, assuming th
   </tr>
 </table>
 
-<br>
-
-In the middle column we introduce some further common set-theoretic notation (assuming, again, that all the sets are subsets of some larger set $D$, for 'domain'):
-
-<table style="width:120%">
-  <tr>
-    <th>Name</th>
-    <th>Symbol</th>
-    <th>Definition</th>
-  </tr>
-  <tr>
-    <td>Intersection of $X,Y$</td>
-    <td>$X\cap Y$</td>
-    <td>$X\cap Y= \{x\in D: x\in X \wedge x\in Y\}$</td>
-  </tr>
-  <tr>
-    <td>Union of $X,Y$</td>
-    <td>$X\cup Y$</td>
-    <td>$X\cup Y= \{x\in D: x\in X \vee x\in Y\}$</td>
-  </tr>
-  <tr>
-    <td>Difference of $X$ from $Y$</td>
-    <td>$X\setminus Y$</td>
-    <td>$X\setminus Y = \{x\in D: x\in X \wedge x\notin Y\}$</td>
-  </tr>
-  <tr>
-    <td>Relative complement</td>
-    <td>$X^c$</td>
-    <td>$X^c = \{x\in D: x\notin X\}$</td>
-  </tr>
-</table>
-
-<br>
-
-(Note some authors write relative complement $X^c$ just by putting an a horizontal line over the $X$.)
 
 <br>
 
@@ -234,7 +486,7 @@ Of course, the diagram displays a lot more than what we have recorded in the abo
 
 <br>
 
-*Problems 6-10*
+*Problems 11-15*
 
 <br>
 
@@ -286,8 +538,7 @@ Consider the following table, which has some blanks in it:
 <br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-
-1.06 What should you put in the blank in the first row?
+2.11 What should you put in the blank in the first row?
 | C and F overlap
 |+ C is contained in F
 | C overlaps with some part outside F
@@ -295,8 +546,7 @@ Consider the following table, which has some blanks in it:
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-
-1.07 What should you put in the blank in the second row?
+2.12 What should you put in the blank in the second row?
 | All C are G
 | No C are not G
 |+ All C are not G
@@ -304,8 +554,7 @@ Consider the following table, which has some blanks in it:
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-
-1.08 What should you put in the blank in the third row?
+2.13 What should you put in the blank in the third row?
 | B ∩ H = ∅
 | B ∪ H ≠ ∅
 | B ∪ H = ∅
@@ -313,8 +562,7 @@ Consider the following table, which has some blanks in it:
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-
-1.09 What should you put in the blank in the fourth row?
+2.14 What should you put in the blank in the fourth row?
 |+ F and H do not overlap
 | F and H do overlap
 | F overlaps with some part outside H
@@ -322,7 +570,7 @@ Consider the following table, which has some blanks in it:
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.10 What should you put in the blank in the fifth row?
+2.15 What should you put in the blank in the fifth row?
 | B \ H = ∅
 | H \ B ≠ ∅
 |+ B \ H ≠ ∅
@@ -333,170 +581,158 @@ Consider the following table, which has some blanks in it:
 
 <p style="page-break-before: always">
 
-## Validity and Venn diagrams
+## Further connections between set theory and propositional logic
+
+Since the set-theoretic operations are defined in terms of the propositional connectives, it might be natural to anticipate a tight connection between the two.
+
+It turns out that any equivalence that involves just the propositional connectives $\wedge, \vee, \neg$ corresponds to an identity between sets formed similarly from the operators $\cap,\cup, \mbox{}^c$. Likewise, if all the sets in question are a subset of a set $D$ (our standing mnemonic for 'domain'), then any tautology corresponds to an identity between $D$ and the set similarly formed from the operators $\cap,\cup, \mbox{}^c$. Earlier, we had [a list of named tautologies and equivalences](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-section-no-solutions.pandoc#list-of-named-tautologies-and-equivalences). We recopy these here with the associated set-theoretic identities. In this list, when we encounter a tautology, we are assuming that the sets in question are all subsets of the set $D$.
+
+<table style="width:100%">
+  <tr>
+    <th>Propositional logic</th>
+    <th>Set theory</th>
+  </tr>
+  <tr>
+    <td>*Law of excluded middle*: $p\vee \neg p$ is a tautology.</td>
+    <td>$A\cup A^c = D$</td>
+  </tr>
+  <tr>
+    <td>*Law of non-contradiction*: $\neg (p\wedge \neg p)$ is a tautology.</td>
+    <td>$(A\cap A^c)^c = D$, equivalently $(A\cap A^c)=\emptyset$</td>
+  </tr>
+  <tr>
+    <td>*The law of double-negation*: $p$ is equivalent to $\neg \neg p$.</td>
+    <td>$(A^c)^c=A$</td>
+  </tr>
+  <tr>
+    <td>*Law of commutativity for conjunction*: $p\wedge q$ is equivalent to $q\wedge p$.</td>
+    <td>$A\cap B=B\cap A$</td>
+  </tr>
+  <tr>
+    <td>*Law of commutativity for disjunction*: $p\vee q$ is equivalent to $q\vee p$.</td>
+    <td>$A\cup B=B\cup A$</td>
+  </tr>
+  <tr>
+    <td>*Law of associativity for conjunction*: $(p\wedge q)\wedge r$ is equivalent to $p\wedge (q\wedge r)$.</td>
+    <td>$(A\cap B)\cap C= A\cap (B\cap C)$</td>
+  </tr>
+  <tr>
+    <td> *Law of associativity for disjunction*: $(p\vee q)\vee r$ is equivalent to $p\vee (q\vee r)$.</td>
+    <td>$(A\cup B)\cup C = A\cup (B\cup C)$</td>
+  </tr>
+  <tr>
+    <td>*Law of distribution for conjunction*: $p\wedge (q\vee r)$ is equivalent to $(p\wedge q)\vee (p\wedge r)$.</td>
+    <td>$A\cap (B\cup C) = (A\cap B)\cup (A\cap C)$</td>
+  </tr>
+  <tr>
+    <td>*Law of distribution for disjunction*: $p\vee (q\wedge r)$ is equivalent to $(p\vee q)\wedge (p\vee r)$.</td>
+    <td>$A\cup (B\cap C)=(A\cup B)\cap (A\cup C)$</td>
+  </tr>
+  <tr>
+    <td>*DeMorgan*: $\neg (p\wedge q)$ is equivalent to $\neg p \vee \neg q$.</td>
+    <td>$(A\cap B)^c = A^c\cup B^c$</td>
+  </tr>
+  <tr>
+    <td>*DeMorgan*: $\neg (p\vee q)$ is equivalent to $\neg p \wedge \neg q$.</td>
+    <td>$(A\cup B)^c = A^c\cap B^c$</td>
+  </tr>
+  <tr>
+</table>
 
 <br>
 
-Given the above problems, it is kind of obvious that the one can use Venn diagrams to help test for invalidity of arguments, when the premises and conclusions of those arguments contain only Aristotelian propositions. One just looks for a Venn diagram which makes the premises true and the conclusion false. If one can't find one easily, that might be a sign that the argument is valid. It might follow, for instance, from some of the Aristotelian conversions and syllogisms. Later we will spend a lot of time developing other methods to establish validities.
+There is a similar observation for validities of propositional logic and the subset relation on sets. The general rule is:
+
+1. Suppose that $\varphi_1\rightarrow \psi_1, \ldots, \varphi_n\rightarrow \psi_n \vdash \varphi\rightarrow \psi$ is a valid argument in propositional logic, where $\varphi_i, \varphi, \psi_i, \psi$ are formed from $\wedge, \vee, \neg$.
+
+2. Let $A_i, A, B_i, B$ be formed similarly from $\cap, \cup, \mbox{}^c$.
+
+3. Then the following is always true: if $A_1\subseteq B_1, \ldots, A_n\subseteq B_n$ then $A\subseteq B$.
+
+For instance, we have the following correspondences:
+
+<table style="width:100%">
+  <tr>
+    <th>Propositional logic</th>
+    <th>Set theory</th>
+  </tr>
+  <tr>
+    <td>$p\rightarrow q\vdash \neg q\rightarrow \neg p$ </td>
+    <td>if $A\subseteq B$, then $B^c \subseteq A^c$</td>
+  </tr>
+  <tr>
+    <td>$p\rightarrow q, q\rightarrow r \vdash p\rightarrow r$ </td>
+    <td>if $A\subseteq B$ and $B\subseteq C$, then $A\subseteq C$</td>
+  </tr>
+  <tr>
+    <td>$p\rightarrow (q_1\vee q_2), q_1\rightarrow r, q_2\rightarrow r \vdash p\rightarrow r$ </td>
+    <td>if $A\subseteq (B_1\cup B_2)$ and $B_1\subseteq C$ and $B_2\subseteq C$, then $A\subseteq C$</td>
+  </tr>
+  <tr>
+    <td>$p\rightarrow (q_1\vee q_2), p\rightarrow \neg q_1 \vdash p\rightarrow q_2$ </td>
+    <td>if $A\subseteq (B_1\cup B_2)$ and $A\subseteq B_1^c$, then $A\subseteq B_2$</td>
+  </tr>
+</table>
 
 <br>
 
-*Problem 11*
+None of these valid arguments has a traditional name *per se*, although the first is a kind of minor variant of modus tollens, the second might be called "transitivity of arrow", and the third and fourth are variants on disjunctive syllogism.
 
-Some A is B, Some B is C $\vDash$ Some A is C
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
-1.11 Valid or invalid?
-| Valid
-| +Invalid
-```
-
-*Note*: for this one, just make $A,B,C$ be three shapes such that $A,B$ intersect, and $B,C$ intersect, but $A,C$ does not intersect.
+Using these tables, and the general correspondences which generate them, one should be able to use one's prior knowledge of propositional logic to quickly answer the following questions:
 
 <br>
-
-*Problem 12*
-
-No A are B, All C are B $\vDash$ No C are A
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
-1.12 Valid or invalid?
-| +Valid
-| Invalid
-```
-
-*Note*: this one is valid. This can be seen, for instance, from Celarent and the second conversion.
-
-<br>
-
-*Problem 13*
-
-No A is B, All A are C $\vDash$ No B is C
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
-1.13 Valid or invalid?
-| Valid
-| +Invalid
-```
-
-*Note*: for this one, just make a small $A$ circle fit into a big $C$ circle, and make the big $C$ circle intersect an outer $B$ circle which is really far away from $A$ and does not touch $A$.
-
-<br>
-
-*Problem 14*
-
-No A are B, Some C are B $\vDash$ Some C are not A
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
-1.14 Valid or invalid?
-| +Valid
-| Invalid
-```
-
-*Note*: this one is valid. It follows from Ferio and the second conversion.
-
-<br>
-
-*Problem 15*
-
-All A are not B, Some C are not B $\vDash$ Some C are not A
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="double-turnstile check"}
-1.15 Valid or invalid?
-| Valid
-| +Invalid
-```
-
-*Note*: this one is invalid. To see this, just draw a small $C$ circle inside a big $A$ circle, and then draw a big $B$ circle disjoint from both of $A,C$.
-
-
-<br>
-
-<p style="page-break-before: always">
-
-## Practice with functions
-
-The last five problems in this section all concern [functions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#functions).
-
-*Problem 16*
-
-Consider the function $f:\mathbb{N}\rightarrow\mathbb{N}$ given by $f(x)=x+1$
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.16 Which statement about this function is true?
-| It is surjective but not injective
-| +It is injective but not surjective
-| It is neither injective nor surjective
-| It is bijective
+2.16 Is it always true of sets that if A⊆B then A⊆(B∪C)
+|+ Yes
+| No
 ```
-
-*Note*: this one is injective but not surjective. It is not surjective because zero is not in the range. It is injective because one can argue as follows: suppose $f(x)=f(x^{\prime})$. Then $x+1=x^{\prime}+1$. Then by subtracting one from both sides, we get $x=x^{\prime}$.
+*Note*: this is always true of sets, because $p\rightarrow q\vdash p\rightarrow (q\vee r)$ is valid.
 
 <br>
-
-*Problem 17*
-
-Consider the function $g:\mathbb{Z}\rightarrow\mathbb{Z}$ given by $g(x)=x+1$
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.17 Which statement about this function is true?
-| It is surjective but not injective
-| It is injective but not surjective
-| It is neither injective nor surjective
-| +It is bijective
+2.17 Is it always true of sets that if A⊆B then A⊆(B∩C)
+| Yes
+|+ No
 ```
 
-*Note*: this one is bijective. The argument for injectivity is the same as the previous problem. For surjectivity, given $y$ in $\mathbb{Z}$, we need to find $x$ such that $g(x)=y$. Well, the latter would mean $x+1=y$. By subtracting one from both sides, we find $x=y-1$. And since integers are closed under subtraction, one has that $x$ is also an integer. And we can check that $g(x)=g(y-1)=(y-1)+1=y$.
-
+*Note*: this is not always true of sets, because $p\rightarrow q\vdash p\rightarrow (q\wedge r)$ is not valid.
 
 <br>
-
-*Problem 18*
-
-Consider the function $h:\mathbb{Q}\rightarrow\mathbb{Q}$ given by $h(x)=x^2$
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.18 Which statement about this function is true?
-| It is surjective but not injective
-| It is injective but not surjective
-| +It is neither injective nor surjective
-| It is bijective
+2.18 Is it always true of sets that A∩B=A∪B
+| Yes
+|+ No
 ```
 
-*Note*: this one is neither injective nor surjective. To see that injectivity fails, note that $h(2)=4$ and $h(-2)=4$. To see that surjectivity fails, note that all outputs of the function will be non-negative, and so there is no $x$ in the rationals with e.g. $h(x)=-5$.
+*Note*: this is not always true of sets, because $p\wedge q$ is not equivalent to $p\vee q$.
 
 <br>
-
-*Problem 19*
-
-Consider the function $i:\mathbb{N}\rightarrow\mathbb{N}\times \mathbb{Z}$ given by $i(x)=(x+1,x-1)$.
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.19 Which statement about this function is true?
-| It is surjective but not injective
-| +It is injective but not surjective
-| It is neither injective nor surjective
-| It is bijective
+2.19 Is it always true that (A∩(B∪C))^c = A^c ∪ (B^c ∩ C^c)
+|+ Yes
+| No
 ```
 
-*Note*: this one is injective but not surjective. To see that it is injective, suppose that $i(x)=i(x^{\prime})$. Then $(x+1,x-1)=(x^{\prime}+1,x^{\prime}-1)$. Then $x+1=x^{\prime}+1$. Then by subtracting one, we get $x=x^{\prime}$. To see that it is not surjective, note that e.g. there is no natural number $x$ such that $i(x)=(-10,-30)$. For, if so, then $(x+1,x-1)=(-10, -30)$. Then $x+1=-10$ and $x-1=-30$. Then $x=-11$ and $x=-31$.
+*Note*: this is always true of sets, because $\neg (p\wedge \neg (q\vee r))$ is equivalent to $\neg p \vee (\neg q \wedge \neg r)$, by two applications of DeMorgan.
 
 <br>
-
-*Problem 20*
-
-Consider the function $f:\mathbb{N}\rightarrow \mathbb{N}$ given by the following case breaks:
-
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/sets-function-case-break2.png" alt="Function defined by case break" width="500"/>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-1.20 Which statement about this function is true?
-| It is surjective but not injective
-| It is injective but not surjective
-| *It is neither injective nor surjective
-| It is bijective
+2.20 Is it always true of sets that (A∪(B∩C))^c = A^c ∪ (A^c ∩ B^c)
+| Yes
+|+ No
 ```
+
+*Note*: this is not always true of sets, because $\neg (p\vee \neg (q\wedge r))$ is not equivalent to $\neg p \vee (\neg q \wedge \neg r)$. (This would be a misapplication of DeMorgan).
 
 <br>
 
-*Note*: this one is neither injective nor surjective. It is not injective since $f(1)=3+2=5$, and $f(3)=5$. It is not surjective since the outputs of $f$ are all $\geq 2$.
+It is a little beyond the methods of this course to say why we can be sure that these correspondences always work. It has to do with the fact classical propositional logic is what is called a *Boolean algebra*, as are the subsets of a given set.
+
+<br>
+
+[^3]: which is:

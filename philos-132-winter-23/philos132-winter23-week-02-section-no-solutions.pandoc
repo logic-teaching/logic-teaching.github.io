@@ -15,18 +15,22 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Elementary set theory notation
+# Practice with sets
 
-We need a very small amount of set-theory notation for this course. The reason why is that we want to define models and truth in a model, since models are to predicate logic what truth-tables are to propositional logic. And we will represent models with sets.
+This section meeting is an opportunity to practice more with sets. After the summary, the next two parts of this document are just straightforward practice with the material from lecture. The last two parts of this document help you integrate sets further with concepts like Venn diagrams and propositional logic.
+
+There are probably more problems here than we can do in an hour, and so in section we will be selective with what problems we do. Take the problems we don't get to in section as an opportunity for further practice later on, on your own.
 
 - [Summary of set theory notation](#summary-of-set-theory-notation)
-- [Unordered list notation and membership](#unordered-list-notation-and-membership)
+- [Unordered list notation and set-theoretic operations](#unordered-list-notation-and-set-theoretic-operations)
 - [Ordered list notation and Cartesian products](#ordered-list-notation-and-cartesian-products)
-- [Venn diagrams](#venn-diagrams)
+- [Venn diagrams and Aristotelian propositions](#venn-diagrams-and-aristotelian-propositions)
 - [Further connections between set theory and propositional logic](#further-connections-between-set-theory-and-propositional-logic)
 
+<br>
 
 <p style="page-break-before: always">
+
 
 ## Summary of set theory notation
 
@@ -120,11 +124,21 @@ The only set theory symbols we will have to type frequently are the unordered li
 
 These problems combine [the unordered list notation](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#unordered-list-notation-and-membership) and [the set-theoretic operations](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc) associated to the propositional connectives.
 
-For problems 1-5, consider the sets $A=\{0,1,2,3,4,5\}$ and $B=\{4,5,6,7,8\}$ and $C=\{0,2,4,6,8\}$ and $D=\{0,1,2,3,4,5,6,7,8\}$. That is, $A$ is the natural numbers 0-5, $B$ is the natural numbers 4-8, and $C$ is the even numbers in the interval 0-8 (and we count zero as even), and $D$ is the natural numbers 0-8.
+Consider the following four sets:
 
-These are all subsets of the natural numbers $\mathbb{N}=\{0,1,2,3,\ldots\}$. An important feature of the natural numbers is that every non-empty subset has a least element. Hence, in the third column one is asked to identify the least element of the set, if it is non-empty. These are all finite sets, and so one can identify their size. (The size of a set is also sometimes called its *cardinality*). For the last four, assume that the relative complement is calculated with respect to $D$.
+<p style="margin-left: 40px">  $A=\{0,1,2,3,4,5\}$   </p>
 
-Practice with sets by filling out the below table. After the table, we include a sampling of easy-to-pose questions which one can ask about these sets. You'll only need to fill in parts of the table to answer these specific questions, but use this table for however much practice you need.
+<p style="margin-left: 40px">   $B=\{4,5,6,7,8\}$   </p>
+
+<p style="margin-left: 40px"> $C=\{0,2,4,6,8\}$    </p>
+
+<p style="margin-left: 40px"> $D=\{0,1,2,3,4,5,6,7,8\}$    </p>
+
+That is, $A$ is the natural numbers 0-5, $B$ is the natural numbers 4-8, and $C$ is the even numbers in the interval 0-8 (and we count zero as even), and $D$ is the natural numbers 0-8.
+
+These are all subsets of the natural numbers $\mathbb{N}=\{0,1,2,3,\ldots\}$. An important feature of the natural numbers is that every non-empty subset has a least element. The sets $A,B,C,D$ are also all finite sets, and so one can identify their size and the size of each of their subsets. (The size of a set is also sometimes called its *cardinality*).
+
+Practice with sets by filling out the below table. After the table, we include five easy-to-pose questions which one can ask about these sets, which essentially ask about specific parts of the table. (In the section meeting, we will only fill out the parts of the table needed to answer the below five questions).
 
 <table style="width:100%">
   <tr>
@@ -255,32 +269,32 @@ Practice with sets by filling out the below table. After the table, we include a
   </tr>
 </table>
 
+
 <br>
 
-Here is a sampling of easy-to-pose questions which one can ask about the above sets.
 
-```{.QualitativeProblem .Numerical}
-2.01 : What is the least element of A ∩ B ?
+```{.QualitativeProblem .Numerical submission="none" options="check"}
+2.01 4 : What is the least element of A ∩ B ?
 |
 ```
 
-```{.QualitativeProblem .Numerical}
-2.02 : What is the size of B \ A?
+```{.QualitativeProblem .Numerical submission="none" options="check"}
+2.02 3 : What is the size of B \ A?
 |
 ```
 
-```{.QualitativeProblem .Numerical}
-2.03 : What is the least element of C ∩ B ?
+```{.QualitativeProblem .Numerical submission="none" options="check"}
+2.03 4 : What is the least element of C ∩ B ?
 |
 ```
 
-```{.QualitativeProblem .Numerical}
-2.04 : What is the size of A ∪ (B∩C)?
+```{.QualitativeProblem .Numerical submission="none" options="check"}
+2.04 8 : What is the size of A ∪ (B∩C)?
 |
 ```
 
-```{.QualitativeProblem .Numerical}
-2.05 : What is the size of B^c?
+```{.QualitativeProblem .Numerical submission="none" options="check"}
+2.05 4 : What is the size of B^c?
 |
 ```
 
@@ -302,17 +316,9 @@ In these three problems, consider the set $X=\{\langle x,y\rangle\in \mathbb{N}^
 2.06 How many elements does X have in it?
 | 4
 | 5
-|+ 6
+|* 6
 | 12
 ```
-
-<br>
-
-*Note*: they are
-
-- the two ordered pairs with $x$-value zero: $\langle 0, 0\rangle$, $\langle 0, 1\rangle$.
-- the two ordered pairs with $x$-value one: $\langle 1, 0\rangle$, $\langle 1, 1\rangle$.
-- the two ordered pairs with $x$-value two: $\langle 2, 0\rangle$, $\langle 2, 1\rangle$.
 
 <br>
 
@@ -324,11 +330,9 @@ Consider the following diagrammatic representation of $X$: its points are highli
 2.07 Which one is circled red?
 | <1,0>
 | <0,1>
-|+ <2,1>
+|* <2,1>
 | <1,2>
 ```
-
-*Note: it is $\langle 2,1\rangle$, since the the first entry corresponds to the $x$-axis, and the second entry corresponds to the $y$-axis.
 
 <br>
 
@@ -337,23 +341,29 @@ Consider the following diagrammatic representation of $X$: its points are highli
 | {0,1,2} x {0,1,2}
 | {0,1} x {0,1}
 | {0,1} x {0,1,2}
-|+ {0,1,2} × {0,1}
+|* {0,1,2} × {0,1}
 ```
 
-*Note*: it is $\{0,1,2\}\times \{0,1\}$ because the $x$-values range over natural numbers $<3$, which is $0,1,2$, and the $y$-values range over natural numbers $<2$, which is $0,1$.
+
+<br>
 
 *Problems 9, 10*
 
-For these two problems, consider the following four subsets $R,S,T,U$ of $\{0,1,2,3\}^2 = \{0,1,2,3\}\times \{0,1,2,3\}$.
+For these two problems, consider the following four subsets $R,S,T,U$ of $\{0,1,2,3\}^2 = \{0,1,2,3\}\times \{0,1,2,3\}$:
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/section-problem-visualize-relations.png" alt="Visualizing relations" width="700"/>
 
+<br>
+
 We would write out $R$, for example, as $R=\{\langle 0, 0\rangle, \langle 0,1\rangle, \langle 1,0\rangle, \langle 1,3\rangle\}$.
+
+
+<br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 2.09 How would you write out S?
 | {<0,1>, <1,2>, <2,2>, <3,3>}
-|+ {<0,0>, <1,2>, <2,3>, <3,3>}
+|* {<0,0>, <1,2>, <2,3>, <3,3>}
 | {<0,0>, <1,2>, <2,3>}
 | {<0,0>, <2,1>, <3,2>, <3,3>}
 ```
@@ -363,15 +373,20 @@ We would write out $R$, for example, as $R=\{\langle 0, 0\rangle, \langle 0,1\ra
 | {<0,1>, <2,1>, <3,2>, <3,3>}
 | {<1,0>, <2,1>, <3,2>, <3,3>}
 | {<0,1>, <1,2>, <3,3>}
-|+ {<0,1>, <1,2>, <3,2>, <3,3>}
+|* {<0,1>, <1,2>, <3,2>, <3,3>}
 ```
 
 (A tricky issue is how you would write out $U$. It turns out that it would be written as $\emptyset$, since it has no elements, i.e. there are no orange arrows in $U$).
 
 
-## Venn diagrams
+<br>
 
-There is a standard way to visualize certain relations between sets, assuming that they are all subsets of some large set $D$ (for 'domain') that one can already visualize, usually a subset of the Euclidean plane. These are called Venn diagrams, where shapes in the Euclidean plane are used to represent sets. The following table records the correspondence between the shapes, the corresponding set-theoretic facts, and the corresponding Aristotelian proposition:
+<p style="page-break-before: always">
+
+
+## Venn diagrams and Aristotelian propositions
+
+Recall that Venn diagrams are a standard way to visualize certain relations between sets, assuming that they are all subsets of some large set $D$ (for 'domain') that one can already visualize. The following table records the correspondence between the shapes in the Venn diagram, the corresponding set-theoretic facts, and the corresponding Aristotelian proposition:
 
 <table style="width:120%">
   <tr>
@@ -511,7 +526,7 @@ Consider the following table, which has some blanks in it:
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 2.11 What should you put in the blank in the first row?
 | C and F overlap
-|+ C is contained in F
+|* C is contained in F
 | C overlaps with some part outside F
 | C and F do not overlap
 ```
@@ -520,7 +535,7 @@ Consider the following table, which has some blanks in it:
 2.12 What should you put in the blank in the second row?
 | All C are G
 | No C are not G
-|+ All C are not G
+|* All C are not G
 | Some C are not G
 ```
 
@@ -529,12 +544,12 @@ Consider the following table, which has some blanks in it:
 | B ∩ H = ∅
 | B ∪ H ≠ ∅
 | B ∪ H = ∅
-|+ B ∩ H ≠ ∅
+|* B ∩ H ≠ ∅
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 2.14 What should you put in the blank in the fourth row?
-|+ F and H do not overlap
+|* F and H do not overlap
 | F and H do overlap
 | F overlaps with some part outside H
 | F is contained in the part outside H.
@@ -544,7 +559,7 @@ Consider the following table, which has some blanks in it:
 2.15 What should you put in the blank in the fifth row?
 | B \ H = ∅
 | H \ B ≠ ∅
-|+ B \ H ≠ ∅
+|* B \ H ≠ ∅
 | H \ B = ∅
 ```
 
@@ -647,47 +662,54 @@ For instance, we have the following correspondences:
 
 <br>
 
-None of the valid arguments has a traditional name *per se*, although the first is a kind of minor variant of modus tollens, the second might be called "transitivity of arrow", and the third and fourth are variants on disjunctive syllogism.
+None of these valid arguments has a traditional name *per se*, although the first is a kind of minor variant of modus tollens, the second might be called "transitivity of arrow", and the third and fourth are variants on disjunctive syllogism.
 
 Using these tables, and the general correspondences which generate them, one should be able to use one's prior knowledge of propositional logic to quickly answer the following questions:
 
 <br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-2.16 Is it always true that if A⊆B then A⊆(B∪C)
-|+ Yes
+2.16 Is it always true of sets that if A⊆B then A⊆(B∪C)
+|* Yes
 | No
 ```
 
 <br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-2.17 Is it always true that if A⊆B then A⊆(B∩C)
+2.17 Is it always true of sets that if A⊆B then A⊆(B∩C)
 | Yes
-|+ No
+|* No
 ```
 
 <br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-2.18 Is it always true that A∩B=A∪B
+2.18 Is it always true of sets that A∩B=A∪B
 | Yes
-|+ No
+|* No
 ```
 
 <br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 2.19 Is it always true that (A∩(B∪C))^c = A^c ∪ (B^c ∩ C^c)
-|+ Yes
+|* Yes
 | No
 ```
 
+
+<br>
+
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-2.20 Is it always true that (A∪(B∩C))^c = A^c ∪ (A^c ∩ B^c)
+2.20 Is it always true of sets that (A∪(B∩C))^c = A^c ∪ (A^c ∩ B^c)
 | Yes
-|+ No
+|* No
 ```
+
+<br>
+
+It is a little beyond the methods of this course to say why we can be sure that these correspondences always work. It has to do with the fact classical propositional logic is what is called a *Boolean algebra*, as are the subsets of a given set.
 
 <br>
 
