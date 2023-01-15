@@ -15,376 +15,293 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Tutoring session
+# Week 2, Homework
 
-The problems in this set fall into four groups:
-
-- [Set theory notation](#set-theory-notation)
-
-- [Venn diagrams](#venn-diagrams)
-
-- [Set theoretic operations](#set-theoretic-operations)
-
-- [Invalidity](#invalidity)
-
+The homework problems in this set fall into four groups:
 
 <br>
 
-## Set theory notation
-
-Consider reviewing the [summary of set theory notation](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#summary-of-set-theory-notation) before proceeding.
-
-*Problem 1*
-
-Consider the set $X=\{x\in \mathbb{N}: 0<x<5\}$ and $Y=\{x\in \mathbb{N}: 0<x<10 \wedge x\notin X\}$. What is the smallest member of $Y$?
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.01 Which is the smallest member of Y?
-| 4
-| *5
-| 6
-| 7
-```
+Before we begin: a reminder that you can work with 1-2 other students, and that otherwise sharing solutions is not permitted.
 
 <br>
 
-*Problem 2*
+## Sets
 
-Consider the following sets:
+In problems 1-5, consider the following sets:
 
-- $A = \{ 1, 2, 3, 4, 7, 10\}$
+<p style="margin-left: 40px">  $A=\{-9,-8,-7,-6,-5,-4,4,5,6,7,8,9\}$   </p>
 
-- $B = \{ x\in \mathbb{N}: 1<x<10\}$
+<p style="margin-left: 40px">  $B=\{-5,-4,-3,-2,-1,0,1,2,3,4,5\}$   </p>
 
-- $C = \{ x\in \mathbb{N}: (x=1 \vee x\in B)\vee x=10 \}$
+<p style="margin-left: 40px">  $C=\{-9,-7,-5,-3,-1,1,3,5,7,9\}$   </p>
 
-One and only one of the following statements true. Which is it?
+<p style="margin-left: 40px">  $D=\{-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9\}$   </p>
 
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.02 Which is true?
-| A ⊆ B
-| B ⊆ A
-| *A ⊆ C
-| C ⊆ A
-```
+That is, $D$ is the set of integers between $-9$ and $9$ (including both $-9$ and $9$), $A$ is a subset of $D$ which is missing an interval in the middle, $B$ is a subset of $D$ which is missing two intervals at either end, and $C$ is the subset of $D$ which contains only the integers whose absolute value is odd.
 
-<br>
+(In some sense, this example is just a variant on the example from the practice with [Unordered list notation and set-theoretic operations](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-section-with-solutions.pandoc#unordered-list-notation-and-set-theoretic-operations), in that it just adds a "mirror image" in the negative numbers. But if one is just beginning, it can be good to practice with minor variants. And since we made, in this example, the set $C$ be the odd numbers, note that zero is not in $C$, which introduces a slight asymmetry).
 
-*Problem 3*
-
-Suppose $X=\{6,7\}$ and $Y=\{5,7\}$. One and only one of the following elements is in $X\times Y$. Which is it?
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.03 Which is it?
-| <5,7>
-| <6,6>
-| <7,6>
-| *<6,7>
-```
-
-<br>
-
-*Problem 4*
-
-Consider the following sets:
-
-- $X_1 = \{ 3, 4, 7, 9\}$
-
-- $X_2 = \{ x\in \mathbb{N}: x>6\}$
-
-- $X_3 = \{ x\in \mathbb{N}: x\in X_2 \wedge x\notin X_1\}$
-
-For $i=1,2,3$ let $x_i$ be the least element of $X_i$ in the ordering of the natural numbers. Identify $\langle x_1, x_2, x_3\rangle$ by selecting it from the following list.
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.04 Which is it?
-| <3,7,7>
-| *<3,7,8>
-| <3,6,7>
-| <3,6,9>
-```
-
-<br>
-
-*Problem 5*
-
-Suppose that $f:\mathbb{N}\rightarrow \mathbb{Z}\times \mathbb{Z}$ by $f(x)=\langle x,-x\rangle$. Suppose that $g:\mathbb{Z}\times \mathbb{Z}\rightarrow \mathbb{N}$ by $g(x,y)=\left|x-y\right|$.
-
-What is $f(g(f(5)))$?
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.05 Which is it?
-| <5,-5>
-| <5,-10>
-| <10,-5>
-| *<10,-10>
-```
-<br>
-
-## Venn diagrams
-
-Recall the arguments of [Aristotle's second figure](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc#the-second-figure):
+The first five problems ask about information contained in the following table. To solve these problems you will only need to fill in a small part of the table. Take the rest of the table as an opportunity to practice.
 
 <table style="width:100%">
   <tr>
-    <th>Name</th>
-    <th>Valid argument</th>
+    <th>Set</th>
+    <th>Elements, in unordered list notation</th>
+    <th>Least element (if non-empty)</th>
+    <th>Size</th>
   </tr>
   <tr>
-    <td>Cesare</td>
-    <td>No A are B, All C are B $\vDash$ No C are A</td>
+    <td>$A\cap B$</td>
+    <td>$\{−5,−4,4,5\}$</td>
+    <td>-5</td>
+    <td>4</td>
   </tr>
   <tr>
-    <td>Camestres</td>
-    <td>All A are B, No C are B $\vDash$ No C are A</td>
-  <tr>
-    <td>Festino</td>
-    <td>No A are B, Some C are B $\vDash$ Some C are not A</td>
+    <td>$A\cup B$</td>
+    <td>$\{-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9\}$</td>
+    <td>-9</td>
+    <td>19</td>
   </tr>
   <tr>
-    <td>Baroco</td>
-    <td>All A are B, Some C are not B $\vDash$ Some C are not A</td>
+    <td>$A\setminus B$</td>
+    <td>$\{− 9,  − 8,  − 7,  − 6, 6, 7, 8, 9\}$</td>
+    <td>-9</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>$B\setminus A$</td>
+    <td>$\{− 3,  − 2,  − 1, 0, 1, 2, 3\}$</td>
+    <td>-3</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>$A\cap C$</td>
+    <td>$\{-9,-7,-5,5,7,9\}$</td>
+    <td>-9</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>$A\cup C$</td>
+    <td>$\{−9,−8,−7,−6,−5,−4,-3,-1,1,3,4,5,6,7,8,9\}$</td>
+    <td>-9</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>$A\setminus C$</td>
+    <td>$\{-8,-6,-4,4,6,8\}$</td>
+    <td>-8</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>$C\setminus A$</td>
+    <td>$\{-3,-1,1,3\}$</td>
+    <td>-3</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>$C\cap B$</td>
+    <td>$\{-5,-3,-1,1,3,5\}$</td>
+    <td>-5</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>$C\cup B$</td>
+    <td>$\{-9,-7,−5,−4,−3,−2,−1,0,1,2,3,4,5,7,9\}$</td>
+    <td>15</td>
+    <td>-9</td>
+  </tr>
+  <tr>
+    <td>$C\setminus B$</td>
+    <td>$\{-9,-7,7,9\}$</td>
+    <td>-9</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>$B\setminus C$</td>
+    <td>$\{-4,-2,0,2,4\}$</td>
+    <td>-4</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>$A\cup (B\cap C)$</td>
+    <td>$\{-9,-8,-7,-6,-5,-4,-3,-1,1,3,4,5,6,7,8,9\}$</td>
+    <td>-9</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>$A\cap (B\cup C)$</td>
+    <td>$\{-9,-7,-5,-4,4,5,7,9\}$</td>
+    <td>-9</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>$A\setminus (B\cup C)$</td>
+    <td>$\{-8,-6,6,8\}$</td>
+    <td>-8</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>$(A\cap B)\setminus C$</td>
+    <td>$\{−4,4\}$</td>
+    <td>-4</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>$A^c$</td>
+    <td>$\{−3,−2,−1,0,1,2,3\}$</td>
+    <td>-3</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>$B^c$</td>
+    <td>$\{−9,−8,−7,−6,6,7,8,9\}$</td>
+    <td>-9</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>$C^c$</td>
+    <td>$\{-8,-6,-4,-2,0,2,4,6,8\}$</td>
+    <td>-8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>$D^c$</td>
+    <td>$\emptyset$</td>
+    <td>na</td>
+    <td>0</td>
   </tr>
 </table>
 
-<br>
-
-*Problem 6*
-
-The following Venn diagram makes true all of the premises of one and only one of the four arguments in the second figure. Which is it?
-
-<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/euler-practice-1.mp4"/> </video>
 
 <br>
 
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.06 Which is it?
-| Cesare
-| Camestres
-| *Festino
-| Baroco
+
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.01 : What is the least element of B\A ?
+| 2
+| 3
+| +4
+| 5
 ```
 
-<br>
-
-*Problem 7*
-
-The following Venn diagram makes true all of the premises of one and only one of the four arguments in the second figure. Which is it?
-
-<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/euler-practice-2.mp4"/> </video>
-
-<br>
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.07 Which is it?
-| *Cesare
-| Camestres
-| Festino
-| Baroco
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.02 : What is the size of B \ A?
+| 6
+| +7
+| 8
+| 9
 ```
 
-<br>
-
-*Problem 8*
-
-Leibniz used a linear version of Venn diagrams. This problem invites you to surmise how they worked. The following Leibniz diagram makes true all of the premises of one and only one of the four arguments in the second figure. Which is it?
-
-<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/euler-practice-3.mp4"/> </video>
-
-<br>
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.08 Which is it?
-| Cesare
-| Camestres
-| Festino
-| *Baroco
-```
-
-<br>
-
-*Problem 9*
-
-Consider the following invalid argument: No A are B, Some C are B $\nvDash$ Some C are A.
-
-Suppose that $A=\{0,2,4,6,8,10\}$ and $B=\{1,3,5,7,9\}$. Which of the following sets should you choose to make $C$ so that the premises of the argument are true and the conclusion is false?
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.09 Which is it?
-| {1,2,3}
-| *{1, 3, 5}
-| {11, 13, 15}
-| {0,2,4}
-```
-
-<br>
-
-*Problem 10*
-
-Consider the following invalid argument: All A are B, Some C are not B $\nvDash$ Some A are not C</td>
-
-Suppose that $A=\{0,1,2\}$ and $B=\{0,1,2,3,4,5\}$. Which of the following sets should you choose to make $C$ so that the premises of the argument are true and the conclusion is false?
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.10 Which is it?
-| {0,1,4,5}
-| {1,2,5,6}
-| {2,3,4,5,6}
-| *{0,1,2,6,7}
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.03 : What is the size of C \ A?
+| ‐5
+| ‐4
+| +‐3
+| ‐2
 ```
 
 
-<br>
-
-## Set theoretic operations
-
-These problems pertain to the set-theoretic operations of [intersection, difference, and union](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-section-no-solutions.pandoc#venn-diagrams).
-
-These five problems pertain to the following sets:
-
-- $A = \{0,1,2\}$
-- $B = \{2,3,4\}$
-- $C = \{0,2,4\}$
-
-
-<br>
-
-*Problem 11*
-
-What is $A\cap B$?
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.11 What is it?
-| {1}
-| *{2}
-| {3}
-| {4}
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.04 : What is the size of A \ (B∪C)?
+| 4
+| 5
+| +6
+| 7
 ```
 
-<br>
-
-*Problem 12*
-
-What is $A\setminus B$?
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.12 What is it?
-| {0}
-| *{0,1}
-| {0,2}
-| {1,2}
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.05 : What is the least element of A^c?
+| ‐4
+| +‐3
+| ‐2
+| ‐1
 ```
 
-<br>
+## Translations with quantifiers
 
-*Problem 13*
+In the following problems, we use the key:
 
-What is $(A\setminus B)\cup C$?
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.13 What is it?
-| {0,1}
-| {0,1,2}
-| *{0,1,2,4}
-| {0,1,2,3,4}
-```
-
-<br>
-
-*Problem 14*
-
-What is $(A\cup C)\setminus B$?
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.14 What is it?
-| {0,1,2,4}
-| {0,1,3,4}
-| {0,1,2}
-| *{0,1}
-```
+| $a$  =  "Angel"
+| $b$  = "Briana"
+| $d$  =  "Daniela"
+| $B$  = is busy
+| $H$  = is happy
+| $T$  = is tired
+| $L$  = is a law student
+| $M$  = is a medical student
 
 <br>
 
-*Problem 15*
-
-What is $B\setminus A$?
-
-```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
-2.15 What is it?
-| {2,3}
-| *{3,4}
-| {2,4}
-| {0,2}
-```
+~~~{.Translate .FOL system="gamutND" options="check"}
+2.11 (Ha/\~Ta)->Ex(Hx/\~Tx) : If Angel is happy and Angel is not tired, then someone is both happy and not tired.
+|
+~~~
 
 <br>
 
-## Invalidity
-
-The following problems ask you to choose values of A,B,C which illustrate the invalidity of the arguments. The choices of A,B,C are sets of natural numbers using [the unordered list notation](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#unordered-list-notation-and-membership), that is they are just natural numbers separated by commas. Above each problem we also display the formulas of predicate logic which we will, in the weeks to come, use to translate the arguments-- you can just ignore that for the time being.
-
-For the `Domain` entry, just choose a big enough set of natural numbers to include all the numbers you want to include in A,B,C. These problems can be done with a very small domain like 0,1,2,3,4,5, which just means that you choose A,B,C to only include numbers from 0,1,2,3,5.
-
-<br>
-
-*Problem 16*
-
-Show that the following argument is not in fact valid:
-
-Some A are B, Some B are C $\vDash$ Some A are C
-
-```{.CounterModeler .Validity system="gamutND" submission="none" options="double-turnstile"}
-2.16 Ex(Ax/\Bx), Ex(Bx/\Cx) :|-: Ex(Ax/\Cx)
-```
+~~~{.Translate .FOL system="gamutND" options="check"}
+2.12 AxTx/\~AxBx : Everyone is tired but not everyone is busy.
+|
+~~~
 
 <br>
 
-*Problem 17*
-
-Show that the following argument is not in fact valid:
-
-All A are B, Some B are C $\vDash$ Some A are C
-
-```{.CounterModeler .Validity system="gamutND" submission="none" options="double-turnstile"}
-2.17 Ax(Ax->Bx), Ex(Bx/\Cx) :|-: Ex(Ax/\Cx)
-```
+~~~{.Translate .FOL system="gamutND" options="check"}
+2.13 (AxBx/\AxTx)->Ax~Hx : If everyone is busy and everyone is tired, then everyone is not happy.
+|
+~~~
 
 <br>
 
-*Problem 18*
-
-Show that the following argument is not in fact valid:
-
-All A are B, No A are C $\vDash$ No B are C
-
-```{.CounterModeler .Validity system="gamutND" submission="none" options="double-turnstile"}
-2.18 Ax(Ax->Bx), ~Ex(Ax/\Cx) :|-: ~Ex(Bx/\Cx)
-```
+~~~{.Translate .FOL system="gamutND" options="check"}
+2.14 (~Bd/\AxTx)->Ex(Tx/\~Bx) : If Daniela is not busy and everyone is tired, then someone is tired but not busy.
+|
+~~~
 
 <br>
 
-*Problem 19*
-
-Show that the following argument is not in fact valid:
-
-No A are B, No B are C $\vDash$ No A are C
-
-```{.CounterModeler .Validity system="gamutND" submission="none" options="double-turnstile"}
-2.19 ~Ex(Ax/\Bx), ~Ex(Bx/\Cx) :|-: ~Ex(Ax/\Cx)
-```
+~~~{.Translate .FOL system="gamutND" options="check"}
+2.15 Ax(Bx\/Tx)/\(~AxBx/\~AxTx) : Everyone is busy or tired, but not everyone is busy and not everyone is tired.
+|
+~~~
 
 <br>
 
-*Problem 20*
-
-Show that the following argument is not in fact valid:
-
-No A are B, All B are C $\vDash$ All A are C
-
-```{.CounterModeler .Validity system="gamutND" submission="none" options="double-turnstile"}
-2.20 ~Ex(Ax/\Bx), Ax(Bx->Cx) :|-: Ax(Ax->Cx)
-```
+~~~{.Translate .FOL system="gamutND" options="check"}
+02.16 Ax((~x=a/\~x=b)->Tx) : Everyone except Angel and Briana is tired.
+|
+~~~
 
 <br>
 
+~~~{.Translate .FOL system="gamutND" options="check"}
+02.17 (Ex(~x=a/\Hx)\/Ex(~x=a/\Tx))/\~(Ex(~x=a/\Hx)/\Ex(~x=a/\Tx)) : Someone besides Angel is happy or someone besides Angel is tired, but not both.
+|
+~~~
+
 <br>
+
+~~~{.Translate .FOL system="gamutND" options="check"}
+02.18 ~Ex(Lx/\Mx)/\(Ex(Lx/\~Hx)/\Ex(Mx/\Tx)) : No law student is a medical student, but some law student is not happy, and some medical student is tired.
+|
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" options="check"}
+02.19 (Ax(Mx->Tx)/\Ex(Tx/\Hx))->Ex(Mx/\(Tx/\Hx)) : If every medical student is tired, and if some tired person is happy, then some medical student is tired and happy.
+|
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" options="check"}
+02.20 (Ax((Lx/\~x=a)->Tx)/\Ex((Lx/\~x=a)/\~Hx))->Ex((Lx/\~x=a)/\(~Hx/\Tx)) : If every law student besides Angel is tired, and if some law student besides Angel is not happy, then some law student besides Angel is not happy and tired.
+|
+~~~
+
+<br>
+
+
+
