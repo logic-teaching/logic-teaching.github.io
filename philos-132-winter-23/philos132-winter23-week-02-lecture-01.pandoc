@@ -192,6 +192,8 @@ Such subsets can also be visually represented. One option is to use write out th
 
 While these diagrammatic representations are different, they are similar in ways that reflect the set $R$: namely, there's five elements in the set $R$, and there are five orange dots in the diagram to the left, and there are five orange lines in the diagram to the right.
 
+(Note the type of diagram to the right is only possible if the relation $R$ is a subset of some $A^2$, where $A$ is one of the number systems, or a subset thereof. The type of diagram to the left is possible for any relation $R$ which is a subset of $A\times B$, where $A,B$ might be different numbers systems, or subsets thereof.)
+
 <br>
 
 <p style="page-break-before: always">
