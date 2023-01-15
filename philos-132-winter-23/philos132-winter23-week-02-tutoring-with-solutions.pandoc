@@ -244,16 +244,16 @@ How many elements does it have in it? *Note*: there are 15 elements, since one h
 
 How would one draw it as a subset of the Euclidean plane? *Note* see the below diagram:
 
-<img src="https://logic‐teaching.github.io/philos‐132‐winter‐23/vid/sets-tutoring-relation-as-subset-of-plane" alt="Subset of plane" width="700"/>
+<img src="https://logic‐teaching.github.io/philos‐132‐winter‐23/vid/sets-tutoring-relation-as-subset-of-plane.png" alt="Subset of plane" width="700"/>
 
 
 <br>
 
 *Problem 7*
 
-Consider the set $\{\langle x,y\rangle \in \mathbb{N}^2: x\leq 4 \wedge y\leq 4 \wedge (x=y)\vee y=x+1\}$.
+Consider the set $\{\langle x,y\rangle \in \mathbb{N}^2: x\leq 4 \wedge y\leq 4 \wedge ((x=y)\vee y=x+1)\}$.
 
-Before you begin, try to write out some elements that are in this set.
+Before you begin, try to write out some elements that are in this set. For instance, ask yourself: is $\langle 1,1\rangle$ in the set? Is $\langle 1,2\rangle$ in the set? Is $\langle 2,1\rangle$ in the set?
 
 Then, consider the following four arrow diagrams:
 
