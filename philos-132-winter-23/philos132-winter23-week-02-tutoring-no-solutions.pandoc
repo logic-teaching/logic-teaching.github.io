@@ -25,7 +25,7 @@ Before we begin: a reminder that you can work with 1-2 other students, and that 
 
 <br>
 
-## Sets
+## Unordered list notation and set-theoretic operations
 
 In problems 1-5, consider the following sets:
 
@@ -52,7 +52,7 @@ The first five problems ask about information contained in the following table. 
   </tr>
   <tr>
     <td>$A\cap B$</td>
-    <td>$\{−5,−4,4,5\}$</td>
+    <td>$\{‐5,‐4,4,5\}$</td>
     <td>-5</td>
     <td>4</td>
   </tr>
@@ -64,13 +64,13 @@ The first five problems ask about information contained in the following table. 
   </tr>
   <tr>
     <td>$A\setminus B$</td>
-    <td>$\{− 9,  − 8,  − 7,  − 6, 6, 7, 8, 9\}$</td>
+    <td>$\{‐ 9,  ‐ 8,  ‐ 7,  ‐ 6, 6, 7, 8, 9\}$</td>
     <td>-9</td>
     <td>8</td>
   </tr>
   <tr>
     <td>$B\setminus A$</td>
-    <td>$\{− 3,  − 2,  − 1, 0, 1, 2, 3\}$</td>
+    <td>$\{‐ 3,  ‐ 2,  ‐ 1, 0, 1, 2, 3\}$</td>
     <td>-3</td>
     <td>7</td>
   </tr>
@@ -82,7 +82,7 @@ The first five problems ask about information contained in the following table. 
   </tr>
   <tr>
     <td>$A\cup C$</td>
-    <td>$\{−9,−8,−7,−6,−5,−4,-3,-1,1,3,4,5,6,7,8,9\}$</td>
+    <td>$\{‐9,‐8,‐7,‐6,‐5,‐4,-3,-1,1,3,4,5,6,7,8,9\}$</td>
     <td>-9</td>
     <td>16</td>
   </tr>
@@ -106,7 +106,7 @@ The first five problems ask about information contained in the following table. 
   </tr>
   <tr>
     <td>$C\cup B$</td>
-    <td>$\{-9,-7,−5,−4,−3,−2,−1,0,1,2,3,4,5,7,9\}$</td>
+    <td>$\{-9,-7,‐5,‐4,‐3,‐2,‐1,0,1,2,3,4,5,7,9\}$</td>
     <td>15</td>
     <td>-9</td>
   </tr>
@@ -142,19 +142,19 @@ The first five problems ask about information contained in the following table. 
   </tr>
   <tr>
     <td>$(A\cap B)\setminus C$</td>
-    <td>$\{−4,4\}$</td>
+    <td>$\{‐4,4\}$</td>
     <td>-4</td>
     <td>2</td>
   </tr>
   <tr>
     <td>$A^c$</td>
-    <td>$\{−3,−2,−1,0,1,2,3\}$</td>
+    <td>$\{‐3,‐2,‐1,0,1,2,3\}$</td>
     <td>-3</td>
     <td>7</td>
   </tr>
   <tr>
     <td>$B^c$</td>
-    <td>$\{−9,−8,−7,−6,6,7,8,9\}$</td>
+    <td>$\{‐9,‐8,‐7,‐6,6,7,8,9\}$</td>
     <td>-9</td>
     <td>8</td>
   </tr>
@@ -186,9 +186,9 @@ The first five problems ask about information contained in the following table. 
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
-2.02 : What is the size of B \ A?
-| 6
-| +7
+2.02 : What is the size of A \ C?
+| +6
+| 7
 | 8
 | 9
 ```
@@ -217,6 +217,44 @@ The first five problems ask about information contained in the following table. 
 | ‐2
 | ‐1
 ```
+
+## Venn diagrams and Aristotelian propositions
+
+Consider the following Venn diagram featuring sets $A,B,C$, namely, the three large circles. It further contains seven numbered smaller shapes, 1-7. The intended interpretation is that a number represents the smallest shape in which the number fits inside. For instance, $7$ represents the very small curved triangle-like shape at the center of the diagram.
+
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-venn-1.png" alt="Cartesian product example" width="700"/>
+
+This is essentially an exercise in understanding how to take a finite number of sets, and "carve them up" into the smallest parts that can be expressed with the set-theoretic operations of intersection, union, difference, and relative complement. A helpful tool to keep in mind while working is the following *DeMorgan rules* for sets, [which correspond to the DeMorgan rules in propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-section-no-solutions.pandoc#further-connections-between-set-theory-and-propositional-logic):
+
+&nbsp; &nbsp; &nbsp; $(A\cup B)^c = A^c\cap B^c$
+
+&nbsp; &nbsp; &nbsp; $(A\cap B)^c = A^c\cup B^c$
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.09 : What shape corresponds to B \ (A∪C)?
+| 1
+| +2
+| 3
+| 4
+```
+
+To generate more problems like this, just try to find expressions for the other numbers in terms of $A,B,C$ and difference and union. See this chart for solutions.
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.10 : What shape corresponds to A ∩ B^c ∩ C?
+| 4
+| +5
+| 6
+| 7
+```
+
+To generate more problems like this, just try to find expressions for the other numbers in terms of $A,B,C$ and intersection and relative complement. See this chart for solutions.
+
+<br>
+
 
 ## Translations with quantifiers
 
