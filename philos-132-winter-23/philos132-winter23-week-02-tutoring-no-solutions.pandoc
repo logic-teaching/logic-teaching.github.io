@@ -210,26 +210,140 @@ The first five problems ask about information contained in the following table. 
 | 7
 ```
 
-```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
-2.05 : What is the least element of A^c?
-| ‐4
-| +‐3
-| ‐2
-| ‐1
+<br>
+
+## Ordered list notation and Cartesian products
+
+*Problem 6*
+
+Consider the set $X=\{\langle x,y\rangle\in \mathbb{Z}^2: -2<x<2, -3<y<3\}$.
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.06 Which of the following is not in the set X?
+| <-1,-1>
+| <-1,-2>
+| *<-2,-2>
+| <0,-1>
 ```
+
+One can also ask other questions about this set to probe one's understanding, such as
+
+- How many elements does it have in it?
+
+- How would one draw it as a subset of the Euclidean plane?
+
+<br>
+
+*Problem 7*
+
+Consider the set $\{\langle x,y\rangle \in \mathbb{N}^2: x\leq 4 \wedge y\leq 4 \wedge (x=y)\vee x=y+1\}$.
+
+Consider the following four arrow diagrams:
+
+<img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-arrows-1.png" alt="Arrow diagrams" width="700"/>
+
+
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.07 Which of these four diagrams represents the set?
+| R
+| S
+| +T
+| U
+```
+
+(Recall that for a subset of $A\times A$, we draw the subset by first drawing the points of $A$ as points, and then by drawing an arrow from $x$ to $y$ iff $\langle x,y\rangle$ is in the subset.)
+
+To further practice, you can try to write out the four sets $R,S,T,U$ using the unordered set notation.
+
+
+
+<br>
 
 ## Venn diagrams and Aristotelian propositions
 
-Consider the following Venn diagram featuring sets $A,B,C$, namely, the three large circles. It further contains seven numbered smaller shapes, 1-7. The intended interpretation is that a number represents the smallest shape in which the number fits inside. For instance, $7$ represents the very small curved triangle-like shape at the center of the diagram.
+<br>
 
+*Problems 7,8*
+
+Consider the following Venn diagram:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-venn-5.png" alt="Large Venn diagram" width="700"/>
+
+Consider the following table, which has some blanks:
+
+<table style="width:120%">
+  <tr>
+    <th>Diagrammatic relation</th>
+    <th>Set-theoretic relation</th>
+    <th>Aristotelian proposition</th>
+  </tr>
+  <tr>
+    <td> $A$ and $F$ overlap </td>
+    <td> $A\cap F\neq \emptyset$ </td>
+    <td> Some $A$ are $F$ </td>
+  </tr>
+  <tr>
+    <td> $F$ is contained inside $G$ </td>
+    <td> $F\subseteq G$ </td>
+    <td> All $F$ are $G$ </td>
+  </tr>
+  <tr>
+    <td> $F$ is entirely outside $B$ </td>
+    <td> $F\subseteq B^c$ (equivalently: $F\subseteq D\setminus B$) </td>
+    <td> ________________ </td>
+  </tr>
+  <tr>
+    <td> $A$ is partially outside $H$ </td>
+    <td> ________________ </td>
+    <td> Some $A$ are not $H$ </td>
+  </tr>
+  <tr>
+    <td> $A$ and $B$ do not overlap </td>
+    <td> $A\cap B=\emptyset$ </td>
+    <td> No $A$ are $B$ </td>
+  </tr>
+</table>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.07 What should you put in the blank in the third row?
+| Some F are not B
+| All F are B
+| +All F are not B
+| Some B are not F
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.08 What should you put in the blank in the fourth row?
+| A ∩ H^c = ∅
+| A ∩ H ≠ ∅
+| A ∩ H = ∅
+| +A ∩ H^c ≠ ∅
+```
+
+<br>
+
+*Problems 9, 10*
+
+Consider the following Venn diagram featuring sets $A,B,C$, namely, the three large circles. It further contains seven numbered smaller shapes, 1-7. The intended interpretation is that a number represents the smallest shape in which the number fits inside. For instance, $7$ represents the very small curved triangle-like shape at the center of the diagram.
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-venn-1.png" alt="Cartesian product example" width="700"/>
 
 This is essentially an exercise in understanding how to take a finite number of sets, and "carve them up" into the smallest parts that can be expressed with the set-theoretic operations of intersection, union, difference, and relative complement. A helpful tool to keep in mind while working is the following *DeMorgan rules* for sets, [which correspond to the DeMorgan rules in propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-section-no-solutions.pandoc#further-connections-between-set-theory-and-propositional-logic):
 
+<br>
+
 &nbsp; &nbsp; &nbsp; $(A\cup B)^c = A^c\cap B^c$
 
 &nbsp; &nbsp; &nbsp; $(A\cap B)^c = A^c\cup B^c$
+
+<br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
 2.09 : What shape corresponds to B \ (A∪C)?
@@ -239,7 +353,7 @@ This is essentially an exercise in understanding how to take a finite number of 
 | 4
 ```
 
-To generate more problems like this, just try to find expressions for the other numbers in terms of $A,B,C$ and difference and union. See this chart for solutions.
+To generate more problems like this, just try to find expressions for the other numbers in terms of $A,B,C$ and difference and union. See [this diagram](https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-venn-3.png) for solutions.
 
 <br>
 
@@ -251,7 +365,7 @@ To generate more problems like this, just try to find expressions for the other 
 | 7
 ```
 
-To generate more problems like this, just try to find expressions for the other numbers in terms of $A,B,C$ and intersection and relative complement. See this chart for solutions.
+To generate more problems like this, just try to find expressions for the other numbers in terms of $A,B,C$ and intersection and relative complement. See [this diagram](https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-venn-2.png) for solutions.
 
 <br>
 
