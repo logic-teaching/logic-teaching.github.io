@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Sets
+# Week 2 Lecture 1, Sets
 
 We need a very small amount of set-theory notation for this course. The reason why is that we want to define models and truth in a model, since models are to predicate logic what truth-tables are to propositional logic. And we will represent models with sets.
 

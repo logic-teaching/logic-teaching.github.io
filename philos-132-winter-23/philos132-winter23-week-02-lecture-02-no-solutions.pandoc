@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# The quantifiers and well-formed formulas
+# Week 2 Lecture 2, The quantifiers and well-formed formulas
 
 We slowly describe the constituent components of the definition of the well-formed formulas of predicate logic.
 
