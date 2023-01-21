@@ -15,14 +15,14 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 2 Lecture 2, The quantifiers and well-formed formulas
+# Well-formed formulas of predicate logic
 
 We slowly describe the constituent components of the definition of the well-formed formulas of predicate logic.
 
 - [Atomic formulas](#atomic-formulas)
 - [Substitution in atomics](#substitution-in-atomics)
 - [Quantifiers](#quantifiers)
-- [Translations with identity](#translations-with-identity)
+- [Translations with identity](#translation-with-identity)
 - [The well-formed formulas of predicate logic](#the-well-formed-formulas-of-predicate-logic)
 - [Translating the Aristotelian propositions](#translating-the-aristotelian-propositions)
 - [Building-blocks of formulas of predicate logic](#building-blocks-of-formulas-of-predicate-logic)
@@ -54,13 +54,7 @@ Here is a simple set of examples of constant symbols and relation symbols pertai
 <p style="margin-left: 40px"> $H$ = is a History major  </p>
 <p style="margin-left: 40px"> $I$ = is in Improv Club  </p>
 
-The basic idea is that one gets an *atomic proposition* by putting a constant symbol right after a relation symbol. Then we can put these propositions together with the propositional connectives. The following translations exercises help one get the idea of this.
-
-<br>
-
-For these translation problems, **press return** to check your work.
-
-<br>
+The basic idea is that one gets an *atomic proposition* by putting a constant symbol right after a relation symbol. Then we can put these propositions together with the propositional connectives. The following translations exercises help one get the idea of this:
 
 *Example 1*
 
@@ -227,7 +221,7 @@ Finally, earlier we mentioned that the constant symbols can have subscripts on t
 
 ## Quantifiers
 
-In predicate logic we make universal and particular statements with the quantifiers. There are two quantifiers, the universal quantifier $\forall$, which is typed as `A`, and the existential quantifier $\exists$, which is typed as `E`. We also need an auxiliary device of variables, for which we use the lower-case letters $s-z$. These letters are chosen because they are close to $x,y,z$ which are the traditional letters for variables in elementary algebra. We can also put natural number subscripts on variables. (See [Building-blocks of formulas of predicate logic](#building-blocks-of-formulas-of-predicate-logic) for helpful summary).
+We mentioned earlier that in predicate logic we reduce universal and particular statements to statements about objects. This is done with the quantifier $\forall$, which is typed as `A`, and the existential quantifier $\exists$, which is typed as `E`. We also need an auxiliary device of variables, for which we use the lower-case letters $s-z$. These letters are chosen because they are close to $x,y,z$ which are the traditional terms letters for variables. We can also put natural number subscripts on variables. (See [Building-blocks of formulas of predicate logic](#building-blocks-of-formulas-of-predicate-logic) for helpful summary).
 
 If $\phi(c)$ is a formula in which a constant symbol $c$ appears and in which variable $x$ does not appear, then $\exists \;x \; \phi(x)$ is a formula, where $\phi(x)$ is obtained from $\phi(c)$ by replacing instances of $c$ by $x$ in $\phi(c)$. This expression "$\exists \;x \; \phi(x)$" is pronounced out loud as "some $x$ is such that $\phi(x)$." Intuitively, it says that at least one thing has the $\phi$-property, or more intuitively it says that "something has the $\phi$-property." Of course, if we are talking about people we might rather use the existential to express that "some*one* has $\phi$" and if we are talking about locations we might express it as "some*place* has $\phi$."
 
@@ -242,7 +236,7 @@ The following translations exercises will help solidify this point:
 |
 ~~~
 
-Note that the computer system is very picky about parentheses and quantifiers and will reject answers that puts a pair of parentheses around a statement whose main connective is the quantifier. For instance, for example 16, it will reject `Ha->(ExHx)` as ungrammatical. It also rejects parentheses inside a quantifier when there are no propositional connectives. For instance, it will reject `Ha->Ex(Hx)` as ungrammatical. But it needs parentheses when there are propositional connectives in there. See the next example, example 17.
+Note that the computer system is very picky about parentheses and quantifiers and will reject answers that puts a pair of parentheses around a statement whose main connective is the quantifier. For instance, for example 16, it will reject `Ha->(ExHx)` as ungrammatical. It also rejects parentheses inside a quantifier when there are no propositional connectives. For instance, it will reject `Ha->Ex(Hx)` as ungrammatical. But it needs parentheses when there are propositional connectives in there besides negation. See the next example, example 17.
 
 <br>
 
@@ -255,14 +249,14 @@ Note that the computer system is very picky about parentheses and quantifiers an
 
 <br>
 
+One exception to this is when the main connective . Do not put parentheses in the consequent of the following:
+
 *Example 18*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ~Hc->Ex~Hx : If Carlos is not a History major, then someone is not a History major.
 |
 ~~~
-
-<br>
 
 If $\phi(c)$ is a formula in which a constant symbol $c$ appears and in which $x$ does not appear, then $\forall \;x \; \phi(x)$ is a formula, where $\phi(x)$ is obtained from $\phi(c)$ by replacing instances of $c$ by $x$ in $\phi(c)$. This expression "$\forall \;x \; \phi(x)$" is pronounced out loud as "all $x$ are $\phi(x)$." Intuitively, it says that all things have the $\phi$-property. Again, if we are talking about people we might rather use the existential to express that "every*one* has $\phi$" and if we are talking about locations we might express it as "every*place* has $\phi$."
 
@@ -300,7 +294,7 @@ Again, a good way to practice is to do some simple translation exercises:
 *Example 22*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- AxHx->ExHx : If everyone is a history major, then someone is a history major.
+ AxHx->ExHx : If everyone is a History major, then someone is a history major.
 |
 ~~~
 
@@ -366,7 +360,7 @@ These examples show that identity can be used to give truth-conditions for expre
 
 <p style="page-break-before: always">
 
-## The well-formed formulas of predicate logic
+## The well-formed formulas
 
 In parallel to [the earlier definition of well-formed formula of propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-01.pandoc#the-well-formed-formulas), we can now formally define the well-formed formulas of predicate logic:
 
@@ -552,18 +546,6 @@ For future reference, we include the following summary of the components of the 
     <td>Quantified statements</td>
   </tr>
 </table>
-
-<br>
-
-Notes on typing quantifiers in the computer system:
-
-1. Do *not* put parentheses immediately outside quantifiers when the quantifier is the main connective. For example, write `AxPx` and not `(AxPx)`. But write `(AxPx/\AxQx)->Ax(Px/\Qx)` and not `AxPx/\AxQx->Ax(Px/\Qx)` since the latter is ambiguous between the former and `AxPx/\(AxQx->Ax(Px/\Qx))`.
-
-2. Put parentheses immediately inside a quantifier only if the main connective of that inner formula is a two-place propositional connective. For example, write `Ex(Px/\Rx)` and not `ExPx/\Rx`. But write `ExPx` and not `Ex(Px)`. And write `Ex~Px` and not `Ex(~Px)`.
-
-<br>
-
-On the translation problems: **press return** to check your work.
 
 <br>
 

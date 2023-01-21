@@ -262,7 +262,7 @@ Note that the computer system is very picky about parentheses and quantifiers an
 *Example 18*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- ~Hc->Ex~Hx : If Carlos is a History major, then someone is not a History major.
+ ~Hc->Ex~Hx : If Carlos is not a History major, then someone is not a History major.
 |~Hc->Ex~Hx
 ~~~
 
