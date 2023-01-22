@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 3, Lecture 1: Binary relations and multiple quantifiers
+# Week 3, Lecture 1: Binary relations and multiple quantifiers, with solutions
 
 We extend what we have learned so far to the case of binary relations and to formulas that involve binary relations and multiple quantifiers.
 
@@ -44,7 +44,7 @@ Just like we diagrammatically represent unary relations with Venn diagrams, so w
 
 The following diagram represents $(Rab \wedge Raa) \wedge (Rca \wedge Rac)$:
 
-<video autoplay  muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-1.mp4"/> </video>
+<video autoplay  muted width="400" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-1.mp4"/> </video>
 
 <br>
 
@@ -57,7 +57,7 @@ One could also write the formula as $Rab \wedge (Raa \wedge (Rca \wedge Rac))$, 
 
 The following diagram represents $Rac\wedge (Rca\wedge Rbd)$:
 
-<video autoplay muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-2.mp4"/> </video>
+<video autoplay muted width="400" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-2.mp4"/> </video>
 
 <br>
 
@@ -75,7 +75,7 @@ We can also represent quantified statements using diagrams.
 
 The following diagram represents the formula $\forall \; x \; Rax$ (which is pronounced as "for all $x$, $Rax$"):
 
-<video autoplay muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-3.mp4"/> </video>
+<video autoplay muted width="400" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-3.mp4"/> </video>
 
 <br>
 
@@ -87,7 +87,7 @@ Note that we have to add the arrow corresponding to $Raa$. This is because "$\fo
 
 The following diagram represents the formula $\forall \; x \; Rxx$  (which is pronounced as "for all $x$, $Rxx$"):
 
-<video autoplay muted width="400" src="https://logic-teaching.github.io/pred/vid/binary-4.mp4"/> </video>
+<video autoplay muted width="400" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-4.mp4"/> </video>
 
 <br>
 
@@ -102,7 +102,7 @@ The examples so far involved only one quantifier. We can also consider sentences
 
 The following diagram represents $\forall \;x \; \exists \; y \; Rxy$  (which is pronounced as "for all $x$ there is $y$ such that $Rxy$"):
 
- <img src="https://logic-teaching.github.io/pred/vid/binary-5-part1.png
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-5-part1.png
 " alt="Diagram" width="400"/>
 
 Intuitively, the truth of this comes down to the fact that each of the three arrows respectively implies:
@@ -113,7 +113,7 @@ Intuitively, the truth of this comes down to the fact that each of the three arr
 
 Since there are only three constant symbols $a,b,c$, these three statements 1-3 imply that the diagram represents $\forall \;x \; \exists \; y \; Rxy$. That is, "everything points to something." If we focus on the beginning of the arrows, we see that every dot is at the beginning of an arrow. To focus in this way, we might draw the beginning of the arrows in blue as follows:
 
- <img src="https://logic-teaching.github.io/pred/vid/binary-5-part2.png
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-5-part2.png
 " alt="Diagram" width="400"/>
 
 When we do so, we see that "all dots are blue" is true is represented in the diagram.
@@ -124,7 +124,7 @@ When we do so, we see that "all dots are blue" is true is represented in the dia
 
 The following diagram represents $\forall \; x \; \exists \; y \; Ryx$ (which is pronounced as "for all $x$ there is $y$ such that $Ryx$"):
 
- <img src="https://logic-teaching.github.io/pred/vid/binary-6-part2.png
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-6-part2.png
 " alt="Diagram" width="400"/>
 
 Again, this comes down to to the fact that each of the three arrows respectively imply:
@@ -135,7 +135,7 @@ Again, this comes down to to the fact that each of the three arrows respectively
 
 Since there are only three constant symbols $a,b,c$, these three statements imply that the diagram represents $\forall \; x \; \exists \; y \; Ryx$. That is "everything is pointed to by something." If we focus on the end of the arrows, we see that every dot is at the end of an arrow. To focus like this, we might draw the end of the arrows in orange as follows:
 
- <img src="https://logic-teaching.github.io/pred/vid/binary-6-part1.png
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-6-part1.png
 " alt="Diagram" width="400"/>
 
 When we do so, we see that "all dots are orange" is represented in the diagram.
@@ -148,7 +148,7 @@ When we do so, we see that "all dots are orange" is represented in the diagram.
 
 The following diagram represents $\exists \; y \; \forall \; x \; Rxy$ (which is pronounced as "there is $y$ such that for all $x$, $Rxy$"):
 
- <img src="https://logic-teaching.github.io/pred/vid/binary-7.png
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-7.png
 " alt="Diagram" width="400"/>
 
 This is true since there is something, namely $a$ which everything points to. That is, $\exists \; y \; \forall \; x \; Rxy$ is represented in this diagram since the simpler fact $\forall \; x \; Rxa$ is. This simpler fact might be expressed as "everything points to $a$."
@@ -161,7 +161,7 @@ As this diagram indicates as well, it is not important to draw all of the dots o
 
 The following diagram represents $\exists \; x \; \forall \; y \; Rxy$ (which is pronounced as "there is $x$ such that for all $y$, $Rxy$"):
 
- <img src="https://logic-teaching.github.io/pred/vid/binary-8.png
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-8.png
 " alt="Diagram" width="400"/>
 
 This is true since there is something, namely $b$, which points to everything. That is, $\exists \; x \; \forall \; y \; Rxy$ is represented in this diagram since the simpler fact $\forall \; y \; Rby$ is. This simpler fact may be put as "everything is pointed to by $b$."
@@ -182,7 +182,7 @@ Translate "Everyone respects someone".
 
 Before describing the four-step process in words, here is a video of the process:
 
-<video controls muted width="700" src="https://logic-teaching.github.io/pred/vid/binary-translation-1.mp4"/> </video>
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-translation-1.mp4"/> </video>
 
 <br>
 
@@ -197,7 +197,7 @@ We can then input our answer in the below box. One can either just copy-and-past
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  AxEyRxy : Everyone respects someone.
-|
+| AxEyRxy
 ~~~
 
 Note that `AxEyRyx` would be an incorrect answer, and hence the order of the variables does matter: intuitively it corresponds to a difference between the active and the passive (respecting vs. being respected). Note that `AuEvRuv` would be a correct answer, since we are allowed some choice of variables in Step 1 and 2.
@@ -210,7 +210,7 @@ Translate "Everyone is respected by someone".
 
 Before illustrating the four-step process, here is a video of the process:
 
-<video controls muted width="700" src="https://logic-teaching.github.io/pred/vid/binary-translation-2.mp4"/> </video>
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-translation-2.mp4"/> </video>
 
 <br>
 
@@ -225,7 +225,7 @@ Let us input in our answer here:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  AuEvRvu : Everyone is respected by someone.
-|
+| AuEvRvu
 ~~~
 
 <br>
@@ -236,7 +236,7 @@ Translate "Someone is respected by everyone".
 
 Prior to illustrating the four-step process again in prose, here is a video:
 
-<video controls muted width="700" src="https://logic-teaching.github.io/pred/vid/binary-translation-3.mp4"/> </video>
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-translation-3.mp4"/> </video>
 
 <br>
 
@@ -251,7 +251,7 @@ We can then input our answer here:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  ExAyRyx : Someone is respected by everyone.
-|
+| ExAyRyx
 ~~~
 
 <br>
@@ -262,7 +262,7 @@ Translate "Someone respects everyone".
 
 Again, we first show the video:
 
-<video controls muted width="700" src="https://logic-teaching.github.io/pred/vid/binary-translation-4.mp4"/> </video>
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-translation-4.mp4"/> </video>
 
 <br>
 
@@ -277,7 +277,7 @@ We can again then input our answer:
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  EzAyRzy : Someone respects everyone.
-|
+| EzAyRzy
 ~~~
 
 <br>
@@ -355,7 +355,7 @@ One can then do translations with these. It might be advisable to proceed by doi
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)->Ex_1Ex_2((Hx_1/\Hx_2)/\~x_1=x_2) : If there are at least two French majors, then there are at least two happy students.
-|
+| Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)->Ex_1Ex_2((Hx_1/\Hx_2)/\~x_1=x_2)
 ~~~
 
 <br>
@@ -368,7 +368,7 @@ One can then do translations with these. It might be advisable to proceed by doi
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  (Ex_1 Fx_1/\Ex_1 Gx_1)->Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2) : If there is at least one French major and there is at least one German major, then there are at least two students who major in language.
-|
+| (Ex_1 Fx_1/\Ex_1 Gx_1)->Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2)
 ~~~
 
 <br>
@@ -379,7 +379,7 @@ One can then do translations with these. It might be advisable to proceed by doi
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
  (Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)/\Ex_1Ex_2Ay(Fy->(y=x_1\/y=x_2)))->Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2))) : If there are at least two French majors and there are at most two French majors, then there are exactly two French majors.
-|
+| (Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)/\Ex_1Ex_2Ay(Fy->(y=x_1\/y=x_2)))->Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2)))
 ~~~
 
 
@@ -393,7 +393,7 @@ We [already know](https://carnap.io/shared/logiclogiclogic/philos132-winter23-we
 
 One option, due to Russell, is to translate it as "There is exactly one F and she is G" where the former gets translated via the exact numerical quantifier:[^1]
 
-[^1]: [Russell, Bertrand. 1905. "On Denoting." Mind 14 (56): 479-93](https://logic-teaching.github.io/pred/texts/Russell%201905%20-%20On%20Denoting.pdf).
+[^1]: [Russell, Bertrand. 1905. "On Denoting." Mind 14 (56): 479-93](https://logic-teaching.github.io/philos-132-winter-23/texts/Russell%201905%20-%20On%20Denoting.pdf).
 
 *Example 16*:
 
@@ -402,14 +402,14 @@ One option, due to Russell, is to translate it as "There is exactly one F and sh
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  Ex(Fx/\(Ay(Fy->y=x)/\Gx)) : The French major is grateful
-|
+| Ex(Fx/\(Ay(Fy->y=x)/\Gx))
 ~~~
 
 Read slowly and out loud, this translation says: there is an $F$ and any $F$ is equal to it and further it is $G$. Hence, to figure out whether the sentence is true, you ask whether there is an $F$, whether there is exactly one $F$, and whether this thing is $G$.
 
 Another option, due to Frege, is to introduce a new object $℩xFx$ which is short for "the F", and then to translate "The F is G" as "G℩xFx", just like one translate "a is G" by Ga.[^2]
 
-[^2]: See section 11 pp. 49-51 of: [Frege, Gottlob. 1964. "Introduction and Sections 1-33." In The Basic Laws of Arithmetic: Exposition of the System. University of California Press.](https://logic-teaching.github.io/pred/texts/Frege%201964%20-%20Introduction%20and%20sections%201-33.pdf).
+[^2]: See section 11 pp. 49-51 of: [Frege, Gottlob. 1964. "Introduction and Sections 1-33." In The Basic Laws of Arithmetic: Exposition of the System. University of California Press.](https://logic-teaching.github.io/philos-132-winter-23/texts/Frege%201964%20-%20Introduction%20and%20sections%201-33.pdf).
 
 *Example 17*:
 
@@ -418,7 +418,7 @@ Another option, due to Frege, is to introduce a new object $℩xFx$ which is sho
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  G℩xFx : The French major is grateful.
-|
+| G℩xFx
 ~~~
 
 In this, `℩xFx` is read out loud as "iota x Fx", where "iota" is how one says the Greek lower-case letter ℩ out loud. (You can also write `i` for `℩`). Hence, the entire sentence is: Gy, where $y=℩xFx$. That is, it is saying that the object which is the F has the G property. In this, the ℩ is acting like the quantifiers in that it binds a variable. To figure out whether it is true, one goes and identifies a certain object, namely the F, and then sees whether this object has the G property.
@@ -464,15 +464,31 @@ In this one, the description has a conjunction embedded in it.
 <p style="margin-left: 40px"> $Gx$ = $x$ is grateful  </p>
 <p style="margin-left: 40px"> $Hx$ = $x$ is happy </p>
 
+<br>
+
+*Russellian option*
+
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-18-russell.mp4"/> </video>
+
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  Ex((Hx/\Fx)/\(Ay((Hy/\Fy)->y=x)/\Gx)) : The happy French major is grateful.
-|
+| Ex((Hx/\Fx)/\(Ay((Hy/\Fy)->y=x)/\Gx))
 ~~~
+
+
+<br>
+
+*Fregean option*
+
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-18-frege.mp4"/> </video>
+
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  G℩x(Hx/\Fx) : The happy French major is grateful.
-|
+| G℩x(Hx/\Fx)
 ~~~
 
 <br>
@@ -485,14 +501,26 @@ In this one, the property ascribed to the object satisfying the definite descrip
 <p style="margin-left: 40px"> $Gx$ = $x$ is grateful  </p>
 <p style="margin-left: 40px"> $Rxy$ = $x$ respects $y$  </p>
 
+<br>
+
+*Russellian option*
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-19-russell.mp4"/> </video>
+
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  Ex((Gx/\Fx)/\(Ay((Gy/\Fy)->y=x)/\AzRzx)) : Everyone respects the grateful French major.
-|
+| Ex((Gx/\Fx)/\(Ay((Gy/\Fy)->y=x)/\AzRzx))
 ~~~
+
+<br>
+
+*Fregean option*
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-19-frege.mp4"/> </video>
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  AzRz℩x(Gx/\Fx) : Everyone respects the grateful French major.
-|
+| AzRz℩x(Gx/\Fx)
 ~~~
 
 <br>
@@ -505,15 +533,26 @@ This one contains two definite descriptions:
 <p style="margin-left: 40px"> $Gx$ = $x$ is a governor</p>
 <p style="margin-left: 40px"> $Txy$ = $x$ trusts $y$  </p>
 
+<br>
+
+*Russellian option*
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-20-russell.mp4"/> </video>
+
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  Ex((Mx/\Ay(My->y=x))/\Eu((Gu/\Av(Gv->v=u))/\Txu)) : The mayor trusts the governor.
-|
+| Ex((Mx/\Ay(My->y=x))/\Eu((Gu/\Av(Gv->v=u))/\Txu))
 ~~~
 
+<br>
+
+*Fregean option*
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-20-frege.mp4"/> </video>
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
  T℩xMx℩uGu : The mayor trusts the governor.
-|
+| T℩xMx℩uGu
 ~~~
 
 <br>

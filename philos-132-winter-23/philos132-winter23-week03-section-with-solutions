@@ -1,0 +1,198 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 3 Section, Practice with binary relations and multiple quantifiers, with solutions
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Translations with binary relations and multiple quantifiers
+
+Prior to doing these problems, consider reviewing [Translations with binary relations](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-with-solutions.pandoc#translations-with-binary-relations).
+
+In these problems, we use the following key:
+
+| $Txy$  =  $x$ trusts $y$
+| $Hxy$  =  $x$ helps $y$
+| $Fx$  =  $x$ is a French major
+| $Gx$  =  $y$ is a Geography major
+
+<br>
+
+*Problem 6*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.06 AxExHxy :  Everyone helps someone.
+| AxExHxy
+~~~
+
+<br>
+
+*Problem 7*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.07 EyAxHxy :  Someone is helped by everyone.
+| EyAxHxy
+~~~
+
+<br>
+
+*Problem 8*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.08 ExAyTxy :  Someone trusts everyone.
+| ExAyTxy
+~~~
+
+<br>
+
+*Problem 9*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+3.09 ~ExAyTyx : No one is trusted by everyone
+| ~ExAyTyx
+~~~
+
+<br>
+
+*Problem 10*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.10 ExAy(Fx->Hxy) :  Someone helps every French major.
+| ExAy(Fx->Hxy)
+~~~
+
+<br>
+
+*Problem 11*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.11 ExAyHxy->AxEyHxy :  If someone helps everyone, then everyone helps someone.
+| ExAyHxy->AxEyHxy
+~~~
+
+<br>
+
+*Problem 12*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.12 AxEy(Fy/\Txy)  :  Everyone trusts some French major.
+| AxEy(Fy/\Txy)
+~~~
+
+<br>
+
+*Problem 13*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.13 Ax(Fx->EyHxy) :  Every French major helps someone.
+| Ax(Fx->EyHxy)
+~~~
+
+<br>
+
+*Problem 14*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.14 Ax(Fx->Ey(Gy/\Hxy)) :  Every French major helps some geography major.
+| Ax(Fx->Ey(Gy/\Hxy))
+~~~
+
+<br>
+
+*Problem 15*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+03.15 Ax(Gx->Ey(Fy/\Tyx))  :  All Geography majors are trusted by some French major.
+| Ax(Gx->Ey(Fy/\Tyx))
+~~~
+
+<br>
+
+<p style="page-break-before: always">
+
+## Definite descriptions
+
+*Problems 16-17*
+
+Here is the key, and from this is evident that we are talking about cities:
+
+<p style="margin-left: 40px"> $Lx$ = $x$ is large </p>
+<p style="margin-left: 40px"> $Mx$ = $x$ is Midwestern </p>
+<p style="margin-left: 40px"> $Ox$ = $x$ has an opera </p>
+<p style="margin-left: 40px"> $Sx$ = $x$ has a subway </p>
+
+First give the *Russellian translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+03.16 Ex((Lx/\Mx)/\(Ay((Ly/\My)->y=x)/\(Ox/\Sx))) : The large Midwestern city has an opera and a subway.
+|Ex((Lx/\Mx)/\(Ay((Ly/\My)->y=x)/\(Ox/\Sx)))
+~~~
+
+Second give the *Fregean translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+03.17 Oix(Lx/\Mx)/\Six(Lx/\Mx), Oix(Mx/\Lx)/\Six(Mx/\Lx) : The large Midwestern city has an opera and a subway.
+|Oix(Lx/\Mx)/\Six(Lx/\Mx)
+~~~
+
+<br>
+
+*Problems 18-19*
+
+Here is the key for these problems-- evidently, we are talking about campuses:
+
+<p style="margin-left: 40px"> $b$ = UC Santa Barbara </p>
+<p style="margin-left: 40px"> $Lxy$ = $x$ is larger than $y$  </p>
+<p style="margin-left: 40px"> $Nx$ = $x$ is Northern  </p>
+<p style="margin-left: 40px"> $Ox$ = $x$ is old  </p>
+
+First give the *Russellian translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+03.18 Ex((Ox/\Nx)/\(Ay((Oy/\Ny)->y=x)/\Eu(Lub/\Lux))) : Some old campus is both larger than UC Santa Barbara and larger than the old Northern campus.
+|Ex((Ox/\Nx)/\(Ay((Oy/\Ny)->y=x)/\Eu(Lub/\Lux)))
+~~~
+
+Second give the *Fregean translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+03.19 Eu(Lub/\Luix(Ox/\Nx)) : Some old campus is both larger than UC Santa Barbara and larger than the old Northern campus.
+|Eu(Lub/\Luix(Ox/\Nx))
+~~~
+
+<br>
+
+*Problem 20*
+
+Here is the key-- and here we are talking about baseball:
+
+<p style="margin-left: 40px"> $Cx$ = $x$ is a catcher </p>
+<p style="margin-left: 40px"> $Ox$ = $x$ is an outfielder  </p>
+<p style="margin-left: 40px"> $Tx$ = $x$ is tall  </p>
+<p style="margin-left: 40px"> $Rxy$ = $x$ has higher RBI than $y$  </p>
+
+On this problem, either give the Russellian translation or the Fregean translation (your choice):
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+03.20 Ex((Tx/\Cx)/\(Ay((Ty/\Cy)->y=x)/\Au((Tu/\Ou)->Rux))), Au((Tu/\Ou)->Ruix(Tx/\Cx))  : Every tall outfielder has a higher RBI than the tall catcher.
+|Ex((Tx/\Cx)/\(Ay((Ty/\Cy)->y=x)/\Au((Tu/\Ou)->Rux)))
+~~~
+
+<br>

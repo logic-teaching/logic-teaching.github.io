@@ -1,0 +1,564 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 3, Lecture 1: Binary relations and multiple quantifiers
+
+We extend what we have learned so far to the case of binary relations and to formulas that involve binary relations and multiple quantifiers.
+
+<br>
+
+- [Binary relations](#binary-relations)
+- [Quantifiers and diagrams of binary relations](#quantifiers-and-diagrams-of-binary-relations)
+- [Translations with binary relations](#translations-with-binary-relations)
+- [Exact numerical quantifiers](#exact-numerical-quantifiers)
+- [Definite Descriptions](#definite-descriptions)
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Binary relations
+
+Thus far we have been working with propositions like "All F are G" and "Some F are G", and their respective predicate logic analogues "$\forall \; x \; (Fx\rightarrow Gx)$" and "$\exists \; x \; (Fx\wedge Gx)$." If the objects in question are people, then it is individual people taken one-by-one that have these properties. Perhaps $Fa$ is true, and that is merely a matter of how things stand between the person picked out by $a$ and the collection of people picked out by $F$. And likewise perhaps $Fb$ is false, and that is again merely a matter of how things stand *vis-à-vis* the person picked out by $b$ and the collection of people picked out by $F$. But there are other properties that pertain to how individuals stand *together* with respect to the property. For instance, if $a$ trusts $b$, then what makes that true is how things stand with $a$ and $b$ and the relation trust, and it cannot intuitively be reduced to how things stand with respect to $a$ and trust alone and how things stand with respect to $b$ and trust alone. Properties which involve two objects essentially are called *binary relations* or *two-place relations*. The name is chosen because properties like our F and G above which just involve one object are called *unary relations* or *one-place relations*.
+
+Just like we diagrammatically represent unary relations with Venn diagrams, so we can diagrammatically represent binary relations with arrow diagrams. The convention on the arrow diagrams is that a diagram represents $Rab$ if and only if there is an arrow drawn from $a$ to $b$. The sense of represents is "make true," and we will see how to formalize this in a later lecture.
+
+<br>
+
+*Example 1*:
+
+The following diagram represents $(Rab \wedge Raa) \wedge (Rca \wedge Rac)$:
+
+<video autoplay  muted width="400" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-1.mp4"/> </video>
+
+<br>
+
+One could also write the formula as $Rab \wedge (Raa \wedge (Rca \wedge Rac))$, since these are logically equivalent.
+
+
+<br>
+
+*Example 2*:
+
+The following diagram represents $Rac\wedge (Rca\wedge Rbd)$:
+
+<video autoplay muted width="400" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-2.mp4"/> </video>
+
+<br>
+
+Note that the use of "arrow" in "arrow diagrams" is distinct from the arrows that we use to formalize conditional statements. This rarely causes confusion because if e.g. one looked at the above diagram and saw the arrow from $b$ to $d$, one would not read this as $b\rightarrow d$, since [per our conventions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc#building-blocks-of-formulas-of-predicate-logic), the lower-case Latin letters in the first two-thirds of the Latin alphabet are reserved for constant symbols, which pick out objects and not propositions.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Quantifiers and diagrams of binary relations
+
+We can also represent quantified statements using diagrams.
+
+*Example 3*:
+
+The following diagram represents the formula $\forall \; x \; Rax$ (which is pronounced as "for all $x$, $Rax$"):
+
+<video autoplay muted width="400" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-3.mp4"/> </video>
+
+<br>
+
+Note that we have to add the arrow corresponding to $Raa$. This is because "$\forall \; x \; Rax$" means that "Everything is pointed to by $a$", and this entails that "$a$ is pointed to by $a$".
+
+<br>
+
+*Example 4*:
+
+The following diagram represents the formula $\forall \; x \; Rxx$  (which is pronounced as "for all $x$, $Rxx$"):
+
+<video autoplay muted width="400" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-4.mp4"/> </video>
+
+<br>
+
+It is harder to express this sentence naturally using our prior methods. Perhaps the best we can do is "Everything points to itself."
+
+In the diagrams we have been drawing, sometimes there are three constant symbols, and sometimes there are four. Any number of such symbols is allowed, although if one makes too few of them (say under 3) then it is hard to have them represent interesting sentences, and if one makes too many of them (say above 8), then they become harder to draw.
+
+
+The examples so far involved only one quantifier. We can also consider sentences involving multiple quantifiers.
+
+*Example 5*:
+
+The following diagram represents $\forall \;x \; \exists \; y \; Rxy$  (which is pronounced as "for all $x$ there is $y$ such that $Rxy$"):
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-5-part1.png
+" alt="Diagram" width="400"/>
+
+Intuitively, the truth of this comes down to the fact that each of the three arrows respectively implies:
+
+1. $\exists \; y \; Ray$ ("$a$ points to something, namely $b$")
+2. $\exists \; y \; Rby$ ("$b$ points to something, namely $c$")
+3. $\exists \; y \; Rcy$ ("$c$ points to something, namely $c$")
+
+Since there are only three constant symbols $a,b,c$, these three statements 1-3 imply that the diagram represents $\forall \;x \; \exists \; y \; Rxy$. That is, "everything points to something." If we focus on the beginning of the arrows, we see that every dot is at the beginning of an arrow. To focus in this way, we might draw the beginning of the arrows in blue as follows:
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-5-part2.png
+" alt="Diagram" width="400"/>
+
+When we do so, we see that "all dots are blue" is true is represented in the diagram.
+
+<br>
+
+*Example 6*:
+
+The following diagram represents $\forall \; x \; \exists \; y \; Ryx$ (which is pronounced as "for all $x$ there is $y$ such that $Ryx$"):
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-6-part2.png
+" alt="Diagram" width="400"/>
+
+Again, this comes down to to the fact that each of the three arrows respectively imply:
+
+1. $\exists \; y \; Rya$ ("$a$ is pointed to by something, namely $b$")
+2. $\exists \; y \; Ryb$ ("$b$ is pointed to by something, namely $c$")
+3. $\exists \; y \; Ryc$ ("$c$ is pointed to by something, namely $b$")
+
+Since there are only three constant symbols $a,b,c$, these three statements imply that the diagram represents $\forall \; x \; \exists \; y \; Ryx$. That is "everything is pointed to by something." If we focus on the end of the arrows, we see that every dot is at the end of an arrow. To focus like this, we might draw the end of the arrows in orange as follows:
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-6-part1.png
+" alt="Diagram" width="400"/>
+
+When we do so, we see that "all dots are orange" is represented in the diagram.
+
+
+
+<br>
+
+*Example 7*:
+
+The following diagram represents $\exists \; y \; \forall \; x \; Rxy$ (which is pronounced as "there is $y$ such that for all $x$, $Rxy$"):
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-7.png
+" alt="Diagram" width="400"/>
+
+This is true since there is something, namely $a$ which everything points to. That is, $\exists \; y \; \forall \; x \; Rxy$ is represented in this diagram since the simpler fact $\forall \; x \; Rxa$ is. This simpler fact might be expressed as "everything points to $a$."
+
+As this diagram indicates as well, it is not important to draw all of the dots on a line.
+
+<br>
+
+*Example 8*:
+
+The following diagram represents $\exists \; x \; \forall \; y \; Rxy$ (which is pronounced as "there is $x$ such that for all $y$, $Rxy$"):
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-8.png
+" alt="Diagram" width="400"/>
+
+This is true since there is something, namely $b$, which points to everything. That is, $\exists \; x \; \forall \; y \; Rxy$ is represented in this diagram since the simpler fact $\forall \; y \; Rby$ is. This simpler fact may be put as "everything is pointed to by $b$."
+
+<br>
+
+<p style="page-break-before: always">
+
+## Translations with binary relations
+
+There is a simple four-step procedure for translating English sentences into formulas like those in the previous section. We illustrate with respect to the binary relation of $r$espects, which helpfully starts with the letter $R$. In this, we understand $Rab$ to hold if and only if $a$ respects $b$. If one his thinking about the diagrams (which is a useful thing to keep in the back of one's mind when doing these problems), one has that $a$ respects $b$ if and only if there is an arrow going from $a$ to $b$. We further deploy, in these problems, our understanding of actives and passives in natural language, to wit our knowledge that $a$ respects $b$ if and only if $b$ is respected by $a$.
+
+<br>
+
+*Example 9*:
+
+Translate "Everyone respects someone".
+
+Before describing the four-step process in words, here is a video of the process:
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-translation-1.mp4"/> </video>
+
+<br>
+
+Here are the four steps:
+
+1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "everyone" and the verb-phrase is "$x$ respects someone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use: we used $x$.
+2. *Translate the verb-phrase*. Since it involves "someone" we use the existential quantifier, and we translate as $\exists \; y \; Rxy$, since the someone in question, the $y$, is being respected by $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
+3. *Translate the noun-phrase*. Since the noun-phrase is "everyone", we translate with $\forall \;x$, using the same variable as in Step 1.
+4. *Put them together*. We combine Step 3 + Step 2 to get "$\forall \; x \; \exists \; y \; Rxy$."
+
+We can then input our answer in the below box. One can either just copy-and-paste the $\forall \; x \; \exists \; y \; Rxy$, or one can type `AxEyRxy` and then press "return":
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ AxEyRxy : Everyone respects someone.
+|
+~~~
+
+Note that `AxEyRyx` would be an incorrect answer, and hence the order of the variables does matter: intuitively it corresponds to a difference between the active and the passive (respecting vs. being respected). Note that `AuEvRuv` would be a correct answer, since we are allowed some choice of variables in Step 1 and 2.
+
+<br>
+
+*Example 10*:
+
+Translate "Everyone is respected by someone".
+
+Before illustrating the four-step process, here is a video of the process:
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-translation-2.mp4"/> </video>
+
+<br>
+
+Here are the four steps:
+
+1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "everyone" and the verb-phrase is "$u$ is respected by someone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use: we used $u$.
+2. *Translate the verb-phrase*. Since it involves "someone" we use the existential quantifier, and we translate as $\exists \; v \; Rvu$, since the someone in question, the $v$, is respecting our $u$. It does not matter what variable $v$ you use, so long as it is different than the variable you used in Step 1.
+3. *Translate the noun-phrase*. Since the noun-phrase is "everyone", we translate with $\forall \;u$, using the same variable as in Step 1.
+4. *Put them together*. We combine Step 3 + Step 2 to get "$\forall \; u \; \exists \; v \; Rvu$."
+
+Let us input in our answer here:
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ AuEvRvu : Everyone is respected by someone.
+|
+~~~
+
+<br>
+
+*Example 11*:
+
+Translate "Someone is respected by everyone".
+
+Prior to illustrating the four-step process again in prose, here is a video:
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-translation-3.mp4"/> </video>
+
+<br>
+
+Here are the four steps:
+
+1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "someone" and the verb-phrase is "$x$ is respected by everyone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use: we used $x$.
+2. *Translate the verb-phrase*. Since it involves "everyone" we use the universal quantifier, and we translate as $\forall \; y \; Ryx$, since the every single $y$ is respecting our $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
+3. *Translate the noun-phrase*. Since the noun-phrase is "someone", we translate with $\exists \;x$, using the same variable as in Step 1.
+4. *Put them together*. We combine Step 3 + Step 2 to get "$\exists \;x\; \forall \; y \; Ryx$."
+
+We can then input our answer here:
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ExAyRyx : Someone is respected by everyone.
+|
+~~~
+
+<br>
+
+*Example 12*:
+
+Translate "Someone respects everyone".
+
+Again, we first show the video:
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid/binary-translation-4.mp4"/> </video>
+
+<br>
+
+Here are the four steps:
+
+1. *Split into noun-phrase and verb-phrase*. In our case, the noun-phrase is "someone" and the verb-phrase is "$z$ respects everyone" and we put a variable into the subject-position in the verb-phrase. It does not matter what variable you use. We used $z$.
+2. *Translate the verb-phrase*. Since it involves "everyone" we use the universal quantifier, and we translate as $\forall \; y \; Rzy$, since the every single $y$ is being respected by our $x$. It does not matter what variable $y$ you use, so long as it is different than the variable you used in Step 1.
+3. *Translate the noun-phrase*. Since the noun-phrase is "someone", we translate with $\exists \;z$, using the same variable as in Step 1.
+4. *Put them together*. We combine Step 3 + Step 2 to get "$\exists \;z\; \forall \; y \; Rzy$."
+
+We can again then input our answer:
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ EzAyRzy : Someone respects everyone.
+|
+~~~
+
+<br>
+
+<p style="page-break-before: always">
+
+## Exact numerical quantifiers
+
+<br>
+
+Using identity, we can express the so-called exact numerical quantifiers (the connection to 'quantity' made vivid by these examples is where the term 'quantifier' comes from):
+
+<br>
+
+<table style="width:100%">
+  <tr>
+    <th>Expression</th>
+    <th>Formula</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>There is at least one $F$</td>
+    <td>$\exists \; x_1 \; Fx_1$</td>
+    <td>`Ex_1 Fx_1`</td>
+  </tr>
+  <tr>
+    <td>There are at least two $F$'s</td>
+    <td>$\exists \; x_1 \; \exists \; x_2 \; ((Fx_1\wedge Fx_2)\wedge x_1\neq x_2$)</td>
+    <td>`Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)`</td>
+  </tr>
+  <tr>
+    <td>There are at least three $F$'s</td>
+    <td>$\exists \; x_1 \; \exists \; x_2 \; \exists \; x_3 \; ((Fx_1\wedge (Fx_2\wedge Fx_3))\wedge (x_1\neq x_2\wedge (x_1\neq x_3 \wedge x_2\neq x_3)))$</td>
+    <td>`Ex_1Ex_2Ex_3((Fx_1/\(Fx_2/\Fx_3))/\(~x_1=x_2/\(~x_1=x_3/\~x_2=x_3)))` </td>
+  </tr>
+    <tr>
+      <td>There is at most one $F$</td>
+      <td>$\exists \; x_1 \; \forall \; y \; (Fy\rightarrow y=x_1)$</td>
+      <td>`Ex_1Ay(Fy->y=x_1)`</td>
+    </tr>
+    <tr>
+      <td>There are at most two $F$'s'</td>
+      <td>$\exists \; x_1 \; \exists \; x_2 \; \forall \; y \; (Fy\rightarrow (y=x_1\vee y=x_2))$</td>
+      <td>`Ex_1Ex_2Ay(Fy->(y=x_1\/y=x_2))`</td>
+    </tr>
+    <tr>
+      <td>There are at most three $F$'s'</td>
+      <td>$\exists \; x_1 \; \exists \; x_2 \; \exists \; x_3 \; \forall \; y \; (Fy\rightarrow (y=x_1\vee (y=x_2\vee y=x_3)))$</td>
+      <td>`Ex_1Ex_2Ex_3Ay(Fy->(y=x_1\/(y=x_2\/y=x_3)))`</td>
+    </tr>
+    <tr>
+      <td>There is exactly one $F$</td>
+      <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))$</td>
+      <td>`Ex(Fx/\Ay(Fy->y=x))`</td>
+    </tr>
+    <tr>
+      <td>There are exactly two $F$'s'</td>
+      <td>$\exists \; x_1 \; \exists \; x_2 \; (((Fx_1\wedge Fx_2)\wedge x_1\neq x_2)\wedge \forall \; y \; (Fy\rightarrow (y=x_1 \vee y=x_2))))$</td>
+      <td>`Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2)))`</td>
+    </tr>
+    <tr>
+      <td>There are exactly three $F$'s'</td>
+      <td>$\exists \; x_1 \; \exists \; x_2 \; \; \exists \; x_3 \; (((Fx_1\wedge (Fx_2\wedge Fx_3))\wedge (x_1\neq x_2\wedge (x_1\neq x_3 \wedge x_2\neq x_3)))\wedge \forall \; y \; (Fy\rightarrow (y=x_1\vee (y=x_2\vee y=x_3))))$</td>
+      <td>`Ex_1Ex_2Ex_3(((Fx_1/\(Fx_2/\Fx_3))/\(~x_1=x_2/\(~x_1=x_3/\ ~x_2=x_3)))/\ Ay(Fy-> (y=x_1\/(y=x_2\/y=x_3))))`</td>
+      </tr>
+</table>
+<br>
+
+One can then do translations with these. It might be advisable to proceed by doing some cutting and pasting from up above.
+
+*Example 13*
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ is happy  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)->Ex_1Ex_2((Hx_1/\Hx_2)/\~x_1=x_2) : If there are at least two French majors, then there are at least two happy students.
+|
+~~~
+
+<br>
+
+*Example 14*
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is a German major </p>
+<p style="margin-left: 40px"> $Lx$ = $x$ is a student who majors in a language </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Ex_1 Fx_1/\Ex_1 Gx_1)->Ex_1Ex_2((Lx_1/\Lx_2)/\~x_1=x_2) : If there is at least one French major and there is at least one German major, then there are at least two students who major in language.
+|
+~~~
+
+<br>
+
+*Example 15*
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)/\Ex_1Ex_2Ay(Fy->(y=x_1\/y=x_2)))->Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2))) : If there are at least two French majors and there are at most two French majors, then there are exactly two French majors.
+|
+~~~
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Definite Descriptions
+
+We [already know](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc#translating-the-aristotelian-propositions) how to best translate "All F are G" and "Some F are G". How should we translate "The F is G"? It turns a lot on how to translate "the F", which is sometimes called a *definite description*, since the presence of the predicate F makes it descriptive and since the definite article "the" indicates a certain kind of definiteness.
+
+One option, due to Russell, is to translate it as "There is exactly one F and she is G" where the former gets translated via the exact numerical quantifier:[^1]
+
+[^1]: [Russell, Bertrand. 1905. "On Denoting." Mind 14 (56): 479-93](https://logic-teaching.github.io/philos-132-winter-23/texts/Russell%201905%20-%20On%20Denoting.pdf).
+
+*Example 16*:
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is grateful </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ex(Fx/\(Ay(Fy->y=x)/\Gx)) : The French major is grateful
+|
+~~~
+
+Another option, due to Frege, is to introduce a new object $℩xFx$ which is short for "the F", and then to translate "The F is G" as "G℩xFx", just like one translate "a is G" by Ga.[^2]
+
+[^2]: See section 11 pp. 49-51 of: [Frege, Gottlob. 1964. "Introduction and Sections 1-33." In The Basic Laws of Arithmetic: Exposition of the System. University of California Press.](https://logic-teaching.github.io/philos-132-winter-23/texts/Frege%201964%20-%20Introduction%20and%20sections%201-33.pdf).
+
+*Example 17*:
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is grateful  </p>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ G℩xFx : The French major is grateful.
+|
+~~~
+
+
+<table style="width:100%">
+  <tr>
+    <th>Option</th>
+    <th>Translation</th>
+    <th>Typed</th>
+    <th>Typed (change of variables)</th>
+  </tr>
+  <tr>
+    <td>Russellian translation of "the F is G"</td>
+    <td>$\exists \; x \; (Fx\wedge (\forall \; y \; (Fy\rightarrow y=x)\wedge Gx))$</td>
+    <td>`Ex(Fx/\(Ay(Fy->y=x)/\Gx))`</td>
+    <td>`Eu(Fu/\(Av(Fv->v=u)/\Gu))`</td>
+  </tr>
+  <tr>
+    <td>Fregean translation of "the F is G"</td>
+    <td>$G\iota x Fx$</td>
+    <td>`G℩xFx`</td>
+    <td>`G℩uFu`</td>
+  </tr>
+</table>
+
+<br>
+
+Again, `℩` is the Greek letter iota, but you can type the Roman letter `i` instead.
+
+<br>
+
+In the following examples, there are two translation boxes. Use the first to translate it via the Russellian option, and use the second to translate it via the Fregean option:
+
+<br>
+
+<p style="page-break-before: always">
+
+*Example 18*:
+
+In this one, the description has a conjunction embedded in it.
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is grateful  </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ is happy </p>
+
+<br>
+
+*Russellian option*
+
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-18-russell.mp4"/> </video>
+
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ex((Hx/\Fx)/\(Ay((Hy/\Fy)->y=x)/\Gx)) : The happy French major is grateful.
+|
+~~~
+
+
+<br>
+
+*Fregean option*
+
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-18-frege.mp4"/> </video>
+
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ G℩x(Hx/\Fx) : The happy French major is grateful.
+|
+~~~
+
+<br>
+
+*Example 19*:
+
+In this one, the property ascribed to the object satisfying the definite description requires a quantifier to express.
+
+<p style="margin-left: 40px"> $Fx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is grateful  </p>
+<p style="margin-left: 40px"> $Rxy$ = $x$ respects $y$  </p>
+
+<br>
+
+*Russellian option*
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-19-russell.mp4"/> </video>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ex((Gx/\Fx)/\(Ay((Gy/\Fy)->y=x)/\AzRzx)) : Everyone respects the grateful French major.
+|
+~~~
+
+<br>
+
+*Fregean option*
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-19-frege.mp4"/> </video>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ AzRz℩x(Gx/\Fx) : Everyone respects the grateful French major.
+|
+~~~
+
+<br>
+
+*Example 20*:
+
+This one contains two definite descriptions:
+
+<p style="margin-left: 40px"> $Mx$ = $x$ is a mayor </p>
+<p style="margin-left: 40px"> $Gx$ = $x$ is a governor</p>
+<p style="margin-left: 40px"> $Txy$ = $x$ trusts $y$  </p>
+
+<br>
+
+*Russellian option*
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-20-russell.mp4"/> </video>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ Ex((Mx/\Ay(My->y=x))/\Eu((Gu/\Av(Gv->v=u))/\Txu)) : The mayor trusts the governor.
+|
+~~~
+
+<br>
+
+*Fregean option*
+
+<video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/definite-description-example-20-frege.mp4"/> </video>
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+ T℩xMx℩uGu : The mayor trusts the governor.
+|
+~~~
+
+<br>
+
+As one can see from these examples, the Russellian approach is usually longer than the Fregean approach. This is because the Russellian approach requires us to go inside the sentence, search for all the instances of the definite article "the", replace with a variable, put the "exactly one" clause out front (where the quantifier uses the same variable as before), and then translate the resulting sentence.
+
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>
