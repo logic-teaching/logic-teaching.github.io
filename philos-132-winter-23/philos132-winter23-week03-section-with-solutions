@@ -44,11 +44,11 @@ Consider the following four sentences:
 
 - $\exists \; x \; \forall \; y Rxy$, which in the diagram means: something points to everything.
 
-- $\exists \; x \; \forall \; y \; Ryx$, which in the diagram means: something is pointed is pointed at by everything.
+- $\exists \; x \; \forall \; y \; Ryx$, which in the diagram means: something is pointed at by everything.
 
 - $\forall \; x \; \exists \; y \; Ryx$, which in the diagram means: everything is pointed at by something.
 
--$\forall\; x \exists\; y \; Rxy$, which in the diagram means: everything points to something
+- $\forall\; x \exists\; y \; Rxy$, which in the diagram means: everything points to something
 
 
 <br>
