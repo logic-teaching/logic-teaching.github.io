@@ -17,10 +17,19 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 # Week 3 Section, Practice with binary relations and multiple quantifiers, with solutions
 
+This section meeting is an opportunity to practice more with binary relations and multiple quantifiers.
+
+There are probably more problems here than we can do in an hour, and so in section we will be selective with what problems we do. Take the problems we don't get to in section as an opportunity for further practice later on, on your own.
+
+- [Arrow diagrams and binary relations](#arrow-diagrams-and-binary-relations)
+- [Translations with binary relations and multiple quantifiers](#translations-with-binary-relations-and-multiple-quantifiers)
+- [Definite descriptions](#definite-descriptions)
+
 
 <br>
 
 <p style="page-break-before: always">
+
 
 ## Arrow diagrams and binary relations
 
@@ -136,23 +145,24 @@ In these problems, we use the following key:
 *Problem 5*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
-03.05 AxExHxy :  Everyone helps someone.
-| AxExHxy
+03.05 AxEyHxy : Everyone helps someone.
+| AxEyHxy
 ~~~
 
 *Problem 6*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
-03.06 AxExHxy :  Everyone does not help someone.
-| Ax~ExHxy
+03.06 AxEy~Hxy : Everyone does not help someone.
+| AxEy~Hxy
 ~~~
+
 
 <br>
 
 *Problem 7*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
-03.07 EyAxHxy :  Someone is helped by everyone.
+03.07 EyAxHxy : Someone is helped by everyone.
 | EyAxHxy
 ~~~
 
@@ -161,7 +171,7 @@ In these problems, we use the following key:
 *Problem 8*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
-03.08 ExAyTxy :  Someone trusts everyone.
+03.08 ExAyTxy : Someone trusts everyone.
 | ExAyTxy
 ~~~
 
@@ -224,8 +234,8 @@ In these problems, we use the following key:
 *Problem 15*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
-03.15 Ax(Gx->Ey(Fy/\Tyx))  :  All Geography majors are trusted by some French major.
-| Ax(Gx->Ey(Fy/\Tyx))
+03.15 Ex(Gx/\Ay(Fy->Tyx))  :  Some geography majors are trusted by all French majors.
+| Ex(Gx/\Ay(Fy->Tyx))
 ~~~
 
 <br>
