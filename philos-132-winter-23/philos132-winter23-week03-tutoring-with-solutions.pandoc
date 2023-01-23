@@ -36,17 +36,9 @@ This version has **the solutions** filled in. They are below the multiple choice
 
 Consider the following four arrow diagrams I,II,III, and IV:
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/three-point-arrow-models-2.png" alt="Three point model example" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/tutoring-many-arrrows.png" alt="Six point models" width="700"/>
 
-Before trying problems 1-4, write down all the true R-statements involving the three points $a,b,c$ in the four diagrams. Recall the convention in arrow diagrams for binary relations: $Ruv$ corresponds to a drawn arrow from $u$ to $v$.
-
-- I: $Rab\wedge Rbc\wedge Rcb$
-
-- II: $Raa\wedge Rab\wedge Rac$
-
-- III: $Rba\wedge Rbb\wedge Rac$
-
-- IV: $Rba\wedge Raa\wedge Rca$
+Recall the convention in arrow diagrams for binary relations: $Ruv$ corresponds to a drawn arrow from $u$ to $v$.
 
 Consider the following four sentences:
 
@@ -58,39 +50,32 @@ Consider the following four sentences:
 
 - $\forall\; x \; \exists\; y \; Rxy$, which in the diagram means: everything points to something
 
+Each of the four diagrams makes true at least one of the four sentences. We make it a little more challenging than [what we did in section](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week03-section-with-solutions.pandoc#arrow-diagrams-and-binary-relations) in that we draw several 'extraneous' arrows in the diagrams which are irrelevant to the four sentences at hand.
 
 <br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 3.01 Which of the following is true in diagram I?
-| ∃ x ∀ y Rxy
-| ∃ x ∀ y Ryx
-| ∀ x ∃ y Ryx
-|+ ∀ x ∃ y Rxy
-```
-
-*Note*: this is true because:
-
-- $Rab$ implies $\exists \; y \; Ray$
-
-- $Rbc$ implies $\exists \; y \; Rby$
-
-- $Rcb$ implies $\exists \; y \; Rcy$
-
-Hence, whenever we replace $x$ by $a$ or $b$ or $c$, we get $\exists \; y \; Rxy$. Since $a,b,c$ are the only points, we get $\forall \; x \; \exists \; y \; Rxy$.
-
-
-<br>
-
-```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-3.02 Which of the following is true in diagram II?
 |+ ∃ x ∀ y Rxy
 | ∃ x ∀ y Ryx
 |+ ∀ x ∃ y Ryx
 | ∀ x ∃ y Rxy
 ```
 
-*Note*: first note that $\exists \; x \; \forall \; y \; Rxy$. This is true because $\forall \; y \; Ray$. It is also true that $\forall \; u \; \exists \; v \; Rvu$. This is because for each $u=a,b,c$ we can choose $v=a$. And one has that $\forall \; u \; \exists \; v \; Rvu$ iff $\forall \; x \; \exists \; y \; Ryx$. (We will cover more 'change of bound variables' in a future lecture).
+*Note*: $\exists \; x \; \forall \; y \; Rxy$ is true because $4$ points to every number, and hence one can take $x=4$. It is also true that $\forall \; u \; \exists \; v \; Rvu$, since for each $u=1,2,3,4,5,6$ one can take $v=4$ to make $Rvu$ true. And $\forall \; u \; \exists \; v \; Rvu$ iff $\forall \; x \; \exists \; y \; Ryx$ (we will go over 'change of bound variables' in a future week).
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+3.02 Which of the following is true in diagram II?
+| ∃ x ∀ y Rxy
+| ∃ x ∀ y Ryx
+|+ ∀ x ∃ y Ryx
+| ∀ x ∃ y Rxy
+```
+
+*Note*: One has $\forall \; x \; \exists \; y \; Ryx$ is true because everything is pointed to by something. For instance, $x=1$ is pointed to by $y=6$, and $x=4$ is pointed to by $y=2$, etc.
+
 
 <br>
 
@@ -98,19 +83,11 @@ Hence, whenever we replace $x$ by $a$ or $b$ or $c$, we get $\exists \; y \; Rxy
 3.03 Which of the following is true in diagram III?
 | ∃ x ∀ y Rxy
 | ∃ x ∀ y Ryx
-|+ ∀ x ∃ y Ryx
-| ∀ x ∃ y Rxy
+| ∀ x ∃ y Ryx
+|+ ∀ x ∃ y Rxy
 ```
 
-*Note*: this is true because:
-
-- $Rba$ implies $\exists \; y \; Rya$
-
-- $Rbb$ implies $\exists \; y \; Ryb$
-
-- $Rac$ implies $\exists \; y \; Ryc$
-
-Hence, whenever we replace $x$ by any of $a,b,c$, we get $\exists \; y \; Ryx$.
+*Note*: this is true because everything points to something.
 
 <br>
 
@@ -123,7 +100,7 @@ Hence, whenever we replace $x$ by any of $a,b,c$, we get $\exists \; y \; Ryx$.
 |+ ∀ x ∃ y Rxy
 ```
 
-*Note*: this is because $a$ is such that everything points to $a$. That is, $\exists \; x \; \forall \; y \; Ryx$ is true because $\forall \; y \; Rya$. It is also true that $\forall \; u \; \exists \; v \; Ruv$. This is because for each $u=a,b,c$ we can choose $v=a$ to make $Ruv$ true. And one has that $\forall \; u \; \exists \; v \; Ruv$ iff $\forall \; x \; \exists \; y \; Rxy$. (We will cover more 'change of bound variables' in a future lecture).
+*Note*: this is because $6$ is such that everything points to $6$. That is, $\exists \; x \; \forall \; y \; Ryx$ is true because $\forall \; y \; Ry6$. It is also true that $\forall \; u \; \exists \; v \; Ruv$. This is because for each $u=1,2,3,4,5,6$ we can choose $v=6$ to make $Ruv$ true. And one has that $\forall \; u \; \exists \; v \; Ruv$ iff $\forall \; x \; \exists \; y \; Rxy$. (We will cover more 'change of bound variables' in a future lecture).
 
 <br>
 
@@ -144,45 +121,45 @@ In these problems we use the
 
 <br>
 
-*Example 1*
+*Example 5*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
-3.1 ExAyRxy : Someone is more well-read than everyone.
+3.05 ExAyRxy : Someone is more well-read than everyone.
 |ExAyRxy
 ~~~
 
-*Example 2*
+*Example 6*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
-3.2 ExAy(Fy->Rxy) : Someone is more well-read than all French majors.
+3.06 ExAy(Fy->Rxy) : Someone is more well-read than all French majors.
 |ExAy(Fy->Rxy)
 ~~~
 
 <br>
 
-*Example 3*
+*Example 7*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
-3.3 Ex(Hx/\Ay(Fy->Rxy)) : Some History major is more well-read than all French majors.
+3.07 Ex(Hx/\Ay(Fy->Rxy)) : Some History major is more well-read than all French majors.
 |Ex(Hx/\Ay(Fy->Rxy))
 ~~~
 
 
 <br>
 
-*Example 4*
+*Example 8*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
-3.4 Ax(Fx->Ey(Hy/\Txy)) : Every French major is more well-traveled than some History major.
+3.08 Ax(Fx->Ey(Hy/\Txy)) : Every French major is more well-traveled than some History major.
 |Ax(Fx->Ey(Hy/\Txy))
 ~~~
 
 <br>
 
-*Example 5*
+*Example 9*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
-3.5 Ax(Ey(Fy/\Rxy)->Ey(Hy/\Txy)) : Everyone who is more well-read than some French major is more well-traveled than some History major.
+3.09 Ax(Ey(Fy/\Rxy)->Ey(Hy/\Txy)) : Everyone who is more well-read than some French major is more well-traveled than some History major.
 |Ax(Ey(Fy/\Rxy)->Ey(Hy/\Txy))
 ~~~
 
@@ -193,7 +170,7 @@ In these problems we use the
 
 ## Definite Descriptions
 
-*Problem 6*
+*Problem 10*
 
 Here is the key, and from this is evident that we are talking about cities:
 
@@ -204,20 +181,20 @@ Here is the key, and from this is evident that we are talking about cities:
 First give the *Russellian translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
-03.06.1  : The doctor does not trust the lawyer
+03.10.1  : The doctor does not trust the lawyer
 |Ex(Dx/\(Ay(Dy->y=x)/\Eu(Lu/\Av(Lv->v=u)/\~Txu)))
 ~~~
 
 Second give the *Fregean translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
-03.06.2 ~TixDxiuLu : The doctor does not trust the lawyer
+03.10.2 ~TixDxiuLu : The doctor does not trust the lawyer
 |~TixDxiuLu
 ~~~
 
 <br>
 
-*Problem 7*
+*Problem 11*
 
 Here is the key for these problems-- evidently, we are talking about campuses:
 
@@ -228,14 +205,14 @@ Here is the key for these problems-- evidently, we are talking about campuses:
 First give the *Russellian translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
-03.07.1 Ex(Nx/\Ay(Ny->y=x)/\Sxb) : The new campus is smaller than UC Berkeley
+03.11.1 Ex(Nx/\Ay(Ny->y=x)/\Sxb) : The new campus is smaller than UC Berkeley
 |Ex(Nx/\Ay(Ny->y=x)/\Sxb)
 ~~~
 
 Second give the *Fregean translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
-03.07.2 SixNxb : The new campus is smaller than UC Berkeley
+03.11.2 SixNxb : The new campus is smaller than UC Berkeley
 |SixNxb
 ~~~
 
@@ -254,12 +231,12 @@ Second give the *Fregean translation*:
 
 <br>
 
-*Example 6*
+*Example 12*
 
 Find a model which makes $\forall \; x \; \exists \; y \; (Rxy \wedge Txy)$, and which has at least two constants in it and which interprets $R$ and $T$ differently (this is what the second formula requires).
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.06 AxEy(Rxy/\Txy), (Rab/\~Tab)
+03.12 AxEy(Rxy/\Txy), (Rab/\~Tab)
 |Domain:0,1
 |R(_,_):[0,1],[1,1],[1,0]
 |T(_,_):[0,1],[1,1]
@@ -269,12 +246,12 @@ Find a model which makes $\forall \; x \; \exists \; y \; (Rxy \wedge Txy)$, and
 
 <br>
 
-*Example 7*
+*Example 13*
 
 Find a model where the following is true:
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.07 (Fa/\~Ga), (~Fb/\Gb), (Rab/\~Rba)
+03.13 (Fa/\~Ga), (~Fb/\Gb), (Rab/\~Rba)
 |Domain:0,1
 |F(_):0
 |G(_):1
@@ -285,12 +262,12 @@ Find a model where the following is true:
 
 <br>
 
-*Example 8*
+*Example 14*
 
 Find a model where the following is true:
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.08 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Rxy/\~Ryx)))
+03.14 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Rxy/\~Ryx)))
 |Domain:0,1
 |F(_):0
 |G(_):1
@@ -301,12 +278,12 @@ Find a model where the following is true:
 
 <br>
 
-*Example 9*
+*Example 15*
 
 Find a model where the following is true:
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.09 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Ryx/\~Rxy)))
+03.15 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Ryx/\~Rxy)))
 |Domain:0,1
 |F(_):0
 |G(_):1
@@ -315,12 +292,12 @@ Find a model where the following is true:
 
 <br>
 
-*Example 10*
+*Example 16*
 
 Find a model where the following is true:
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.09 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Ryx/\~Rxy)))
+03.16 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Ryx/\~Rxy)))
 |Domain:0,1
 |F(_):0
 |G(_):1
@@ -333,7 +310,6 @@ Find a model where the following is true:
 <br>
 
 
-
 ## Truth and many quantifiers
 
 These problems just ask you to find models where all the displayed sentences are true. They all begin with the formulas $Fa\wedge (Fb\wedge \neg Fc)$ and $(Ga\wedge (\neg Gb \wedge \neg Gc))$. These have the effect of requiring you to make models with at least three distinct elements, since $a$ is required to have both $F$ and $G$, and $b$ has the first but not the second, and $c$ has neither.
@@ -344,10 +320,10 @@ These problems just ask you to find models where all the displayed sentences are
 
 <br>
 
-*Example 11*
+*Example 17*
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.11 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), (Raa/\Rab), Ey(~Fy/\(AxRax->AxRyx))
+03.17 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), (Raa/\Rab), Ey(~Fy/\(AxRax->AxRyx))
 |Domain:0,1,2
 |F(_):0,1
 |G(_):0
@@ -359,10 +335,10 @@ These problems just ask you to find models where all the displayed sentences are
 
 <br>
 
-*Example 12*
+*Example 18*
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.12 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), AxRax, Ay(~Fy->AxRyx)
+03.18 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), AxRax, Ay(~Fy->AxRyx)
 |Domain:0,1,2
 |F(_):0,1
 |G(_):0
@@ -375,10 +351,10 @@ These problems just ask you to find models where all the displayed sentences are
 
 <br>
 
-*Example 13*
+*Example 19*
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.13 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), Ax(Ey(Fy/\Rxy)->Ey(Gy/\Ryx))
+03.19 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), Ax(Ey(Fy/\Rxy)->Ey(Gy/\Ryx))
 |Domain:0,1,2
 |F(_):0,1
 |G(_):0
@@ -390,10 +366,10 @@ These problems just ask you to find models where all the displayed sentences are
 
 <br>
 
-*Example 14*
+*Example 20*
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.14 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), EyEz(AxRxy/\Ax~Rxz)
+03.20 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), EyEz(AxRxy/\Ax~Rxz)
 |Domain:0,1,2
 |F(_):0,1
 |G(_):0
@@ -404,22 +380,6 @@ These problems just ask you to find models where all the displayed sentences are
 ```
 
 <br>
-
-*Example 15*
-
-```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.20 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), AyAz(AxRxy\/Ax~Rxz)
-|Domain:0,1,2
-|F(_):0,1
-|G(_):0
-|R(_,_):[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2],
-|a:0
-|b:1
-|c:2
-```
-
-
-
 
 These are practice problems written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
 
