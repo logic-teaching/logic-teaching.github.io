@@ -33,7 +33,7 @@ There are probably more problems here than we can do in an hour, and so in secti
 
 ## Arrow diagrams and binary relations
 
-*Problems 1-5*
+*Problems 1-4*
 
 Consider the following four arrow diagrams I,II,III, and IV:
 
@@ -57,7 +57,7 @@ Consider the following four sentences:
 
 - $\forall \; x \; \exists \; y \; Ryx$, which in the diagram means: everything is pointed at by something.
 
-- $\forall\; x \exists\; y \; Rxy$, which in the diagram means: everything points to something
+- $\forall\; x \; \exists\; y \; Rxy$, which in the diagram means: everything points to something
 
 
 <br>
@@ -91,7 +91,7 @@ Hence, whenever we replace $x$ by $a$ or $b$ or $c$, we get $\exists \; y \; Rxy
 | ∀ x ∃ y Rxy
 ```
 
-*Note*: first note that $\exists \; x \; \forall \; y \; Rxy$. This is true because $\forall \; y \; Ray$. It is also true that $\forall \; u \; \exists \; v \; Rvu$. This is beacuse for each $u=a,b,c$ we can choose $v=a$. And one has that $\forall \; u \; \exists \; v \; Rvu$ iff $\forall \; x \; \exists \; y \; Ryx$. (We will cover more 'change of bound variables' in a future lecture).
+*Note*: first note that $\exists \; x \; \forall \; y \; Rxy$. This is true because $\forall \; y \; Ray$. It is also true that $\forall \; u \; \exists \; v \; Rvu$. This is because for each $u=a,b,c$ we can choose $v=a$. And one has that $\forall \; u \; \exists \; v \; Rvu$ iff $\forall \; x \; \exists \; y \; Ryx$. (We will cover more 'change of bound variables' in a future lecture).
 
 <br>
 
@@ -121,10 +121,10 @@ Hence, whenever we replace $x$ by any of $a,b,c$, we get $\exists \; y \; Ryx$.
 | ∃ x ∀ y Rxy
 |+ ∃ x ∀ y Ryx
 | ∀ x ∃ y Ryx
-| ∀ x ∃ y Rxy
+|+ ∀ x ∃ y Rxy
 ```
 
-*Note*: this is because $a$ is such that everything points to $a$. That is, $\exists \; x \; \forall \; y \; Ryx$ is true because $\forall \; y \; Rya$.
+*Note*: this is because $a$ is such that everything points to $a$. That is, $\exists \; x \; \forall \; y \; Ryx$ is true because $\forall \; y \; Rya$. It is also true that $\forall \; u \; \exists \; v \; Ruv$. This is because for each $u=a,b,c$ we can choose $v=a$ to make $Ruv$ true. And one has that $\forall \; u \; \exists \; v \; Ruv$ iff $\forall \; x \; \exists \; y \; Rxy$. (We will cover more 'change of bound variables' in a future lecture).
 
 <br>
 
@@ -138,7 +138,7 @@ In these problems, we use the following key:
 | $Txy$  =  $x$ trusts $y$
 | $Hxy$  =  $x$ helps $y$
 | $Fx$  =  $x$ is a French major
-| $Gx$  =  $y$ is a Geography major
+| $Gx$  =  $x$ is a Geography major
 
 <br>
 

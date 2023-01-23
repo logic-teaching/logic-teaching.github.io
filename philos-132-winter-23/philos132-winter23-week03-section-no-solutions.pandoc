@@ -33,7 +33,7 @@ There are probably more problems here than we can do in an hour, and so in secti
 
 ## Arrow diagrams and binary relations
 
-*Problems 1-5*
+*Problems 1-4*
 
 Consider the following four arrow diagrams I,II,III, and IV:
 
@@ -51,13 +51,13 @@ Before trying problems 1-4, write down all the true R-statements involving the t
 
 Consider the following four sentences:
 
-- $\exists \; x \; \forall \; y Rxy$, which in the diagram means: something points to everything.
+- $\exists \; x \; \forall \; y \; Rxy$, which in the diagram means: something points to everything.
 
 - $\exists \; x \; \forall \; y \; Ryx$, which in the diagram means: something is pointed at by everything.
 
 - $\forall \; x \; \exists \; y \; Ryx$, which in the diagram means: everything is pointed at by something.
 
-- $\forall\; x \exists\; y \; Rxy$, which in the diagram means: everything points to something
+- $\forall\; x \; \exists\; y \; Rxy$, which in the diagram means: everything points to something
 
 
 <br>
@@ -99,7 +99,7 @@ Consider the following four sentences:
 | ∃ x ∀ y Rxy
 |* ∃ x ∀ y Ryx
 | ∀ x ∃ y Ryx
-| ∀ x ∃ y Rxy
+|* ∀ x ∃ y Rxy
 ```
 
 <br>
@@ -114,7 +114,7 @@ In these problems, we use the following key:
 | $Txy$  =  $x$ trusts $y$
 | $Hxy$  =  $x$ helps $y$
 | $Fx$  =  $x$ is a French major
-| $Gx$  =  $y$ is a Geography major
+| $Gx$  =  $x$ is a Geography major
 
 <br>
 
