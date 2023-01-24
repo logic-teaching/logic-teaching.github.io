@@ -33,8 +33,6 @@ There are probably more problems here than we can do in an hour, and so in secti
 
 ## Arrow diagrams and binary relations
 
-*Problems 1-4*
-
 Consider the following four arrow diagrams I,II,III, and IV:
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/three-point-arrow-models-2.png" alt="Three point model example" width="700"/>
@@ -62,6 +60,14 @@ Consider the following four sentences:
 
 <br>
 
+Before each problem we repeat the diagram, for ease of reference.
+
+<br>
+
+*Problem 1*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/three-point-arrow-models-2-I.png" alt="Three point model example" width="400"/>
+
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 3.01 Which of the following is true in diagram I?
 | ∃ x ∀ y Rxy
@@ -83,6 +89,12 @@ Hence, whenever we replace $x$ by $a$ or $b$ or $c$, we get $\exists \; y \; Rxy
 
 <br>
 
+*Problem 2*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/three-point-arrow-models-2-II.png" alt="Three point model example" width="400"/>
+
+<br>
+
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 3.02 Which of the following is true in diagram II?
 |+ ∃ x ∀ y Rxy
@@ -92,6 +104,12 @@ Hence, whenever we replace $x$ by $a$ or $b$ or $c$, we get $\exists \; y \; Rxy
 ```
 
 *Note*: first note that $\exists \; x \; \forall \; y \; Rxy$. This is true because $\forall \; y \; Ray$. It is also true that $\forall \; u \; \exists \; v \; Rvu$. This is because for each $u=a,b,c$ we can choose $v=a$. And one has that $\forall \; u \; \exists \; v \; Rvu$ iff $\forall \; x \; \exists \; y \; Ryx$. (We will cover more 'change of bound variables' in a future lecture).
+
+<br>
+
+*Problem 3*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/three-point-arrow-models-2-III.png" alt="Three point model example" width="400"/>
 
 <br>
 
@@ -115,6 +133,11 @@ Hence, whenever we replace $x$ by any of $a,b,c$, we get $\exists \; y \; Ryx$.
 
 <br>
 
+*Problem 4*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/three-point-arrow-models-2-III.png" alt="Three point model example" width="400"/>
+
+<br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 3.04 Which of the following is true in diagram IV?

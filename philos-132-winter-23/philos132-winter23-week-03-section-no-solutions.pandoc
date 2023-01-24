@@ -33,8 +33,6 @@ There are probably more problems here than we can do in an hour, and so in secti
 
 ## Arrow diagrams and binary relations
 
-*Problems 1-4*
-
 Consider the following four arrow diagrams I,II,III, and IV:
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/three-point-arrow-models-2.png" alt="Three point model example" width="700"/>
@@ -62,6 +60,16 @@ Consider the following four sentences:
 
 <br>
 
+Before each problem we repeat the diagram, for ease of reference.
+
+<br>
+
+*Problem 1*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/three-point-arrow-models-2-I.png" alt="Three point model example" width="400"/>
+
+<br>
+
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 3.01 Which of the following is true in diagram I?
 | ∃ x ∀ y Rxy
@@ -69,6 +77,11 @@ Consider the following four sentences:
 | ∀ x ∃ y Ryx
 |* ∀ x ∃ y Rxy
 ```
+<br>
+
+*Problem 2*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/three-point-arrow-models-2-II.png" alt="Three point model example" width="400"/>
 
 <br>
 
@@ -82,6 +95,12 @@ Consider the following four sentences:
 
 <br>
 
+*Problem 3*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/three-point-arrow-models-2-III.png" alt="Three point model example" width="400"/>
+
+<br>
+
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 3.03 Which of the following is true in diagram III?
 | ∃ x ∀ y Rxy
@@ -90,8 +109,15 @@ Consider the following four sentences:
 | ∀ x ∃ y Rxy
 ```
 
+<br>
+
+*Problem 4*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/three-point-arrow-models-2-IV.png" alt="Three point model example" width="400"/>
 
 <br>
+
+
 
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}

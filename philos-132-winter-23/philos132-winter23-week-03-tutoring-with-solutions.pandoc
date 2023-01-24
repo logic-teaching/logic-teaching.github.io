@@ -31,8 +31,6 @@ This version has **the solutions** filled in. For the multiple choice problems, 
 
 ## Arrow diagrams and binary relations
 
-*Problems 1-4*
-
 Consider the following four arrow diagrams I,II,III, and IV:
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/tutoring-many-arrrows.png" alt="Six point models" width="700"/>
@@ -53,6 +51,16 @@ Each of the four diagrams makes true at least one of the four sentences. We make
 
 <br>
 
+For ease of reference, we repeat the relevant diagram before the problem.
+
+<br>
+
+*Problem 1*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/tutoring-many-arrrows-I.png" alt="Six point model" width="400"/>
+
+<br>
+
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 3.01 Which of the following is true in diagram I?
 |+ ∃ x ∀ y Rxy
@@ -62,6 +70,12 @@ Each of the four diagrams makes true at least one of the four sentences. We make
 ```
 
 *Note*: $\exists \; x \; \forall \; y \; Rxy$ is true because $4$ points to every number, and hence one can take $x=4$. It is also true that $\forall \; u \; \exists \; v \; Rvu$, since for each $u=1,2,3,4,5,6$ one can take $v=4$ to make $Rvu$ true. And $\forall \; u \; \exists \; v \; Rvu$ iff $\forall \; x \; \exists \; y \; Ryx$ (we will go over 'change of bound variables' in a future week).
+
+<br>
+
+*Problem 2*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/tutoring-many-arrrows-II.png" alt="Six point model" width="400"/>
 
 <br>
 
@@ -78,6 +92,12 @@ Each of the four diagrams makes true at least one of the four sentences. We make
 
 <br>
 
+*Problem 3*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/tutoring-many-arrrows-III.png" alt="Six point model" width="400"/>
+
+<br>
+
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 3.03 Which of the following is true in diagram III?
 | ∃ x ∀ y Rxy
@@ -90,6 +110,11 @@ Each of the four diagrams makes true at least one of the four sentences. We make
 
 <br>
 
+*Problem 4*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/tutoring-many-arrrows-IV.png" alt="Six point model" width="400"/>
+
+<br>
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 3.04 Which of the following is true in diagram IV?
