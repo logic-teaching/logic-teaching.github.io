@@ -27,8 +27,7 @@ The problems in this set fall into four groups:
 
 <br>
 
-This version has **the solutions** filled in. They are below the multiple choice problems and just filled in the solution spot for all the other problems.
-
+This version has **the solutions** filled in. For the multiple choice problems, see below the problem for a brief explanation of why it is true.
 
 ## Arrow diagrams and binary relations
 
@@ -50,7 +49,7 @@ Consider the following four sentences:
 
 - $\forall\; x \; \exists\; y \; Rxy$, which in the diagram means: everything points to something
 
-Each of the four diagrams makes true at least one of the four sentences. We make it a little more challenging than [what we did in section](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week03-section-with-solutions.pandoc#arrow-diagrams-and-binary-relations) in that we draw several 'extraneous' arrows in the diagrams which are irrelevant to the four sentences at hand.
+Each of the four diagrams makes true at least one of the four sentences. We make it a little more challenging than [what we did in section](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-section-with-solutions.pandoc#arrow-diagrams-and-binary-relations) in that we draw several 'extraneous' arrows in the diagrams which are irrelevant to the four sentences at hand.
 
 <br>
 
@@ -181,8 +180,8 @@ Here is the key, and from this is evident that we are talking about cities:
 First give the *Russellian translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
-03.10.1  : The doctor does not trust the lawyer
-|Ex(Dx/\(Ay(Dy->y=x)/\Eu(Lu/\Av(Lv->v=u)/\~Txu)))
+03.10.1 Ex(Dx/\(Ay(Dy->y=x)/\Eu(Lu/\(Av(Lv->v=u)/\~Txu)))) : The doctor does not trust the lawyer
+|Ex(Dx/\(Ay(Dy->y=x)/\Eu(Lu/\(Av(Lv->v=u)/\~Txu))))
 ~~~
 
 Second give the *Fregean translation*:
@@ -205,8 +204,8 @@ Here is the key for these problems-- evidently, we are talking about campuses:
 First give the *Russellian translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
-03.11.1 Ex(Nx/\Ay(Ny->y=x)/\Sxb) : The new campus is smaller than UC Berkeley
-|Ex(Nx/\Ay(Ny->y=x)/\Sxb)
+03.11.1 Ex(Nx/\(Ay(Ny->y=x)/\Sxb)) : The new campus is smaller than UC Berkeley
+|Ex(Nx/\(Ay(Ny->y=x)/\Sxb))
 ~~~
 
 Second give the *Fregean translation*:
@@ -227,13 +226,17 @@ Second give the *Fregean translation*:
 
 <br>
 
+For these problems, recall from our discussion of [set theory](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#summary-of-set-theory-notation) that we type the ordered list notation using `<,,,>` or `[,,,]`. The below problems involve binary relations $R$ and $T$. Hence to specify their interpretations on models whose domain is a subset of the natural numbers, one types ordered pairs of numbers, e.g. ordered pair `[2,1]` or `<2,1>`.
+
+<br>
+
 **A solution** is given for each problem. Keep in mind that there are many good solutions to these problems.
 
 <br>
 
 *Example 12*
 
-Find a model which makes $\forall \; x \; \exists \; y \; (Rxy \wedge Txy)$, and which has at least two constants in it and which interprets $R$ and $T$ differently (this is what the second formula requires).
+Find a model which makes $\forall \; x \; \exists \; y \; (Rxy \wedge Txy)$, and which has two constants $a,b$ in it and which interprets $R$ and $T$ differently (this is what the second formula requires).
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.12 AxEy(Rxy/\Txy), (Rab/\~Tab)
@@ -312,7 +315,7 @@ Find a model where the following is true:
 
 ## Truth and many quantifiers
 
-These problems just ask you to find models where all the displayed sentences are true. They all begin with the formulas $Fa\wedge (Fb\wedge \neg Fc)$ and $(Ga\wedge (\neg Gb \wedge \neg Gc))$. These have the effect of requiring you to make models with at least three distinct elements, since $a$ is required to have both $F$ and $G$, and $b$ has the first but not the second, and $c$ has neither.
+These problems just ask you to find models where all the displayed sentences are true. They all begin with the formulas $a\neq b$, $b\neq c, a\neq c$. This requires one to build models with at least three elements.
 
 <br>
 
@@ -320,13 +323,9 @@ These problems just ask you to find models where all the displayed sentences are
 
 <br>
 
-*Example 17*
-
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.17 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), (Raa/\Rab), Ey(~Fy/\(AxRax->AxRyx))
+03.17 ~a=b, ~b=c, ~a=c, (Raa/\Rab), Ey(~y=a/\(AxRax->AxRyx))
 |Domain:0,1,2
-|F(_):0,1
-|G(_):0
 |R(_,_):[0,0],[0,1],[2,0],[2,1]
 |a:0
 |b:1
@@ -338,10 +337,8 @@ These problems just ask you to find models where all the displayed sentences are
 *Example 18*
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.18 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), AxRax, Ay(~Fy->AxRyx)
+03.18 ~a=b, ~b=c, ~a=c, AxRax, Ay(~y=a->~AxRyx)
 |Domain:0,1,2
-|F(_):0,1
-|G(_):0
 |R(_,_):[0,0],[0,1],[0,2],[2,0],[2,1],[2,2]
 |a:0
 |b:1
@@ -354,7 +351,7 @@ These problems just ask you to find models where all the displayed sentences are
 *Example 19*
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.19 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), Ax(Ey(Fy/\Rxy)->Ey(Gy/\Ryx))
+03.19 Ax(Ey(Fy/\Rxy)->Ey(Gy/\Ryx))
 |Domain:0,1,2
 |F(_):0,1
 |G(_):0
@@ -369,10 +366,8 @@ These problems just ask you to find models where all the displayed sentences are
 *Example 20*
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
-03.20 (Fa/\(Fb/\~Fc)), (Ga/\(~Gb/\~Gc)), EyEz(AxRxy/\Ax~Rxz)
+03.20 ~a=b, ~b=c, ~a=c, EyEz(AxRxy/\Ax~Rxz)
 |Domain:0,1,2
-|F(_):0,1
-|G(_):0
 |R(_,_):[0,0],[1,0],[2,0]
 |a:0
 |b:1
