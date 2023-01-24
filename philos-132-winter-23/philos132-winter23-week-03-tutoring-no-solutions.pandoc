@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 3 Tutoring session with solutions
+# Week 3 Tutoring session
 
 The problems in this set fall into four groups:
 
@@ -27,7 +27,6 @@ The problems in this set fall into four groups:
 
 <br>
 
-This version has **the solutions** filled in. For the multiple choice problems, see below the problem for a brief explanation of why it is true.
 
 ## Arrow diagrams and binary relations
 
@@ -63,13 +62,11 @@ For ease of reference, we repeat the relevant diagram before the problem.
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 3.01 Which of the following is true in diagram I?
-|+ ∃ x ∀ y Rxy
+|* ∃ x ∀ y Rxy
 | ∃ x ∀ y Ryx
-|+ ∀ x ∃ y Ryx
+|* ∀ x ∃ y Ryx
 | ∀ x ∃ y Rxy
 ```
-
-*Note*: $\exists \; x \; \forall \; y \; Rxy$ is true because $4$ points to every number, and hence one can take $x=4$. It is also true that $\forall \; u \; \exists \; v \; Rvu$, since for each $u=1,2,3,4,5,6$ one can take $v=4$ to make $Rvu$ true. And $\forall \; u \; \exists \; v \; Rvu$ iff $\forall \; x \; \exists \; y \; Ryx$ (we will go over 'change of bound variables' in a future week).
 
 <br>
 
@@ -83,11 +80,9 @@ For ease of reference, we repeat the relevant diagram before the problem.
 3.02 Which of the following is true in diagram II?
 | ∃ x ∀ y Rxy
 | ∃ x ∀ y Ryx
-|+ ∀ x ∃ y Ryx
+|* ∀ x ∃ y Ryx
 | ∀ x ∃ y Rxy
 ```
-
-*Note*: One has $\forall \; x \; \exists \; y \; Ryx$ is true because everything is pointed to by something. For instance, $x=1$ is pointed to by $y=6$, and $x=4$ is pointed to by $y=2$, etc.
 
 
 <br>
@@ -103,10 +98,8 @@ For ease of reference, we repeat the relevant diagram before the problem.
 | ∃ x ∀ y Rxy
 | ∃ x ∀ y Ryx
 | ∀ x ∃ y Ryx
-|+ ∀ x ∃ y Rxy
+|* ∀ x ∃ y Rxy
 ```
-
-*Note*: this is true because everything points to something.
 
 <br>
 
@@ -119,12 +112,10 @@ For ease of reference, we repeat the relevant diagram before the problem.
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 3.04 Which of the following is true in diagram IV?
 | ∃ x ∀ y Rxy
-|+ ∃ x ∀ y Ryx
+|* ∃ x ∀ y Ryx
 | ∀ x ∃ y Ryx
-|+ ∀ x ∃ y Rxy
+|* ∀ x ∃ y Rxy
 ```
-
-*Note*: this is because $6$ is such that everything points to $6$. That is, $\exists \; x \; \forall \; y \; Ryx$ is true because $\forall \; y \; Ry6$. It is also true that $\forall \; u \; \exists \; v \; Ruv$. This is because for each $u=1,2,3,4,5,6$ we can choose $v=6$ to make $Ruv$ true. And one has that $\forall \; u \; \exists \; v \; Ruv$ iff $\forall \; x \; \exists \; y \; Rxy$. (We will cover more 'change of bound variables' in a future lecture).
 
 <br>
 
@@ -149,14 +140,14 @@ In these problems we use the
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
 3.05 ExAyRxy : Someone is more well-read than everyone.
-|ExAyRxy
+|
 ~~~
 
 *Example 6*
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
 3.06 ExAy(Fy->Rxy) : Someone is more well-read than all French majors.
-|ExAy(Fy->Rxy)
+|
 ~~~
 
 <br>
@@ -165,7 +156,7 @@ In these problems we use the
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
 3.07 Ex(Hx/\Ay(Fy->Rxy)) : Some History major is more well-read than all French majors.
-|Ex(Hx/\Ay(Fy->Rxy))
+|
 ~~~
 
 
@@ -175,7 +166,7 @@ In these problems we use the
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
 3.08 Ax(Fx->Ey(Hy/\Txy)) : Every French major is more well-traveled than some History major.
-|Ax(Fx->Ey(Hy/\Txy))
+|
 ~~~
 
 <br>
@@ -184,7 +175,7 @@ In these problems we use the
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
 3.09 Ax(Ey(Fy/\Rxy)->Ey(Hy/\Txy)) : Everyone who is more well-read than some French major is more well-traveled than some History major.
-|Ax(Ey(Fy/\Rxy)->Ey(Hy/\Txy))
+|
 ~~~
 
 <p style="page-break-before: always">
@@ -206,14 +197,14 @@ First give the *Russellian translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
 03.10.1 Ex(Dx/\(Ay(Dy->y=x)/\Eu(Lu/\(Av(Lv->v=u)/\~Txu)))) : The doctor does not trust the lawyer
-|Ex(Dx/\(Ay(Dy->y=x)/\Eu(Lu/\(Av(Lv->v=u)/\~Txu))))
+|
 ~~~
 
 Second give the *Fregean translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
 03.10.2 ~TixDxiuLu : The doctor does not trust the lawyer
-|~TixDxiuLu
+|
 ~~~
 
 <br>
@@ -230,14 +221,14 @@ First give the *Russellian translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
 03.11.1 Ex(Nx/\(Ay(Ny->y=x)/\Sxb)) : The new campus is smaller than UC Berkeley
-|Ex(Nx/\(Ay(Ny->y=x)/\Sxb))
+|
 ~~~
 
 Second give the *Fregean translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
 03.11.2 SixNxb : The new campus is smaller than UC Berkeley
-|SixNxb
+|
 ~~~
 
 <p style="page-break-before: always">
@@ -263,9 +254,6 @@ These problems do not arise until [Example 11 of Lecture 2 of this week](https:/
 
 Of course what is difficult in these problems is that one must make these choices so that the indicated formulas all come out true.
 
-<br>
-
-**A solution** is given for each problem. Keep in mind that there are many good solutions to these problems.
 
 <br>
 
@@ -275,11 +263,11 @@ Find a model which makes $\forall \; x \; \exists \; y \; (Rxy \wedge Txy)$, and
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.12 AxEy(Rxy/\Txy), (Rab/\~Tab)
-|Domain:0,1
-|R(_,_):[0,1],[1,1],[1,0]
-|T(_,_):[0,1],[1,1]
-|a:1
-|b:0
+|Domain:
+|R(_,_):
+|T(_,_):
+|a:
+|b:
 ```
 
 <br>
@@ -290,12 +278,12 @@ Find a model where the following is true:
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.13 (Fa/\~Ga), (~Fb/\Gb), (Rab/\~Rba)
-|Domain:0,1
-|F(_):0
-|G(_):1
-|R(_,_):[0,1]
-|a:0
-|b:1
+|Domain:
+|F(_):
+|G(_):
+|R(_,_):
+|a:
+|b:
 ```
 
 <br>
@@ -306,12 +294,12 @@ Find a model where the following is true:
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.14 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Rxy/\~Ryx)))
-|Domain:0,1
-|F(_):0
-|G(_):1
-|R(_,_):[0,1]
-|a:0
-|b:1
+|Domain:
+|F(_):
+|G(_):
+|R(_,_):
+|a:
+|b:
 ```
 
 <br>
@@ -322,10 +310,10 @@ Find a model where the following is true:
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.15 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Ryx/\~Rxy)))
-|Domain:0,1
-|F(_):0
-|G(_):1
-|R(_,_):[1,0]
+|Domain:
+|F(_):
+|G(_):
+|R(_,_):
 ```
 
 <br>
@@ -336,10 +324,10 @@ Find a model where the following is true:
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.16 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Ryx/\~Rxy)))
-|Domain:0,1
-|F(_):0
-|G(_):1
-|R(_,_):[1,0]
+|Domain:
+|F(_):
+|G(_):
+|R(_,_):
 ```
 
 
@@ -352,19 +340,16 @@ Find a model where the following is true:
 
 These problems just ask you to find models where all the displayed sentences are true. They all begin with the formulas $a\neq b$, $b\neq c, a\neq c$. This requires one to build models with at least three elements.
 
-<br>
-
-**A solution** is given for each problem. Keep in mind that there are many good solutions to these problems. The domain and the interpretation of the constants and the unary relations are the same in these solutions, and we just vary the interpretation of the binary relation symbol.
 
 <br>
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.17 ~a=b, ~b=c, ~a=c, (Raa/\Rab), Ey(~y=a/\(AxRax->AxRyx))
-|Domain:0,1,2
-|R(_,_):[0,0],[0,1],[2,0],[2,1]
-|a:0
-|b:1
-|c:2
+|Domain:
+|R(_,_):
+|a:
+|b:
+|c:
 ```
 
 <br>
@@ -373,11 +358,11 @@ These problems just ask you to find models where all the displayed sentences are
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.18 ~a=b, ~b=c, ~a=c, AxRax, Ay(~y=a->~AxRyx)
-|Domain:0,1,2
-|R(_,_):[0,0],[0,1],[0,2],[2,0],[2,1],[2,2]
-|a:0
-|b:1
-|c:2
+|Domain:
+|R(_,_):
+|a:
+|b:
+|c:
 ```
 
 
@@ -387,13 +372,13 @@ These problems just ask you to find models where all the displayed sentences are
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.19 Ax(Ey(Fy/\Rxy)->Ey(Gy/\Ryx))
-|Domain:0,1,2
-|F(_):0,1
-|G(_):0
-|R(_,_):[2,0],[0,2]
-|a:0
-|b:1
-|c:2
+|Domain:
+|F(_):
+|G(_):
+|R(_,_):
+|a:
+|b:
+|c:
 ```
 
 <br>
@@ -402,11 +387,11 @@ These problems just ask you to find models where all the displayed sentences are
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
 03.20 ~a=b, ~b=c, ~a=c, EyEz(AxRxy/\Ax~Rxz)
-|Domain:0,1,2
-|R(_,_):[0,0],[1,0],[2,0]
-|a:0
-|b:1
-|c:2
+|Domain:
+|R(_,_):
+|a:
+|b:
+|c:
 ```
 
 <br>
