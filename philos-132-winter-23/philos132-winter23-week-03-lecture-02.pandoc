@@ -64,7 +64,7 @@ Further, consider the following:
 <p style="margin-left: 40px"> $R$ = has more people than  </p>
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- Rc_1c_2 : The first city has more people than the second city
+ Rc_1c_2 : first city has more people than second city
 |
 ~~~
 
