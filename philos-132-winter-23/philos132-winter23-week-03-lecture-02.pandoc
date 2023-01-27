@@ -64,7 +64,7 @@ Further, consider the following:
 <p style="margin-left: 40px"> $R$ = has more people than  </p>
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
- Rc_1c_2 : The first city has more people than the second city
+ Rc_1c_2 : first city has more people than second city
 |
 ~~~
 
@@ -170,9 +170,9 @@ Now we define truth in a model:[^6]
 
 [^6]: This definition is from [Tarski, Alfred. 1956. “The Concept of Truth in Formalized Languages.” In Logic, Semantics, Metamathematics: Papers from 1923 to 1938, edited by J. H. Woodger, 152–278. Oxford: Clarendon Press.](https://logic-teaching.github.io/pred/texts/Tarski%201956%20-%20The%20Concept%20of%20Truth%20in%20Formalized%20Languages.pdf) Tarski was not using set-theory per se, but rather type-theory, and his paper is thus a little harder for us to read nowadays.
 
-Suppose that $\mathcal{M}$ is a model in a signature, and assume that every element of the underlying domain is interpreted by some constant symbol. Then for a well-formed formula $\phi$ we define $M\models \phi$ as follows:
+Suppose that $\mathcal{M}$ is a model in a signature, and assume that every element of the underlying domain is interpreted by some constant symbol. Then for a well-formed formula $\phi$ we define $\mathcal{M}\models \phi$ as follows:
 
-- *Atomics*: If $F$ is a one-place relation symbol, then $\mathcal{M}\models Fa$ if and only if $a^{\mathcal{M}}$ is in $F^{\mathcal{M}}$. If $R$ is a two-place relation symbol, then $\mathcal{M}\models Rab$ if and only if $\langle a^{\mathcal{M}}, b^{\mathcal{M}}\rangle$ is in $R^{\mathcal{M}}$. In general, if $R$ is $n$-place relation symbol then $\mathcal{M}\models Ra_1, \ldots, a_n$ if and only if $\langle a_1^{\mathcal{M}}, \ldots, a_n^{\mathcal{M}}\rangle$ is in $R^{\mathcal{M}}$.
+- *Atomics*: If $F$ is a one-place relation symbol and $a$ is a constant symbol, then $\mathcal{M}\models Fa$ if and only if $a^{\mathcal{M}}$ is in $F^{\mathcal{M}}$. If $R$ is a two-place relation symbol and $a,b$ are constant symbols, then $\mathcal{M}\models Rab$ if and only if $\langle a^{\mathcal{M}}, b^{\mathcal{M}}\rangle$ is in $R^{\mathcal{M}}$. In general, if $R$ is $n$-place relation symbol and $a_1, \ldots, a_n$ are constant symbols then $\mathcal{M}\models Ra_1, \ldots, a_n$ if and only if $\langle a_1^{\mathcal{M}}, \ldots, a_n^{\mathcal{M}}\rangle$ is in $R^{\mathcal{M}}$.
 
 - *Identity*: If $a,b$ are constants, then $\mathcal{M}\models a=b$ if and only if $a^{\mathcal{M}}=b^{\mathcal{M}}$
 
@@ -310,7 +310,7 @@ Characteristic of problems like this is that many other models would work as wel
 
 ```{.CounterModeler .Simple system="gamutND" submission="none"}
  (Gb/\~Gc)/\(Ex(Rbx/\~Gx)/\Ex(Rbx/\Gx))
-|Domain:0,1,2
+|Domain:0,1,2,3
 |G(_):0,2
 |R(_,_):[0,1],[0,2]
 |b:0

@@ -328,15 +328,15 @@ Here is the key for these problems-- evidently, we are talking about campuses:
 First give the *Russellian translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
-03.18 Ex((Ox/\Nx)/\(Ay((Oy/\Ny)->y=x)/\Eu(Lub/\Lux))) : Some old campus is both larger than UC Santa Barbara and larger than the old Northern campus.
-|Ex((Ox/\Nx)/\(Ay((Oy/\Ny)->y=x)/\Eu(Lub/\Lux)))
+03.18 Ex((Ox/\Nx)/\(Ay((Oy/\Ny)->y=x)/\Eu(Ou/\(Lub/\Lux)))) : Some old campus is both larger than UC Santa Barbara and larger than the old Northern campus.
+| Ex((Ox/\Nx)/\(Ay((Oy/\Ny)->y=x)/\Eu(Ou/\(Lub/\Lux))))
 ~~~
 
 Second give the *Fregean translation*:
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
-03.19 Eu(Lub/\Luix(Ox/\Nx)) : Some old campus is both larger than UC Santa Barbara and larger than the old Northern campus.
-|Eu(Lub/\Luix(Ox/\Nx))
+03.19 Eu(Ou/\(Lub/\Luix(Ox/\Nx))) : Some old campus is both larger than UC Santa Barbara and larger than the old Northern campus.
+| Eu(Ou/\(Lub/\Luix(Ox/\Nx)))
 ~~~
 
 <br>
