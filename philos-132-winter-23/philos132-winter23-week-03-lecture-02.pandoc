@@ -235,7 +235,7 @@ We show that  $\mathcal{M}_1\models \exists \; x \; Fx \; \wedge \; \exists \; y
 
 As we showed above, $\mathcal{M}_1\models Fb$. Then by the clause for the existential quantifier, we have $\mathcal{M}_1\models \exists \; x \; Fx$. For, $Fb$ results from $Fx$ by replacing $x$ by $b$.
 
-Note that $a^{\mathcal{M}_1} =$ Allison and $F^{\mathcal{M}_1}=\{\mbox{Brianna}\}$ and hence $a^{\mathcal{M}_1}\notin F^{\mathcal{M}_1}$. Then by the clause for atomics (using the version with both sides negated), we have $\mathcal{M}_1\nvDash Fa$ and then by the clause for negation we have that $\mathcal{M}_1\models \neg Fa$. Then by the clause for the existential quantifier we have $\mathcal{M}_1\models \exists \; y \; \neg Fy$. For, $\neg Fa$ results from $\neg Fy$ by replacing $y$ by $c$.
+Note that $a^{\mathcal{M}_1} =$ Allison and $F^{\mathcal{M}_1}=\{\mbox{Brianna}\}$ and hence $a^{\mathcal{M}_1}\notin F^{\mathcal{M}_1}$. Then by the clause for atomics (using the version with both sides negated), we have $\mathcal{M}_1\nvDash Fa$ and then by the clause for negation we have that $\mathcal{M}_1\models \neg Fa$. Then by the clause for the existential quantifier we have $\mathcal{M}_1\models \exists \; y \; \neg Fy$. For, $\neg Fa$ results from $\neg Fy$ by replacing $y$ by $a$.
 
 <br>
 
@@ -256,7 +256,7 @@ As we noted above, not every element is denoted by a constant symbol in this mod
 
 If we were being very formal, we would develop some special notation for this expansion of the model. But for ease of readability, we just continue to denote it by $\mathcal{M}_2$. Using this we can then show that $\mathcal{M}_2\models \exists \; y \; Fy$.
 
-First note that the set-theoretic fact $1\in \{1\}$ in conjunction with the interpretation provided by the model yields $c^{\mathcal{M}_2} = 1\in \{1\}=F^{\mathcal{M}_2}$. That is to say, $c^{\mathcal{M}_2} \in F^{\mathcal{M}_2}$. Then by the clause for atomics we have $\mathcal{M}_2\models Fc$. Then by the clause for the existential quantifier we have $\mathcal{M}_2\models \exists \; x \; Fx$. For, $Fc$ results from $Fx$ by replacing $x$ by $b$.
+First note that the set-theoretic fact $1\in \{1\}$ in conjunction with the interpretation provided by the model yields $c^{\mathcal{M}_2} = 1\in \{1\}=F^{\mathcal{M}_2}$. That is to say, $c^{\mathcal{M}_2} \in F^{\mathcal{M}_2}$. Then by the clause for atomics we have $\mathcal{M}_2\models Fc$. Then by the clause for the existential quantifier we have $\mathcal{M}_2\models \exists \; x \; Fx$. For, $Fc$ results from $Fx$ by replacing $x$ by $c$.
 
 <br>
 
