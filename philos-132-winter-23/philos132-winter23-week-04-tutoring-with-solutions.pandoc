@@ -1,0 +1,34 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 4 Tutoring session, with solutions
+
+The problems in this set fall into four groups:
+
+- [Propositional tautologies and predicate logic](#propositional-tautologies-and-predicate logic)
+- [Validity and invalidity with orders](#universal-introduction-and-existential-elimination)
+- [Universal Introduction and Existential Elimination](#universal-introduction-and-existential-elimination)
+- [Free and bound variables and variable assignments](#universal-introduction-and-existential-elimination)
+
+<br>
+
+## Propositional tautologies and predicate logic
+
+
+
+
+
