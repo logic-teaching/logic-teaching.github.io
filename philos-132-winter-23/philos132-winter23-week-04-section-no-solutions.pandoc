@@ -1,0 +1,279 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 4 Section, Practice with validity and invalidity
+
+This section meeting is an opportunity to practice more with validity and invalidity. This is simultaneously practice with working with formulas that are longer and more complicated.
+
+- [Invalidity with multiple quantifiers](#invalidity-with-multiple-quantifiers)
+- [Equivalences using DeMorgan](#equivalences-using-demorgan)
+- [Russellian and Fregean semantics for definite descriptions](#russellian-and-fregean-semantics-for-definite-descriptions)
+
+
+<br>
+
+<p style="page-break-before: always">
+
+
+## Invalidity with multiple quantifiers
+
+In these problems, we find models which show that a certain argument is invalid-- we sometimes refer to them as "countermodels." If you are a philosopher, then the finding of countermodels is just a slightly more formalized version of the finding counterexamples to philosophical theses. If you are more mathematically inclined, finding counterexamples is the dual to proof: if you can't prove something, it might be because it doesn't hold in general, and to show it doesn't hold in general you go find counterexamples. If you are more linguistically inclined, finding natural language examples of entailments and non-entailments are part of how we distinguish different semantic theses, and the countermodels we are doing today are just a slightly more abstract form of these.
+
+<br>
+
+Keep in mind that that "countermodel" problems or "invalidity" problems have *many good* solutions. Hence, don't worry if your solution looks a little different than what your peers may have come up with.
+
+<br>
+
+*Example 1*:
+
+This is one of the basic invalidities in predicate logic: just because everyone respects someone, doesn't mean that someone is respected by everyone. The general form of it replaces "x respects y" by Rxy, but it is at the beginning easier to the remember the version with "respects" (or some other transitive verb) because one can bootstrap off of our capacity to manipulate actives and passives in natural language.
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+4.01 AxEyRxy :|-: EyAxRxy
+```
+
+<br>
+
+*Example 2*:
+
+This is a variation on Example 1, to the effect that: just because every $F$ trusts some $G$, doesn't entail that some $G$ is trusted by every $F$. To make the problem a little more interesting, we add premises to the effect that there are some F's, there are some G's, and no one is both F and G.
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+4.02 Ax(Fx->Ey(Gy/\Txy)), ExFx, ExGx, ~Ex(Fx/\Gx) :|-: Ey(Gy/\Ax(Fx->Txy))
+```
+
+<br>
+
+*Example 3*:
+
+This one is a variation on Example 1 in which we replace Rxy by Ryx. One can complete it by mechanically taking your solution to Example 1 and replacing the the ordered pair [n,m] by [m,n]. But try to construct a natural language version of it as well, in part because these are easier to remember, and in part because that is how we apply this material: an invalidity is a way of saying "hey, you can't get to that conclusion from these premises by logic alone".
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+4.03 AxEyRyx :|-: EyAxRyx
+```
+
+<br>
+
+*Example 4*:
+
+This one takes the conclusion of Example 1 and notes that one cannot assume merely from "someone is respected by everyone" that "there is a unique person which is respected by everyone." The other premise just makes sure that the domain has a few elements in it.
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+4.04 EyAxRxy, ExEyEz(~x=y/\(~y=z/\~x=z)) :|-: Ey(AxRyx/\Az(AxRzx->z=y))
+```
+
+<br>
+
+*Example 5*:
+
+This is a variant of the problems from lecture in the discussion of [Tarski on logical conequence](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#tarski-on-consequence). Ostensibly this just increments Example 17 from that discussion by one additional point. But how many more entries did you have to put in the interpretation of the binary relation?
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: ~EwExEyEz(Rwx/\(Rxy/\Ryz))
+```
+
+<br>
+
+*Example 6*:
+
+As mentioned in the discussion of [conversions and existential import](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc#conversions-and-existential-import), Aristotle seemed to presume  that all the F's and G's he was working with were instantiated.
+
+This assumption is behind his Fourth Conversion, which we can quickly check is invalid by the lights of modern logic. The trick is just to not put anything in the F box:
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+4.06 Ax(Fx->Gx) :|-: Ex(Fx/\Gx)
+```
+
+Of course, we can easily remedy this invaldity by adding on another premise of the form $\exists \; x \; Fx$. Hence, our contemporary logic is very much a conservative extension of the Aristotelian systems, once these additions are added.
+
+<br>
+
+*Example 7*:
+
+At the moment, we are just practicing with invalidities. Hence, let's note that Aristotle's Darapti is also invalid by the lights of our contemporary predicate logic (recall that [Aristotle's proof of Darapti goes through the Fourth Conversion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-tutoring-with-solutions.pandoc#aristotle-and-the-third-figure)). We make it slightly more interesting by making sure that the domain has at least three elements and that the two predicates L, S in the consequents are instantiated.
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+4.07 ~a=b, ~b=c, ~a=c, La, Sc, Ax(Mx->Lx),Ax(Mx->Sx)  :|-: Ex(Sx/\Lx)
+```
+
+And like before, Aristotle's Darapti becomes valid (by our lights) once one adds the premise that there are some things which are M.
+
+<br>
+
+
+
+<br>
+
+## Equivalences using DeMorgan
+
+<br>
+
+On these problems, please reivew [DeMorgan for the quantifiers](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-tautologies.pandoc#demorgan-for-the-quantifiers) before beginning.
+
+<br>
+
+*Example 8*. Use DeMorgan to find an equivalent of the following:
+
+$\neg \forall \; x \; \exists \; y \; Rxy$.
+
+~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
+4.08 ExAy~Rxy :
+~~~
+
+<br>
+
+*Example 9*. Use DeMorgan and propositional equivalences to find an equivalent of the following which contains no negations:
+
+$\neg \forall \; x \; \exists \; y \; \neg Rxy$
+
+~~~{.Translate .FOL system="gamutND" tests="maxNeg:0" submission="none"}
+4.09 ExAyRxy :
+~~~
+
+<br>
+
+*Example 10*. Use DeMorgan and propositional equivalences to find an equivalent of the following which contains no negations:
+
+$\neg \forall \; x \; \neg \exists \; y \; Rxy$
+
+~~~{.Translate .FOL system="gamutND" tests="maxNeg:0 PNF" submission="none"}
+4.10 ExEyRxy :
+~~~
+
+<br>
+
+*Example 11*. Use DeMorgan and propositional equivalences to find an equivalent of the following which contains no conjunctions:
+
+$\neg \forall \; x \; \exists \; y \; \forall \; z \; (Rxy\wedge Ryz)$
+
+~~~{.Translate .FOL system="gamutND" tests="maxAnd:0 PNF" submission="none"}
+4.11 ExAyEz(~Rxy\/~Ryz) :
+~~~
+
+<br>
+
+
+*Example 12*. Use DeMorgan and propositional equivalences to find an equivalent of the following which contains no conjunctions and no conditionals. *Hint*: use the fact that $p\rightarrow q$ is equivalent to $\neg p\vee q$.
+
+$\forall \; x \; \exists \; y \; \forall \; z \; (Rxy\wedge Ryz) \rightarrow \neg \forall \; x \; \forall \; y \; (Rxy\wedge Rxx)$
+
+~~~{.Translate .FOL system="gamutND" tests="maxAnd:0 maxIf:0" submission="none"}
+4.12 ExAyEz(~Rxy\/~Ryz)\/ExEy(~Rxy\/~Rxx) :
+~~~
+
+<br>
+
+## Russellian and Fregean semantics for definite descriptions
+
+At the beginning of Week 3, [we did the Russellian and Fregean translations of the definite descriptions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-no-solutions.pandoc#definite-descriptions). At the end of Week 3, we did [Tarski's definition of truth in a model](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model). Using that, one can determine whether a Russellian definite description statement is true or false in a model. However, we have not said what the semantics of the Fregean definite description are. We do that now.
+
+Frege thought that when there was exactly one $F$, then "The F is G" just gets interpreted as saying that this object has $G$. And Frege
+ simply designated a fixed element of the model as the referent of "the F" when there was not exactly one F. In our model-checkers, this individual is always zero.
+
+We can use this to illustrate some differences between the Fregean and Russellian treatment of definite descriptions using invalidities.
+
+*Example 13*
+
+This example shows that the Fregean translation "the F is G" does not entail the Russellian translation of "the F is G" when there are no F's. This is because Frege interprets "the F" as zero when there are no F's.
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none" options="negated-double-turnstile"}
+4.13 GixFx, ~ExFx :|-: Ex(Fx/\(Ay(Fy->x=y)/\Gx))
+```
+
+<br>
+
+*Example 14*
+
+This example shows that the Fregean translation "the F is G" does not entail the Russellian translation of "the F is G" when there is more than one F. This is because Frege interprets "the F" as zero when there is more than one F.
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none" options="negated-double-turnstile"}
+4.14 GixFx, ExEy((Fx/\Fy)/\~x=y) :|-: Ex(Fx/\(Ay(Fy->x=y)/\Gx))
+```
+
+<br>
+
+In contrast to the previous two examples, one can check that the Russellian translation of "the F is G" entails the Fregean translation of "the F is G" when they are unembedded. That is, one has
+
+$\exists \; x \; (Fx\wedge (\forall \; y \; (Fy\rightarrow y=x))\wedge Gx)\models G(\iota x Fx)$.
+
+This will persist if one always translates the exact numerical quantifier way out front of the sentence. However, it can fail if one tries to keep the Russellian translation more "local". To this we now turn.
+
+<br>
+
+*Example 15*
+
+Suppose one tried to translate "if the F is G, then the F is H" in such a way that the main connective of the sentence was an arrow. When one does so, the Russellian translation no longer entails the Fregean translation, when there is not exactly one F. This is because the Russellian translation is easy to make true since it has a false antecedent, while the Fregean translation will have an antecedent and consequent which can be made true or false depending on how things turn out with zero.
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none" options="negated-double-turnstile"}
+4.15 Ex(Fx/\(Ay(Fy->x=y)/\Gx))->Ex(Fx/\(Ay(Fy->x=y)/\Hx)), ExEy((Fx/\Fy)/\~x=y) :|-: GixFx->HixFx
+```
+
+<br>
+
+*Example 16*
+
+This one is exactly like the previous one, but we make the antecedent of the Russellian translation true by ensuring that there are no F's rather than many F's.
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none" options="negated-double-turnstile"}
+4.16 Ex(Fx/\(Ay(Fy->x=y)/\Gx))->Ex(Fx/\(Ay(Fy->x=y)/\Hx)), ~ExFx :|-: GixFx->HixFx
+```
+
+<br>
+
+*Example 17*
+
+This example illustrates how the Fregean translation does not entail the Russellian translation with respect to the example of "Everyone respects the F".
+
+*Hint*: It is easy to make the Russellian translation false by e.g. making more than one F. But making the Fregean translation true is a little harder, since one has to make everything bear the R-relation to zero.
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none" options="negated-double-turnstile"}
+4.17 AuRuixFx, ExEy((Fx/\Fy)/\~x=y) :|-: Ex(Fx/\(Ay(Fy->x=y)/\AuRux))
+```
+
+<br>
+
+*Example 18*
+
+This example shows that the Fregean translation "the F is not G" does not entail the Russellian translation of "the F is not G" when there are no F's.
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none" options="negated-double-turnstile"}
+4.18 ~GixFx, ~ExFx :|-: Ex(Fx/\(Ay(Fy->x=y)/\~Gx))
+```
+
+
+<br>
+
+*Example 19*
+
+The Russellian translation of "the F is G" entails that "there is at least one F", but the Fregean translation does not.
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none" options="negated-double-turnstile"}
+4.19 GixFx :|-: ExFx
+```
+
+<br>
+
+*Example 20*
+
+Another salient difference between the Russellian and Fregean translations is that only the Fregean translation allows for nesting of one definite description inside another explicitly in the translation. The following example illustrates this in its premise. Intuitively, one might read the premise as saying "The F who respects the G is H", and the conclusion is "The G who respects the H is F". We make it more interesting by including premises that make there be exactly one G and exactly one H, and there be at least two F's.
+
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none" options="negated-double-turnstile"}
+4.20 Hix(Fx/\RxiyGy), Ex(Gx/\Ay(Gy->x=y)), Ex(Hx/\Ay(Hy->x=y)), ExEy((Fx/\Fy)/\~x=y) :|-: Fix(Gx/\RxiyHy)
+```
+
+<p style="page-break-before: always">

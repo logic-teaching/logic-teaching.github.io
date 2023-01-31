@@ -226,8 +226,8 @@ In these problems, we use the following key:
 <video controls muted width="700" src="https://logic-teaching.github.io/philos-132-winter-23/vid2/section-translation-binary-03-10.mp4"/> </video>
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
-03.10 ExAy(Fx->Hxy) :  Someone helps every French major.
-| ExAy(Fx->Hxy)
+03.10 ExAy(Fy->Hxy) :  Someone helps every French major.
+| ExAy(Fy->Hxy)
 ~~~
 
 <br>
