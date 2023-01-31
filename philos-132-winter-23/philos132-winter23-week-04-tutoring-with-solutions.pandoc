@@ -13,7 +13,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 
 <br>
-<br>
 
 # Week 4 Tutoring session, with solutions
 
@@ -441,9 +440,7 @@ Consider the formula $\forall \; x \; (Fx\rightarrow Gx) \wedge \exists \; x \; 
 
 *Example 18*
 
-Consider the following three formulas:
-
-- $(\forall \; x \; \exists \; y \; Rxy) \rightarrow
+Consider the formula $(\forall \; x \; \exists \; y \; Rxy) \rightarrow$.
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 4.17 Consider the last instance of `x` in the formula. Which of the following is true:
@@ -458,14 +455,27 @@ Consider the following three formulas:
 
 *Example 19*
 
-Suppose that the underlying domain consists of natural numbers, and suppose that $g$ is a variable assignment which assigns $g(x)=5$ and $g(y)=10$ and $g(z)=15$.   
-
-- $(\forall \; x \; \exists \; y \; Rxy) \rightarrow
+Suppose that the underlying domain consists of natural numbers, and suppose that $g$ is a variable assignment which assigns $g(x)=5$ and $g(y)=10$ and $g(z)=15$. Suppose that $h$ is a variable assignment.
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
-4.17 Consider the last instance of `x` in the formula. Which of the following is true:
-| It is bound by the universal quantifer
-|* It is bound by the existential quantifer
-| It is not bound
-| It is bound by the both quantifiers
+4.19 Which assignments would make $h$ a $y$-variant of $g$?
+| h(x)=4, h(y)=10, h(z)=15
+| h(x)=5, h(y)=10, h(z)=14
+|* h(x)=5, h(y)=9, h(z)=15
+| h(x)=4, h(y)=9, h(z)=15
+```
+
+
+<br>
+
+*Example 20*
+
+Suppose that the underlying domain consists of four people Allison, Brianna, Carlos, and David, and suppose that $g$ is a variable assignment which assigns $g(x)=$ Allison and $g(y)=$ Brianna and $g(z)=$ Carlos. Suppose that $h$ is a variable assignment.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.20 Which assignments would make $h$ an $x$-variant of $g$?
+| h(x)=Dave, h(y)=Brianna, h(z)=Brianna
+| h(x)=Allison, h(y)=Dave, h(z)=Dave
+|* h(x)=Brianna, h(y)=Brianna, h(z)=Carlos
+| h(x)=Brianna, h(y)=Allison, h(z)=Carlos
 ```
