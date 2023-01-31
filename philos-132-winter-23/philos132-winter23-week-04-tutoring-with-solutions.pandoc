@@ -443,7 +443,24 @@ Consider the formula $\forall \; x \; (Fx\rightarrow Gx) \wedge \exists \; x \; 
 
 Consider the following three formulas:
 
-- $(\forall \; x \; \exists \; y \; Rxy) \rightarrow 
+- $(\forall \; x \; \exists \; y \; Rxy) \rightarrow
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.17 Consider the last instance of `x` in the formula. Which of the following is true:
+| It is bound by the universal quantifer
+|* It is bound by the existential quantifer
+| It is not bound
+| It is bound by the both quantifiers
+```
+
+
+<br>
+
+*Example 19*
+
+Suppose that the underlying domain consists of natural numbers, and suppose that $g$ is a variable assignment which assigns $g(x)=5$ and $g(y)=10$ and $g(z)=15$.   
+
+- $(\forall \; x \; \exists \; y \; Rxy) \rightarrow
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 4.17 Consider the last instance of `x` in the formula. Which of the following is true:
