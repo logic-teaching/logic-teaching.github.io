@@ -266,7 +266,8 @@ Use DeMorgan to find an equivalent of $\neg \exists \;x \; \forall \; y \; \exis
 ## Tarski on consequence
 
 Recall [Aristotle's characterization](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc#the-subject-matter-of-logic) of the intuitive notion of the conclusion of an argument following from the premises:
- <img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20deduction-v2.png" alt="Aristotle on deduction" width="700"/>
+
+&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20deduction-v2.png" alt="Aristotle on deduction" width="700"/>
 
 Tarski thought that the formal notion $\phi_1, \ldots, \phi_n\vDash \phi$ was a successful conceptual analysis of the intuitive notion of the conclusion following from the premises:[^2]
 
