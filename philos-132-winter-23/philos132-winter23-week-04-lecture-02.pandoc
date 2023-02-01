@@ -1,0 +1,80 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 4, Lecture 2, Variables and variable assignments
+
+Thus far we know how to assess atomic formulas like $Fa$ and $Rab$ for truth or falsity relative to a model. But we do not yet have a method for assessing atomic formulas like $Fx$ and $Rxy$ for truth or falsity. It is useful to do so for a number of reasons, and it requires that we distinguish between free and bound occurrences of variables and it requires that we introduce variable assignments into the semantics.
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Free and bound occurrences of variables
+
+This is a distinction best explained by way of example.
+
+<br>
+
+*Example 1*
+
+$\forall \; y \; (Rxy\rightarrow \forall \; x \; Rxx)$
+
+There are three occurrences of $x$ in this formula-- we do not count the one right after the quantifier. We say that the first occurrence of $x$ in formula is free, while the second and third occurrences are bound.
+
+<br>
+
+*Example 2*
+
+$\exists \; x \; (Rxy\wedge \forall \; y\; Rxy)$
+
+There are two occurrences of $x$ in this formula. Both are bound, and both by the existential quantifier at the outset.
+
+There are two occurrences of $y$ in this formula. The first is free, and the second is bound by the universal quantifier.
+
+<br>
+
+*Example 3*
+
+<br>
+
+$x=y\rightarrow \exists \; y \; y=x$
+
+There are two occurrences of $x$ in this formula. Both are free.
+
+There are two occurrences of $y$ in this formula. The first is free, and the second is bound by the existential quantifier.
+
+<br>
+
+The general idea is as follows:
+
+- when goes from the subformula $\phi$ to the formula $\exists \; x \; \phi$, every free occurrence of $x$ in $\phi$ becomes bound by the existential quantifier in $\exists \; x \; \phi$.
+
+- when goes from the subformula $\phi$ to the formula $\forall \; x \; \phi$, every free occurrence of $x$ in $\phi$ becomes bound by the universal quantifier in $\forall \; x \; \phi$.
+
+<br>
+
+Technically to implement the general idea one must revise the definition of well-formed formula and one build-in the general idea in as one goes along. Experience suggests that this technicality should be brushed over on one's first pass, but we include it here for reference:
+
+
+
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>

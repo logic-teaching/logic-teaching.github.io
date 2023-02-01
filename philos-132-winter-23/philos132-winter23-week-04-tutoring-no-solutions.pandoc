@@ -269,7 +269,7 @@ The following table gives some examples of models which satisfy these axioms:
   <tr>
     <td>The natural numbers $\mathbb{N}$</td>
     <td>$\leq$</td>
-    <td>linear order with least element</td>
+    <td>linear order with least element but no greatest element</td>
   </tr>
   <tr>
     <td>The natural numbers $\mathbb{N}$</td>
@@ -343,7 +343,7 @@ This problem asks for an example of a strict linear order which has a least elem
 <br>
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
-04.14 Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: ~ExAy(Rxy\/x=y)
+04.14 Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz), ~a=b, ~a=c, ~a=d, ~b=c, ~b=d, ~c=d :|-: ~ExAy(Rxy\/x=y)
 |Domain:0,1,2,3
 |R(_,_):
 |a:0

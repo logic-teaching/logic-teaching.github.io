@@ -19,8 +19,8 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 The problems in this set fall into four groups:
 
 - [Propositional tautologies and predicate logic](#propositional-tautologies-and-predicate-logic)
-- [Validity and invalidity with combinations of quantifiers and propositional connectives](#validity-and-invalidity-with-combinations-of-quantifiers-and-propositional-connectives)
-- [Validity and invalidity with orders](#validity-and-invalidity-with-orders)
+- [Validity and invalidity with combinations of quantifiers and propositional connectives](#Validity and invalidity-with-combinations-of-quantifiers-and-propositional-connectives)
+- [Validity and invalidity with orders and equivalence relations](#validity-and-invalidity-with-orders-and-equivalence-relations)
 - [Free and bound variables and variable assignments](#free-and-bound-variables-and-variable-assignments)
 
 <br>
@@ -208,7 +208,7 @@ One has $\forall \; x \; (Fx\rightarrow Gx),\forall \; x \; (Gx\rightarrow Hx) \
 
 <p style="page-break-before: always">
 
-## Validity and invalidity with orders
+## Validity and invalidity with orders and equivalence relations
 
 In these examples, we are thinking of $Rxy$ like $x<y$ or $x\leq y$ on the number systems, as opposed to a relation between people or a graph of a function. Here are some basic properties that orders may have. We have seen some of these before:
 
@@ -285,7 +285,7 @@ The following table gives some examples of models which satisfy these axioms:
   <tr>
     <td>The natural numbers $\mathbb{N}$</td>
     <td>$\leq$</td>
-    <td>linear order with least element</td>
+    <td>linear order with least element but no greatest element</td>
   </tr>
   <tr>
     <td>The natural numbers $\mathbb{N}$</td>
@@ -371,7 +371,7 @@ This problem asks for an example of a strict linear order which has a least elem
 <br>
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
-04.14 Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: ~ExAy(Rxy\/x=y)
+04.14 Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz), ~a=b, ~a=c, ~a=d, ~b=c, ~b=d, ~c=d :|-: ~ExAy(Rxy\/x=y)
 |Domain:0,1,2,3
 |R(_,_):[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]
 |a:0
@@ -385,7 +385,7 @@ This problem asks for an example of a strict linear order which has a least elem
 
 *Example 15*
 
-This problem asks for an example of a binary relation which is reflexive and symmetric but not transitive. To make it intereting, we also ask for a model which has at least three elements in it.
+This problem asks for an example of a binary relation which is reflexive and symmetric but not transitive. To make it interesting, we also ask for a model which has at least three elements in it.
 
 <br>
 
