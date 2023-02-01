@@ -21,7 +21,7 @@ Thus far we know how to assess atomic formulas like $Fa$ and $Rab$ for truth or 
 - [Free and bound occurrences of variables](#free-and-bound-occurrences-of-variables)
 - [Variable assignments](#variable-assignments)
 - [Definition of truth in a model relative to a variable assignment](#definition-of-truth-in-a-model-relative-to-a-variable-assignment)
-- [Quine and bound variables and ontological commitement]
+- [Quine and bound variables and ontological commitement](#quine-and-bound-variables-and-ontological-commitement)
 - [Other uses of variable assignments](#other-uses-of-variable-assignments)
 
 
@@ -68,8 +68,6 @@ The general idea is as follows:
 - when one goes from the subformula $\phi$ to the formula $\exists \; x \; \phi$, every free occurrence of $x$ in $\phi$ becomes bound by the existential quantifier in $\exists \; x \; \phi$.
 
 - when goes from the subformula $\phi$ to the formula $\forall \; x \; \phi$, every free occurrence of $x$ in $\phi$ becomes bound by the universal quantifier in $\forall \; x \; \phi$.
-
-<br>
 
 Technically to implement the general idea one must revise the previous [definition of well-formed formula](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc#the-well-formed-formulas-of-predicate-logic) and one build-in the aforementioned idea as one goes along. Experience suggests that this technicality should be brushed over on one's first pass, but we include it here for reference. The italicized parts are those that have been added:
 
@@ -197,17 +195,25 @@ Then we have:
 
 ## Quine and bound variables and ontological commitement
 
-Quine was an influential philsopher from the late 1940s to 1970s. He did a lot to argue for the centrality of first-order predicate logic within philosophy. One palce he did so was in his 1948 "On what there is."
+Quine was an influential philsopher from the late 1940s to 1970s. He did a lot to argue for the centrality of first-order predicate logic within philosophy. One place he did so was in his 1948 "On what there is."[^1]
 
-Some traditional debates in metaphysics (also called ontology) concern topics questions like "whether abstract objects like numbers exist." Quine argued that such existence questions should be treated like simple existential quantifiers, like $\exists \; x \; Nx$, where $N$ stands for numbers. The simple formula he came up with was "To be is to be the value of a variable," which has the sense of: the only imporant and legitimate notion of existence which we should be using is that provided by the existential quantifier. And after what we have done today, hopefully we see the connection to the 'value of a variable': $\mathcal{M},g\models \exists \; x \; Nx$ iff there is an $x$-variant $h$ of $g$ such that $\mathal{M},h\models Nx$, and this latter happens iff what $h$ assigns $x$ to is a number, which happens iff numbers are among the values of the $x$-variable.
+[^1]: [Quine, Willard V. 1948. “On What There Is.” The Review of Metaphysics 2 (1): 21–38.](https://logic-teaching.github.io/philos132/texts/Quine%201948%20-%20On%20what%20there%20is.pdf)
+
+Some traditional debates in metaphysics (also called ontology) concern topics questions like "whether abstract objects like numbers exist." Quine argued that such existence questions should be treated like simple existential quantifiers, like $\exists \; x \; Nx$, where $N$ stands for numbers. The simple formula he came up with was "To be is to be the value of a variable," which has the sense of: the only imporant and legitimate notion of existence which we should be using is that provided by the existential quantifier. And after what we have done today, hopefully we see the connection to the 'value of a variable': $\mathcal{M},g\models \exists \; x \; Nx$ iff there is an $x$-variant $h$ of $g$ such that $\mathcal{M},h\models Nx$, and this latter happens iff what $h$ assigns $x$ to is a number, which happens iff numbers are among the values of the $x$-variable.
 
 Hence, Quine shifts the question of existence back to the question of what is in the underlying domain of the model. He thought that the models in question were representing a certain kind of theorizing, which would result in say theory $\phi_1, \ldots, \phi_n$. His view was:
 
-&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/philos132/quine-on-what-there-is-quote.png" alt="Quine on ontological committment" width="500"/>
+&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/philos132/texts/p.-33-quine-on-what-there-is-quote.png" alt="Quine on ontological committment" width="500"/>
 
 Hence, to figure out whether numbers exist, one formalizes one's best theory of the world, call it $\phi_1, \ldots, \phi_n$, and ask whether numbers have to be in the underlying domain in order for the theory $\phi_1, \ldots, \phi_n$ to be true.
 
-An example where this works out straightforwardely, in Quine's eyes 
+This methodology is in general, controversial.[^3] And taken literally, it is not clear that the methodology is coherent with Quine's resistence to modality. For, today we often understand such statements of "must" and "capable of" in terms of some underlying range of possibilities which we think about in terms of modal logic.
+
+But one place where we can see at least the *primae facie* sense of Quine's approach is in the case of properties (also called "universals"). We have seen that $\mathcal{M}\models Fa$ implies $\mathcal{M}\models \exists \; x \; Fx$. But we don't have to accept, or even accept as intelligible, the inference from $\mathcal{M}\models Fa$ implies $\mathcal{M}\models \exists \; X \; Xa$. that is, we can sensibly assert the truth of claims that "Allison is a French major" without asserting the existence of the property of being a French major, since it is, after all, not among the values of the variables needed to make our best theory of Allison and her major true.[^4]
+
+[^3]: It tends to get developed in disparate literatures. In philosophy of mathematics, this position of Quine's gets discussed today under the heading of [the indispensability arguments](https://plato.stanford.edu/entries/mathphil-indis/). For a position in contemporary metaphysics distinct from Quine's, see [Thomasson, Amie L. 2014. Ontology Made Easy. Oxford University Press](https://global.oup.com/academic/product/ontology-made-easy-9780190878665?cc=ca&lang=en&).
+
+[^4]: More can be said about this example. Following Boolos, today much of that discussion tends to happen around and about [plural quantification](https://plato.stanford.edu/entries/plural-quant/).
 
 
 <br>
@@ -219,9 +225,9 @@ An example where this works out straightforwardely, in Quine's eyes
 
 <br>
 
-One philosophical reason why variable assignments are important has to do with *compositionality*.[^1] This, roughly, is the contention that the semantic values assigned to an expression should systematically depend on the semantic values of their subexpressions. If one thought that semantic value was the core aspect of meaning, this would be then be to say that the meaning of the whole depends on the meaning of the parts. Variable assignments let you say how the truth of the part $Fx$, relative to an assignment, helps determine the truth of the whole $\exists \; x \; Fx$, relative to a closely related assignment, namely a $x$-variant.
+One philosophical reason why variable assignments are important has to do with *compositionality*.[^4] This, roughly, is the contention that the semantic values assigned to an expression should systematically depend on the semantic values of their subexpressions. If one thought that semantic value was the core aspect of meaning, this would be then be to say that the meaning of the whole depends on the meaning of the parts. Variable assignments let you say how the truth of the part $Fx$, relative to an assignment, helps determine the truth of the whole $\exists \; x \; Fx$, relative to a closely related assignment, namely a $x$-variant.
 
-[^1]: The history of the principle of compositionality is studied by [Janssen, Theo M. V. 2012. “Compositionality: Its Historic Context.” In Oxford Handbook of Compositionality, edited by Wolfram Hinzen, Edouard Machery, and Markus Werning, 19–46.](http://logic-teaching.github.io/prop/texts/Janssen%202012%20-%20Compositionality%20-%20its%20historic%20context.pdf)
+[^4]: The history of the principle of compositionality is studied by [Janssen, Theo M. V. 2012. “Compositionality: Its Historic Context.” In Oxford Handbook of Compositionality, edited by Wolfram Hinzen, Edouard Machery, and Markus Werning, 19–46.](http://logic-teaching.github.io/prop/texts/Janssen%202012%20-%20Compositionality%20-%20its%20historic%20context.pdf)
 
 Another philosophcial reason that variable assignments are important is that they are part of most solutions to Donkey sentences. These are sentences of the following form, where it appears that one should use a variable to translate a pronoun like `her' at the end of this sentence:
 
@@ -230,16 +236,18 @@ Another philosophcial reason that variable assignments are important is that the
 |Ax(Ey(Gy/\Rxy)->Txy)
 ~~~
 
-Note that the last $y$ is free, and is not bound by the existential quantifier, and hence the truth of the consequent is going to be unrelated to the truth of the antecedent. The tradition of dynamic semantics solves this problem by changing the semantics for first-order predicate logic so that one is updating the variable assignments as one goes along in the sentence, so that by the end of it one is working with a $y$-variant of the original variable assignment which stores a value for the relevant geography major.[^2] More generally, one might think that free variables act kind of like pronouns do in natural language.
+Note that the last $y$ is free, and is not bound by the existential quantifier, and hence the truth of the consequent is going to be unrelated to the truth of the antecedent. The tradition of dynamic semantics solves this problem by changing the semantics for first-order predicate logic so that one is updating the variable assignments as one goes along in the sentence, so that by the end of it one is working with a $y$-variant of the original variable assignment which stores a value for the relevant geography major.[^4] More generally, one might think that free variables act kind of like pronouns do in natural language.
 
-[^2]: [Dekker, Paul J. E. 2012. Dynamic Semantics. Springer.](https://link.springer.com/book/10.1007/978-94-007-4869-9)
+[^4]: [Dekker, Paul J. E. 2012. Dynamic Semantics. Springer.](https://link.springer.com/book/10.1007/978-94-007-4869-9)
 
 The more practical reason why variable assignments are important is that in settings where the possible semantic values are a little richer, it is very convenient to have the variable assignments at hand. For instance, compare the first line (our way in this course) to the second line (a slightly more elegant alternative notation):
 
 - $\mathcal{M},g\models Fx$ because $g(x)$ is in $F^{\mathcal{M}}$
-- $\llbracket Fx\rrbracket_{\mathcal{M},g} = \llbracket F\rrbracket_{\mathcal{M},g}(\llbracket x\rrbracket_{\mathcal{M},g})= F^{\mathcal{M}}(g(x)) = 1$.
+- $\llbracket Fx\rrbracket_{\mathcal{M},g} = \llbracket F\rrbracket_{\mathcal{M},g}\;(\llbracket x\rrbracket_{\mathcal{M},g})= F^{\mathcal{M}}(g(x)) = 1$.
 
-It is common in disciplines which use lambda calculus (like computer science and linguistics), to work more directly with variable assignments. And in general one should be aware that an alternative notation for $\mathcal{M},g\models \phi$ is $\llbracket\phi\rrbracket_{\mathcal{M},g}=1$.
+It is common in disciplines which use lambda calculus (like computer science and linguistics), to work more directly with variable assignments.
+
+And in general one should be aware that an alternative notation for $\mathcal{M},g\models \phi$ is $\llbracket\phi\rrbracket_{\mathcal{M},g}=1$.
 
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
