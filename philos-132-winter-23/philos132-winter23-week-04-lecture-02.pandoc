@@ -21,7 +21,7 @@ Thus far we know how to assess atomic formulas like $Fa$ and $Rab$ for truth or 
 - [Free and bound occurrences of variables](#free-and-bound-occurrences-of-variables)
 - [Variable assignments](#variable-assignments)
 - [Definition of truth in a model relative to a variable assignment](#definition-of-truth-in-a-model-relative-to-a-variable-assignment)
-- [Quine and bound variables and ontological commitement](#quine-and-bound-variables-and-ontological-commitement)
+- [Quine and bound variables and ontological commitment](#quine-and-bound-variables-and-ontological-commitment)
 - [Other uses of variable assignments](#other-uses-of-variable-assignments)
 
 
@@ -154,9 +154,14 @@ The clauses for the quantifiers are defined as follows:
 
 - *Universal Quantifier*: $\mathcal{M},g\models \forall \; x \; \phi$ if and only if for all $x$-variants $h$ of $g$ one has  $\mathcal{M},h\models \phi$.
 
-Here are some simple examples:
+<br>
+
+On the notational front, it is worth nothing that if $\psi$ has no free variables, then given any two variable assignments $g,h$ one has  $\mathcal{M},g\models \psi$ iff $\mathcal{M},h\models \psi$. Hence, when $\psi$ has no free variables, we just agree conventionally to write $\mathcal{M}\models \varphi$ as an abbreviation for $\mathcal{M},g\models \varphi$ for any (equivalently, some) variable assigment $g$. Since axioms usually do not have free variables, often in certain parts of mathematical logic we do not display the variable assignments.
+
 
 <br>
+
+Here are some simple examples:
 
 *Example 5*
 
@@ -193,7 +198,7 @@ Then we have:
 
 <p style="page-break-before: always">
 
-## Quine and bound variables and ontological commitement
+## Quine and bound variables and ontological commitment
 
 Quine was an influential philsopher from the late 1940s to 1970s. He did a lot to argue for the centrality of first-order predicate logic within philosophy. One place he did so was in his 1948 "On what there is."[^1]
 
@@ -207,7 +212,7 @@ Hence, Quine shifts the question of existence back to the question of what is in
 
 Hence, to figure out whether numbers exist, one formalizes one's best theory of the world, call it $\phi_1, \ldots, \phi_n$, and ask whether numbers have to be in the underlying domain in order for the theory $\phi_1, \ldots, \phi_n$ to be true.
 
-This methodology is in general, controversial.[^3] And taken literally, it is not clear that the methodology is coherent with Quine's resistence to modality. For, today we often understand such statements of "must" and "capable of" in terms of some underlying range of possibilities which we think about in terms of modal logic.
+This methodology is in general, controversial.[^3] And taken literally, it is not clear that the methodology is coherent with Quine's resistence to modality. For, today we often understand such statements of "must" and "have to be" in terms of some underlying range of possibilities which we think about in terms of modal logic. (That is, we today are much more like the Wyman character which Quine is arguing against in 'On what there is'.)
 
 But one place where we can see at least the *primae facie* sense of Quine's approach is in the case of properties (also called "universals"). We have seen that $\mathcal{M}\models Fa$ implies $\mathcal{M}\models \exists \; x \; Fx$. But we don't have to accept, or even accept as intelligible, the inference from $\mathcal{M}\models Fa$ implies $\mathcal{M}\models \exists \; X \; Xa$. that is, we can sensibly assert the truth of claims that "Allison is a French major" without asserting the existence of the property of being a French major, since it is, after all, not among the values of the variables needed to make our best theory of Allison and her major true.[^4]
 
@@ -225,9 +230,9 @@ But one place where we can see at least the *primae facie* sense of Quine's appr
 
 <br>
 
-One philosophical reason why variable assignments are important has to do with *compositionality*.[^4] This, roughly, is the contention that the semantic values assigned to an expression should systematically depend on the semantic values of their subexpressions. If one thought that semantic value was the core aspect of meaning, this would be then be to say that the meaning of the whole depends on the meaning of the parts. Variable assignments let you say how the truth of the part $Fx$, relative to an assignment, helps determine the truth of the whole $\exists \; x \; Fx$, relative to a closely related assignment, namely a $x$-variant.
+One philosophical reason why variable assignments are important has to do with *compositionality*.[^5] This, roughly, is the contention that the semantic values assigned to an expression should systematically depend on the semantic values of their subexpressions. If one thought that semantic value was the core aspect of meaning, this would be then be to say that the meaning of the whole depends on the meaning of the parts. Variable assignments let you say how the truth of the part $Fx$, relative to an assignment, helps determine the truth of the whole $\exists \; x \; Fx$, relative to a closely related assignment, namely a $x$-variant.
 
-[^4]: The history of the principle of compositionality is studied by [Janssen, Theo M. V. 2012. “Compositionality: Its Historic Context.” In Oxford Handbook of Compositionality, edited by Wolfram Hinzen, Edouard Machery, and Markus Werning, 19–46.](http://logic-teaching.github.io/prop/texts/Janssen%202012%20-%20Compositionality%20-%20its%20historic%20context.pdf)
+[^5]: The history of the principle of compositionality is studied by [Janssen, Theo M. V. 2012. “Compositionality: Its Historic Context.” In Oxford Handbook of Compositionality, edited by Wolfram Hinzen, Edouard Machery, and Markus Werning, 19–46.](http://logic-teaching.github.io/prop/texts/Janssen%202012%20-%20Compositionality%20-%20its%20historic%20context.pdf)
 
 Another philosophcial reason that variable assignments are important is that they are part of most solutions to Donkey sentences. These are sentences of the following form, where it appears that one should use a variable to translate a pronoun like `her' at the end of this sentence:
 
@@ -236,9 +241,9 @@ Another philosophcial reason that variable assignments are important is that the
 |Ax(Ey(Gy/\Rxy)->Txy)
 ~~~
 
-Note that the last $y$ is free, and is not bound by the existential quantifier, and hence the truth of the consequent is going to be unrelated to the truth of the antecedent. The tradition of dynamic semantics solves this problem by changing the semantics for first-order predicate logic so that one is updating the variable assignments as one goes along in the sentence, so that by the end of it one is working with a $y$-variant of the original variable assignment which stores a value for the relevant geography major.[^4] More generally, one might think that free variables act kind of like pronouns do in natural language.
+Note that the last $y$ is free, and is not bound by the existential quantifier, and hence the truth of the consequent is going to be unrelated to the truth of the antecedent. The tradition of dynamic semantics solves this problem by changing the semantics for first-order predicate logic so that one is updating the variable assignments as one goes along in the sentence, so that by the end of it one is working with a $y$-variant of the original variable assignment which stores a value for the relevant geography major.[^6] More generally, one might think that free variables act kind of like pronouns do in natural language.
 
-[^4]: [Dekker, Paul J. E. 2012. Dynamic Semantics. Springer.](https://link.springer.com/book/10.1007/978-94-007-4869-9)
+[^6]: [Dekker, Paul J. E. 2012. Dynamic Semantics. Springer.](https://link.springer.com/book/10.1007/978-94-007-4869-9)
 
 The more practical reason why variable assignments are important is that in settings where the possible semantic values are a little richer, it is very convenient to have the variable assignments at hand. For instance, compare the first line (our way in this course) to the second line (a slightly more elegant alternative notation):
 
@@ -250,9 +255,9 @@ It is common in disciplines which use lambda calculus (like computer science and
 And in general one should be aware that an alternative notation for $\mathcal{M},g\models \phi$ is $\llbracket\phi\rrbracket_{\mathcal{M},g}=1$.
 
 
-These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^7]
 
 
-[^5]: which is:
+[^7]: which is:
 
 <br>
