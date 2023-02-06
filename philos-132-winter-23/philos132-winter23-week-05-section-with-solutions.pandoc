@@ -77,10 +77,8 @@ Consider the following Venn diagram, formed from three triangles A,B,C, with C c
 
 ```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
 5.03.2 Which of the following describes the blue shaded part?
-| ((A\B)∩(C\D))∪E
-| ((B\A)∪(D\C))∩E
-| ((B\A)∩(D\C))∪E
-|+ ((A\B)∪(C\D)∪E)
+|+ (B\(A∪C))∪(A∩C)
+| (B\(A∩C))∪(A∪C)
 ```
 
 
