@@ -171,7 +171,7 @@ Consider the following key, related to buildings on campus:
 Remember to press return to check your work.
 
 ~~~{.Translate .FOL system="gamutND"  options="check" submission="none"}
-5.05.1 Ax(Sx->(Rxa/\Ey(Rxy/\(Ty/\Ny)))) : Every building on South Campus has more rooms than Anderson and has more rooms than at least one tall building on North Campus.
+5.05.1 Ax(Sx->(Rxa/\Ey(Rxy/\(Ty/\Ny)))) : Every building on South Campus has more rooms than Anderson and has more rooms than some tall building on North Campus.
 |Ax(Sx->(Rxa/\Ey(Rxy/\(Ty/\Ny))))
 ~~~
 
