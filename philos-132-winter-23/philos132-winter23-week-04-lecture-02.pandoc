@@ -1,4 +1,4 @@
-<style>
+resistance<style>
 table {
   border-collapse: collapse;
   width: 100%;
@@ -126,13 +126,13 @@ Since our domain has only two people in it and we are considering three variable
 
 
 Suppose again that we are only interested in three variables $x,y,z$.
-Then we say that two variable assignments are $x$-*variants* of one another if they agree on $y,z$ but may disagree on $x$. The intention is that $x$-*variants* is supposed to make you think: they may vary from one another only at $x$. Likewise, we say that two variable assignments are *$y$-variants* of one another if they agree on $x,z$ but may disagree on $x$. For instance, consider our four examples up above: $g,h,k, \ell$. We have:
+Then we say that two variable assignments are $x$-*variants* of one another if they agree on $y,z$ but may disagree on $x$. The intention is that $x$-*variants* is supposed to make you think: they may vary from one another only at $x$. Likewise, we say that two variable assignments are *$y$-variants* of one another if they agree on $x,z$ but may disagree on $y$. For instance, consider our four examples up above: $g,h,k, \ell$. We have:
 
 - $g,h$ are $y$-variants of one another, since they disagree on $y$ but agree on everything else.
 - $h,k$ are $z$-variants of one another, since they disagree on $z$ but agree on everything else.
 - $k, \ell$ are $x$-variants of one another, since they disagree on $x$ but agree on everything else.
 
-(A final, technical point: for any variable $x$, $g$ is always a $x$-variant of $g$. This is kind of a degenerate case, but it is allowed by our definition).
+(A final, technical point: for any variable $x$, we have that $g$ is always a $x$-variant of $g$. This is kind of a degenerate case, but it is allowed by our definition).
 
 There is a *notational warning* when dealing with variable assignments. In contexts outside of logic, we use variables to 'present' the operation of functions. For instance, in a math class, I might draw your attention to the function $f:\mathbb{N}\rightarrow \mathbb{Z}$ given by $f(x)=x^2-10$. When I do so, you are primed by experience to start plugging numbers into this, and say things like $f(5)=15$ and $f(6)=26$. However, when dealing with variable assignments in a logic class, if someone says that $g(x)=$Allison, they are intending to convey that the variable assignment assigns input $x$ to output Allison, and they are not intending to draw your attention to the function which always outputs Allison.
 
@@ -165,7 +165,7 @@ Here are some simple examples:
 
 *Example 5*
 
-Suppose that our model consists just of Allison and Brianna and $Rxy$ picks out respects and Brianna respects Allison and  no other respects facts are true in this model.
+Suppose that our model consists just of Allison and Brianna and $Rxy$ picks out respects and Allison respects Brianna and no other respects facts are true in this model.
 
 Suppose we are only dealing with variables $x,y,z$. Suppose that $g,h$ are the following variable assignments:
 
@@ -200,19 +200,19 @@ Then we have:
 
 ## Quine and bound variables and ontological commitment
 
-Quine was an influential philsopher from the late 1940s to 1970s. He did a lot to argue for the centrality of first-order predicate logic within philosophy. One place he did so was in his 1948 "On what there is."[^1]
+Quine was an influential philosopher from the late 1940s to 1970s. He did a lot to argue for the centrality of first-order predicate logic within philosophy. One place he did so was in his 1948 "On what there is."[^1]
 
 [^1]: [Quine, Willard V. 1948. “On What There Is.” The Review of Metaphysics 2 (1): 21–38.](https://logic-teaching.github.io/philos-132-winter-23/texts/Quine%201948%20-%20On%20what%20there%20is.pdf)
 
-Some traditional debates in metaphysics (also called ontology) concern topics questions like "whether abstract objects like numbers exist." Quine argued that such existence questions should be treated like simple existential quantifiers, like $\exists \; x \; Nx$, where $N$ stands for numbers. The simple formula he came up with was "To be is to be the value of a variable," which has the sense of: the only imporant and legitimate notion of existence which we should be using is that provided by the existential quantifier. And after what we have done today, hopefully we see the connection to the 'value of a variable': $\mathcal{M},g\models \exists \; x \; Nx$ iff there is an $x$-variant $h$ of $g$ such that $\mathcal{M},h\models Nx$, and this latter happens iff what $h$ assigns $x$ to is a number, which happens iff numbers are among the values of the $x$-variable.
+Some traditional debates in metaphysics (also called ontology) concern topics questions like "whether abstract objects like numbers exist." Quine argued that such existence questions should be treated like simple existential quantifiers, like $\exists \; x \; Nx$, where $N$ stands for numbers. The simple formula he came up with was "To be is to be the value of a variable," which has the sense of: the only important and legitimate notion of existence which we should be using is that provided by the existential quantifier. And after what we have done today, hopefully we see the connection to the 'value of a variable': $\mathcal{M},g\models \exists \; x \; Nx$ iff there is an $x$-variant $h$ of $g$ such that $\mathcal{M},h\models Nx$, and this latter happens iff what $h$ assigns $x$ to is a number, which happens only if numbers are among the values of the $x$-variable.
 
 Hence, Quine shifts the question of existence back to the question of what is in the underlying domain of the model. He thought that the models in question were representing a certain kind of theorizing, which would result in say theory $\phi_1, \ldots, \phi_n$ which was true on the model. His view was:
 
-&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/quine-on-what-there-is-quote.png" alt="Quine on ontological committment" width="600"/>
+&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/quine-on-what-there-is-quote.png" alt="Quine on ontological commitment" width="600"/>
 
 Hence, to figure out whether numbers exist, one formalizes one's best theory of the world, call it $\phi_1, \ldots, \phi_n$, and ask whether numbers *have to be* in the underlying domain in order for the theory $\phi_1, \ldots, \phi_n$ to be true.
 
-This methodology is, in general, controversial.[^3] And taken literally, it is not clear that the methodology is compatible with Quine's resistence to modality. For, today we often understand such statements of "must" and "have to be" in terms of some universal quantifier over a range of possiblities. (That is, we today are like a tempered version of the Wyman character whom Quine is arguing against in 'On what there is'.)
+This methodology was influential and is today not undisputed.[^3] Taken literally, it is not clear that the methodology is compatible with Quine's resistance to modality. For, today we often understand such statements of "must" and "have to be" in terms of some universal quantifier over a range of possiblities. (That is, we today are like a tempered version of the Wyman character whom Quine is arguing against in 'On what there is'.)
 
 But one place where we can see at least the *primae facie* sense of Quine's approach is in the case of properties (also called "universals"). We have seen that $\mathcal{M}\models Fa$ implies $\mathcal{M}\models \exists \; x \; Fx$. But we don't have to accept, or even accept as intelligible, the inference from $\mathcal{M}\models Fa$ to $\mathcal{M}\models \exists \; X \; Xa$. That is, we can sensibly assert the truth of claims that "Allison is a French major" without asserting the existence of the property of being a French major, since it is, after all, not among the values of the variables needed to make our best theory of Allison and her major true. But a subtle point here is what we should say about the metatheory we work with, with seems replete with lots and lots of sets, which don't seem completely distinct from the intuitive notion of property.[^4]
 
