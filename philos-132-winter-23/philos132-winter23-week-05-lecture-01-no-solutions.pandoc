@@ -47,10 +47,6 @@ Recall from [Week 4 Lecture 1](https://carnap.io/shared/logiclogiclogic/philos13
 
 The following problems give you one of these tautologies or equivalences and ask you to determine which of the four formulas of predicate logic is an instance of these.
 
-<br>
-
-*Problem 1*
-
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
 05.01.1 Which of the following is an instance of law of the excluded middle?
 | ∃ x ¬ ∀ y Rxy ∨  ∃ x ¬ ∀ y ¬ Rxy
@@ -68,6 +64,8 @@ The following problems give you one of these tautologies or equivalences and ask
 ```
 
 <br>
+
+<p style="page-break-before: always">
 
 
 *Problem 2*
@@ -93,6 +91,9 @@ Consider the following sets of ordered pairs.
 *Hint 2*: write $X$ as $X=A\times B$ for some sets $A,B\subseteq \mathbb{N}$. Then do the same for Y.
 
 <br>
+
+
+<p style="page-break-before: always">
 
 *Problem 3*
 
@@ -156,7 +157,7 @@ Consider the following table, which has some blanks in it:
 
 <br>
 
-
+<p style="page-break-before: always">
 
 *Problem 5*
 
@@ -178,11 +179,13 @@ Remember to press return to check your work.
 ~~~
 
 ~~~{.Translate .FOL system="gamutND"  options="check" submission="none"}
-5.05.2  : Some loud guitar receives more playing time than some quiet harpiscord, but no loud guitar has more solos than some quiet flute.
+5.05.2 ExEy(((Lx/\Gx)/\(Qx/\Hx))/\Rxy)/\~ExEy(((Lx/\Gx)/\(Qx/\Fx))/\Sxy) : Some loud guitar receives more playing time than some quiet harpiscord, but no loud guitar has more solos than some quiet flute.
 |
 ~~~
 
 <br>
+
+<p style="page-break-before: always">
 
 *Problem 6*
 
@@ -205,6 +208,8 @@ But we introduce the following convention: we translate "$x$ distrusts $y$" by $
 ~~~
 
 <br>
+
+<p style="page-break-before: always">
 
 *Problem 7*
 
@@ -234,6 +239,8 @@ Second give the Russellian translation.
 
 <br>
 
+<p style="page-break-before: always">
+
 *Problem 8*
 
 This is a simple model construction problem. The two parts illustrate the differences between the existential and universal quantifier. (Note that this is *not* an invalidity problem)
@@ -248,6 +255,8 @@ This is a simple model construction problem. The two parts illustrate the differ
 
 
 <br>
+
+<p style="page-break-before: always">
 
 *Problem 9*:
 
@@ -267,6 +276,8 @@ Remember to press return to check your work.
 ~~~
 
 <br>
+
+<p style="page-break-before: always">
 
 *Problem 10*
 
@@ -291,6 +302,8 @@ Here is a slightly more difficult version:
 
 <br>
 
+<p style="page-break-before: always">
+
 *Problem 11*
 
 First use DeMorgan to write $\neg \forall \; x \; (\exists \; y \; Sxy \rightarrow \exists \; y \; Rxy)$ in an equivalent way with the negation(s) affixed to the atomics. Keep in mind that $\neg (p\rightarrow q)$ is equivalent to $p\wedge \neg q$. In this case, the $p,q$'s are going to have some quantifiers in them.
@@ -307,14 +320,15 @@ Use this to help you solve the following invalidity problem:
 
 <br>
 
+<p style="page-break-before: always">
 
 
 *Problem 12*
 
-```{.QualitativeProblem .MultipleChoice options="check"}
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 05.12.1 What is a variable assignment?
 | A function whose domain is the elements of the underlying domain of a model and whose codomain is the set of formal variable symbols
-|* A function whose domain is the set of formal variable symbols and whose codomain is the
+|* A function whose domain is the set of formal variable symbols and whose codomain is the underlying domain of the model
 | The presentation of an operation like f(x)=x^2, in which the variable x tells us how to map numbers to numbers
 | A function which maps all variables to one and the same element of the underlying domain of the model.
 ```
