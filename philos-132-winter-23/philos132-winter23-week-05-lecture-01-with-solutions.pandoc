@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 5 Section, with solutions
+# Week 5 Lecture 1 with solutions
 
 <br>
 
@@ -32,12 +32,48 @@ In section we will selectively talk through certain aspects of some of these pro
 
 *Problem 1*
 
-In the following problem we successively find the main connectives of the subformulas, starting with the big formula and breaking it into smaller parts. Press **return** after you have entered in the main connective to get to the next level.
+Recall from [Week 4 Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#tautologies-and-equivalences-from-propositional-logic) that all of [the tautologies and equivalences of propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-section-no-solutions.pandoc#list-of-named-tautologies-and-equivalences) are in fact tautologies and equivalences of predicate logic. We repeat them here for ease of reference:
 
-(On the midterm, the analogous problem would ask you to draw the little tree).
+1. *Law of excluded middle*: $\phi\vee \neg \phi$ is a tautology.
+2. *Law of non-contradiction*: $\neg (\phi\wedge \neg \phi)$ is a tautology.
+3. *The law of double-negation*: $\phi$ is equivalent to $\neg \neg \phi$.
+4. *Law of commutativity for conjunction*: $\phi\wedge \psi$ is equivalent to $\psi\wedge \phi$.
+5. *Law of commutativity for disjunction*: $\phi\vee \psi$ is equivalent to $\psi\vee \phi$.
+5. *Law of associativity for conjunction*: $(\phi\wedge \psi)\wedge \xi$ is equivalent to $\phi\wedge (\psi\wedge \xi)$.
+6. *Law of associativity for disjunction*: $(\phi\vee \psi)\vee \xi$ is equivalent to $\phi\vee (\psi\vee \xi)$.
+7. *Law of distribution for conjunction*: $\phi\wedge (\psi\vee \xi)$ is equivalent to $(\phi\wedge \psi)\vee (\phi\wedge \xi)$.
+8. *Law of distribution for disjunction*: $\phi\vee (\psi\wedge \xi)$ is equivalent to $(\phi\vee \psi)\wedge (\phi\vee \xi)$.
 
-```{.SynChecker .Match system="gamutPND"  submission="none"}
-5.01 (p->~q)->~(q->~r)
+<br>
+
+The following problems give you one of these tautologies or equivalences and ask you to determine which of the four formulas of predicate logic is an instance of these.
+
+<br>
+
+*Problem 1*
+
+```{.QualitativeProblem .MultipleChoice options="check" points=5 late-credit=2}
+05.01.1 Which of the following is an instance of law of the excluded middle?
+| ∃ x ¬ ∀ y Rxy ∨  ∃ x ¬ ∀ y ¬ Rxy
+| ∃ x ∀ y Rxy ∨ ∃ x ∀ y ¬ Rxy
+|* ∃ x ¬ ∀ y Rxy ∨ ¬ ∃ x ¬ ∀ y Rxy
+| ∃ x ¬ ∀ y ¬ Rxy ∨ ∃ x ∀ y ¬ Rxy
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" points=5 late-credit=2}
+05.01.2 Which of the following is an instance of law of the excluded middle?
+| A
+| ∃ x ∀ y Rxy ∨ ∃ x ∀ y ¬ Rxy
+|* ∃ x ¬ ∀ y Rxy ∨ ¬ ∃ x ¬ ∀ y Rxy
+| ∃ x ¬ ∀ y ¬ Rxy ∨ ∃ x ∀ y ¬ Rxy
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" points=5 late-credit=2}
+05.01.2 Which of the following is an instance of law of distribution for conjunction?
+| Rbc ∧ (∃ x Rax ∨ ∃ x ¬Rxd) is equivalent to ∃ x ((Rbc ∧  Rax) ∨ (Rbc ∧ ∃ x ¬Rxd)).
+| Rbc ∧ (∃ x Rax ∨ ∃ x ¬Rxd) is equivalent to (Rbc ∧ ∃ x Rad) ∨ (Rbc ∧ ∃ x ¬Rax).
+| Rbc ∧ (∃ x Rax ∨ ∃ x ¬Rxd) is equivalent to (Rbc ∨ ∃ x Rax) ∧ (Rbc ∨ ∃ x ¬Rxd).
+|* Rbc ∧ (∃ x Rax ∨ ∃ x ¬Rxd) is equivalent to (Rbc ∧ ∃ x Rax) ∨ (Rbc ∧ ∃ x ¬Rxd).
 ```
 
 <br>
@@ -47,18 +83,18 @@ In the following problem we successively find the main connectives of the subfor
 
 Consider the following sets of ordered pairs.
 
-<p style="margin‐left: 40px"> $X=\{\langle x,y\rangle\in \mathbb{N}^2: 0\leq x<3, 0\leq y<5\}$ </p>
+<p style="margin‐left: 40px"> $X=\{\langle x,y\rangle\in \mathbb{N}^2: 0\leq x<9, 0\leq y<9\}$ </p>
 
-<p style="margin‐left: 40px"> $Y=\{\langle x,y\rangle\in \mathbb{N}^2: 0\leq x<2, 0\leq y<3\}$ </p>
+<p style="margin‐left: 40px"> $Y=\{\langle x,y\rangle\in \mathbb{N}^2: 3\leq x<6, 3\leq y<6\}$ </p>
 
-<p style="margin‐left: 40px"> $Z=\{\langle 2,4\rangle\}$ </p>
+<p style="margin‐left: 40px"> $Z=\{\langle 5,5\rangle\}$ </p>
 
 
 <br>
 
 ```{.QualitativeProblem .Numerical  submission="none" options="check"}
-5.02 8 : How many elements are in X\(Y∪Z)?
-| 8
+5.02 73 : How many elements are in (X\Y)∪Z?
+| 73
 ```
 
 *Hint 1*: Recall that if a set $A$ has exactly $n$ elements and a set $B$ has exactly $m$ elements, then $A\times B$ has exactly $n\times m$ elements. Also recall that if $C$ is a set with exactly $m$ elements and $D$ is a set with exactly $n$ elements and $C\subseteq D$, then $D\setminus C$ has exactly $n-m$ elements.
@@ -69,7 +105,7 @@ Consider the following sets of ordered pairs.
 
 *Problem 3*
 
-<img src="https://logic-teaching.github.io/philos-132-winter-23/vid/another-venn-diagram.png" alt="Another big Venn diagram" width="700"/>
+<img src="https://logic-teaching.github.io/philos-132-winter-23/vid/another-venn-diagram-2.png" alt="Another big Venn diagram" width="700"/>
 
 Consider the following table, which has some blanks in it:
 
