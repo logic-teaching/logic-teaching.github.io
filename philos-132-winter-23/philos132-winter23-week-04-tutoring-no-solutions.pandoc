@@ -230,7 +230,7 @@ In these examples, we are thinking of $Rxy$ like $x<y$ or $x\leq y$ on the numbe
   <tr>
     <td>$R$ is linear </td>
     <td>$\forall \; x \; \forall \; y \; ((Rxy\vee Ryx)\vee x=y)$</td>
-    <td>`AxAyAz((Rxy\/Ryx)\/x=y)`</td>
+    <td>`AxAy((Rxy\/Ryx)\/x=y)`</td>
   </tr>
   <tr>
     <td>$R$ has least element </td>
@@ -307,7 +307,7 @@ This example shows that strict partial orders need not be linear. It asks you to
 <br>
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
-04.11 Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz), Ax(x=a\/(x=b\/x=c)), ~a=b, ~b=c, ~a=c :|-: AxAyAz((Rxy\/Ryx)\/x=y)
+04.11 Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz), Ax(x=a\/(x=b\/x=c)), ~a=b, ~b=c, ~a=c :|-: AxAy((Rxy\/Ryx)\/x=y)
 ```
 
 <br>
@@ -319,7 +319,7 @@ This example shows that partial orders need not be linear. It again asks you to 
 <br>
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
-04.12 AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz), Ax(x=a\/(x=b\/x=c)), ~a=b, ~b=c, ~a=c :|-: AxAyAz((Rxy\/Ryx)\/x=y)
+04.12 AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz), Ax(x=a\/(x=b\/x=c)), ~a=b, ~b=c, ~a=c :|-: AxAy((Rxy\/Ryx)\/x=y)
 ```
 
 <br>
