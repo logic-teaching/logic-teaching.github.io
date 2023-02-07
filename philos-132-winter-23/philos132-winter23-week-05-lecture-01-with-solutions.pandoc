@@ -105,6 +105,8 @@ Consider the following sets of ordered pairs.
 
 *Problem 3*
 
+Consider the following Venn diagram, which has three black circles $A_1, A_2, A_3$, and three blue rectangles $B_1, B_2, B_3$. There is a red part of the diagram filled in as well.
+
 <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/another-venn-diagram-2.png" alt="Another big Venn diagram" width="700"/>
 
 Consider the following table, which has some blanks in it:
@@ -118,14 +120,14 @@ Consider the following table, which has some blanks in it:
     <th>Aristotelian proposition</th>
   </tr>
   <tr>
-    <td> $C_1$ is entirely contained in $A_1$ </td>
-    <td> _______________ </td>
-    <td> All $C_1$ are $A_1$ </td>
+    <td> $B_1\cap B_2$ is entirely contained in $A_1$ </td>
+    <td> $(B_1\cap B_2)\subseteq A_1$ </td>
+    <td> __________________________ </td>
   </tr>
   <tr>
-    <td> $C_1$ is entirely outside $A_2$ </td>
-    <td> $C_1\subseteq A_2^c$ (equivalently, $C_1\subseteq D\setminus A_2$) </td>
-    <td> ______________ </td>
+    <td> $B_1$ is entirely outside $A_2$ </td>
+    <td> __________________ </td>
+    <td> No $B_1$ is $A_2$ </td>
   </tr>
 </table>
 
@@ -133,18 +135,18 @@ Consider the following table, which has some blanks in it:
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 5.3.1 What should you put in the blank in the first row?
-| A_1 ⊆ C_1
-| A_1 ∩ C_1 ≠ ∅
-|+ C_1 ⊆ A_1
-| A_1 ⊆ C_1^c
+| All things, which are both B_1 and A_1, are B_2
+| No things, which are both B_1 and A_1, are A_2
+|+ All things, which are both B_1 and B_2, are A_1
+| No things, which are both B_1 and B_2, are A_1
 ```
 
 ```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
 5.3.2 What should you put in the blank in the second row?
-| All A_2 are not C_1
-| No C_1 are not A_2
-|+ All C_1 are not A_2
-| Some A_2 are C_1
+| B_1^c ⊆ A_2
+| A_3 ⊆ B_3^c
+|+ B_1 ⊆ A_2^c
+| A_1^c ⊆ B_2
 ```
 
 <br>
