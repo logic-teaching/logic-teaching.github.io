@@ -228,8 +228,8 @@ First give the Fregean translation:
 Second give the Russellian translation.
 
 ~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
-5.07.2 Ex(((Qx/\Gx)/\Ay((Qy/\Gy)->y=x))/\Eu(((Lu/\Fu)/\Av((Lu/\Fu)->u=v))/\(Rxu/\~Sxu))) : The quiet guitar player receives more playing time than the loud flute, but the quiet guitar player does not have more solos than the loud flute.
-|Ex(((Qx/\Gx)/\Ay((Qy/\Gy)->y=x))/\Eu(((Lu/\Fu)/\Av((Lu/\Fu)->u=v))/\(Rxu/\~Sxu)))
+5.07.2 Ex(((Qx/\Gx)/\Ay((Qy/\Gy)->y=x))/\Eu(((Lu/\Fu)/\Av((Lv/\Fv)->u=v))/\(Rxu/\~Sxu))) : The quiet guitar player receives more playing time than the loud flute, but the quiet guitar player does not have more solos than the loud flute.
+|Ex(((Qx/\Gx)/\Ay((Qy/\Gy)->y=x))/\Eu(((Lu/\Fu)/\Av((Lv/\Fv)->u=v))/\(Rxu/\~Sxu)))
 ~~~
 
 <br>
