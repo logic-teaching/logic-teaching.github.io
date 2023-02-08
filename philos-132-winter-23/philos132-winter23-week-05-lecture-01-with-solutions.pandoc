@@ -178,7 +178,7 @@ Remember to press return to check your work.
 ~~~
 
 ~~~{.Translate .FOL system="gamutND"  options="check" submission="none"}
-5.05.2  : Some loud guitar receives more playing time than some quiet harpiscord, but no loud guitar has more solos than some quiet flute.
+5.05.2 ExEy(((Lx/\Gx)/\(Qx/\Hx))/\Rxy)/\~ExEy(((Lx/\Gx)/\(Qx/\Fx))/\Sxy) : Some loud guitar receives more playing time than some quiet harpiscord, but no loud guitar has more solos than some quiet flute.
 |ExEy(((Lx/\Gx)/\(Qx/\Hx))/\Rxy)/\~ExEy(((Lx/\Gx)/\(Qx/\Fx))/\Sxy)
 ~~~
 
@@ -337,7 +337,7 @@ Use this to help you solve the following invalidity problem:
 ```{.QualitativeProblem .MultipleChoice options="check"}
 05.12.1 What is a variable assignment?
 | A function whose domain is the elements of the underlying domain of a model and whose codomain is the set of formal variable symbols
-|+ A function whose domain is the set of formal variable symbols and whose codomain is the
+|+ A function whose domain is the set of formal variable symbols and whose codomain is the underlying domain of the model
 | The presentation of an operation like f(x)=x^2, in which the variable x tells us how to map numbers to numbers
 | A function which maps all variables to one and the same element of the underlying domain of the model.
 ```
@@ -352,3 +352,12 @@ Suppose that the underlying domain consists of four building: Anderson, Boelter,
 |+ h(x)=Anderson, h(y)=Dodd, h(z)=Campbell
 | h(x)=Anderson, h(y)=Boelter, h(z)=Dodd
 ```
+
+Finally, we use the following key, about buildings:
+
+| $B$ = is big
+| $R$  = has more rooms than
+
+For this one, use a free `x` variable to translate "it". (Hence, don't use `x` for the bound variables). As suggested by the English sentence, make the main connective be the arrow.
+
+*****

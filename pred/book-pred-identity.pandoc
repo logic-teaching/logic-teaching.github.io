@@ -95,7 +95,7 @@ Often statements of identity are expressed in English just with the "is" of iden
 
 <br>
 
-It is rather undetermined by the English sentence itself whether one should translate "is Dr. Baker" by an identity statement involving `b` rather than by some kind of predicate. If one has identity available, it can be shown that every identity statement `x=b` can be replaced by a predication `Bx`, provided one defines it so that this predicate holds of and only the x's which are identical to `b`. We illustrate this with the next two examples.
+It is rather undetermined by the English sentence itself whether one should translate "is Dr. Baker" by an identity statement involving `b` rather than by some kind of predicate. If one has identity available, it can be shown that every identity statement `x=b` can be replaced by a predication `Bx`, provided one defines it so that this predicate holds of all and only the x's which are identical to `b`. We illustrate this with the next two examples.
 
 
 *Example 5*
@@ -115,7 +115,7 @@ This example shows how we would translate with a predicate rather than an identi
 
 *Example 6*
 
-This proof shows us that if we define a predicate so that it holds of only an individual, we can prove that the two translations given in the two previous examples are equivalent.
+This proof shows us that if we define a predicate so that it holds only of an individual, we can prove that the two translations given in the two previous examples are equivalent.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ax(x=b->Bx), Ax(Bx->x=b), Ba->Da :|-: a=b->Da
