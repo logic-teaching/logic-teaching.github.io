@@ -1,0 +1,434 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 6, Tutoring, with solutions
+
+<br>
+
+- [Conjunctions and nested conditionals](#conjunctions-and-nested-conditionals)
+- [Universals and conditionals and conjunctions](#universals-and-conditionals-and-conjunctions)
+- [Existentials and disjunctions](#existentials-and-disjunctions)
+- [Aristotelian syllogisms](#aristotelian-syllogisms)
+
+<p style="page-break-before: always">
+
+<br>
+
+This version has **the solutions** filled in. Please keep in mind that there are multiple distinct and equally good ways of producing proofs which solve a given problem.
+
+
+<br>
+
+## Conjunctions and nested conditionals
+
+<br>
+
+*Problem 1*
+
+For this problem we just do a bunch of conjunction elimination and conjunction elimination
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.01 Fa/\(Fb/\Fc), Fb->(Ga/\(Gb/\Gc)) :|-: Gb
+|Fa/\(Fb/\Fc) :assumption
+|Fb->(Ga/\(Gb/\Gc)) :assumption
+|Fb/\Fc :E/\1
+|Fb :E/\3
+|Ga/\(Gb/\Gc) :E->2,4
+|Gb/\Gc :E/\5
+|Gb :E/\6
+```
+
+<br>
+
+*Problem 2*
+
+This problem illustrates the utility of going back and forth between the strategies of (1) identify main connectives of premises and apply elimination rules, (2) identify the main connective of conclusion and apply introduction rules.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.02 Fa/\Fb, Fb->(Fc/\Fd), (Fc/\Ga)->Gb :|-: Ga->Gb
+|Fa/\Fb :assumption
+|Fb->(Fc/\Fd) :assumption
+|(Fc/\Ga)->Gb :assumption
+|Fb :E/\1
+|Fc/\Fd :E->2,4
+|Fc :E/\5
+| Ga :assumption
+| Fc/\Ga :I/\6,7
+| Gb :E->3,8
+|Ga->Gb :I->7-9
+```
+
+<br>
+
+*Problem 3*
+
+This problem illustrates how many "brackets within brackets" can arise when proving a nested arrow statement.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.03 (Ga/\(Gb/\Gc))->Gd :|-: Ga->(Gb->(Gc->Gd))
+|(Ga/\(Gb/\Gc))->Gd :assumption
+| Ga :assumption
+|  Gb :assumption
+|   Gc :assumption
+|   Gb/\Gc :I/\3,4
+|   Ga/\(Gb/\Gc) :I/\2,5
+|   Gd :E->1,6
+|  Gc->Gd :I->4-7
+| Gb->(Gc->Gd) :I->3-8
+|Ga->(Gb->(Gc->Gd)) :I->2-9
+```
+
+<br>
+
+*Problem 4*
+
+Like with all these, write it out on paper first. Since there's not much elimination you can apply at the top, try introducing the arrow on the bottom.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.04 Fa->Ga, Fb->Gb :|-: (Fa/\Fb)->(Ga/\Gb)
+|Fa->Ga :assumption
+|Fb->Gb :assumption
+| Fa/\Fb :assumption
+| Fa :E/\3
+| Fb :E/\3
+| Ga :E->1,4
+| Gb :E->2,5
+| Ga/\Gb :I/\6,7
+|(Fa/\Fb)->(Ga/\Gb) :I->3-8
+```
+
+<br>
+
+*Problem 5*
+
+This one is a minor variation on the first one, whose premises illustrate how a universal quantifier is kind of like an infinitary conjunction.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.05 Ax(Fx->Gx) :|-: (Fa/\Fb)->(Ga/\Gb)
+|Ax(Fx->Gx) :assumption
+| Fa/\Fb :assumption
+| Fa :E/\2
+| Fb :E/\2
+| Fa->Ga :EA1
+| Fb->Gb :EA1
+| Ga :E->3,5
+| Gb :E->4,6
+| Ga/\Gb :I/\7,8
+|(Fa/\Fb)->(Ga/\Gb) :I->2-9
+```
+
+
+<br>
+
+## Universals and conditionals and conjunctions
+
+<br>
+
+*Problem 6*
+
+This problem is good practice with the elimination rule for universals, together with the introduction rule for conjunction and the elimination rule for implication.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.06 AxAyRxy, Ax((Rxb/\Sxb)->Txb), AxAySxy :|-: Tab
+|AxAyRxy :assumption
+|Ax((Rxb/\Sxb)->Txb) :assumption
+|AxAySxy :assumption
+|AyRay :EA1
+|Rab :EA4
+|AySay :EA3
+|Sab :EA6
+|Rab/\Sab :I/\5,7
+|(Rab/\Sab)->Tab :EA2
+|Tab :E->8,9
+```
+
+<br>
+
+*Problem 7*
+
+On this problem, think about how to minimally expand your answer to the previous problem:
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.07 AxAyRxy, Ax((Rxb/\Sxb)->Txb), AxAySxy :|-: AxTxb
+|AxAyRxy :assumption
+|Ax((Rxb/\Sxb)->Txb) :assumption
+|AxAySxy :assumption
+|AyRay :EA1
+|Rab :EA4
+|AySay :EA3
+|Sab :EA6
+|Rab/\Sab :I/\5,7
+|(Rab/\Sab)->Tab :EA2
+|Tab :E->8,9
+|AxTxb :IA10
+```
+
+<br>
+
+*Problem 8*
+
+This problem is only tricky in that first you should think about how to get `Fa/\Gb` and then figure out how to turn this into a proof of `Fa/\Hb`.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.08 Rab, AxAy(Rxy->(Fx/\Gy)), Ax(Gx->Hx) :|-: Fa/\Hb
+|Rab :assumption
+|AxAy(Rxy->(Fx/\Gy)) :assumption
+|Ax(Gx->Hx) :assumption
+|Ay(Ray->(Fa/\Gy)) :EA2
+|Rab->(Fa/\Gb) :EA4
+|Fa/\Gb :E->1,5
+|Fa :E/\6
+|Gb :E/\6
+|Gb->Hb :EA3
+|Hb :E->8,9
+|Fa/\Hb :I/\7,10
+```
+
+<br>
+
+*Problem 9*
+
+The intuition behind this problem should be clear: first go from `Rab` and the third premise to `Fa` and then `Fa`; second go from `Rab` and the second premise to `Rba` and repeat the first step with the roles of `a,b` reversed to get `Fb`; and third put these two things together with conjunction introduction.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.09 Rab, AxAy(Rxy->Ryx), AxAy(Rxy->Fx) :|-: Fa/\Fb
+|Rab :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAy(Rxy->Fx) :assumption
+|Ay(Ray->Rya) :EA2
+|Rab->Rba :EA4
+|Rba :E->1,5
+|Ay(Ray->Fa) :EA3
+|Rab->Fa :EA7
+|Fa :E->1,8
+|Ay(Rby->Fb) :EA3
+|Rba->Fb :EA10
+|Fb :E->6,11
+|Fa/\Fb :I/\9,12
+```
+
+<br>
+
+*Problem 10*
+
+This one is challenging only in that you need to "start from the bottom" and realize that to get `AyFy` you'll have to get `Fa` for some new constant `a`. Then work at the top of your proof to use the elimination rule for universal to get `Fb`.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.10 AxAy((Fx/\Ryx)->Fy), AxRxb, Fb :|-: AyFy
+|AxAy((Fx/\Ryx)->Fy) :assumption
+|AxRxb :assumption
+|Fb :assumption
+|Ay((Fb/\Ryb)->Fy) :EA1
+|(Fb/\Rab)->Fa :EA4
+|Rab :EA2
+|Fb/\Rab :I/\3,6
+|Fa :E->5,7
+|AyFy :IA8
+```
+
+
+
+
+<br>
+
+## Existentials and disjunctions
+
+
+<br>
+
+*Problem 11*
+
+This is a simple example of introduction of existentials. In thinking through this problem, try to figure out ahead of time whether you are going to do introduction on the `a` or on the `b` first. It is a function of the order in which the two existential quantifiers appear in the conclusion.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.11 (Fa/\Ga)/\(Fb/\~Gb) :|-: ExEy((Fx/\Gx)/\(Fy/\~Gy))
+|(Fa/\Ga)/\(Fb/\~Gb) :assumption
+|Ey((Fa/\Ga)/\(Fy/\~Gy)) :IE1
+|ExEy((Fx/\Gx)/\(Fy/\~Gy)) :IE2
+```
+
+<br>
+
+*Problem 12*
+
+This is a simple example of existential elimination. To apply this rule, you will have to get a line with `Fb->Ha` on it, where `b` is a new constant. To get such a line, you will have to do arrow introduction. First consider writing the proof out by hand, working "from the bottom" in the manner just outlined.
+
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.12 Ax(Fx->Gx), Ax(Gx->Ha), ExFx :|-: Ha
+|Ax(Fx->Gx) :assumption
+|Ax(Gx->Ha) :assumption
+|ExFx :assumption
+| Fb :assumption
+| Fb->Gb :EA1
+| Gb :E->4,5
+| Gb->Ha :EA2
+| Ha :E->6,7
+|Fb->Ha :I->4-8
+|Ha :EE3,9
+```
+
+<br>
+
+*Problem 13*
+
+This is one-half of one of the DeMorgan laws for the quantifiers. Again, starting from the bottom, the last step will be an introduction of universal, which will require you to prove `~Fa` for some new constant `a`. Doing that will require you to introduce a negation, that is to go from `Fa` to falsum inside a bracket. Again, consider writing the proof out by hand, working "from the bottom" in the manner just outlined.
+
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.13 ~ExFx :|-: Ax~Fx
+|~ExFx :assumption
+| Fa :assumption
+| ExFx :IE2
+| ⊥ :E~1,3
+|~Fa :I~2-4
+|Ax~Fx :IA5
+```
+
+<br>
+
+*Problem 14*
+
+This is the other half of it this instance of DeMorgan. Again, consider writing the proof out by hand, working "from the bottom." The justification for the last line `~ExFx` will be introduction of negation. Hence, you have to from `ExFx` to falsum inside a bracket. Since `ExFx` is going to be at the top of your bracket, you need to build an arrow of the form `Fa->. . . ` where you insert the bottom of your bracket into the . . . .
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.14 Ax~Fx :|-: ~ExFx
+|Ax~Fx :assumption
+| ExFx :assumption
+|  Fa :assumption
+|  ~Fa :EA1
+|  ⊥ :E~3,4
+| Fa->⊥ :I->3-5
+| ⊥ :EE2,6
+|~ExFx :I~2-7
+```
+
+<br>
+
+*Problem 15*
+
+For this problem, just take your solution to Problem 14 and try to transform it, following the schema in the video which shows how to transform a proof of $\phi\rightarrow \psi$ into a proof of the contrapositive $\neg \psi\rightarrow \neg \phi$:
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/contrapositive-transform.mp4"/> </video>
+
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.15 ExFx :|-: ~Ax~Fx
+|ExFx :assumption
+| Ax~Fx :assumption
+|  ExFx :assumption
+|   Fa :assumption
+|   ~Fa :EA2
+|   ⊥ :E~4,5
+|  Fa->⊥ :I->4-6
+|  ⊥ :EE1,7
+| ~ExFx :I~3-8
+| ⊥ :E~1,9
+|~Ax~Fx :I~2-10
+```
+
+<br>
+
+## Aristotelian syllogisms
+
+<br>
+
+For these, use [the rules associated to the Aristotelian syllogisms](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#adding-rules-for-the-aristotelian-syllogism).
+
+<br>
+
+*Problem 16*
+
+This one just does multiple applications of Barbara. Note how much shorter it is than if you were simply applying the introduction and elimination rules for conditional and universal. However, in part, the ease is due to how easy it is for us to "see" substitution instances of Barbara. Compare this to the next problem, where the substitutions are harder to see.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.16 Ax(Fx->Gx), Ax(Gx->Hx), Ax(Hx->Jx) :|-: Ax(Fx->Jx)
+|Ax(Fx->Gx) :assumption
+|Ax(Gx->Hx) :assumption
+|Ax(Hx->Jx) :assumption
+|Ax(Fx->Hx) :Ba1,2
+|Ax(Fx->Jx) :Ba3,4
+```
+
+<br>
+
+*Problem 17*
+
+This one just uses one conversion and one rule. The resulting proof is short, but it is time-consuming to figure out which conversion and rule, since this requires one "checking in one's head" various substitution instances.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.17 ~Ex(Fx/\Gx), Ex(Hx/\Fx) :|-: Ex(Hx/\~Gx)
+|~Ex(Fx/\Gx) :assumption
+|Ex(Hx/\Fx) :assumption
+|Ax(Fx->~Gx) :CV3 1
+|Ex(Hx/\~Gx) :Da2,3
+```
+
+<br>
+
+The next three problems are [the proofs of the second figure which we did in Week 1, Lecture 2](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc#the-second-figure).
+
+<br>
+
+*Problem 18 (Cesare)*
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.18 ~Ex(Fx/\Gx), Ax(Hx->Gx) :|-: ~Ex(Hx/\Fx)
+|~Ex(Fx/\Gx) :assumption
+|Ax(Hx->Gx) :assumption
+|~Ex(Gx/\Fx) :CV2 1
+|~Ex(Hx/\Fx) :Ce 2,3
+```
+
+<br>
+
+*Problem 19 (Camestres)*
+
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.19 Ax(Fx->Gx), ~Ex(Hx/\Gx) :|-: ~Ex(Hx/\Fx)
+|Ax(Fx->Gx) :assumption
+|~Ex(Hx/\Gx) :assumption
+|~Ex(Gx/\Hx) :CV2 2
+|~Ex(Fx/\Hx) :Ce 1,3
+|~Ex(Hx/\Fx) :CV2 4
+```
+
+<br>
+
+*Problem 20 (Festino)*
+
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+06.20 ~Ex(Fx/\Gx), Ex(Hx/\Gx) :|-: Ex(Hx/\~Fx)
+|~Ex(Fx/\Gx) :assumption
+|Ex(Hx/\Gx) :assumption
+|~Ex(Gx/\Fx) :CV2 1
+|Ex(Hx/\~Fx) :Fe 3,2
+```
+
+<br>
+
+
+
+<br>
+
+These are practice problems written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>
