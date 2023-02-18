@@ -446,11 +446,11 @@ This rule is useful for producing proofs of $\phi\rightarrow \phi$, which can ot
 
 One reason to accept the rules presented here is that they preserve truth: if $\phi_1, \ldots, \phi_n\vdash \phi$, then $\phi_1, \ldots, \phi_n\vDash \phi$.
 
-To illustrate, consider the natural proof of $\phi_1\wedge \phi_2\vdash \phi_1$ via the conjunction elimination rule. One also has $\phi_1\wedge \phi_2 \vDash \phi_1$. For, suppose that $\mathcal{M}$ is a model with $\mathcal{M}\models \phi_1 \wedge \phi_2$. Then by Tarski's definition of truth in a model, one has $\mathcal{M}\models \phi_1$ and $\mathcal{M}_2\models \phi_2$. Then one concludes that $\mathcal{M}\models \phi_1$.
+To illustrate, consider the natural proof of $\phi_1\wedge \phi_2\vdash \phi_1$ via the conjunction elimination rule. One also has $\phi_1\wedge \phi_2 \vDash \phi_1$. For, suppose that $\mathcal{M}$ is a model with $\mathcal{M}\models \phi_1 \wedge \phi_2$. Then by Tarski's definition of truth in a model, one has $\mathcal{M}\models \phi_1$ and $\mathcal{M}\models \phi_2$. Then one concludes that $\mathcal{M}\models \phi_1$.
 
 One can indeed prove that all of the rules presented here preserve truth. This is called *soundness* and we will revisit it later. However, one should temper the sense in which soundness provides a justification of the rules, since in some sense one is presupposing these rules out in the metatheory where one deals with models. For instance, the last paragraph was supposed to give us a reason to accept conjunction elimination. But it looks like the last line of the last paragraph just flatly presupposes conjunction elimination, in that it presupposes that one can go from "$\mathcal{M}\models \phi_1$ and $\mathcal{M}\models \phi_2$" to $\mathcal{M}\models \phi_1$.
 
-Perhaps a better way to think about soundness is as showing that two concepts that one might have thought were distinct, namely provability and validity, are in fact closely related to one another. That is a "justification" in a weak sense, namely a kind of motivation or a kind of wisdom.
+Perhaps a better way to think about soundness is as showing that two concepts that one might have thought were distinct, namely provability and validity, are in fact closely related to one another. That is a "justification" in a weak sense, namely a kind of motivation or a kind of "wisdom in coordination.""
 
 <br>
 
