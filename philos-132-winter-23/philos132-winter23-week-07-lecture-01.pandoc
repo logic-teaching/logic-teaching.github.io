@@ -15,12 +15,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Natural deduction, definitions, and normalization **with solutions**
+# Week 7, Lecture 1, Intuitionistic logic
 
 <br>
 
+- [Intuitionistic vs classical logic](#intuitionistic-vs-classical-logic)
+- [Many negations in intuitionistic logic](#many-negations-in-intuitionistic-logic)
 - [Intuitionistic logic and BHK](#intuitionistic-logic-and-BHK)
 - [BHK and EFSQ](#BHK-and-EFSQ)
+- [Equivalence of double-negation and law of excluded middle]
 
 <br>
 
@@ -28,34 +31,170 @@ This version has **the solutions** filled in. The solutions, in this case, just 
 
 <br>
 
+## Intuitionistic vs classical logic
+
+<br>
+
+The deductive system that we have learned so far is called *intuitionistic logic*. It does not prove either law of the excluded middle or double-negation:
+
+- *Law of excluded middle*: $\phi\vee \neg \phi$
+- *The law of double-negation*: $\phi\leftrightarrow \neg \neg \phi$.
+
+The logic that results by adding these two intuitionsitic logic is called *classical logic*. Next week we will start working exclusively in classical logic. This week, we further explore intuitionistic logic.
+
+<br>
+
+## Many negations in intuitionistic logic
+
+One half of double-negation is provable in intuitionistic logic.
+
+*Example 1*. $\vdash \phi\rightarrow \neg \neg \phi$
+
+This holds for any $\phi$ of predicate logic. It is the other direction of double-negation which is *not* provable in intuitionstic logic.
+
+We illustrate with respect to the atomic $Fa$:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ :|-: Fa->~~Fa
+| Fa :as
+|  ~Fa :as
+|  ⊥ :E~1,2
+| ~~Fa :I~2-3
+|Fa->~~Fa :I->1-4
+```
+
+<br>
+
+If one takes Example 1 and considers the case where $\phi$ is $\neg \psi$, one sees that intuitionistic logic also proves
+
+*Example 2*. $\vdash \neg \psi \rightarrow \neg \neg \neg \psi$
+
+We illustrate again with $\psi$ being the atomic $Fa$.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ :|-: ~Fa->~~~Fa
+| ~Fa :as
+|  ~~Fa :as
+|  ⊥ :E~1,2
+| ~~~Fa :I~2-3
+|~Fa->~~~Fa :I->1-4
+```
+
+<br>
+
+The converse of the previous example also holds in intuitionistic logic:
+
+*Example 3*. $\vdash \neg \neg \neg \psi\rightarrow \neg \psi$
+
+This holds for again for any $\psi$ of predicate logic. And we again illustrate with $\psi$ being the atomic $Fa$.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ :|-: ~~~Fa->~Fa
+| ~~~Fa :as
+|  Fa :as
+|   ~Fa :as
+|   ⊥ :E~2,3
+|  ~~Fa :I~2-4
+|  ⊥ :E~1,5
+| ~Fa :I~2-6
+|~~~Fa->~Fa :I->1-7
+```
+
+<br>
+
+We also get the following, which shows that double-negation implies law of the excluded middle:
+
+*Example 4*. $\vdash \neg \neg (\phi \vee \neg \phi)$
+
+This holds for all $\phi$ of predicate logic. We illustrate again with $Fa$.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ :|-: ~~(Fa\/~Fa)
+| ~(Fa\/~Fa) :assumption
+|  Fa :assumption
+|  Fa\/~Fa :I\/2
+|  ⊥ :E~1,3
+| ~Fa :I~2-4
+| Fa\/~Fa :I\/5
+| ⊥ :E~1,6
+|~~(Fa\/~Fa) :I~1-7
+```
+
+<br>
+
+This shows that law of excluded middle implies double-negation:
+
+*Example 5*. $\phi \vee \neg \phi \vdash \neg\neg  \phi\rightarrow \phi$.
+
+This holds for all $\phi$ of predicate logic. We illustrate again with $Fa$.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+Fa\/~Fa :|-: ~~Fa->Fa
+|Fa\/~Fa :as
+| ~~Fa :as
+|   Fa :as
+|   Fa :rep 3
+| Fa->Fa :I->3-4
+|  ~Fa :as
+|  !? :E~2,6
+|  Fa :EFSQ7
+| ~Fa->Fa :I->6-8
+| Fa :E\/1,5,9
+|~~Fa->Fa :I->2-10
+```
+
+<br>
+
 ## Intuitionistic logic and BHK
+
+<br>
 
 The deductive system that he have learned so far is sometimes called intuitionistic logic. The traditional motivation for it is sometimes called the *Brouwer-Heyting-Kolmogorov (BHK) interpretation*. The traditional statement of this, due to Heyting in his short 1956 book *Intuitionism*, is as follows:[^1]
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-conjunctiondisjunction.png" alt="BHK conjunction disjunction.png" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Heyting-1956-BHK-conjunctiondisjunction.png" alt="BHK conjunction disjunction.png" width="500"/>
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-arrow1.png" alt="BHK conjunction disjunction" width="500"/>
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-arrow2.png" alt="BHK conjunction disjunction" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Heyting-1956-BHK-arrow1.png" alt="BHK conjunction disjunction" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Heyting-1956-BHK-arrow2.png" alt="BHK conjunction disjunction" width="500"/>
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-negation.png" alt="BHK conjunction disjunction" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Heyting-1956-BHK-negation.png" alt="BHK conjunction disjunction" width="500"/>
 
-[^1]: This is from pp. 102-103, 106-107 of [Heyting, Arend. 1956. Intuitionism. An Introduction. Amsterdam: North-Holland](https://logic-teaching.github.io/prop/texts/Heyting%201956%20-%20Intuitionism%20-%20An%20Introduction%20-%20Chapters%201,%207,%208.pdf). Heyting had originally developed these ideas in the 1930s, in publications such as: Heyting Sur La Logique Intuitionniste.” Académie Royale de Belgique, Bulletin de La Classe. Heyting, Arend. 1930. “Die Formalen Regeln Der Intuitionistichen Logik.” Sitzungsberichte Der Koniglichen Preussischen Akademie Der Wissenschaften, 42–56. [Heyting, Arend. 1931. “Die Intuitionistische Grundlegung Der Mathematik.” Erkenntnis. An International Journal of Analytic Philosophy 2: 106–15](https://logic-teaching.github.io/prop/texts/Heyting%201931%20-%20Die%20Intuitionistische%20Grundlegung%20Der%20Mathematik.pdf).
+[^1]: This is from pp. 102-103, 106-107 of [Heyting, Arend. 1956. Intuitionism. An Introduction. Amsterdam: North-Holland](https://logic-teaching.github.io/philos-132-winter-23/texts/Heyting%201956%20-%20Intuitionism%20-%20An%20Introduction%20-%20Chapters%201,%207,%208.pdf). Heyting had originally developed these ideas in the 1930s, in publications such as: Heyting Sur La Logique Intuitionniste.” Académie Royale de Belgique, Bulletin de La Classe. Heyting, Arend. 1930. “Die Formalen Regeln Der Intuitionistichen Logik.” Sitzungsberichte Der Koniglichen Preussischen Akademie Der Wissenschaften, 42–56. [Heyting, Arend. 1931. “Die Intuitionistische Grundlegung Der Mathematik.” Erkenntnis. An International Journal of Analytic Philosophy 2: 106–15](https://logic-teaching.github.io/philos-132-winter-23/texts/Heyting%201931%20-%20Die%20Intuitionistische%20Grundlegung%20Der%20Mathematik.pdf).
 
-This last line of course makes vivid that in intuitionistic logic, $\neg \phi$ is interpreted as $\phi\rightarrow \bot$.
+This last line of course makes vivid that in intuitionistic logic, $\neg \phi$ is interpreted as $\phi\rightarrow \bot$. In particular, $\neg \phi$ is equivalent to $\phi\rightarrow \bot$ in intuitionistic logic.
 
-To see how BHK will not endorse certain inferences, consider the law of the excluded middle $\phi \vee \neg \phi$. BHK predicts that this will not hold in situations where-- for whatever reason-- we cannot assert either of the disjuncts. Brouwer himself thought that there were mathematical counterexamples to the law of the excluded middle, such as the $\phi$ that says that in the decimal expansion of $\pi=3.14159265359\ldots$ there is a ten digit block of numbers $0123456789$. The thinking seems to be that we cannot assert $\phi$ because no one has yet found such a block. And we cannot assert $\neg \phi$ because no one has yet proven that the supposition of $\phi$ leads to an absurdity.[^2] This line of reasoning, of course, presupposes that we interpret $\neg \phi$ as $\phi\rightarrow \bot$.
+BHK will not endorse law of the excluded middle $\phi \vee \neg \phi$. BHK predicts that this will not hold in situations where-- for whatever reason-- we cannot assert either of the disjuncts. Brouwer himself thought that there were mathematical counterexamples to the law of the excluded middle, such as the $\phi$ that says that in the decimal expansion of $\pi=3.14159265359\ldots$ there is a ten digit block of numbers $0123456789$. The thinking seems to be that we cannot assert $\phi$ because no one has yet found such a block. And we cannot assert $\neg \phi$ because no one has yet proven that the supposition of $\phi$ leads to an absurdity.[^1] This line of reasoning, of course, presupposes that we interpret $\neg \phi$ as $\phi\rightarrow \bot$.
 
-[^2]: This is Brouwer's example on p. 6 of [Brouwer, L. E. J. 1981. Brouwer’s Cambridge Lectures on Intuitionism. Cambridge University Press, Cambridge-New York](https://logic-teaching.github.io/prop/texts/Brouwer1981BrouwersCambridgeLecturesonIntuitionismLecture1-redeux.pdf).; and on p. 21 of: Brouwer, L. E. J. 1992. Intuitionismus. Edited by Dirk van Dalen. Mannheim: Wissenschaftsverlag. These are lectures which he gave in Berlin in Cambridge after the war and in Berlin in 1927. The ideas in them were made well-known, at the time, in the intuitionism chapter of Fraenkel's 1927 book: Fraenkel, Adolf. 1927. Zehn Vorlesungen Über Die Grundlegung Der Mengenlehre: Gehalten in Kiel Auf Einladung Der Kant-Gesellschaft, Ortsgruppe Kiel, Vom 8.--12. Juni 1925. Leipzig and Berlin: Teubner.
+[^1]: This is Brouwer's example on p. 6 of [Brouwer, L. E. J. 1981. Brouwer’s Cambridge Lectures on Intuitionism. Cambridge University Press, Cambridge-New York](https://logic-teaching.github.io/philos-132-winter-23/texts/Brouwer1981BrouwersCambridgeLecturesonIntuitionismLecture1-redeux.pdf).; and on p. 21 of: Brouwer, L. E. J. 1992. Intuitionismus. Edited by Dirk van Dalen. Mannheim: Wissenschaftsverlag. These are lectures which he gave in Berlin in Cambridge after the war and in Berlin in 1927. The ideas in them were made well-known, at the time, in the intuitionism chapter of Fraenkel's 1927 book: Fraenkel, Adolf. 1927. Zehn Vorlesungen Über Die Grundlegung Der Mengenlehre: Gehalten in Kiel Auf Einladung Der Kant-Gesellschaft, Ortsgruppe Kiel, Vom 8.--12. Juni 1925. Leipzig and Berlin: Teubner.
+
+Likewise, BHK will not endorse double-negation. In particular, it will not endorse $\neg\neg\phi\rightarrow \phi$. For, for the intuitionist, $\neg \neg \phi$ is equivalent to $(\phi\rightarrow \bot)\rightarrow \bot$. A proof of the latter is, according to BHK, a way to transform "any transformation of a proof of $\phi$ to absurdity" itself to absurdity. That is, $\neg \neg \phi$ requires, according to BHK, that one have a way of refuting any refutation of $\phi$. And having such a way does not by itself give you a reason to assert $\phi$.
+
+<br>
+
+## Legacy of BHK
+
+In philosophy, BHK was given center stage in Dummett's philosophy of language, developed in the 1960s-1970s. Dummett thought that Tarski's definition of truth gave center stage to truth-conditions in a theory of meaning, and to the extent that these presupposed a notion of reference they tilted the scales towards a type of realism from the get-go. By contrast, he saw in BHK an alternative way of thinking about meaning more compatible with anti-realism, in which truth-conditions are replaced by proof-conditions, or more generally assertibility conditions[^3]:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/Dummett%201959%20-%20Truth%20p%20160.png" alt="Dummett on BHK" width="500"/>
+
+[^3]: Dummett, Michael. 1959. “Truth.” Proceedings of the Aristotelian Society 59: 141–62.
+
+While Dummett was influential in his time, more recent decades tend to insist on a more rigid separation between topics in philosophy of language like meaning and reference on the one hand, and topics in epistemology like justification on the other hand.
+
+A longer lasting legacy of BHK pertains to the idea that proofs are often closely tied to certain kinds of constructions. Perhaps the experience of building proofs in the last weeks speaks to the plausibility of the thought that a proof is a procedure to get from the premises to the conclusion. One way to make the relevant notion of procedure more formal is through the typed lambda-calculus, where the procedure for "add five to x then multiply by 2" would be formalized by $\lambda x. 2(x+5)$. The close connection to be found between intuitionistic propositional logic and proofs qua lambda terms then finds expression in the  Curry-Howard correspondence.[^4]
+
+[^4]: For more on this, see: [Gallier, Jean. 1995. “On the Correspondence between Proofs and λ-Terms.” In The Curry-Howard Isomorphism, edited by Ph de Groote, 8:55–138. Cahiers Du Centre de Logique. Louvain: Academia-Erasme](https://logic-teaching.github.io/prop/texts/Gallier%201995%20-%20On%20the%20correspondence%20between%20proofs%20and%20lambda-terms.pdf), and [Sørensen, M. H., and Pawel Urzyczyn. 2006. Lectures on the Curry-Howard Isomorphism. Vol. 149. Studies in Logic and the Foundations of Mathematics. New York: Elsevier](https://scholar.google.com/scholar?cluster=2266409716850034366&hl=en&as_sdt=0,5).
 
 <br>
 
 ## BHK and EFSQ
 
-A natural question to ask is whether BHK itself requires that one assent to EFSQ. Consider the following application of EFSQ:
+<br>
 
-*Example 1*. $\neg Pa \vdash Pa\rightarrow Qa$.
+To both explore BHK a bit more and to practice more with proofs, let's look at whether BHK actually compels EFSQ. Consider the following application of EFSQ:
 
-```{.ProofChecker .GamutIPND submission="none"}
+*Example 6*. $\neg Pa \vdash Pa\rightarrow Qa$.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
  ~Pa :|-: Pa->Qa
 |~Pa :assumption
 | Pa :assumption
@@ -65,15 +204,15 @@ A natural question to ask is whether BHK itself requires that one assent to EFSQ
 ```
 This is what Heyting says about the propositional variant of this inference:
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-EFSQ.png" alt="BHK EFSQ" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Heyting-1956-BHK-EFSQ.png" alt="BHK EFSQ" width="500"/>
 
 It is not obvious whether this is anything more than a restatement of EFSQ in terms of constructions.
 
 Perhaps a more stronger case could be made simply by thinking about cases like:
 
-*Example 2*. $p\vee q, \neg p \vdash q$.
+*Example 7*. $p\vee q, \neg p \vdash q$.
 
-```{.ProofChecker .GamutIPND submission="none"}
+```{.ProofChecker .GamutNDPlus submission="none"}
  Pa\/Qa, ~Pa :|-: Qa
 |Pa\/Qa :assumption
 |~Pa :assumption
@@ -83,259 +222,15 @@ Perhaps a more stronger case could be made simply by thinking about cases like:
 |Pa->Qa :I->3-5
 | Qa :assumption
 | Qa :rep7
-|Pa->Qa :I->7-8
+|Qa->Qa :I->7-8
 |Qa :E\/1,6,9
 ```
+
 Suppose that one can assert $Pa\vee Qa$. Then according to BHK, one can assert $Pa$ or one can assert $Qa$, and presumably know which one. If one can assert $Qa$, then we are done. Suppose alternatively that one could assert $Pa$. Then since one can assert $\neg Pa$, one already knows a construction for how to convert evidence for $Pa$ into a contradiction. That is a reason to think that one could not have actually been in a position to assert $Pa$ in the first place.
 
-The longest lasting legacy of BHK pertains less to its tacit suggestion that the meaning of the logical connectives lies in its assertibility conditions, and more in the idea that proofs are often closely tied to certain kinds of constructions. Perhaps the experience of building proofs in the last week speaks to the plausibility of the thought that a proof is a procedure to get from the premises to the conclusion.
-
-[^3]: For more on this, see: [Gallier, Jean. 1995. “On the Correspondence between Proofs and λ-Terms.” In The Curry-Howard Isomorphism, edited by Ph de Groote, 8:55–138. Cahiers Du Centre de Logique. Louvain: Academia-Erasme](https://logic-teaching.github.io/prop/texts/Gallier%201995%20-%20On%20the%20correspondence%20between%20proofs%20and%20lambda-terms.pdf), and [Sørensen, M. H., and Pawel Urzyczyn. 2006. Lectures on the Curry-Howard Isomorphism. Vol. 149. Studies in Logic and the Foundations of Mathematics. New York: Elsevier](https://scholar.google.com/scholar?cluster=2266409716850034366&hl=en&as_sdt=0,5).
-
-
-## The rules as definitions
-
-In this course we started with models, from which we can define validity, and then we turned to proof systems. From this vantage point, it looks like what is happening in a proof system is that we are taking certain valid arguments as primitive rules, and then we are deriving other validities from these. This then raises the question of how and by what means one chooses the rules. Why choose one set of validities as opposed to another set of validities as *the* rules? Is the idea that some are more easily justified or epistemically basic than others, and if so by what means?
-
-One answer to these questions comes from Gentzen, who first developed natural deduction proof systems:[^1]
-
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Gentzen%201969%20-%20Investigations%20into%20Logical%20Deduction%20p.%2080.png
-" alt="Gentzen on definitions" width="700"/>
-
-[^1]: p. 80 of: [Gentzen, Gerhard. 1969. “Investigations into Logical Deduction.” In The Collected Papers of Gerhard Gentzen, edited by M. E. Sazbo, 68–131. Studies in Logic and the Foundations of Mathematics. Amsterdam: North-Holland.](https://logic-teaching.github.io/pred/texts/Gentzen%201969%20-%20Investigations%20into%20Logical%20Deduction.pdf)
-
-To get the sense of Gentzen's answer, we can ask the specific question: what justifies the elimination rule for arrow? Recall the elimination rule for arrow is:
-
-<video controls width="300" src="https://logic-teaching.github.io/pred/vid/ND-Earrow-vid.mp4"/> </video>
 <br>
 
-The first premise $\phi\rightarrow \psi$ of arrow elimination means, "in the sense afforded by the introduction" rule for arrow, that there is a proof from $\phi$ to $\psi$. If one write this proof out, the $\phi$ at the top of the bracket is justified as a hypothetical assumption. But the second premise $\phi$ of arrow elimination, when deployed in a proof, comes with some reason to believe $\phi$, say rule XYZ. Then simply put this justification in place of the hypothetical assumption, and one has a proof from $\phi$ to $\psi$, and since one has a reason for $\phi$, one then has a reason for $\psi$. In a picture:
 
-<video controls width="700" src="https://logic-teaching.github.io/pred/vid/conv-arrow.mp4"/> </video>
-
-<br>
-
-More concretely, one can get the sense in which Gentzen thinks that the elimination rule for arrow is a consequence of the introduction rule for arrow by looking at the following three proofs. In the first, we do a very simple arrow elimination proof:
-
-```{.ProofChecker .GamutNDPlus submission="none"}
- (Fa/\Fb)/\Fc, ((Fa/\Fb)/\Fc)->Fb :|-: Fb
-|(Fa/\Fb)/\Fc :assumption
-|((Fa/\Fb)/\Fc)->Fb :assumption
-|Fb :E->1,2
-```
-
-In the second, we take the meaning of the arrow statement in the premise to be: there is a proof taking us from $((Fa\wedge Fb)\wedge Fc)$ to $Fb$. Then we expand the previous proof by producing the natural proof of this arrow statement:
-
-```{.ProofChecker .GamutNDPlus submission="none"}
- (Fa/\Fb)/\Fc :|-: Fb
-|(Fa/\Fb)/\Fc :assumption
-| (Fa/\Fb)/\Fc :assumption
-| Fa/\Fb :E/\2
-| Fb :E/\3
-|((Fa/\Fb)/\Fc)->Fb :I->2-4
-|Fb :E->1,5
-```
-
-In the third, we simply reduce to the natural proof by removing the introduction and the elimination of the arrow at the end:
-
-```{.ProofChecker .GamutNDPlus submission="none"}
- (Fa/\Fb)/\Fc :|-: Fb
-|(Fa/\Fb)/\Fc :assumption
-|Fa/\Fb :E/\1
-|Fb :E/\2
-```
-
-This example illustrates how the introduction rule for arrow can be taken as a definition of arrow: the arrow in $\phi\rightarrow \psi$ is defined as there being a proof going from antecedent $\phi$ to consequent $\psi$. The elimination rule is then said to follow from this definition since it tells one how to move from premises $\phi\rightarrow \psi$ and $\phi$ to conclusion $\psi$ by putting the proof associated to $\phi\rightarrow \psi$ together with the proof of $\phi$ to get a proof of $\psi$.
-
-But one obvious limitation of this is is that it only works when the assertion of $\phi\rightarrow \psi$ can be thought of as a proof going from $\phi$ to $\psi$. In the above illustration, it could be so conceived, but sometimes when we assert a conditional we do not have such a proof in mind. For instance, if I say "if Adriana is nice then Brianna is nice," then I do not seem to have any such proof in mind. And likewise there is no way to carry out the procedure described up above for the simple associated proof:
-
-```{.ProofChecker .GamutNDPlus submission="none"}
- Na, Na->Nb :|-: Nb
-|Na :assumption
-|Na->Nb :assumption
-|Nb :E->1,2
-```
-
-That is, there is no way to expand this proof so that we have `Na->Nb` not as an assumption but as the conclusion of an instance of arrow introduction.
-
-There are various ways around this. For instance, one can consider idealized proof systems in which there is a rule like "from Adriana being nice, infer Briana being nice," and perhaps one can consider typical assertions of conditionals as happening in such a system.[^2]
-
-[^2]: These are the *atomic system(s)* in the literature on proof-theoretic semantics, e.g. [Schroeder-Heister, Peter. 2018. “Proof-Theoretic Semantics.” In The Stanford Encyclopedia of Philosophy, edited by Edward N. Zalta, Spring 2018. Metaphysics Research Lab, Stanford University.](https://plato.stanford.edu/archives/spr2018/entries/proof-theoretic-semantics/).
-
-<br>
-
-## Prior's example of tonk
-
-One might think of definitions as being true by virtue of meaning, in the unproblematic sense of a stipulation about how to use words. In this sense, Gentzen's proposal might seem like a version of the view that the introduction and elimination rules are true by virtue of meaning. It was with this kind of view that Prior was interested:
-
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Prior%201960%20-%20The%20runabout%20inference-ticket-again.png
-" alt="Prior on " width="700"/>
-
-Prior's famous counterexample to this was an imaginary connective he called *tonk*, which has an introduction rule like disjunction and an elimination rule like conjunction.[^3] The problem with saying that the validity of these inferences is given simply by the meaning of "tonk" is, in Prior's view, that from these rules one can derive anything. For instance, here is the a derivation that $Fa\vdash Ga$:
-
-1. Fa :assumption
-2. Fa tonk Ga :I tonk 1.
-3. Ga :E tonk 2
-
-(The step from 1 to 2 holds because "tonk" has an introduction rule like disjunction, and the step from 2 to 3 holds because "tonk" has an elimination rule like conjunction). There are obviously some properties $F,G$ and objects $a$ such that we want to say that we can infer from $Fa$ to $Ga$, but we certainly do not want to be committed to this in general.
-
-[^3]: [Prior, Arthur N. 1960. “The Runabout Inference-Ticket.” Analysis 21 (2): 38–39.](https://logic-teaching.github.io/pred/texts/Prior%201960%20-%20The%20runabout%20inference-ticket.pdf).
-
-An obvious reaction to Prior's counterexample is that the introduction and elimination rules for "tonk" are mismatched in a way in which the introduction and elimination rules for the propositional connectives and quantifiers are not. But it is difficult to say more about what this "mismatch" amounts to. Another reaction is to note that Gentzen's proposal was more specific than "any collection of introduction and elimination rules determines a meaning." However, one way to think about Prior is as issuing a challenge to Gentzen: if it is okay to "lay down" the introduction rule as a definition, why is it not similarly okay to "lay down" pairs of introduction rules and elimination rules as definitions?
-
-<br>
-
-## Conservation and the subformula property
-
-Belnap suggested that what distinguishes tonk from the usual propositional connectives is conservativity.[^4] Suppose that we have a system of rules which allows us to define a validity relation $\vdash_1$. And suppose we add a new set of rules governing some new connectives to get a validity relation $\vdash_2$. Since we are thinking that the old rules apply to the new connective, we trivially have:
-
-[^4]: [Belnap, Nuel D. 1962. “Tonk, Plonk and Plink.” Analysis 22 (6): 130–34.](https://logic-teaching.github.io/pred/texts/Belnap%201962%20-%20Tonk,%20plonk%20and%20plink.pdf)
-
-- If $\phi_1, \ldots, \phi_n\vdash_1 \phi$ then $\phi_1, \ldots, \phi_n \vdash_2 \phi$, for all formulas $\phi_1, \ldots, \phi_n, \phi$, regardless of whether they contain the old or new connectives.
-
-We say that the new validity relation is *conservative* over the old validity relation if the converse happens, for formulas which do not involve the new connectives:
-
- - If $\phi_1, \ldots, \phi_n\vdash_2 \phi$ then $\phi_1, \ldots, \phi_n \vdash_1 \phi$, for all formulas $\phi_1, \ldots, \phi_n, \phi$, for all formulas $\phi_1, \ldots, \phi_n, \phi$ formed from the old connectives.
-
-This is just a way of saying that the new connectives and rules do not allow us to prove anything about the old connectives which we could not already prove from the rules governing the old connectives themselves.
-
-Obviously Prior's tonk example violates the conservation constraint, since we can prove anything using the tonk rules, and hence things like:
-
-1. Fa->Fb :assumption
-2. (Fa->Fb) tonk (Ga->Gb) :I tonk 1.
-3. Ga->Gb :E tonk 2
-
-Hence, if we added tonk to our logic to get a validity relation $\vdash_2$, then we would have $Fa\rightarrow Fb \vdash_2 \; Ga\rightarrow Gb$, even though we clearly cannot prove $Fa\rightarrow Fb \vdash Ga\rightarrow Gb$ using the rules for arrow and the other connectives we have learned.
-
-This then raises the question of whether the rules we have learned for the connectives are conservative. One way to state the question would be as to whether our validity relation $\vdash$ is conservative over the smaller set of rules formed by deleting the introduction and elimination rules for any given connective. Concretely: is our validity relation $\vdash$ which includes the introduction and elimination rules for arrow conservative over the smaller system $\vdash_0$ which does not include the introduction and elimination rules for arrow? This is to ask: is any fact about conjunction  provable using the facts about arrow already provable from the rules governing conjunction itself?
-
-It turns out that the answer to this question is "yes" and relates to a property of the rules we have been learning called the *subformula* property. One formula is a subformula of a second just if the first formula is part of what one cites when one describes why the second formula is a formula. For instance:
-
-- $Fa$ is a subformula of $Fa\rightarrow Fb$
-- $Fa\rightarrow Fb$ is a subformula of $(Fa\rightarrow Fb)\wedge Fc$
-- $Fa\rightarrow Fb$ is *not* a subformula of $Fa\wedge (Fb\rightarrow Fc)$
-
-It turns out that the rules for the connectives and quantifiers which we have been learning so far have the following feature:[^9]
-
-[^9]: In our system, we used arrow in stating the elimination rules for disjunction and existential. But this is obviously avoidable, and we could have rather used brackets in this case without arrow introductions under them. That is, we could have avoided using arrow in stating the elimination rules for disjunction and existential if we had allowed ourselves a more liberal use of brackets. The Subformula Theorem will thus not technically hold for our system when the formulas contain disjunction and existentials. But it will hold for a notational variant of our system in which the rules for disjunction and existential are not stated in terms of arrow.
-
-- (Subformula Theorem): If $\phi_1, \ldots, \phi_n\vdash \phi$, then there is a proof of this in which each formula appearing on a line of the proof is a subformula of either the premises $\phi_1, \ldots, \phi_n$ or the conclusion $\psi$.
-
-We will speak, in a moment, about the reason why this holds. But let us just note that this suffices to get conservativity. For, suppose that we proved some fact about conjunction using the rules for arrow, and suppose that the proof was e.g. $\phi_1, \ldots, \phi_n \vdash \phi$, where $\phi_1, \ldots, \phi_n, \phi$ did not involve arrow but only conjunction and disjunction. Then there is a proof of it where all the formulas in the proof are subformulas of $\phi_1, \ldots, \phi_n, \phi$ and hence involve only conjunction. Since the rules are tied to the main connectives, this means that there are no arrow rules deployed in this proof. Hence, we have a proof of this which uses only facts about conjunction.
-
-<br>
-
-## The subformula property and normalization
-
-The reason why the subformula property holds is a feature of our proof-system called normalization. The formula definition of normalization is a little beyond what we are able to formally state here, but it is easy to give an intuitive idea since in some sense we have been working with it all along.[^8] Namely, the way to produce normal proofs is to apply elimination rules at the top of the proof and introduction rules down at the bottom of the proof. Here is a simple example of a normal proof using conjunction and disjunction:
-
-[^8]: For more details, see any textbook treatment of an introduction to proof-theory, like: Negri, Sara and von Plato, Jan. 2008. Structural Proof Theory. Cambridge University Press.
-
-```{.ProofChecker .GamutNDPlus submission="none"}
- (Fa/\Fb)/\Fc :|-: Fb\/Fd
-|(Fa/\Fb)/\Fc :assumption
-|Fa/\Fb :E/\1
-|Fb :E/\2
-|Fb\/Fd :I\/3
-```
-
-It is easy to see that this proof has the subformula property, by inspection. Moreover, it is at least plausible to think that any proof which worked via elimination rules at the top and introduction rules at the bottom would have the subformula property. For, lines near the top would be subformulas of premises since that is how elimination rules work; and lines near the bottom would be subformulas of conclusions since that it is how the introduction rules work.
-
-But how could a proof fail to have the subformula property? Well, we just introduce the phenomena that Gentzen himself drew attention to: an introduction rule for a connective followed immediately by an elimination rule for that same connective. For instance, even though our previous example only pertained to conjunction and disjunction, we could introduce extraneous lines involving arrow in it as follows:
-
-```{.ProofChecker .GamutNDPlus submission="none"}
- (Fa/\Fb)/\Fc :|-: Fb\/Fd
-|(Fa/\Fb)/\Fc :assumption
-| (Fa/\Fb)/\Fc :assumption
-| Fa/\Fb :E/\2
-| Fb :E/\3
-|((Fa/\Fb)/\Fc)->Fb :I->2-4
-|Fb :E->1,5
-|Fb\/Fd :I\/6
-```
-
-Proofs like this-- *non-normal proofs*-- seem kind of frivolous, as if they would not actually occur in the practice of giving arguments. But they are actually the proofs that occur most frequently in the practice of giving arguments. This is because we like to separate out arguments into discrete parts which we then combine, and the act of combination produces non-normal proofs. To take a simple example, consider our proof of "someone is respected by everyone implies everyone respects someone":
-
-```{.ProofChecker .GamutNDPlus submission="none"}
- :|-: EyAxRxy->AxEyRxy
-| EyAxRxy :assumption
-|  AxRxb :assumption
-|  Rab :EA2
-|  EyRay :IE3
-|  AxEyRxy :IA4
-| AxRxb->AxEyRxy :I->2-5
-| AxEyRxy :EE1,6
-|EyAxRxy->AxEyRxy :I->1-7
-```
-
-This proof is rather tricky, and we would prefer not to have to redo it over and over again. Suppose that we are given the problem
-
-$\exists \; y \; \forall \; x \; (Rxy\wedge Sxy)\vdash \forall \; x \; \exists \; y \; Rxy \wedge \forall x \; \exists \; y \; Sxy$.
-
-For instance, this corresponds to an inference like: "if someone is both $r$espected by and is held in high e$s$teem by everyone, then everyone respects someone and everyone holds someone in high esteem." The natural way to prove this one would be to follow these steps:
-
-1. Write out the proof that $\exists \; y \; \forall \; x \; (Rxy\wedge Sxy)$ implies $\exists \; y \; \forall \; x \; Rxy$ and $\exists \; y \; \forall \; x \; Sxy$.
-2. Repeat the previous proof with respect to $R$.
-3. Repeat the previous proof with respect to $S$.
-4. Combine the two conclusions with a conjunction.
-
-Formally, this would look like the following proof, where the repetition of of the previous proof with respect to $R$ happens in lines 13, 15-23 and the repetition of the previous proof with respect to $S$ happens in lines 14, 24-32. In lines 2-12, we are completing step 1 above, and in line 33 we are completing step 4 above.
-
-```{.ProofChecker .GamutNDPlus submission="none"}
- EyAx(Rxy/\Sxy) :|-: AxEyRxy/\AxEySxy
-|EyAx(Rxy/\Sxy) :assumption
-| Ax(Rxb/\Sxb) :assumption
-| Rab/\Sab :EA2
-| Rab :E/\3
-| Sab :E/\3
-| AxRxb :IA4
-| AxSxb :IA5
-| EyAxRxy :IE6
-| EyAxSxy :IE7
-| EyAxRxy/\EyAxSxy :I/\8,9
-|Ax(Rxb/\Sxb)->(EyAxRxy/\EyAxSxy) :I->2-10
-|(EyAxRxy/\EyAxSxy) :EE1,11
-|EyAxRxy :E/\12
-|EyAxSxy :E/\12
-| EyAxRxy :assumption
-|  AxRxb :assumption
-|  Rab :EA16
-|  EyRay :IE17
-|  AxEyRxy :IA18
-| AxRxb->AxEyRxy :I->16-19
-| AxEyRxy :EE15,20
-|EyAxRxy->AxEyRxy :I->15-21
-|AxEyRxy :E->13,22
-| EyAxSxy :assumption
-|  AxSxb :assumption
-|  Sab :EA25
-|  EySay :IE26
-|  AxEySxy :IA27
-| AxSxb->AxEySxy :I->25-28
-| AxEySxy :EE24,29
-|EyAxSxy->AxEySxy :I->24-30
-|AxEySxy :E->14,31
-|AxEyRxy/\AxEySxy :I/\23,32
-```
-
-Note that this proof has two instances of an introduction rule for arrow followed immediately by an elimination rule for arrow: once at lines 22-23 and once at lines 31-32. This is precisely the "shape" to which Gentzen drew our attention in the opening quotation. Hence, non-normal proofs where there are instances of introduction rules followed immediately by elimination rules are the inevitable result of cutting and pasting together arguments.
-
-```{.ProofChecker .GamutNDPlus submission="none"}
- EyAx(Rxy/\Sxy) :|-: AxEyRxy/\AxEySxy
-|EyAx(Rxy/\Sxy) :assumption
-|EyAx(Rxy/\Sxy) :assumption
-| Ax(Rxb/\Sxb) :assumption
-| Rab/\Sab :EA2
-| Rab :E/\3
-| Sab :E/\3
-| EyRay :IE4
-| EySay :IE5
-| AxEyRxy :IA6
-| AxEySxy :IA7
-| AxEyRxy/\AxEySxy :I/\8,9
-|Ax(Rxb/\Sxb)->(AxEyRxy/\AxEySxy) :I->2-10
-|AxEyRxy/\AxEySxy :EE1,11
-```
 
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
