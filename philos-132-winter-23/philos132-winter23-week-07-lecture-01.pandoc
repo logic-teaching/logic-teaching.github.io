@@ -21,9 +21,8 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 - [Intuitionistic vs classical logic](#intuitionistic-vs-classical-logic)
 - [Many negations in intuitionistic logic](#many-negations-in-intuitionistic-logic)
-- [Intuitionistic logic and BHK](#intuitionistic-logic-and-BHK)
-- [BHK and EFSQ](#BHK-and-EFSQ)
-- [Equivalence of double-negation and law of excluded middle]
+- [Intuitionistic logic and BHK](#intuitionistic-logic-and-bhk)
+- [BHK and EFSQ](#bhk-and-efsq)
 
 <br>
 
@@ -94,7 +93,7 @@ This holds for again for any $\psi$ of predicate logic. And we again illustrate 
 |  Fa :as
 |   ~Fa :as
 |   ⊥ :E~2,3
-|  ~~Fa :I~2-4
+|  ~~Fa :I~3-4
 |  ⊥ :E~1,5
 | ~Fa :I~2-6
 |~~~Fa->~Fa :I->1-7
@@ -129,7 +128,7 @@ This shows that law of excluded middle implies double-negation:
 This holds for all $\phi$ of predicate logic. We illustrate again with $Fa$.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-Fa\/~Fa :|-: ~~Fa->Fa
+ Fa\/~Fa :|-: ~~Fa->Fa
 |Fa\/~Fa :as
 | ~~Fa :as
 |   Fa :as
@@ -162,9 +161,9 @@ The deductive system that he have learned so far is sometimes called intuitionis
 
 This last line of course makes vivid that in intuitionistic logic, $\neg \phi$ is interpreted as $\phi\rightarrow \bot$. In particular, $\neg \phi$ is equivalent to $\phi\rightarrow \bot$ in intuitionistic logic.
 
-BHK will not endorse law of the excluded middle $\phi \vee \neg \phi$. BHK predicts that this will not hold in situations where-- for whatever reason-- we cannot assert either of the disjuncts. Brouwer himself thought that there were mathematical counterexamples to the law of the excluded middle, such as the $\phi$ that says that in the decimal expansion of $\pi=3.14159265359\ldots$ there is a ten digit block of numbers $0123456789$. The thinking seems to be that we cannot assert $\phi$ because no one has yet found such a block. And we cannot assert $\neg \phi$ because no one has yet proven that the supposition of $\phi$ leads to an absurdity.[^1] This line of reasoning, of course, presupposes that we interpret $\neg \phi$ as $\phi\rightarrow \bot$.
+BHK will not endorse law of the excluded middle $\phi \vee \neg \phi$. BHK predicts that this will not hold in situations where-- for whatever reason-- we cannot assert either of the disjuncts. Brouwer himself thought that there were mathematical counterexamples to the law of the excluded middle, such as the $\phi$ that says that in the decimal expansion of $\pi=3.14159265359\ldots$ there is a ten digit block of numbers $0123456789$. The thinking seems to be that we cannot assert $\phi$ because no one has yet found such a block. And we cannot assert $\neg \phi$ because no one has yet proven that the supposition of $\phi$ leads to an absurdity.[^2] This line of reasoning, of course, presupposes that we interpret $\neg \phi$ as $\phi\rightarrow \bot$.
 
-[^1]: This is Brouwer's example on p. 6 of [Brouwer, L. E. J. 1981. Brouwer’s Cambridge Lectures on Intuitionism. Cambridge University Press, Cambridge-New York](https://logic-teaching.github.io/philos-132-winter-23/texts/Brouwer1981BrouwersCambridgeLecturesonIntuitionismLecture1-redeux.pdf).; and on p. 21 of: Brouwer, L. E. J. 1992. Intuitionismus. Edited by Dirk van Dalen. Mannheim: Wissenschaftsverlag. These are lectures which he gave in Berlin in Cambridge after the war and in Berlin in 1927. The ideas in them were made well-known, at the time, in the intuitionism chapter of Fraenkel's 1927 book: Fraenkel, Adolf. 1927. Zehn Vorlesungen Über Die Grundlegung Der Mengenlehre: Gehalten in Kiel Auf Einladung Der Kant-Gesellschaft, Ortsgruppe Kiel, Vom 8.--12. Juni 1925. Leipzig and Berlin: Teubner.
+[^2]: This is Brouwer's example on p. 6 of [Brouwer, L. E. J. 1981. Brouwer’s Cambridge Lectures on Intuitionism. Cambridge University Press, Cambridge-New York](https://logic-teaching.github.io/philos-132-winter-23/texts/Brouwer1981BrouwersCambridgeLecturesonIntuitionismLecture1-redeux.pdf).; and on p. 21 of: Brouwer, L. E. J. 1992. Intuitionismus. Edited by Dirk van Dalen. Mannheim: Wissenschaftsverlag. These are lectures which he gave in Berlin in Cambridge after the war and in Berlin in 1927. The ideas in them were made well-known, at the time, in the intuitionism chapter of Fraenkel's 1927 book: Fraenkel, Adolf. 1927. Zehn Vorlesungen Über Die Grundlegung Der Mengenlehre: Gehalten in Kiel Auf Einladung Der Kant-Gesellschaft, Ortsgruppe Kiel, Vom 8.--12. Juni 1925. Leipzig and Berlin: Teubner.
 
 Likewise, BHK will not endorse double-negation. In particular, it will not endorse $\neg\neg\phi\rightarrow \phi$. For, for the intuitionist, $\neg \neg \phi$ is equivalent to $(\phi\rightarrow \bot)\rightarrow \bot$. A proof of the latter is, according to BHK, a way to transform "any transformation of a proof of $\phi$ to absurdity" itself to absurdity. That is, $\neg \neg \phi$ requires, according to BHK, that one have a way of refuting any refutation of $\phi$. And having such a way does not by itself give you a reason to assert $\phi$.
 
@@ -178,7 +177,7 @@ In philosophy, BHK was given center stage in Dummett's philosophy of language, d
 
 [^3]: Dummett, Michael. 1959. “Truth.” Proceedings of the Aristotelian Society 59: 141–62.
 
-While Dummett was influential in his time, more recent decades tend to insist on a more rigid separation between topics in philosophy of language like meaning and reference on the one hand, and topics in epistemology like justification on the other hand.
+Dummett was influential in his time, but more recent decades have insisted on a more clean separation between topics in philosophy of language like meaning and reference, and topics in epistemology like justification.
 
 A longer lasting legacy of BHK pertains to the idea that proofs are often closely tied to certain kinds of constructions. Perhaps the experience of building proofs in the last weeks speaks to the plausibility of the thought that a proof is a procedure to get from the premises to the conclusion. One way to make the relevant notion of procedure more formal is through the typed lambda-calculus, where the procedure for "add five to x then multiply by 2" would be formalized by $\lambda x. 2(x+5)$. The close connection to be found between intuitionistic propositional logic and proofs qua lambda terms then finds expression in the  Curry-Howard correspondence.[^4]
 
