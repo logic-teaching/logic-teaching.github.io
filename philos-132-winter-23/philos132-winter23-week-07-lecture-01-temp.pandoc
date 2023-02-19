@@ -1,0 +1,187 @@
+<br>
+<br>
+
+# Intuitionistic logic with solutions
+
+We introduce two new rules, repeat rule and EFSQ. Along the way we discuss the relation of the deductive system built up so far to intuitionism.
+
+- [Repeat rule](#repeat-rule)
+- [EFSQ rule](#efsq-rule)
+- [Example 1 of EFSQ](#example-1-of-efsq)
+- [Example 2 of EFSQ](#example-2-of-efsq)
+- [Example 3 of EFSQ](#example-3-of-efsq)
+- [Intuitionistic logic and BHK](#intuitionistic-logic-and-bhk)
+
+This version has the **solutions** filled in, that is, it has the proofs filled in.
+
+<br>
+<br>
+
+
+## Repeat rule
+
+The repeat rule simply says that if you have $\phi$ on a line $\ell_1$, then you can write $\phi$ on any subsequent line $\ell>\ell_1$:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_repeat_rule_redeuxb.mp4"/> </video>
+
+Note that we are abbreviating repeat by *rep*. In the proof-checker, we just type `rep`.
+
+In applying this, stay out of closed brackets. That is, don’t use this rule to repeat things in closed brackets outside of them.
+
+Here is a simple example, which we first do by hand:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_repeat.mp4"/> </video>
+
+<br>
+
+Second, you can try to input it into the proof-checker yourself, or come back later and practice:
+
+```{.ProofChecker .GamutIPND submission="none"}
+ q :|-: p->q
+|q :assumption
+| p :assumption
+| q :rep 1
+|p->q :I->2-3
+```
+Note again that the repeat rule is typed `rep`.
+
+The repeat rule might save us a little space now and again, by preventing us from having to re-prove previously established results.
+
+<br>
+<br>
+
+## EFSQ rule
+
+Recall that the symbol ⊥ is called falsum or bottom or bot, and that it is a special symbol for a contradiction, something that is always false. We can verify, via truth-tables, that from a contradiction anything follows:
+
+~~~{.TruthTable .Validity system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ (p/\~p) :|-: q
+|TFFTTT
+|TFFTTF
+|FFTFTT
+|FFTFTF
+~~~
+
+The Latin phrase *ex falso sequitur quodlibet* just means "from a contradiction anything follows." The rule EFSQ in natural deduction simply is a rule associated to this. Formally, it says that if you have a line with ⊥ on it, then on any subsequent line you may write anything you like. In a picture, it is the following:
+
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_EFSQ.mp4"/> </video>
+
+<br>
+
+Again, most of the time when ⊥ occurs in a proof, it occurs within brackets, and so within a hypothetical argument. Hence, the practical import of the rule is that when one finds ⊥ within a hypothetical argument, one can move to any conclusion one likes. Before, the only thing we could do when we ran into ⊥ at the bottom of a bracket which starts with $\phi$ is write $\neg \phi$ on the next line via negation introduction. Now, when we run into ⊥ at the bottom of a bracket that starts with $\phi$ we may write $\psi$ immediately after it and then close off the bracket and write $\phi\rightarrow \psi$ immediately under it and justify it via arrow introduction, like so:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_EFSQ_application.mp4"/> </video>
+
+<br>
+<br>
+
+## Example 1 of EFSQ
+
+*Example 1*. $\neg p \vdash p\rightarrow q$.
+
+First we do it by hand:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_EFSQ_ex1.mp4"/> </video>
+
+<br>
+
+Second we input it into the proof-checker:
+
+```{.ProofChecker .GamutIPND submission="none"}
+ ~p :|-: p->q
+|~p :assumption
+| p :assumption
+| ⊥ :E~1,2
+| q :EFSQ3
+|p->q :I->2-4
+```
+
+<br>
+<br>
+
+## Example 2 of EFSQ
+
+This is one of the disjunctive syllogisms:
+
+*Example 2*. $p\vee q, \neg p \vdash q$.
+
+First we do it by hand:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_EFSQ_ex2_redeux.mp4"/> </video>
+
+<br>
+
+Second we input it into the proof-checker:
+
+```{.ProofChecker .GamutIPND submission="none"}
+ p\/q, ~p :|-: q
+|p\/q :assumption
+|~p :assumption
+|  p:assumption
+|  ⊥ :E~2,3
+|  q :EFSQ4
+|p->q :I->3-5
+| q :assumption
+| q :rep7
+|q->q :I->7-8
+|q :E\/1,6,9
+```
+
+<br>
+<br>
+
+## Example 3 of EFSQ
+
+
+*Example 3*. $\neg (p\rightarrow q) \vdash \neg \neg p$.
+
+First we do it by hand:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_EFSQ_ex3.mp4"/> </video>
+
+<br>
+
+Second we input it into the proof-checker:
+
+```{.ProofChecker .GamutIPND submission="none"}
+ ~(p->q) :|-: ~~p
+|~(p->q) :assumption
+| ~p :assumption
+|  p :assumption
+|  ⊥ :E~2,3
+|  q :EFSQ 4
+| p->q :I->3-5
+| ⊥ :E~1,6
+|~~p :I~2-7
+```
+
+<br>
+<br>
+
+## Intuitionistic logic and BHK
+
+The deductive system that he have learned so far is sometimes called intuitionistic logic. The traditional motivation for it is sometimes called the *Brouwer-Heyting-Kolmogorov (BHK) interpretation*. The traditional statement of this, due to Heyting in his short 1956 book *Intuitionism*, is as follows:[^1]
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-conjunctiondisjunction.png" alt="BHK conjunction disjunction.png" width="600"/>
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-arrow1.png" alt="BHK conjunction disjunction" width="600"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-arrow2.png" alt="BHK conjunction disjunction" width="600"/>
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-negation.png" alt="BHK conjunction disjunction" width="600"/>
+
+[^1]: This is from pp. 102-103, 106-107 of [Heyting, Arend. 1956. Intuitionism. An Introduction. Amsterdam: North-Holland](https://logic-teaching.github.io/prop/texts/Heyting%201956%20-%20Intuitionism%20-%20An%20Introduction%20-%20Chapters%201,%207,%208.pdf). Heyting had originally developed these ideas in the 1930s, in publications such as: Heyting Sur La Logique Intuitionniste.” Académie Royale de Belgique, Bulletin de La Classe. Heyting, Arend. 1930. “Die Formalen Regeln Der Intuitionistichen Logik.” Sitzungsberichte Der Koniglichen Preussischen Akademie Der Wissenschaften, 42–56. [Heyting, Arend. 1931. “Die Intuitionistische Grundlegung Der Mathematik.” Erkenntnis. An International Journal of Analytic Philosophy 2: 106–15](https://logic-teaching.github.io/prop/texts/Heyting%201931%20-%20Die%20Intuitionistische%20Grundlegung%20Der%20Mathematik.pdf).
+
+Consider the law of the excluded middle $\phi \vee \neg \phi$. BHK predicts that this will not hold in situations where-- for whatever reason-- we cannot assert either of the disjuncts. Brouwer himself thought that there were mathematical counterexamples to the law of the excluded middle, such as the $\phi$ that says that in the decimal expansion of $\pi$ there is a ten digit block of numbers $0123456789$. The thinking seems to be that we cannot assert $\phi$ because no one has yet found such a block. And we cannot assert $\neg \phi$ because no one has yet proven that the supposition of $\phi$ leads to an absurdity.[^2] This line of reasoning, of course, presupposes that we interpret $\neg \phi$ as $\phi\rightarrow \bot$.
+
+[^2]: This is Brouwer's example on p. 6 of [Brouwer, L. E. J. 1981. Brouwer’s Cambridge Lectures on Intuitionism. Cambridge University Press, Cambridge-New York](https://logic-teaching.github.io/prop/texts/Brouwer1981BrouwersCambridgeLecturesonIntuitionismLecture1-redeux.pdf).; and on p. 21 of: Brouwer, L. E. J. 1992. Intuitionismus. Edited by Dirk van Dalen. Mannheim: Wissenschaftsverlag. These are lectures which he gave in Berlin in Cambridge after the war and in Berlin in 1927. The ideas in them were made well-known, at the time, in the intuitionism chapter of Fraenkel's 1927 book: Fraenkel, Adolf. 1927. Zehn Vorlesungen Über Die Grundlegung Der Mengenlehre: Gehalten in Kiel Auf Einladung Der Kant-Gesellschaft, Ortsgruppe Kiel, Vom 8.--12. Juni 1925. Leipzig and Berlin: Teubner.
+
+A natural question to ask is whether BHK itself requires that one assent to EFSQ. This is what Heyting says about the inference $\neg p \vdash p\rightarrow q$ (namely [Example 1 of EFSQ](#example-1-of-efsq)):
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Heyting-1956-BHK-EFSQ.png" alt="BHK EFSQ" width="600"/>
+
+But it is not obvious whether this is anything more than a restatement of EFSQ in terms of constructions. Perhaps a more stronger case could be made simply by thinking about concrete cases like [Example 2 of EFSQ](#example-2-of-efsq), namely $p\vee q, \neg p \vdash q$. Suppose that one can assert $p\vee q$. Then according to BHK, one can assert $p$ or one can assert $q$, and presumably know which one. If one can assert $q$, then we are done. Suppose alternatively that one could assert $p$. Then since one can assert $\neg p$, one already knows a construction for how to convert evidence for $p$ into a contradiction. Hence, perhaps that is reason to think that one could not have actually been in a position to assert $p$ in the first place.
+
+The longest lasting legacy of BHK pertains less to its tacit suggestion that the meaning of the logical connectives lies in its assertibility conditions, and more in the idea that proofs are often closely tied to certain kinds of constructions. Perhaps the experience of building proofs in the last weeks speaks to the plausibility of the thought that a proof is a procedure to get from the premises to the conclusion. One way to make the relevant notion of procedure more formal is through the typed lambda-calculus, where the procedure for "add five to x then multiply by 2" would be formalized by $\lambda x. 2(x+5)$. The close connection to be found between intuitionistic propositional logic and proofs qua lambda terms then finds expression in the so-called Curry-Howard correspondence,[^3] which regrettably is a bit beyond our reach in this course.
+
+[^3]: For more on this, see: [Gallier, Jean. 1995. “On the Correspondence between Proofs and λ-Terms.” In The Curry-Howard Isomorphism, edited by Ph de Groote, 8:55–138. Cahiers Du Centre de Logique. Louvain: Academia-Erasme](https://logic-teaching.github.io/prop/texts/Gallier%201995%20-%20On%20the%20correspondence%20between%20proofs%20and%20lambda-terms.pdf), and [Sørensen, M. H., and Pawel Urzyczyn. 2006. Lectures on the Curry-Howard Isomorphism. Vol. 149. Studies in Logic and the Foundations of Mathematics. New York: Elsevier](https://scholar.google.com/scholar?cluster=2266409716850034366&hl=en&as_sdt=0,5).
