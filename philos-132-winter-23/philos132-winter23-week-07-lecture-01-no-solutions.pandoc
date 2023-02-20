@@ -14,7 +14,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 7, Lecture 1, Intuitionistic logic, with solutions
+# Week 7, Lecture 1, Intuitionistic logic
 
 We define intuitionistic logic and classical logic. And we practice with more complicated proofs, in intuitionistic logic. Finally, we discuss one traditional philosophical interpretation of intuitionistic logic.
 
@@ -52,11 +52,6 @@ We illustrate with respect to the atomic $Fa$:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  :|-: Fa->~~Fa
-| Fa :as
-|  ~Fa :as
-|  ⊥ :E~1,2
-| ~~Fa :I~2-3
-|Fa->~~Fa :I->1-4
 ```
 
 <br>
@@ -69,11 +64,6 @@ We illustrate again with $\psi$ being the atomic $Fa$.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  :|-: ~Fa->~~~Fa
-| ~Fa :as
-|  ~~Fa :as
-|  ⊥ :E~1,2
-| ~~~Fa :I~2-3
-|~Fa->~~~Fa :I->1-4
 ```
 
 <br>
@@ -86,14 +76,6 @@ This holds for again for any $\psi$ of predicate logic. And we again illustrate 
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  :|-: ~~~Fa->~Fa
-| ~~~Fa :as
-|  Fa :as
-|   ~Fa :as
-|   ⊥ :E~2,3
-|  ~~Fa :I~3-4
-|  ⊥ :E~1,5
-| ~Fa :I~2-6
-|~~~Fa->~Fa :I->1-7
 ```
 
 <br>
@@ -106,14 +88,6 @@ This holds for all $\phi$ of predicate logic. We illustrate again with $Fa$.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  :|-: ~~(Fa\/~Fa)
-| ~(Fa\/~Fa) :assumption
-|  Fa :assumption
-|  Fa\/~Fa :I\/2
-|  ⊥ :E~1,3
-| ~Fa :I~2-4
-| Fa\/~Fa :I\/5
-| ⊥ :E~1,6
-|~~(Fa\/~Fa) :I~1-7
 ```
 
 <br>
@@ -127,16 +101,6 @@ This holds for all $\phi$ of predicate logic. We illustrate again with $Fa$.
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Fa\/~Fa :|-: ~~Fa->Fa
 |Fa\/~Fa :as
-| ~~Fa :as
-|   Fa :as
-|   Fa :rep 3
-| Fa->Fa :I->3-4
-|  ~Fa :as
-|  !? :E~2,6
-|  Fa :EFSQ7
-| ~Fa->Fa :I->6-8
-| Fa :E\/1,5,9
-|~~Fa->Fa :I->2-10
 ```
 
 <br>
@@ -206,10 +170,6 @@ For the remainder of today, let's look at BHK a bit more and practice more with 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ~Pa :|-: Pa->Qa
 |~Pa :assumption
-| Pa :assumption
-| ⊥ :E~1,2
-| Qa :EFSQ3
-|Pa->Qa :I->2-4
 ```
 This is what Heyting says about the propositional variant of this inference:
 
@@ -227,14 +187,6 @@ Consider the following formal proof, which goes through EFSQ:
  Pa\/Qa, ~Pa :|-: Qa
 |Pa\/Qa :assumption
 |~Pa :assumption
-| Qa :assumption
-| Qa :rep3
-|Qa->Qa :I->3-4
-| Pa:assumption
-| ⊥ :E~2,6
-| Qa :EFSQ7
-|Pa->Qa :I->6-8a
-|Qa :E\/1,5,9
 ```
 
 Now that we have done the formal proof, consider just the statement of the result itself, and think about how BHK would conceive of why this argument was justified. Suppose that one can assert $Pa\vee Qa$. Then according to BHK, one can assert $Pa$ or one can assert $Qa$, and moreover one knows which one. If one can assert $Qa$, then we are done. Suppose alternatively that one could assert $Pa$. Then since one can assert $\neg Pa$, one already knows a construction for how to convert evidence for $Pa$ into a contradiction. That is a reason to think that one could not have actually been in a position to assert $Pa$ in the first place, and hence rather one must have been in a position to assert $Qa$. If this is right, then BHK can justify some paradigmatic applications of EFSQ even if it cannot justify EFSQ itself.
