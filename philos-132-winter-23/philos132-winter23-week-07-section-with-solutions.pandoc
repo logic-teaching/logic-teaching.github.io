@@ -33,7 +33,7 @@ There are only seven problems, since they take longer. But since they are longer
 
 *Problem 1*
 
-The following is a variant on the Russell's paradox [from Week 2](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#the-russell-paradox). The premise describes the version of law of excluded middle which featured prominently in our proof in Week 2. If one reads $Ruw$ as $u\in w$ and if one appeals to [extensionality](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#extensionality), then the conclusion says that it is not the case that $c$ is such that $c=\{x: x\notin x\}$.
+The following is a variant on Russell's paradox [from Week 2](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#the-russell-paradox). The premise describes the version of law of excluded middle which featured prominently in our proof in Week 2. If one reads $Ruw$ as $u\in w$ and if one appeals to [extensionality](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#extensionality), then the conclusion says that it is not the case that $c$ is such that $c=\{x: x\notin x\}$.
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.01 Rcc\/~Rcc :|-: ~(Ax(Rxc->~Rxx)/\Ax(~Rxx->Rxc))
