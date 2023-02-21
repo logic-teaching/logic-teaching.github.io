@@ -15,9 +15,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 7, Section with solutions
+# Week 7, Section
 
-We do a couple paradigmatic predicate logic proofs. This document contains the solutions. As with all non-trivial proofs, you should be writing them out by hand first.
+We do a couple paradigmatic predicate logic proofs.
 
 There are only seven problems, since they take longer. But since they are longer we still might not have time to do all of them in section. Take the others as further opportunities for practice.
 
@@ -38,21 +38,6 @@ The following is a variant on the Russell's paradox [from Week 2](https://carnap
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.01 Rcc\/~Rcc :|-: ~(Ax(Rxc->~Rxx)/\Ax(~Rxx->Rxc))
 |Rcc\/~Rcc :assumption
-| Ax(Rxc->~Rxx)/\Ax(~Rxx->Rxc) :assumption
-| Ax(Rxc->~Rxx) :E/\2
-| Ax(~Rxx->Rxc) :E/\2
-| Rcc->~Rcc :EA3
-| ~Rcc->Rcc :EA4
-|  Rcc :assumption
-|  ~Rcc :E->5,7
-|  !? :E~7,8
-| Rcc->!? :I->7-9
-|  ~Rcc :assumption
-|  Rcc :E->11,6
-|  !? :E~11,12
-| ~Rcc->!? :I->11-13
-| !? :E\/1,10,14
-|~(Ax(Rxc->~Rxx)/\Ax(~Rxx->Rxc)) :I~2-15
 ```
 
 <br>
@@ -63,16 +48,6 @@ The following illustrates that, even without law of the excluded middle, we can 
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.02 :|-: ~((Fa->~Fa)/\(~Fa->Fa))
-| (Fa->~Fa)/\(~Fa->Fa) :assumption
-| Fa->~Fa :E/\1
-| ~Fa->Fa :E/\1
-|  Fa :assumption
-|  ~Fa :E->2,4
-|  !? :E~4,5
-| ~Fa :I~4-6
-| Fa :E->3,7
-| !? :E~7,8
-|~((Fa->~Fa)/\(~Fa->Fa)) :I~1-9
 ```
 
 <br>
@@ -83,18 +58,6 @@ We now update our proof of Problem 1 using the technique from Problem 2. Again, 
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.03 :|-: ~(Ax(Rxc->~Rxx)/\Ax(~Rxx->Rxc))
-| (Ax(Rxc->~Rxx)/\Ax(~Rxx->Rxc)) :as
-| Ax(Rxc->~Rxx) :E/\1
-| Ax(~Rxx->Rxc) :E/\1
-| Rcc->~Rcc :EA2
-| ~Rcc->Rcc :EA3
-|  Rcc :as
-|  ~Rcc :E->4,6
-|  !? :E~6,7
-| ~Rcc :I~6-8
-| Rcc :E->5,9
-| !? :E~9,10
-|~(Ax(Rxc->~Rxx)/\Ax(~Rxx->Rxc)) :I~1-11
 ```
 
 <br>
@@ -107,19 +70,6 @@ The following is much closer to Russell's paradox [from Week 2](https://carnap.i
 07.04  Ax(Rxc->(Rxd/\~Rxx)), Ax((Rxd/\~Rxx)->Rxc) :|-: ~AxRxd
 |Ax(Rxc->(Rxd/\~Rxx)) :assumption
 |Ax((Rxd/\~Rxx)->Rxc) :assumption
-|Rcc->(Rcd/\~Rcc) :EA1
-|(Rcd/\~Rcc)->Rcc :EA2
-| AxRxd :assumption
-| Rcd :EA5
-|  Rcc :assumption
-|  Rcd/\~Rcc :E->3,7
-|  ~Rcc :E/\8
-|  !? :E~7,9
-| ~Rcc :I~7-10
-| Rcd/\~Rcc :I/\6,11
-| Rcc :E->4,12
-| !? :E~11,13
-|~AxRxd :I~5-14
 ```
 
 <br>
@@ -135,12 +85,6 @@ In [Week 3 Section](https://carnap.io/shared/logiclogiclogic/philos132-winter23-
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.05 EyAxRxy  :|-: AxEyRxy
 |EyAxRxy :assumption
-| AxRxb :assumption
-| Rab :EA2
-| EyRay :IE3
-| AxEyRxy :IA4
-|AxRxb ->AxEyRxy :I->2-5
-|AxEyRxy :EE1,6
 ```
 
 <br>
@@ -152,18 +96,6 @@ This one is a minor variation on the previous one.
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.06 Ey(Gy/\Ax(Fx->Rxy))  :|-: Ax(Fx->Ey(Gy/\Rxy))
 |Ey(Gy/\Ax(Fx->Rxy)) :assumption
-| Gb/\Ax(Fx->Rxb) :assumption
-| Gb :E/\2
-| Ax(Fx->Rxb) :E/\2
-| Fa->Rab :EA4
-|  Fa :assumption
-|  Rab :E->5,6
-|  Gb/\Rab :I/\3,7
-|  Ey(Gy/\Ray) :IE8
-| Fa->Ey(Gy/\Ray) :I->6-9
-| Ax(Fx->Ey(Gy/\Rxy)) :IA10
-|(Gb/\Ax(Fx->Rxb))->Ax(Fx->Ey(Gy/\Rxy)) :I->2-11
-|Ax(Fx->Ey(Gy/\Rxy)) :EE1,12
 ```
 
 <br>
@@ -175,29 +107,4 @@ This interleaves Problem 5 with some disjunction arguments. While there are many
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.07 EyAx(Gy/\Rxy)\/EyAx(Gy/\Sxy)  :|-: AxEy(Gy/\(Rxy\/Sxy))
 |EyAx(Gy/\Rxy)\/EyAx(Gy/\Sxy) :assumption
-| EyAx(Gy/\Rxy) :assumption
-|  Ax(Gb/\Rxb) :assumption
-|  Gb/\Rab :EA3
-|  Gb :E/\4
-|  Rab :E/\4
-|  (Rab\/Sab) :I\/6
-|  Gb/\(Rab\/Sab) :I/\5,7
-|  Ey(Gy/\(Ray\/Say)) :IE8
-|  AxEy(Gy/\(Rxy\/Sxy)) :IA9
-| Ax(Gb/\Rxb)->AxEy(Gy/\(Rxy\/Sxy)) :I->3-10
-| AxEy(Gy/\(Rxy\/Sxy)) :EE2,11
-|EyAx(Gy/\Rxy)->AxEy(Gy/\(Rxy\/Sxy)) :I->2-12
-| EyAx(Gy/\Sxy) :assumption
-|  Ax(Gb/\Sxb) :assumption
-|  Gb/\Sab :EA15
-|  Gb :E/\16
-|  Sab :E/\16
-|  (Rab\/Sab) :I\/18
-|  Gb/\(Rab\/Sab) :I/\17,19
-|  Ey(Gy/\(Ray\/Say)) :IE20
-|  AxEy(Gy/\(Rxy\/Sxy)) :IA21
-| Ax(Gb/\Sxb)->AxEy(Gy/\(Rxy\/Sxy)) :I->15-22
-| AxEy(Gy/\(Rxy\/Sxy)) :EE14,23
-|EyAx(Gy/\Sxy)->AxEy(Gy/\(Rxy\/Sxy)) :I->14-24
-|AxEy(Gy/\(Rxy\/Sxy)) :E\/1,13,25
 ```
