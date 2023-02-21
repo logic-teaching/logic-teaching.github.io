@@ -1,5 +1,32 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
-## EFSQ
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 7, Tutoring, with solutions
+
+<br>
+
+- [Practice with EFSQ](#practice-with-EFSQ)
+- [Practice with lambda abstraction](#practice-with-lambda-abstraction)
+
+<p style="page-break-before: always">
+
+<br>
+
+## Practice with EFSQ
 
 <br>
 
@@ -140,3 +167,25 @@ This one does not involve EFSQ, but is excellent practice at dealing simultaneou
 ```
 
 <br>
+
+## Practice with lambda abstraction
+
+<br>
+
+For the next eight problems, we work with the following lambda terms, taking for granted a type $\mathbb{N}$ for the natural numbers and the familar arithmetic operations on them.
+
+- $L$ is $\lambda u:\mathbb{N} . u+5$
+- $M$ is $\lambda v:\mathbb{N} . 2\cdot 5$
+- $N$ is $\lambda f: \mathbb{N}\rightarrow \mathbb{N}  \lambda w: \mathbb{N} . f(f(w))$
+
+<br>
+
+*Problem 8*
+
+```{.QualitativeProblem .Numerical  submission="none" options="check"}
+7.08 8 : Evaluate L3
+|8
+```
+
+One has $L3 = (\lambda u:\mathbb{N} . u+5)3 = 3+5 = 8$.
+
