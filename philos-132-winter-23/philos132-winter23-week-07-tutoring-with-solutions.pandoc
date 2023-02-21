@@ -1,0 +1,142 @@
+
+## EFSQ
+
+<br>
+
+*Problem 1*
+
+The following is a paradigmatic example of EFSQ. Before beginning, compare to *Example 7* from [Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-with-solutions.pandoc#bhk-and-efsq).
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.01 Raa\/Rab, Ax~Rxx :|-: Rab
+|Raa\/Rab :asssumption
+|Ax~Rxx :assumption
+| Raa :assumption
+| ~Raa :EA2
+| !? :E~3,4
+| Rab :EFSQ5
+|Raa->Rab :I->3-6
+| Rab :assumption
+| Rab :rep 8
+|Rab->Rab :I->8-9
+|Rab :E\/1,7,10
+```
+
+<br>
+
+<br>
+
+*Problem 2*
+
+This problem is similar to the previous one.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.02 Ax(Fx\/Gx), Ax~Gx :|-: AxFx
+|Ax(Fx\/Gx) :assumption
+|Ax~Gx :assumption
+|~Ga :EA2
+|Fa\/Ga :EA1
+| Fa :assumption
+| Fa :rep5
+|Fa->Fa :I->5-6
+| Ga :assumption
+| !? :E~3,8
+| Fa :EFSQ9
+|Ga->Fa :I->8-10
+|Fa :E\/4,7,11
+|AxFx :IA12
+```
+
+<br>
+
+
+*Problem 3*
+
+This one does not involve EFSQ but is a complement to the next problem, which does use EFSQ. For this one, after setting up the bracket from $Fb$ to falsum, try to use EFSQ to help you write $Fa\rightarrow Fb$ on a line (which in conjunction with the premise gets you falsum).
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.03 ~(Fa->Fb) :|-: ~Fb
+|~(Fa->Fb) :assumption
+| Fb :assumption
+|  Fa :assumption
+|  Fb :rep2
+| Fa->Fb :I->3-4
+| !? :E~1,5
+|~Fb :I~2-6
+```
+
+<br>
+
+*Problem 4*
+
+For this one, first set up the bracket from $\neg Fa$ to falsum. After that try to write $Fa\rightarrow Fb$ on a line. Use EFSQ to help you get from $Fa$ to $Fb$ via a falsum.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.04 ~(Fa->Fb) :|-: ~~Fa
+| ~(Fa->Fb) :assumption
+| ~Fa :assumption
+|  Fa :assumption
+|  !? :E~2,3
+|  Fb :EFSQ4
+| Fa->Fb :I->3-5
+| !? :E~1,6
+|~~Fa :I~2-7
+```
+
+<br>
+
+
+*Problem 5*
+
+This one does not involve EFSQ but is a complement to the next problem, which does use EFSQ. For this one, after setting up the bracket from $Fb$ to falsum, try to use EFSQ to help you write $Fa\rightarrow Fb$ on a line (which in conjunction with the premise gets you falsum).
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.05 ~(Fa->Fb) :|-: ~Fb
+|~(Fa->Fb) :assumption
+| Fb :assumption
+|  Fa :assumption
+|  Fb :rep2
+| Fa->Fb :I->3-4
+| !? :E~1,5
+|~Fb :I~2-6
+```
+
+<br>
+
+*Problem 6*
+
+For this one, first set up the bracket from $\neg Fa$ to falsum. After that try to write $Fa\rightarrow Fb$ on a line. Use EFSQ to help you get from $Fa$ to $Fb$ via a falsum.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.06 ~(Fa->Fb) :|-: ~~Fa
+|~(Fa->Fb) :assumption
+| ~Fa :assumption
+|  Fa :assumption
+|  !? :E~2,3
+|  Fb :EFSQ4
+| Fa->Fb :I->3-5
+| !? :E~1,6
+|~~Fa :I~2-7
+```
+
+<br>
+
+*Problem 7*
+
+This one does not involve EFSQ, but is excellent practice at dealing simultaneously with negations and universal quantifier rules.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.07 :|-: ~~AxFx->Ax~~Fx
+| ~~AxFx :as
+|  ~Fa :as
+|   AxFx :as
+|   Fa :EA3
+|   !? :E~2,4
+|  ~AxFx :I~3-5
+|  !? :E~1,6
+| ~~Fa :I~2-7
+| Ax~~Fx :IA8
+|~~AxFx->Ax~~Fx :I->1-9
+```
+
+<br>
