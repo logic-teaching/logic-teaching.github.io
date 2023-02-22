@@ -271,7 +271,7 @@ Find a proof of the following tautology of intuitionistic propositional logic.
 
 <br>
 
-If you decorate your answer to Problem 18 with proof terms using variables $f,g,u$, what proof term do you get for the last line?
+If you decorate your answer to Problem 18 with proof terms using variables $f,g,u$ (in that order), what proof term do you get for the last line?
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
 7.13
@@ -281,9 +281,9 @@ If you decorate your answer to Problem 18 with proof terms using variables $f,g,
 | λf : q->r, λu : p, λg : p->q . g(f(u))
 ```
 
-Here is one solution which shows how to do it:
+Here is a solution which shows how to do it:
 
- <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/simple-composition-diagram.png" alt="Decorated proof" width="500"/>
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/decorated-proof.png" alt="Decorated proof" width="500"/>
 
 
 <br>
@@ -332,3 +332,7 @@ Now decorate it with proof-terms, and see what proof-term you get for the final 
 ```
 
 (Side note: this was Church's way of encoding natural numbers as lambda terms. This term is the lambda term for 3. It corresponds to the three applications of arrow elimination in our proof).
+
+Here is a solution which shows how to do it:
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/decorated-proof-2.png" alt="Decorated proof" width="500"/>
