@@ -20,8 +20,8 @@ We introduce lambda notation, a succinct notation for functions. We describe the
 
 
 - [Lambda notation for functions](#lambda-notation-for-functions)
-- [Functions which input and output other functions](#functions-which-input-and-output-other-functions)
-- [Functional application is to arrow elimination as lambda introduction is to arrow introduction](#Functional-application-is-to-arrow-elimination-as-lambda-introduction-is-to-arrow-introduction)
+- [Functions applied to functions](#functions-applied-to-functions)
+- [An elementary lambda calculus](#an-elementary-lambda-calculus)
 - [The Curry-Howard Isomorphism](#the-curry-howard-isomorphism)
 - [Proof and program verification](#proof-and-program-verification)
 
@@ -65,7 +65,7 @@ Since it denotes a function, whenever you have an input $a$ from $X$, you can ev
 
 <br>
 
-## Functions which input and output other functions
+## Functions applied to functions
 
 Part of the beauty of the lambda notation for functions is that it gives a succinct way of describing the action of functions on other functions. For instance, suppose we are interested in functions from natural numbers to integers. Given any such function $f:\mathbb{N}\rightarrow \mathbb{Z}$, we can build another function by further subtracting 5. That is, we could consider the function $g:\mathbb{N}\rightarrow \mathbb{Z}$ given by $g(v) = f(v)-5$. This operation of "further substract 5" takes $f:\mathbb{N}\rightarrow \mathbb{Z}$ to $g:\mathbb{N}\rightarrow \mathbb{Z}$ is also a function, namely a function from functions to functions. We can denote it in lambda notation as follows:
 
@@ -82,36 +82,41 @@ Call this function $J$, for short. There are two lambda expressions in our notat
 
 <br>
 
-## Functional application is to arrow elimination as lambda introduction is to arrow introduction
+## An elementary lambda calculus
 
-The *first* observation is that functional application looks a lot like an application of arrow elmination (or modus ponens), perhaps supplemented by the arrow clauses of Tarski's definition of truth in a model:
+Just as a "logic" refers to some formulas in some extension of propositional logic along with a semantics and/or deductive system, so "lambda calculus" refers to some formulas in some extension of lambda notation along with a semantics and/or deductive system. In this section we define a simple deductive system for lambda notation, which is hence a very simple lambda calculus.
 
-- If $M:P\rightarrow Q$ and $N$ is in $P$, then $M(N)$ is in $Q$.
-- If $P\rightarrow Q$ is true and $P$ is true, then $Q$ is true.
+As a *first* observation, note that functional application looks a lot like an application of arrow elmination (or modus ponens), perhaps supplemented by the arrow clauses of Tarski's definition of truth in a model:
+
+- *Lambda calculus*: If $M:P\rightarrow Q$ and $N$ is in $P$, then $M(N)$ is in $Q$.
+- *Logic*: If $P\rightarrow Q$ is true and $P$ is true, then $Q$ is true.
 
 Presumably the sense of "true" in the second is something like "true in the model," where the relevant model is determined by context. If we want to further deemphasize the semantic notions, we can we could just remove "is true" and it seems to have the same sense. Likewise, if we want to deemphasize the set-theoretic notions in the first of these, we can write $N:P$ instead of "$N$ is in $P$", and we can write $M(N):Q$ instead of "$M(N)$ is in $Q$". In the lambda notation, we drop parentheses when no ambiguity arises, and we do that here and write $MN$ instead of $M(N)$. If we rewrite in this way, we get two rules which are more ostensibly bereft of semantic and set-theoretic notions, and where the second is literally arrow elimination:
 
-- If $M:P\rightarrow Q$ and $N:P$, then $MN:Q$.
-- If $P\rightarrow Q$ and $P$, then $Q$.
+-*Lambda calculus*: If $M:P\rightarrow Q$ and $N:P$, then $MN:Q$.
+-*Logic*: If $P\rightarrow Q$ and $P$, then $Q$.
 
-We can write these two rules side by side in a more familiar proof format as follows:
+We can write these two rules side by side in our more familiar proof format as follows:
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Dummett%201959%20-%20Truth%20p%20160.png" alt="Elimination rules" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-calculus-elim-rules-2.png" alt="Elimination rules" width="500"/>
 
+<br>
 
-The *second* observation is that a natural way to introduce lambda terms looks a lot like arrow introduction, again perhaps in some partially thematized semantic setting:
+A *second* observation is that a natural way to introduce lambda terms looks a lot like arrow introduction, again perhaps in some partially thematized semantic setting:
 
-- If from $x$ being in $P$ it follows that $M$ in $Q$, then $f=\lambda x : P . M$ is a function $f:P\rightarrow Q$.
-- If from $P$ being true it follows that $Q$ is true, then $P\rightarrow Q$ is true.
+-*Lambda calculus*: If from $x$ being in $P$ it follows that $M$ in $Q$, then $f=\lambda x : P . M$ is a function $f:P\rightarrow Q$.
+-*Logic*: If from $P$ being true it follows that $Q$ is true, then $P\rightarrow Q$ is true.
 
 In the first, the $M$ is just supposed to be some expression in which $x$ is paradigmatically free, and where like above, $M$ returns a value in $Q$ when given a specific value of $x$ in $P$. If we remove set theory and the semantics as above, we get the following, where the second is literally just arrow introduction:
 
-- If from $x:P$ it follows that $M: Q$, then $\lambda x : P . \xi\; : P\rightarrow Q$
-- If from $P$ it follows that $Q$, then $(P\rightarrow Q)$.
+-*Lambda calculus*: If from $x:P$ it follows that $M: Q$, then $\lambda x : P . \xi\; : P\rightarrow Q$
+-*Logic*: If from $P$ it follows that $Q$, then $(P\rightarrow Q)$.
 
-We can summarize these two observations in the following diagram:
+We can write these two rules side by side in our more familiar proof format as follows:
 
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-calculus-intro-rules-2.png" alt="Elimination rules" width="500"/>
 
+The introduction and elimination rules for the lambda calculus give the deductive system for the implicational fragment of *the simply-typed lambda calculus*, just as the introduction and elimination rules on the logic side give the deductive system for the implicational fragment of *propositional logic*.
 
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^7]
