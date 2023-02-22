@@ -86,28 +86,28 @@ Call this function $J$, for short. There are two lambda expressions in our notat
 
 The *first* observation is that functional application looks a lot like an application of arrow elmination (or modus ponens), perhaps supplemented by the arrow clauses of Tarski's definition of truth in a model:
 
-- If $f:X\rightarrow Y$ and $c$ is in $X$, then $f(c)$ is in $Y$.
-- If $\phi\rightarrow \psi$ is true and $\phi$ is true, then $\psi$ is true.
+- If $M:P\rightarrow Q$ and $N$ is in $P$, then $M(N)$ is in $Q$.
+- If $P\rightarrow Q$ is true and $P$ is true, then $Q$ is true.
 
-Presumably the sense of "true" in the second is something like "true in the model," where the relevant model is determined by context. If we want to further deemphasize the semantic notions, we can we could just remove "is true" and it seems to have the same sense. Likewise, if we want to demphasize the set-theoretic notions in the first of these, we can write $x:X$ instead of "$x$ is in $X$", and we can write $f(x):Y$ instead of "$f(x)$ is in $Y$". If we rewrite in this way, we get two rules which are more ostensibly bereft of semantic and set-theoretic notions, and where the second is literally arrow elimination:
+Presumably the sense of "true" in the second is something like "true in the model," where the relevant model is determined by context. If we want to further deemphasize the semantic notions, we can we could just remove "is true" and it seems to have the same sense. Likewise, if we want to deemphasize the set-theoretic notions in the first of these, we can write $N:P$ instead of "$N$ is in $P$", and we can write $M(N):Q$ instead of "$M(N)$ is in $Q$". In the lambda notation, we drop parentheses when no ambiguity arises, and we do that here and write $MN$ instead of $M(N)$. If we rewrite in this way, we get two rules which are more ostensibly bereft of semantic and set-theoretic notions, and where the second is literally arrow elimination:
 
-- If $f:X\rightarrow Y$ and $c:X$, then $f(c):Y$.
-- If $\phi\rightarrow \psi$ and $\phi$, then $\psi$.
+- If $M:P\rightarrow Q$ and $N:P$, then $MN:Q$.
+- If $P\rightarrow Q$ and $P$, then $Q$.
+
+We can write these two rules side by side in a more familiar proof format as follows:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Dummett%201959%20-%20Truth%20p%20160.png" alt="Elimination rules" width="500"/>
+
 
 The *second* observation is that a natural way to introduce lambda terms looks a lot like arrow introduction, again perhaps in some partially thematized semantic setting:
 
-- If from the supposition that $x$ in $X$ it follows that $\psi$ in $Y$, then $f=\lambda x : X . \psi$ is a function $f:X\rightarrow Y$.
-- If from the supposition of $\phi$ being true one can infer that $\psi$ is true, then $\phi\rightarrow \psi$ is true.
+- If from $x$ being in $P$ it follows that $M$ in $Q$, then $f=\lambda x : P . M$ is a function $f:P\rightarrow Q$.
+- If from $P$ being true it follows that $Q$ is true, then $P\rightarrow Q$ is true.
 
-In the first, the $\psi$ is just supposed to be some expression in which $x$ is paradigmatically free, and wherelike above, $\psi$ returns a value in $Y$ when given a specific value of $x$ in $X$. If we remove set theory and the semantics as above, we get the following, where the second is literally just arrow introduction:
+In the first, the $M$ is just supposed to be some expression in which $x$ is paradigmatically free, and where like above, $M$ returns a value in $Q$ when given a specific value of $x$ in $P$. If we remove set theory and the semantics as above, we get the following, where the second is literally just arrow introduction:
 
-- If from $x:X$ it follows that $\psi: Y$, then $(\lambda x : X . \xi) : X\rightarrow Y$
-- If from $\phi$ it follows that $\psi$, then $(\phi\rightarrow \psi)$.
-
-Just as we allow ourselves to drop outer parentheses in logic, so we do when dealing with lambda terms. Hence we can rewrite this pair one more time as:
-
-- If from $x:X$ it follows that $\psi: Y$, then $\lambda x : X . \xi \; : X\rightarrow Y$
-- If from $\phi$ it follows that $\psi$, then $\phi\rightarrow \psi$.
+- If from $x:P$ it follows that $M: Q$, then $\lambda x : P . \xi\; : P\rightarrow Q$
+- If from $P$ it follows that $Q$, then $(P\rightarrow Q)$.
 
 We can summarize these two observations in the following diagram:
 
