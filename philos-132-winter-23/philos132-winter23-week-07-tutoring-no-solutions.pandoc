@@ -249,4 +249,4 @@ Now decorate it with proof-terms, and see what proof-term you get for the final 
 | λf:p->p λu:p . f(f(f(f(u))))
 ```
 
-(Side note: this was Church's way of encoding natural numbers as lambda terms. This term is the lambda term for 3. It corresponds to the three applications of arrow elimination in our proof).
+(Side note: this was Church's way of encoding natural numbers as lambda terms).
