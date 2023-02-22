@@ -20,7 +20,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 
 - [Practice with EFSQ](#practice-with-EFSQ)
-- [Practice with lambda abstraction](#practice-with-lambda-abstraction)
+- [Evaluating lambda terms](#evaluating-lambda-terms)
+- [Inferring types](#inferring-types)
+- [The Curry Howard Isomorphism](#the-curry-howard-isomorphism)
 
 <p style="page-break-before: always">
 
@@ -98,7 +100,7 @@ This one does not involve EFSQ but is a complement to the next problem, which do
 
 For this one, first set up the bracket from $\neg Fa$ to falsum. After that try to write $Fa\rightarrow Fb$ on a line. Use EFSQ to help you get from $Fa$ to $Fb$ via a falsum.
 
-```{.ProofChecker .GamutNDPlus submission="none" }
+```{.ProofChecker .GamutNDPlus submission="none"}
 07.04 ~(Fa->Fb) :|-: ~~Fa
 | ~(Fa->Fb) :assumption
 | ~Fa :assumption
@@ -168,24 +170,165 @@ This one does not involve EFSQ, but is excellent practice at dealing simultaneou
 
 <br>
 
-## Practice with lambda abstraction
+## Evaluating lambda terms
 
 <br>
 
-For the next eight problems, we work with the following lambda terms, taking for granted a type $\mathbb{N}$ for the natural numbers and the familar arithmetic operations on them.
+For the next three problems, we work with the following lambda terms, taking for granted a type $\mathbb{N}$ for the natural numbers and the familiar arithmetic operations on them.
 
-- $L$ is $\lambda u:\mathbb{N} . u+5$
-- $M$ is $\lambda v:\mathbb{N} . 2\cdot 5$
-- $N$ is $\lambda f: \mathbb{N}\rightarrow \mathbb{N}  \lambda w: \mathbb{N} . f(f(w))$
+- $L$ is $\lambda u:\mathbb{N} .\; u+5$
+- $M$ is $\lambda v:\mathbb{N} .\; 7\cdot v$
+- $N$ is $\lambda f: \mathbb{N}\rightarrow \mathbb{N}\;  \lambda w: \mathbb{N} .\; f(f(w))$
 
 <br>
 
-*Problem 8*
+*Problem 11*
 
 ```{.QualitativeProblem .Numerical  submission="none" options="check"}
-7.08 8 : Evaluate L3
-|8
+7.11 29 : Evaluate L3+M3
+|29
 ```
 
-One has $L3 = (\lambda u:\mathbb{N} . u+5)3 = 3+5 = 8$.
+We argue as follows:
 
+- $L3 = (\lambda u:\mathbb{N} . u+5)3 = 3+5 = 8$.
+
+- $M3 = (\lambda v:\mathbb{N} . 7\cdot v)3 = 7\cdot 3  = 21$.
+
+- $L3+M3 = 8+21 = 29$
+
+<br>
+
+*Problem 12*
+
+Reduce $NL$ to a term which contains only one lambda abstract.
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+7.12
+|  λf : ℕ → ℕ, λw : ℕ. f(f(5))
+|  λu : ℕ. f(f(u))
+|+ λu : ℕ. u + 10
+|  λf : ℕ → ℕ, λw : ℕ. 5(5(w))
+```
+
+One has
+
+- $NL= (\lambda f: \mathbb{N}\rightarrow \mathbb{N}\;  \lambda w: \mathbb{N} .\; f(f(w))) (\lambda u:\mathbb{N} .\; u+5) = \lambda w: \mathbb{N} \; (\lambda u:\mathbb{N} .\; u+5)((\lambda u:\mathbb{N} .\; u+5)w) = \lambda w: \mathbb{N} \; (\lambda u:\mathbb{N} .\; u+5)(w+5) = \lambda w: \mathbb{N} \; w+5+5 = \lambda w: \mathbb{N} \; w+10$.
+
+- Hence, intuitively $NL$ is "add 5 twice," which is the same as "add 10".
+
+<br>
+
+*Problem 13*
+
+```{.QualitativeProblem .Numerical  submission="none" options="check"}
+7.12 160 : Evaluate (NL)(3)+(NM)(3)
+|160
+```
+
+- $L$ is add 5, and $N$ is "do it twice," and so NL is "add 5 twice," which is the same as "add 10".
+
+- $(NL)(3) = 3+ 10 = 13$
+
+- $M$ is multiply by 7, and $N$ is "do it twice," and so NL is "multiply by 7 twice," which is the same as "multiply by 49".
+
+- $(ML)(3) = 49*3 = 147$
+
+- $(NL)(3)+(NM)(3) = 13+147=160$
+
+<br>
+
+## Inferring types
+
+<br>
+
+*Problem 14*
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+7.14 What is the type of λu : ℤ . |u| ?
+| ℕ->ℕ
+| ℕ->ℤ
+| ℤ->ℤ
+|+ ℤ->ℕ
+```
+
+
+<br>
+
+*Problem 15*
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+7.15 What is the type of λu : ℤ  λv : ℚ . v-u ?
+| ℚ->(ℤ->ℚ)
+|+ ℤ->(ℚ->ℚ)
+| ℚ->(ℤ->ℤ)
+| (ℤ->ℚ)->ℚ
+```
+
+<br>
+
+*Problem 16*
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+7.16 What is the type of λf : ℤ->ℚ . f(-5) ?
+| ℚ->(ℤ->ℚ)
+| ℤ->(ℚ->ℚ)
+| ℚ->(ℤ->ℤ)
+|+ (ℤ->ℚ)->ℚ
+```
+
+<br>
+
+## The Curry Howard Isomorphism
+
+<br>
+
+The following problems give two further illustrations of the Curry-Howard Isomorphism.
+
+<br>
+
+*Problem 17*
+
+Find a proof of the following tautology of intuitionistic propositional logic.
+
+```{.ProofChecker .GamutMPND submission="none"}
+07.17 :|-: (q->r)->((p->q)->(p->r))
+| q->r :as
+|  p->q :as
+|   p :as
+|   q :E->2,3
+|   r :E->1,4
+|  p->r :I->3-5
+| (p->q)->(p->r) :I->2-6
+|(q->r)->((p->q)->(p->r)) :I->1-7
+```
+
+<br>
+
+*Problem 18*
+
+<br>
+
+If you decorate your answer to Problem 18 with proof terms, what proof term do you get for the last line?
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+7.18
+| λf : p->q, λg : q->r, λu : p . f(g(u))
+| λf : q->r, λu : p, λg : p->q . g(f(u))
+|+ λf : q->r, λg : p->q, λu : p . f(g(u))
+| λf : q->r, λu : p, λg : p->q . g(f(u))
+```
+
+*Problem 19*
+
+<br>
+
+In Week 4 when we were talking about functions, we often visually depicted their graphs. Consider the function $f:\{4,5,6\}\rightarrow \{7,8,9\}$ depicted in blue, and the function $g:\{1,2,3\}\rightarrow \{4,5,6\}$ depicted in green. Let $h:\{1,2,3\}\rightarrow \{7,8,9\}$ given by $g$ followed by $f$. How would you describe $h$ in the terminology of lambda-terms?
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+7.19
+| h = λu : {1,2,3} . g(f(u))
+|+ h = λu : {1,2,3} . f(g(u))
+|+ h = λu : {1,2,3} . (f(u))(g(u))
+| h = λu : {1,2,3} . (f(g))(f(u))
+```
