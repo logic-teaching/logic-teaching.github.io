@@ -16,12 +16,12 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 # Week 7, Lecture 2, Lambda notation and the Curry-Howard isomorphism
 
-We introduce lambda notation, a succinct notation for functions. We describe the Curry-Howard isomorphism on the implicational fragment. We gesture to how it is extended to the entire fragment of intuitionistic predicate logic and how this is implemented in modern proof and program verification.
+We introduce lambda notation, a succinct notation for functions. We describe the Curry-Howard isomorphism on the implicational fragment. We gesture to how it is extended to the entire fragment of intuitionistic predicate logic, and how this is implemented in modern proof and program verification.
 
 
 - [Lambda notation for functions](#lambda-notation-for-functions)
 - [Functions which input and output other functions](#functions-which-input-and-output-other-functions)
-- [Typing lambda expressions looks just like adding proof terms to proofs](#typing-lambda-expressions-looks just like-to-adding-proof-terms-to-proofs)
+- [Functional application is to arrow elimination as lambda introduction is to arrow introduction](#Functional-application-is-to-arrow-elimination-as-lambda-introduction-is-to-arrow-introduction)
 - [The Curry-Howard Isomorphism](#the-curry-howard-isomorphism)
 - [Proof and program verification](#proof-and-program-verification)
 
@@ -82,7 +82,35 @@ Call this function $J$, for short. There are two lambda expressions in our notat
 
 <br>
 
-## Typing lambda expressions looks just like adding proof terms to proofs
+## Functional application is to arrow elimination as lambda introduction is to arrow introduction
+
+The *first* observation is that functional application looks a lot like an application of arrow elmination (or modus ponens), perhaps supplemented by the arrow clauses of Tarski's definition of truth in a model:
+
+- If $f:X\rightarrow Y$ and $c$ is in $X$, then $f(c)$ is in $Y$.
+- If $\phi\rightarrow \psi$ is true and $\phi$ is true, then $\psi$ is true.
+
+Presumably the sense of "true" in the second is something like "true in the model," where the relevant model is determined by context. If we want to further deemphasize the semantic notions, we can we could just remove "is true" and it seems to have the same sense. Likewise, if we want to demphasize the set-theoretic notions in the first of these, we can write $x:X$ instead of "$x$ is in $X$", and we can write $f(x):Y$ instead of "$f(x)$ is in $Y$". If we rewrite in this way, we get two rules which are more ostensibly bereft of semantic and set-theoretic notions, and where the second is literally arrow elimination:
+
+- If $f:X\rightarrow Y$ and $c:X$, then $f(c):Y$.
+- If $\phi\rightarrow \psi$ and $\phi$, then $\psi$.
+
+The *second* observation is that a natural way to introduce lambda terms looks a lot like arrow introduction, again perhaps in some partially thematized semantic setting:
+
+- If from the supposition that $x$ in $X$ it follows that $\psi$ in $Y$, then $f=\lambda x : X . \psi$ is a function $f:X\rightarrow Y$.
+- If from the supposition of $\phi$ being true one can infer that $\psi$ is true, then $\phi\rightarrow \psi$ is true.
+
+In the first, the $\psi$ is just supposed to be some expression in which $x$ is paradigmatically free, and wherelike above, $\psi$ returns a value in $Y$ when given a specific value of $x$ in $X$. If we remove set theory and the semantics as above, we get the following, where the second is literally just arrow introduction:
+
+- If from $x:X$ it follows that $\psi: Y$, then $(\lambda x : X . \xi) : X\rightarrow Y$
+- If from $\phi$ it follows that $\psi$, then $(\phi\rightarrow \psi)$.
+
+Just as we allow ourselves to drop outer parentheses in logic, so we do when dealing with lambda terms. Hence we can rewrite this pair one more time as:
+
+- If from $x:X$ it follows that $\psi: Y$, then $\lambda x : X . \xi \; : X\rightarrow Y$
+- If from $\phi$ it follows that $\psi$, then $\phi\rightarrow \psi$.
+
+We can summarize these two observations in the following diagram:
+
 
 
 
