@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 7, Tutoring, with solutions
+# Week 7, Tutoring
 
 <br>
 
@@ -38,12 +38,6 @@ This one is a very simple application of EFSQ.
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.01 :|-: (Fa/\~Fa)->ExGx
-| Fa/\~Fa :as
-| Fa :E/\1
-| ~Fa :E/\1
-| !? :E~2,3
-| ExGx :EFSQ 4
-|(Fa/\~Fa)->ExGx :I->1-5
 ```
 
 <br>
@@ -56,15 +50,6 @@ The following is a paradigmatic example of EFSQ. Before beginning, compare to *E
 07.02 Raa\/Rab, Ax~Rxx :|-: Rab
 |Raa\/Rab :asssumption
 |Ax~Rxx :assumption
-| Raa :assumption
-| ~Raa :EA2
-| !? :E~3,4
-| Rab :EFSQ5
-|Raa->Rab :I->3-6
-| Rab :assumption
-| Rab :rep 8
-|Rab->Rab :I->8-9
-|Rab :E\/1,7,10
 ```
 
 <br>
@@ -77,17 +62,6 @@ This problem is similar to the previous one.
 07.03 Ax(Fx\/Gx), Ax~Gx :|-: AxFx
 |Ax(Fx\/Gx) :assumption
 |Ax~Gx :assumption
-|~Ga :EA2
-|Fa\/Ga :EA1
-| Fa :assumption
-| Fa :rep5
-|Fa->Fa :I->5-6
-| Ga :assumption
-| !? :E~3,8
-| Fa :EFSQ9
-|Ga->Fa :I->8-10
-|Fa :E\/4,7,11
-|AxFx :IA12
 ```
 
 <br>
@@ -99,12 +73,6 @@ This one does not involve EFSQ but is a complement to the next problem, which do
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.04 ~(Fa->Fb) :|-: ~Fb
 |~(Fa->Fb) :assumption
-| Fb :assumption
-|  Fa :assumption
-|  Fb :rep2
-| Fa->Fb :I->3-4
-| !? :E~1,5
-|~Fb :I~2-6
 ```
 
 <br>
@@ -116,13 +84,6 @@ For this one, first set up the bracket from $\neg Fa$ to falsum. After that try 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 07.05 ~(Fa->Fb) :|-: ~~Fa
 |~(Fa->Fb) :assumption
-| ~Fa :assumption
-|  Fa :assumption
-|  !? :E~2,3
-|  Fb :EFSQ4
-| Fa->Fb :I->3-5
-| !? :E~1,6
-|~~Fa :I~2-7
 ```
 
 <br>
@@ -143,16 +104,8 @@ For the next three problems, we work with the following lambda terms, taking for
 
 ```{.QualitativeProblem .Numerical  submission="none" options="check"}
 7.06 29 : Evaluate L3+M3
-|29
+|
 ```
-
-We argue as follows:
-
-- $L3 = (\lambda u:\mathbb{N} . u+5)3 = 3+5 = 8$.
-
-- $M3 = (\lambda v:\mathbb{N} . 7\cdot v)3 = 7\cdot 3  = 21$.
-
-- $L3+M3 = 8+21 = 29$
 
 <br>
 
@@ -161,18 +114,12 @@ We argue as follows:
 Reduce $NL$ to a term which contains only one lambda abstract.
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
-7.7
+7.07
 |  λf : ℕ → ℕ, λw : ℕ. f(f(5))
 |  λu : ℕ. f(f(u))
-|+ λu : ℕ. u + 10
+|* λu : ℕ. u + 10
 |  λf : ℕ → ℕ, λw : ℕ. 5(5(w))
 ```
-
-One has
-
-- $NL= (\lambda f: \mathbb{N}\rightarrow \mathbb{N}\;  \lambda w: \mathbb{N} .\; f(f(w))) (\lambda u:\mathbb{N} .\; u+5) = \lambda w: \mathbb{N} \; (\lambda u:\mathbb{N} .\; u+5)((\lambda u:\mathbb{N} .\; u+5)w) = \lambda w: \mathbb{N} \; (\lambda u:\mathbb{N} .\; u+5)(w+5) = \lambda w: \mathbb{N} \; w+5+5 = \lambda w: \mathbb{N} \; w+10$.
-
-- Hence, intuitively $NL$ is "add 5 twice," which is the same as "add 10".
 
 <br>
 
@@ -180,18 +127,8 @@ One has
 
 ```{.QualitativeProblem .Numerical  submission="none" options="check"}
 7.08 160 : Evaluate (NL)(3)+(NM)(3)
-|160
+|
 ```
-
-- $L$ is add 5, and $N$ is "do it twice," and so NL is "add 5 twice," which is the same as "add 10".
-
-- $(NL)(3) = 3+ 10 = 13$
-
-- $M$ is multiply by 7, and $N$ is "do it twice," and so NL is "multiply by 7 twice," which is the same as "multiply by 49".
-
-- $(ML)(3) = 49*3 = 147$
-
-- $(NL)(3)+(NM)(3) = 13+147=160$
 
 <br>
 
@@ -206,10 +143,8 @@ One has
 | ℕ->ℕ
 | ℚ->ℕ
 | ℤ->ℤ
-|+ ℤ->ℕ
+|* ℤ->ℕ
 ```
-
-This is because λu : ℤ . |u| denotes the function which on input u from ℤ outputs the element |u|, and when u is an integer, we know that |u| is a natural number.
 
 <br>
 
@@ -218,12 +153,10 @@ This is because λu : ℤ . |u| denotes the function which on input u from �
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
 7.10 What is the type of λu : ℤ  λv : ℚ . v-u ?
 | ℚ->(ℤ->ℚ)
-|+ ℤ->(ℚ->ℚ)
+|* ℤ->(ℚ->ℚ)
 | ℚ->(ℤ->ℤ)
 | (ℤ->ℚ)->ℚ
 ```
-
-This is because λv : ℚ . v-u is the function which on input v from ℚ outputs v-u, which is also in ℚ when u is. Hence λv : ℚ . v-u has type ℚ->ℚ. Thus λu : ℤ  λv : ℚ . v-u denotes the function which on input u from ℤ outputs λv : ℚ . v-u, which has type ℚ->ℚ. Hence, its input is of type ℤ, and its output is of type ℚ->ℚ.
 
 <br>
 
@@ -234,10 +167,8 @@ This is because λv : ℚ . v-u is the function which on input v from ℚ ou
 | ℚ->(ℤ->ℚ)
 | ℤ->(ℚ->ℚ)
 | ℚ->(ℤ->ℤ)
-|+ (ℤ->ℚ)->ℚ
+|* (ℤ->ℚ)->ℚ
 ```
-
-This is because λf : ℤ->ℚ . f(-5) denotes the function which on input of a function f:ℤ->ℚ evaluates f on input -5, and this results in a rational ℚ. Hence, its input is of type ℤ->ℚ, and its output is of type ℚ.
 
 <br>
 
@@ -255,14 +186,6 @@ Find a proof of the following tautology of intuitionistic propositional logic.
 
 ```{.ProofChecker .GamutMPND submission="none"}
 07.12 :|-: (q->r)->((p->q)->(p->r))
-| q->r :as
-|  p->q :as
-|   p :as
-|   q :E->2,3
-|   r :E->1,4
-|  p->r :I->3-5
-| (p->q)->(p->r) :I->2-6
-|(q->r)->((p->q)->(p->r)) :I->1-7
 ```
 
 <br>
@@ -277,14 +200,9 @@ If you decorate your answer to Problem 18 with proof terms using variables $f,g,
 7.13
 | λf : p->q, λg : q->r, λu : p . f(g(u))
 | λf : q->r, λu : p, λg : p->q . g(f(u))
-|+ λf : q->r, λg : p->q, λu : p . f(g(u))
+|* λf : q->r, λg : p->q, λu : p . f(g(u))
 | λf : q->r, λu : p, λg : p->q . g(f(u))
 ```
-
-Here is a solution which shows how to do it:
-
- <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/decorated-proof.png" alt="Decorated proof" width="500"/>
-
 
 <br>
 
@@ -299,7 +217,7 @@ In [Week 4 when we were talking about functions](https://carnap.io/shared/logicl
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
 7.14
 | h = λu : {1,2,3} . g(f(u))
-|+ h = λu : {1,2,3} . f(g(u))
+|* h = λu : {1,2,3} . f(g(u))
 | h = λu : {1,2,3} . (f(u))(g(u))
 | h = λu : {1,2,3} . (f(g))(f(u))
 ```
@@ -327,12 +245,8 @@ Now decorate it with proof-terms, and see what proof-term you get for the final 
 7.15.2
 | λf:p->p λu:p . f(u)
 | λf:p->p λu:p . f(f(u))
-|+ λf:p->p λu:p . f(f(f(u)))
+|* λf:p->p λu:p . f(f(f(u)))
 | λf:p->p λu:p . f(f(f(f(u))))
 ```
 
 (Side note: this was Church's way of encoding natural numbers as lambda terms. This term is the lambda term for 3. It corresponds to the three applications of arrow elimination in our proof).
-
-Here is a solution which shows how to do it:
-
- <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/decorated-proof-2.png" alt="Decorated proof" width="500"/>
