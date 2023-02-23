@@ -21,7 +21,7 @@ We introduce lambda notation, a succinct notation for functions. We describe the
 
 - [Lambda notation for functions](#lambda-notation-for-functions)
 - [Functions applied to functions](#functions-applied-to-functions)
-- [An elementary lambda calculus](#an-elementary-lambda-calculus)
+- [A fragment of the simply typed lambda calculus](#a-fragment-of-the-simply-typed-lambda-calculus)
 - [The Curry-Howard Isomorphism](#the-curry-howard-isomorphism)
 - [Proof and program verification](#proof-and-program-verification)
 
@@ -29,95 +29,178 @@ We introduce lambda notation, a succinct notation for functions. We describe the
 
 ## Lambda notation for functions
 
-Recall that a function $f:X\rightarrow Y$ is simply any operation which given an input $x$ from $X$ returns an output $y=f(x)$ from $Y$. In this context, $X$ is called the *domain* of the function $f$ and $Y$ is called *the codomain* of the function $f$. Here are some simple examples of functions:
+Recall that a function $f:X\rightarrow Y$ is simply any operation which given an input $x$ from $X$ returns an output $y=f(x)$ from $Y$. And recall that $X$ is called the domain of the function $f$ and $Y$ is called the codomain of the function $f$. Here are some simple examples of functions:
 
 - $f:\mathbb{N}\rightarrow \mathbb{N}$ given by $f(u)=2u+5$
 - $g:\mathbb{Z}\rightarrow \mathbb{N}$ given by $g(v)=\left|v\right|$
 - $h:\mathbb{N}\rightarrow \mathbb{Z}$ given by $h(w)=-w$
 
-On one level, lambda notation is simply an alternative way of describing the operations associated to these functions:
+The letter $\lambda$ is "lambda," the analogue of lower case "L" in the Greek alphabet. We use it as an alternative notational systems for describing the operations associated to functions:
 
-- $f:\mathbb{N}\rightarrow \mathbb{N}$ is $\lambda u:\mathbb{N} . 2u+5$
-- $g:\mathbb{Z}\rightarrow \mathbb{N}$ is $\lambda v: \mathbb{Z}. \left|v\right|$
-- $h:\mathbb{N}\rightarrow \mathbb{Z}$ is $\lambda w:\mathbb{N}. -w$
+- $f:\mathbb{N}\rightarrow \mathbb{N}$ is $\lambda u:\mathbb{N} . \;2u+5$
+- $g:\mathbb{Z}\rightarrow \mathbb{N}$ is $\lambda v: \mathbb{Z}. \;\left|v\right|$
+- $h:\mathbb{N}\rightarrow \mathbb{Z}$ is $\lambda w:\mathbb{N}. \;-w$
 
 If context supplies information about what the outputs are, we can even just redescribe these three functions as:
 
-- $f = \lambda u:\mathbb{N} . 2u+5$
-- $g = \lambda v: \mathbb{Z}. \left|v\right|$
-- $h = \lambda w:\mathbb{N}. -w$
+- $f = \lambda u:\mathbb{N} . \;2u+5$
+- $g = \lambda v: \mathbb{Z}. \;\left|v\right|$
+- $h = \lambda w:\mathbb{N}. \;-w$
 
 In fact, lambda notation contains enough information that you can just dispense with the labels and work directly with the lambda terms themselves.
 
 We can illustrate this by doing some evaluations:
 
-- $f(3)=2\cdot 3+5 =6+5=11$. Equivalently, we can write $(\lambda u:\mathbb{N} . 2u+5)(3) = 2\cdot 3+5 = 6+5=11$.
-- $g(-4)=\left|-4\right|=4$. Equivalently, we can write $(\lambda v: \mathbb{Z}. \left|v\right|)(-4)= \left|-4\right|=4$.
-- $h(7)=-7$. Equivalently, we can write $(\lambda w:\mathbb{N}. -w)(7) = -7$.
+- $f(3)=2\cdot 3+5 =6+5=11$. Equivalently, we can write $(\lambda u:\mathbb{N} .\; 2u+5)(3) = 2\cdot 3+5 = 6+5=11$.
+- $g(-4)=\left|-4\right|=4$. Equivalently, we can write $(\lambda v: \mathbb{Z}. \;\left|v\right|)(-4)= \left|-4\right|=4$.
+- $h(7)=-7$. Equivalently, we can write $(\lambda w:\mathbb{N}.\; -w)(7) = -7$.
 
-The general form of a lambda term is $\lambda x: X . L$, where $L$ is an expression for an operation which features free input variable $x$ from domain $X$ and where the corresponding output is of type $Y$. The lambda term $\lambda x: X . L$ then denotes a function from $X$ to $Y$. In our three examples, the $L$'s were respectively:
+The general form of a lambda term is $\lambda x: X . M$, where $M$ is an expression for an operation which features free input variable $x$ from domain $X$ and where the corresponding output is of type $Y$. The lambda term $\lambda x: X . \;M$ then denotes a function from $X$ to $Y$. In our three examples, the $M$'s were respectively:
 
 - $2u+5$
 - $\left|v\right|$
 - $-w$
 
-Since it denotes a function, whenever you have an input $a$ from $X$, you can evaluate $(\lambda x: X . L)a$ by replacing all free instances of $x$ in by $a$. In more formal treatments of the lambda-calculus, such a single application of replacement is called a $\beta$-reduction. That's what we were doing in our simple evaluation examples.
+Since it denotes a function, whenever you have an input $c$ from $X$, you can evaluate $(\lambda x: X . \;M)c$ by replacing all free instances of $x$ in by $c$. In more formal treatments of the lambda-calculus, such a single application of replacement is called a $\beta$-reduction. That's what we were doing in our simple evaluation examples.
 
 <br>
 
 ## Functions applied to functions
 
-Part of the beauty of the lambda notation for functions is that it gives a succinct way of describing the action of functions on other functions. For instance, suppose we are interested in functions from natural numbers to integers. Given any such function $f:\mathbb{N}\rightarrow \mathbb{Z}$, we can build another function by further subtracting 5. That is, we could consider the function $g:\mathbb{N}\rightarrow \mathbb{Z}$ given by $g(v) = f(v)-5$. This operation of "further substract 5" takes $f:\mathbb{N}\rightarrow \mathbb{Z}$ to $g:\mathbb{N}\rightarrow \mathbb{Z}$ is also a function, namely a function from functions to functions. We can denote it in lambda notation as follows:
+Part of the beauty of the lambda notation for functions is that it gives a succinct way of describing the action of functions on other functions. For instance, suppose we are interested in functions from natural numbers to integers. Given any such function $f:\mathbb{N}\rightarrow \mathbb{Z}$, we can build another function by further subtracting 5. That is, we could consider the function $g:\mathbb{N}\rightarrow \mathbb{Z}$ given by $g(v) = f(v)-5$. This operation of "further subtract 5" takes $f:\mathbb{N}\rightarrow \mathbb{Z}$ to $g:\mathbb{N}\rightarrow \mathbb{Z}$ and is hence also a function, namely a function from functions to functions. We can denote it in lambda notation as follows:
 
-- $\lambda f:\mathbb{N}\rightarrow \mathbb{Z} . \lambda v:\mathbb{N} . f(v)-5$.
+- $\lambda f:\mathbb{N}\rightarrow \mathbb{Z} \; \lambda v:\mathbb{N} . \; f(v)-5$.
 
-Call this function $H$, for short. There are two lambda expressions in our notation for $H$. It is saying that if you feed $H$ an input of a function $f:\mathbb{N}\rightarrow \mathbb{Z}$, you get the output $\lambda v:\mathbb{N} . f(v)-5$. And this output is itself a function. We say that $H:(\mathbb{N}\rightarrow \mathbb{Z})\rightarrow (\mathbb{N}\rightarrow \mathbb{Z})$ since it takes functions $f:\mathbb{N}\rightarrow \mathbb{Z}$ as input and outputs functions $g:\mathbb{N}\rightarrow \mathbb{Z}$. (If you like to think in terms of sets, the domain of $H$ is the set of all functions from $\mathbb{N}$ to $\mathbb{Z}$, and its codomain is likewise the set of all functions from $\mathbb{N}$ to $\mathbb{Z}$.)
+Call this function $H$, as an abbreviation for "furt$h$er subtract 5". There are two lambda expressions in our notation for $H$. It is saying that if you feed $H$ an input of a function $f:\mathbb{N}\rightarrow \mathbb{Z}$, you get the output $\lambda v:\mathbb{N} . \; f(v)-5$. And this output is itself a function. We say that $H:(\mathbb{N}\rightarrow \mathbb{Z})\rightarrow (\mathbb{N}\rightarrow \mathbb{Z})$ since it takes functions $f:\mathbb{N}\rightarrow \mathbb{Z}$ as input and outputs functions $g:\mathbb{N}\rightarrow \mathbb{Z}$. (If you like to think in terms of sets, the domain of $H$ is the set of all functions from $\mathbb{N}$ to $\mathbb{Z}$, and its codomain is likewise the set of all functions from $\mathbb{N}$ to $\mathbb{Z}$.)
 
-To take another example, suppose that $f:\mathbb{N}\rightarrow \mathbb{N}$ is a function, and we want to consider the function $g(v)=f(f(f(v)))$, that is "apply $f" three times. This "apply three times" operation is an operation which takes functions $f:\mathbb{N}\rightarrow \mathbb{N}$ as inputs and outputs functions $g:\mathbb{N}\rightarrow \mathbb{N}$. We can denote the "apply three times" function in lambda notation as follows:
+To take another example, suppose that $f:\mathbb{N}\rightarrow \mathbb{N}$ is a function, and we want to consider the function $g(v)=f(f(f(v)))$, that is "apply $f$ three times." This "apply three times" operation is an operation which takes functions $f:\mathbb{N}\rightarrow \mathbb{N}$ as inputs and outputs functions $g:\mathbb{N}\rightarrow \mathbb{N}$. We can denote the "apply three times" function in lambda notation as follows:
 
-- $\lambda f:\mathbb{N}\rightarrow \mathbb{Z} . \lambda v:\mathbb{N} . f(f(f(v)))$.
+- $\lambda f:\mathbb{N}\rightarrow \mathbb{Z} \; \lambda v:\mathbb{N} . \;f(f(f(v)))$.
 
-Call this function $J$, for short. There are two lambda expressions in our notation for $J$. It is saying that if you feed $J$ an input of a function $f:\mathbb{N}\rightarrow \mathbb{N}$, you get the output $ \lambda v:\mathbb{N} . f(f(f(v)))$. And this output is itself a function. We say that $J:(\mathbb{N}\rightarrow \mathbb{N})\rightarrow (\mathbb{N}\rightarrow \mathbb{N})$ since it takes functions $f:\mathbb{N}\rightarrow \mathbb{N}$ as input and outputs functions $g:\mathbb{N}\rightarrow \mathbb{N}$.
+Call this function $T$, as an abbreviation for "apply $t$hree $t$imes.". There are two lambda expressions in our notation for $T$. It is saying that if you feed $T$ an input of a function $f:\mathbb{N}\rightarrow \mathbb{N}$, you get the output $\lambda v:\mathbb{N} . \;f(f(f(v)))$. And this output is itself a function. We say that $T:(\mathbb{N}\rightarrow \mathbb{N})\rightarrow (\mathbb{N}\rightarrow \mathbb{N})$ since it takes functions $f:\mathbb{N}\rightarrow \mathbb{N}$ as input and outputs functions $g:\mathbb{N}\rightarrow \mathbb{N}$.
 
 
 <br>
 
-## An elementary lambda calculus
+## A fragment of the simply typed lambda calculus
 
-Just as a "logic" refers to some formulas in some extension of propositional logic along with a semantics and/or deductive system, so "lambda calculus" refers to some formulas in some extension of lambda notation along with a semantics and/or deductive system. In this section we define a simple deductive system for lambda notation, which is hence a very simple lambda calculus.
+Just as a "logic" refers to some formulas in some extension of propositional logic along with a semantics and/or deductive system, so "lambda calculus" refers to some formulas in some extension of lambda notation along with a semantics and/or deductive system. In this section we define a simple deductive system for lambda notation, which is hence a very elementary lambda calculus.
 
 As a *first* observation, note that functional application looks a lot like an application of arrow elmination (or modus ponens), perhaps supplemented by the arrow clauses of Tarski's definition of truth in a model:
 
 - *Lambda calculus*: If $M:P\rightarrow Q$ and $N$ is in $P$, then $M(N)$ is in $Q$.
+
 - *Logic*: If $P\rightarrow Q$ is true and $P$ is true, then $Q$ is true.
 
 Presumably the sense of "true" in the second is something like "true in the model," where the relevant model is determined by context. If we want to further deemphasize the semantic notions, we can we could just remove "is true" and it seems to have the same sense. Likewise, if we want to deemphasize the set-theoretic notions in the first of these, we can write $N:P$ instead of "$N$ is in $P$", and we can write $M(N):Q$ instead of "$M(N)$ is in $Q$". In the lambda notation, we drop parentheses when no ambiguity arises, and we do that here and write $MN$ instead of $M(N)$. If we rewrite in this way, we get two rules which are more ostensibly bereft of semantic and set-theoretic notions, and where the second is literally arrow elimination:
 
--*Lambda calculus*: If $M:P\rightarrow Q$ and $N:P$, then $MN:Q$.
--*Logic*: If $P\rightarrow Q$ and $P$, then $Q$.
+- *Lambda calculus*: If $M:P\rightarrow Q$ and $N:P$, then $MN:Q$.
+
+- *Logic*: If $P\rightarrow Q$ and $P$, then $Q$.
 
 We can write these two rules side by side in our more familiar proof format as follows:
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-calculus-elim-rules-2.png" alt="Elimination rules" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-calculus-elim-rules-2.png" alt="Elimination rules" width="800"/>
 
 <br>
 
 A *second* observation is that a natural way to introduce lambda terms looks a lot like arrow introduction, again perhaps in some partially thematized semantic setting:
 
--*Lambda calculus*: If from $x$ being in $P$ it follows that $M$ in $Q$, then $f=\lambda x : P . M$ is a function $f:P\rightarrow Q$.
--*Logic*: If from $P$ being true it follows that $Q$ is true, then $P\rightarrow Q$ is true.
+- *Lambda calculus*: If from $x$ being in $P$ it follows that $M$ in $Q$, then $f=\lambda x : P . M$ is a function $f:P\rightarrow Q$.
+
+- *Logic*: If from $P$ being true it follows that $Q$ is true, then $P\rightarrow Q$ is true.
 
 In the first, the $M$ is just supposed to be some expression in which $x$ is paradigmatically free, and where like above, $M$ returns a value in $Q$ when given a specific value of $x$ in $P$. If we remove set theory and the semantics as above, we get the following, where the second is literally just arrow introduction:
 
--*Lambda calculus*: If from $x:P$ it follows that $M: Q$, then $\lambda x : P . \xi\; : P\rightarrow Q$
--*Logic*: If from $P$ it follows that $Q$, then $(P\rightarrow Q)$.
+- *Lambda calculus*: If from $x:P$ it follows that $M: Q$, then $\lambda x : P . \xi\; : P\rightarrow Q$
+
+- *Logic*: If from $P$ it follows that $Q$, then $(P\rightarrow Q)$.
 
 We can write these two rules side by side in our more familiar proof format as follows:
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-calculus-intro-rules-2.png" alt="Elimination rules" width="500"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-calculus-intro-rules-2.png" alt="Elimination rules" width="800"/>
 
 The introduction and elimination rules for the lambda calculus give the deductive system for the implicational fragment of *the simply-typed lambda calculus*, just as the introduction and elimination rules on the logic side give the deductive system for the implicational fragment of *propositional logic*.
 
+<br>
+
+## The Curry-Howard Isomorphism
+
+Let's use $\vdash_{\lambda} M:\phi$ to denote that $M:\phi$ is derivable in our fragment of the simply typed lambda calculus. One has for $\phi$ in the implicational fragment:
+
+- *The Curry-Howard Isomorphism*: $\vdash \phi$ iff there is lambda term $M$ such that $\vdash_{\lambda} M:\phi$.
+
+In the backwards direction, this says that anytime you prove $\vdash_{\lambda} M:\phi$, you already know that $\vdash \phi$. Hence, the process of "assigning types" to lambda terms is the same thing as doing proofs in our natural deduction system.
+
+In the forward direction, this says that anytime you have a proof $\vdash \phi$ in the implicational fragment of our natural deduction system, you can "decorate" the proof with lambda terms. Intuitively, we think of these lambda terms as "proof terms", that is, as *objects* of a certain kind that represent crucial features of the proof.
+
+We illustrate this with three examples.
+
+<br>
+
+*Example 1*
+
+```{.ProofChecker .GamutMPND submission="none"}
+ :|-: p->p
+| p :assumption
+| p :rep 1
+|p->p :I->1-2
+```
+
+We don't have a way of inputting proofs in the simply typed lambda calculus into our proof checker, and so we do it by hand:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-I-example.png" alt="I combinator example" width="600"/>
+
+
+Hence, the proof term for $p\rightarrow p$ is just the identity map. This makes a certain sense in light of BHK:
+
+- The *implication* $p\rightarrow q$ can be asserted, if and only if we possess a construction $r$, which, joined to any construction proving $p$ (supposing that the latter be effected), would automatically effect a construction proving $q$.
+
+What is the construction that allows you to assert $p\rightarrow p$? It is just the construction that takes one from any reason $x$ for asserting $p$, to $x$ itself. Hence, it is just the identity map, and $\lambda x:p . \; x$ is just a name for that.
+
+
+<br>
+
+*Example 2*
+
+```{.ProofChecker .GamutMPND submission="none"}
+ :|-: p->(q->p)
+| p :assumption
+|  q :assumption
+|  p :rep 1
+| q->p :I->2-3
+|p->(q->p) :I->1-4
+```
+
+To find the proof term, we just decorate our above proof with lambda-terms:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-K-example.png" alt="K combinator example" width="600"/>
+
+What is the construction that allows you to assert $p\rightarrow(q\rightarrow p)$? It is just the construction that takes one from any reason $u$ for asserting $p$, to the map which takes any reason $v$ for asserting $q$, and returns $u$, a reason for asserting $p$. The lambda term is just a name for this function.
+
+<br>
+
+*Example 3*
+
+```{.ProofChecker .GamutMPND submission="none"}
+ :|-: (p->q)->((q->r)->(p->r))
+| r->(p->q) :as
+|  r->p :as
+|   r :as
+|   p :E->2,3
+|   p->q :E->1,3
+|   q :E->4,5
+|  r->q :I->3-6
+| (r->p)->(r->q) :I->2-7
+|(r->(p->q))->((r->p)->(r->q)) :I->1-8
+```
+
+To find the proof term, we just decorate our above proof with lambda-terms:
+
+What is the construction that allows you to assert $(r\rightarrow (p\rightarrow q))\rightarrow((r\rightarrow p)\rightarrow (r\rightarrow q))$? It is just the construction that takes one from any reason $f$ for asserting $r\rightarrow (p\rightarrow q)$, to the map which takes any reason $g$ for asserting $r\rightarrow p$, and returns the construction which sends a reason $u$ to $(f(u))(g(u))$. The lambda term is just a name for this function.
+
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-S-example.png" alt="S combinator example" width="600"/>
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^7]
 
