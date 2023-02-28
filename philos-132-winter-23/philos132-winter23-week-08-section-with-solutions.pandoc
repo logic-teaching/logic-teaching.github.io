@@ -54,7 +54,7 @@ We [repeat](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-
   </tr>
   <tr>
     <td>The law of double-negation</td>
-    <td>`LEM`</td>
+    <td>`DN`</td>
     <td>$\phi$ is equivalent to $\neg \neg \phi$</td>
   </tr>
   <tr>
@@ -534,7 +534,7 @@ Once you unpack a little, the premises of this one tell you that there is exactl
 
 <br>
 
-*Problem 19*:
+*Problem 19*
 
 This is just a proof that shows that if "the F" is not "the [insert contradiction]", and if "the F is identical to a", then "Fa".
 
