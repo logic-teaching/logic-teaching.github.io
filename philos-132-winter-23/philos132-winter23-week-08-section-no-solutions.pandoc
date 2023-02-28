@@ -14,7 +14,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 8, Section with solutions
+# Week 8, Section
 
 We practice with problems in classical logic. There's a lot of problems here, and so in section we will need to be selective about which ones we do. Take the others as opportunities for further practice.
 
@@ -181,7 +181,6 @@ This first one is just practice applying commutativity of conjunction to a part 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.01 Fa/\(Fb/\Fc)  :|-: Fa/\(Fc/\Fb)
 |Fa/\(Fb/\Fc) :assumption
-|Fa/\(Fc/\Fb) :LCC1
 ```
 
 <br>
@@ -193,9 +192,6 @@ This next one extends the previous one by adding on an application of associativ
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.02 Fa/\(Fb/\Fc)  :|-: (Fc/\Fa)/\Fb
 |Fa/\(Fb/\Fc) :assumption
-|Fa/\(Fc/\Fb) :LCC1
-|(Fa/\Fc)/\Fb :LAC2
-|(Fc/\Fa)/\Fb :LCC3
 ```
 
 <br>
@@ -207,10 +203,6 @@ This one is a slightly different combination of commutativity and associativity 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.03 Fa/\((Fb/\Fc)/\Fd)  :|-: (Fb/\Fa)/\(Fd/\Fc)
 |Fa/\((Fb/\Fc)/\Fd) :assumption
-|Fa/\(Fb/\(Fc/\Fd)) :LAC1
-|(Fa/\Fb)/\(Fc/\Fd) :LAC2
-|(Fb/\Fa)/\(Fc/\Fd) :LCC3
-|(Fb/\Fa)/\(Fd/\Fc) :LCC4
 ```
 
 <br>
@@ -222,9 +214,6 @@ This one is just an application of distribution followed by two applications of 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.04 ~Fa/\(~Fb\/~Fc) :|-: (~Fb/\~Fa)\/(~Fc/\~Fa)
 |~Fa/\(~Fb\/~Fc) :assumption
-|(~Fa/\~Fb)\/(~Fa/\~Fc) :LDC1
-|(~Fb/\~Fa)\/(~Fa/\~Fc) :LCC2
-|(~Fb/\~Fa)\/(~Fc/\~Fa) :LCC3
 ```
 
 <br>
@@ -236,9 +225,6 @@ This one is just like the previous one. Don't let the presence of the arrow dist
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.05 (~Fa/\(~Fb\/~Fc))->Fd :|-: ((~Fb/\~Fa)\/(~Fc/\~Fa))->Fd
 |(~Fa/\(~Fb\/~Fc))->Fd :assumption
-|((~Fa/\~Fb)\/(~Fa/\~Fc))->Fd :LDC1
-|((~Fb/\~Fa)\/(~Fa/\~Fc))->Fd :LCC2
-|((~Fb/\~Fa)\/(~Fc/\~Fa))->Fd :LCC3
 ```
 
 <br>
@@ -255,15 +241,6 @@ This one is practice with DeMorgan plus a little bit of distribution. Compared t
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.06 ~AxEyAz(~Fx\/(~Gx/\~Hx)) :|-: ExAyEz((Fx/\Gx)\/(Fx/\Hx))
 |~AxEyAz(~Fx\/(~Gx/\~Hx)) :assumption
-|Ex~EyAz(~Fx\/(~Gx/\~Hx)) :DMSOME1
-|ExAy~Az(~Fx\/(~Gx/\~Hx)) :DMALL2
-|ExAyEz~(~Fx\/(~Gx/\~Hx)) :DMSOME3
-|ExAyEz(~~Fx/\~(~Gx/\~Hx)) :DMAND4
-|ExAyEz(Fx/\~(~Gx/\~Hx)) :DN5
-|ExAyEz(Fx/\(~~Gx\/~~Hx)) :DMOR6
-|ExAyEz(Fx/\(Gx\/~~Hx)) :DN7
-|ExAyEz(Fx/\(Gx\/Hx)) :DN8
-|ExAyEz((Fx/\Gx)\/(Fx/\Hx)) :LDC9
 ```
 
 <br>
@@ -276,13 +253,6 @@ For this one, think about using distribution and DeMorgan. And before you begin,
 08.07 Ax((Fx/\Gx)\/(Fx/\Hx)), AxFx->~AxEyRxy  :|-: ExAy~Rxy
 |Ax((Fx/\Gx)\/(Fx/\Hx)) :assumption
 |AxFx->~AxEyRxy :assumption
-|Ax(Fx/\(Gx\/Hx)) :LDC1
-|Fc/\(Gc\/Hc) :EA3
-|Fc :E/\4
-|AxFx :IA5
-|~AxEyRxy :E->2,6
-|Ex~EyRxy :DMSOME7
-|ExAy~Rxy :DMALL8
 ```
 
 <br>
@@ -296,16 +266,6 @@ For this one, think about using some double-negation and DeMorgan and associativ
 08.08 ~~ExFx, ExEy(Fx\/Fy)->(Ga/\(~~Gb/\Gc)) :|-: (Ga/\Gb)/\Gc
 |~~ExFx :assumption
 |ExEy(Fx\/Fy)->(Ga/\(~~Gb/\Gc)) :assumption
-|ExFx :DN1
-| Fd :assumption
-| Fd\/Fe :I\/4
-| Ey(Fd\/Fy) :IE5
-| ExEy(Fx\/Fy) :IE6
-|Fd->ExEy(Fx\/Fy) :I->4-7
-|ExEy(Fx\/Fy) :EE3,8
-|Ga/\(~~Gb/\Gc) :E->2,9
-|Ga/\(Gb/\Gc) :DN10
-|(Ga/\Gb)/\Gc :LAC11
 ```
 
 <br>
@@ -318,17 +278,6 @@ For this one, try to start out with some elimination of universal, turn to intro
 08.09 AxFx, (Fa/\(Fb/\Fc))->((Ga\/Gb)/\(Gc\/Ga)) :|-:ExEyEz(Gx\/(Gy/\Gz))
 |AxFx :assumption
 |(Fa/\(Fb/\Fc))->((Ga\/Gb)/\(Gc\/Ga)) :assumption
-|Fa :EA1
-|Fb :EA1
-|Fc :EA1
-|Fb/\Fc :I/\4,5
-|Fa/\(Fb/\Fc) :I/\3,6
-|(Ga\/Gb)/\(Gc\/Ga) :E->2,7
-|(Ga\/Gb)/\(Ga\/Gc) :LCD8
-|Ga\/(Gb/\Gc) :LDD9
-|Ez(Ga\/(Gb/\Gz)) :IE10
-|EyEz(Ga\/(Gy/\Gz)) :IE11
-|ExEyEz(Gx\/(Gy/\Gz)) :IE12
 ```
 
 <br>
@@ -340,14 +289,6 @@ Despite having a lot of quantifiers in it, this one can be done without using th
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.10 ~ExEyEz(Gx\/(Gy/\Gz)) :|-: AxAyAz(~(Gx\/Gy)\/~(Gx\/Gz))
 |~ExEyEz(Gx\/(Gy/\Gz)) :assumption
-|Ax~EyEz(Gx\/(Gy/\Gz)) :DMALL1
-|AxAy~Ez(Gx\/(Gy/\Gz)) :DMALL2
-|AxAyAz~(Gx\/(Gy/\Gz)) :DMALL3
-|AxAyAz(~Gx/\~(Gy/\Gz)) :DMAND4
-|AxAyAz(~Gx/\(~Gy\/~Gz)) :DMOR5
-|AxAyAz((~Gx/\~Gy)\/(~Gx/\~Gz)) :LDC6
-|AxAyAz(~(Gx\/Gy)\/(~Gx/\~Gz)) :DMAND7
-|AxAyAz(~(Gx\/Gy)\/~(Gx\/Gz)) :DMAND8
 ```
 
 <br>
@@ -369,16 +310,6 @@ This one is practice with DeMorgan and positive disjunctive syllogism. The last 
 |AxEyRxy\/AxEySxy :assumption
 |ExAy~Rxy :assumption
 |AxAy(Sxy->Rxc) :assumption
-|Ex~EyRxy :DMALL2
-|~AxEyRxy :DMSOME4
-|AxEySxy :PDS1,5
-|EySay :EA6
-| Sab :assumption
-| Ay(Say->Rac) :EA3
-| Sab->Rac :EA9
-| Rac :E->8,10
-|Sab->Rac :I->8-11
-|Rac :EE7,12
 ```
 
 <br>
@@ -392,16 +323,6 @@ This one begins with a negative disjunctive syllogism, and then one has to end w
 |~(Fa/\ExAy~(Fx\/Rxy)) :assumption
 |Fa :assumption
 |~Fb :assumption
-|~ExAy~(Fx\/Rxy) :NDS 1,2
-|Ax~Ay~(Fx\/Rxy) :DMALL4
-|AxEy~~(Fx\/Rxy) :DMSOME5
-|AxEy(Fx\/Rxy) :DN6
-|Ey(Fb\/Rby) :EA7
-| Fb\/Rbc :assumption
-| Rbc :PDS3,9
-| EyRby :IE10
-|(Fb\/Rbc)->EyRby :I->9-11
-|EyRby :EE8,12
 ```
 
 <br>
@@ -414,12 +335,6 @@ For this one use law of excluded middle and DeMorgan to get the antecedent of th
 08.13 (Ax(~Fx\/~Gx)\/Ex(Fx/\Gx))->(Fa->Fb), ~Fb :|-: ~Fa
 |(Ax(~Fx\/~Gx)\/Ex(Fx/\Gx))->(Fa->Fb) :assumption
 |~Fb :assumption
-|Ex(Fx/\Gx)\/~Ex(Fx/\Gx) :LEM
-|Ex(Fx/\Gx)\/Ax~(Fx/\Gx) :DMALL3
-|Ex(Fx/\Gx)\/Ax(~Fx\/~Gx) :DMOR4
-|Ax(~Fx\/~Gx)\/Ex(Fx/\Gx) :LCD5
-|Fa->Fb :E->1,6
-|~Fa :MT2,7
 ```
 
 <br>
@@ -435,13 +350,6 @@ For this one, try some repeated modus tollens and then positive disjunctive syll
 |Rcc->Rdd :assumption
 |~Rdd :assumption
 |AxRxx\/AxSxx :assumption
-|~Rcc :MT3,4
-|~Rbb :MT2,6
-|~Raa :MT1,7
-|Ex~Rxx :IE8
-|~AxRxx :DMSOME9
-|AxSxx :PDS5,10
-|Saa :EA11
 ```
 
 
@@ -454,11 +362,6 @@ For this one, just use the principle of non-contradiction to get the antecedent.
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.15 AxAy(~(Rxx/\~Rxx)->Ryy) :|-: AyRyy
 |AxAy(~(Rxx/\~Rxx)->Ryy) :assumption
-|~(Raa/\~Raa) :LNC
-|Ay(~(Raa/\~Raa)->Ryy) :EA1
-|~(Raa/\~Raa)->Rbb :EA3
-|Rbb :E->2,4
-|AyRyy :IA5
 ```
 
 <br>
@@ -476,17 +379,6 @@ This one involves the elimination rule for identity plus a little disjunction el
 |Fa :assumption
 |Gb :assumption
 |Ax(x=a\/x=b) :assumption
-|c=a\/c=b :EA3
-| c=a :assumption
-| Fc :E=1,5
-| Fc\/Gc :I\/6
-|c=a->(Fc\/Gc) :I->5-7
-| c=b :assumption
-| Gc :E=2,9
-| Fc\/Gc :I\/10
-|c=b->(Fc\/Gc) :I->9-11
-|Fc\/Gc :E\/4,8,12
-|Ax(Fx\/Gx) :IA13
 ```
 
 <br>
@@ -498,18 +390,6 @@ This one involves the introduction rule for identity together with a little dist
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.17 AxAy(x=y->(Fx\/Gy))  :|-: AxAy(((Fx\/Gx)/\Fy)\/((Fx\/Gx)/\Gy))
 |AxAy(x=y->(Fx\/Gy)) :assumption
-|Ay(a=y->(Fa\/Gy)) :EA1
-|a=a->(Fa\/Ga) :EA2
-|a=a :I=
-|Fa\/Ga :E->3,4
-|Ay(b=y->(Fb\/Gy)) :EA1
-|b=b->(Fb\/Gb) :EA6
-|b=b :I=
-|Fb\/Gb :E->7,8
-|(Fa\/Ga)/\(Fb\/Gb) :I/\5,9
-|((Fa\/Ga)/\Fb)\/((Fa\/Ga)/\Gb) :LDC10
-|Ay(((Fa\/Ga)/\Fy)\/((Fa\/Ga)/\Gy)) :IA11
-|AxAy(((Fx\/Gx)/\Fy)\/((Fx\/Gx)/\Gy)) :IA12
 ```
 
 <br>
@@ -522,14 +402,6 @@ Once you unpack a little, the premises of this one tell you that there is exactl
 08.18 Fa/\Ga, Ay(Fy->y=a) :|-: GixFx
 |Fa/\Ga :assumption
 |Ay(Fy->y=a) :assumption
-|Fa :E/\1
-|Fa/\Ay(Fy->y=a) :I/\2,3
-|Ex(Fx/\Ay(Fy->y=x)) :IE4
-|FixFx :Ii5
-|FixFx->ixFx=a :EA2
-|ixFx=a :E->6,7
-|Ga :E/\1
-|GixFx :E=8,9
 ```
 
 <br>
@@ -542,9 +414,6 @@ This is just a proof that shows that if "the F" is not "the [insert contradictio
 08.19 ~ixFx=ix⊥, a=ixFx :|-: Fa
 |~ixFx=ix⊥ :assumption
 |a=ixFx :assumption
-|Ex(Fx/\Ay(Fy->y=x)) :Ei1
-|FixFx :Ii3
-|Fa :E=2,4
 ```
 
 <br>
@@ -557,7 +426,4 @@ For this one, you should be able to take your proof of the previous and simply r
 08.20 ~ix(Fx/\Gx)=ix⊥, a=ix(Fx/\Gx) :|-: Fa/\Ga
 |~ix(Fx/\Gx)=ix⊥ :assumption
 |a=ix(Fx/\Gx) :assumption
-|Ex((Fx/\Gx)/\Ay((Fy/\Gy)->y=x)) :Ei1
-|Fix(Fx/\Gx)/\Gix(Fx/\Gx) :Ii3
-|Fa/\Ga :E=2,4
 ```

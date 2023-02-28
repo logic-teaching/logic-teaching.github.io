@@ -14,7 +14,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 8, Lecture 1, Classical predicate logic *with solutions*
+# Week 8, Lecture 1, Classical predicate logic
 
 <br>
 
@@ -89,16 +89,6 @@ The second one is in fact provable in intuitionistic logic. As for the first one
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ~AxFx  :|-: Ex~Fx
 |~AxFx :assumption
-| ~Ex~Fx :assumption
-|  ~Fc :assumption
-|  Ex~Fx :IE3
-|  ⊥ :E~2,4
-| ~~Fc :I~3-5
-| Fc :DN6
-| AxFx :IA7
-| ⊥ :E~1,8
-|~~Ex~Fx :I~2-9
-|Ex~Fx :DN10
 ```
 
 In order not to continually have to be repeating this proof, we include DeMorgan as rules. The abbreviations for the rules come from the connective featuring on the right-hand side, which since we're writing from left-to-right is what we end on.
@@ -140,10 +130,6 @@ Those problems that use only these DeMorgan rules are then more or less identica
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ~AxEyAz(Rxy/\Sxz) :|-: ExAyEz(~Rxy\/~Sxz)
 |~AxEyAz(Rxy/\Sxz) :assumption
-|Ex~EyAz(Rxy/\Sxz) :DMSOME 1
-|ExAy~Az(Rxy/\Sxz) :DMALL 2
-|ExAyEz~(Rxy/\Sxz) :DMSOME 3
-|ExAyEz(~Rxy\/~Sxz) :DMOR 4
 ```
 
 To get some more interesting examples of DeMorgan, it is useful to add on primitive rules for the following disjunctive syllogisms. While these are both provable in intuitionistic logic, it is useful to not have to repeat their proofs over and over:
@@ -174,8 +160,6 @@ To get some more interesting examples of DeMorgan, it is useful to add on primit
  AxFx\/AxGx, Ex~Fx :|-: AxGx
 |AxFx\/AxGx :assumption
 |Ex~Fx :assumption
-|~AxFx :DMSOME2
-|AxGx :PDS 1,3
 ```
 
 <br>
@@ -186,9 +170,6 @@ To get some more interesting examples of DeMorgan, it is useful to add on primit
  ~(ExFx/\ExGx), Fa :|-: Ax~Gx
 |~(ExFx/\ExGx) :assumption
 |Fa :assumption
-|ExFx :IE2
-|~ExGx :NDS1,3
-|Ax~Gx :DMALL4
 ```
 <br>
 
@@ -238,10 +219,6 @@ In this example, we use `DC` to give a short proof of statements involving disju
  Ax(~Fx\/Gx), Ax(~Gx\/Hx) :|-: Ax(~Fx\/Hx)
 |Ax(~Fx\/Gx) :assumption
 |Ax(~Gx\/Hx) :assumption
-|Ax(Fx->Gx) :DC1
-|Ax(Gx->Hx) :DC2
-|Ax(Fx->Hx) :Ba3,4
-|Ax(~Fx\/Hx) :DC5
 ```
 
 *Example 6*
@@ -252,10 +229,6 @@ In this example, we use `DC` to translate an arrow statement into a disjunctive 
  Ax~Rxx->AxSxx, ~ExRxx :|-: AxSxx
 |Ax~Rxx->AxSxx :assumption
 |~ExRxx :assumption
-|~Ax~Rxx\/AxSxx :DC1
-|Ex~~Rxx\/AxSxx :DMSOME3
-|ExRxx\/AxSxx :DN4
-|AxSxx :PDS2,5
 ```
 
 Finally, we add simple propositional equivalences to make life simpler:
@@ -308,10 +281,6 @@ As an example, here is a proof showing that we can (again) derive law of exclude
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ~(Fa/\~Fa) :|-: Fa\/~Fa
 |~(Fa/\~Fa) :assumption
-|~(~Fa/\Fa) :LCC 1
-|~(~Fa/\~~Fa) :DN2
-|~~(Fa\/~Fa) :DMOR3
-|Fa\/~Fa :DN4
 ```
 
 <br>
@@ -353,11 +322,6 @@ Here is an example where we use the introduction rule:
 ```{.ProofChecker .GamutNDPlus submission="none"}
  AxAy(x=y->Rxy) :|-: AxRxx
 |AxAy(x=y->Rxy) :assumption
-|Ay(a=y->Ray) :EA1
-|a=a->Raa :EA2
-|a=a :I=
-|Raa :E->3,4
-|AxRxx :IA5
 ```
 
 <br>
@@ -371,7 +335,6 @@ Note that only some of the instances of the one constant symbol need to be repla
  Fa/\Ga, a=b :|-: Fa/\Gb
 |Fa/\Ga :assumption
 |a=b :assumption
-|Fa/\Gb :E=1,2
 ```
 
 <br>
@@ -384,10 +347,6 @@ Here is an example where we work with a negated version of identity. Note that u
  Fa, ~Fb :|-: ~a=b
 |Fa :assumption
 |~Fb :assumption
-| a=b :assumption
-| Fb :E=1,3
-| !? :E~2,4
-|~a=b :I~3-5
 ```
 
 We also add on some rules for the description operator.
@@ -424,14 +383,6 @@ The introduction rule says that from "there is exactly one F", one can infer the
  Fa/\Ga, Ay(Fy->y=a) :|-: GixFx
 |Fa/\Ga :assumption
 |Ay(Fy->y=a) :assumption
-|Fa :E/\1
-|Fa/\Ay(Fy->y=a) :I/\2,3
-|Ex(Fx/\Ay(Fy->y=x)) :IE4
-|FixFx :Ii5
-|FixFx->ixFx=a :EA2
-|ixFx=a :E->6,7
-|Ga :E/\1
-|GixFx :E=8,9
 ```
 
 <br>
@@ -483,7 +434,7 @@ Here is a summary of all the rules available in our system of classical predicat
   </tr>
   <tr>
     <td>The law of double-negation</td>
-    <td>`LEM`</td>
+    <td>`DN`</td>
     <td>$\phi$ is equivalent to $\neg \neg \phi$</td>
   </tr>
   <tr>
