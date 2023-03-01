@@ -1,0 +1,299 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 8, Lecture 2, Normal forms and resolution
+
+<br>
+
+- [Conjunctive normal form](#conjunctive-normal-form)
+- [Resolution](#resolution)
+- [PNF](#pnf)
+- [Bounded quantifiers](#bounded-quantifiers)
+- [Disjunctive normal form](#disjunctive-normal-form)
+
+<br>
+
+
+## Conjunctive normal form
+
+<br>
+
+Each formula of predicate logic without quantifiers and without the description operator is equivalent to a formula which consists of a long conjunction, where each conjunct is itself a disjunction of atomics and negated atomics. When we write a formula in this way, we say that we put it into *conjunctive normal form* (abbreviated CNF), since it is a big conjunction of smaller formulas. Note that formulas in CNF, there are no arrows, and any negations are affixed to the atomics.
+
+Putting formulas into conjunctive normal form is just a proof in the system we introduced last time.
+
+<br>
+
+*Example 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ((Fa/\Fb)->Fc)/\~(Fd/\Fc) :|-: ((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc)
+((Fa/\Fb)->Fc)/\~(Fd/\Fc) :assumption
+(~(Fa/\Fb)\/Fc)/\~(Fd/\Fc) :DC1
+((~Fa\/~Fb)\/Fc)/\~(Fd/\Fc) :DMOR2
+((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc) :DMOR3
+```
+
+In the assessment, we just give the prompt like this:
+
+~~~{.Translate .FOL system="gamutND" tests="CNF" submission="none"}
+ ((Fa/\Fb)->Fc)/\~(Fd/\Fc) : Put ((Fa/\Fb)->Fc)/\~(Fd/\Fc) into conjunctive normal form
+|((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc)
+~~~
+
+This format has two advantages:
+
+- It doesn't tell you what the CNF is in advance by putting it in the conclusion
+
+- Since you can do it by hand on a piece of scratch paper, you can skip however many steps you are comfortable with.
+
+<br>
+
+*Example 2*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+(Rab->Rac)->(~Rab->Rad) :|-: ((Rab\/Rad)\/Rab)/\((Rab\/Rad)\/~Rac)
+|(Rab->Rac)->(~Rab->Rad) :assumption
+|~(Rab->Rac)\/(~Rab->Rad) :DC1
+|~(~Rab\/Rac)\/(~Rab->Rad) :DC2
+|~(~Rab\/Rac)\/(~~Rab\/Rad) :DC3
+|~(~Rab\/Rac)\/(Rab\/Rad) :DN4
+|(~~Rab/\~Rac)\/(Rab\/Rad) :DMAND5
+|(Rab/\~Rac)\/(Rab\/Rad) :DN6
+|(Rab\/Rad)\/(Rab/\~Rac) :LCD7
+|((Rab\/Rad)\/Rab)/\((Rab\/Rad)\/~Rac) :LDD8
+```
+
+Again, in the assessment, we just give the prompt like this:
+
+~~~{.Translate .FOL system="gamutND" tests="CNF" submission="none"}
+ (Rab->Rac)->(~Rab->Rad) : Put (Rab->Rac)->(~Rab->Rad) into conjunctive normal form
+|((Rab\/Rad)\/Rab)/\((Rab\/Rad)\/~Rac)
+~~~
+
+<br>
+
+## Resolution
+
+Resolution is an alternative proof system for the quantifier-free part of classical predicate logic which is highly amenable to mechanization.
+
+Our current proof system is not particularly amenable to mechanization. This is for two reasons.
+
+- Our system has lots of rules. Hence, at any given line, there are a number of different moves one could make. And what moves would be useful to make seems to be largely a matter of strategy and skill, informed by ample past experience.
+
+- Application of rules in our proof systems to premises is not guaranteed to end in the conclusion. This can be illustrated with the following, if you imagine it to continue indefinitely by applying further instances of conjunction introduction
+
+<br>
+
+*Example 3*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+Fa, Fb, (Fa/\Fb)->Fc :|-: Fc
+|Fa :assumption
+|Fb :assumption
+|(Fa/\Fb)->Fc :assumption
+|Fa/\Fb :I/\1,2
+|(Fa/\Fb)/\Fa :I/\1,4
+|(Fa/\Fb)/\((Fa/\Fb)/\Fa) :I/\4,5
+```
+
+Something like this proof might happen if you tried to mechanize proof by listing the rules in some order and giving priority to one rule (e.g. conjunction introduction) over another rule (arrow elimination). Maybe you could come up with some metarule to get around this specific example, but the general phenomena would seem to replicate itself.
+
+The way that the resolution proof system gets around this is by working with basically *a single rule*, namely
+
+- *The resolution rule*: $\phi\vee \psi, \neg \phi\vee \xi \vdash \psi \vee \xi$
+
+This is valid for any $\phi, \psi,\xi$ of predicate logic. We illustrate with the following simple proof which goes through law of excluded middle and disjunction elimination.
+
+<br>
+
+*Example 4*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+Fa\/Gb, ~Fa\/Hc :|-: Gb\/Hc
+|Fa\/Gb :assumption
+|~Fa\/Hc :assumption
+|Fa->Hc :DC2
+| Fa :assumption
+| Hc :E->3,4
+| Gb\/Hc :I\/5
+|Fa->(Gb\/Hc) :I->4-6
+|~~Fa\/Gb :DN1
+|~Fa->Gb :DC8
+| ~Fa :assumption
+| Gb :E->9,10
+| Gb\/Hc :I\/11
+|~Fa->(Gb\/Hc) :I->10-12
+|Fa\/~Fa :LEM
+|Gb\/Hc :E\/7,13,14
+```
+
+<br>
+
+A resolution proof system works primarily at the propositional level, on formulas of predicate logic that do not have quantifiers or identity or description operators. It works by requiring that the premises $\varphi_1, \ldots, \varphi_n$ are the conjuncts in a formula in conjunctive normal form. One then repeatedly applies the resolution rule to these to try to get to a conclusion $\varphi$.
+
+We don't have a way of putting these proofs into carnap.io, and so we just work by hand. The deductive system is not linear, but tree-like, with the tops of the branches being the premises $\varphi_1, \ldots, \varphi_n$, and by having two branches meet in an application of the resolution rule, and by ending in the conclusion $\phi$.
+
+<br>
+
+*Example 5*
+
+$Fa\rightarrow Rab, Rbc, (Rab/\Rbc)\rightarrow Rac \vdash Fa\rightarrow Rac$
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-1.png" alt="Resolution example" width="800"/>
+
+
+
+<br>
+
+
+## Summary of rules
+
+Here is a summary of all the rules available in our system of classical predicate logic:
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>Law of excluded middle</td>
+    <td>`LEM`</td>
+    <td>$\phi\vee \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>The law of double-negation</td>
+    <td>`DN`</td>
+    <td>$\phi$ is equivalent to $\neg \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of non-contradiction</td>
+    <td>`LNC`</td>
+    <td>$\neg (\phi\wedge \neg \phi)$</td>
+  </tr>
+ <tr>
+    <td>DeMorgan</td>
+    <td>`DMSOME`</td>
+    <td>$\neg \forall \; x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMALL`</td>
+    <td>$\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMOR`</td>
+    <td>$\neg (\phi\wedge \psi)$ is equivalent to $\neg \phi \vee \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMAND`</td>
+    <td>$\neg (\phi\vee \psi)$ is equivalent to $\neg \phi \wedge \neg \psi$</td>
+  </tr>
+ <tr>
+    <td>(Positive) Disjunctive syllogism</td>
+    <td>`PDS`</td>
+    <td>$\phi\vee \psi, \neg \phi \vdash \psi$</td>
+  </tr>
+  <tr>
+    <td>(Negative) disjunctive syllogism</td>
+    <td>`NDS`</td>
+    <td>$\neg (\phi\wedge \psi), \phi \vdash \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>Negated conditionals and conjunctive statements</td>
+    <td>`NC`</td>
+    <td>$\neg (\phi \rightarrow \psi)$ is equivalent to $\phi \wedge \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>Conditionals and disjunctive statements</td>
+    <td>`DC`</td>
+    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \phi \vee \psi$</td>
+  </tr>
+  <tr>
+    <td>Contraposition</td>
+    <td>`CP`</td>
+    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \psi\rightarrow \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Modus tollens</td>
+    <td>`MT`</td>
+    <td>$\phi\rightarrow \psi, \neg \psi \vdash \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of commutativity for conjunction</td>
+    <td>`LCC`</td>
+    <td>$\phi\wedge \psi$ is equivalent to $\psi\wedge \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of commutativity for disjunction</td>
+    <td>`LCD`</td>
+    <td>$\phi\vee \psi$ is equivalent to $\psi\vee \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of associativity for conjunction</td>
+    <td>`LAC`</td>
+    <td> $(\phi\wedge \psi)\wedge \xi$ is equivalent to $\phi\wedge (\psi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of associativity for disjunction</td>
+    <td>`LAD`</td>
+    <td>$(\phi\vee \psi)\vee \xi$ is equivalent to $\phi\vee (\psi\vee \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of distribution for conjunction</td>
+    <td>`LDC`</td>
+    <td>$\phi\wedge (\psi\vee \xi)$ is equivalent to $(\phi\wedge \psi)\vee (\phi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of distribution for disjunction</td>
+    <td>`LDD`</td>
+    <td>$\phi\vee (\psi\wedge \xi)$ is equivalent to $(\phi\vee \psi)\wedge (\phi\vee \xi)$</td>
+  </tr>
+ <tr>
+    <td>Introduction rule for identity</td>
+    <td>`I=`</td>
+    <td>$a=a$</td>
+  </tr>
+  <tr>
+    <td>Elimination rule for identity</td>
+    <td>`E=`</td>
+    <td> $a=b, \phi(a) \vdash \phi(b)$</td>
+  </tr>
+  <tr>
+    <td>Introduction rule for $\iota$</td>
+    <td>`Ii`</td>
+    <td>$\exists \; x \; Fx\wedge \forall \; y \; (Fy\rightarrow y=x)\vdash F\iota x Fx$</td>
+  </tr>
+  <tr>
+    <td>Elimination rule for $\iota$</td>
+    <td>`Ei`</td>
+    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; Fx\wedge \forall \; y \; (Fy\rightarrow y=x)$</td>
+  </tr>
+</table>
+
+<br>
+
+On the final exam, we will give you this table for reference, since our main aim is to learn to do proofs, and since the abbreviations for these rules are less established and a little more of a matter of convention. However, that said, it might be useful to memorize this table, since it helps one go faster and is usually a good way to reinforce learning. (We will still ask that you memorize the introduction and elimination rules for the propositional connectives and quantifiers, along with ex falso).
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
