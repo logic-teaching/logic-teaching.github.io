@@ -155,141 +155,26 @@ $Fa\rightarrow Rab, Rbc, (Rab/\Rbc)\rightarrow Rac \vdash Fa\rightarrow Rac$
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-1.png" alt="Resolution example" width="800"/>
 
+<br>
 
+*Example 6*
+
+$Fa\rightarrow Fb, Fa\rightarrow Fc, (Fb\wedge Fc)\rightarrow Fd \vdash Fa\rightarrow Fd$
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-2.png" alt="Resolution example" width="800"/>
+
+This example shows that we actually need one more rule than just resolution. In particular, we need a rule that says that when we have $\phi \vee \psi \vee \phi$ then we can reduce down to $\phi \vee \psi$. This is usually implemented in resolution systems by working not with the disjunctions per se, but with the sets of the disjuncts, where one leans on the fact that it is a truth about sets that $\{\phi, \psi, \phi\}=\{\phi, \psi\}$.
 
 <br>
 
+Resolution also works when the premises start with a block of universal quantifiers followed by something that is quantifier free. One proceeds simply by writing the quantifier-free part in conjunctive normal form, and then allowing oneself to substitute into the variables, after the pattern of universal elimination. We illustrate with a simple proof:
 
-## Summary of rules
 
-Here is a summary of all the rules available in our system of classical predicate logic:
+*Example 7*
 
-<table style="width:100%">
-  <tr>
-    <th>Rule</th>
-    <th>Abbreviation</th>
-    <th>Statement</th>
-  </tr>
-  <tr>
-    <td>Law of excluded middle</td>
-    <td>`LEM`</td>
-    <td>$\phi\vee \neg \phi$</td>
-  </tr>
-  <tr>
-    <td>The law of double-negation</td>
-    <td>`DN`</td>
-    <td>$\phi$ is equivalent to $\neg \neg \phi$</td>
-  </tr>
-  <tr>
-    <td>Law of non-contradiction</td>
-    <td>`LNC`</td>
-    <td>$\neg (\phi\wedge \neg \phi)$</td>
-  </tr>
- <tr>
-    <td>DeMorgan</td>
-    <td>`DMSOME`</td>
-    <td>$\neg \forall \; x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$</td>
-  </tr>
-  <tr>
-    <td>DeMorgan</td>
-    <td>`DMALL`</td>
-    <td>$\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$</td>
-  </tr>
-  <tr>
-    <td>DeMorgan</td>
-    <td>`DMOR`</td>
-    <td>$\neg (\phi\wedge \psi)$ is equivalent to $\neg \phi \vee \neg \psi$</td>
-  </tr>
-  <tr>
-    <td>DeMorgan</td>
-    <td>`DMAND`</td>
-    <td>$\neg (\phi\vee \psi)$ is equivalent to $\neg \phi \wedge \neg \psi$</td>
-  </tr>
- <tr>
-    <td>(Positive) Disjunctive syllogism</td>
-    <td>`PDS`</td>
-    <td>$\phi\vee \psi, \neg \phi \vdash \psi$</td>
-  </tr>
-  <tr>
-    <td>(Negative) disjunctive syllogism</td>
-    <td>`NDS`</td>
-    <td>$\neg (\phi\wedge \psi), \phi \vdash \neg \psi$</td>
-  </tr>
-  <tr>
-    <td>Negated conditionals and conjunctive statements</td>
-    <td>`NC`</td>
-    <td>$\neg (\phi \rightarrow \psi)$ is equivalent to $\phi \wedge \neg \psi$</td>
-  </tr>
-  <tr>
-    <td>Conditionals and disjunctive statements</td>
-    <td>`DC`</td>
-    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \phi \vee \psi$</td>
-  </tr>
-  <tr>
-    <td>Contraposition</td>
-    <td>`CP`</td>
-    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \psi\rightarrow \neg \phi$</td>
-  </tr>
-  <tr>
-    <td>Modus tollens</td>
-    <td>`MT`</td>
-    <td>$\phi\rightarrow \psi, \neg \psi \vdash \neg \phi$</td>
-  </tr>
-  <tr>
-    <td>Law of commutativity for conjunction</td>
-    <td>`LCC`</td>
-    <td>$\phi\wedge \psi$ is equivalent to $\psi\wedge \phi$</td>
-  </tr>
-  <tr>
-    <td>Law of commutativity for disjunction</td>
-    <td>`LCD`</td>
-    <td>$\phi\vee \psi$ is equivalent to $\psi\vee \phi$</td>
-  </tr>
-  <tr>
-    <td>Law of associativity for conjunction</td>
-    <td>`LAC`</td>
-    <td> $(\phi\wedge \psi)\wedge \xi$ is equivalent to $\phi\wedge (\psi\wedge \xi)$</td>
-  </tr>
-  <tr>
-    <td>Law of associativity for disjunction</td>
-    <td>`LAD`</td>
-    <td>$(\phi\vee \psi)\vee \xi$ is equivalent to $\phi\vee (\psi\vee \xi)$</td>
-  </tr>
-  <tr>
-    <td>Law of distribution for conjunction</td>
-    <td>`LDC`</td>
-    <td>$\phi\wedge (\psi\vee \xi)$ is equivalent to $(\phi\wedge \psi)\vee (\phi\wedge \xi)$</td>
-  </tr>
-  <tr>
-    <td>Law of distribution for disjunction</td>
-    <td>`LDD`</td>
-    <td>$\phi\vee (\psi\wedge \xi)$ is equivalent to $(\phi\vee \psi)\wedge (\phi\vee \xi)$</td>
-  </tr>
- <tr>
-    <td>Introduction rule for identity</td>
-    <td>`I=`</td>
-    <td>$a=a$</td>
-  </tr>
-  <tr>
-    <td>Elimination rule for identity</td>
-    <td>`E=`</td>
-    <td> $a=b, \phi(a) \vdash \phi(b)$</td>
-  </tr>
-  <tr>
-    <td>Introduction rule for $\iota$</td>
-    <td>`Ii`</td>
-    <td>$\exists \; x \; Fx\wedge \forall \; y \; (Fy\rightarrow y=x)\vdash F\iota x Fx$</td>
-  </tr>
-  <tr>
-    <td>Elimination rule for $\iota$</td>
-    <td>`Ei`</td>
-    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; Fx\wedge \forall \; y \; (Fy\rightarrow y=x)$</td>
-  </tr>
-</table>
+$\forall \; x \; \forall \; y \; \forall \; z \; (Rxy\wedge Ryz)\rightarrow Rxz, \; Fa\rightarrow Rab, \; Fa\rightarrow Rbc, \; Fa\rightarrow Rcd \vdash Fa\rightarrow Rad$
 
-<br>
-
-On the final exam, we will give you this table for reference, since our main aim is to learn to do proofs, and since the abbreviations for these rules are less established and a little more of a matter of convention. However, that said, it might be useful to memorize this table, since it helps one go faster and is usually a good way to reinforce learning. (We will still ask that you memorize the introduction and elimination rules for the propositional connectives and quantifiers, along with ex falso).
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-5.png" alt="Resolution example" width="800"/>
 
 <br>
 
