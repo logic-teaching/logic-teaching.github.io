@@ -20,9 +20,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 - [Conjunctive normal form](#conjunctive-normal-form)
 - [Resolution](#resolution)
+- [Disjunctive normal form](#disjunctive-normal-form)
 - [PNF](#pnf)
 - [Bounded quantifiers](#bounded-quantifiers)
-- [Disjunctive normal form](#disjunctive-normal-form)
 
 <br>
 
@@ -31,7 +31,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-Each formula of predicate logic without quantifiers and without the description operator is equivalent to a formula which consists of a long conjunction, where each conjunct is itself a disjunction of atomics and negated atomics. When we write a formula in this way, we say that we put it into *conjunctive normal form* (abbreviated CNF), since it is a big conjunction of smaller formulas. Note that formulas in CNF, there are no arrows, and any negations are affixed to the atomics.
+Each formula of predicate logic without quantifiers and without the description operator is equivalent to a formula which consists of a long conjunction, where each conjunct is itself a disjunction of atomics and negated atomics. When we write a formula in this way, we say that we put it into *conjunctive normal form* (abbreviated CNF), since it is a big conjunction of smaller formulas. Note that formulas in conjunctive normal form, there are no arrows, and any negations are affixed to the atomics.
 
 Putting formulas into conjunctive normal form is just a proof in the system we introduced last time.
 
@@ -41,10 +41,10 @@ Putting formulas into conjunctive normal form is just a proof in the system we i
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ((Fa/\Fb)->Fc)/\~(Fd/\Fc) :|-: ((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc)
-((Fa/\Fb)->Fc)/\~(Fd/\Fc) :assumption
-(~(Fa/\Fb)\/Fc)/\~(Fd/\Fc) :DC1
-((~Fa\/~Fb)\/Fc)/\~(Fd/\Fc) :DMOR2
-((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc) :DMOR3
+|((Fa/\Fb)->Fc)/\~(Fd/\Fc) :assumption
+|(~(Fa/\Fb)\/Fc)/\~(Fd/\Fc) :DC1
+|((~Fa\/~Fb)\/Fc)/\~(Fd/\Fc) :DMOR2
+|((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc) :DMOR3
 ```
 
 In the assessment, we just give the prompt like this:
@@ -65,7 +65,7 @@ This format has two advantages:
 *Example 2*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-(Rab->Rac)->(~Rab->Rad) :|-: ((Rab\/Rad)\/Rab)/\((Rab\/Rad)\/~Rac)
+ (Rab->Rac)->(~Rab->Rad) :|-: ((Rab\/Rad)\/Rab)/\((Rab\/Rad)\/~Rac)
 |(Rab->Rac)->(~Rab->Rad) :assumption
 |~(Rab->Rac)\/(~Rab->Rad) :DC1
 |~(~Rab\/Rac)\/(~Rab->Rad) :DC2
@@ -90,18 +90,18 @@ Again, in the assessment, we just give the prompt like this:
 
 Resolution is an alternative proof system for the quantifier-free part of classical predicate logic which is highly amenable to mechanization.
 
-Our current proof system is not particularly amenable to mechanization. This is for two reasons.
+Our proof system in this course is a very traditional proof system but is not particularly amenable to mechanization. This is for two reasons:
 
 - Our system has lots of rules. Hence, at any given line, there are a number of different moves one could make. And what moves would be useful to make seems to be largely a matter of strategy and skill, informed by ample past experience.
 
-- Application of rules in our proof systems to premises is not guaranteed to end in the conclusion. This can be illustrated with the following, if you imagine it to continue indefinitely by applying further instances of conjunction introduction
+- Arbitrary application of rules in our proof system to premises is not guaranteed to result in the conclusion. This can be illustrated with the following, if you imagine it to continue indefinitely by applying further instances of conjunction introduction:
 
 <br>
 
 *Example 3*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-Fa, Fb, (Fa/\Fb)->Fc :|-: Fc
+ Fa, Fb, (Fa/\Fb)->Fc :|-: Fc
 |Fa :assumption
 |Fb :assumption
 |(Fa/\Fb)->Fc :assumption
@@ -111,6 +111,8 @@ Fa, Fb, (Fa/\Fb)->Fc :|-: Fc
 ```
 
 Something like this proof might happen if you tried to mechanize proof by listing the rules in some order and giving priority to one rule (e.g. conjunction introduction) over another rule (arrow elimination). Maybe you could come up with some metarule to get around this specific example, but the general phenomena would seem to replicate itself.
+
+<br>
 
 The way that the resolution proof system gets around this is by working with basically *a single rule*, namely
 
@@ -123,7 +125,7 @@ This is valid for any $\phi, \psi,\xi$ of predicate logic. We illustrate with th
 *Example 4*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-Fa\/Gb, ~Fa\/Hc :|-: Gb\/Hc
+ Fa\/Gb, ~Fa\/Hc :|-: Gb\/Hc
 |Fa\/Gb :assumption
 |~Fa\/Hc :assumption
 |Fa->Hc :DC2
@@ -151,7 +153,7 @@ We don't have a way of putting these proofs into carnap.io, and so we just work 
 
 *Example 5*
 
-$Fa\rightarrow Rab, Rbc, (Rab/\Rbc)\rightarrow Rac \vdash Fa\rightarrow Rac$
+$Fa\rightarrow Rab, Rbc, (Rab\wedge Rbc)\rightarrow Rac \vdash Fa\rightarrow Rac$
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-1.png" alt="Resolution example" width="800"/>
 
@@ -169,16 +171,66 @@ This example shows that we actually need one more rule than just resolution. In 
 
 Resolution also works when the premises start with a block of universal quantifiers followed by something that is quantifier free. One proceeds simply by writing the quantifier-free part in conjunctive normal form, and then allowing oneself to substitute into the variables, after the pattern of universal elimination. We illustrate with a simple proof:
 
+<br>
 
 *Example 7*
 
-$\forall \; x \; \forall \; y \; \forall \; z \; (Rxy\wedge Ryz)\rightarrow Rxz, \; Fa\rightarrow Rab, \; Fa\rightarrow Rbc, \; Fa\rightarrow Rcd \vdash Fa\rightarrow Rad$
+$\forall \; x \; \forall \; y \; \forall \; z \; (Rxy\wedge Ryz)\rightarrow Rxz, \;\; Fa\rightarrow Rab, \;\; Fa\rightarrow Rbc, \;\; Fa\rightarrow Rcd \;\vdash\; Fa\rightarrow Rad$
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-5.png" alt="Resolution example" width="800"/>
 
 <br>
 
-These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+One thing that should be unclear from our presentation thus far is how to think about $\falsum$. If it occurs in a premise, that is okay and you can just replace it by your favorite contradiction and continue to put the premises in conjunctive normal form. But if it is the conclusion (which sometimes we do, when we are doing reductio or when we want to show that a premise set is inconsistent), then the way to think about deriving $\bot$ via resolution is "eventually you delete everything". Everything being deleted is traditionally written with a $\Box$ or $\emptyset$. We illustrate with a simple example:
 
-[^5]: which is:
+<br>
+
+*Example 8*
+
+$Fa, Fa\rightarrow Fb, Fa\rightarrow Fc, Fb\rightarrow Fd, Fc\rightarrow \neg Fd \vdash \bot$
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-6.png" alt="Resolution example" width="800"/>
+
+<br>
+
+Resolution is widely used to automate inference. This is because:
+
+-  It is sound and complete for its fragment, i.e. $\phi_1, \ldots, \phi_n\vdash \phi$ via a resolution proof iff $\phi_1, \ldots, \phi_n\vDash \phi$.
+
+- If all premises have the form of $(\xi_1\wedge \cdots \wedge \xi_n)\rightarrow \xi$, where $\xi_1, \ldots, \xi_n$ are atomics with no negations (i.e. so-called definite clauses), then determining provability is efficient, i.e. it can be done in about the same about time as the size of the premise set.
+
+The limitations are also obvious:
+
+- It is restricted to the quantifier-free fragment of predicate logic (modulo the one way we described above)
+
+- It requires that the premises and conclusions are formatted in conjunctive normal form (we'll see in a moment one case where this is cumbersome to do).
+
+The resolution method is widely implemented. While today it is usually just implemented in whatever programming language one is working in, it was important enough that it was given its own standalone framework of [prolog](https://swish.swi-prolog.org/).
+
+<br>
+
+## Disjunctive normal form
+
+Each formula of predicate logic without quantifiers and without the description operator is equivalent to a formula which consists of a long disjunction, where each disjunct is itself a conjunction of atomics and negated atomics. When we write a formula in this way, we say that we put it into *disjunctive normal form* (abbreviated DNF), since it is a big disjunction of smaller formulas. For formulas in disjunctive normal form, there are no arrows, and any negations are affixed to the atomics.
+
+Obviously if you take a formula in conjunctive normal form and affix a negation to the front and just start applying DeMorgan, you will get a formula in disjunctive normal form, and vice-versa.
+
+However, even finding the DNF of some simple formulas can be cumbersome, in that the equivalent in DNF is much longer than the original formula.
+
+(Fa\/Fb)/\(Fc\/Fd) :assumption
+((Fa\/Fb)/\Fc)\/((Fa\/Fb)/\Fd) :LDC1
+(Fc/\(Fa\/Fb))\/((Fa\/Fb)/\Fd) :LCC2
+(Fc/\(Fa\/Fb))\/(Fd/\(Fa\/Fb)) :LCC3
+((Fc/\Fa)\/(Fc/\Fb))\/(Fd/\(Fa\/Fb)) :LDC4
+((Fc/\Fa)\/(Fc/\Fb))\/((Fd/\Fa)\/(Fd/\Fb)) :LDC5
+((Fa/\Fc)\/(Fc/\Fb))\/((Fd/\Fa)\/(Fd/\Fb)) :LCC6
+((Fa/\Fc)\/(Fb/\Fc))\/((Fd/\Fa)\/(Fd/\Fb)) :LCC7
+((Fa/\Fc)\/(Fb/\Fc))\/((Fa/\Fd)\/(Fd/\Fb)) :LCC8
+((Fa/\Fc)\/(Fb/\Fc))\/((Fa/\Fd)\/(Fb/\Fd)) :LCC9
+
+
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^1]
+
+[^1]: which is:
 
