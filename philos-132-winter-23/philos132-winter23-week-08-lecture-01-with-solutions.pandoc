@@ -403,12 +403,12 @@ We also add on some rules for the description operator.
   <tr>
     <td>Introduction rule for $\iota$</td>
     <td>`Ii`</td>
-    <td>$\exists \; x \; Fx\wedge \forall \; y \; (Fy\rightarrow y=x)\vdash F\iota x Fx$</td>
+    <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))\vdash F\iota x Fx$</td>
   </tr>
   <tr>
     <td>Elimination rule for $\iota$</td>
     <td>`Ei`</td>
-    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; Fx\wedge \forall \; y \; (Fy\rightarrow y=x)$</td>
+    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))$</td>
   </tr>
 </table>
 
@@ -602,4 +602,3 @@ On the final exam, we will give you this table for reference, since our main aim
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
 
 [^5]: which is:
-
