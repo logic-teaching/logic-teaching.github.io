@@ -1,0 +1,338 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 8, Lecture 2, Normal forms and resolution
+
+<br>
+
+- [Conjunctive normal form](#conjunctive-normal-form)
+- [Resolution](#resolution)
+- [Disjunctive normal form](#disjunctive-normal-form)
+- [Prenex formal form](#prenex-normal-form)
+- [Writing big conjuncts and disjuncts](#writing-big-conjuncts-and-disjuncts)
+
+<br>
+
+
+## Conjunctive normal form
+
+<br>
+
+Each formula of predicate logic without quantifiers and without the description operator is equivalent to a formula which consists of a long conjunction, where each conjunct is itself a disjunction of atomics and negated atomics. When we write a formula in this way, we say that we put it into *conjunctive normal form* (abbreviated CNF), since it is a big conjunction of smaller formulas. Note that formulas in conjunctive normal form, there are no arrows, and any negations are affixed to the atomics.
+
+Putting formulas into conjunctive normal form is just a proof in the system we introduced last time.
+
+<br>
+
+*Example 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ((Fa/\Fb)->Fc)/\~(Fd/\Fc) :|-: ((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc)
+|((Fa/\Fb)->Fc)/\~(Fd/\Fc) :assumption
+|(~(Fa/\Fb)\/Fc)/\~(Fd/\Fc) :DC1
+|((~Fa\/~Fb)\/Fc)/\~(Fd/\Fc) :DMOR2
+|((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc) :DMOR3
+```
+
+In the assessment, we just give the prompt like this:
+
+~~~{.Translate .FOL system="gamutND" tests="CNF" submission="none"}
+ ((Fa/\Fb)->Fc)/\~(Fd/\Fc) : Put ((Fa/\Fb)->Fc)/\~(Fd/\Fc) into conjunctive normal form
+|((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc)
+~~~
+
+This format has two advantages:
+
+- It doesn't tell you what the CNF is in advance by putting it in the conclusion
+
+- Since you can do it by hand on a piece of scratch paper, you can skip however many steps you are comfortable with.
+
+<br>
+
+*Example 2*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ (Rab->Rac)->(~Rab->Rad) :|-: ((Rab\/Rad)\/Rab)/\((Rab\/Rad)\/~Rac)
+|(Rab->Rac)->(~Rab->Rad) :assumption
+|~(Rab->Rac)\/(~Rab->Rad) :DC1
+|~(~Rab\/Rac)\/(~Rab->Rad) :DC2
+|~(~Rab\/Rac)\/(~~Rab\/Rad) :DC3
+|~(~Rab\/Rac)\/(Rab\/Rad) :DN4
+|(~~Rab/\~Rac)\/(Rab\/Rad) :DMAND5
+|(Rab/\~Rac)\/(Rab\/Rad) :DN6
+|(Rab\/Rad)\/(Rab/\~Rac) :LCD7
+|((Rab\/Rad)\/Rab)/\((Rab\/Rad)\/~Rac) :LDD8
+```
+
+Again, in the assessment, we just give the prompt like this:
+
+~~~{.Translate .FOL system="gamutND" tests="CNF" submission="none"}
+ (Rab->Rac)->(~Rab->Rad) : Put (Rab->Rac)->(~Rab->Rad) into conjunctive normal form
+|((Rab\/Rad)\/Rab)/\((Rab\/Rad)\/~Rac)
+~~~
+
+<br>
+
+## Resolution
+
+Resolution is an alternative proof system for the quantifier-free part of classical predicate logic which is highly amenable to mechanization.
+
+Our proof system in this course is a very traditional proof system but is not particularly amenable to mechanization. This is for two reasons:
+
+- Our system has lots of rules. Hence, at any given line, there are a number of different moves one could make. And what moves would be useful to make seems to be largely a matter of strategy and skill, informed by ample past experience.
+
+- Arbitrary application of rules in our proof system to premises is not guaranteed to result in the conclusion. This can be illustrated with the following, if you imagine it to continue indefinitely by applying further instances of conjunction introduction:
+
+<br>
+
+*Example 3*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa, Fb, (Fa/\Fb)->Fc :|-: Fc
+|Fa :assumption
+|Fb :assumption
+|(Fa/\Fb)->Fc :assumption
+|Fa/\Fb :I/\1,2
+|(Fa/\Fb)/\Fa :I/\1,4
+|(Fa/\Fb)/\((Fa/\Fb)/\Fa) :I/\4,5
+```
+
+Something like this proof might happen if you tried to mechanize proof by listing the rules in some order and giving priority to one rule (e.g. conjunction introduction) over another rule (arrow elimination). Maybe you could come up with some metarule to get around this specific example, but the general phenomena would seem to replicate itself.
+
+<br>
+
+The way that the resolution proof system gets around this is by working with basically *a single rule*, namely
+
+- *The resolution rule*: $\phi\vee \psi, \neg \phi\vee \xi \vdash \psi \vee \xi$
+
+This is valid for any $\phi, \psi,\xi$ of predicate logic. We illustrate with the following simple proof which goes through law of excluded middle and disjunction elimination.
+
+<br>
+
+*Example 4*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa\/Gb, ~Fa\/Hc :|-: Gb\/Hc
+|Fa\/Gb :assumption
+|~Fa\/Hc :assumption
+|Fa->Hc :DC2
+| Fa :assumption
+| Hc :E->3,4
+| Gb\/Hc :I\/5
+|Fa->(Gb\/Hc) :I->4-6
+|~~Fa\/Gb :DN1
+|~Fa->Gb :DC8
+| ~Fa :assumption
+| Gb :E->9,10
+| Gb\/Hc :I\/11
+|~Fa->(Gb\/Hc) :I->10-12
+|Fa\/~Fa :LEM
+|Gb\/Hc :E\/7,13,14
+```
+
+<br>
+
+A resolution proof system works primarily at the propositional level, on formulas of predicate logic that do not have quantifiers or description operators. It works by requiring that the premises $\phi_1, \ldots, \phi_n$ are the conjuncts in a formula in conjunctive normal form. One then repeatedly applies the resolution rule to these to try to get to a conclusion $\phi$.
+
+We don't have a way of putting these proofs into carnap.io, and so we just work by hand. The deductive system is not linear, but tree-like, with the tops of the branches being the premises $\phi_1, \ldots, \phi_n$, and by having two branches meet in an application of the resolution rule, and by ending in the conclusion $\phi$.
+
+<br>
+
+*Example 5*
+
+$Fa\rightarrow Rab, Rbc, (Rab\wedge Rbc)\rightarrow Rac \vdash Fa\rightarrow Rac$
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-1.png" alt="Resolution example" width="800"/>
+
+<br>
+
+*Example 6*
+
+$Fa\rightarrow Fb, Fa\rightarrow Fc, (Fb\wedge Fc)\rightarrow Fd \vdash Fa\rightarrow Fd$
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-2.png" alt="Resolution example" width="800"/>
+
+This example shows that we actually need one more rule than just resolution. In particular, we need a rule that says that when we have $\phi \vee \psi \vee \phi$ then we can reduce down to $\phi \vee \psi$. This is usually implemented in resolution systems by working not with the disjunctions per se, but with the sets of the disjuncts, where one leans on the fact that it is a truth about sets that $\{\phi, \psi, \phi\}=\{\phi, \psi\}$.
+
+<br>
+
+Resolution also works when the premises start with a block of universal quantifiers followed by something that is quantifier free. One proceeds simply by writing the quantifier-free part in conjunctive normal form, and then allowing oneself to substitute into the variables, after the pattern of universal elimination. We illustrate with a simple proof:
+
+<br>
+
+*Example 7*
+
+$\forall \; x \; \forall \; y \; \forall \; z \; (Rxy\wedge Ryz)\rightarrow Rxz, \;\; Fa\rightarrow Rab, \;\; Fa\rightarrow Rbc, \;\; Fa\rightarrow Rcd \;\vdash\; Fa\rightarrow Rad$
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-5.png" alt="Resolution example" width="800"/>
+
+<br>
+
+One thing that should be unclear from our presentation thus far is how to think about $\bot$. If it occurs in a premise, that is okay and you can just replace it by your favorite contradiction and continue to put the premises in conjunctive normal form. But if it is the conclusion (which sometimes we do, when we are doing reductio or when we want to show that a premise set is inconsistent), then the way to think about deriving $\bot$ via resolution is "eventually you delete everything". Everything being deleted is traditionally written with a $\Box$. We illustrate with a simple example:
+
+<br>
+
+*Example 8*
+
+$Fa, Fa\rightarrow Fb, Fa\rightarrow Fc, Fb\rightarrow Fd, Fc\rightarrow \neg Fd \vdash \bot$
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-6.png" alt="Resolution example" width="800"/>
+
+<br>
+
+Resolution is widely used to automate inference. This is because:
+
+-  It is sound and complete for its fragment, i.e. $\phi_1, \ldots, \phi_n\vdash \phi$ via a resolution proof iff $\phi_1, \ldots, \phi_n\vDash \phi$.
+
+- If all premises have the form of $(\xi_1\wedge \cdots \wedge \xi_n)\rightarrow \xi$, where $\xi_1, \ldots, \xi_n, \xi$ are atomics with no negations (i.e. so-called definite clauses), then determining provability is efficient, i.e. it can be done in about the same about time as the size of the premise set.
+
+The limitations are also obvious:
+
+- It is restricted to the quantifier-free fragment of predicate logic (modulo working with premises which start with one block of universal quantifiers).
+
+- It requires that the premises and conclusions are formatted in conjunctive normal form (we'll see in a moment one case where this is cumbersome to do).
+
+The resolution method is widely implemented. While today it is usually just implemented in whatever programming language one is working in, it was important enough that it was given its own standalone framework of [prolog](https://swish.swi-prolog.org/).
+
+<br>
+
+## Disjunctive normal form
+
+Each formula of predicate logic without quantifiers and without the description operator is equivalent to a formula which consists of a long disjunction, where each disjunct is itself a conjunction of atomics and negated atomics. When we write a formula in this way, we say that we put it into *disjunctive normal form* (abbreviated DNF), since it is a big disjunction of smaller formulas. For formulas in disjunctive normal form, there are no arrows, and any negations are affixed to the atomics.
+
+Obviously if you take a formula in conjunctive normal form and affix a negation to the front and just start applying DeMorgan, you will get a formula in disjunctive normal form, and vice-versa.
+
+However, even finding the DNF of even simple formulas can be cumbersome, in that the equivalent in DNF is much longer than the original formula. Usually it is distribution rules which cause the size of the formula to expand, since the distribution rules has the effect of creating two copies of a formula.
+
+<br>
+
+*Example 9*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ (Fa\/Fb)/\(Fc\/Fd) :|-: ((Fa/\Fc)\/(Fb/\Fc))\/((Fa/\Fd)\/(Fb/\Fd))
+|(Fa\/Fb)/\(Fc\/Fd) :assumption
+|((Fa\/Fb)/\Fc)\/((Fa\/Fb)/\Fd) :LDC1
+|(Fc/\(Fa\/Fb))\/((Fa\/Fb)/\Fd) :LCC2
+|(Fc/\(Fa\/Fb))\/(Fd/\(Fa\/Fb)) :LCC3
+|((Fc/\Fa)\/(Fc/\Fb))\/(Fd/\(Fa\/Fb)) :LDC4
+|((Fc/\Fa)\/(Fc/\Fb))\/((Fd/\Fa)\/(Fd/\Fb)) :LDC5
+|((Fa/\Fc)\/(Fc/\Fb))\/((Fd/\Fa)\/(Fd/\Fb)) :LCC6
+|((Fa/\Fc)\/(Fb/\Fc))\/((Fd/\Fa)\/(Fd/\Fb)) :LCC7
+|((Fa/\Fc)\/(Fb/\Fc))\/((Fa/\Fd)\/(Fd/\Fb)) :LCC8
+|((Fa/\Fc)\/(Fb/\Fc))\/((Fa/\Fd)\/(Fb/\Fd)) :LCC9
+```
+
+<br>
+
+Resolution can be viewed as a method to determine if a DNF is a tautology. For suppose that $\phi$ is a DNF. Then $\phi$ is a tautology of classical logic iff $\neg \phi \vdash \bot$. And $\neg \phi$ can be easily put in CNF by applying DeMorgan, and then we can apply resolution to it.
+
+<br>
+
+## Prenex normal form
+
+We close by mentioning a helpful set of equivalences which allow us to write formulas in a way with the quantifiers all in the front. It uses DeMorgan, some propositional equivalences, and the following equivalences, wherein it is assumed that $x$ does not appear in $\phi$:
+
+- $(\exists \; x \; \psi(x))\vee \phi$ is equivalent to $\exists \; x \; (\psi(x) \vee \phi)$.
+- $(\forall \; x \; \psi(x))\vee \phi$ is equivalent to $\forall \; x \; (\psi(x) \vee \phi)$.
+- $(\exists \; x \; \psi(x))\wedge \phi$ is equivalent to $\exists \; x \; (\psi(x) \wedge \phi)$.
+- $(\forall \; x \; \psi(x))\wedge \phi$ is equivalent to $\forall \; x \; (\psi(x) \wedge \phi)$.
+
+By successively applying these, one can find an equivalent formula where all the quantifiers appear at the beginning. Forms where all the quantifiers occur at the beginning of the formula are called *prenex normal forms*.
+
+<br>
+
+*Example 10*: Put the formula $\exists \; y \; \forall \; x \; Rxy\rightarrow \forall \; u \; \exists \; v \; Ruv$ into prenex normal form.
+
+~~~{.Translate .FOL system="gamutND" submission="none" tests="PNF"}
+ AyExAuEv(~Rxy\/Ruv) : Put the formula in prenex normal form.
+|AyExAuEv(~Rxy\/Ruv)
+~~~
+
+Here is a video of how one gets to the prenex normal form using 1-4:
+
+<video controls width="500" src="https://logic-teaching.github.io/pred/vid/prenex-ex1.mp4"/> </video>
+
+<br>
+
+The procedure for putting the formulas into prenex normal form presupposes that you do not have variables appearing immediately behind two different quantifiers. For instance, the above formula is logically equivalent to $\exists \; y \; \forall \; x \; Rxy\rightarrow \forall \; x \; \exists \; y \; Rxy$. But if we tried to apply 1-4 to put this into prenex normal form, then we would not succeed since the $x$ is showing up behind two different quantifiers, and so we would not fulfill the precondition of the equivalences of 1-4, namely that they do not share variables.
+
+<br>
+
+
+## Writing big conjuncts and disjuncts
+
+Recall associativity of conjunction and disjunction:
+
+- *Law of associativity for conjunction*: $(\phi\wedge \psi)\wedge \xi$ is equivalent to $\phi\wedge (\psi\wedge \xi)$.
+- *Law of associativity for disjunction*: $(\phi\vee \psi)\vee \xi$ is equivalent to $\phi\vee (\psi\vee \xi)$.
+
+The first of these justifies us in writing just $\phi \wedge \psi \wedge \xi$, since the two possible ways of putting parentheses in are equivalent to one another. Likewise, the second of these justifies us in writing just $(\phi\vee \psi)\vee \xi$ since the two possible ways of putting parentheses in are equivalent to one another. This is specific to *writing*, since when inputting into a computer system usually you have to choose one, since many computer systems (like our own) need help with the disambiguation. And this is not a real limitation, since writing by hand rather than computer systems is universal in the logic beyond the level of this course.
+
+Hence, when writing by hand, we feel free to write things like the following:
+
+- $\phi_1 \wedge \phi_2 \wedge \phi_3$
+
+- $\xi_1 \wedge \xi_2 \wedge \xi_3 \wedge \xi_4$
+
+- $(\psi_1 \vee \psi_2 \vee \psi_3) \wedge (\xi_1 \wedge \xi_2 \wedge \xi_3 \wedge \xi_4)$
+
+But note that on the third one, one does need to use parentheses, since there is an interaction of the conjunctions and disjunctions. In general if you drop the parentheses on the third one then there will be many inequivalent ways of adding them back on, as the following shows:
+
+<br>
+
+*Example 11*
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ ((Fa\/Fb)\/Fc)/\(Ga/\(Gb/\(Gc/\Gd)))  :|-: ((Fa\/Fb)\/(Fc/\Ga))/\(Gb/\(Gc/\Gd))
+|Domain:0,1,2,3,4,5
+|F(_):0,1
+|G(_):0,1,2,3
+|a:0
+|b:1
+|c:2
+|d:3
+```
+
+<br>
+
+In general, the rules on dropping parentheses are:
+
+- you can drop parentheses which are separating a bunch of conjunctions in a block from one another, provided you keep on outer parentheses
+
+- you can drop parentheses which are separating a bunch of disjunctions in a block from one another, provided you keep on outer parentheses
+
+These rule pertains only to writing things out by hand. If you are interacting with carnap.io (or another computer system), then you need to write out all the parentheses.
+
+<br>
+
+It is further conventional to use big conjunctions and big disjunctions and indices to abbreviate long conjunctions and disjunctions:
+
+- $\bigwedge_{1\leq i\leq 3} \;\phi_i$ is an abbreviation for $\phi_1 \wedge \phi_2 \wedge \phi_3$.
+
+- $\bigvee_{1\leq i\leq 5} \;\psi_i$ is an abbreviation for $\psi_1 \vee \psi_2 \vee \psi_3 \vee \psi_4 \vee \psi_5$.
+
+- $\bigwedge_{1\leq i\leq 3} \bigvee_{1\leq j\leq 2}\; \xi_{i,j}$ is an abbreviation for $(\xi_{1,1}\vee \xi_{1,2})\wedge (\xi_{2,1}\vee \xi_{2,2}) \wedge (\xi_{3,1}\vee \xi_{3,2})$.
+
+<br>
+
+In general, the notation just follows the patterns familiar from calculus for infinite products and series. E.g. $x_1+x_2+x_3$ is abbreviated $\sum_{1\leq i\leq 3} \; x_i$.
+
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^1]
+
+[^1]: which is:
+
