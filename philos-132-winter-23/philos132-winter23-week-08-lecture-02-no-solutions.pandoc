@@ -42,16 +42,13 @@ Putting formulas into conjunctive normal form is just a proof in the system we i
 ```{.ProofChecker .GamutNDPlus submission="none"}
  ((Fa/\Fb)->Fc)/\~(Fd/\Fc) :|-: ((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc)
 |((Fa/\Fb)->Fc)/\~(Fd/\Fc) :assumption
-|(~(Fa/\Fb)\/Fc)/\~(Fd/\Fc) :DC1
-|((~Fa\/~Fb)\/Fc)/\~(Fd/\Fc) :DMOR2
-|((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc) :DMOR3
 ```
 
 In the assessment, we just give the prompt like this:
 
 ~~~{.Translate .FOL system="gamutND" tests="CNF" submission="none"}
  ((Fa/\Fb)->Fc)/\~(Fd/\Fc) : Put ((Fa/\Fb)->Fc)/\~(Fd/\Fc) into conjunctive normal form
-|((~Fa\/~Fb)\/Fc)/\(~Fd\/~Fc)
+|
 ~~~
 
 This format has two advantages:
@@ -67,21 +64,13 @@ This format has two advantages:
 ```{.ProofChecker .GamutNDPlus submission="none"}
  (Rab->Rac)->(~Rab->Rad) :|-: ((Rab\/Rad)\/Rab)/\((Rab\/Rad)\/~Rac)
 |(Rab->Rac)->(~Rab->Rad) :assumption
-|~(Rab->Rac)\/(~Rab->Rad) :DC1
-|~(~Rab\/Rac)\/(~Rab->Rad) :DC2
-|~(~Rab\/Rac)\/(~~Rab\/Rad) :DC3
-|~(~Rab\/Rac)\/(Rab\/Rad) :DN4
-|(~~Rab/\~Rac)\/(Rab\/Rad) :DMAND5
-|(Rab/\~Rac)\/(Rab\/Rad) :DN6
-|(Rab\/Rad)\/(Rab/\~Rac) :LCD7
-|((Rab\/Rad)\/Rab)/\((Rab\/Rad)\/~Rac) :LDD8
 ```
 
 Again, in the assessment, we just give the prompt like this:
 
 ~~~{.Translate .FOL system="gamutND" tests="CNF" submission="none"}
  (Rab->Rac)->(~Rab->Rad) : Put (Rab->Rac)->(~Rab->Rad) into conjunctive normal form
-|((Rab\/Rad)\/Rab)/\((Rab\/Rad)\/~Rac)
+|
 ~~~
 
 <br>
@@ -128,19 +117,6 @@ This is valid for any $\phi, \psi,\xi$ of predicate logic. We illustrate with th
  Fa\/Gb, ~Fa\/Hc :|-: Gb\/Hc
 |Fa\/Gb :assumption
 |~Fa\/Hc :assumption
-|Fa->Hc :DC2
-| Fa :assumption
-| Hc :E->3,4
-| Gb\/Hc :I\/5
-|Fa->(Gb\/Hc) :I->4-6
-|~~Fa\/Gb :DN1
-|~Fa->Gb :DC8
-| ~Fa :assumption
-| Gb :E->9,10
-| Gb\/Hc :I\/11
-|~Fa->(Gb\/Hc) :I->10-12
-|Fa\/~Fa :LEM
-|Gb\/Hc :E\/7,13,14
 ```
 
 <br>
@@ -224,15 +200,6 @@ However, even finding the DNF of even simple formulas can be cumbersome, in that
 ```{.ProofChecker .GamutNDPlus submission="none"}
  (Fa\/Fb)/\(Fc\/Fd) :|-: ((Fa/\Fc)\/(Fb/\Fc))\/((Fa/\Fd)\/(Fb/\Fd))
 |(Fa\/Fb)/\(Fc\/Fd) :assumption
-|((Fa\/Fb)/\Fc)\/((Fa\/Fb)/\Fd) :LDC1
-|(Fc/\(Fa\/Fb))\/((Fa\/Fb)/\Fd) :LCC2
-|(Fc/\(Fa\/Fb))\/(Fd/\(Fa\/Fb)) :LCC3
-|((Fc/\Fa)\/(Fc/\Fb))\/(Fd/\(Fa\/Fb)) :LDC4
-|((Fc/\Fa)\/(Fc/\Fb))\/((Fd/\Fa)\/(Fd/\Fb)) :LDC5
-|((Fa/\Fc)\/(Fc/\Fb))\/((Fd/\Fa)\/(Fd/\Fb)) :LCC6
-|((Fa/\Fc)\/(Fb/\Fc))\/((Fd/\Fa)\/(Fd/\Fb)) :LCC7
-|((Fa/\Fc)\/(Fb/\Fc))\/((Fa/\Fd)\/(Fd/\Fb)) :LCC8
-|((Fa/\Fc)\/(Fb/\Fc))\/((Fa/\Fd)\/(Fb/\Fd)) :LCC9
 ```
 
 <br>
@@ -258,7 +225,7 @@ By successively applying these, one can find an equivalent formula where all the
 
 ~~~{.Translate .FOL system="gamutND" submission="none" tests="PNF"}
  AyExAuEv(~Rxy\/Ruv) : Put the formula in prenex normal form.
-|AyExAuEv(~Rxy\/Ruv)
+|
 ~~~
 
 Here is a video of how one gets to the prenex normal form using 1-4:
@@ -298,13 +265,6 @@ But note that on the third one, one does need to use parentheses, since there is
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
  ((Fa\/Fb)\/Fc)/\(Ga/\(Gb/\(Gc/\Gd)))  :|-: ((Fa\/Fb)\/(Fc/\Ga))/\(Gb/\(Gc/\Gd))
-|Domain:0,1,2,3,4,5
-|F(_):0,1
-|G(_):0,1,2,3
-|a:0
-|b:1
-|c:2
-|d:3
 ```
 
 <br>
