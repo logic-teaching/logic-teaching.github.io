@@ -155,7 +155,7 @@ We [repeat](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-
   <tr>
     <td>Introduction rule for $\iota$</td>
     <td>`Ii`</td>
-    <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x)\vdash F\iota x Fx)$</td>
+    <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))\vdash F\iota x Fx$</td>
   </tr>
   <tr>
     <td>Elimination rule for $\iota$</td>
