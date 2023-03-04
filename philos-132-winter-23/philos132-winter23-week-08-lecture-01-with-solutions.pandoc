@@ -584,12 +584,12 @@ Here is a summary of all the rules available in our system of classical predicat
   <tr>
     <td>Introduction rule for $\iota$</td>
     <td>`Ii`</td>
-    <td>$\exists \; x \; Fx\wedge \forall \; y \; (Fy\rightarrow y=x)\vdash F\iota x Fx$</td>
+    <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))\vdash F\iota x Fx$</td>
   </tr>
   <tr>
     <td>Elimination rule for $\iota$</td>
     <td>`Ei`</td>
-    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; Fx\wedge \forall \; y \; (Fy\rightarrow y=x)$</td>
+    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))$</td>
   </tr>
 </table>
 
