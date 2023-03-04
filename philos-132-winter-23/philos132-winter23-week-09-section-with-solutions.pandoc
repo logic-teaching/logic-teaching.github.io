@@ -32,8 +32,6 @@ For each problem, one is given an argument with premises $\phi_1, \ldots, \phi_n
 
 Part of the difficulty of the game is that one is not told which. This matches the situation we are often in, namely of trying to figure out whether an argument is valid or not.
 
-For the proofs, we provide the box for carnap.io's proof-checker in our natural deduction system for classical logic. In the exam context, you should feel free to apply the resolution method if it is applicable (quantifier-free settings, or settings where the premises have at most a universal quantifier out front and where the conclusion has at most an existential quantifier out front). In the solutions, we also provide resolution proofs where applicable.
-
 Producing proofs and producing counterexamples might seem like distinct skills, but as one goes along, try to see how they are really complementary:
 
 - seeing why a proof does not work is not dissimilar from seeing how to produce a counterexample.
@@ -66,6 +64,10 @@ When doing translation, consider using majors for the unary predicates and "resp
 
 <br>
 
+For these first five problems, we provide the box for carnap.io's proof-checker in our natural deduction system for classical logic. In the exam context, you should feel free to apply the resolution method if it is applicable (quantifier-free settings, or settings where the premises have at most a universal quantifier out front and where the conclusion has at most an existential quantifier out front and where there is no identity or description operator). In the solutions, we also provide resolution proofs where applicable. In this practice problem set, the resolution method is *only* applicable to problems 1-5, since the other problems have either lots of quantifiers or lots of identity in them.
+
+<br>
+
 *Problem 1*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
@@ -78,6 +80,11 @@ When doing translation, consider using majors for the unary predicates and "resp
 |~~Fc :MT3,5
 |Fc :DN6
 ```
+
+This proof can also be done in a resolution system:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-7.png" alt="Resolution example" width="800"/>
+
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
 09.01 Fa, ~Fb->~Fa, ~Fc->~Fb :|-: Fc
@@ -148,6 +155,11 @@ When doing translation, consider using majors for the unary predicates and "resp
 |~Raa :E->7,9
 ```
 
+This proof can also be done in a resolution system:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-8.png" alt="Resolution example" width="800"/>
+
+
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
 09.04 AxAy(Rxy->Txy), AxTxx, AxAy(~Rxy->~Rxx), ~Tab :|-: ~Raa
 |Domain:
@@ -162,19 +174,35 @@ When doing translation, consider using majors for the unary predicates and "resp
 *Problem 5*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-09.05 Ax(Fx->Ey(Gy/\Rxy)), (Fa/\Fb)/\~a=b :|-: AyAz(((Gy/\Gz)/\(Ray/\Rbz))->~y=z)
-|Ax(Fx->Ey(Gy/\Rxy)) :assumption
-|(Fa/\Fb)/\~a=b :assumption
+09.05 AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), Rab/\~Gc, Rbc/\Gc  :|-: Ez(Raz/\Gz)
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+|Rab/\~Gc :assumption
+|Rbc/\Gc :assumption
+|Rab :E/\3
+|Rbc :E/\4
+|Rab/\Rbc :I/\5,6
+|AyAz((Ray/\Ryz)->Raz) :EA2
+|Az((Rab/\Rbz)->Raz) :EA8
+|(Rab/\Rbc)->Rac :EA9
+|Rac :E->7,10
+|Gc :E/\4
+|Rac/\Gc :I/\11,12
+|Ez(Raz/\Gz) :IE13
 ```
 
+This proof can also be done in a resolution system. Note that when you do so, since the conclusion $\phi$ is an existential, you have to view it as equivalent to $\neg \neg \phi$, and then put $\neg \phi$ over to the premise side, and try to derive falsum instead. Further, use DeMorgan to write $\neg \phi$ as a universal.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-9.png" alt="Resolution example" width="800"/>
+
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
-09.05 Ax(Fx->Ey(Gy/\Rxy)), (Fa/\Fb)/\~a=b :|-: AyAz(((Gy/\Gz)/\(Ray/\Rbz))->~y=z)
-|Domain: 0,1,2
-|F(_): 0,1
-|G(_): 1,2
-|R(_,_): [0,1], [1,1], [2,0]
-|a:0
-|b:1
+09.05  AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), Rab/\~Gc, Rbc/\Gc  :|-: Ez(Raz/\Gz)
+|Domain:
+|R(_,_):
+|G(_):
+|a:
+|b:
+|c:
 ```
 
 <br>
@@ -413,7 +441,7 @@ When doing translation, consider using majors for the unary predicates and "resp
 
 <br>
 
-For these five problems, consider reviewing [the exact numerical quantifiers](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-with-solutions.pandoc#exact-numerical-quantifiers) before beginning. In particular, prior to trying each problem, pronounce the premises and conclusion out loud using the locutions "at least . . ." and "at most . . ." and "exactly" featured in the the exact numerical quantifiers. In an exam context, if we ask about exact numerical quantifiers, we will provide the table at the above link. 
+For these five problems, consider reviewing [the exact numerical quantifiers](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-with-solutions.pandoc#exact-numerical-quantifiers) before beginning. In particular, prior to trying each problem, pronounce the premises and conclusion out loud using the locutions "at least . . ." and "at most . . ." and "exactly" featured in the the exact numerical quantifiers. In an exam context, if we ask about exact numerical quantifiers, we will provide the table at the above link.
 
 <br>
 
