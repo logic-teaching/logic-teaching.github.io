@@ -1,0 +1,183 @@
+<br>
+
+# Week 9, Lecture 1, Soundness and Completeness.
+
+We state and discuss the Soundness and Completeness Theorems.
+
+- [Statement of soundness and completeness](#statement-of-soundness-and-completeness)
+- [Useful reformuations of soundness](#useful-reformuations-of-soundness)
+- [Useful reformuations of completeness](#useful-reformuations-of-completeness)
+- [Completeness and the addition of rules](#completeness-and-the-addition-of-rules)
+- [Completeness and the intuitive concept](completeness-and-the-intuitive-concept)
+
+<br>
+
+## Statement of soundness and completeness
+
+Recall that $\phi_1, \ldots, \phi_n\vdash \phi$ means that there is a proof in our natural deduction system for classical logic with premises among $\phi_1, \ldots, \phi_n$ and with conclusion $\phi$.
+
+And recall that $\phi_1, \ldots, \phi_n \vDash \phi$ means that any model which interprets all of the symbols in these formulas is such that if $\phi_1, \ldots, \phi_n$ are true on the model, then $\phi$ is true on the model.
+
+It turns out that these two notions extensionally align. This alignment is separated into two parts which are given the following traditional names:
+
+- *The Soundness Theorem*: if $\phi_1, \ldots, \phi_n \vdash \phi$, then $\phi_1, \ldots, \phi_n \vDash \phi$.
+
+- *The Completeness Theorem*: if $\phi_1, \ldots, \phi_n \vDash \phi$, then $\phi_1, \ldots, \phi_n \vdash \phi$.
+
+The proof of the Soundness Theorem is not difficult. To give an illustration, consider the argument for $Fa\vdash \exists \; x \; Fx$ which goes through one application of existential introduction. To check that $Fa\vDash \exists \; x \; Fx$, one just notes that if $\mathcal{M}\models Fa$ then by the existential clause of Tarski's definition of truth in a model, we have $\mathcal{M}\models \exists \;x \; Fx$.
+
+The proof of the Completeness Theorem is harder. This is the topic of metalogic, which is the next course after a course like this one.
+
+It is worth highlighting a specific case of the Soundness and Completeness Theorem, namely the case where there are no premises. In this case, they read:
+
+- *The Soundness Theorem*: if $\vdash \phi$, then $\vDash \phi$.
+
+- *The Completeness Theorem*: if $\vDash \phi$, then $\vdash \phi$.
+
+Hence, the Soundness Theorem says that if $\phi$ is provable from no extra hypotheses or premises, then $\phi$ is true in absolutely all models. And the Completeness Theorem says that if $\phi$ is true in absolutely all models, then $\phi$ is provable from no extra hypotheses or premises. Often a "tautology" is defined in terms of one of these two notions, and the Soundness and Completeness Theorem tell us that they align.
+
+A logic is, in general, a collection of formulas together with a deductive system and a semantics. For instance, in a first logic class, one learned propositional logic together with some deductive system and the semantics was truth-tables. In this class we have learned predicate logic together with a deductive system and the semantics was models. One says that a logic is *sound* if the Soundness Theorem holds for the pair consisting of its deductive system and semantics. And one says that logic is *complete* if the Completeness Theorem holds for the pair consisting of its deductive system and semantics. For instance, intuitionistic logic is sound but incomplete since law of the excluded middle is valid, but yet it is not provable in intuitionistic logic. Usually the terms "sound" and "complete" are not capitalized when they are used as adjectives for a logic, but they are capitalized when they are used to name theorems, e.g. "The Soundness Theorem" and "The Completeness Theorem."
+
+<br>
+
+## Useful reformuations of soundness
+
+Soundness is most useful in its contrapositive form:
+
+- *The Soundness Theorem*: if $\phi_1, \ldots, \phi_n \nvDash \phi$ then $\phi_1, \ldots, \phi_n \nvdash \phi$.
+
+That is, it is saying that if one has found at least one model where the premises are true and the conclusion false, then there cannot possibly be a proof of that conclusion from the premises. The Soundness Theorem is presuambly explanatory of why we think that we should stop looking for a proof once a counterexample has been found. It might well be part of why we think that a counterexample shows that something must be awry with any purported proof of the conclusion from the premises.
+
+That said, there are lots of models out there. And maybe a single counterexample is less significant to the extent that it is unnatural or ad-hoc or not faithful to the target phenomena.
+But some constraints on e.g. naturality will be formalizable as further premises, and then what should really be evaluated is the argument supplemented by this further premise.
+
+
+<br>
+
+
+## Useful reformuations of completeness
+
+The conditionals in the Soundness and Completeness Theorem are understood to be the material conditional taken in a classical metatheory where one can talk about proofs and models. Accordingly, one can rephrase the conditionals in the Completeness Theorem in terms of disjunctions as follows:
+
+- *The Completeness Theorem*: $\phi_1, \ldots, \phi_n \nvDash \phi$ or $\phi_1, \ldots, \phi_n \vdash \phi$.
+
+Since this is true of all arguments, what the Completness Theorem is saying is that every argument either is invalid or has a proof. Since one shows invalidity by building a countermodel, we express this by saying that every argument either has a countermodel or has a proof.
+
+We illustrate this with four simple examples. In each example, one is given an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$. And one is asked to determine whether it is valid or not. If it is valid, one is required to produce a proof. If it is invalid, one is required to produce a counterexample. Part of the difficulty of the game is that one is not told which. This matches the situation we are often in, namely of trying to figure out whether an argument is valid or not.
+
+<br>
+
+*Example 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx\/Gx) :|-: AxFx\/AxGx
+|Ax(Fx\/Gx) :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ Ax(Fx\/Gx) :|-: AxFx\/AxGx
+|Domain:0,1,2
+|F(_):0,1
+|G(_):1,2
+```
+
+<br>
+
+*Example 2*
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+ AxFx\/AxGx :|-: Ax(Fx\/Gx)
+|AxFx\/AxGx :assumption
+| AxFx :assumption
+| Fa :EA2
+| Fa\/Ga :I\/3
+| Ax(Fx\/Gx) :IA4
+|AxFx->Ax(Fx\/Gx) :I->2-5
+| AxGx :assumption
+| Ga :EA7
+| Fa\/Ga :I\/8
+| Ax(Fx\/Gx) :IA9
+|AxGx->Ax(Fx\/Gx) :I->7-10
+|Ax(Fx\/Gx) :E\/1,6,11
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ AxFx\/AxGx :|-: Ax(Fx\/Gx)
+```
+
+
+<br>
+
+*Example 3*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxEyRxy, AxAy(Rxy->Syx) :|-: AxEySyx
+|AxEyRxy :assumption
+|AxAy(Rxy->Syx) :assumption
+|EyRay :EA1
+| Rab :assumption
+| Ay(Ray->Sya) :EA2
+| Rab->Sba :EA5
+| Sba :E->4,6
+| EySya :IE7
+|Rab->EySya :I->4-8
+|EySya :EE3,9
+|AxEySyx :IA10
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ AxEyRxy, AxAy(Rxy->Syx) :|-: AxEySyx
+```
+
+<br>
+
+*Example 4*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Ey(Gy/\Rxy)), Ax(Fx\/Gx), ~Ex(Fx/\Gx)  :|-: Ax(Fx->Ay(Rxy->Gy))
+|Ax(Fx->Ey(Gy/\Rxy)) :assumption
+|Ax(Fx\/Gx) :assumption
+|~Ex(Fx/\Gx) :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ Ax(Fx->Ey(Gy/\Rxy)), Ax(Fx\/Gx), ~Ex(Fx/\Gx) :|-: Ax(Fx->Ay(Rxy->Gy))
+|Domain:0,1,2
+|F(_):0,1
+|G(_):2
+|R(_,_):[0,1],[0,2],[1,2]
+```
+
+<br>
+
+## Completeness and the addition of rules
+
+After we covered the introduction and elimination rules for the connectives, we kept on adding rules to our deductive system like EFSQ and DN, even when these departed more and more from the guiding idea of natural deduction that the only rules are those that allow for the introduction and elimination of a symbol. But how do we know when we are "done" adding rules?
+
+Kleene's idea was that the Completeness Theorem tells us this, since any valid argument is already derivable from these rules. Here is how Kleene put the point in his *Introduction to Metamathematics* ([Chapter VI of p. 131](https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus.pdf)):
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus%20p.%20131.png" alt="Kleene on completeness" width="700"/>
+
+<br>
+
+## Completeness and the intuitive concept
+
+Consider the following four numbered claims about an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$:
+
+1. $\phi_1, \ldots, \phi_n \vdash \phi$
+2. The truth of the premises $\phi_1, \ldots, \phi_n$ guarantees the truth of the conclusion $\phi$.
+3. Whenever the premises $\phi_1, \ldots, \phi_n$ are all true, then the conclusion $\psi$ is true.
+4. $\phi_1, \ldots, \phi_n \vDash \phi$
+
+One might have the thought that
+
+- 1 intuitively implies 2 since a proof is a guarantee
+- 2 intuitively implies 3 since the guarantee in 2 pertains to truth-preservation
+- 3 intuitively implies 4 since models represent possible situations
+- 4 intuitively implies 1 since this is just the content of The Completeness Theorem
+
+If this is right, then the role that The Completeness Theorem plays is showing us that this the distinct concepts in 1-4 in fact align extensionally. This argument is sometimes called the "Kreisel Squeezing Argument." Kreisel thought that it was an argument *against* a view that "informal validity" was a irreparably vague notion ([p. 153 of "Informal Rigour and Completeness Proofs"](https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion].pdf):
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion]%20p.%20153.png" alt="Kreisel on completeness" width="600"/>
+
+<br>

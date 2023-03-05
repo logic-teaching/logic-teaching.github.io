@@ -16,17 +16,17 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 # Week 9, Section Solutions
 
-We play many "proof or refutation" games. Since this is the *solution* document, we include a proof when the argument is valid, and we include a counterexample when the argument is invalid. Do *not* look at the solutions in advance of trying the problems yourself: not playing the game is, in this case, tantamount to not learning the material.
+We play many "proof or countermodel" games. Since this is the *solution* document, we include a proof when the argument is valid, and we include a counterexample when the argument is invalid. Do *not* look at the solutions in advance of trying the problems yourself: not playing the game is, in this case, tantamount to not learning the material.
 
-- [Structure of proof or refutation games and strategies for them](#structure-of-proof-or-refutation-games-and-strategies-for-them)
-- [Elementary proof or refutation](#elementary-proof-or-refutation)
-- [Advanced proof or refutation](#advanced-proof-or-refutation)
-- [Proof or refutation with identity](#proof-or-refutation-with-identity)
-- [Proof or refutation with exact numerical quantifiers](#proof-or-refutation-with-exact-numerical-quantifiers)
+- [Structure of proof or countermodel games and strategies for them](#structure-of-proof-or-countermodel-games-and-strategies-for-them)
+- [Elementary proof or countermodel](#elementary-proof-or-countermodel)
+- [Advanced proof or countermodel](#advanced-proof-or-countermodel)
+- [Proof or countermodel with identity](#proof-or-countermodel-with-identity)
+- [Proof or countermodel with exact numerical quantifiers](#proof-or-countermodel-with-exact-numerical-quantifiers)
 
 <br>
 
-## Structure of proof or refutation games and strategies for them
+## Structure of proof or countermodel games and strategies for them
 
 For each problem, one is given an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$. And one is asked to determine whether it is valid or not. If it is valid, one is required to produce a proof. If it is invalid, one is required to produce a counterexample. Part of the difficulty of the game is that one is not told which. This matches the situation we are often in, namely of trying to figure out whether an argument is valid or not.
 
@@ -48,21 +48,21 @@ Then, as a third step, try drawing a diagram of the premises and seeing if it is
 
 Remember that we deploy Venn diagrams to represent problems with only unary relations, and we deploy arrow diagrams to represent problems with binary relations. If a problem has both unary relations and binary relations, draw an arrow diagram and use colors for the unary relations, or e.g. draw circles or squares or diamonds around the dots to represent unary relations.
 
-If one is not a visual thinker, this third step can be replaced by "translating" the formal sentences into English using some key:
+This third step can be complemented by, or replaced by, translating the formal sentences into English:
 
-- if it seems that anyone who accepts the premises must accept the conclusion, then thinking through their reasons is usually a way to begin to produce the proof
+- if it seems that anyone who accepts the premises must accept the conclusion, then thinking through their reasons is usually a way to begin to produce the proof.
 
 - if it is seems that someone can reasonably accept the premises while denying the conclusion, then thinking the type of example they would be thinking of usually gives one a sense of how to construct an arithmetic counterexample.
 
-When doing translation, consider using majors ("French," "Geography") for the unary predicates and "respects" and/or "trusts" for the binary predicates. This is useful because we in general think that one's major is independent of dispositions to be trust, be trusted, respect, be respected, and their contraries. Hence, if there is an intuitive entailment in the natural language argument, it is most likely due to the underlying logical content rather than what content we associate to various majors and the human relations of trust and respect. Likewise, if there is a counterexample, majors and relations of respect and trust are such a pervasive aspect of our everyday campus life that we can easily imagine many different arrangements and situations from which one can construct counterexamples.
+When doing translation, consider using majors ("French," "Geography") for the unary predicates and "respects" and/or "trusts" for the binary predicates. This is useful because we in general think that one's major is independent of dispositions to trust, be trusted, respect, be respected, and their contraries (and likewise, we think that these four dispositions are independent of one another, at least if we vary the ambient domains of people sufficiently much). Hence, if there is an intuitive entailment in the natural language argument, it is most likely due to the underlying logical content rather than what content we associate to various majors and the human relations of trust and respect. Likewise, if there is a counterexample, then majors and respect and trust are such a pervasive aspect of our everyday campus life that we can easily imagine many different arrangements and situations from which one can construct counterexamples.
 
 <br>
 
-## Elementary proof or refutation
+## Elementary proof or countermodel
 
 <br>
 
-For the proofs, we provide the box for carnap.io's proof-checker in our natural deduction system for classical logic. In the exam context, you should feel free to apply the resolution method if it is applicable (quantifier-free settings, or settings where the premises have at most a universal quantifier out front and where the conclusion has at most an existential quantifier out front and where there is no identity or description operator). In the solutions, we also provide resolution proofs where applicable. In this practice problem set, the resolution method is *only* applicable to problems 1-5, since the other problems have either lots of quantifiers or lots of identity in them.
+For the proofs, we provide the box for carnap.io's proof-checker in our natural deduction system for classical logic. In the exam context, you should feel free to apply the resolution method if it is applicable (quantifier-free settings with no identity or description operator, or settings where the premises have at most a universal quantifier out front and where the conclusion has at most an existential quantifier out front and where there is no identity or description operator anywhere). In the solutions, we also provide resolution proofs where applicable. In this practice problem set, the resolution method is *only* applicable to problems 1-5, since the other problems have either lots of quantifiers or lots of identity in them.
 
 <br>
 
@@ -163,7 +163,7 @@ This proof can also be done in a resolution system. Note that when you do so, si
 
 <br>
 
-## Advanced proof or refutation
+## Advanced proof or countermodel
 
 <br>
 
@@ -249,7 +249,7 @@ This proof can also be done in a resolution system. Note that when you do so, si
 
 <br>
 
-## Proof or refutation with identity
+## Proof or countermodel with identity
 
 <br>
 
@@ -337,7 +337,7 @@ This proof can also be done in a resolution system. Note that when you do so, si
 
 <br>
 
-## Proof or refutation with exact numerical quantifiers
+## Proof or countermodel with exact numerical quantifiers
 
 <br>
 
