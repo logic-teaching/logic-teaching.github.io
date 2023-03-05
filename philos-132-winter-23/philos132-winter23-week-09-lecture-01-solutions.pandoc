@@ -8,7 +8,7 @@ We state and discuss the Soundness and Completeness Theorems.
 - [Useful reformuations of soundness](#useful-reformuations-of-soundness)
 - [Useful reformuations of completeness](#useful-reformuations-of-completeness)
 - [Completeness and the addition of rules](#completeness-and-the-addition-of-rules)
-- [Completeness and the intuitive concept](completeness-and-the-intuitive-concept)
+- [Completeness and the intuitive concept](#completeness-and-the-intuitive-concept)
 
 <br>
 
@@ -36,7 +36,19 @@ It is worth highlighting a specific case of the Soundness and Completeness Theor
 
 Hence, the Soundness Theorem says that if $\phi$ is provable from no extra hypotheses or premises, then $\phi$ is true in absolutely all models. And the Completeness Theorem says that if $\phi$ is true in absolutely all models, then $\phi$ is provable from no extra hypotheses or premises. Often a "tautology" is defined in terms of one of these two notions, and the Soundness and Completeness Theorem tell us that they align.
 
-A logic is, in general, a collection of formulas together with a deductive system and a semantics. For instance, in a first logic class, one learned propositional logic together with some deductive system and the semantics was truth-tables. In this class we have learned predicate logic together with a deductive system and the semantics was models. One says that a logic is *sound* if the Soundness Theorem holds for the pair consisting of its deductive system and semantics. And one says that logic is *complete* if the Completeness Theorem holds for the pair consisting of its deductive system and semantics. For instance, intuitionistic logic is sound but incomplete since law of the excluded middle is valid, but yet it is not provable in intuitionistic logic. Usually the terms "sound" and "complete" are not capitalized when they are used as adjectives for a logic, but they are capitalized when they are used to name theorems, e.g. "The Soundness Theorem" and "The Completeness Theorem."
+Another useful case of the Soundness and Completeness Theorem is when the conclusion is falsum. In this case the Soundness and Completeness Theorem together imply each of the following biconditionals:
+
+1. $\phi_1, \ldots, \phi_n \vdash \bot$ iff $\phi_1, \ldots, \phi_n \vDash \bot$
+
+2. $\phi_1, \ldots, \phi_n \nvdash \bot$ iff $\phi_1, \ldots, \phi_n \nvDash \bot$
+
+3. $\phi_1, \ldots, \phi_n$ does not derive a contradiction iff there is a model of $\phi_1, \ldots, \phi_n$ which is not a model of a contradiction.
+
+4. $\phi_1, \ldots, \phi_n$ does not derive a contradiction iff there is a model of $\phi_1, \ldots, \phi_n$
+
+In this, 1 is just a literal restatement of the Soundness and Completeness Theorem as a single biconditional. And 2 just results by negating both sides of the biconditional in 1. And 3 results from 2 by recalling that ex falso rule makes $\bot$ a stand-in for any contradiction. And 4 results from 3 by noting that no model is a model of a contradiction. This fourth and last formulation can be then expressed as: deductive consistency of the premises is the same as the premises having a model. This is important because it ties a formal feature of a deductive system (deductive consistency) directly to the existence of a model. Indeed, it is in this formulation that the Completeness Theorems is usually proven.
+
+A final word on notation. A logic is, in general, a collection of formulas together with a deductive system and a semantics. For instance, in a first logic class, one learned propositional logic together with some deductive system and the semantics was truth-tables. In this class we have learned predicate logic together with a deductive system and the semantics was models. One says that a logic is *sound* if the Soundness Theorem holds for the pair consisting of its deductive system and semantics. And one says that logic is *complete* if the Completeness Theorem holds for the pair consisting of its deductive system and semantics. For instance, intuitionistic logic is sound but incomplete since law of the excluded middle is valid, but yet it is not provable in intuitionistic logic. Usually the terms "sound" and "complete" are not capitalized when they are used as adjectives for a logic, but they are capitalized when they are used to name theorems, e.g. "The Soundness Theorem" and "The Completeness Theorem."
 
 <br>
 
@@ -57,13 +69,13 @@ But some constraints on e.g. naturality will be formalizable as further premises
 
 ## Useful reformuations of completeness
 
-The conditionals in the Soundness and Completeness Theorem are understood to be the material conditional taken in a classical metatheory where one can talk about proofs and models. Accordingly, one can rephrase the conditionals in the Completeness Theorem in terms of disjunctions as follows:
+The conditionals in the Soundness and Completeness Theorem are understood to be the material conditional taken in a classical metatheory where one can talk about proofs and models. Accordingly, one can rephrase the conditional in the Completeness Theorem in terms of a disjunction as follows:
 
 - *The Completeness Theorem*: $\phi_1, \ldots, \phi_n \nvDash \phi$ or $\phi_1, \ldots, \phi_n \vdash \phi$.
 
 Since this is true of all arguments, what the Completness Theorem is saying is that every argument either is invalid or has a proof. Since one shows invalidity by building a countermodel, we express this by saying that every argument either has a countermodel or has a proof.
 
-We illustrate this with four simple examples. In each example, one is given an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$. And one is asked to determine whether it is valid or not. If it is valid, one is required to produce a proof. If it is invalid, one is required to produce a counterexample. Part of the difficulty of the game is that one is not told which. This matches the situation we are often in, namely of trying to figure out whether an argument is valid or not.
+We illustrate this with four simple examples. In each example, one is given an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$. And one is asked to determine whether it is valid or not. If it is valid, one is required to produce a proof. If it is invalid, one is required to produce a counterexample. Part of the difficulty of this problem is that one is not told which. This matches the situation we are often in, namely of trying to figure out whether an argument is valid or not.
 
 <br>
 
@@ -154,9 +166,11 @@ We illustrate this with four simple examples. In each example, one is given an a
 
 After we covered the introduction and elimination rules for the connectives, we kept on adding rules to our deductive system like EFSQ and DN, even when these departed more and more from the guiding idea of natural deduction that the only rules are those that allow for the introduction and elimination of a symbol. But how do we know when we are "done" adding rules?
 
-Kleene's idea was that the Completeness Theorem tells us this, since any valid argument is already derivable from these rules. Here is how Kleene put the point in his *Introduction to Metamathematics* ([Chapter VI of p. 131](https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus.pdf)):
+Kleene's idea was that the Completeness Theorem tells us this, since given completeness any valid argument is already derivable from these rules:[^1]
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus%20p.%20131.png" alt="Kleene on completeness" width="700"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus%20p.%20131.png" alt="Kleene on completeness" width="700"/>
+
+[^1] p. 131 of [Kleene, Stephen Cole. 1952. Introduction to Metamathematics. Bibliotheca Mathematica. North-Holland.](https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus.pdf)
 
 <br>
 
@@ -176,8 +190,10 @@ One might have the thought that
 - 3 intuitively implies 4 since models represent possible situations
 - 4 intuitively implies 1 since this is just the content of The Completeness Theorem
 
-If this is right, then the role that The Completeness Theorem plays is showing us that this the distinct concepts in 1-4 in fact align extensionally. This argument is sometimes called the "Kreisel Squeezing Argument." Kreisel thought that it was an argument *against* a view that "informal validity" was a irreparably vague notion ([p. 153 of "Informal Rigour and Completeness Proofs"](https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion].pdf):
+If this is right, then the role that The Completeness Theorem plays is showing us that this the distinct concepts in 1-4 in fact align extensionally. This argument is sometimes called the "Kreisel Squeezing Argument." Kreisel thought that it was an argument *against* a view that "informal validity" was a irreparably vague notion:[^2]
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/prop/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion]%20p.%20153.png" alt="Kreisel on completeness" width="600"/>
+[^2]: p. 153 of [Kreisel, Georg. 1967. “Informal Rigour and Completeness Proofs (with Discussion).” In Problems in the Philosophy of Mathematics, edited by Imre Lakatos, 138–86. Amsterdam: North-Holland.](https://logic-teaching.github.io/philos-132-winter-23/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion].pdf).
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion]%20p.%20153.png" alt="Kreisel on completeness" width="600"/>
 
 <br>
