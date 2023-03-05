@@ -58,14 +58,12 @@ Soundness is most useful in its contrapositive form:
 
 - *The Soundness Theorem*: if $\phi_1, \ldots, \phi_n \nvDash \phi$ then $\phi_1, \ldots, \phi_n \nvdash \phi$.
 
-That is, it is saying that if one has found at least one model where the premises are true and the conclusion false, then there cannot possibly be a proof of that conclusion from the premises. The Soundness Theorem is presuambly explanatory of why we think that we should stop looking for a proof once a counterexample has been found. It might well be part of why we think that a counterexample shows that something must be awry with any purported proof of the conclusion from the premises.
+That is, it is saying that if one has found at least one model where the premises are true and the conclusion false, then there cannot possibly be a proof of that conclusion from the premises. The Soundness Theorem is presumably explanatory of why we think that we should stop looking for a proof once a counterexample has been found. It might well be part of why we think that a counterexample shows that something must be awry with any purported proof of the conclusion from the premises.
 
 That said, there are lots of models out there. And maybe a single counterexample is less significant to the extent that it is unnatural or ad-hoc or not faithful to the target phenomena.
 But some constraints on e.g. naturality will be formalizable as further premises, and then what should really be evaluated is the argument supplemented by this further premise.
 
-
 <br>
-
 
 ## Useful reformuations of completeness
 
@@ -164,13 +162,13 @@ We illustrate this with four simple examples. In each example, one is given an a
 
 ## Completeness and the addition of rules
 
-After we covered the introduction and elimination rules for the connectives, we kept on adding rules to our deductive system like EFSQ and DN, even when these departed more and more from the guiding idea of natural deduction that the only rules are those that allow for the introduction and elimination of a symbol. But how do we know when we are "done" adding rules?
-
-Kleene's idea was that the Completeness Theorem tells us this, since given completeness any valid argument is already derivable from these rules:[^1]
+After we covered the introduction and elimination rules for the connectives, we kept on adding rules to our deductive system like EFSQ and DN, even when these departed more and more from the guiding idea of natural deduction that the only rules are those that allow for the introduction and elimination of a symbol. How do we know when we are "done" adding rules? This was Kleene's question:[^1]
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus%20p.%20131.png" alt="Kleene on completeness" width="700"/>
 
-[^1] p. 131 of [Kleene, Stephen Cole. 1952. Introduction to Metamathematics. Bibliotheca Mathematica. North-Holland.](https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus.pdf)
+[^1]: p. 131 of [Kleene, Stephen Cole. 1952. Introduction to Metamathematics. Bibliotheca Mathematica. North-Holland.](https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus.pdf)
+
+Kleene further thought that the Completeness Theorem is a sure sign that one is done. For, suppose that one added a new rule to one's system, and suppose that it was valid, like all the other basic rules we have choosen. Then any derivation in this new system will just be a large chain of small valid steps, and so it itself will be valid. And by the Completeness Theorem, any such derivation is already derivable from the original system.
 
 <br>
 
@@ -180,20 +178,22 @@ Consider the following four numbered claims about an argument with premises $\ph
 
 1. $\phi_1, \ldots, \phi_n \vdash \phi$
 2. The truth of the premises $\phi_1, \ldots, \phi_n$ guarantees the truth of the conclusion $\phi$.
-3. Whenever the premises $\phi_1, \ldots, \phi_n$ are all true, then the conclusion $\psi$ is true.
+3. Whenever the premises $\phi_1, \ldots, \phi_n$ are all true, then the conclusion $\phi$ is true.
 4. $\phi_1, \ldots, \phi_n \vDash \phi$
 
 One might have the thought that
 
-- 1 intuitively implies 2 since a proof is a guarantee
-- 2 intuitively implies 3 since the guarantee in 2 pertains to truth-preservation
-- 3 intuitively implies 4 since models represent possible situations
-- 4 intuitively implies 1 since this is just the content of The Completeness Theorem
+- 1 entails 2 since a proof is a guarantee
+- 2 entails 3 since the guarantee in 2 pertains to truth-preservation
+- 3 entails 4 since models represent possible situations
+- 4 entails 1 since this is just the content of The Completeness Theorem
 
 If this is right, then the role that The Completeness Theorem plays is showing us that this the distinct concepts in 1-4 in fact align extensionally. This argument is sometimes called the "Kreisel Squeezing Argument." Kreisel thought that it was an argument *against* a view that "informal validity" was a irreparably vague notion:[^2]
 
-[^2]: p. 153 of [Kreisel, Georg. 1967. “Informal Rigour and Completeness Proofs (with Discussion).” In Problems in the Philosophy of Mathematics, edited by Imre Lakatos, 138–86. Amsterdam: North-Holland.](https://logic-teaching.github.io/philos-132-winter-23/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion].pdf).
+[^2]: p. 153 of [Kreisel, Georg. 1967. “Informal Rigour and Completeness Proofs (with Discussion).” In Problems in the Philosophy of Mathematics, edited by Imre Lakatos, 138–86. Amsterdam: North-Holland.](https://logic-teaching.github.io/philos-132-winter-23/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion].pdf)
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion]%20p.%20153.png" alt="Kreisel on completeness" width="600"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion]%20p.%20153%20v2.png" alt="Kreisel on completeness" width="600"/>
+
+Kreisel's Squeezing Argument is viewed today rather as an argument template for concluding that the formal notions of derivability and validity are successful conceptual analyses of the pre-theoretic notion.
 
 <br>
