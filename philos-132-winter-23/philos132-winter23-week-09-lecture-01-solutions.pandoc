@@ -4,6 +4,7 @@
 
 We state and discuss the Soundness and Completeness Theorems.
 
+- [Provability and validity](#provability-and-validity)
 - [Statement of soundness and completeness](#statement-of-soundness-and-completeness)
 - [Useful reformuations of soundness](#useful-reformuations-of-soundness)
 - [Useful reformuations of completeness](#useful-reformuations-of-completeness)
@@ -12,13 +13,55 @@ We state and discuss the Soundness and Completeness Theorems.
 
 <br>
 
+## Provability and validity
+
+
+Recall that  derivability is defined as follows: $\phi_1, \ldots, \phi_n\vdash \phi$ means that there is a proof in our natural deduction system for classical logic with premises among $\phi_1, \ldots, \phi_n$ and with conclusion $\phi$. The symbol $\vdash$ is the derivability or provability symbol. It indicates the existence of a proof, and hence it is an *existential* claim. We negate it by writing $\nvdash$, which indicates that there is no proof. Here are some familiar examples, where 5-8 differ from 1-4 just by replacing all the atomics by the associated negated atomics:
+
+1. $\forall \; x \; Fx \vdash Fa$
+2. $Fa, Fa\rightarrow Fb\vdash Fb$
+3. $Fa\nvdash \forall \; x \; Fx$
+4. $Fb, Fa\rightarrow Fb\nvdash Fa$
+5. $\forall \; x \; \neg Fx \vdash \neg Fa$
+6. $\neg Fa, \neg Fa\rightarrow \neg Fb\vdash \neg Fb$
+7. $\neg Fa\nvdash \forall \; x \; \neg Fx$
+8. $\neg Fb, \neg Fa\rightarrow \neg Fb\nvdash \neg Fa$
+
+For instance, 1 and 5 are just universal elimination. And 2 and 6 are just arrow elimination (i.e. modus ponens). And 3 and 7 intuitively cannot be proven because instances don't imply universals. And 4 and 8 intuitively cannot be proven because they committ the fallacy of "affirming the consequent."
+
+As these examples suggest, one has to carefully distinguish $\phi_1, \ldots, \phi_n \nvdash \phi$ from $\phi_1, \ldots, \phi_n \vdash \neg \phi$. For instance, $\phi_1, \ldots, \phi_n \nvdash \phi$ is a universal claim that every proof is not a proof of $\phi$ from $\phi_1, \ldots, \phi_n$. But $\phi_1, \ldots, \phi_n \vdash \neg \phi$ is an existential claim that there is a proof of $\neg \phi$ from $\phi_1, \ldots, \phi_n$.
+
+Further recall that validity is defined as follows: $\phi_1, \ldots, \phi_n \vDash \phi$ means that any model which interprets all of the symbols in these formulas is such that if $\phi_1, \ldots, \phi_n$ are true on the model, then $\phi$ is true on the model. Often in what follows we omit the clause "which interprets all of the symbols in these formulas" since it is cumbersome, and since in any applied setting it is clear from context. The symbol $\vDash$ is the consequence symbol. It indicates a claim about what happens with the premises and conclusions in all models, and hence it is a *universal* claim. We negate it by writing $\nvDash$, which indicates that there is a model of the premises which is not a model of the conclusion. On the basis of these definitions, the following should all seem right, where again 5-8 differ from 1-4 just by replacing all the atomics by the associated negated atomics:
+
+1. $\forall \; x \; Fx \vDash Fa$
+2. $Fa, Fa\rightarrow Fb\vDash Fb$
+3. $Fa\nvDash \forall \; x \; Fx$
+4. $Fb, Fa\rightarrow Fa\nvDash Fa$
+5. $\forall \; x \; \neg Fx \vDash \neg Fa$
+6. $\neg Fa, \neg Fa\rightarrow \neg Fb\vDash \neg Fb$
+7. $\neg Fa\nvDash \forall \; x \; \neg Fx$
+8. $\neg Fb, \neg Fa\rightarrow \neg Fa\nvDash \neg Fa$
+
+The reasons for these just follow from some simple observations about models and Tarski's definition of truth in a model. For instance, 1 and 5 just follow from the universal clause in Tarski's definition of truth in a model. And 2 and 6 just follow from the truth-table for arrow embedded in the clause for arrow in Tarski's definition of truth in a model. And likewise 3 and 7 do not follow since a model can make an instance true without making the universal true. And finally 4 and 8 do not follow since a model can make an arrow statement true and the consequent true without making the antecedent true, by making the antecedent false. This too comes just from the truth-table for arrow built into the definition of Tarski's definition of truth in a model.
+
+These examples likewise suggest that one needs to exercise great care in distinguishing $\phi_1, \ldots, \phi_n \nvDash \phi$ from $\phi_1, \ldots, \phi_n \vDash \neg \phi$. For, $\phi_1, \ldots, \phi_n \nvDash \phi$ is an existential claim that some model is a model of both $\phi_1, \ldots, \phi_n$ and $\neg \phi$. But $\phi_1, \ldots, \phi_n \vdash \neg \phi$ is a universal claim that that any model of $\phi_1, \ldots, \phi_n$ is a model of $\neg \phi$.
+
+A good test of one's ability to understand these distinctions can be gauged by considering the following claims and asking oneself whether it is universal or existential claim, and if so whether it is a claim about *all models* or *some models* or *some proofs* or *all proofs*:
+
+- $\phi_1, \ldots, \phi_n \vdash \phi$ (this is a claim that *some proof* is a proof of $\phi$ from $\phi_1, \ldots, \phi_n$)
+- $\phi_1, \ldots, \phi_n \vdash \neg \phi$ (this is a claim that *some proof* is a proof of $\neg \phi$ from $\phi_1, \ldots, \phi_n$)
+- $\phi_1, \ldots, \phi_n \nvdash \phi$ (this is a claim that *all proofs* are not proofs of $\phi$ from $\phi_1, \ldots, \phi_n$)
+- $\phi_1, \ldots, \phi_n \nvdash \neg \phi$ (this is a claim that *all proofs* are not proofs of $\neg \phi$ from $\phi_1, \ldots, \phi_n$)
+- $\phi_1, \ldots, \phi_n \vDash \phi$ (this is a claim that *all models* of $\phi_1, \ldots, \phi_n$ are models of $\phi$)
+- $\phi_1, \ldots, \phi_n \vDash \neg \phi$ (this is a claim that *all models* of $\phi_1, \ldots, \phi_n$ are models of $\neg \phi$)
+- $\phi_1, \ldots, \phi_n \nvDash \phi$ (this is a claim that *some model* of $\phi_1, \ldots, \phi_n$ is a model of $\neg \phi$)
+- $\phi_1, \ldots, \phi_n \nvDash \neg \phi$ (this is a claim that *some model* of $\phi_1, \ldots, \phi_n$ is a model of $\phi$)
+
+<br>
+
 ## Statement of soundness and completeness
 
-Recall that $\phi_1, \ldots, \phi_n\vdash \phi$ means that there is a proof in our natural deduction system for classical logic with premises among $\phi_1, \ldots, \phi_n$ and with conclusion $\phi$.
-
-And recall that $\phi_1, \ldots, \phi_n \vDash \phi$ means that any model which interprets all of the symbols in these formulas is such that if $\phi_1, \ldots, \phi_n$ are true on the model, then $\phi$ is true on the model.
-
-It turns out that these two notions extensionally align. This alignment is separated into two parts which are given the following traditional names:
+It turns out that provabiltiy and validity align in first-order classical predicate logic. This alignment is separated into two parts which are given the following traditional names:
 
 - *The Soundness Theorem*: if $\phi_1, \ldots, \phi_n \vdash \phi$, then $\phi_1, \ldots, \phi_n \vDash \phi$.
 
@@ -26,7 +69,7 @@ It turns out that these two notions extensionally align. This alignment is separ
 
 The proof of the Soundness Theorem is not difficult. To give an illustration, consider the argument for $Fa\vdash \exists \; x \; Fx$ which goes through one application of existential introduction. To check that $Fa\vDash \exists \; x \; Fx$, one just notes that if $\mathcal{M}\models Fa$ then by the existential clause of Tarski's definition of truth in a model, we have $\mathcal{M}\models \exists \;x \; Fx$.
 
-The proof of the Completeness Theorem is harder. This is the topic of metalogic, which is the next course after a course like this one.
+The proof of the Completeness Theorem is harder. This is the topic of metalogic, which is usually the next course after a course like this one.
 
 It is worth highlighting a specific case of the Soundness and Completeness Theorem, namely the case where there are no premises. In this case, they read:
 
@@ -46,9 +89,9 @@ Another useful case of the Soundness and Completeness Theorem is when the conclu
 
 4. $\phi_1, \ldots, \phi_n$ does not derive a contradiction iff there is a model of $\phi_1, \ldots, \phi_n$
 
-In this, 1 is just a literal restatement of the Soundness and Completeness Theorem as a single biconditional. And 2 just results by negating both sides of the biconditional in 1. And 3 results from 2 by recalling that ex falso rule makes $\bot$ a stand-in for any contradiction. And 4 results from 3 by noting that no model is a model of a contradiction. This fourth and last formulation can be then expressed as: deductive consistency of the premises is the same as the premises having a model. This is important because it ties a formal feature of a deductive system (deductive consistency) directly to the existence of a model. Indeed, it is in this formulation that the Completeness Theorems is usually proven.
+In this, 1 is just a literal restatement of the Soundness and Completeness Theorem as a single biconditional. And 2 just results by negating both sides of the biconditional in 1. And 3 results from 2 by recalling that ex falso rule makes $\bot$ a stand-in for any contradiction. And 4 results from 3 by noting that every model does not model a contradiction. This fourth and last formulation can be then expressed as: deductive consistency of the premises is equivalent to the premises having a model. This is important because it ties a formal feature of a deductive system (deductive consistency) directly to the existence of a model. Indeed, it is in this formulation that the Completeness Theorems is usually proven.
 
-A final word on notation. A logic is, in general, a collection of formulas together with a deductive system and a semantics. For instance, in a first logic class, one learned propositional logic together with some deductive system and the semantics was truth-tables. In this class we have learned predicate logic together with a deductive system and the semantics was models. One says that a logic is *sound* if the Soundness Theorem holds for the pair consisting of its deductive system and semantics. And one says that logic is *complete* if the Completeness Theorem holds for the pair consisting of its deductive system and semantics. For instance, intuitionistic logic is sound but incomplete since law of the excluded middle is valid, but yet it is not provable in intuitionistic logic. Usually the terms "sound" and "complete" are not capitalized when they are used as adjectives for a logic, but they are capitalized when they are used to name theorems, e.g. "The Soundness Theorem" and "The Completeness Theorem."
+A final word on notation. A logic is, in general, a collection of formulas together with a deductive system and a semantics. For instance, in a first logic class, one learns propositional logic together with a deductive system along with a semantics given by truth-tables. In this class we have learned predicate logic together with a deductive system along with a semantics in terms of models. One says that a logic is *sound* if the Soundness Theorem holds for the pair consisting of its deductive system and semantics. And one says that logic is *complete* if the Completeness Theorem holds for the pair consisting of its deductive system and semantics. For instance, intuitionistic logic is sound but incomplete since law of the excluded middle is valid, but yet law of the excluded middle is not provable in intuitionistic logic. Usually the terms "sound" and "complete" are not capitalized when they are used as adjectives for a logic, but they are capitalized when they are used to name theorems, e.g. "The Soundness Theorem" and "The Completeness Theorem."
 
 <br>
 
@@ -61,7 +104,7 @@ Soundness is most useful in its contrapositive form:
 That is, it is saying that if one has found at least one model where the premises are true and the conclusion false, then there cannot possibly be a proof of that conclusion from the premises. The Soundness Theorem is presumably explanatory of why we think that we should stop looking for a proof once a counterexample has been found. It might well be part of why we think that a counterexample shows that something must be awry with any purported proof of the conclusion from the premises.
 
 That said, there are lots of models out there. And maybe a single counterexample is less significant to the extent that it is unnatural or ad-hoc or not faithful to the target phenomena.
-But some constraints on e.g. naturality will be formalizable as further premises, and then what should really be evaluated is the argument supplemented by this further premise.
+But some constraints on naturality will be formalizable as further premises, and then what should really be evaluated is the argument supplemented by this further premise.
 
 <br>
 
@@ -162,7 +205,7 @@ We illustrate this with four simple examples. In each example, one is given an a
 
 ## Completeness and the addition of rules
 
-After we covered the introduction and elimination rules for the connectives, we kept on adding rules to our deductive system like EFSQ and DN, even when these departed more and more from the guiding idea of natural deduction that the only rules are those that allow for the introduction and elimination of a symbol. How do we know when we are "done" adding rules? This was Kleene's question:[^1]
+After we covered the introduction and elimination rules for the connectives, we kept on adding rules to our deductive system like EFSQ and DN, even when these departed more and more from the guiding idea of natural deduction, namely, that the only rules are those that allow for the introduction and elimination of a symbol. How do we know when we are "done" adding rules? This was Kleene's question:[^1]
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus%20p.%20131.png" alt="Kleene on completeness" width="700"/>
 
@@ -181,7 +224,7 @@ Consider the following four numbered claims about an argument with premises $\ph
 3. Whenever the premises $\phi_1, \ldots, \phi_n$ are all true, then the conclusion $\phi$ is true.
 4. $\phi_1, \ldots, \phi_n \vDash \phi$
 
-One might have the thought that
+Each of the following seems plausible:
 
 - 1 entails 2 since a proof is a guarantee
 - 2 entails 3 since the guarantee in 2 pertains to truth-preservation
@@ -194,6 +237,6 @@ If this is right, then the role that The Completeness Theorem plays is showing u
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion]%20p.%20153%20v2.png" alt="Kreisel on completeness" width="600"/>
 
-Kreisel's Squeezing Argument is viewed today rather as an argument template for concluding that the formal notions of derivability and validity are successful conceptual analyses of the pre-theoretic notion.
+Kreisel's Squeezing Argument is viewed today as an template for concluding that the formal notions of derivability and validity are successful conceptual analyses of the pre-theoretic notion. As we saw we initially introduced validity, this was one of Tarski's goals, and so Kreisel can be seen as giving a new argument for it, that goes through the Completeness Theorem.
 
 <br>
