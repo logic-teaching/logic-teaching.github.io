@@ -413,7 +413,7 @@ The idea is just to define identity as "sharing all properties". That is, we cou
 
 ## Ramsey and Carnap sentences
 
-Suppose that one has a physical theory with theoretical predicates $F, G$ and empirical predicates $P,Q$ and one binary relation $R$ which connects them. Suppose that one's theory consists of the following premises:
+Suppose that one has a physical theory with *theoretical* predicates $F, G$ and *empirical* predicates $P,Q$ and one binary relation $R$ which connects them. Suppose that one's theory consists of the following premises:
 
 &nbsp; &nbsp; &nbsp; $\exists \; x \; (Fx\wedge Gx)$
 
