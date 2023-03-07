@@ -389,7 +389,7 @@ Often when identity of indiscernibles is being debated within philosophy, one is
 
 Another clear application of second-order logic is that with it, one can define an identity-like notion which satisfies the introduction and elimination rules for identity, and hence will be indistinguishable from identity as far as proofs in our system goes.
 
-The idea is just to define identity as "sharing all properties". That is, we could define $a=b$ as $\forall \; X_1 \; (X_1 a \rightarrow X_1 b)$. The next two proofs show that if we take this as the definition, then we could derive the introduction and elimination rules for identity.
+The idea is just to define identity as "sharing all properties". That is, we could define $a=b$ as $\forall \; X \; (Xa \rightarrow Xb)$. The next two proofs show that if we take this as the definition, then we could derive the introduction and elimination rules for identity.
 
 ```{.ProofChecker .GamutNDSOL submission="none"}
  :|-: AX1(X1a->X1a)
@@ -413,22 +413,22 @@ The idea is just to define identity as "sharing all properties". That is, we cou
 
 ## Ramsey and Carnap sentences
 
-Suppose that one has a physical theory with theoretical predicates $F, G$ and empirical predicates $J,K$ and two binary relations $R,T$ which connect them. Suppose that one's theory consists of the following premises:
+Suppose that one has a physical theory with theoretical predicates $F, G$ and empirical predicates $P,Q$ and one binary relation $R$ which connects them. Suppose that one's theory consists of the following premises:
 
-- $\forall \; x \; (Fx\rightarrow \exists \; y \; (Jy\wedge Rxy)$
-- $\forall \; x \; (Jx\rightarrow Kx)$
-- $\exists \; x \; (Fx\wedge Gx)$
-- $\forall \; x \; (Kx\rightarrow \exists \; y \; (Gy\wedge Txy)$
+&nbsp; &nbsp; &nbsp; $\exists \; x \; (Fx\wedge Gx)$
 
-Then the *Ramsey sentence* of the theory consists by existentially quantifying out the theoretical predicates (in this case $F,G$):
+&nbsp; &nbsp; &nbsp; $\forall \; x \; (Fx\rightarrow \exists \; y \; ((Py\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y)$
 
-$\exists \; X \; \exists \; Y \;$
+&nbsp; &nbsp; &nbsp; $\forall \; x \; (Gx\rightarrow \exists \; y \; ((Qy\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y))$
 
-$\forall \; x \; (Xx\rightarrow \exists \; y \; (Jy\wedge Rxy)$
+Then the *Ramsey sentence* of the theory is formed by existentially quantifying out the theoretical predicates (in this case $F,G$):
 
-$\wedge \forall \; x \; (Jx\rightarrow Kx)$
+&nbsp; $\exists \; X \; \exists \; Y \;$
 
-$\wedge \exists \; x \; (Xx\wedge Yx)$
+&nbsp; &nbsp; &nbsp; $\exists \; x \; (Xx\wedge Yx)$
 
-$\wedge \forall \; x \; (Kx\rightarrow \exists \; y \; (Yy\wedge Txy)$
+&nbsp; &nbsp; &nbsp; $\wedge \forall \; x \; (Xx\rightarrow \exists \; y \; ((Py\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y)$
+
+&nbsp; &nbsp; &nbsp; $\wedge \forall \; x \; (Yx\rightarrow \exists \; y \; ((Qy\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y))$
+
 
