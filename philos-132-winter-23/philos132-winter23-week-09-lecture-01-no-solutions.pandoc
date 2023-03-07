@@ -191,7 +191,7 @@ After we covered the introduction and elimination rules for the connectives, we 
 
 [^1]: p. 131 of [Kleene, Stephen Cole. 1952. Introduction to Metamathematics. Bibliotheca Mathematica. North-Holland.](https://logic-teaching.github.io/prop/texts/Kleene%201952%20-%20Introduction%20to%20Metamathematics%20-%20Chapter%20VI%20The%20Propositional%20Calculus.pdf)
 
-Kleene further thought that the Completeness Theorem is a sure sign that one is done. For, suppose that one added a new rule to one's system, and suppose that it was valid, like all the other basic rules we have choosen. Then any derivation in this new system will just be a large chain of small valid steps, and so it itself will be valid. And by the Completeness Theorem, any such derivation is already provable from the original system.
+Kleene further thought that the Completeness Theorem is a sure sign that one is done. For, suppose that one added a new rule to one's system, and suppose that it was valid, like all the other basic rules we have chosen. Then any derivation in this new system will just be a large chain of small valid steps, and so it itself will be valid. And by the Completeness Theorem, any such derivation is already provable from the original system.
 
 <br>
 
