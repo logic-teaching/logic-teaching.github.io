@@ -36,11 +36,11 @@ Further [recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-wee
 1. $\forall \; x \; Fx \vDash Fa$
 2. $Fa, Fa\rightarrow Fb\vDash Fb$
 3. $Fa\nvDash \forall \; x \; Fx$
-4. $Fb, Fa\rightarrow Fa\nvDash Fa$
+4. $Fb, Fa\rightarrow Fb\nvDash Fa$
 5. $\forall \; x \; \neg Fx \vDash \neg Fa$
 6. $\neg Fa, \neg Fa\rightarrow \neg Fb\vDash \neg Fb$
 7. $\neg Fa\nvDash \forall \; x \; \neg Fx$
-8. $\neg Fb, \neg Fa\rightarrow \neg Fa\nvDash \neg Fa$
+8. $\neg Fb, \neg Fa\rightarrow \neg Fb\nvDash \neg Fa$
 
 The reasons for these just follow from some simple observations about models and [Tarski's definition of truth in a model](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model). For instance, 1 and 5 just follow from the universal clause in Tarski's definition of truth in a model. And 2 and 6 just follow from the truth-table for arrow embedded in the clause for arrow in Tarski's definition of truth in a model. And likewise 3 and 7 do not follow since a model can make an instance true without making the universal true. And finally 4 and 8 do not follow since a model can make an arrow statement true and the consequent true without making the antecedent true, by making the antecedent false. This too comes just from the truth-table for arrow built into the definition of Tarski's definition of truth in a model.
 

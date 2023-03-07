@@ -413,7 +413,7 @@ The idea is just to define identity as "sharing all properties". That is, we cou
 
 ## Ramsey and Carnap sentences
 
-Suppose that one has a physical theory with *theoretical* predicates $F, G$ and *empirical* predicates $P,Q$ and one binary relation $R$ which connects them. Suppose that one's theory consists of the following premises:
+Suppose that one has a physical theory with theoretical one-place predicates $F, G$, one two-place theoretical predicate $R$, and two empirical predicates $P,Q$. Suppose that one's theory consists of the following premises:
 
 &nbsp; &nbsp; &nbsp; $\exists \; x \; (Fx\wedge Gx)$
 
@@ -421,14 +421,53 @@ Suppose that one has a physical theory with *theoretical* predicates $F, G$ and 
 
 &nbsp; &nbsp; &nbsp; $\forall \; x \; (Gx\rightarrow \exists \; y \; ((Qy\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y))$
 
-Then the *Ramsey sentence* of the theory is formed by existentially quantifying out the theoretical predicates (in this case $F,G$):
+Then the *Ramsey sentence* of the theory is formed by existentially quantifying out the theoretical predicates (in this case $F,G,R$):
 
-&nbsp; $\exists \; X \; \exists \; Y \;$
+&nbsp; $\exists \; X \; \exists \; Y \; \exists \; Z$
 
 &nbsp; &nbsp; &nbsp; $\exists \; x \; (Xx\wedge Yx)$
 
-&nbsp; &nbsp; &nbsp; $\wedge \forall \; x \; (Xx\rightarrow \exists \; y \; ((Py\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y)$
+&nbsp; &nbsp; &nbsp; $\wedge \forall \; x \; (Xx\rightarrow \exists \; y \; ((Py\wedge Zxy)\wedge \forall \; z \; (Zxz\rightarrow z=y)$
 
-&nbsp; &nbsp; &nbsp; $\wedge \forall \; x \; (Yx\rightarrow \exists \; y \; ((Qy\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y))$
+&nbsp; &nbsp; &nbsp; $\wedge \forall \; x \; (Yx\rightarrow \exists \; y \; ((Qy\wedge Zxy)\wedge \forall \; z \; (Zxz\rightarrow z=y))$
+
+The key feature of the Ramsey sentence of a theory is that:
+
+- The Ramsey sentence of a theory has the same observational consequences as the theory itself.
+
+This can be illustrated by means of the above example:
 
 
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ex(Fx/\Gx), Ax(Fx->Ey((Py/\Rxy)/\Az(Rxz->z=y))), Ax(Gx->Ey((Qy/\Rxy)/\Az(Rxz->z=y))) :|-: Ez(Pz/\Qz)
+|Ex(Fx/\Gx) :assumption
+|Ax(Fx->Ey((Py/\Rxy)/\Az(Rxz->z=y))) :assumption
+|Ax(Gx->Ey((Qy/\Rxy)/\Az(Rxz->z=y))) :assumption
+| Fa/\Ga :assumption
+| Fa :E/\4
+| Ga :E/\4
+| Fa->Ey((Py/\Ray)/\Az(Raz->z=y)) :EA2
+| Ga->Ey((Qy/\Ray)/\Az(Raz->z=y)) :EA3
+| Ey((Py/\Ray)/\Az(Raz->z=y)) :E->7,5
+| Ey((Qy/\Ray)/\Az(Raz->z=y)) :E->6,8
+|  (Pb/\Rab)/\Az(Raz->z=b) :assumption
+|  Pb/\Rab :E/\11
+|  Pb :E/\12
+|  Rab :E/\12
+|  Az(Raz->z=b) :E/\11
+|   (Qc/\Rac)/\Az(Raz->z=c) :assumption
+|   Qc/\Rac :E/\16
+|   Qc :E/\17
+|   Rac :E/\17
+|   Rac->c=b :EA15
+|   c=b :E->19,20
+|   Qb :E=18,21
+|   Pb/\Qb :I/\13,22
+|   Ez(Pz/\Qz) :IE23
+|  ((Qc/\Rac)/\Az(Raz->z=c))->Ez(Pz/\Qz) :I->16-24
+|  Ez(Pz/\Qz) :EE 10, 25
+| ((Pb/\Rab)/\Az(Raz->z=b))->Ez(Pz/\Qz) :I->11-26
+| Ez(Pz/\Qz) :EE 9,27
+|(Fa/\Ga)->Ez(Pz/\Qz) :I->4-28
+|Ez(Pz/\Qz) :EE 29,1
+```
