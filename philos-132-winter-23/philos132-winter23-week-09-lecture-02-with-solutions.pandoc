@@ -1,0 +1,434 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+
+<br>
+
+# Week 9, Lecture 2, Second-order logic with solutions
+
+<br>
+
+We introduce second-order logic.
+
+- [Motivation by way of translations](#motivation-by-way-of-translations)
+- [The comprehension schema and lambda-terms as names of properties](#the-comprehension-schema-and-lambda-terms-as-names-of-properties)
+- [Axioms for evaluation of lambda terms](#axioms-for-evaluation-of-lambda-terms)
+- [The identity of indiscernibles](#identity-of-indiscernibles)
+- [The definition of identity](#the-definition-of-identity)
+- [Ramsey and Carnap sentences](#ramsey-and-carnap-sentences)
+
+<br>
+
+## Motivation by way of translations
+
+<br>
+
+In the next couple of examples, we use the key:
+
+| $a$ = Allison
+| $b$ = Brianna
+| $W$ = is wise
+| $K$ = is kind
+| $R$ = respects
+| $T$ = trusts
+
+<br>
+
+*Example 1*
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+ (Wa->ExWx) : If Allison is wise, then someone is wise.
+|Wa->ExWx
+~~~
+
+<br>
+
+*Example 2*
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+ (Wa/\Wb)->EX1(X1a/\X1b) : If Allison is wise and Brianna is wise, then Allison has some one-place property which Brianna also has.
+|(Wa/\Wb)->EX1(X1a/\X1b)
+~~~
+
+<br>
+
+*Example 3*
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+ Ka->Ex(~x=b/\Kx) : If Allison is kind, then someone besides Brianna is kind.
+|Ka->Ex(~x=b/\Kx)
+~~~
+
+<br>
+
+*Example 4*
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+ Ka->EX1(X1a/\~Ay(Wy->X1y)) : If Allison is kind, then Allison has some one-place property which not all wise people have.
+|Ka->EX1(X1a/\~Ay(Wy->X1y))
+~~~
+
+<br>
+
+*Example 5*
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+ (Tab->ExTxb) : If Allison trusts Brianna, then someone trusts Brianna.
+|Tab->ExTxb
+~~~
+
+<br>
+
+*Example 6*
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+ Tab->EX2(X2ab/\~X2ba) : If Allison trusts Brianna, then there is some two-place property which Allison and Brianna stand in but which Brianna and Allison do not stand in.
+|Tab->EX2(X2ab/\~X2ba)
+~~~
+
+<br>
+
+As you can see from these examples, in our computer system we have to write the number next to the `X` since that tells us how many places it takes. This is kind of like parentheses: people drop them when writing it out by hand since it is usually clear from context. We will be dropping them in what follows, except when we need to write them in the computer system.
+
+<br>
+
+## The comprehension schema and lambda-terms as names of properties
+
+<br>
+
+Our conception of "property" is fairly broad, and so we also want all the following to be valid:
+
+<table style="width:125%">
+  <tr>
+    <th>Intuitive</th>
+    <th>Handwritten</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>There is a one-place property of being $F$ and $G$</td>
+    <td>$\exists \; X \; \forall \; x \; (Xx\leftrightarrow (Fx\wedge Gx))$</td>
+    <td>`EX1Ax((X1x->(Fx/\Gx))/\((Fx/\Gx)->X1x))`</td>
+  </tr>
+  <tr>
+    <td>There is a one-place property of being $F$ or $G$</td>
+    <td>$\exists \; X \; \forall \; x \; (Xx\leftrightarrow (Fx\vee Gx))$</td>
+    <td>`EX1Ax((X1x->(Fx\/Gx))/\((Fx\/Gx)->X1x))`</td>
+  </tr>
+  <tr>
+    <td>There is a one-place property of being $F$ and not $G$</td>
+    <td>$\exists \; X \; \forall \; x \; (Xx\leftrightarrow (Fx\wedge \neg Gx))$</td>
+    <td>`EX1Ax((X1x->(Fx/\~Gx))/\((Fx/\~Gx)->X1x))`</td>
+  </tr>
+  <tr>
+    <td>There is a one-place property of being equal to $a$</td>
+    <td>$\exists \; X \; \forall \; x \; (Xx\leftrightarrow x=a)$</td>
+    <td>`EX1Ax((X1x->x=a)/\(x=a->X1x))`</td>
+  </tr>
+</table>
+
+<br>
+
+These correspond, respectively, to the set-theoretic operations of intersection, union, and relative difference, and the set consisting just of $a$.
+
+It seems hard to describe what these have in common other than what is on the right-hand side is a formula $\phi(x)$ of predicate logic. Hence, we want all instances of the following *comprehension schema* in our deductive system:[^1]
+
+<table style="width:125%">
+  <tr>
+    <th>Intuitive</th>
+    <th>Handwritten</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>There is a one-place property of being $\phi(x)$</td>
+    <td>$\exists \; X \; \forall \; x \; (Xx\leftrightarrow \phi(x))$</td>
+    <td>`EX1Ax((X1x->ϕ(x))/\(ϕ(x)->X1x))`</td>
+  </tr>
+</table>
+
+<br>
+
+However, a disadvantage of settling just with this is that it is a bare existential. Hence, if we stopped with this, then whenever we wanted to apply it we would have to do an existential elimination. And it seems like a particularly inefficient use of an existential, since we "know" what property we are talking about: we are talking about the property that corresponds to a specific first-order formula $\phi(x)$.
+
+[^1]: One also has to require, in the comprehension schema, that $X$ is not free in $\phi(x)$. Otherwise one could let $\phi(x)$ be $\neg Xx$ and one would get $\exists \; X \; \forall \; x \; Xx\leftrightarrow \neg Xx$.
+
+Hence, we use some lambda notation to be able to "name" properties:
+
+<table style="width:125%">
+  <tr>
+    <th>Property</th>
+    <th>Formula</th>
+    <th>Lambda term, handwritten</th>
+    <th>Lambda term, typed</th>
+  </tr>
+  <tr>
+    <td>Being $F$ and $G$</td>
+    <td>$Fx\wedge Gx$</td>
+    <td>$\lambda x . (Fx\wedge Gx)$</td>
+    <td>`\x[Fx/\Gx]` or `λx[Fx/\Gx]`</td>
+  </tr>
+  <tr>
+    <td>Being $F$ or $G$</td>
+    <td>$Fx\vee Gx$</td>
+    <td>$\lambda x . (Fx\vee Gx)$</td>
+    <td>`\x[Fx\/Gx]` or `λx[Fx\/Gx]`</td>
+  </tr>
+  <tr>
+    <td>Being $F$ and not $G$</td>
+    <td>$Fx\wedge \neg Gx$</td>
+    <td>$\lambda x . (Fx\wedge \neg Gx)$</td>
+    <td>`\x[Fx/\~Gx]` or `λx[Fx/\~Gx]`</td>
+  </tr>
+  <tr>
+    <td>Being equal to $a$</td>
+    <td>$x=a$</td>
+    <td>$\lambda x . (x=a)$</td>
+    <td>`\x[x=a]` or `λx[x=a]`</td>
+  </tr>
+</table>
+
+<br>
+
+Unlike our prior exposure to lambda-terms in the setting of [the Curry-Howard isomorphism], we are *not* including the typing. This is because they are all functions $f:D\rightarrow \{0,1\}$, where $1$ is true and $0$ is false, and where $D$ is the domain of quantification.[^2] This basically because we are restricting ourselves today to "second-order logic", rather than "third-order logic, fourth-order logic, etc." as well as logics where there are functions from first-order objects to first-order objects.
+
+[^2]: In the notation of formal semantics which we mentioned, they are all functions $f:D_e\rightarrow D_t$, which is abbreviated as $f:D_{et}$.
+
+Similarly, we use lambda notation to be able to "name" two-place properties:
+
+<table style="width:125%">
+  <tr>
+    <th>Property</th>
+    <th>Fromula</th>
+    <th>Lambda term, handwritten</th>
+    <th>Lambda term, typed</th>
+  </tr>
+  <tr>
+    <td>Being $R$ and $T$</td>
+    <td>$Rxy\wedge Txy$</td>
+    <td>$\lambda x \lambda y . (Rxy\wedge Txy)$</td>
+    <td>`\x\y[[Rxy/\Txy]]` or `λxλy[Fx/\Gx]`</td>
+  </tr>
+  <tr>
+    <td>Being $R$ or $T$</td>
+    <td>$Rxy\vee Txy$</td>
+    <td>$\lambda x \lambda y . (Rxy\vee Txy)$</td>
+    <td>`\x\y[Rxy\/Txy]` or `λxλy[Rxy\/Txy]`</td>
+  </tr>
+  <tr>
+    <td>Being $R$ and not $T$</td>
+    <td>$Rxy\wedge \neg Txy$</td>
+    <td>$\lambda x \lambda y . (Rxy\wedge \neg Txy)$</td>
+    <td>`\x\y[Rxy/\~Txy]` or `λxλy[Rxy/\~Txy]`</td>
+  </tr>
+  <tr>
+    <td>Being equal to $a$ and $b$</td>
+    <td>$x=a\wedge y=b$</td>
+    <td>$\lambda x \lambda y. (x=a\wedge x=b)$</td>
+    <td>`\x\y[x=a/\y=b]` or `λxλy[x=a/\y=b]`</td>
+  </tr>
+</table>
+
+<br>
+
+As our descriptions of these properties indicates, it might be questionable whether there is anything in the natural languages we speak which picks out these functions. After all, our last example is clearly something like "$x$ being equal to $a$ and $y$ being equal to $b$", rather than "one thing being equal to both $a$ and $b$".
+
+These two places properties are what gets us the validity of the comprehension schema in second-order logic:
+
+<table style="width:125%">
+  <tr>
+    <th>Intuitive</th>
+    <th>Handwritten</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>There is a two-place property of being $\phi(x,y)$</td>
+    <td>$\exists \; X \; \forall \; x \;\forall \; y\; (Xxy\leftrightarrow \phi(x,y))$</td>
+    <td>`EX2AxAy((X2xy->ϕ(x,y))/\(ϕ(x,y)->X1xy))`</td>
+  </tr>
+</table>
+
+<br>
+
+## Axioms for evaluation of lambda terms
+
+<br>
+
+Since we only have lambda terms which correspond to one-place and two-place relations, the evaluation process is very simple:
+
+<table style="width:125%">
+  <tr>
+    <th>Name</th>
+    <th>Rule</th>
+    <th>Rule, typed</th>
+    <th>Abbreviation</th>
+  </tr>
+  <tr>
+    <td>Application for one-place relations</td>
+    <td>$\lambda x. [ϕ(x)]a \vdash ϕ(a)$</td>
+    <td>`\x[ϕ(x)]a ⊢ ϕ(a)` or `λx[ϕ(x)]a ⊢ ϕ(a)` </td>
+    <td>`APP1`</td>
+  </tr>
+  <tr>
+    <td>Application for two-place relations</td>
+    <td>$\lambda x \lambda y. [ϕ(x,y)]ab \vdash ϕ(a,b)$</td>
+    <td>`\x\y[ϕ(x)]ab ⊢ ϕ(a,b)` or `λxλy[ϕ(x,y)]ab ⊢ ϕ(a,b)` </td>
+    <td>`APP2`</td>
+  </tr>
+  <tr>
+    <td>Abstraction for one-place relations</td>
+    <td>$ϕ(a) \vdash \lambda x. [ϕ(x)]a$</td>
+    <td>`ϕ(a) ⊢ \x[ϕ(x)]a` or `ϕ(a) ⊢ λx[ϕ(x)]a` </td>
+    <td>`ABS1`</td>
+  </tr>
+  <tr>
+    <td>Abstraction for two-place relations</td>
+    <td>$ϕ(a,b)\vdash \lambda x \lambda y. [ϕ(x,y)]ab$</td>
+    <td>`λxλy[ϕ(x,y)]ab ⊢ ϕ(a,b)` or `\x\y[ϕ(x)]ab ⊢ ϕ(a,b)` </td>
+    <td>`ABS2`</td>
+  </tr>
+</table>
+
+<br>
+
+We now do some sample derivations in the system.
+
+<br>
+
+The *guiding idea* is that the one-place second-order quantifiers range over one-place lambda-terms, and the two-place second-order quantifiers range over two-place lambda-terms.
+
+<br>
+
+*Example 7*
+
+This is how we formalize that "if Allison is not from Florida, and Brianna is from Gainsville, and if everyone from Gainsville is from Florida, then Allison has some property which Brianna does not" (namely, the property of being not from Florida):
+
+$\neg Fa, Gb, \forall \; x \; (Gx\rightarrow Fx) \vdash \exists \; X \; (Xa\wedge \neg Xb)$
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+ ~Fa, Gb, Ax(Gx->Fx) :|-: EX1(X1a/\~X1b)
+|~Fa :assumption
+|Gb :assumption
+|Ax(Gx->Fx) :assumption
+|\x[~Fx]a :ABS1 1
+| \x[~Fx]b :assumption
+| ~Fb :APP1 5
+| Gb->Fb :EA 3
+| Fb :E->2,7
+| !? :E~6,8
+|~\x[~Fx]b :I~5-9
+|\x[~Fx]a/\~\x[~Fx]b :I/\4,10
+|EX1(X1a/\~X1b) :IE1 11
+```
+
+<br>
+
+*Example 8*
+
+This is how we formalize that "and if Allison does not respect Claire, and if for all two-place relations if Allison bears it to something, then Brianna bears it to something, then Brianna does not respect someone"
+
+$\neg Rac, \forall \; X \; (\exists \; z \; Xaz \rightarrow \exists \; z \; Xab) \vdash \exists \; z \; \neg Rbz$
+
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+ ~Rac, AX2(EzX2az->EzX2bz) :|-: Ez~Rbz
+|~Rac :assumption
+|AX2(EzX2az->EzX2bz) :assumption
+|\x\y[~Rxy]ac :ABS2 1
+|Ez\x\y[~Rxy]az :IE 3
+|Ez\x\y[~Rxy]az->Ez\x\y[~Rxy]bz :EA2 2
+|Ez\x\y[~Rxy]bz :E->4,5
+| \x\y[~Rxy]bd :assumption
+| ~Rbd :APP2 7
+| Ez~Rbz :IE 8
+|\x\y[~Rxy]bd->Ez~Rbz :I->7-9
+|Ez~Rbz :EE6, 10
+```
+
+
+## The identity of indiscernibles
+
+<br>
+
+One famous concept which is expressible with second-order logic is the identity of indiscernibles. The *identity of indiscernibles* says that any two objects which share all the same properties are identical.
+
+Since our proof system has identity built in, identity of indiscernibles is provable in our system. This is because if $a,b$ are two objects which share all properties, and if $a$ has the property "$a$ is equal to it", so $b$ has the property "$a$ is equal to it."
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+  :|-: AxAy(AX1(X1x->X1y)->x=y)
+| AX1(X1a->X1b) :assumption
+| a=a :I=
+| \x[a=x]a->\x[a=x]b :EA1 1
+| \x[a=x]a :ABS1 2
+| \x[a=x]b :E->3,4
+| a=b :APP1 5
+|AX1(X1a->X1b)->a=b :I->1-6
+|Ay(AX1(X1a->X1y)->a=y) :IA 7
+|AxAy(AX1(X1x->X1y)->x=y) :IA 8
+```
+
+Often when identity of indiscernibles is being debated within philosophy, one is in a setting where there is a less expansive notion of property in play. After all, as the proof makes clear, our proof system is organized so that "being such that $a$ is equal to one" is a property, and indeed anything that can be described with a formula of predicate logic counts as a property. Often when identity of indiscernibles is being debated in philosophy, we are rather interested in *qualitative* properties like "blue" or "red" which can be explicated without recourse to identity. The question of whether the identity of indiscernibles holds in this kind of setting is the question of whether any two objects which satisfy all of the same qualitative properties are identical.[^1] This evidently will not be settled by a theorem of logic alone. But the above theorem would underscore that in any setting where the identity of indiscernibles is an open question, the key philosophical notion is going to be the relevant concept of qualitative or non-relational property, which is going to be quite different than "formula of first-order predicate logic with identity."
+
+[^1]: E.g. Black's famous example of the two spheres. [Black, Max. 1952. “The Identity of Indiscernibles.” Mind; a Quarterly Review of Psychology and Philosophy 61 (242): 153–64.](https://www.jstor.org/stable/2252291)
+
+
+<br>
+
+## The definition of identity
+
+<br>
+
+Another clear application of second-order logic is that with it, one can define an identity-like notion which satisfies the introduction and elimination rules for identity, and hence will be indistinguishable from identity as far as proofs in our system goes.
+
+The idea is just to define identity as "sharing all properties". That is, we could define $a=b$ as $\forall \; X \; (Xa \rightarrow Xb)$. The next two proofs show that if we take this as the definition, then we could derive the introduction and elimination rules for identity.
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+ :|-: AX1(X1a->X1a)
+| X1a :assumption
+| X1a :rep1
+|X1a->X1a :I->1-2
+|AX1(X1a->X1a) :IA1 3
+```
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+ Fa, AX1(X1a->X1b) :|-: Fb
+|Fa :assumption
+|AX1(X1a->X1b) :assumption
+|λx[Fx]a->λx[Fx]b :EA1 2
+|λx[Fx]a :ABS1 1
+|λx[Fx]b :E->3,4
+|Fb :APP1 5
+```
+
+<br>
+
+## Ramsey and Carnap sentences
+
+Suppose that one has a physical theory with theoretical predicates $F, G$ and empirical predicates $P,Q$ and one binary relation $R$ which connects them. Suppose that one's theory consists of the following premises:
+
+&nbsp; &nbsp; &nbsp; $\exists \; x \; (Fx\wedge Gx)$
+
+&nbsp; &nbsp; &nbsp; $\forall \; x \; (Fx\rightarrow \exists \; y \; ((Py\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y)$
+
+&nbsp; &nbsp; &nbsp; $\forall \; x \; (Gx\rightarrow \exists \; y \; ((Qy\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y))$
+
+Then the *Ramsey sentence* of the theory is formed by existentially quantifying out the theoretical predicates (in this case $F,G$):
+
+&nbsp; $\exists \; X \; \exists \; Y \;$
+
+&nbsp; &nbsp; &nbsp; $\exists \; x \; (Xx\wedge Yx)$
+
+&nbsp; &nbsp; &nbsp; $\wedge \forall \; x \; (Xx\rightarrow \exists \; y \; ((Py\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y)$
+
+&nbsp; &nbsp; &nbsp; $\wedge \forall \; x \; (Yx\rightarrow \exists \; y \; ((Qy\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y))$
+
+
