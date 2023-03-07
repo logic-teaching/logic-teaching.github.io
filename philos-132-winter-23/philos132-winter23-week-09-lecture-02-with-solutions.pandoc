@@ -26,7 +26,7 @@ We introduce second-order logic.
 - [Axioms for evaluation of lambda terms](#axioms-for-evaluation-of-lambda-terms)
 - [The identity of indiscernibles](#identity-of-indiscernibles)
 - [The definition of identity](#the-definition-of-identity)
-- [Ramsey and Carnap sentences](#ramsey-and-carnap-sentences)
+- [Ramsey sentences](#ramsey-sentences)
 
 <br>
 
@@ -411,7 +411,7 @@ The idea is just to define identity as "sharing all properties". That is, we cou
 
 <br>
 
-## Ramsey and Carnap sentences
+## Ramsey sentences
 
 Suppose that one has a physical theory with theoretical one-place predicates $F, G$, one two-place theoretical predicate $R$, and two empirical predicates $P,Q$. Suppose that one's theory consists of the following premises:
 
@@ -435,8 +435,9 @@ The key feature of the Ramsey sentence of a theory is that:
 
 - The Ramsey sentence of a theory has the same observational consequences as the theory itself.
 
-This can be illustrated by means of the above example:
+In one direction, this is clear since the theory proves its Ramsey sentence by existential introduction. In the other direction, one just has to use existential elimination of the higher-order quantifiers.
 
+This can be illustrated by means of the above example:
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
  Ex(Fx/\Gx), Ax(Fx->Ey((Py/\Rxy)/\Az(Rxz->z=y))), Ax(Gx->Ey((Qy/\Rxy)/\Az(Rxz->z=y))) :|-: Ez(Pz/\Qz)
@@ -471,3 +472,4 @@ This can be illustrated by means of the above example:
 |(Fa/\Ga)->Ez(Pz/\Qz) :I->4-28
 |Ez(Pz/\Qz) :EE 29,1
 ```
+
