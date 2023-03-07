@@ -433,7 +433,7 @@ Then the *Ramsey sentence* of the theory is formed by existentially quantifying 
 
 The key feature of the Ramsey sentence of a theory is that:
 
-- The Ramsey sentence of a theory has the same observational consequences as the theory itself.
+- The Ramsey sentence of a theory has the same observational consequences as the theory itself. In this "observational consequence" just means "consequence in expressible by means of the observational predicates."
 
 In one direction, this is clear since the theory proves its Ramsey sentence by existential introduction. In the other direction, one just has to use existential elimination of the higher-order quantifiers.
 
@@ -485,4 +485,10 @@ That, Carnap thinks that endorsement of the Ramsey sentence of a theory rather t
 
 - frees one of the obligation of saying what the referent of theoretical predicates is and how that is connected to our more familiar ways of latching onto the referent of words.
 
-There is a lot to say about how successful Carnap is in carving out a space for this kind of nuanced realism.
+There is a lot to say about how successful Carnap is in carving out a space for this kind of tempered realism. A couple of observations can help to sharpen the picture:[^4]
+
+- Suppose that the empirical predicates contained one over-arching "empirical predicate" $Ox$ for "$x$ is observable". Then $\exists \; x \; \neg Ox$ is expressible purely in terms of the observational vocabulary. Hence if the original theory implies this, then so too does the Ramsey sentence. Hence the tempered realist probably cannot be someone who denies the existence of unobservables.
+
+- If second-order sentences in the observational vocabulary count as "observational consequences" as well, then proving the Ramsey sentence of a theory is just equiavlent to proving all of its observational consequences. And realists often want to be something more than mere advocates of empirical adequacy.
+
+[^4]: These points are made in more detail in Sections 3.6-3.7 of [Button, Tim, and Sean Walsh. 2018. Philosophy and Model Theory. Oxford University Press]().
