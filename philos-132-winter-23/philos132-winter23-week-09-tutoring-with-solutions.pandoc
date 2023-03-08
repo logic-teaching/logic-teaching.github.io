@@ -154,7 +154,7 @@ Before starting this section, consider reviewing the definition of equivalence r
 |Rcd :assumption
 ```
 
-```{.CounterModeler .Validity system="gamutND" submission="none"}
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
 09.06 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~a=b, Rab, ~c=d, Rcd :|-: Rac
 |Domain:0,1,2,3
 |R(_,_):[0,0], [1,1], [2,2], [3,3], [0,1], [1,0], [2,3], [3,2]
@@ -222,7 +222,7 @@ Before starting this section, consider reviewing the definition of equivalence r
 |ExEy(Ryx/\~x=y) :EE 4, 17
 ```
 
-```{.CounterModeler .Validity system="gamutND" submission="none"}
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
 09.08 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ExEy(Rxy/\~x=y) :|-: ExEy(Ryx/\~x=y)
 |Domain:
 |R(_,_):
@@ -259,7 +259,7 @@ Before starting this section, consider reviewing the definition of equivalence r
 |~Rbc :assumption
 ```
 
-```{.CounterModeler .Validity system="gamutND" submission="none"}
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
 09.10 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~Rab, ~Rbc :|-: ~Rac
 |Domain:0,1,2
 |R(_,_):[0,0],[1,1], [2,2], [0,2], [2,0]

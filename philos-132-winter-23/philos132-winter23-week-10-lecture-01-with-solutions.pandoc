@@ -1,0 +1,79 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+
+<br>
+
+# Week 10, Lecture 1, Second-order logic continued
+
+<br>
+
+We continue our discussion of second-order logic.
+
+- [The need to go beyond first-order logic](#the-need-to-go-beyond-first-order-logic)
+- [The standard semantics for second-order logic](#the-standard-semantics-for-second-order-logic)
+- [The plural interpretation of second-order logic](the-plural-interpretation-of-second-order-logic)
+
+<br>
+
+## The need to go beyond first-order logic
+
+
+*Example 1*
+
+
+*Example 2*
+
+
+<br>
+
+## The standard semantics for second-order logic
+
+The standard semantics for second-order predicate logic just expands the semantics for first-order predicate logic by interpreting the second-order one-place quantifiers as ranging over all subsets of the domain. That is, this semantics is organized so that the one-place properties are interpreted as the subsets of the first-order domain. This can be illustrated by example.
+
+<br>
+
+*Example ??*
+
+Consider the arrow model given as follows, where as usual $Rab$ iff there is a drawn arrow from $a$ to $b$ in the diagram:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/second-order-ex1.png" alt="Graph with two connected components" width="600"/>
+
+This is a model of the following long but simple sentence, which says that the there are two disjoint non-empty subsets of the domain which union to the domain such that for each of these two sets, all the points in the set arrow one another, and the only arrow points in that same set:
+
+$\exists \; X \; \exists \; Y \; $
+
+&nbsp; $\forall \; x \; (Xx\vee Yx) \; \wedge \exists \; Xx \; \exists \; Yy$
+
+&nbsp; $\wedge \neg exists \; x \; (Xx\wedge Yx)$
+
+&nbsp; $\wedge \forall \; x \; \forall \; y\; ((Xx\wedge Xy)\rightarrow Rxy)$
+
+&nbsp; $\wedge \forall \; x \; \forall \; y\; ((Xx\wedge Rxy)\rightarrow Xy)$
+
+&nbsp; $\wedge \forall \; x \; \forall \; y\; ((Yx/\Yy)\rightarrow Rxy)$
+
+&nbsp; $\wedge \forall \; x \; \forall \; y\; ((Yx\wedge Rxy)\rightarrow Yy)$
+
+In particular, this is true in the above model since one can take $X$ to be $\{0,1,2\}$ and one can take $Y$ to be $\{3,4\}$.
+
+But this same sentence is false in the below model:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/second-order-ex2.png" alt="Graph with two connected components" width="600"/>
+
+This is because if $0$ is in $X$, then so $4$ will be too, and then we can slowly put all the other points in $X$, contradicting that $Y$ is non-empty.
+
+<br>
+
+## The plural interpretation of second-order logic
