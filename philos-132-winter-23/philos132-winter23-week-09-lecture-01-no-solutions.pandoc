@@ -95,7 +95,7 @@ A final word on notation. A logic is, in general, a collection of formulas toget
 
 <br>
 
-## Useful reformuations of soundness
+## Useful reformulations of soundness
 
 Soundness is most useful in its contrapositive form:
 
@@ -108,7 +108,7 @@ But some constraints on naturality will be formalizable as further premises, and
 
 <br>
 
-## Useful reformuations of completeness
+## Useful reformulations of completeness
 
 The conditionals in the Soundness and Completeness Theorem are understood to be the material conditional taken in a classical metatheory where one can talk about proofs and models. Accordingly, one can rephrase the conditional in the Completeness Theorem in terms of a disjunction as follows:
 
