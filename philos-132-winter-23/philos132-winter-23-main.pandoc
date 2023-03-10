@@ -1,26 +1,23 @@
 <br>
 
-# [Introductory logic](https://ucla.in/31U89gS) [^2]
+# Logic, a Second Course[^1]
 
 <br>
 
-### By [Sean Walsh](https://philosophy.ucla.edu/person/sean-walsh/)[^1]
+### By [Sean Walsh](https://philosophy.ucla.edu/person/sean-walsh/)[^2]
 
-[^1]: <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Introductory Logic</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://carnap.io/shared/walsh@g.ucla.edu/book-mainpage.pandoc" property="cc:attributionName" rel="cc:attributionURL">Sean Walsh</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/logic-teaching/logic-teaching.github.io/tree/master/prop" rel="dct:source">https://github.com/logic-teaching/logic-teaching.github.io/tree/master/</a>. It is written for the [carnap.io](http://carnap.io) platform, which is
+[^1]: *Acknowledgements*: Many thanks to Graham Leach-Krouse for his work in developing [carnap.io](http://carnap.io) and for many helpful conversations about it. Likewise thanks to Ian Boon and Tristen Cardwell and Zeynep Yıldız for talking through this material in the course of teaching it with me the first couple of times around. Thanks to the wonderful tutors Yasmine Ardehali, Lauren August, Scott Blomgren, Rocky Klein, Jordan Nakdimon, Elsa Servantez, Declan Trudel, and Quinton Wood for working through the tutoring documents with students.
 
-[^2]: *Acknowledgements*: Many thanks to Graham Leach-Krouse for his work in developing [carnap.io](http://carnap.io) and for many helpful conversations about it. Likewise thanks to Ian Boon for talking through this material in the course of teaching it with me the first time round. Finally, thanks to the wonderful tutors Yasmine Ardehali, Lauren August, Scott Blomgren, Rocky Klein, Jordan Nakdimon, and Declan Trudel for working through the practice problems with students.
 
-[^3]: which is an:
+[^2]: <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Logic, a second course</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://carnap.io/shared/walsh@g.ucla.edu/book-mainpage.pandoc" property="cc:attributionName" rel="cc:attributionURL">Sean Walsh</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/logic-teaching/logic-teaching.github.io/tree/master/philos-132-winter-23" rel="dct:source">https://github.com/logic-teaching/logic-teaching.github.io/tree/master/philos-132-winter-23</a>. Much of it is based off of [my previous materials](https://carnap.io/shared/logiclogiclogic/book-mainpage.pandoc) when I did both the first and second logic course in adjacent terms.
 
 <br>
-<br>
 
-This is a first course in logic, divided into two parts, one on propositional logic and one of predicate logic. In each part, the basic idea is to start with translations and semantics, then introduce proofs in a natural deduction framework, and finally to cover topics, such as pragmatics and probability within the setting of propositional logic and definite descriptions within the setting of predicate logic.
+This is a second course in logic, which focuses on the semantics and deductive systems for predicate logic. It presupposes some prior familiarity with propositional logic, but largely just builds everything from scratch.
 
+It was built for a ten week course, where it could not be presupposed that the students had all taken a first logic course together, and indeed in many cases they took their first logic courses at different institutions.
 
-It was based on two ten-week courses, and hence there are twenty total chapters, with the sections of the chapter corresponding to the lectures or section meetings. For contingent reasons, the second part of the book on predicate logic could not presuppose that students had done the first part on propositional logic, and so the second part can be done independently of the first part.
-
-Every chapter comes with a group of twenty practice problems. For many of the links below, there is a "Solution" link next to it, which is just like the page to its immediate left, but with the solutions filled in or indicated. If one is doing an online course, it might make sense to base the lecture on the version which does not contain the solutions and to do the problems together with the students as one goes along.
+Each chapter corresponds to a week's worth of materials, with two lectures, and two sets of practice problems. For many of these, there is a "Solution" link next to it, which is just like the page to its immediate left, but with the solutions filled in or indicated. The version without the solutions was often used when presenting the material, alongside working it out by hand.
 
 Please report typos and suggest improvements at [this google form](https://forms.gle/xSrT8CYrUm4VWNQn8) that allows anonymous submissions. Also feel free to just send an email to walsh at ucla.edu. If you are an instructor and would like copies of homeworks and exams, feel free to email.
 
@@ -29,18 +26,14 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-## Part I: Propositional Logic
-
-<br>
-
 ## Chapter 1
 
 <br>
 
-- [Connectives](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-connectives.pandoc)
-- [Truth-tables](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-truth_tables.pandoc)
-- [Main connectives](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-main-connectives.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter01.pandoc)
+- [Review of propositional connectives](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-01.pandoc)
+- [Practice problems, review of propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-section-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-section-with-solutions.pandoc).
+- [The Aristotelian Syllogisms](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc)
+- [More practice problems](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-tutoring-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-tutoring-with-solutions.pandoc)
 
 <br>
 
@@ -48,125 +41,10 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Translations](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-translations-prop.pandoc)
-- [Tautologies](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-tautologies.pandoc)
-- [Translating conditionals](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-translating-conditionals.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter02.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter02-solutions.pandoc)
-
-
-<br>
-
-## Chapter 3
-
-<br>
-
-- [Valid arguments](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-valid.pandoc)
-- [Sound arguments](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-sound.pandoc)
-- [Valid or invalid](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-valid-or-invalid.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter03.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter03-solutions.pandoc)
-
-<br>
-
-## Chapter 4
-
-<br>
-
-- [Quantification](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-quantified.pandoc)
-- [More translating](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-translating-quantified.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-translating-quantified-with-solutions.pandoc)
-- [Relating the two logics](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-relating.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-relating-solutions.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter04.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter04-solutions.pandoc)
-
-<br>
-
-## Chapter 5
-
-<br>
-
-- [Review for midterm exam](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-review-for-midterm.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-review-for-midterm-solutions.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter05.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter05-solutions.pandoc)
-
-<br>
-
-## Chapter 6
-
-<br>
-
-- [Proofs with conjunction and conditionals](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-proofs-with-conjunction-and-conditionals.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-proofs-with-conjunction-and-conditionals-with-solutions.pandoc)
-- [Proofs with disjunction](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-proofs-with-disjunction.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-proofs-with-disjunction-solutions.pandoc)
-- [Simple proofs](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-simpleproofs.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-simpleproofs-solutions.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter06.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter06-with-solutions.pandoc)
-
-<br>
-
-## Chapter 7
-
-<br>
-
-- [Proofs with negation](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-proofs-with-negation.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-proofs-with-negation-solutions.pandoc)
-- [Intuitionistic logic](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-intuitionistic.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-intuitionistic-solutions.pandoc)
-- [Simple intuitionistic proofs](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-simple-proofs-with-negation.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-simple-proofs-with-negation-solutions.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter07.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter07-solutions.pandoc)
-
-<br>
-
-## Chapter 8
-
-<br>
-
-- [Classical logic](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-classical-deduction.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-classical-deduction-with-solutions.pandoc)
-- [Soundness and Completeness](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-soundcomplete.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-soundcomplete-solutions.pandoc)
-- [Simple classical proofs](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-simple-classical-proofs.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-simple-classical-proofs-solutions.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter08.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter08-solutions.pandoc)
-
-<br>
-
-## Chapter 9
-
-<br>
-
-- [Pragmatics and conversational implicature](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-pragmatics.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-pragmatics-with-solutions.pandoc)
-- [Scales and conversational implicature](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-pragmatics-scales.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-pragmatics-scales-solutions.pandoc)
-- [Probability](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-probability.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-probability-solutions.pandoc)
-- [Conditional probability](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-conditional.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter09.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter09-solutions.pandoc)
-
-<br>
-
-## Chapter 10
-
-<br>
-
-- [Review for final exam](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-final-exam-review.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-final-exam-review-solutions.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter10.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-prop-practice-problems-chapter10-solutions.pandoc)
-
-<br>
-
-
-<br>
-
-## Part II: Predicate Logic
-
-<br>
-
-<br>
-
-## Chapter 1
-
-<br>
-
-- [Review of propositional connectives](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-prop-review.pandoc)
-- [The Aristotelian syllogisms](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-aristotelian.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-01.pandoc)
-
-<br>
-
-## Chapter 2
-
-<br>
-
-- [Elementary set theory notation](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc)
-- [Euler diagrams](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-euler-venn.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-02.pandoc)
+- [Sets](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc)
+- [Practice problems, sets](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-section-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-section-with-solutions.pandoc).
+- [The quantifiers and well-formed formulas](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-with-solutions.pandoc)
+- [More practice problems](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-tutoring-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-tutoring-with-solutions.pandoc)
 
 <br>
 
@@ -174,9 +52,10 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Well-formed formulas of predicate logic](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-wffs-and-translations.pandoc)
-- [Binary relations and multiple quantifiers](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-binary-relations.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-03.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-03-solutions.pandoc)
+- [Binary relations and multiple quantifiers](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-with-solutions.pandoc)
+- [Practice problems, with binary relations and multiple quantifiers](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-section-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-section-with-solutions.pandoc).
+- [Tarski's definition of truth](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc)
+- [More practice problems](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-tutoring-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-tutoring-with-solutions.pandoc)
 
 <br>
 
@@ -184,9 +63,11 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Tarski's definition of truth](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-truth.pandoc)
-- [More on Tarski's definition of truth](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-more-complex-truth.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-04.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-04-solutions.pandoc)
+- [Consequence](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc)
+- [Practice problems, with validity and invalidity](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-section-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-section-with-solutions.pandoc).
+- [Variables and variable assignments](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-02.pandoc)
+- [More practice problems](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-with-solutions.pandoc)
+
 
 <br>
 
@@ -194,9 +75,9 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Consequence and tautologies](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-tautologies.pandoc)
-- [More on consequence](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-more-validity.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-05.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-05-solutions.pandoc)
+- [Review](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-05-lecture-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-05-lecture-01-with-solutions.pandoc)
+- [Practice problems, review](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-05-section-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-05-section-with-solutions.pandoc).
+- [More practice problems](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-05-tutoring-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-05-tutoring-with-solutions.pandoc)
 
 <br>
 
@@ -204,9 +85,11 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Natural deduction for predicate logic](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-with-all-and-arrow.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-with-all-and-arrow-solutions.pandoc)
-- [Natural deduction continued](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-with-disjunction-existential.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-with-disjunction-existential-with-solutions.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-06.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-06-solutions.pandoc)
+- [Natural deduction](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc)
+- [Practice problems, with natural deduction](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-section-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-section-with-solutions.pandoc).
+- [Natural deduction continued](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc)
+- [More practice problems](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-tutoring-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-tutoring-with-solutions.pandoc)
+
 
 <br>
 
@@ -214,10 +97,11 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Natural deduction, definitions, and normalization](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-normalization-redeux.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-normalization-redeux-with-solutions.pandoc)
-- [Classical predicate logic](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-classical.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-classical-solutions.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-07-redeux.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-07-solutions.pandoc)
-<br>
+- [Intuitionistic logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-with-solutions.pandoc)
+- [Practice problems, paradigmatic predicate logic proofs](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-section-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-section-with-solutions.pandoc).
+- [Lambda calculus and intuitionistic logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-02.pandoc)
+- [More practice problems](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-tutoring-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-tutoring-with-solutions.pandoc)
+
 
 <br>
 
@@ -225,9 +109,10 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [A deductive system for classical predicate logic](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-classical-complex.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-proofs-classical-complex-solutions.pandoc)
-- [Classical predicate logic and set theory](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-logic-and-sets.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-logic-and-sets-solution.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-08.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-08-solutions.pandoc)
+- [Classical logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-01-with-solutions.pandoc)
+- [Practice problems, with proofs in classical logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-section-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-section-with-solutions.pandoc).
+- [Normal forms and resolution](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-02-with-solutions.pandoc)
+- [More practice problems](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-tutoring-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-tutoring-with-solutions.pandoc)
 
 <br>
 
@@ -235,17 +120,11 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Identity](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-identity.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-identity-solutions.pandoc)
-- [Expressibility with identity](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-expressibility.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-expressibility-solutions.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-09.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-09-solutions.pandoc)
+- [Soundness and completeness](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-lecture-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-lecture-01-with-solutions.pandoc)
+- [Practice problems, proof or countermodel](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-section-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-section-with-solutions.pandoc).
+- [Second-order logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-lecture-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-lecture-02-with-solutions.pandoc)
+- [More practice problems](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-tutoring-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-tutoring-with-solutions.pandoc)
 
 <br>
-
-## Chapter 10
-
-<br>
-
-- [Definite descriptions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-definite-descriptions.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-definite-descriptions-solutions.pandoc)
-- [Practice Problems](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-10.pandoc) and [Solutions](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-practice-problems-chapter-10-solutions.pandoc)
 
 <br>
