@@ -29,30 +29,50 @@ We continue our discussion of second-order logic.
 
 ## The need to go beyond first-order logic
 
-Last time we talked about some of the applications of second-order logic: Ramsey sentences are formulated using second-order logic, and second-order logic can be used to define identity. Those seem interesting and worthy of study, but seem to speak more to an interest in rather than a need to go beyond first-order logic. Here are a couple of examples that suggest that there are things we say all the time which cannot be handled by first-order logic.
+Last time we talked about some of the applications of second-order logic: Ramsey sentences are formulated using second-order logic, and second-order logic can be used to define identity. Those seem interesting and worthy of study, but seem to speak more to *an interest in* rather than *a need to go beyond* first-order logic. Here are a couple of examples that suggest that there are things we say all the time which cannot be handled by first-order logic.
 
 <br>
 
 *Example 1*
 
-Consider the Geach-Kaplan sentence "Some critics respect only one another." If one understands this to be an existential second-order quantifier, and if it is understood by context that we are already only talking about critics, then this can be regimented as follows:
+Consider the following example, known as the Geach-Kaplan sentence:
 
-&nbsp; $\exists \; X \; \forall \; u \; \forall \; v \; ((Xu\wedge Ruv)\rightarrow Xv)$.
+- "Some critics admire only one another."
 
-That is, it is saying that there is a group such that if one of them $u$ respects any other person $v$, then this $v$ must be the group as well.
+How should we symbolize this in first order logic? Let's use the following key:
 
-That seems to get the truth-conditions right, and it uses second-order logic. Does this really need second-order logic? One way to approach this question would just be to consider an alternative translation.
+| $C$ = is a critic
+| $R$ = admires
 
-For instance, consider
+Here's a first pass:
 
-&nbsp; $\exists \; x \; \exists \; y \; \forall \; u \; \forall \; v \; (((u=x\vee u=y)\wedge Ruv)\rightarrow (v=x\vee v=y))$.
+- $\exists \; x \; (Cx\wedge \forall \; y \; (Rxy\rightarrow (Cy\wedge x\neq y))$
 
-But this translation artificially constrains the group to have size $\leq 2$. And even if you fixed it by making the block of existential quantifiers at the beginning longer, it looks like one is very much adding something which is not present in the original sentence, namely a long block of existential quantifiers.
+This expresses that some critics admire only other critics. And that is certainly a *part* of what the Geach-Kaplan sentence is saying. But there's also something still left out from the intended reading: that these critics belong to an exclusive group to which their admiration is confined (and membership in this group is not necessarily just defined by being a critic). So the above symbolization is not quite right.
 
-It turns out that the Geach-Kaplan sentence is demonstrably not expressible with any first-order sentence.[^2] The proof regrettably requires some metalogic, which one only gets to in a course after a course like this.
+(Note: such a scenario is compatible with our first attempt, but it's not required in order to make the sentence true, and hence not its inherent meaning).
 
+So how can we bake this idea of an exclusive group into a first order symbolization? We might try:
 
-[^2]: Technically, one needs to add onto Geach-Kaplan the clauses saying that the set is not empty and not the entire domain.
+- $\exists \; x \; \exists \; y \; (Cx\wedge Cy\wedge x\neq y \wedge \forall \; z \; \forall\; z\; (Rxz\rightarrow Cz\wedge z=y)\wedge (Ryz\rightarrow Cz\wedge z=x)$.
+
+But this doesn't fare much better. For, we've just taken the first sentence and required that the size of the group be at least two. But, we're still making 'being a critic' the only stated basis for membership in the group.
+
+Continuing to expand the size of the group won't help. At this stage it might occur to one that it would be really nice to be able to say something like the following:
+
+- $\exists \; x_1 \; (Gx_1 \wedge \forall \; y (My_1 \rightarrow Cy)\wedge \exists \; y \; Myx_1\wedge \forall \; y \forall \; z \; (Myx_1\wedge (Ryz\rightarrow Mzx_1)\wedge z\neq y)$.
+
+As in, "There is some (non-empty) group whose members are all critics, and if any member of the group admires someone, the person they admire is also a member of the group."
+
+Now we're capturing the full meaning of the Geach-Kaplan sentence. However, this sentence is not actually grammatical/ interpretable by the semantics of first-order logic. For, consider what we would have to interpret $x_1$ as on some variable assignment. In first-order logic, any variable assignment $g$ will have to send $x_1$ to an element of the model's underlying domain. But, given the meaning of the sentence, $x_1$ is not the kind of thing that can be interpreted as an individual or basic element of the underlying domain $D$. Rather $x_1$ is a group, or a collection, which is comprised of basic individuals or elements. It is not itself a basic element of $D$, but rather something of a higher order. So in order to express the Geach-Kaplan sentence, we need to expand first-order predicate logic into a new language that can accommodate such higher order entities. One such expansion is second-order logic.[^1]
+
+[^1]: For a proof Geach-Kaplan cannot be formalized in first-order logic, see the footnote on p. 433 of: [Boolos, George. 1984. "To Be Is to Be a Value of a Variable (or to Be Some Values of Some Variables)." The Journal of Philosophy 81 (8): 430.](https://www.jstor.org/stable/2026308).
+
+Here's how we notate the Geach-Kaplan sentence in our new expansion of first-order logic to second-order logic:
+
+- $\exists \; X \; (\exists \; x \; Xx \wedge \forall \; x (Ax\rightarrow Cx)\wedge \forall \; x \; \forall \; y \; ((Xx\wedge Rxy)\rightarrow (Xy\wedge x\neq y))$.
+
+Like in the last lecture, we use the capital variables to signal when we are quantifying over and referring to second-order entities, and we simultaneously allow these second-order entities to continue playing the syntactic role of first-order predicates, e.g. we now write $Xx$ just like we have been writing $Fx$ since the beginning of the course.
 
 <br>
 
@@ -69,14 +89,15 @@ While these cases seem clear, perhaps there is some gray area once we get very c
 
 It is not obvious that is so expressible. Using the [exact numerical quantifiers](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-with-solutions.pandoc#exact-numerical-quantifiers), one could say something like "there are exactly 300 G's and at least 151 of them are H". But this seems to artificially restrict our attention to specific numbers, whereas the statement of natural language appears to be making no such restrictions and would be perfectly intelligble regardless of how large the relevant classes of objects got.
 
-
 In [the tutoring document for last week](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-tutoring-with-solutions.pandoc#second-order-logic) (Problem 12, Problem 15), we introduced two-place property quantifiers. And we have seen earlier that [graphs of functions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#graphs-of-functions-and-predicate-logic) can be described with binary relations. And sizes of sets $X,Y$ can be compared by saying that there is a bijection from the $X$ to $Y$, and likewise a set $X$ can be viewed as smaller than $Y$ if there is an injection from $X$ to $Y$ but no bijection from $X$ to $Y$. Hence, one can express
 
 - Most G's are H's iff there is an injection but not a bijection from $G\setminus H$ to $G\cap H$.
 
 This is just a fancy way of saying  ">50% of the G's are H's", since this just demands that G's which are not H are properly smaller in number than the G's which are H.  Hence, it looks like "most" can also be expressed in second-order logic, albeit in a slightly roundabout way.
 
-Like with Geach-Kaplan, it turns out that "most G's are H's" is demonstrably not expressible with any first-order sentence. The proof again regrettably requires some metalogic, which one only gets to in a course after a course like this.
+Like with Geach-Kaplan, it turns out that "most G's are H's" is demonstrably not expressible with any first-order sentence. The proof again regrettably requires some metalogic.[^2]
+
+[^2]: See p. 214 of: [Barwise, Jon, and Robin Cooper. 1981. “Generalized Quantifiers and Natural Language.” Linguistics and Philosophy 4 (2): 159–219.](https://www.jstor.org/stable/25001052). Note that they credit Kaplan with the proof.
 
 <br>
 
