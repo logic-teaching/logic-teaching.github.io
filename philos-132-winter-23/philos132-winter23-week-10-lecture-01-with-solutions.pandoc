@@ -137,20 +137,23 @@ Let's write $Rab$ for $a<b$ on numbers. Then the following sentence of second-or
 
 $\exists \; X \; (\exists \; x \; Xx) \; \wedge (\exists \; x \; \neg Xx) \wedge \forall \; x \; (Xx\rightarrow \; \exists \; y \; (Xy\wedge Ryx))$
 
-To see that this sentence is true on the integers $\mathbb{Z}$, one can just take the set $X$ to be all the negative integers:
+To see that this sentence is true on the integers $\mathbb{Z}$, one can just take the set $X$ to be all the negative integers (the yellow in the below diagram):
 
 - this set $X$ is non-empty and not all the integers
 
-- this set is such that for everything $x$ in $X$, there is something $y<x$ in $X$, namely $y=x-1$
+- this set is such that for everything $x$ in $X$, there is something $y<x$ in $X$, namely $y=x-1$ (the blue arrows in the below diagram)
 
-To see that this sentence is true on the rationals $\mathbb{Q}$, one can just take the set $X$ to be all the rationals which are strictly greater than zero:
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/well-order-not-integers-ex.png" alt="Integers are not a well-order" width="400"/>
+
+To see that this sentence is true on the rationals $\mathbb{Q}$, one can just take the set $X$ to be all the rationals which are strictly greater than zero (the yellow in the below diagram):
 
 - this set $X$ is non-empty and not all the rationals
 
 - this set is such that for everything $x$ in $X$, there is something $y<x$ in $X$, namely $y=x/2$.
 
-However, this sentence is not true on the natural numbers. For, suppose it was, and suppose that $X$ was the witness. Then choose some element $n_0$ in $X$. By repeatedly applying the closure condition, one gets an infinite decreasing sequence $n_0>n_1>n_2>\cdots$ in $X$. And this is impossible since if e.g. $n_0=5$, then this would say that there are infinitely many natural numbers below $5$.
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/well-order-not-rationals-ex.png" alt="Rationals are not a well-order" width="400"/>
 
+However, this sentence is not true on the natural numbers. For, suppose it was, and suppose that $X$ was the witness. Then choose some element $n_0$ in $X$. By repeatedly applying the closure condition, one gets an infinite decreasing sequence $n_0>n_1>n_2>\cdots$ in $X$. And this is impossible since if e.g. $n_0=5$, then this would say that there are infinitely many natural numbers below $5$.
 
 <br>
 
