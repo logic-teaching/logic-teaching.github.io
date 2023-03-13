@@ -30,7 +30,7 @@ We continue our discussion of second-order logic.
 
 <br>
 
-Last time we talked about some of the applications of second-order logic: Ramsey sentences are formulated using second-order logic, and second-order logic can be used to define identity. Those seem interesting and worthy of study, but seem to speak more to *an interest in* rather than *a need to go beyond* first-order logic. Here are a couple of examples that suggest that there are things we say all the time which cannot be handled by first-order logic.
+Last time we talked about some of the applications of second-order logic: Ramsey sentences are formulated using second-order logic, and second-order logic can be used to express the identity of indiscernibles. Those seem interesting and worthy of study, but seem to speak more to *an interest in* rather than *a need to go beyond* first-order logic. Here are a couple of examples that suggest that there are things we say all the time which cannot be handled by first-order logic.
 
 <br>
 
@@ -98,7 +98,7 @@ In [the tutoring document for last week](https://carnap.io/shared/logiclogiclogi
 
 This is just a fancy way of saying  "the G's which are not H are fewer in number than the G's which are H".  Hence, it looks like "most" can also be expressed in second-order logic, albeit in a slightly roundabout way.[^2]
 
-[^2]: Like with Geach-Kaplan, it turns out that "most G's are H's" is demonstrably not expressible with any first-order sentence. See p. 214 of: [Barwise, Jon, and Robin Cooper. 1981. "Generalized Quantifiers and Natural Language.” Linguistics and Philosophy 4 (2): 159–219.](https://www.jstor.org/stable/25001052) Note that they credit Kaplan with the proof.
+[^2]: Like with Geach-Kaplan, it turns out that "most G's are H's" is demonstrably not expressible with any first-order sentence. See p. 214 of: [Barwise, Jon, and Robin Cooper. 1981. "Generalized Quantifiers and Natural Language." Linguistics and Philosophy 4 (2): 159–219.](https://www.jstor.org/stable/25001052) Note that they credit Kaplan with the proof.
 
 <br>
 
@@ -166,9 +166,9 @@ While the standard semantics are very natural, it turns out that they there is n
 
 <br>
 
-But what are the entities over which our second-order quantifiers range? The answer *suggested* by the semantics described above would be: they are subsets of the underlying domain of the model. Once context tells us what model we are dealing with (e.g. people, cities, etc.), it is settled what the second-order quantifiers are ranging over, namely subsets of the underlying domain of the model (e.g. subsets of people, subsets of cities, etc).
+But what are the entities over which our second-order quantifiers range? The answer *suggested* by the semantics described above would be: they are subsets of the underlying domain of the model. Once context tells us what model we are dealing with (e.g. people, cities, etc.), it is settled what the second-order quantifiers are ranging over, namely subsets of the underlying domain of the model (e.g. subsets of the people, subsets of the cities, etc).
 
-There is some reason to be dissatisfied with this response. First, consider how we used Tarski's definition of truth in a model to generate [the T-schema](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-field-on-truth-and-physicalism), as in:
+There is some reason to be dissatisfied with this response. First, consider how we used Tarski's definition of truth in a model to generate instances of [the T-schema](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-field-on-truth-and-physicalism), as in:
 
 - "Allison is a French major" is true if and only if Allison is a French major.
 
@@ -178,9 +178,9 @@ Following the answer suggested by the above semantics we would have:
 
 - "Some critics admire only one another" is true if and only if there is a non-empty subset of the underlying domain such that everything in that set is a critic and such that everything in that set which admires someone is such that that someone is also in the set.
 
-One concern you might have is that the right-hand side of this instance of T-schema seems to involve sets in a way that the others did not. This might be concerning if you had the idea that the right-hand side of the T-schema is supposed to be "about the world": do you really think that sets are in the world in addition to the Allison, French majors, and critics?
+One concern you might have is that the right-hand side of this instance of T-schema seems to involve sets in a way that the others did not. This might be concerning if you had the idea that the right-hand side of the T-schema is supposed to be "about the world": do you really think that sets are in the world in addition to Allison, French majors, and critics?
 
-Second, consider the [Quinean doctrine of ontological commitment](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-02.pandoc#quine-and-bound-variables-and-ontological-commitment). If we decided that only way to make sentences like Geach-Kaplan true was to admit that there are sets in the part of the domain of quantification reserved for the second-order quantifiers, then it seems like the Quinean doctrine would require that everyday sentences like Geach-Kaplan *alone* were sufficient to push us to admit some kind of elaborate mathematics in our ontology. Even if one accepted Quine's approach to ontological commitment, one might think that was this was the *wrong kind of reason* for thinking that certain kinds of mathematical abstracta exist.
+Second, consider the [Quinean doctrine of ontological commitment](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-02.pandoc#quine-and-bound-variables-and-ontological-commitment). If we decided that only way to make sentences like Geach-Kaplan true was to admit that there are sets in the part of the domain of quantification reserved for the second-order quantifiers, then it seems like the Quinean doctrine would require that everyday sentences like Geach-Kaplan *alone* were sufficient to push us to admit some kind of elaborate mathematics in our ontology. Even if one accepted Quine's approach to ontological commitment, one might think that was this was the *wrong kind of reason* for thinking that certain kinds of mathematical abstracta exist (e.g. there being certain funny groups of people seems like an odd reason to believe in mathematical abstracta).
 
 <br>
 
@@ -188,19 +188,22 @@ Boolos proposed instead the "plural interpretation of second-order logic":
 
 > Abandon, if one ever had it, the idea that use of plural forms must always be understood to commit one to the existence of sets (or "classes", "collections", or "totalities") of those things to which the corresponding singular forms apply. [.... Rather] using the plural forms that are available in one's mother tongue, translate the formulas into that tongue and see that the resulting English (or whatever) sentences express true statements.[^3]
 
-[^3]: p. 442 of [Boolos, George. 1984. "To Be Is to Be a Value of a Variable (or to Be Some Values of Some Variables).” The Journal of Philosophy 81 (8): 430](https://www.jstor.org/stable/2026308).
+[^3]: p. 442 of [Boolos, George. 1984. "To Be Is to Be a Value of a Variable (or to Be Some Values of Some Variables)." The Journal of Philosophy 81 (8): 430](https://www.jstor.org/stable/2026308).
 
-That is, the idea is: if you want an answer to the question "What does $\exists \; X \; Xa\wedge \ldots$ mean?," just translate it into the natural language you speak as "There are some things such that $a$ among them and . . . "  (The name "plural interpretation" comes from the fact that it is "some thing$s$" (plural) rather than "something" (singular)).
+That is, the idea is: if you want an answer to the question "What does $\exists \; X \; (Xa\wedge \ldots)$ mean?," just translate it into the natural language you speak as "There are some things such that $a$ is among them and . . . "  (The name "plural interpretation" comes from the fact that it is "some thing$s$" (plural) rather than "something" (singular)).
 
 To be sure, this does not literally answer the question "what are the entities over which our second-order quantifiers range?" But if the only answers we have to this question result in bad outcomes, maybe we are asking too much, and we should just ask "how do we understand sentences featuring second-order quantifiers?" And Boolos's answer was: for intelligibility one need look no further than to our ordinary usage of plurals and quantification over them. In other writings, Boolos notes that this response can be interleaved with a modification of Tarksi's definition of truth, for second-order languages, so that there is a natural-language plural quantifier on the right-hand side.[^4] With respect to Geach-Kaplan it would look like the following (if you are having trouble "seeing it", just replace the italicized phrases by $X$):
 
-[^4]: p. 335 of [Boolos, George. 1985. "Nominalist Platonism.” The Philosophical Review 94 (3): 327.](http://www.jstor.com/stable/2185003)
+[^4]: p. 335 of [Boolos, George. 1985. "Nominalist Platonism." The Philosophical Review 94 (3): 327.](http://www.jstor.com/stable/2185003)
 
 - "Some critics admire only one another" is true if and only if there are *some things* from the underlying domain such that everything among *those things* is a critic and such that everything among *those things* which admires someone is such that that someone is also among *those things*.
 
 <br>
 
-Boolos' conception suggests that plural quantification in English and second-order quantification in second-order logic are mirror images of one another. But pressure can be put on this by showing that plurals in natural language act differently than do the second-order variables in second-order logic.  Consider how one would translate the following:
+Boolos' conception suggests that plural quantification in English and second-order quantification in second-order logic are mirror images of one another. But pressure can be put on this by showing that plurals in natural language act differently than do the second-order variables in second-order logic.
+Consider the following kinds of examples, due to Yi:[^5]
+
+[^5]: pp. 467-468 [Yi, Byeong-Uk. 2006. "The Logic and Meaning of Plurals. Part I." Journal of Philosophical Logic 34 (5-6): 459–506](https://link.springer.com/article/10.1007/s10992-005-0560-9).
 
 1. Allison and Brianna lifted the piano
 2. Allison and Brianna and Claire lifted the piano
@@ -216,17 +219,19 @@ If we use $L$ for "lift the piano", then it seems that we would want to translat
 4. $Lx$
 5. $LX$
 
-This seems to require that $L$ have a little more flexibility than what we have allowed thus far. And various reductive strategies seem to encounter hurdles:
+This seems to require that $L$ have a little more flexibility than what we have allowed thus far. And various reductive strategies seem to encounter hurdles:[^6]
+
+[^6]: For the first point, see Yi, discussion spanning pp. 467-468. For the second point, see p. 474. Yi's own solution involves organizing matters so that one can fit both $x$ and $X$ into the lift predicate. See his discussion of neutrality on pp. 480-481.
 
 - If one tried to prioritize $Lx$, one might try to translate 1 as $La\wedge Lb$. But this incorrectly suggests that Allison and Brianna's lifting comes down to their each having individually lifted, which is false since what they did they only could do together.
 - If one tried to prioritize $LX$, one has to say something about why one writes that "into the grammar" for "lift the piano" but presumably not for "lift the pencil."
 
-Considerations like these then suggest that there is more to say about plurals than is captured by our second-order logic. We leave you with one other similar consideration. Consider the following three inferences:[^5]
+Considerations like these then suggest that there is more to say about plurals than is captured by our second-order logic. We leave you with one other similar consideration. Consider the following three conditionals:[^7]
 
-[^5]: The third item is from p. 249, p. 136 (item 3) of [Oliver, Alex, and Timothy Smiley. 2013. Plural Logic: Revised and Enlarged. OUP Oxford](https://books.google.com/books?id=oDmdDwAAQBAJ&lpg=PP1&ots=v4gfiksqVi&dq=Oliver%2C%20Alex%2C%20and%20Timothy%20Smiley&lr&pg=PP1#v=onepage&q=Oliver,%20Alex,%20and%20Timothy%20Smiley&f=false).
+[^7]: The third item is from p. 249, p. 136 (item 3) of [Oliver, Alex, and Timothy Smiley. 2013. Plural Logic: Revised and Enlarged. OUP Oxford](https://books.google.com/books?id=oDmdDwAAQBAJ&lpg=PP1&ots=v4gfiksqVi&dq=Oliver%2C%20Alex%2C%20and%20Timothy%20Smiley&lr&pg=PP1#v=onepage&q=Oliver,%20Alex,%20and%20Timothy%20Smiley&f=false).
 
 - $Lt\rightarrow \exists \; x \; Lx$
 - $Lt\rightarrow \exists \; X \; Xt$
 - $Lt\rightarrow \exists \; X \; LX$.
 
-We have encountered the first two these before. But our discussion is suggestive of the third as well. And it too seems to suggest that we will need to have a bit more flexibility in handling predicates involving plurals than second-order logic itself gives.
+We have encountered the first two these before. But our discussion is suggestive of the third as well, where the idea is that it follows since one can take $X$ to consist only of little $t$. And it too seems to suggest that we will need to have a bit more flexibility in handling predicates involving plurals than second-order logic itself gives.
