@@ -94,7 +94,7 @@ This problem is similar to the previous one.
 
 *Problem 4*
 
-This one does not involve EFSQ but is a complement to the next problem, which does use EFSQ. For this one, after setting up the bracket from $Fb$ to falsum, try to use EFSQ to help you write $Fa\rightarrow Fb$ on a line (which in conjunction with the premise gets you falsum).
+This one does not involve EFSQ but is a complement to the next problem, which does use EFSQ.
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.04 ~(Fa->Fb) :|-: ~Fb
