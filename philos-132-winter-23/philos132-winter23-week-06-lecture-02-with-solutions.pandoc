@@ -188,15 +188,16 @@ Note that since the application of this rule requires you to get a conditional s
 *Example 8 (Fourth Conversion, with Existential Premise)*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
- Ax(Fx->Gx), ExFx :|-: ExGx
+ Ax(Fx->Gx), ExFx :|-: Ex(Gx/\Fx)
 |Ax(Fx->Gx) :assumption
 |ExFx :assumption
 | Fc :assumption
 | Fc->Gc :EA1
 | Gc :E->3,4
-| ExGx :IE5
-|Fc->ExGx :I->3-6
-|ExGx :EE2,7
+| Gc/\Fc :I/\3,5
+| Ex(Gx/\Fx) :IE6
+|Fc->Ex(Gx/\Fx) :I->3-7
+|Ex(Gx/\Fx) :EE2,8
 ```
 
 <br>

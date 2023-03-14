@@ -49,19 +49,24 @@ Here's a first pass:
 
 - $\exists \; x \; (Cx\wedge \forall \; y \; (Rxy\rightarrow (Cy\wedge x\neq y))$
 
-This expresses that some critics admire only other critics. And that is certainly a *part* of what the Geach-Kaplan sentence is saying. But there's also something still left out from the intended reading: that these critics belong to an exclusive group to which their admiration is confined (and membership in this group is not necessarily just defined by being a critic). So the above symbolization is not quite right. (Note: such a scenario is compatible with our first attempt, but it's not required in order to make the sentence true, and hence not its inherent meaning).
+This expresses that some critics admire only other critics. And that is certainly a *part* of what the Geach-Kaplan sentence is saying. But there's also something still left out from the intended reading: that among the general group of critics, there is a secondary, more exclusive group of them who do not admire anyone outside of the group (and membership in this group is not necessarily just defined by being a critic). So the above symbolization is not quite right. (Note: such a scenario is compatible with our first attempt, but it's not required in order to make the sentence true, and hence not its inherent meaning).
 
 So how can we bake this idea of an exclusive group into a first order symbolization? We might try:
 
 - $\exists \; x \; \exists \; y \; (Cx\wedge Cy\wedge x\neq y \wedge \forall\; z\; (Rxz\rightarrow (Cz\wedge z= y))\wedge (Ryz\rightarrow (Cz\wedge z= x))$.
 
-But this doesn't fare much better. For, we've just taken the first sentence and required that the size of the group be at least two. But, we're still making 'being a critic' the only stated basis for membership in the group.
+But this doesn't fare much better. For, we've just taken the first sentence and required that the size of the group be at least two. But, there's still only one group being spoken about here, and that is just the general group of critics.
 
-Continuing to expand the size of the group won't help. At this stage it might occur to one that it would be really nice to be able to say something like the following:
+Continuing to expand the size of the group won't help. At this stage it might occur to one that it would be really nice to be able to say something like the following
 
 - $\exists \; x_1 \; (Gx_1 \wedge \forall \; y (Myx_1 \rightarrow Cy)\wedge \exists \; y \; Myx_1\wedge \forall \; y \; \forall \; z \; ((Myx_1\wedge Ryz)\rightarrow (Mzx_1\wedge z\neq y))$.
 
-As in, "There is some (non-empty) group whose members are all critics, and if any member of the group admires someone, the person they admire is also a member of the group."
+where it is understood that
+
+| Gx = x is a group
+| Mxy = x is a member of y
+
+Hence the sentence reads "There is some (non-empty) group whose members are all critics, and if any member of the group admires someone, the person they admire is also a member of the group."
 
 Now on this attempt we're capturing the full meaning of the Geach-Kaplan sentence. However, this sentence is not actually interpretable by the semantics of first-order logic. For, suppose that this sentence was true on our model $\mathcal{M}$. Then there would be a [variable assignment](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-02.pandoc#definition-of-truth-in-a-model-relative-to-a-variable-assignment) $g$ that made the following true:
 
@@ -122,17 +127,39 @@ $\exists \; X \; \exists \; Y \; \forall \; x \; (Xx\vee Yx) \; \wedge \exists \
 
 &nbsp; $\wedge \forall \; x \; \forall \; y\; ((Yx\wedge Yy)\rightarrow Rxy) \wedge \forall \; x \; \forall \; y\; ((Yx\wedge Rxy)\rightarrow Yy)$
 
-More literally, it says that there are two non-empty subsets of the domain that partition the domain  such that for each of these two sets, all the points in the set arrow one another, and they only arrow points in that same set. This sentence is true in the model since one can take $X$ to be $\{0,1,2\}$ and $Y$ to be $\{3,4\}$.
-
-But this same sentence is false in the below model:
-
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/second-order-ex2.png" alt="Graph with two connected components" width="400"/>
-
-This is because if $0$ is in $X$, then so $4$ will be too, and then we can slowly put all the other points in $X$, contradicting that $Y$ is non-empty.
+More literally, it says that there are two non-empty subsets of the domain that partition the domain  such that for each of these two sets, all the points in the set arrow one another, and they only arrow points in that same set. This sentence is true in the model since one can take $X$ to be $\{0,1,2\}$ and $Y$ to be $\{3,4\}$ (or vice-versa).
 
 <br>
 
 *Example 4*
+
+Suppose that we use the following key:
+
+| $a$ = Allison
+| $b$ = Brianna
+| $W$ = is wise
+| $K$ = is kind
+
+
+Consider the following sentence of second-order sentence:
+
+- $\forall \; X \; (Xa\rightarrow Xb)$
+
+This is false in the following model:
+
+- $M = \{$Allison,Brianna$\}$ and $a^{\mathcal{M}}=$Allison and $b^{\mathcal{M}}=$Brianna
+
+- $W^{\mathcal{M}} =\{$Allison,Brianna$\}$ and $K^{\mathcal{M}} = \{$Allison$\}$
+
+For, the sentence says that Brianna has every property that Allison has. But if we inspect various properties we find:
+
+- We have $\mathcal{M}\models Wa\wedge Wb$ and hence $\mathcal{M}\vDash Wa\rightarrow Wb$. So far so good!
+
+- But we have $\mathcal{M}\models Ka\wedge \neg Kb$, since Allison is kind while Brianna is not.  Hence $\mathcal{M} \nvDash Ka\rightarrow Kb$. Hence any variable assignment $g$ which assigned $X$ to $K^{\mathcal{M}}$ would result in $\mathcal{M}, g \nvDash Xa\rightarrow Xb$.
+
+<br>
+
+*Example 5*
 
 Let's write $Rab$ for $a<b$ on numbers. Then the following sentence of second-order logic is true on the integers $\mathbb{Z}$ and on the rationals $\mathbb{Q}$:
 
@@ -166,7 +193,7 @@ While the standard semantics are very natural, it turns out that they there is n
 
 <br>
 
-But what are the entities over which our second-order quantifiers range? The answer *suggested* by the semantics described above would be: they are subsets of the underlying domain of the model. Once context tells us what model we are dealing with (e.g. people, cities, etc.), it is settled what the second-order quantifiers are ranging over, namely subsets of the underlying domain of the model (e.g. subsets of the people, subsets of the cities, etc).
+But what are the entities over which our second-order quantifiers range? The answer *suggested* by the semantics described above would be: they are subsets of the underlying domain of the model. Once context tells us what model we are dealing with and what its underlying domain is (e.g. people, cities, etc.), it is settled what the second-order quantifiers are ranging over, namely subsets of the underlying domain of the model (e.g. subsets of the people, subsets of the cities, etc).
 
 There is some reason to be dissatisfied with this response. First, consider how we used Tarski's definition of truth in a model to generate instances of [the T-schema](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-field-on-truth-and-physicalism), as in:
 

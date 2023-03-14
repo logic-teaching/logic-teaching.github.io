@@ -127,7 +127,7 @@ Note that since the application of this rule requires you to get a conditional s
 *Example 8 (Fourth Conversion, with Existential Premise)*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
- Ax(Fx->Gx), ExFx :|-: ExGx
+ Ax(Fx->Gx), ExFx :|-: Ex(Gx/\Fx)
 |Ax(Fx->Gx) :assumption
 |ExFx :assumption
 ```
