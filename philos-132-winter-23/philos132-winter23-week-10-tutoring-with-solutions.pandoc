@@ -44,7 +44,7 @@ This is practice for the final. In particular, it is practice with parts I, II, 
 
 - The formatting of this page may look a little different, but that is because it is designed to be printed.
 
-- Keep in mind that there are many good proofs of one and the same result, and keep in mind that partial credit will be available on the proofs in the final. 
+- Keep in mind that there are many good proofs of one and the same result, and keep in mind that partial credit will be available on the proofs in the final.
 
 <br>
 
@@ -521,17 +521,19 @@ This is a version of Pierce's law, a statement about arrows which is only provab
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 10.14  :|-: ((Rac->Rbc)->Rac)->Rac
-| ((Rac->Rbc)->Rac) :assumption
-|  ~Rac :assumption
-|   Rac :assumption
-|   ⊥ :E~2,3
-|   Rbc :EFSQ4
-|  Rac->Rbc :I->3-5
-|  Rac :E->1,6
-|  ⊥ :E~2,7
-| ~~Rac :I~2-8
-| Rac :DN9
-|((Rac->Rbc)->Rac)->Rac :I->1-10
+Ax(x=a\/x=b) :assumption
+c=a\/c=b :assumption
+ c=a :assumption
+ a=a :I=
+ a=c :E=3,4
+ a=c\/b=c :I\/5
+c=a->(a=c\/b=c) :I->3-6
+ c=b :assumption
+ b=b :I=
+ b=c :E= 8,9
+ a=c\/b=c :I\/10
+c=b->(a=c\/b=c) :I->8-11
+a=c\/b=c :E\/2,7,12
 ```
 
 <br>
