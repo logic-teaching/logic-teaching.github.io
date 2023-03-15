@@ -532,9 +532,9 @@ This is a classic problem with identity, which involves a disjunction eliminatio
 
 Give a resolution proof of
 
-$\forall \; x \; \forall \; y \; (Rxy\rightarrow Ryx), \forall \; x \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz), Rba, Rbc \vdash Rac$
+$\forall \; x \; \forall \; y \; (Fx\wedge \neg Gx \wedge Rxy)\rightarrow (Fy\wedge \neg Gy), \; Fa, \; \neg Ga, \; Rab, \; Rbc \vdash \neg Gc$
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-11.png" alt="Resolution example" width="800"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-12.png" alt="Resolution example" width="800"/>
 
 <br>
 
@@ -816,10 +816,6 @@ For reference, here is a summary of all the rules available in our system of cla
     <td>Elimination rule for $\iota$</td>
     <td>`Ei`</td>
     <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))$</td>
-  </tr>
-</table>
-
-<br>arrow y=x))$</td>
   </tr>
 </table>
 
