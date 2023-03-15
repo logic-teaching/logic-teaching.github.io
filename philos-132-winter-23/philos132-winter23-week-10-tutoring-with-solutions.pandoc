@@ -411,6 +411,9 @@ Suppose that you decorate the first four assumptions with $u:p$, $v:q$, $f:(r\ri
 | λu:p λv:q λf:(r->q)->(p->s) λw:r. f(v) u(w)
 ```
 
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/decorated-proof-3.png" alt="Decorated Proof" width="800"/>
+
+
 <br>
 
 <p style="page-break-before: always">
@@ -453,10 +456,10 @@ This is a problem in inferring types. We use $D_e$ as our domain of basic indivi
 
 *Hint:* first figure out what the type of `f( ( g(a) ) x )` is, and then act as if you are doing arrow introduction.
 
-*Hint*: for intuition, `g: D_e->(D_e->D_t)` is just how the formal semantics traditions writes "g is the (graph) of a binary relation". And `f : (D_e->D_t)->(D_e->D_t)' is a map from one-place relations to one-place relations. Hence, a concrete example of `f( ( g(a) ) x )` would be something like `Cautiously ( (Trusts (Allison)) x )`, which is just another way of saying "Allison cautiously trusts x".
+*Hint*: for intuition, `g: D_e->(D_e->D_t)` is just how the formal semantics tradition writes "g is the (graph) of a binary relation". And `f : (D_e->D_t)->(D_e->D_t)` is a map from one-place relations to one-place relations. Hence, a concrete example of `f( ( g(a) ) x )` would be something like `Cautiously ( (Trusts (Allison)) x )`, which is just another way of saying "Allison cautiously trusts x".
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
-10.12 What is the type of λf : (D_e->D_t)->(D_e->D_t)  λg : D_e->(D_e->D_t) λx: D_e . f( ( g(a) ) x ) ?
+10.12 What is the type of the lambda expression λf : (D_e->D_t)->(D_e->D_t)  λg : D_e->(D_e->D_t) λx: D_e . f( ( g(a) ) x ) ?
 | ((D_e->D_t)->(D_e->D_t))->(  (D_e->D_t) -> (D_e->(D_e->D_t)) )
 |+ ((D_e->D_t)->(D_e->D_t))->( (D_e->(D_e->D_t)) -> (D_e->D_t) )
 | ( (D_e->(D_e->D_t)) -> (D_e->D_t) ) -> ((D_e->D_t)->(D_e->D_t))
@@ -506,7 +509,7 @@ This is a classic problem with identity, which involves a disjunction eliminatio
 ```{.ProofChecker .GamutNDPlus submission="none"}
 10.14 Ax(x=a\/x=b) :|-: Ax(a=x\/b=x)
 |Ax(x=a\/x=b) :assumption
-|c=a\/c=b :assumption
+|c=a\/c=b :EA1
 | c=a :assumption
 | a=a :I=
 | a=c :E=3,4
