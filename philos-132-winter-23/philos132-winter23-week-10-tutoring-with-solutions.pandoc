@@ -16,13 +16,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 # Week 10 Tutoring with solutions
 
-- [Famous Proofs](#famous-proofs)
-- [Proof or countermodel](#proof-or-countermodel)
-- [Week 6 problems](#week-6-problems)
-- [Week 7 problems](#week-7-problems)
-- [Week 8 problems](#week-8-problems)
-- [Week 9 problems](#week-9-problems)
-- [Summary of rules of classical predicate logic](#summary-of-rules-of-classical-predicate-logic)
 
 We practice for the final exam.
 
@@ -56,24 +49,20 @@ This is practice for the final. In particular, it is practice with parts I, II, 
 
 *Problem 1*
 
-Give the famous proof of Russell's paradox in intuitionistic logic from [Week 7 Section](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-section-with-solutions.pandoc) Problem 3.
+Give the famous proof of the double-negation of law of excluded middle from [Week 7 Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-with-solutions.pandoc#multiple-negations-in-intuitionistic-logic) Problem 4.
 
 For this problem, use only the introduction and elimination rules, along with ex falso and repeat rule. That is, this proof is a proof in intuitionistic predicate logic.
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
-10.01 :|-: ~(Ax((Rxc/\Txc)->~(Rxx/\Txx))/\Ax(~(Rxx/\Txx)->(Rxc/\Txc)))
-| (Ax((Rxc/\Txc)->~(Rxx/\Txx))/\Ax(~(Rxx/\Txx)->(Rxc/\Txc))) :as
-| Ax((Rxc/\Txc)->~(Rxx/\Txx)) :E/\1
-| Ax(~(Rxx/\Txx)->(Rxc/\Txc)) :E/\1
-| (Rcc/\Tcc)->~(Rcc/\Tcc) :EA2
-| ~(Rcc/\Tcc)->(Rcc/\Tcc) :EA3
-|  (Rcc/\Tcc) :as
-|  ~(Rcc/\Tcc) :E->4,6
-|  !? :E~6,7
-| ~(Rcc/\Tcc) :I~6-8
-| (Rcc/\Tcc) :E->5,9
-| !? :E~9,10
-|~(Ax((Rxc/\Txc)->~(Rxx/\Txx))/\Ax(~(Rxx/\Txx)->(Rxc/\Txc))) :I~1-11
+10.01 :|-: ~~((Fa->Ga)\/~(Fa->Ga))
+| ~((Fa->Ga)\/~(Fa->Ga)) :assumption
+|  (Fa->Ga) :assumption
+|  (Fa->Ga)\/~(Fa->Ga) :I\/2
+|  ⊥ :E~1,3
+| ~(Fa->Ga) :I~2-4
+| (Fa->Ga)\/~(Fa->Ga) :I\/5
+| ⊥ :E~1,6
+|~~((Fa->Ga)\/~(Fa->Ga)) :I~1-7
 ```
 
 <br>
@@ -82,19 +71,21 @@ For this problem, use only the introduction and elimination rules, along with ex
 
 *Problem 2*
 
-This is the famous proof that intuitionistic logic proves the one non-trivial validity involving multiple quantifiers (From [Week 7, Section](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-section-with-solutions.pandoc) Problem 5).
+Give the famous proof of the identity of indiscernibles from [Week 9 Lecture 2](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-lecture-02-with-solutions.pandoc#the-identity-of-indiscernibles) Example 6.
 
-For this problem, use only the introduction and elimination rules, along with ex falso and repeat rule. That is, this proof is a proof in intuitionistic predicate logic.
+This proof is a deduction in our system for second-order logic. See below (Problem 18) for a reminder of what these rules are.
 
-```{.ProofChecker .GamutNDPlus submission="none" }
-10.02 EyAx(Rxy\/Txy)  :|-: AxEy(Rxy\/Txy)
-|EyAx(Rxy\/Txy) :assumption
-| Ax(Rxb\/Txb) :assumption
-| (Rab\/Tab) :EA2
-| Ey(Ray\/Tay) :IE3
-| AxEy(Rxy\/Txy) :IA4
-|Ax(Rxb\/Txb) ->AxEy(Rxy\/Txy) :I->2-5
-|AxEy(Rxy\/Txy) :EE1,6
+```{.ProofChecker .GamutNDSOL submission="none"}
+  :|-: AxAy(AX1(X1x->X1y)->x=y)
+| AX1(X1a->X1b) :assumption
+| a=a :I=
+| \x[a=x]a->\x[a=x]b :EA1 1
+| \x[a=x]a :ABS1 2
+| \x[a=x]b :E->3,4
+| a=b :APP1 5
+|AX1(X1a->X1b)->a=b :I->1-6
+|Ay(AX1(X1a->X1y)->a=y) :IA 7
+|AxAy(AX1(X1x->X1y)->x=y) :IA 8
 ```
 
 <br>
@@ -108,10 +99,10 @@ For this problem, use only the introduction and elimination rules, along with ex
 *Problem 3*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-10.03 Ax(Gx->Hx), Fa, Ga :|-: Ax((Fx->Gx)->Hx)
+10.03 ~Ex(Fx/\Gx), Ax(Gx->Hx), Fa :|-: Ha
+|~Ex(Fx/\Gx) :assumption
 |Ax(Gx->Hx) :assumption
 |Fa :assumption
-|Ga :assumption
 ```
 
 <br>
@@ -123,11 +114,11 @@ For this problem, use only the introduction and elimination rules, along with ex
 <br>
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
-10.03 Ax(Gx->Hx), Fa, Ga :|-: Ax((Fx->Gx)->Hx)
+10.03 ~Ex(Fx/\Gx), Ax(Gx->Hx), Fa :|-: Ha
 |Domain: 0,1,2,3
 |F(_):0
-|G(_):0,1
-|H(_):0,1,2
+|G(_):1,2
+|H(_):1,2,3
 |a:0
 ```
 
@@ -140,26 +131,13 @@ For this problem, use only the introduction and elimination rules, along with ex
 The first three axioms are the axioms of [equivalence relations](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations). The basic idea is that an equivalence relation is a notion of similarity among objects which acts like identity in a lot of ways: I am similar to myself (reflexivity), if I am similar to you, then you are similar to me (symmetry), if I am similar to you, and you are simliar to a third person, then I am similar to this third person (transitivity). Hence, use your intuitions about similarity to help guide you through the problems. Another fact about equivalence relations to keep in mind is: they partition the domain into disjoint classes (called equivalence classes). For instance, assuming double-majors are not allowed, then "sameness of major" would partition the students into disjoint groups, namely the majors.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-10.04 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), Rab, Rcb, Rcd :|-: Rad
+10.04 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~Rab, ~Rbc, ~Rcd :|-: ~Rad
 |AxRxx :as
 |AxAy(Rxy->Ryx) :as
 |AxAyAz((Rxy/\Ryz)->Rxz) :as
-|Rab :as
-|Rcb :as
-|Rcd :as
-|Ay(Rcy->Ryc) :EA2
-|Rcb->Rbc :EA7
-|Rbc :E->5,8
-|Rab/\Rbc :I/\4,9
-|AyAz((Ray/\Ryz)->Raz) :EA3
-|Az((Rab/\Rbz)->Raz) :EA11
-|(Rab/\Rbc)->Rac :EA12
-|Rac :E->10,13
-|Rac/\Rcd :I/\6,14
-|AyAz((Ray/\Ryz)->Raz) :EA3
-|Az((Rac/\Rcz)->Raz) :EA16
-|(Rac/\Rcd)->Rad :EA17
-|Rad :E->15,18
+|~Rab :as
+|~Rbc :as
+|~Rcd :as
 ```
 
 <br>
@@ -171,13 +149,13 @@ The first three axioms are the axioms of [equivalence relations](https://carnap.
 <br>
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
-10.04 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), Rab, Rcb, Rcd :|-: Rad
-|Domain:
-|R(_,_):
-|a:
-|b:
-|c:
-|d:
+10.04 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~Rab, ~Rbc, ~Rcd :|-: ~Rad
+|Domain: 0,1,2,3
+|R(_,_):[0,0],[1,1],[2,2],[3,3]
+|a:0
+|b:1
+|c:2
+|d:3
 ```
 
 <br>
@@ -187,11 +165,9 @@ The first three axioms are the axioms of [equivalence relations](https://carnap.
 *Problem 5*
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-10.05 AxEy(Rxy/\Gy), AxEz(Rxz/\Hz), Rab/\Gb, Rac/\~Gc :|-: AxEyEz((Rxy/\Rxz)/\~y=z)
-|AxEy(Rxy/\Gy) :assumption
-|AxEz(Rxz/\Hz) :assumption
-|Rab/\Gb :assumption
-|Rab/\~Gc :assumption
+10.05 ~FixGx, ~ExGx :|-: Ex(Gx/\(Ay(Gy->x=y)/\~Fx))
+|~FixGx :assumption
+|~ExGx :assumption
 ```
 
 <br>
@@ -202,15 +178,11 @@ The first three axioms are the axioms of [equivalence relations](https://carnap.
 
 <br>
 
-```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
-10.05 AxEy(Rxy/\Gy), AxEz(Rxz/\Hz), Rab/\Gb, Rac/\~Gc :|-: AxEyEz((Rxy/\Rxz)/\~y=z)
-|Domain: 0,1,2
-|G(_): 0,1
-|H(_): 0,2
-|R(_,_): [0,1], [0,2], [1,0], [2,0]
-|a:0
-|b:1
-|c:2
+```{.CounterModeler .Validity system="gamutNDDesc" submission="none" options="negated-double-turnstile"}
+10.05 ~FixGx, ~ExGx :|-: Ex(Gx/\(Ay(Gy->x=y)/\~Fx))
+|Domain:0,1,2
+|F(_): 1,2
+|G(_):
 ```
 
 <br>
@@ -224,18 +196,22 @@ The first three axioms are the axioms of [equivalence relations](https://carnap.
 The first four axioms are the axioms of [linear orders](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations). These are axioms that describe $\leq$ on the natural numbers, integers, and rationals. The linearity axiom (the fourth axiom) says that given $x,y$ one either has $x\leq y$ or $y\leq x$ or $x=y$. Use your intuitions about lines to guide yourself through the problem.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-10.06 AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz), AxAy((Rxy\/Ryx)\/x=y), ~Rab, ~a=b  :|-: Rba
+10.06 AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz), AxAy((Rxy\/Ryx)\/x=y), AyRay  :|-:  Ax(Rxa->x=a)
 |AxRxx :assumption
 |AxAy((Rxy/\Ryx)->x=y) :assumption
 |AxAyAz((Rxy/\Ryz)->Rxz) :assumption
 |AxAy((Rxy\/Ryx)\/x=y) :assumption
-|~Rab :assumption
-|~a=b :assumption
-|Ay((Ray\/Rya)\/a=y) :EA4
-|(Rab\/Rba)\/a=b :EA7
-|a=b\/(Rab\/Rba) :LCD8
-|Rab\/Rba :PDS 6,9
-|Rba :PDS 5,10
+|AyRay :assumption
+| Rba :assumption
+| Rab :EA5
+| Rab/\Rba :I/\6,7
+| Ay((Ray/\Rya)->a=y) :EA2
+| (Rab/\Rba)->a=b :EA9
+| a=b :E->10,8
+| a=a :I=
+| b=a :E= 11,12
+|Rba->b=a :I->6-13
+|Ax(Rxa->x=a) :IA14
 ```
 
 <br>
@@ -247,12 +223,10 @@ The first four axioms are the axioms of [linear orders](https://carnap.io/shared
 <br>
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
-10.06  AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz), AxAy((Rxy\/Ryx)\/x=y), ~Rab, ~a=b  :|-: Rba
+10.06 AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz), AxAy((Rxy\/Ryx)\/x=y), AyRay  :|-:  Ax(Rxa->x=a)
 |Domain:
 |R(_,_):
 |a:
-|b:
-|c:
 ```
 
 <br>
@@ -269,20 +243,19 @@ For these problems, use only the introduction and elimination rules, along with 
 
 *Problem 7*
 
-For this problem, try to organize it so that the first new line is `EyRay` and the second to last line is `Raa`. Then try to eliminate this existential by getting a line that says `Rab->Raa`.
+For this problem, first get the line `EyRay.` Then try to eliminate this existential by getting a line that says `Rab->EyExRxy`.
 
-```{.ProofChecker .GamutNDPlus submission="none" }
-10.07 AxAy(Rxy->Rxx), AxEyRxy :|-: AxRxx
-|AxAy(Rxy->Rxx) :assumption
-|AxEyRxy :assumption
-|EyRay :EA2
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.07 Fa->EyRay, Fa/\Ga :|-: EyExRxy
+|Fa->EyRay :assumption
+|Fa/\Ga :assumption
+|Fa :E/\2
+|EyRay :E->1,3
 | Rab :assumption
-| Ay(Ray->Raa) :EA1
-| Rab->Raa :EA5
-| Raa :E->4,6
-|Rab->Raa :I->4-7
-|Raa :EE3,8
-|AxRxx :IA9
+| ExRxb :IE5
+| EyExRxy :IE6
+|Rab->EyExRxy :I->5-7
+|EyExRxy :EE4,8
 ```
 
 <br>
@@ -291,20 +264,19 @@ For this problem, try to organize it so that the first new line is `EyRay` and t
 
 *Problem 8*
 
-Prove the following in intuitionistic logic, i.e. using only the introduction and elimination rule, plus ex falso and repeat. (This is a minor variation on the Fourth Conversion).
+Prove the following in intuitionistic logic, i.e. using only the introduction and elimination rule, plus ex falso and repeat. (This is an instance of the Third Conversion).
 
-```{.ProofChecker .GamutND submission="none"}
-10.08 Ax(Fx->Gx), Ex(Fx/\Hx) :|-: Ex(Gx/\Fx)
-|Ax(Fx->Gx) :assumption
-|Ex(Fx/\Hx) :assumption
-| Fc/\Hc :assumption
-| Fc :E/\3
-| Fc->Gc :EA1
-| Gc :E->4,5
-| Gc/\Fc :I/\4,6
-| Ex(Gx/\Fx) :IE7
-|(Fc/\Hc)->Ex(Gx/\Fx) :I->3-8
-|Ex(Gx/\Fx) :EE2,9
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.08 ~Ex(Rax/\Rbx) :|-: Ax(Rac->~Rbc)
+|~Ex(Rax/\Rbx) :assumption
+| Rac :assumption
+|  Rbc :assumption
+|  Rac/\Rbc :I/\2,3
+|  Ex(Rax/\Rbx) :IE4
+|  ⊥ :E~1,5
+| ~Rbc :I~3-6
+|Rac->~Rbc :I->2-7
+|Ax(Rac->~Rbc) :IA8
 ```
 
 
@@ -361,12 +333,17 @@ For this one, solve it using the Aristotelian syllogisms (which we showed were a
 
 <br>
 
+Prove the following (this is just Darapti again).
+
 ```{.ProofChecker .GamutNDPlus submission="none" }
-10.09 ~Ex(Rax/\Rbx), Ax(Rcx->Rbx) :|-: ~Ex(Rcx/\Rax)
-|~Ex(Rax/\Rbx) :assumption
-|Ax(Rcx->Rbx) :assumption
-|~Ex(Rbx/\Rax) :CV2 1
-|~Ex(Rcx/\Rax) :Ce 2,3
+10.09 Ax(Px->Ox) :|-: Ex(Qx/\Ox)
+|Ax(Px->Ox) :assumption
+|Ax(Px->Qx) :assumption
+|ExPx :assumption
+|Ex(Px/\Ox) :CV4 1,3
+|Ex(Ox/\Px) :CV1 4
+|Ex(Ox/\Qx) :Da 2,5
+|Ex(Qx/\Ox) :CV1 6
 ```
 
 <br>
@@ -383,18 +360,13 @@ For this problem, use only the introduction and elimination rules, along with ex
 
 This problem is an exercise in ex falso.
 
-```{.ProofChecker .GamutND submission="none"}
-10.10 Ax((Fx->Gx)->Hx), Ax~Fx :|-: AxHx
-|Ax((Fx->Gx)->Hx) :assumption
-|Ax~Fx :assumption
-|(Fa->Ga)->Ha :EA1
-| Fa :assumption
-| ~Fa :EA2
-| !? :E~4,5
-| Ga :EFSQ 6
-|Fa->Ga :I->4-7
-|Ha :E->3,8
-|AxHx :IA9
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.10 ~AxFx :|-: AxFx->ExGx
+|~AxFx :assumption
+| AxFx :assumption
+| ⊥ :E~1,2
+| ExGx :EFSQ3
+|AxFx->ExGx :I->2-4
 ```
 
 <br>
@@ -470,14 +442,18 @@ We can write these two rules side by side in our more familiar proof format as f
 
 *Problem 12*
 
-This is a problem in inferring types. *Hint*: figure out what type $(f(g))(-5)$ has.
+This is a problem in inferring types. We use $D_e$ as our domain of basic individuals, $D_t$ as our truth-values, and $a$ as a name for an individual of type $D_e$.
+
+*Hint:* first figure out what the type of `f( ( g(a) ) x )` is, and then act as if you are doing arrow introduction.
+
+*Hint*: for intuition, `g: D_e->(D_e->D_t)` is just how the formal semantics traditions writes "g is the (graph) of a binary relation". And `f : (D_e->D_t)->(D_e->D_t)' is a map from one-place relations to one-place relations. Hence, a concrete example of `f( ( g(a) ) x )` would be something like `Cautiously ( (Trusts (Allison)) x )`, which is just another way of saying "Allison cautiously trusts x".
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
-10.12 What is the type of λf : (ℤ->ℚ)->(ℤ->ℚ)  λg : ℤ->ℚ . (f(g))(-5) ?
-| ((ℤ->ℚ)->ℚ)->((ℤ->ℚ)->(ℤ->ℚ))
-| ((ℤ->ℚ)->(ℤ->ℚ))->(ℚ->(ℤ->ℚ))
-| ((ℤ->ℚ)->(ℤ->ℚ))->(ℚ->(ℤ->ℚ))
-|+ ((ℤ->ℚ)->(ℤ->ℚ))->((ℤ->ℚ)->ℚ)
+10.12 What is the type of λf : (D_e->D_t)->(D_e->D_t)  λg : D_e->(D_e->D_t) λx: D_e . f( ( g(a) ) x ) ?
+| ((D_e->D_t)->(D_e->D_t))->(  (D_e->D_t) -> (D_e->(D_e->D_t)) )
+|+ ((D_e->D_t)->(D_e->D_t))->( (D_e->(D_e->D_t)) -> (D_e->D_t) )
+| ( (D_e->(D_e->D_t)) -> (D_e->D_t) ) -> ((D_e->D_t)->(D_e->D_t))
+| (  (D_e->D_t) -> (D_e->(D_e->D_t)) ) -> ((D_e->D_t)->(D_e->D_t))
 ```
 
 <br>
@@ -494,21 +470,22 @@ For these problems, one can use any of the rules of classical predicate logic. S
 
 *Problem 13*
 
-While this problem can be solved in many ways, it has one comparatively simple proof which features prominently the a disjunctive syllogism and DeMorgan.
+This argument is called *Harrop's rule*. There is no proof of it in intuitionistic logic. One classical proof uses only `DC`, `DN`, `I\/`, and the associativity and commutativity laws of disjunction `LAD` and `LCD`.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-10.13 ~(ExGx/\ExFx), Gb, Ax(Hx->Fx) :|-: Ax~Hx
-|~(ExGx/\ExFx) :assumption
-|Gb :assumption
-|Ax(Hx->Fx) :assumption
-|ExGx :IE2
-|~ExFx :NDS 1,4
-|Ax~Fx :DMALL5
-|~Fa :EA6
-|Ha->Fa :EA3
-|~Fa->~Ha :CP 8
-|~Ha :E->7,9
-|Ax~Hx :IA10
+10.13 ~Fa->(Fb\/Fc) :|-: (~Fa->Fb)\/(~Fa->Fc)
+|~Fa->(Fb\/Fc) :assumption
+|~~Fa\/(Fb\/Fc) :DC1
+|Fa\/(Fb\/Fc) :DN2
+|Fa\/(Fa\/(Fb\/Fc)) :I\/3
+|Fa\/((Fa\/Fb)\/Fc) :LAD4
+|Fa\/((Fb\/Fa)\/Fc) :LCD5
+|Fa\/(Fb\/(Fa\/Fc)) :LAD6
+|(Fa\/Fb)\/(Fa\/Fc) :LAD7
+|(~~Fa\/Fb)\/(Fa\/Fc) :DN8
+|(~Fa->Fb)\/(Fa\/Fc) :DC9
+|(~Fa->Fb)\/(~~Fa\/Fc) :DN10
+|(~Fa->Fb)\/(~Fa->Fc) :DC11
 ```
 
 <br>
@@ -517,10 +494,10 @@ While this problem can be solved in many ways, it has one comparatively simple p
 
 *Problem 14*
 
-This is a version of Pierce's law, a statement about arrows which is only provable in classical logic. While there are many proofs of it, one simple one treats it like a normal arrow statement going from `((Rac->Rbc)->Rac)` to `Rac` in a bracket, and derives the last line of the bracket `Rac` from `~~Rac` via double-negation.
+This is a classic problem with identity, which involves a disjunction elimination. Prior to trying this one, review the proof of the symmetry of identity ([Week 8 Tutoring](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-tutoring-with-solutions.pandoc#problems-with-identity) Problems 11-12).
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-10.14  :|-: ((Rac->Rbc)->Rac)->Rac
+10.14 Ax(x=a\/x=b) :|-: Ax(a=x\/b=x)
 Ax(x=a\/x=b) :assumption
 c=a\/c=b :assumption
  c=a :assumption
@@ -534,6 +511,7 @@ c=a->(a=c\/b=c) :I->3-6
  a=c\/b=c :I\/10
 c=b->(a=c\/b=c) :I->8-11
 a=c\/b=c :E\/2,7,12
+Ax(a=x\/b=x) :IA13
 ```
 
 <br>
@@ -546,7 +524,7 @@ Give a resolution proof of
 
 $\forall \; x \; \forall \; y \; (Rxy\rightarrow Ryx), \forall \; x \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz), Rba, Rbc \vdash Rac$
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-10.png" alt="Resolution example" width="800"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-11.png" alt="Resolution example" width="800"/>
 
 <br>
 
@@ -558,13 +536,13 @@ $\forall \; x \; \forall \; y \; (Rxy\rightarrow Ryx), \forall \; x \forall \; y
 
 *Problem 16*
 
-Consider the statement $\exists \; x \; Fx \wedge \exists \; x \; Gx \nvdash \exists \;x \;(Fx\wedge Gx)$.
+Consider the statement $\exists \; x \; Fx \rightarrow \exists \; x \; \neg Gx \nvDash \exists \;x \;(Fx\rightarrow \neg Gx)$.
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
 10.16 What is this a claim about?
 | Some proofs
-|+ All proofs
-| Some models
+| All proofs
+|+ Some models
 | All models
 ```
 
@@ -577,12 +555,13 @@ Consider the statement $\exists \; x \; Fx \wedge \exists \; x \; Gx \nvdash \ex
 This problem has two parts, where we use the key:
 
 | F = French major
-| G = Geography major
-| a = Ashley
+| a = Allison
+| b = brianna
+| R = respects
 
 ~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
-10.17.1 (Fa/\~Ga)->Ex(Fx/\~Gx) : If Ashley is a French major but not a Geography major, then someone is a French major but not a Geography major.
-|(Fa/\~Ga)->Ex(Fx/\~Gx)
+10.17.1 Ax((Fx/\~x=a)->Rbx) : All French majors besides Allison are respected by Brianna
+|Ax((Fx/\~x=a)->Rbx)
 ~~~
 
 <br>
@@ -595,8 +574,8 @@ This problem has two parts, where we use the key:
 <br>
 
 ~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
-10.17.2 (Fa/\~Ga)->EX1(X1a/\~Ey(X1y/\Gy)), (Fa/\~Ga)->EX1(X1a/\~Ey(Gy/\X1y)), (Fa/\~Ga)->EX1(X1a/\Ay(X1y->~Gy)), (Fa/\~Ga)->EX1(X1a/\Ay(Gy->~X1y)) : If Ashley is a French major but not a Geography major, then Ashley has some property which no Geography major has.
-|(Fa/\~Ga)->EX1(X1a/\~Ey(X1y/\Gy))
+10.17.2 AX1(Ax((Fx/\~x=a)->X1x)->X1b) : Every property which is had by all French majors besides Allison is also had by Brianna
+|AX1(Ax((Fx/\~x=a)->X1x)->X1b)
 ~~~
 
 <br>
@@ -605,21 +584,15 @@ This problem has two parts, where we use the key:
 
 *Problem 18*
 
-This is a problem in the deductive system for second-order logic. For reference, we recopy the rules  on the next page.
-
-Note that this is an instance of the comprehension schema, and hence is evidence that our lambda terms do indeed provide enough names for the properties to validiate the comprehension schema.
+This is a problem in the deductive system for second-order logic. For reference, we recopy the rules  on the next page. This is very much like Problem 14 from the [Week 9 tutoring document](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-tutoring-with-solutions.pandoc#second-order-logic) showing that "sharing all properties" is reflexive.
 
 ```{.ProofChecker .GamutNDSOL submission="none"}
-10.18 :|-: EX1Ax(((Fx/\Gx)->X1x)/\(X1x->(Fx/\Gx)))
-| (Fa/\Ga) :assumption
-| \y[(Fy/\Gy)]a :ABS1 1
-|(Fa/\Ga)->\y[(Fy/\Gy)]a :I->1-2
-| \y[(Fy/\Gy)]a :assumption
-| (Fa/\Ga) :APP1 4
-|\y[(Fy/\Gy)]a->(Fa/\Ga) :I->4-5
-|((Fa/\Ga)->\y[(Fy/\Gy)]a)/\(\y[(Fy/\Gy)]a->(Fa/\Ga)) :I/\3,6
-|Ax(((Fx/\Gx)->\y[(Fy/\Gy)]x)/\(\y[(Fy/\Gy)]x->(Fx/\Gx))) :IA 7
-|EX1Ax(((Fx/\Gx)->X1x)/\(X1x->(Fx/\Gx))) :IE1 8
+09.14.1 :|-: AxAX1(~X1x->(~X1x\/Fx))
+|~X1a :assumption
+|~X1a\/Fa :I\/1
+|~X1a->(~X1a\/Fa) :I->1-2
+|AX1(~X1a->(~X1a\/Fa)) :IA1 3
+|AxAX1(~X1x->(~X1x\/Fx)) :IA 4
 ```
 
 
