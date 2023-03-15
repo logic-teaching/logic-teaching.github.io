@@ -131,6 +131,8 @@ The first three axioms are the axioms of [equivalence relations](https://carnap.
 
 <br>
 
+<br>
+
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
 10.04 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~Rab, ~Rbc, ~Rcd :|-: ~Rad
 |Domain:
@@ -168,6 +170,10 @@ This one is an exercise with the Russellian and Fregean translations of the defi
 
 <br>
 
+<br>
+
+<br>
+
 ```{.CounterModeler .Validity system="gamutNDDesc" submission="none" options="negated-double-turnstile"}
 10.05 ~FixGx, ~ExGx :|-: Ex(Gx/\(Ay(Gy->x=y)/\~Fx))
 |Domain:
@@ -193,6 +199,10 @@ The first four axioms are the axioms of [linear orders](https://carnap.io/shared
 |AxAy((Rxy\/Ryx)\/x=y) :assumption
 |AyRay :assumption
 ```
+
+<br>
+
+<br>
 
 <br>
 

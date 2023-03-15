@@ -474,18 +474,14 @@ We can write these two rules side by side in our more familiar proof format as f
 
 *Problem 12*
 
-This is a problem in inferring types. We use $D_e$ as our domain of basic individuals, $D_t$ as our truth-values, and $a$ as a name for an individual of type $D_e$.
-
-*Hint:* first figure out what the type of `f( ( g(a) ) x )` is, and then act as if you are doing arrow introduction.
-
-*Hint*: for intuition, `g: D_e->(D_e->D_t)` is just how the formal semantics tradition writes "g is the (graph) of a binary relation". And `f : (D_e->D_t)->(D_e->D_t)` is a map from one-place relations to one-place relations. Hence, a concrete example of `f( ( g(a) ) x )` would be something like `Cautiously ( (Trusts (Allison)) x )`, which is just another way of saying "Allison cautiously trusts x".
+This is a problem in inferring types.
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
-10.12 What is the type of the lambda expression λf : (D_e->D_t)->(D_e->D_t)  λg : D_e->(D_e->D_t) λx: D_e . f( ( g(a) ) x ) ?
-| ((D_e->D_t)->(D_e->D_t))->(  (D_e->D_t) -> (D_e->(D_e->D_t)) )
-|+ ((D_e->D_t)->(D_e->D_t))->( (D_e->(D_e->D_t)) -> (D_e->D_t) )
-| ( (D_e->(D_e->D_t)) -> (D_e->D_t) ) -> ((D_e->D_t)->(D_e->D_t))
-| (  (D_e->D_t) -> (D_e->(D_e->D_t)) ) -> ((D_e->D_t)->(D_e->D_t))
+10.12 What is the type of the lambda expression λx:ℕ λf:ℕ->ℕ . f(x)-f(20)
+|+ ℕ->((ℕ->ℕ)->ℤ)
+| (ℕ->ℕ)->(ℕ->ℤ)
+| ℕ->((ℕ->ℕ)->ℕ)
+| (ℕ->ℕ)->(ℕ->ℕ)
 ```
 
 <br>
@@ -502,22 +498,22 @@ For these problems, one can use any of the rules of classical predicate logic. S
 
 *Problem 13*
 
-This argument is called *Harrop's rule*. There is no proof of it in intuitionistic logic. One classical proof uses only `DC`, `DN`, `I\/`, and the associativity and commutativity laws of disjunction `LAD` and `LCD`.
+This argument is unprovable in intuitionistic logic. Hence you definitely need to use something besides the introduction and elimination rules. One classical proof starts out with some `DC`, and `DMAND3`, and then finishes off with a disjunction elimination. There's also some obvious places to apply `DN` here.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-10.13 ~Fa->(Fb\/Fc) :|-: (~Fa->Fb)\/(~Fa->Fc)
-|~Fa->(Fb\/Fc) :assumption
-|~~Fa\/(Fb\/Fc) :DC1
-|Fa\/(Fb\/Fc) :DN2
-|Fa\/(Fa\/(Fb\/Fc)) :I\/3
-|Fa\/((Fa\/Fb)\/Fc) :LAD4
-|Fa\/((Fb\/Fa)\/Fc) :LCD5
-|Fa\/(Fb\/(Fa\/Fc)) :LAD6
-|(Fa\/Fb)\/(Fa\/Fc) :LAD7
-|(~~Fa\/Fb)\/(Fa\/Fc) :DN8
-|(~Fa->Fb)\/(Fa\/Fc) :DC9
-|(~Fa->Fb)\/(~~Fa\/Fc) :DN10
-|(~Fa->Fb)\/(~Fa->Fc) :DC11
+10.13 (Fa->Fb)->(Fa\/~Fb) :|-: ~~Fa\/~Fb
+|(Fa->Fb)->(Fa\/~Fb) :assumption
+|(~Fa\/Fb)->(Fa\/~Fb) :DC1
+|~(~Fa\/Fb)\/(Fa\/~Fb) :DC2
+|(~~Fa/\~Fb)\/(Fa\/~Fb) :DMAND3
+| ~~Fa/\~Fb :assumption
+| ~Fb :E/\5
+| ~~Fa\/~Fb :I\/6
+|(~~Fa/\~Fb)->(~~Fa\/~Fb) :I->5-7
+| Fa\/~Fb :assumption
+| ~~Fa\/~Fb :DN9
+|(Fa\/~Fb)->(~~Fa\/~Fb) :I->9-10
+|~~Fa\/~Fb :E\/4,8,11
 ```
 
 <br>
@@ -529,21 +525,16 @@ This argument is called *Harrop's rule*. There is no proof of it in intuitionist
 This is a classic problem with identity, which involves a disjunction elimination. Prior to trying this one, review the proof of the symmetry of identity ([Week 8 Tutoring](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-tutoring-with-solutions.pandoc#problems-with-identity) Problems 11-12).
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-10.14 Ax(x=a\/x=b) :|-: Ax(a=x\/b=x)
-|Ax(x=a\/x=b) :assumption
-|c=a\/c=b :EA1
-| c=a :assumption
-| a=a :I=
-| a=c :E=3,4
-| a=c\/b=c :I\/5
-|c=a->(a=c\/b=c) :I->3-6
-| c=b :assumption
-| b=b :I=
-| b=c :E= 8,9
-| a=c\/b=c :I\/10
-|c=b->(a=c\/b=c) :I->8-11
-|a=c\/b=c :E\/2,7,12
-|Ax(a=x\/b=x) :IA13
+10.14 Ax(~x=a->Fx) :|-: Fb
+|Ax(~x=a->Fx) :assumption
+|Ga :assumption
+|~Gb :assumption
+| b=a :assumption
+| Gb :E=2,4
+| !? :E~3,5
+|~b=a :I~4-6
+|~b=a->Fb :EA1
+|Fb :E->7,8
 ```
 
 <br>
