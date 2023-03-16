@@ -371,11 +371,11 @@ Suppose that you decorate the first four assumptions with $f:p\rightarrow (q\rig
 10.10 After decorating the rest of the proof, what lambda term do you get on the last line?
 | λf:p->(q->(r->s)) λu:q λv:r λw:p . ( ( f(v) ) u ) w
 | λf:p->(q->(r->s)) λu:q λv:r λw:p . ( ( f(u) ) v ) w
-| λf:p->(q->(r->s)) λu:q λv:r λw:p . ( ( f(w) ) u ) v
-|+ λf:p->(q->(r->s)) λu:q λv:r λw:p . ( ( f(w) ) v ) u
+|+ λf:p->(q->(r->s)) λu:q λv:r λw:p . ( ( f(w) ) u ) v
+| λf:p->(q->(r->s)) λu:q λv:r λw:p . ( ( f(w) ) v ) u
 ```
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/decorated-proof-3.png" alt="Decorated Proof" width="800"/>
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/decorated-proof-4.png" alt="Decorated Proof" width="800"/>
 
 
 <br>
@@ -494,8 +494,8 @@ This problem has two parts, where we use the key:
 <br>
 
 ~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
-10.13.2 EX1(Ax((Fx/\Hx)->X1x)/\AxAy((X1x/\X1y)->Txy)) : Some happy French majors trust one another
-|EX1(Ax((Fx/\Hx)->X1x)/\AxAy((X1x/\X1y)->Txy))
+10.13.2 EX1(Ax(X1x->(Fx/\Hx))/\AxAy((X1x/\X1y)->Txy)) : Some happy French majors trust one another
+|EX1(Ax(X1x->(Fx/\Hx))/\AxAy((X1x/\X1y)->Txy))
 ~~~
 
 *Hint*: the intended reading is that are some happy French majors such that any pair $x,y$ among these persons is such that $x$ trusts $y$.
