@@ -14,7 +14,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 10 Lecture 2 Practice for the final exam with solutions
+# Week 10 Lecture 2 Practice for the final exam
 
 
 We practice for the final exam.
@@ -56,15 +56,13 @@ For this problem, use only the introduction and elimination rules, along with ex
 ```{.ProofChecker .GamutNDPlus submission="none" }
 10.01 EyAx~Rxy  :|-: AxEy~Rxy
 |EyAx~Rxy :assumption
-| Ax~Rxb :assumption
-| ~Rab :EA2
-| Ey~Ray :IE3
-| AxEy~Rxy :IA4
-|Ax~Rxb ->AxEy~Rxy :I->2-5
-|AxEy~Rxy :EE1,6
 ```
 
 <br>
+
+
+<p style="page-break-before: always">
+
 
 *Problem 2*
 
@@ -75,16 +73,6 @@ For this problem, use only the introduction and elimination rules, along with ex
 ```{.ProofChecker .GamutNDPlus submission="none"}
 10.02 ~AxTbx  :|-: Ex~Tbx
 |~AxTbx :assumption
-| ~Ex~Tbx :assumption
-|  ~Tba :assumption
-|  Ex~Tbx :IE3
-|  ⊥ :E~2,4
-| ~~Tba :I~3-5
-| Tba :DN6
-| AxTbx :IA7
-| ⊥ :E~1,8
-|~~Ex~Tbx :I~2-9
-|Ex~Tbx :DN10
 ```
 
 
@@ -103,27 +91,12 @@ For this problem, use only the introduction and elimination rules, along with ex
 |Ex(Fx/\Gx) :assumption
 |Ax(Fx->Hx) :assumption
 |Ax(Gx->(Kx/\Jx)) :assumption
-| Fa/\Ga :assumption
-| Fa :E/\4
-| Ga :E/\4
-| Fa->Ha :EA2
-| Ha :E->5,7
-| Ga->(Ka/\Ja) :EA3
-| Ka/\Ja :E->6,9
-| Ka :E/\10
-| Ha/\Ka :I/\8,11
-| Ex(Hx/\Kx) :IE12
-|(Fa/\Ga)->Ex(Hx/\Kx) :I->4-13
-|Ex(Hx/\Kx) :EE1,14
 ```
 
 <br>
 
 <br>
 
-<br>
-
-<br>
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
 10.03 Ex(Fx/\Gx), Ax(Fx->Hx),Ax(Gx->(Kx/\Jx)) :|-: Ex(Hx/\Kx)
@@ -150,26 +123,7 @@ The first three axioms are the axioms of [equivalence relations](https://carnap.
 |AxAyAz((Rxy/\Ryz)->Rxz) :assumption
 |Rab :assumption
 |~Rbc :assumption
-| Rac :assumption
-| Ay(Ray->Rya) :EA2
-| Rab->Rba :EA7
-| Rba :E->4,8
-| Rba/\Rac :I/\6,9
-| AyAz((Rby/\Ryz)->Rbz) :EA3
-| Az((Rba/\Raz)->Rbz) :EA11
-| (Rba/\Rac)->Rbc :EA12
-| Rbc :E->13,10
-| !? :E~5,14
-|~Rac :I~6-15
 ```
-
-<br>
-
-<br>
-
-<br>
-
-<br>
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
 10.04 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), Rab, ~Rbc :|-: ~Rac
@@ -197,18 +151,12 @@ This one is an exercise with the Russellian and Fregean translations of the defi
 10.05 ~FixGx, Ex(Gx/\Ay(Gy->y=x)) :|-: Ez(~Fz/\Gz)
 |~FixGx :assumption
 |Ex(Gx/\Ay(Gy->y=x)) :assumption
-|GixGx :Ii2
-|~FixGx/\GixGx :I/\1,3
-|Ez(~Fz/\Gz) :IE4
 ```
 
 <br>
 
 <br>
 
-<br>
-
-<br>
 
 ```{.CounterModeler .Validity system="gamutNDDesc" submission="none" options="negated-double-turnstile"}
 10.05 ~FixGx, Ex(Gx/\Ay(Gy->y=x)) :|-: Ez(~Fz/\Gz)
@@ -240,21 +188,13 @@ The first four axioms are the axioms of [linear orders](https://carnap.io/shared
 |~a=c :assumption
 ```
 
-<br>
-
-<br>
-
-<br>
-
-<br>
-
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
 10.06 AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz), AxAy((Rxy\/Ryx)\/x=y), Rab, Rbc, ~a=b, ~b=c, ~a=c :|-: Ax(Rxc->(Rxb\/x=b))
-|Domain: 0,1,2,3
-|R(_,_): [0,0],[1,1],[2,2],[3,3],[0,1],[1,2],[2,3],[0,2],[0,3], [1,3]
-|a: 0
-|b: 1
-|c: 3
+|Domain:
+|R(_,_):
+|a:
+|b:
+|c:
 ```
 
 <br>
@@ -277,13 +217,6 @@ This problem illustrates both how to permute hypotheses in nested conditionals, 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 10.07 Fa->(Rab->~Fc) :|-: AxRxb->(Fa->~Fc)
 |Fa->(Rab->~Fc) :assumption
-| AxRxb :assumption
-| Rab :EA2
-|  Fa :assumption
-|  Rab->~Fc :E->4,1
-|  ~Fc :E->3,5
-| Fa->~Fc :I->4-6
-|AxRxb->(Fa->~Fc) :I->2-7
 ```
 
 
@@ -299,26 +232,15 @@ Prove the following in intuitionistic logic, i.e. using only the introduction an
 ```{.ProofChecker .GamutNDPlus submission="none"}
 10.08 ~Ex(Hx/\~Gx)  :|-: ~Ex(~Gx/\Hx)
 |~Ex(Hx/\~Gx) :assumption
-| Ex(~Gx/\Hx) :assumption
-|  ~Gc/\Hc :assumption
-|  ~Gc :E/\3
-|  Hc :E/\3
-|  Hc/\~Gc :I/\4,5
-|  Ex(Hx/\~Gx) :IE6
-| (~Gc/\Hc)->Ex(Hx/\~Gx) :I->3-7
-| Ex(Hx/\~Gx) :EE2,8
-| ⊥ :E~1,9
-|~Ex(~Gx/\Hx) :I~2-10
 ```
 
 <br>
-
 
 <p style="page-break-before: always">
 
 ## Week 7 problems
 
-<p style="page-break-before: always">
+<br>
 
 *Problem 9*
 
@@ -329,16 +251,7 @@ This problem is an exercise in ex falso.
 ```{.ProofChecker .GamutNDPlus submission="none"}
 10.09 ~Fa :|-: ~~(Fa->Fb)
 |~Fa :assumption
-| ~(Fa->Fb) :assumption
-|  Fa :assumption
-|  !? :E~1,3
-|  Fb :EFSQ4
-| Fa->Fb :I->3-5
-| !? :E~2,6
-|~~(Fa->Fb) :I~2-7
 ```
-
-
 
 <br>
 
@@ -372,10 +285,8 @@ Suppose that you decorate the first four assumptions with $f:p\rightarrow (q\rig
 | λf:p->(q->(r->s)) λu:q λv:r λw:p . ( ( f(v) ) u ) w
 | λf:p->(q->(r->s)) λu:q λv:r λw:p . ( ( f(u) ) v ) w
 | λf:p->(q->(r->s)) λu:q λv:r λw:p . ( ( f(w) ) u ) v
-|+ λf:p->(q->(r->s)) λu:q λv:r λw:p . ( ( f(w) ) v ) u
+|* λf:p->(q->(r->s)) λu:q λv:r λw:p . ( ( f(w) ) v ) u
 ```
-
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/decorated-proof-3.png" alt="Decorated Proof" width="800"/>
 
 
 <br>
@@ -433,21 +344,9 @@ This argument is unprovable in intuitionistic logic. Hence you definitely need t
 ```{.ProofChecker .GamutNDPlus submission="none"}
 10.11 (Fa->Fb)->(Fa\/~Fb) :|-: ~~Fa\/~Fb
 |(Fa->Fb)->(Fa\/~Fb) :assumption
-|(~Fa\/Fb)->(Fa\/~Fb) :DC1
-|~(~Fa\/Fb)\/(Fa\/~Fb) :DC2
-|(~~Fa/\~Fb)\/(Fa\/~Fb) :DMAND3
-| ~~Fa/\~Fb :assumption
-| ~Fb :E/\5
-| ~~Fa\/~Fb :I\/6
-|(~~Fa/\~Fb)->(~~Fa\/~Fb) :I->5-7
-| Fa\/~Fb :assumption
-| ~~Fa\/~Fb :DN9
-|(Fa\/~Fb)->(~~Fa\/~Fb) :I->9-10
-|~~Fa\/~Fb :E\/4,8,11
 ```
 
 <br>
-
 
 <p style="page-break-before: always">
 
@@ -457,31 +356,25 @@ Give a resolution proof of
 
 $\neg Fa\rightarrow (Fb\vee Fc), \forall \; x \; (Fx\rightarrow (Gx\vee Hx)), \neg Gb, \neg Gc, \neg Hb, \neg Hc \vdash Ga\vee Ha$
 
-&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-13.png" alt="Resolution example" width="600"/>
-
 <br>
 
 <p style="page-break-before: always">
 
 ## Week 9 problems
 
-
 <br>
-
-<p style="page-break-before: always">
-
 
 *Problem 13*
 
 This problem has two parts, where we use the key:
 
 | F = French major
-| H = French major
+| H = happy
 | T = trusts
 
 ~~~{.Translate .FOL system="gamutND" submission="none"}
 10.13.1 ExEy(((Fx/\Hx)/\(Fy/\Hy))/\Txy) : Some happy French major trusts some happy French major.
-|ExEy(((Fx/\Hx)/\(Fy/\Hy))/\Txy)
+|
 ~~~
 
 <br>
@@ -495,7 +388,7 @@ This problem has two parts, where we use the key:
 
 ~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
 10.13.2 EX1(Ax((Fx/\Hx)->X1x)/\AxAy((X1x/\X1y)->Txy)) : Some happy French majors trust one another
-|EX1(Ax((Fx/\Hx)->X1x)/\AxAy((X1x/\X1y)->Txy))
+|
 ~~~
 
 *Hint*: the intended reading is that are some happy French majors such that any pair $x,y$ among these persons is such that $x$ trusts $y$.
@@ -513,17 +406,6 @@ This is practice with with `IE1` (that is, introduction of existential for prope
 ```{.ProofChecker .GamutNDSOL submission="none"}
 10.14 Fa\/Gb :|-: EX1EY1(X1a\/Y1b)
 |Fa\/Gb :assumption
-| Fa :assumption
-| \x[Fx]a :ABS1 2
-| \x[Fx]a\/\y[Gy]b :I\/3
-|Fa->(\x[Fx]a\/\y[Gy]b) :I->2-4
-| Gb :assumption
-| \y[Gy]b :ABS1 6
-| \x[Fx]a\/\y[Gy]b :I\/7
-|Gb->(\x[Fx]a\/\y[Gy]b) :I->6-8
-|\x[Fx]a\/\y[Gy]b :E\/5,9,1
-|EY1(\x[Fx]a\/Y1b) :IE1 10
-|EX1EY1(X1a\/Y1b) :IE1 11
 ```
 
 <p style="page-break-before: always">

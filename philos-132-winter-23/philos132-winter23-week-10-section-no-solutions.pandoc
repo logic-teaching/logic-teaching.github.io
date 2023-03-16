@@ -552,7 +552,7 @@ This problem has two parts, where we use the key:
 | G = Geography major
 | a = Ashley
 
-~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+~~~{.Translate .FOL system="gamutND" submission="none"}
 10.17.1 (Fa/\~Ga)->Ex(Fx/\~Gx) : If Ashley is a French major but not a Geography major, then someone is a French major but not a Geography major.
 |
 ~~~
