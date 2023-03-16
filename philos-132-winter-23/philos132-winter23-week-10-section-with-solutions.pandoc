@@ -36,7 +36,7 @@ This is practice for the final. In particular, it is practice with parts I, II, 
 
 - The formatting of this page may look a little different, but that is because it is designed to be printed.
 
-- Keep in mind that there are many good proofs of one and the same result, and keep in mind that partial credit will be available on the proofs in the final. 
+- Keep in mind that there are many good proofs of one and the same result, and keep in mind that partial credit will be available on the proofs in the final.
 
 <br>
 
@@ -552,7 +552,7 @@ This problem has two parts, where we use the key:
 | G = Geography major
 | a = Ashley
 
-~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+~~~{.Translate .FOL system="gamutND" submission="none"}
 10.17.1 (Fa/\~Ga)->Ex(Fx/\~Gx) : If Ashley is a French major but not a Geography major, then someone is a French major but not a Geography major.
 |(Fa/\~Ga)->Ex(Fx/\~Gx)
 ~~~

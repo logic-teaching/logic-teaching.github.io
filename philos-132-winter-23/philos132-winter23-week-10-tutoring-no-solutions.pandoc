@@ -478,20 +478,19 @@ $\forall \; x \; \forall \; y \; (Fx\wedge \neg Gx \wedge Rxy)\rightarrow (Fy\we
 
 *Problem 16*
 
-Consider the statement $\exists \; x \; Fx \rightarrow \exists \; x \; \neg Gx \nvDash \exists \;x \;(Fx\rightarrow \neg Gx)$.
+Consider the statement $\forall x \; \forall \; y \; Rxy \vDash \forall \; x\; \forall \; y \; Ryx$.
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
 10.16 What is this a claim about?
 | Some proofs
 | All proofs
-|* Some models
-| All models
+| Some models
+|* All models
 ```
 
 <br>
 
 <p style="page-break-before: always">
-
 *Problem 17*
 
 This problem has two parts, where we use the key:
@@ -501,9 +500,9 @@ This problem has two parts, where we use the key:
 | b = brianna
 | R = respects
 
-~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+~~~{.Translate .FOL system="gamutND" submission="none"}
 10.17.1 Ax((Fx/\~x=a)->Rbx) : All French majors besides Allison are respected by Brianna
-|
+|Ax((Fx/\~x=a)->Rbx)
 ~~~
 
 <br>
@@ -517,8 +516,14 @@ This problem has two parts, where we use the key:
 
 ~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
 10.17.2 AX1(Ax((Fx/\~x=a)->X1x)->X1b) : Every property which is had by all French majors besides Allison is also had by Brianna
-|
+|AX1(Ax((Fx/\~x=a)->X1x)->X1b)
 ~~~
+
+<br>
+
+
+<br>
+
 
 <br>
 

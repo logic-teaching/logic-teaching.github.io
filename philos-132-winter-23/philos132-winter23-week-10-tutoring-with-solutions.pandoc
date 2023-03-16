@@ -546,7 +546,7 @@ $\forall \; x \; \forall \; y \; (Fx\wedge \neg Gx \wedge Rxy)\rightarrow (Fy\we
 
 *Problem 16*
 
-Consider the statement $\exists \; x \; Fx \rightarrow \exists \; x \; \neg Gx \nvDash \exists \;x \;(Fx\rightarrow \neg Gx)$.
+Consider the statement $\exists \; x \; Fx \rightarrow \exists \; x \; \neg Gx \nvDash \exists \;x\;\neg Gx$.
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
 10.16 What is this a claim about?
@@ -569,7 +569,7 @@ This problem has two parts, where we use the key:
 | b = brianna
 | R = respects
 
-~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+~~~{.Translate .FOL system="gamutND" submission="none"}
 10.17.1 Ax((Fx/\~x=a)->Rbx) : All French majors besides Allison are respected by Brianna
 |Ax((Fx/\~x=a)->Rbx)
 ~~~
