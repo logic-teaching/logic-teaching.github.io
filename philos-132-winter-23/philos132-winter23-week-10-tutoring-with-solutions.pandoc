@@ -274,7 +274,7 @@ For this problem, first get the line `EyRay.` Then try to eliminate this existen
 Prove the following in intuitionistic logic, i.e. using only the introduction and elimination rule, plus ex falso and repeat. (This is an instance of the Third Conversion).
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
-10.08 ~Ex(Rax/\Rbx) :|-: Ax(Rac->~Rbc)
+10.08 ~Ex(Rax/\Rbx) :|-: Ax(Rax->~Rbx)
 |~Ex(Rax/\Rbx) :assumption
 | Rac :assumption
 |  Rbc :assumption
@@ -283,7 +283,7 @@ Prove the following in intuitionistic logic, i.e. using only the introduction an
 |  ⊥ :E~1,5
 | ~Rbc :I~3-6
 |Rac->~Rbc :I->2-7
-|Ax(Rac->~Rbc) :IA8
+|Ax(Rax->~Rbx) :IA8
 ```
 
 
