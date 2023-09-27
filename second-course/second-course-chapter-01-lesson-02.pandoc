@@ -1,0 +1,511 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 1 Lecture 2, The Aristotelian Syllogisms
+
+As a preface to our study of predicate logic, we introduce the Aristotelian syllogism. This was the kind of predicate logic initiated by the ancient Greek philosopher Aristotle in his [*Prior Analytics*](https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12.pdf). It remained dominate for many centuries, and the predicate logic we will study in this course generalizes it, in certain ways.
+
+<br>
+
+- [The subject matter of logic](#the-subject-matter-of-logic)
+- [Conversions and valid arguments](#conversions-and-valid-arguments)
+- [Non-conversions and invalid arguments](#non-conversions-and-invalid-arguments)
+- [Conversions and existential import](#conversions-and-existential-import)
+- [The first figure](#the-first-figure)
+- [The second figure](#the-second-figure)
+- [Summary of conversions and first figure](#summary-of-conversions-and-first-figure)
+
+<br>
+
+<p style="page-break-before: always">
+
+## The subject matter of logic
+
+In propositional logic, we take the proposition as primitive and do not subject it to further analysis. For instance, we translate "Alex walks and Briana walks" simply as $p\wedge q$, with the key
+
+<p style="margin-left: 40px"> $p$ = Anthony walks </p>
+<p style="margin-left: 40px"> $q$ = Briana walks </p>
+
+In predicate logic, we subject these small propositions to further analysis. In fact, later we will analyze "Alex walks and Briana walks" as $Wa\wedge Wb$ where
+
+<p style="margin-left: 40px"> $a$ = Anthony </p>
+<p style="margin-left: 40px"> $b$ = Briana </p>
+<p style="margin-left: 40px"> $Wx$ = $x$ walks </p>
+
+The first to propose something like this was Aristotle in his *Prior Analytics*. He described propositions as follows in Book 1, Chapter 1 of the *Prior Analytics* (from [this edition](https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12.pdf)):
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20prop-v2.png" alt="Aristotle on propositions" width="700"/>
+
+As we can see here, he thought that the primary subject-matter of logic was statements like the following (and their negations):
+
+- "Every human walks", which is a universal statement, ascribing walking (or the ability to walk) to all humans.
+- "Some animals walk," which is a particular statement, ascribing walking (or the ability to walk) to some animals.
+- "Animals talk," which is what Aristotle calls an indefinite statement, which is "without a mark" as to whether it is universal or particular.
+
+When Aristotle says that a proposition affirms "something of something," he is thinking about examples like these. The starkest contrast to propositional logic *per se* is that in these examples we are given some further sense of what makes the basic propositions true or false: it is the relation between the subject (human, animal) and the predicate (walk, talk). This idea is retained in contemporary predicate logic. Part of what we will learn in this course is the ways in which contemporary predicate logic goes beyond Aristotelian logic, but it is safe to say that the relation between a subject and a predicate features crucially in both.
+
+The other important notion that Aristotle introduces in Book 1, Chapter 1 is that of "deduction," or what we might today call "consequence" or "logical consequence":
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20deduction-v2.png" alt="Aristotle on deduction" width="700"/>
+
+This general idea is probably familiar from your first logic course, where we say that a *valid argument* is an argument  such that whenever all the premises are true, then the conclusion is also true. We can think of this as a type of guarantee that when the premises are true, the conclusion is going to be true as well. In the quotation, what we today call "valid argument" is what Aristotle calls "deduction," and what we today call "premises" are what Aristotle calls "certain things being stated," and finally what we call the "conclusion" is what Aristotle calls that which "follows of necessity." Another traditional term for the type of deductions to which Aristotle called attention are "syllogisms."
+
+Part of what we strive to do in our first logic course is specify the sense in which the conclusion follows of necessity from the premises. One way we do that in the propositional setting is with truth-tables: we try to identify arguments where any row of the table is such that if all the premises are true, the conclusion is true. Another way we do that in the propositional setting is with proofs: we try to identify arguments where we can get from the premises to the conclusion using only certain specified rules. For instance, using either of these methods we can show that the argument with premise $p\wedge q$ and conclusion $p$ is a valid argument. Aristotle in these passage of the *Prior Analytics* does try to specify the sense of necessity he had in mind using cognate-notions like "because" and "by" (that is the second sentence of the above quotation). But perhaps the clearest way he specifies the sense of necessity is by all the examples of valid arguments (or deductions or syllogisms) which he gives.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Conversions and valid arguments
+
+Aristotle opens Book 1, Chapter 2 of *Prior Analytics* with what he calls "conversions." These are one-premise arguments where the subject and predicates are interchanged between the sole premise and the conclusion of the argument.[^1] Here are the general forms and the examples which Aristotle gives:
+
+[^1]: Perhaps they don't even merit, in Aristotle's eyes, the title of a "deduction," since it is not always obvious they satisfy the constraint from the last quotation in "[The subject matter of logic](#the-subject-matter-of-logic)" section that the conclusion be different than the premises.
+
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Valid argument</th>
+    <th>Example</th>
+  </tr>
+  <tr>
+    <td>First Conversion</td>
+    <td>Some F are G $\vDash$ Some G are F</td>
+    <td>Some pleasures are good $\vDash$ Some good is pleasurable</td>
+  </tr>
+  <tr>
+    <td>Second Conversion</td>
+    <td>No F are G $\vDash$ No G are F</td>
+    <td>No pleasures are good $\vDash$ No good is pleasurable</td>
+  </tr>
+  <tr>
+    <td>Third Conversion</td>
+    <td>No F are G $\vDash$ All F are not G</td>
+    <td>No pleasures are good $\vDash$ All pleasures are not good</td>
+  </tr>
+  <tr>
+    <td>Third Conversion</td>
+    <td>All F are not G $\vDash$ No F are G</td>
+    <td> All pleasures are not good $\vDash$No pleasures are good</td>
+  </tr>
+</table>
+<br>
+We list the third conversion twice just to emphasize that the entailment goes both ways-- that it goes both ways in the first and second conversion follows by interchanging the roles of F and G. In all of these, we use the $\vDash$ of contemporary logic to separate out the premise on the left from the conclusion on the right. Recall that $\vDash$ is the *consequence relation* which one can pronounce out loud as "therefore" or "hence" or "has as a consequence" or "entails." (The symbol $\vDash$ does double-duty in logic, and it is also used to indicate *satisfaction relation*. In this usage it is written as $V\vDash \varphi$ or $\mathcal{M}\models \varphi$, where this means that the valuation or model on the left-hand side satisfies, or makes true, the formula on the right-hand side).
+
+<p style="page-break-before: always">
+
+## Non-conversions and invalid arguments
+
+Aristotle also produces an example of an argument showing a situation in which one cannot interchange the subject and predicate:
+<table style="width:100%">
+  <tr>
+    <th>Invalid argument</th>
+    <th>Example</th>
+  </tr>
+  <tr>
+    <td>Some F is not G $\nvDash$ Some G is not F</td>
+    <td>Some animal is not man $\nvDash$ Some man is not an animal</td>
+  </tr>
+</table>
+<br>
+The argument is invalid simply because "Some animal is not man" is true (e.g. a zebra), while "Some man is not an animal" is false. This argument is invalid because it has its sole premise is true but it has a false conclusion. To use Aristotle's language, it is invalid because from the statement "Some animal is not man" being so it does not necessarily follow that "Some man is not an animal" is true.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Conversions and existential import
+
+The contemporary predicate logic which we will study in this course agrees with Aristotle on the validity and invalidity of the previous cases. However, Aristotle produces another example of what he take to be a valid argument which is judged to be invalid by the lights of contemporary logic:
+
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Valid argument</th>
+    <th>Example</th>
+  </tr>
+  <tr>
+    <td>Fourth Conversion</td>
+    <td>All F are G $\vDash$ Some G are F</td>
+    <td>All pleasures are good $\vDash$ Some goods are pleasurable</td>
+  </tr>
+  <tr>
+    <td>Fourth Conversion</td>
+    <td>All F are G $\vDash$ Some F are G</td>
+    <td>All pleasures are good $\vDash$ Some pleasures are good</td>
+  </tr>
+</table>
+<br>
+
+(We list the fourth conversion twice, since in the conclusion one can interchange the subject and predicate using the first conversion). Aristotle thinks that this is a valid argument, and his example and related examples indeed are highly suggestive of its validity. This argument is sometimes described as the view that universal statements have "existential import" since the "existential" is another way of describing statements we form with "some." The contemporary logic that we will learn in this course agrees that these arguments are valid *when you already know in advance that there are things that are F's*. Hence, the one place where the argument is thought to be invalid by today's lights is in the case where there are no F's. This might seem like a degenerate case in some sense, that is, a case that would not be of much interest. However, countenancing cases of arguments where the subjects and predicates can be uninstantiated is a useful simplifying assumption, much akin to countenancing the number zero in arithmetic. Even if there are no collections of zero things that we count, we are all familiar with the idea that the rules of addition and subtraction are made easier if there is a number zero available. Likewise, it turns out that some of the rules of predicate logic will be easier to state and use if we allow there to be properties which are uninstantiated.
+
+<br>
+
+<p style="page-break-before: always">
+
+## The first figure
+
+The arguments discussed so far pertain to a single pair of a subject and predicate F and G. The next valid arguments that Aristotle identified in Book 1, Chapter 4 of the *Prior Analytics* pertain to a triple F,G,H. Each of these valid arguments has two premises, in which one of the three of F,G,H appears in both of the premises. The four valid arguments that Aristotle identified have traditional names attached to them. In Latin these traditional names were helpful mnemonics for the arguments that helped students memorize the argument patterns. The presence of names conveys the extent to which Aristotle's logic constituted the core of logic for many centuries. The four arguments collectively are called the "first figure,"[^2] and they are the paradigmatic examples of Aristotelian syllogisms:
+
+[^2]: There is some evidence that this grouping had something to do with a diagrammatic representation of the arguments, hence the term "figure."
+
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Valid argument</th>
+  </tr>
+  <tr>
+    <td>Barbara</td>
+    <td>All F are G, All G are H $\vDash$ All F are H</td>
+  </tr>
+  <tr>
+    <td>Celarent</td>
+    <td>No F are G, All H are F $\vDash$ No H are G</td>
+  <tr>
+    <td>Darii</td>
+    <td>All F are G, Some H are F $\vDash$ Some H are G</td>
+  </tr>
+  <tr>
+    <td>Ferio</td>
+    <td>No F are G, Some H are F $\vDash$ Some H are not G</td>
+  </tr>
+</table>
+
+<br>
+
+
+Recall that in valid arguments, it does not matter in which order you list the premises. Hence, we would also say that the following argument is an example of Barbara: All G are H, All F are G $\vDash$ All F are H.
+
+It is important in logic to become good at recognizing when an example is an example of one of these abstract argument forms. That is what these simple multiple choice questions are asking one to do. Before doing these problems, it might be advisable to have available [this page](https://drive.google.com/file/d/1AZpaIS2Hgb19QozBo2XsKhzsv9taxvd8/view?usp=share_link), which presents the [Summary of conversions and first figure](#summary-of-conversions-and-first-figure).
+
+<br>
+
+<p style="page-break-before: always">
+
+*Example 1*
+
+Consider the following argument: All French-majors are generous, Some hockey-players are French-majors $\vDash$ Some hockey-players are generous.
+
+Which of the four valid arguments in the first figure is this an example of?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| Barbara
+| Celarent
+| *Darii
+| Ferio
+```
+
+<br>
+
+*Example 2*
+
+Consider the following argument: No French-majors are grumpy, Some hockey-players are French-majors $\vDash$ Some hockey-players are not grumpy.
+
+Which of the four valid arguments in the first figure is this an example of?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| Barbara
+| Celarent
+| Darii
+| *Ferio
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+Experience suggests that answering questions like this becomes more challenging if there is no association between the initial letter of the subjects and predicates and the letters F,G,H used in the valid arguments.
+
+*Example 3*
+
+Consider the following argument: No one living in LA is living in Montreal, All people living in Westwood are living in LA $\vDash$ No one living in Westwood is living in Montreal.
+
+Which of the four valid arguments in the first figure is this an example of?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| Barbara
+| *Celarent
+| Darii
+| Ferio
+```
+
+<br>
+
+To help one do this kind of pattern-matching, it can be useful to write on top of the sentences the letters F,G,H that feature in our statement of the four validities up above.
+
+<br>
+
+<p style="page-break-before: always">
+
+One way to make the idea of pattern-matching more precise is with substitutions, which we use frequently in logic.
+
+
+*Example 4*
+
+Consider the following argument: No A are B, Some C are A $\vDash$ Some C are not B.
+
+Replace A by F and replace B by G, and replace C by H.
+
+What argument do you get?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What argument do you get?
+| Barbara
+| Celarent
+| Darii
+| *Ferio
+```
+
+<p style="page-break-before: always">
+
+<br>
+
+*Example 5*
+
+Consider the following argument: All B are C, Some A are B $\vDash$ Some A are C
+
+Replace B by F and replace C by G, and replace A by H.
+
+What argument do you get?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ What argument do you get?
+| Barbara
+| Celarent
+| *Darii
+| Ferio
+```
+
+<br>
+
+We say that one abstract argument is a *substitution-instance* of another if it can be obtained via a replacement like the ones we have done up above. As we go along in our study of logic, it will be important that we practice lots with recognizing substitution-instances. Here are two simple examples:
+
+*Example 6*
+
+Consider the following argument: All I are J, All J are K $\vDash$ All I are K.
+
+Which argument is this a substitution-instance of?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| *Barbara
+| Celarent
+| Darii
+| Ferio
+```
+
+<p style="page-break-before: always">
+
+<br>
+
+*Example 7*
+
+Consider the following argument: No P are Q, All R are P $\vDash$ No R are Q.
+
+Which argument is this a substitution-instance of?
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+ Which one?
+| Barbara
+| *Celarent
+| Darii
+| Ferio
+```
+
+<br>
+
+In addition to learning about the origins and history of logic as a subject, reviewing these four traditional Aristotelian syllogisms is a useful way to practice with the key concepts of replacement and substitution that are important throughout logic.
+
+<br>
+
+<p style="page-break-before: always">
+
+## The second figure
+
+In Book 1, Chapter 5 of the *Prior Analytics* Aristotle identified another four pairs of valid arguments, which bear the following traditional names and collectively are called the "second figure":
+
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Valid argument</th>
+  </tr>
+  <tr>
+    <td>Cesare</td>
+    <td>No A are B, All C are B $\vDash$ No C are A</td>
+  </tr>
+  <tr>
+    <td>Camestres</td>
+    <td>All A are B, No C are B $\vDash$ No C are A</td>
+  <tr>
+    <td>Festino</td>
+    <td>No A are B, Some C are B $\vDash$ Some C are not A</td>
+  </tr>
+  <tr>
+    <td>Baroco</td>
+    <td>All A are B, Some C are not B $\vDash$ Some C are not A</td>
+  </tr>
+</table>
+
+<br>
+
+Aristotle then proceeds to show how to *derive* these valid arguments from the valid arguments in the first figure together with the conversions. This is the prototype of the derivations that we do in contemporary logic. We will spend a lot of time later learning a deductive system for predicate logic; for the moment, we simply describe the arguments as Aristotle presents them. We have presented the second figure with the letters A,B,C rather than F,G,H so that we can more easily recognize the substitutions that we have to do to produce the proofs.
+
+<p style="page-break-before: always">
+
+<br>
+
+*Example 8*.
+
+Proof of Cesare: No A are B, All C are B $\vDash$ No C are A
+
+1. No A are B &nbsp; :assumption
+2. All C are B &nbsp; :assumption
+3. No B are A &nbsp; :Second Conversion, 1.
+4. No C are A &nbsp; :Celarent 3,2
+
+Seeing that the last step is indeed an application of Celarent requires doing the following substitution:
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/aristotle-cesare.mp4"/> </video>
+
+<p style="page-break-before: always">
+
+<br>
+
+*Example 9*.
+
+Proof of Camestres: All A are B, No C are B $\vDash$ No C are A
+
+1. All A are B &nbsp; :assumption
+2. No C are B &nbsp; :assumption
+3. No B are C &nbsp; :Second Conversion, 1.
+4. No A are C &nbsp; :Celarent 1,3
+5. No C are A &nbsp; :Second Conversion, 4
+
+Seeing that the second-to-last step is indeed an application of Celarent requires doing the following substitution:
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/aristotle-camestres.mp4"/> </video>
+
+<br>
+
+<p style="page-break-before: always">
+
+*Example 10*.
+
+Proof of Festino: No A are B, Some C are B $\vDash$ Some C are not A.
+
+1. No A are B &nbsp; :assumption
+2. Some C are B &nbsp; :assumption
+3. No B are A &nbsp; :Second Conversion, 1
+4. Some C are not A &nbsp; :Ferio 3,2
+
+Again, seeing that the last step is indeed an application of Ferio requires doing the following substitution:
+
+<video controls muted width="400" src="https://logic-teaching.github.io/pred/vid/aristotle-festino.mp4"/> </video>
+
+<br>
+
+<p style="page-break-before: always">
+
+*Example 11*.
+
+The derivation of Baroco is harder, and Aristotle indicates that it goes through a method called *reductio ad absurdum* (*reductio* for short), which consists in showing $\neg \phi$ by producing a proof that $\phi$ implies a contradiction $\bot$. Recall that the symbol $\bot$ is the symbol for falsum, which is a stand-in for a contradiction. The idea of this proof method is that if one can produce that an auxiliary hypothesis $\phi$ leads to a contradiction, then that it a good reason to believe $\neg \phi$.
+
+Proof of Baroco: All A are B, Some C are not B $\vDash$ Some C are not A.
+
+Since it is a *reductio* proof, we prove that we can derive a contradiction from All A are B, Some C are not B, and No C are not A. Aristotle employs a further rule, law of double-negation, which says that $\neg \neg \phi$ is equivalent to $\phi$. Here is the proof:
+
+1. All A are B  &nbsp; :assumption
+2. Some C are not B &nbsp; :assumption
+3. No C are not A &nbsp; :assumption
+4. All C are not not A &nbsp; :Third Conversion, 3
+5. All C are A &nbsp; :Law of Double Negation, 4
+6. Some not B are C &nbsp; :First Conversion, 2
+7. Some not B are A &nbsp; :Darii 5,6
+8. Some not B are B &nbsp; :Darii 1,7
+
+And the last line is regarded as a contradiction.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Summary of conversions and first figure
+
+For ease of reference, here is a single table with all of the conversions and the first figure on it:
+
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Valid argument</th>
+  </tr>
+  <tr>
+    <td>First Conversion</td>
+    <td>Some F are G $\vDash$ Some G are F</td>
+  </tr>
+  <tr>
+    <td>Second Conversion</td>
+    <td>No F are G $\vDash$ No G are F</td>
+  </tr>
+  <tr>
+    <td>Third Conversion</td>
+    <td>No F are G $\vDash$ All F are not G</td>
+  </tr>
+  <tr>
+    <td>Third Conversion</td>
+    <td>All F are not G $\vDash$ No F are G</td>
+  </tr>
+  <tr>
+    <td>Fourth Conversion</td>
+    <td>All F are G $\vDash$ Some G are F</td>
+  </tr>
+  <tr>
+    <td>Fourth Conversion</td>
+    <td>All F are G $\vDash$ Some F are G</td>
+  </tr>
+  <tr>
+    <td>Barbara</td>
+    <td>All F are G, All G are H $\vDash$ All F are H</td>
+  </tr>
+  <tr>
+    <td>Celarent</td>
+    <td>No F are G, All H are F $\vDash$ No H are G</td>
+  <tr>
+    <td>Darii</td>
+    <td>All F are G, Some H are F $\vDash$ Some H are G</td>
+  </tr>
+  <tr>
+    <td>Ferio</td>
+    <td>No F are G, Some H are F $\vDash$ Some H are not G</td>
+  </tr>
+</table>
+
+<br>
+
+Note: all of these inferences are accepted by contemporary logic as valid, with the exception of the Fourth Conversion, which is only valid by the lights of contemporary logic if one further assumes that there are some F.
+
+Note: for ease of reference, the summary table is available on [this page](https://drive.google.com/file/d/1AZpaIS2Hgb19QozBo2XsKhzsv9taxvd8/view?usp=share_link).
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+
+[^3]: which is:
+
+<br>

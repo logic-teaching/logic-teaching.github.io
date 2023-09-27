@@ -1,0 +1,359 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 2 Lecture 1, Sets
+
+We need a very small amount of set-theory notation for this course. The reason why is that we want to define models and truth in a model, since models are to predicate logic what truth-tables are to propositional logic. And we will represent models with sets.
+
+- [Unordered list notation and membership](#unordered-list-notation-and-membership)
+- [The subset relation and emptyset](#the-subset-relation-and-emptyset)
+- [Ordered lists](#ordered-lists)
+- [Basic number systems](#basic-number-systems)
+- [Forming new sets](#forming-new-sets)
+- [Set-theoretic operations and propositional connnectives](#set-theoretic-operations-and-propositional-connnectives)
+- [Cartesian powers](#cartesian-powers)
+- [Relations and subsets of Cartesian powers](#relations-and-subsets-of-cartesian-powers)
+- [Summary of set theory notation](#summary-of-set-theory-notation)
+- [Extensionality](#extensionality)
+- [The Russell paradox](#the-russell-paradox)
+
+
+<p style="page-break-before: always">
+
+## Unordered list notation and membership
+
+If $x_1, \ldots, x_k$ are sets, then $\{x_1, \ldots, x_k\}$ is the set consisting just of $x_1, ..., x_k$, and we write $x_1\in \{x_1, \ldots, x_k\}$, ..., $x_k\in \{x_1, \ldots, x_k\}$. We call the set $\{x_1, \ldots, x_k\}$ the unordered list consisting of $x_1, ..., x_k$.
+
+This notation is organized so that order does not matter and repetitions do not matter. Hence $\{7,8,9\}=\{9,8,7\}=\{7,9,8\}$ and $\{4,4,5\}=\{4,5\}$ and $\{5,5\}=\{5\}$.
+
+The symbol $\in$ is the *membership symbol* and $x\in y$ is pronounced out loud as "$x$ is in $y$" or "$x$ is a member of $y$" or "$x$ is an element of $y$." Hence, $7\in \{6,7,8\}$ might be said out loud as "$7$ is in the set consisting of the elements $6,7,8$."
+
+The membership symbol is negated by writing a vertical stroke through it $\notin$. Thus, $4\notin \{6,7,8\}$ is just a compact way of saying that "it is not the case that $4\in \{6,7,8\}$."
+
+<br>
+
+<p style="page-break-before: always">
+
+## The subset relation and emptyset
+
+The *subset* symbol is $\subseteq$, and $X\subseteq Y$ just means that every element of $X$ is also in $Y$.
+
+Thus $\{1,2,3\}\subseteq \{1,2,3,4\}$, but it is not the case that $\{1,2,5\}\subseteq \{1,2,3,4\}$ because $5$ is in the first set but not in the second set.
+
+The subset symbol is negated by, again, putting a vertical stroke through it. Thus we write $\{1,2,5\}\nsubseteq \{1,2,3,4\}$ to indicate that "it is not true that $\{1,2,5\}\subseteq \{1,2,3,4\}$."
+
+Finally, note that $X\subseteq X$ is always true. That is, any set is a subset of itself.
+
+The symbol $\emptyset$ denotes the *empty set*, that is, the set with no elements. One always has $\emptyset \subseteq X$, that is, one always has that the emptyset is a subset of any set.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Ordered lists
+
+Suppose that $k$ is a natural number like $k=2$ or $k=3$. Then the set $\langle x_1, \ldots, x_k\rangle$ is the ordered $k$-tuple whose first entry is $x_1$, whose second entry is $x_2$, and ... whose $k$-th entry is $x_k$. When we type we repurpose the symbols `<` and `>` which we usually use for the number systems for the purpose of the brackets. One can also use alternative notation and write `[` and `]` instead of  `<` and `>`.
+
+For instance $\langle 8,2,4\rangle$ is the $3$-tuple whose first entry is $8$, whose second entry is $2$, and whose third entry is $4$. Likewise, $\langle 2,1,9,9\rangle$ is the $4$-tuple whose first entry is $2$, whose second entry is $1$, whose third entry is $9$, and whose fourth entry is $9$. If we used the alternative notation, one would write $[8,2,4]$ instead of $\langle 8,2,4\rangle$, and one would write $[2,1,9,9]$ instead of $\langle 2,1,9,9\rangle$.
+
+This is organized so that order *does* matter and repetitions *do* matter. Thus $\langle 9,8,7\rangle\neq \langle 8,9,7\rangle$ and $\langle 5,3,3,4\rangle \neq \langle 5,3,4\rangle$.
+
+One can form sets of $k$-tuples. For instance $\{\langle 5,4,6\rangle, \langle 1,5,8\rangle\}$ is the set which consists just of two $k$-tuples, namely $\langle 5,4,6\rangle$ and $\langle 1,5,8\rangle$.
+
+Note that e.g. $\{\langle 5,4,6\rangle, \langle 1,5,8\rangle\}=\{\langle 1,5,8\rangle, \langle 5,4,6\rangle\}$ since order does not matter as far as the elements of sets formed from the brackets $\{\ldots\}$ goes. But one has of course that $\{\langle 5,4,6\rangle, \langle 1,5,8\rangle\}\neq \{\langle 1,8,5\rangle, \langle 5,4,6\rangle\}$ since order does matter for the entries of a $k$-tuple.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Basic number systems
+
+There are some basic number systems which we frequently use. The first is the *natural numbers* $\mathbb{N} = \{0, 1, 2, 3, \ldots\}$, which simply consists of the non-negative whole numbers. They are ordered so that $0$ is least, $1$ is second, $2$ is third, etc.
+
+The ordering is written $\leq$: hence we have $0\leq 0$, $0\leq 1$, etc. One defines $x<y$ iff $x\leq y$ and $x\neq y$. Hence $0<1$ but $1\nless 1$.
+
+The *integers* $\mathbb{Z} = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\}$ is the set of the positive and negative whole numbers. It has an ordering which extends the ordering on the natural numbers, so that $\mathbb{Z}$ has no least element.
+
+The *rationals* $\mathbb{Q}$ is the set of fractions of integers. For instance, 1/2 and -3/4 are rationals.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Forming new sets
+
+One can use extant sets to form new sets. For instance, the even numbers are the set $\{x\in \mathbb{N}: x\mbox{ is divisible by } 2\}$.
+
+Sometimes these sets are ones which one could already write via the unordered list notation. For instance $\{x\in \mathbb{N}: x<4\} = \{0,1,2,3\}$.
+
+ In general, if $X$ is a set and $P$ is any property, then there is a set $Y=\{x\in X: x \mbox{ has } P\}$ (pronounced "the set of elements of $X$ which have property $P$"). This set $Y$ is characterized by the fact that $x\in Y$ if and only if   both $x\in X$ and $x$ has $P$. Note that $Y\subseteq X$. That is, this way of forming sets only gives one subsets of sets which one already had.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Set-theoretic operations and propositional connnectives
+
+Using our set-formation principle, one can use propositional logic to form further sets. Suppose that $D$ is a set, and $X,Y$ are subsets of $D$. Then we define:
+
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Definition</th>
+  </tr>
+  <tr>
+    <td>Intersection of $X,Y$</td>
+    <td>$X\cap Y$</td>
+    <td>$X\cap Y= \{x\in D: x\in X \wedge x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Union of $X,Y$</td>
+    <td>$X\cup Y$</td>
+    <td>$X\cup Y= \{x\in D: x\in X \vee x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Difference of $X$ from $Y$</td>
+    <td>$X\setminus Y$</td>
+    <td>$X\setminus Y = \{x\in D: x\in X \wedge x\notin Y\}$</td>
+  </tr>
+  <tr>
+    <td>Relative complement</td>
+    <td>$X^c$</td>
+    <td>$X^c = \{x\in D: x\notin X\}$</td>
+  </tr>
+</table>
+
+<br>
+
+(Note some authors write relative complement $X^c$ just by putting an a horizontal line over the $X$.)
+
+<br>
+
+For instance, suppose that $D=\{0,1,2,3,4,5\}$ and $X=\{0,1,4\}$ and $Y=\{3,4,5\}$. Then one has
+
+<p style="margin-left: 40px">   $X \cap Y = \{4\}$  </p>
+
+
+
+<p style="margin-left: 40px">   $X\cup Y = \{0,1,3,4,5\}$  </p>
+
+
+
+<p style="margin-left: 40px">   $X\setminus Y = \{0,1\}$  </p>
+
+
+
+<p style="margin-left: 40px">   $Y\setminus X = \{3,5\}$  </p>
+
+
+<p style="margin-left: 40px">   $X^c = \{2,3,5\}$  </p>
+
+<p style="margin-left: 40px">   $Y^c = \{0,1,2\}$  </p>
+
+<br>
+
+<p style="page-break-before: always">
+
+## Cartesian powers
+
+We define the *Cartesian powers* $A^k$ of a set $A$, where again $k$ is a natural number like $k=2$ or $k=3$. In particular, we define $A^k$ to be the set of all the $k$-tuples whose entries come from the set $A$. More formally, one has:
+
+<p style="margin-left: 40px">   $A^k = \{\langle a_1, \ldots, a_k\rangle: a_1\in A, \ldots, a_k\in A\}$  </p>
+
+
+
+For instance, $A^1 = A$ and $A^2=A\times A$ and $A^3=A\times A\times A$. Here we are using the familiar *product* notation for sets, namely:
+
+<p style="margin-left: 40px">   $A\times B = \{\langle a,b\rangle: a\in A, b\in B\}$  </p>
+
+For instance, $\{1,2\}\times \{2,3\} = \{\langle 1,2\rangle, \langle 1,3\rangle, \langle 2,2\rangle, \langle 2,3\rangle\}$. Thus $\langle 1,2\rangle$ is in this set, but $\langle 2,1\rangle$ is not in this set.
+
+The Cartesian powers are so-named because of the Cartesian plane. For instance, consider $\mathbb{N}\times \mathbb{N}$. We draw this with the first copy of the natural numbers $\mathbb{N}$ on the horizontal $x$-axis and the second copy of the natural numbers on the vertical $y$-axis, and we can draw points of the Cartesian power $\mathbb{N}\times \mathbb{N}$ by listing off points on the plane in terms of their familiar $\langle x,y\rangle$-coordinates. Here is a diagram which represents a small part of $\mathbb{N}\times \mathbb{N}$, and in the digram two points $\langle 8,2\rangle$ and $\langle 2,8\rangle$ are marked.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-cartesian-plane.png" alt="Cartesian plane" width="700"/>
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Relations and subsets of Cartesian powers
+
+Consider the set $\{0,1,2\}$. One could imagine 0,1,2 as representing three people (or other objects). Then one can use subsets of the Cartesian power $\{0,1,2\}^2 = \{0,1,2\}\times \{0,1,2\}$ to represent relations which these people stand in. For instance, suppose that person 1 respects person 2, person 2 respects person 0, person 2 respects person 1, and both person 1 and person 2 respect themselves. Then one could represent this respecting relation as the following subset of the Cartesian power.
+
+<p style="margin-left: 40px">    $R = \{\langle 1,2\rangle, \langle 2,0\rangle, \langle 2,1\rangle, \langle 1,1\rangle, \langle 2,2\rangle\}$  </p>
+
+Such subsets can also be visually represented. One option is to use write out the Cartesian plane like normal and to use colors to color in the associated subset-- that's what we do to the left, below. Another option is to draw an arrow from person $n$ to person $m$ iff $n$ respects $m$, or equivalently iff $\langle n,m\rangle$ is in $R$-- that's what we do to the right, below.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-relation-twoways.png" alt="Two ways of visualizing a relation" width="700"/>
+
+While these diagrammatic representations are different, they are similar in ways that reflect the set $R$: namely, there's five elements in the set $R$, and there are five orange dots in the diagram to the left, and there are five orange lines in the diagram to the right.
+
+(Note that the type of "arrow" diagram to the right is only possible if the relation $R$ is a subset of $A^2$, for some set $A$: one draws the points of $A$ as dots and one draws the elements $\langle x,y\rangle$ of $R$ as an arrow from $x$ to $y$. The type of "subset of plane" diagram to the left is only possible if the relation $R$ is a subset of $A\times B$, where each of $A,B$ is one of the traditional number systems, or subsets thereof.)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Summary of set theory notation
+
+Here is a summary of our set-theory notation:
+
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Definition</th>
+  </tr>
+  <tr>
+    <td>Membership</td>
+    <td>$\in$</td>
+    <td>$a\in X$ iff $a$ is a member of $X$</td>
+  </tr>
+  <tr>
+    <td>Unordered list notation </td>
+    <td>$\{ , , ,\}$</td>
+    <td>e.g. $\{a_1,\ldots, a_n\}$ is the set with just $a_1, \ldots, a_n$ in it.</td>
+  </tr>
+  <tr>
+    <td>Subset </td>
+    <td>$\subseteq$</td>
+    <td>$X\subseteq Y$ iff every member of $X$ is also a member of $Y$</td>
+  </tr>
+  <tr>
+    <td>Empty set</td>
+    <td>$\emptyset$</td>
+     <td>the set which has no members</td>
+  </tr>
+  <tr>
+    <td>Ordered list notation</td>
+    <td>$\langle , , ,\rangle$ or $[, , ,]$</td>
+    <td>e.g. $\langle a_1, \ldots, a_n\rangle$ is the ordered list with $a_1$ first, $\ldots$, $a_n$ last </td>
+  </tr>
+  <tr>
+    <td>Set formation</td>
+    <td>$\{x\in D: x \mbox{ has } P\;\}$</td>
+    <td>the set of elements of $D$ with property $P$</td>
+  </tr>
+  <tr>
+    <td>Intersection</td>
+    <td>$\cap$</td>
+    <td>$X\cap Y= \{x\in D: x\in X \wedge x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Union</td>
+    <td>$\cup$</td>
+    <td>$X\cup Y= \{x\in D: x\in X \vee x\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Difference</td>
+    <td>$\setminus$</td>
+    <td>$X\setminus Y = \{x\in D: x\in X \wedge x\notin Y\}$</td>
+  </tr>
+  <tr>
+    <td>Relative complement</td>
+    <td>$\cdot{}^c$</td>
+    <td>$X^c = \{x\in D: x\notin X\}$</td>
+  </tr>
+  <tr>
+    <td>Product </td>
+    <td>$\times$ </td>
+    <td>$X\times Y =\{\langle x,y\rangle: x\in X \wedge y\in Y\}$</td>
+  </tr>
+  <tr>
+    <td>Cartesian power</td>
+    <td>$\cdot^k$ </td>
+    <td>$A^k =\{\langle x_1, \ldots, x_k\rangle: x_1\in A \wedge \cdots \wedge x_k\in A\}$</td>
+  </tr>
+</table>
+
+<br>
+
+
+<br>
+
+In set formation, intersection, union, difference, and relative complement, the set $D$ is a given set, and the $X,Y$ are subsets of $D$.
+
+The only set theory symbols we will have to type frequently are the unordered list notation $\{,,,\}$ which we type as `{,,,}`, and the ordered lists notation $\langle , , ,\rangle$ or $[,,,]$, which we will type as `<,,,>` or `[,,,]`.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Extensionality
+
+<br>
+
+In axiomatic treatments of set theory, it is common to postulate *the axiom of extensionality*, which says that two sets are identical if and only if they have the same members.
+
+For example, using our set formation notation, let $X = \{x\in \mathbb{N}: x<5\}$. Using our unordered list notation, let $Y = \{0,1,2,3,4\}$. The sets $X,Y$ have the same members. The axiom of extensionality implies that $X=Y$.
+
+In one sense, this is a matter of convention: if we didn't stipulate the axiom of extensionality, we could just instead talk about the relation of "having the same members."
+
+But in another sense, it is a useful simplification of the theory of sets. For instance, the axiom of extensionality allows us to precisely answer the question "How many subsets of $\{0,1,2\}$ are there?" There are exactly eight, which we can list below:
+
+- There is one empty subset, namely, the empty set $\emptyset$
+- There are three one-element subsets, namely $\{0\}, \{1\}, \{2\}$
+- There are three two-element subsets, namely, $\{0,1\}, \{0,2\}, \{1,2\}$.
+- There is one three-element subset namely $\{0,1,2\}$.
+
+There are no further subsets besides these, according to the axiom of extensionality. For, any other subsets would have zero members, exactly one member, exactly two members, or exactly three members. And we have explicitly listed out the options for these sizes.
+
+We might, for other purposes, want to distinguish between sets that have the same members. For instance, perhaps it is merely a contingent fact that "the set of people in this room who are philosopher majors" has the same members as "the set of people in this room who love reading both Plato's *Republic* and Wittgenstein's *Tractatus*." (Perhaps, if things were different, some curious political science major would be in the second set but not in the first set.) If one wants to do this, the common thing to do is to say that this single set can be described in two different ways. Or one could say that this single set is determined by two different properties.
+
+<br>
+
+<p style="page-break-before: always">
+
+## The Russell paradox
+
+The notion of set can be further refined by thinking through a paradox called "The Russell paradox." It shows that the principles of set-formation and the axiom of extensionality imply that there is no set of all sets.
+
+Suppose, for contradiction, that there was a set of all sets, call it $V$. By the principle of set-formation, consider the set $Y=\{x\in V: x\notin x\}$. That is, $Y$ is the set of all sets which are not members of themselves. We get a contradiction by considering two cases:
+
+ First suppose that $Y$ is in $Y$. Then $Y$ satisfies the property which we used to form the set, namely not being a member of itself. Hence, $Y$ is not in $Y$, a contradiction to our case hypothesis.
+
+ Second suppose that $Y$ is not in $Y$. By our principle of set-formation, we know that $Y$ is a set. Hence, $Y$ is in $V$. And by our case hypothesis, we know that $Y$ is not in $Y$. Hence, by how we formed $Y$ using our principle of set-formation, we know that $Y$ is in $Y$. But this contradicts our case hypothesis.
+
+In either case, we get a contradiction. Hence, as a matter of fact, there is no set of all sets. (If this seemed too quick and you want more details, don't worry-- we will be able to formalize this argument later, after we learn more predicate logic).
+
+What does this paradox tell us about the nature of sets? A widely accepted view is that the kinds of sets that are not subject to paradox are "built from below": we start with numbers (or people, or other some other basic things), and we form sets of them, and sets of sets of them, and sets of sets of sets of them, etc.[^6]
+
+[^6]: This "bottom up" approach is built into both contemporary *type theory* and *axiomatic set theory* (both of which presuppose that one already knows predicate logic very well). A good introduction to type theory is [Nederpelt, Rob, and Herman Geuvers. 2014. “Simply Typed Lambda Calculus.” In Type Theory and Formal Proof: An Introduction, 33–68. Cambridge University Press](https://www.cambridge.org/core/books/abs/type-theory-and-formal-proof/simply-typed-lambda-calculus/9691F1D03CA49D2E403A01A33134A952). A good introduction to axiomatic set theory is: [Y. Moschovakis. Notes on Set Theory. Undergraduate Texts in Mathematics. Springer, New York, second edition, 2006](https://link.springer.com/book/10.1007/0-387-31609-4).
+
+But this solution requires some heavy restriction on set formation. You might have thought that to every property $P$ there corresponds a set $X=\{x: x \mbox{ has } P\}$ consisting of those things that have $P$. And if that is right, you might have thought that you could then form the set $V=\{x: x \mbox{ is a set}\}$. This "top down" approach is wrong, according to the solution in the previous paragraph.
+
+Russell was the first to articulate the paradox carefully. He thought it infected all "top down" approaches to notions like property, truth, and definability, and that it required a common solution. Part of his solution involved the the *vicious circle principle* in his coauthored *Principa Mathematica*, which roughly says that what goes wrong in the paradox is a violation of a prohibition against circular definitions. More precisely, *the vicious circle principle* says:
+
+> "Whatever involves *all* of a collection must not be one of the collection"; or conversely: "If, provided a certain collection had a total, it would have members only definable in terms of that total, then the said collection has no total."[^2]
+
+In this, read "a certain collection has a total" as a way of saying "a certain property determines a set." That is, Russell is using "collection" as a kind of synonym for "property."
+
+[^2]: [p. 39 of: Whitehead, Alfred North, and Bertrand Russell. 1962. Principia Mathematica to $^\ast 56$. Cambridge University Press, New York](https://logic-teaching.github.io/philos-132-winter-23/texts/Whitehead%20and%20Russell%201962%20-%20Principia%20mathematica%20to%2056,%20pp.%2037-38,%2060-65.pdf). This is an abridged version of an initial segment of the second edition from 1927; the first edition was in 1910.
+
+Today, people still study the paradoxes that Russell identified, most prominently the liar paradox. But many people today agree with  Ramsey in separating the Russell paradox from other paradoxes like the liar paradox. Ramsey said there's no real paradox of sets-- the logic and mathematics just kind of works itself out there, perhaps by way of some kind of "bottom up" approach. And Ramsey thought that the liar paradox and the definability paradoxes pertain ultimately to "faulty ideas concerning thought and language".[^4] Many people today might draw the line differently than Ramsey, but I think more people today agree with Ramsey than Russell.
+
+[^4]: p. 353 of: [Ramsey, F. P. 1926. “The Foundations of Mathematics.” Proceedings of the London Mathematical Society. Third Series s2-25 (1): 338–84.](https://logic-teaching.github.io/philos-132-winter-23/texts/Ramsey%201926%20-%20The%20foundations%20of%20mathematics.pdf)
+
+<br>
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+
+[^3]: which is:

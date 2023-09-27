@@ -1,0 +1,345 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 5 Lecture 1
+
+<br>
+
+This is review for the midterm exam. This problem set approximates fairly well the length and distribution of problems that will be on part I of the midterm exam. The distribution is better between the four weeks (better than we attained in the Week 5 Homework and Week 5 Tutoring document), and the number of problems is about the maximum of what we can expect one to be able to do in a short period of time.
+
+
+<br>
+
+<p style="page-break-before: always">
+
+
+<br>
+
+*Problem 1*
+
+Recall from [Week 4 Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#tautologies-and-equivalences-from-propositional-logic) that all of [the tautologies and equivalences of propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-section-no-solutions.pandoc#list-of-named-tautologies-and-equivalences) are in fact tautologies and equivalences of predicate logic. We repeat them here for ease of reference:
+
+1. *Law of excluded middle*: $\phi\vee \neg \phi$ is a tautology.
+2. *Law of non-contradiction*: $\neg (\phi\wedge \neg \phi)$ is a tautology.
+3. *The law of double-negation*: $\phi$ is equivalent to $\neg \neg \phi$.
+4. *Law of commutativity for conjunction*: $\phi\wedge \psi$ is equivalent to $\psi\wedge \phi$.
+5. *Law of commutativity for disjunction*: $\phi\vee \psi$ is equivalent to $\psi\vee \phi$.
+5. *Law of associativity for conjunction*: $(\phi\wedge \psi)\wedge \xi$ is equivalent to $\phi\wedge (\psi\wedge \xi)$.
+6. *Law of associativity for disjunction*: $(\phi\vee \psi)\vee \xi$ is equivalent to $\phi\vee (\psi\vee \xi)$.
+7. *Law of distribution for conjunction*: $\phi\wedge (\psi\vee \xi)$ is equivalent to $(\phi\wedge \psi)\vee (\phi\wedge \xi)$.
+8. *Law of distribution for disjunction*: $\phi\vee (\psi\wedge \xi)$ is equivalent to $(\phi\vee \psi)\wedge (\phi\vee \xi)$.
+
+<br>
+
+The following problems give you one of these tautologies or equivalences and ask you to determine which of the four formulas of predicate logic is an instance of these.
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+05.01.1 Which of the following is an instance of law of the excluded middle?
+| ∃ x ¬ ∀ y Rxy ∨  ∃ x ¬ ∀ y ¬ Rxy
+| ∃ x ∀ y Rxy ∨ ∃ x ∀ y ¬ Rxy
+|* ∃ x ¬ ∀ y Rxy ∨ ¬ ∃ x ¬ ∀ y Rxy
+| ∃ x ¬ ∀ y ¬ Rxy ∨ ∃ x ∀ y ¬ Rxy
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+05.01.2 Which of the following is an instance of law of distribution for conjunction?
+| Rbc ∧ (∃ x Rax ∨ ∃ x ¬Rxd) is equivalent to ∃ x ((Rbc ∧  Rax) ∨ (Rbc ∧ ∃ x ¬Rxd)).
+| Rbc ∧ (∃ x Rax ∨ ∃ x ¬Rxd) is equivalent to (Rbc ∧ ∃ x Rad) ∨ (Rbc ∧ ∃ x ¬Rax).
+| Rbc ∧ (∃ x Rax ∨ ∃ x ¬Rxd) is equivalent to (Rbc ∨ ∃ x Rax) ∧ (Rbc ∨ ∃ x ¬Rxd).
+|* Rbc ∧ (∃ x Rax ∨ ∃ x ¬Rxd) is equivalent to (Rbc ∧ ∃ x Rax) ∨ (Rbc ∧ ∃ x ¬Rxd).
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+
+*Problem 2*
+
+Consider the following sets of ordered pairs.
+
+<p style="margin‐left: 40px"> $X=\{\langle x,y\rangle\in \mathbb{N}^2: 0\leq x<9, 0\leq y<9\}$ </p>
+
+<p style="margin‐left: 40px"> $Y=\{\langle x,y\rangle\in \mathbb{N}^2: 3\leq x<6, 3\leq y<6\}$ </p>
+
+<p style="margin‐left: 40px"> $Z=\{\langle 5,5\rangle\}$ </p>
+
+
+<br>
+
+```{.QualitativeProblem .Numerical  submission="none" options="check"}
+5.02 73 : How many elements are in (X\Y)∪Z?
+|
+```
+
+*Hint 1*: Recall that if a set $A$ has exactly $n$ elements and a set $B$ has exactly $m$ elements, then $A\times B$ has exactly $n\times m$ elements. Also recall that if $C$ is a set with exactly $m$ elements and $D$ is a set with exactly $n$ elements and $C\subseteq D$, then $D\setminus C$ has exactly $n-m$ elements.
+
+*Hint 2*: write $X$ as $X=A\times B$ for some sets $A,B\subseteq \mathbb{N}$. Then do the same for Y.
+
+<br>
+
+
+<p style="page-break-before: always">
+
+*Problem 3*
+
+Consider the following Venn diagram, which has three black circles $A_1, A_2, A_3$, and three blue rectangles $B_1, B_2, B_3$. There is a red part of the diagram filled in as well.
+
+<img src="https://logic-teaching.github.io/philos-132-winter-23/vid/another-venn-diagram-2.png" alt="Another big Venn diagram" width="700"/>
+
+Consider the following table, which has some blanks in it:
+
+<br>
+
+<table style="width:120%">
+  <tr>
+    <th>Diagrammatic relation</th>
+    <th>Set-theoretic relation</th>
+    <th>Aristotelian proposition</th>
+  </tr>
+  <tr>
+    <td> $B_1\cap B_2$ is entirely contained in $A_1$ </td>
+    <td> $(B_1\cap B_2)\subseteq A_1$ </td>
+    <td> __________________________ </td>
+  </tr>
+  <tr>
+    <td> $B_1$ is entirely outside $A_2$ </td>
+    <td> __________________ </td>
+    <td> No $B_1$ is $A_2$ </td>
+  </tr>
+</table>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+5.3.1 What should you put in the blank in the first row?
+| All things, which are both B_1 and A_1, are B_2
+| No things, which are both B_1 and A_1, are A_2
+|* All things, which are both B_1 and B_2, are A_1
+| No things, which are both B_1 and B_2, are A_1
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+5.3.2 What should you put in the blank in the second row?
+| B_1^c ⊆ A_2
+| A_3 ⊆ B_3^c
+|* B_1 ⊆ A_2^c
+| A_1^c ⊆ B_2
+```
+
+
+
+<br>
+
+*Problem 4*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+5.4 What describes the red shaded area in the Venn diagram from Problem 3?
+| (B_3 ∩ A_3)\(B_3 ∪ A_1)
+| (A_2 ∩ A_3)\(B_3 ∪ B_1)
+|* (A_2 ∩ A_3)\(B_3 ∪ A_1)
+| (A_2 ∩ A_3)\(B_2 ∪ A_1)
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 5*
+
+Consider the following key, related to the orchestra
+
+| $F$  = flutes
+| $G$  = guitars
+| $H$  = harpsichord
+| $L$  = loud
+| $Q$  = quiet
+| $R$  = receives more playing time than
+| $S$  = has more $s$olos than
+
+Remember to press return to check your work.
+
+~~~{.Translate .FOL system="gamutND"  options="check" submission="none"}
+5.05.1 Ex((Qx/\Fx)/\Ay((Ly/\Hy)->Sxy)) : Some quiet flute has more solos than every loud harpsicord.
+|
+~~~
+
+~~~{.Translate .FOL system="gamutND"  options="check" submission="none"}
+5.05.2 ExEy(((Lx/\Gx)/\(Qx/\Hx))/\Rxy)/\~ExEy(((Lx/\Gx)/\(Qx/\Fx))/\Sxy) : Some loud guitar receives more playing time than some quiet harpiscord, but no loud guitar has more solos than some quiet flute.
+|
+~~~
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 6*
+
+We use a familiar key
+
+| $a$  = Allison
+| $F$  = is a French major
+| $T$  =  trusts
+
+But we introduce the following convention: we translate "$x$ distrusts $y$" by $\neg Txy$.
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+5.06.1 ExAy~Txy<->AxEy~Tyx : Someone distrusts everyone if and only if everyone is distrusted by someone.
+|
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+5.06.2 Ay(Fy->~Tay)->AxAy(Fy->~Txy) : If Allison distrusts every French major, then everyone distrusts every French major.
+|
+~~~
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 7*
+
+Let's switch back to our orchestra key
+
+| $F$  = flutes
+| $G$  = guitars
+| $H$  = harpsichord
+| $L$  = loud
+| $Q$  = quiet
+| $R$  = receives more playing time than
+| $S$  = has more $s$olos than
+
+First give the Fregean translation:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+5.07.1 Rix(Qx/\Gx)iy(Ly/\Fy)/\~Six(Qx/\Gx)iy(Ly/\Fy) : The quiet guitar player receives more playing time than the loud flute, but the quiet guitar player does not have more solos than the loud flute
+|
+~~~
+
+Second give the Russellian translation.
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+5.07.2 Ex(((Qx/\Gx)/\Ay((Qy/\Gy)->y=x))/\Eu(((Lu/\Fu)/\Av((Lv/\Fv)->u=v))/\(Rxu/\~Sxu))) : The quiet guitar player receives more playing time than the loud flute, but the quiet guitar player does not have more solos than the loud flute.
+|
+~~~
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 8*
+
+This is a simple model construction problem. The two parts illustrate the differences between the existential and universal quantifier. (Note that this is *not* an invalidity problem)
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+5.08.01 Ex(Fx/\Gx), Ey(Fy/\Ray), Ey(~Fy/\Ray)
+```
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+5.08.02 Ay(Fy->Ray), ExFx, Ey~Ray
+```
+
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 9*:
+
+Use DeMorgan to find an equivalence of this sentence in which the negations are all the way inside, in such a way that there are no negations in the final formula.
+
+$\neg \exists \; u\; \forall \; v\; \exists \; w \; \forall \; x \; \exists \; y \; \forall \; z \;((\neg Gu\wedge(\neg Gv\wedge \neg Gw))\vee (\neg Hx\wedge(\neg Hy\wedge\neg Hz)))$
+
+You should write it out by hand first. But to speed things when inputting, we type the original formula here:
+
+`~EuAvEwAxEyAz((~Gu/\(~Gv/\~Gw))\/(~Hx/\(~Hy/\~Hz)))`
+
+Remember to press return to check your work.
+
+~~~{.Translate .FOL system="gamutND" tests="maxNeg:0" submission="none"}
+5.09 AuEvAwExAyEz((Gu\/(Gv\/Gw))/\(Hx\/(Hy\/Hz))) :
+|
+~~~
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 10*
+
+First use DeMorgan to write $\neg (\forall \; x \; Fx\vee (\forall \; x \; Gx \vee \forall \; x \; Hx))$ in an equivalent way so that the negation is on the inside.
+
+~~~{.Translate .FOL system="gamutND" tests="maxOr:0" submission="none"}
+5.10.1 Ex~Fx/\(Ex~Gx/\Ex~Hx) :
+|
+~~~
+
+Use this to help you solve the following invalidity problem:
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile" submission="none"}
+5.10.2 Ax(Fx\/(Gx\/Hx)), ExFx, ExGx, ExHx :|-: AxFx\/(AxGx\/AxHx)
+```
+
+Here is a slightly more difficult version:
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile" submission="none"}
+5.10.3 Ax(Fx\/(Gx\/Hx)), Ex(Fx/\Gx), Ex(Gx/\Hx), Ex(Fx/\Hx) :|-: AxFx\/(AxGx\/AxHx)
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 11*
+
+First use DeMorgan to write $\neg \forall \; x \; (\exists \; y \; Sxy \rightarrow \exists \; y \; Rxy)$ in an equivalent way with the negation(s) affixed to the atomics. Keep in mind that $\neg (p\rightarrow q)$ is equivalent to $p\wedge \neg q$. In this case, the $p,q$'s are going to have some quantifiers in them.
+
+~~~{.Translate .FOL system="gamutND" tests="maxIf:0 maxNot:2" submission="none"}
+5.11.1 Ex(EySxy/\Ay~Rxy) :
+~~~
+
+Use this to help you solve the following invalidity problem:
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile" submission="none"}
+5.11.2 Ax(EyRxy->EySxy),Rab :|-: Ax(EySxy->EyRxy)
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+
+*Problem 12*
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+05.12.1 What is a variable assignment?
+| A function whose domain is the elements of the underlying domain of a model and whose codomain is the set of formal variable symbols
+|* A function whose domain is the set of formal variable symbols and whose codomain is the underlying domain of the model
+| The presentation of an operation like f(x)=x^2, in which the variable x tells us how to map numbers to numbers
+| A function which maps all variables to one and the same element of the underlying domain of the model.
+```
+
+
+Suppose that the underlying domain consists of four building: Anderson, Boelter, Campbell, and Dodd, and suppose that $g$ is a variable assignment which assigns $g(x)=$ Anderson and $g(y)=$ Boelter and $g(z)=$ Campbell. Suppose that we are only interested in variables $x,y,z$ and $h$ is a variable assignment.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+5.12.2 Which assignments would make h a y-variant of g?
+| h(x)=Boelter, h(y)=Boelter, h(z)=Campbell
+| h(x)=Boelter, h(y)=Campbell, h(z)=Dodd
+|* h(x)=Anderson, h(y)=Dodd, h(z)=Campbell
+| h(x)=Anderson, h(y)=Boelter, h(z)=Dodd
+```

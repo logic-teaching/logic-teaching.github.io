@@ -1,0 +1,343 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 5 Section, with solutions
+
+<br>
+
+This is review for the midterm exam. This problem set approximates fairly well the length and distribution of problems that will be on part I of the midterm exam. The distribution is better between the four weeks (better than we attained in the Week 5 Homework and Week 5 Tutoring document), and the number of problems is about the maximum of what we can expect one to be able to do in a short period of time.
+
+In section we will selectively talk through certain aspects of some of these problems. But you can use this document as practice for part I of the exam on your own.
+
+<br>
+
+<p style="page-break-before: always">
+
+
+<br>
+
+*Problem 1*
+
+In the following problem we successively find the main connectives of the subformulas, starting with the big formula and breaking it into smaller parts. Press **return** after you have entered in the main connective to get to the next level.
+
+(On the midterm, the analogous problem would ask you to draw the little tree).
+
+```{.SynChecker .Match system="gamutPND"  submission="none"}
+5.01 (p->~q)->~(q->~r)
+```
+
+<br>
+
+
+*Problem 2*
+
+Consider the following sets of ordered pairs.
+
+<p style="margin‐left: 40px"> $X=\{\langle x,y\rangle\in \mathbb{N}^2: 0\leq x<3, 0\leq y<5\}$ </p>
+
+<p style="margin‐left: 40px"> $Y=\{\langle x,y\rangle\in \mathbb{N}^2: 0\leq x<2, 0\leq y<3\}$ </p>
+
+<p style="margin‐left: 40px"> $Z=\{\langle 2,4\rangle\}$ </p>
+
+
+<br>
+
+```{.QualitativeProblem .Numerical  submission="none" options="check"}
+5.02 8 : How many elements are in X\(Y∪Z)?
+|
+```
+
+*Hint 1*: Recall that if a set $A$ has exactly $n$ elements and a set $B$ has exactly $m$ elements, then $A\times B$ has exactly $n\times m$ elements. Also recall that if $C$ is a set with exactly $m$ elements and $D$ is a set with exactly $n$ elements and $C\subseteq D$, then $D\setminus C$ has exactly $n-m$ elements.
+
+*Hint 2*: write $X$ as $X=A\times B$ for some sets $A,B\subseteq \mathbb{N}$. Then do the same for Y.
+
+<br>
+
+*Problem 3*
+
+<img src="https://logic-teaching.github.io/philos-132-winter-23/vid/another-venn-diagram.png" alt="Another big Venn diagram" width="700"/>
+
+Consider the following table, which has some blanks in it:
+
+<br>
+
+<table style="width:120%">
+  <tr>
+    <th>Diagrammatic relation</th>
+    <th>Set-theoretic relation</th>
+    <th>Aristotelian proposition</th>
+  </tr>
+  <tr>
+    <td> $C_1$ is entirely contained in $A_1$ </td>
+    <td> _______________ </td>
+    <td> All $C_1$ are $A_1$ </td>
+  </tr>
+  <tr>
+    <td> $C_1$ is entirely outside $A_2$ </td>
+    <td> $C_1\subseteq A_2^c$ (equivalently, $C_1\subseteq D\setminus A_2$) </td>
+    <td> ______________ </td>
+  </tr>
+</table>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+5.3.1 What should you put in the blank in the first row?
+| A_1 ⊆ C_1
+| A_1 ∩ C_1 ≠ ∅
+|* C_1 ⊆ A_1
+| A_1 ⊆ C_1^c
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+5.3.2 What should you put in the blank in the second row?
+| All A_2 are not C_1
+| No C_1 are not A_2
+|* All C_1 are not A_2
+| Some A_2 are C_1
+```
+
+<br>
+
+*Problem 4*
+
+Consider the following Venn diagram featuring sets $E,F,G,H$, namely, the four large rectangles. It further contains 11 numbered smaller shapes, 1-11. The intended interpretation is that a number represents the smallest shape in which the number fits inside. For instance, $11$ represents the very small square at the center of the diagram.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-venn-7.png" alt="Venn diagram" width="700"/>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+5.04.1 What shape corresponds to H\(E∪(F∪G))?
+| 3
+|* 4
+| 5
+| 6
+```
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+5.04.2 What shape corresponds to (E∩F)\H?
+| 1
+| 2
+|* 9
+| 7
+```
+
+<br>
+
+Consider the following Venn diagram, formed from three triangles A,B,C, with C contained entirely inside B.
+
+<img src="https://logic-teaching.github.io/philos-132-winter-23/vid/venn-blue-shaded-3.png" alt="Arrow diagrams" width="800"/>
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+5.04.3 Which of the following describes the blue shaded part?
+|* (B\(A∪C))∪(A∩C)
+| (B\(A∩C))∪(A∪C)
+| (C\(B∩C))∪(A∪B)
+| (A∩C)∪(C\B)
+```
+
+<br>
+
+
+
+*Problem 5*
+
+Consider the following key, related to buildings on campus:
+
+| $a$  = Anderson
+| $b$  = Boelter
+| $S$  = South Campus
+| $N$  = North Campus
+| $R$  = more $r$ooms than
+| $T$ =  is tall
+
+Remember to press return to check your work.
+
+~~~{.Translate .FOL system="gamutND"  options="check" submission="none"}
+5.05.1 Ax(Sx->(Rxa/\Ey(Rxy/\(Ty/\Ny)))) : Every building on South Campus has more rooms than Anderson and has more rooms than some tall building on North Campus.
+|
+~~~
+
+~~~{.Translate .FOL system="gamutND"  options="check" submission="none"}
+5.05.2 Ex((Tx/\Nx)/\Rxb)/\~Ex(Nx/\Ay((Ty/\Sy)->Rxy)) : Some tall buildings on North Campus have more rooms than Boelter, but no buildings on North Campus have more rooms than all tall buildings on South Campus.
+|
+~~~
+
+<br>
+
+*Problem 6*
+
+We use a familiar key
+
+| $F$  = is a French major
+| $G$  = is a Geography major
+| $R$  =  respects
+| $T$  =  trusts
+
+But we introduce the following convention: we translate "$x$ disrepects $y$" by $\neg Rxy$.
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+5.06.1 EyAx~Rxy->~AxEyRxy : If someone is disrespected by everyone, then not everyone respects someone
+|
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+5.06.2 Ay(Ax(Fx->~Rxy)->Ax(Gx->Txy)) : Everyone is such that if they are disrespected by every French major, then they are trusted by every Geography major
+|
+~~~
+
+<br>
+
+*Problem 7*
+
+Let's switch back to our buildings on campus key:
+
+| $a$  = Anderson
+| $b$  = Boelter
+| $S$  = South Campus
+| $N$  = North Campus
+| $R$  = more $r$ooms than
+| $T$ =  is tall
+
+First give the Fregean translation:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+5.07.1 TixRxa->TixRxb : If the building with more rooms than Anderson is tall, then the building with more rooms than Boelter is tall
+|
+~~~
+
+*Hint*: first think to yourself how Frege translates "the $F$ is $G$", and ask yourself whether for Frege, $F$ comes first or $G$ comes first.
+
+Second give the Russellian translation. For this, don't do it locally but just do it like normal, with all of the uniqueness clauses out front.
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+5.07.2 Ex((Rxa/\Ay(Rya->y=x))/\Eu((Rub/\Av(Rvb->v=u))/\(Tx->Tu))) : If the building with more rooms than Anderson is tall, then the building with more rooms than Boelter is tall
+|
+~~~
+
+<br>
+
+*Problem 8*
+
+This is a simple model construction problem. The two parts illustrate the differences between the existential and universal quantifier.
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+5.08.01 ExEyEz(((~x=y/\~y=z)/\~x=z)/\(Txy/\Tyz))
+```
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+5.08.02 Ax~Txx, AxAy(~x=y->Txy), ~a=b, ~b=c, ~a=c
+```
+
+
+<br>
+
+*Problem 10*:
+
+Use DeMorgan to find an equivalence of this sentence in which the negations are all the way inside, in such a way that there are no negations in the final formula.
+
+$\neg \exists \; u\; \exists \; v\; \exists \; w \; \forall \; x \; \forall \; y \; \forall \; z \;((\neg Gu\vee(\neg Gv\vee \neg Gw))\wedge (\neg Hx\vee(\neg Hy\vee\neg Hz)))$
+
+You should write it out by hand first. But to speed things when inputting, we type the original formula here:
+
+`~EuEvEwAxAyAz((~Gu\/(~Gv\/~Gw))/\(~Hx\/(~Hy\/~Hz)))`
+
+Remember to press return to check your work.
+
+~~~{.Translate .FOL system="gamutND" tests="maxNeg:0" submission="none"}
+5.09 AuAvAwExEyEz((Gu/\(Gv/\Gw))\/(Hx/\(Hy/\Hz))) :
+|
+~~~
+
+<br>
+
+*Problem 10*
+
+First use DeMorgan to write $\neg \forall \; y\; (Gy\rightarrow \exists \; x\; (Fx\wedge Rxy))$ in an equivalent way with the negation(s) affixed to the atomics. Keep in mind that $\neg (p\rightarrow q)$ is equivalent to $p\wedge \neg q$.
+
+~~~{.Translate .FOL system="gamutND" tests="maxAnd:1" submission="none"}
+5.10.1 Ey(Gy/\Ax(~Fx\/~Rxy)) :
+|
+~~~
+
+Use this to help you solve the following invalidity problem:
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile" submission="none"}
+5.10.2 Ax(Fx->Ey(Gy/\Rxy)),ExFx :|-: Ay(Gy->Ex(Fx/\Rxy))
+```
+
+<br>
+
+*Problem 11*
+
+First use DeMorgan and law of double-negation to write $\neg \forall \; x \; (Rxb\rightarrow \neg Fx)$ in a way that contains no negations. Keep in mind that $\neg (p\rightarrow q)$ is equivalent to $p\wedge \neg q$.
+
+~~~{.Translate .FOL system="gamutND" tests="maxNeg:1" submission="none"}
+5.11.1 Ex(Rxb/\Fx) :
+~~~
+
+Use this to help you solve the following invalidity problem:
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile" submission="none"}
+5.11.2 Ax(Rxa->~Fx), Raa, Rab, Rba :|-: Ax(Rxb->~Fx)
+```
+
+<br>
+
+*Problem 12*
+
+We use a variation on the familiar key
+
+| $a$ = Allison
+| $F$  = is a French major
+| $T$  = trusts
+| $W$ = wise
+
+For this one, use a free `x` variable to translate "he". (Hence, don't use `x` for the bound variables). As suggested by the English sentence, make the main connective be the arrow.
+
+~~~{.Translate .FOL system="goldfarbAltND" submission="none"}
+5.12.1 Ey(Tya/\Fy)->Wx : If some French major trusts Allison, then he is wise.
+|
+~~~
+
+Use DeMorgan to find an equivalent of the following sentence in which the negations are on the inside:
+
+$\neg \exists \; y \; ((Rya\wedge Fy)\wedge Wy)$
+
+You should write it out by hand first. But to speed things when inputting, we type the original formula here:
+
+`~Ey((Rya/\Fy)/\Wy)`
+
+Remember to press return to check your work.
+
+~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
+5.12.2 Ay(~(Rya\/~Fy)\/~Wy) :
+|
+~~~
+
+Use this to explain why the alternative translation of the original sentence which makes the final variable bound by the existential quantifier is incorrect.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+5.12.3
+| The negation of the original sentence is "some French major trusts Allison but is wise" whereas the negation of the alternative translation is "Everyone either does not trust Allison or is a French major or is not wise"
+| The negation of the original sentence is "every French major trusts Allison and is not wise" whereas the negation of the alternative translation is "Someone either does not trust Allison or is not a French major or is not wise"
+|* The negation of the original sentence is "some French major trusts Allison but is not wise" whereas the negation of the alternative translation is "Everyone either does not trust Allison or is not a French major or is not wise"
+| The negation of the original sentence is "every French major trusts Allison but is wise" whereas the negation of the alternative translation is "Everyone either trusts Allison or is a French major or is not wise"
+```

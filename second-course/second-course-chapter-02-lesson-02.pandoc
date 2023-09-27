@@ -1,0 +1,554 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Well-formed formulas of predicate logic
+
+We slowly describe the constituent components of the definition of the well-formed formulas of predicate logic.
+
+- [Atomic formulas](#atomic-formulas)
+- [Substitution in atomics](#substitution-in-atomics)
+- [Quantifiers](#quantifiers)
+- [Translations with identity](#translation-with-identity)
+- [The well-formed formulas of predicate logic](#the-well-formed-formulas-of-predicate-logic)
+- [Translating the Aristotelian propositions](#translating-the-aristotelian-propositions)
+- [Building-blocks of formulas of predicate logic](#building-blocks-of-formulas-of-predicate-logic)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Atomic formulas
+
+In [the Aristotelian syllogism](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc), the propositions featuring in the premises and conclusions relate subjects to predicates, either in a universal or particular way. One of the ideas of contemporary predicate logic is to assume that universal and particular statements about subjects and predicates can be reduced down to simpler statements about objects and properties. The relevant sense of "object" is "basic, smallest type of entity" and the relevant sense of "property" is something like "collection of objects." Some examples will help to get the idea across:
+
+- If we are talking about people, then the objects would be particular people like Allison, Brianna, Carlos, and Daniel and the properties would be things like "is in Debate club" or "is a history major."
+- If we are talking about cities, then the objects would be particular cities like Atlanta, Boston, Charlotte, Denver and the properties would be things like "is on the East Coast" and "has more than 5 million people."
+- If we were talking about years, then the objects would be particular years like 2018, 2019, 2020, etc. and the properties would be things like "is an election year" or "is an odd numbered year."
+
+Obviously the object-property distinction is interest-relative. For instance, if the topic is cities then "Atlanta" would pick out an object. But if the topic is people then "living in Atlanta" would be a property. Usually context helps us determine which of the two is at issue.
+
+We adopt the convention that the lower-case Latin letters $a-r$ stand for objects, and we call these symbols the *constant symbols*. We also allow ourselves to put subscripts on them e.g. $a_1, a_2, a_3, \ldots, b_1, b_2, b_3, \ldots$. Likewise, we adopt the convention that the upper-case Latin letters A-Z stand for properties, and we call these symbols the *relation symbols*, and we can put natural number subscripts on these as well. As we shall see, the idea is that constant symbols pick out objects, and relation symbols pick out properties. (See [Building-blocks of formulas of predicate logic](#building-blocks-of-formulas-of-predicate-logic) for helpful summary).
+
+Here is a simple set of examples of constant symbols and relation symbols pertaining to people:
+
+<p style="margin-left: 40px"> $a$ = Allison </p>
+<p style="margin-left: 40px"> $b$ = Brianna </p>
+<p style="margin-left: 40px"> $c$ = Carlos </p>
+<p style="margin-left: 40px"> $d$ = Daniel </p>
+<p style="margin-left: 40px"> $F$ = is in Film Club  </p>
+<p style="margin-left: 40px"> $G$ = is a Geography major  </p>
+<p style="margin-left: 40px"> $H$ = is a History major  </p>
+<p style="margin-left: 40px"> $I$ = is in Improv Club  </p>
+
+The basic idea is that one gets an *atomic proposition* by putting a constant symbol right after a relation symbol. Then we can put these propositions together with the propositional connectives. The following translations exercises help one get the idea of this:
+
+*Example 1*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Fa/\Ga : Allison is in Film Club and Allison is a Geography major.
+|
+~~~
+
+<br>
+
+*Example 2*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Fa/\Fb : Allison is in Film Club and Brianna is in Film Club.
+|
+~~~
+
+<br>
+
+*Example 3*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Fa->~Ib : If Allison is in Film Club then Brianna is not in Improv club.
+|
+~~~
+
+<br>
+
+*Example 4*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Hb\/Ha : Brianna is a History major or Allison is a History major.
+|
+~~~
+
+<br>
+
+*Example 5*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Hb<->~Gb : Brianna is a History major if and only if Brianna is not a Geography major.
+|
+~~~
+
+<br>
+
+As these translations indicate, in atomic propositions, the relation symbol is placed immediately before the constant symbol, even though in natural languages the order is often reversed. That is, we translate "Brianna is a History major" by $Hb$ even though in the English sentence "Brianna" comes before "is a History major." This is purely a conventional aspect of atomic propositions: we could set everything up so that we write $bH$ instead of $Hb$, but it is traditional to do the latter.
+
+Finally, it should be mentioned that propositions like $Ha$ and $Gb$ are called *atomic* propositions since they are the smallest propositions that one countenances in predicate logic. Their constituent parts -- namely the constant symbols $a,b\ldots$ and the relation symbols $H,G,\ldots$ -- are not propositions since taken alone are not eligible for truth or falsity.
+
+In the next lecture, we will look at propositions formed from relations which relate two or more objects. These also count as atomic propositions. Today, for the sake of simplicity, we focus just on relations that involve one object at a time.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Substitution in atomics
+
+There is an algebraic operation of substitution with which it is important to become acquainted. Suppose that $\phi$ is a formula in which constant symbol $a$ appears, and we write $\phi$ as $\phi(a)$ to display this. Supposing that $c$ is another constant symbol, then we write $\phi(c)$ to indicate the result of replacing $a$ by $c$ in $\phi(a)$.
+
+Here are some simple examples, in which one proceeds simply by performing the replacement.
+
+*Example 6*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Fc->Gc : Replace a by c in Fa->Ga
+|Fa->Ga
+~~~
+
+<br>
+
+*Example 7*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Fd->Gd : Replace a by d in Fa->Ga
+|Fa->Ga
+~~~
+
+<br>
+
+*Example 8*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Fc<->Gb : Replace a by c in Fa<->Gb
+|Fa<->Gb
+~~~
+
+<br>
+
+*Example 9*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~Fc\/~Gc : Replace a by c in ~Fa\/~Gc
+|~Fa\/~Gc
+~~~
+
+<br>
+
+In the following examples, we can practice this method using the notation wherein the result of replacing $a$ by $c$ in $\phi(a)$ is denoted by $\phi(c)$. Note that while we use parentheses to mark this, these parentheses do not show up in the translation at all, but rather help us describe the operation of going from one formula to another.
+
+<br>
+
+*Example 10*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Fc/\Gc : If ϕ(a) is Fa/\Ga then write out ϕ(c).
+|
+~~~
+
+<br>
+
+*Example 11*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Fd/\Gd)/\Hd : If ϕ(a) is (Fa/\Ga)/\Ha then write out ϕ(d).
+|
+~~~
+
+<br>
+
+*Example 12*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Fd->Gd)\/Hd : If ϕ(a) is (Fa->Ga)\/Ha then write out ϕ(d).
+|
+~~~
+
+<br>
+
+And we can replace other constant symbols besides $a$ as well:
+
+<br>
+
+*Example 13*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Fd/\Gd)/\Hd : If ϕ(b) is (Fb/\Gb)/\Hb, then write out ϕ(d).
+|
+~~~
+
+<br>
+
+Finally, earlier we mentioned that the constant symbols can have subscripts on them. One write e.g. $a_5$ by typing `a_5`.
+
+*Example 14*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Fa_3\/Ga_3)\/Ha_6 : If ϕ(a_5) is (Fa_5\/Ga_5)\/Ha_6 then write out ϕ(a_3).
+|
+~~~
+
+<br>
+
+*Example 15*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Fb_8<->~Gb_8)/\Gc_7 : If ϕ(b_6) is (Fb_6<->~Gb_6)/\Gc_7 then write out ϕ(b_8).
+|
+~~~
+
+<br>
+
+<p style="page-break-before: always">
+
+## Quantifiers
+
+We mentioned earlier that in predicate logic we reduce universal and particular statements to statements about objects. This is done with the quantifier $\forall$, which is typed as `A`, and the existential quantifier $\exists$, which is typed as `E`. We also need an auxiliary device of variables, for which we use the lower-case letters $s-z$. These letters are chosen because they are close to $x,y,z$ which are the traditional terms letters for variables. We can also put natural number subscripts on variables. (See [Building-blocks of formulas of predicate logic](#building-blocks-of-formulas-of-predicate-logic) for helpful summary).
+
+If $\phi(c)$ is a formula in which a constant symbol $c$ appears and in which variable $x$ does not appear, then $\exists \;x \; \phi(x)$ is a formula, where $\phi(x)$ is obtained from $\phi(c)$ by replacing instances of $c$ by $x$ in $\phi(c)$. This expression "$\exists \;x \; \phi(x)$" is pronounced out loud as "some $x$ is such that $\phi(x)$." Intuitively, it says that at least one thing has the $\phi$-property, or more intuitively it says that "something has the $\phi$-property." Of course, if we are talking about people we might rather use the existential to express that "some*one* has $\phi$" and if we are talking about locations we might express it as "some*place* has $\phi$."
+
+The following translations exercises will help solidify this point:
+
+<br>
+
+*Example 16*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ha->ExHx : If Allison is a History major, then someone is a History major.
+|
+~~~
+
+Note that the computer system is very picky about parentheses and quantifiers and will reject answers that puts a pair of parentheses around a statement whose main connective is the quantifier. For instance, for example 16, it will reject `Ha->(ExHx)` as ungrammatical. It also rejects parentheses inside a quantifier when there are no propositional connectives. For instance, it will reject `Ha->Ex(Hx)` as ungrammatical. But it needs parentheses when there are propositional connectives in there besides negation. See the next example, example 17.
+
+<br>
+
+*Example 17*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (Fb/\Hb)->Ex(Fx/\Hx) : If Brianna is in film club and is a History major, then someone is in film club and is a History major.
+|
+~~~
+
+<br>
+
+One exception to this is when the main connective . Do not put parentheses in the consequent of the following:
+
+*Example 18*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~Hc->Ex~Hx : If Carlos is not a History major, then someone is not a History major.
+|
+~~~
+
+If $\phi(c)$ is a formula in which a constant symbol $c$ appears and in which $x$ does not appear, then $\forall \;x \; \phi(x)$ is a formula, where $\phi(x)$ is obtained from $\phi(c)$ by replacing instances of $c$ by $x$ in $\phi(c)$. This expression "$\forall \;x \; \phi(x)$" is pronounced out loud as "all $x$ are $\phi(x)$." Intuitively, it says that all things have the $\phi$-property. Again, if we are talking about people we might rather use the existential to express that "every*one* has $\phi$" and if we are talking about locations we might express it as "every*place* has $\phi$."
+
+Again, a good way to practice is to do some simple translation exercises:
+
+<br>
+
+*Example 19*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ AxHx->(Ha/\Hb) : If everyone is a History major, then Allison is a history major and Brianna is a history major.
+|
+~~~
+
+<br>
+
+*Example 20*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ AxIx->AxHx : If everyone is in improv club, then everyone is a History major.
+|
+~~~
+
+<br>
+
+*Example 21*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ (AxHx\/AxGx)->Ax(Hx\/Gx) : If everyone is a History major or everyone is a Geography major, then everyone is a History major or a Geography major.
+|
+~~~
+
+<br>
+
+*Example 22*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ AxHx->ExHx : If everyone is a History major, then someone is a history major.
+|
+~~~
+
+
+
+<p style="page-break-before: always">
+
+## Translations with identity
+
+<br>
+
+Another way to form propositions from objects is with identity statements. The identity $a=b$ indicates that $a,b$ pick out the same object. The intended interpretation, which will become clear as we move along through the course, is that $a=b$ means that $a,b$ share all properties, or at least all properties that can be expressed. It is conventional to regard identity statements like $a=b$ as an atomic statement, just like $Fa$.
+
+
+We type the identity $a=b$ simply as `a=b`.
+
+*Example 23*
+
+<p style="margin-left: 40px"> $a$ = Allison </p>
+<p style="margin-left: 40px"> $b$ = Judge Baker  </p>
+<p style="margin-left: 40px"> $L$ = went to law school  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ a=b->La : If Allison is Judge Baker, then Allison went to law school.
+|
+~~~
+
+<br>
+
+As is familiar, we negate the identity statement $a=b$ by writing $a\neq b$. We type $a\neq b$ by `~a=b`.
+
+*Example 24*
+
+<p style="margin-left: 40px"> $a$ = Allison </p>
+<p style="margin-left: 40px"> $b$ = Judge Baker  </p>
+<p style="margin-left: 40px"> $L$ = went to law school  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~a=b->~La : If Allison is not Judge Baker, then Allison didn't go to law school.
+|
+~~~
+
+<br>
+
+*Examples 25-26*
+
+These examples show that identity can be used to give truth-conditions for expressions like "except" or "besides" which do not obviously have an identity-like notion written on their surface:
+
+<p style="margin-left: 40px"> $a$ = Allison </p>
+<p style="margin-left: 40px"> $H$ = was here  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(~x=a->Hx) : Everyone except Allison was here.
+|
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(~x=a/\Hx) : Someone besides Allison was here.
+|
+~~~
+
+<br>
+
+<p style="page-break-before: always">
+
+## The well-formed formulas
+
+In parallel to [the earlier definition of well-formed formula of propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-01.pandoc#the-well-formed-formulas), we can now formally define the well-formed formulas of predicate logic:
+
+- All the atomic formulas are well-formed formulas and the main connective is the predicate symbol (or the identity symbol if it is an identity).
+- If $\phi$ is a well-formed formula, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \wedge \psi)$ is a well-formed formula and its main connective is the conjunction symbol $\wedge$.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \vee \psi)$ is a well-formed formula and its main connective is the disjunction symbol $\vee$.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \rightarrow \psi)$ is a well-formed formula and its main connective is the conditional symbol $\rightarrow$.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \leftrightarrow \psi)$ is a well-formed formula and its main connective is the biconditional symbol $\leftrightarrow$.
+- If $\phi(c)$ is a well-formed formula in which variable $x$ does not appear, then  $\exists x \; \phi(x)$ is a well-formed formula and its main connective is the existential quantifier $\exists$.
+- If $\phi(c)$ is a well-formed formula in which variable $x$ does not appear, then  $\forall x \; \phi(x)$ is a well-formed formula and its main connective is the universal quantifier $\forall$.
+
+Nothing else is a well-formed formula besides what can be generated in the way described above. Obviously the phrase "well-formed formula" is cumbersome. Hence, as a synonym, one will find people saying shorter things like: "formula", "proposition", or "wff".
+
+A couple of notes on our definition of well-formed formula:
+
+- There are no outer parentheses around the quantifiers. That is, we write $\exists \; x\; ϕ(x)$ rather than $(\exists \; x \; ϕ(x))$. Hence, the quantifiers are similar to negation in that they do not need an extra outer set of parentheses around them.
+
+- As mentioned immediately before Example 10, the inner parentheses in $\phi(x)$ does not show up when we write out specific examples. For instance, we could go from $Pc$ to $\exists \; x \; Px$ or to $\forall \; x \; Px$, and there are no parentheses at all. As mentioned immediately before Example 10, this inner set of parentheses is used merely to help us see that we get the $\phi(x)$ in $\exists \; x \; \phi(x)$ or in $\forall \; x \; \phi(x)$ from the $\phi(c)$ by replacing the $c$ by $x$ in $\phi(c)$.
+
+- Note that on this presentation of well-formed formulas, $Fx$ and $Gy$ do not count as well-formed formulas. Our presentation in this lecture is a "constants first, variables second" approach. Later we will see an approach that prioritizes variables.
+
+- Using this definition of well-formed formula, one can consecutively form sentences like the following: (i) $Fa\wedge Gb$ and (ii)  $\exists \;x \; (Fx\wedge Gb)$ and (iii) $\forall \; y \; \exists \; x \; (Fx\wedge Gy)$. We have not seen many like the last one, with multiple quantifiers in it, but we will focus on these kinds of formulas next time. For the remainder of today, we focus on formulas wherein every subformula has at most one quantifier in it.
+
+See the section [Building-blocks of formulas of predicate logic](#building-blocks-of-formulas-of-predicate-logic) for helpful summary of the various components of the well-formed formulas of predicate logic.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Translating the Aristotelian propositions
+
+Here are some common translation schemas that can be used to translate [the Aristotelian syllogism](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc) into predicate logic:
+
+<table style="width:100%">
+  <tr>
+    <th>Schema</th>
+    <th>Translation</th>
+    <th>Schema Negated</th>
+    <th>Translation of Negation</th>
+  </tr>
+  <tr>
+    <td>Some $F$ are $G$</td>
+    <td>$\exists \; x \; (Fx\wedge Gx)$</td>
+    <td>No $F$ are $G$</td>
+    <td>$\neg \exists \; x\; (Fx\wedge Gx)$</td>
+  </tr>
+  <tr>
+    <td>Some $F$ are not $G$</td>
+    <td>$\exists \; x \; (Fx\wedge \neg Gx)$</td>
+    <td>No $F$ are not $G$</td>
+    <td>$\neg \exists \; x\; (Fx\wedge \neg Gx)$</td>
+  </tr>
+  <tr>
+    <td>All $F$ are $G$</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx)$</td>
+    <td>Not all $F$ are $G$</td>
+    <td>$\neg \forall \; x \; (Fx\rightarrow Gx)$</td>
+  </tr>
+  <tr>
+    <td>All $F$ are not $G$</td>
+    <td>$\forall \; x \; (Fx\rightarrow \neg Gx)$</td>
+    <td>Not all $F$ are not $G$</td>
+    <td>$\neg \forall \; x \; (Fx\rightarrow \neg Gx)$</td>
+  </tr>
+</table>
+
+<br>
+
+There is an obvious sense in which these translations schemas are not determined merely by the syntax of the natural language expressions "Some F are G" and "All F are G." For instance, there is no conjunction explicitly in the former, and there is no conditional explicitly in the latter. At best, what our translation schemas do is get the truth-conditions for these statements correct in a wide variety of cases. This is a point that we will be better positioned to assess later on down the road, after we have developed the semantics and proof-theory further.
+
+Let us practice with these translation schemas with respect to the following key:
+
+| $C$  =  "is cheerful"
+| $F$  =  "is festive"
+| $G$  =  "is a geography major"
+| $L$  =  "is a law student"
+| $R$  =  "is relaxed"
+| $T$  =  "likes table-tennis"
+
+<br>
+
+*Example 27*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Cx)/\Ex(Gx/\Cx) : Every law student is cheerful and some geography majors are cheerful.
+|
+~~~
+
+<br>
+
+*Example 28*
+
+In the following, note that "but" would just be translated by conjunction.
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Gx/\Rx)/\~Ex(Lx/\Rx) : Some geography majors are relaxed but no law students are relaxed.
+|
+~~~
+
+<br>
+
+*Example 29*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ex(Gx/\~Fx)/\~Ex(Lx/\~Fx) : Some geography majors are not festive, but no law students are not festive.
+|
+~~~
+
+<br>
+
+*Example 30*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ ~Ax(Lx->Tx) : Not all law students like table-tennis.
+|
+~~~
+
+<br>
+
+*Example 31*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Rx)->Ax(Gx->Fx) : If all law students are relaxed, then all geography majors are festive.
+|
+~~~
+
+<br>
+
+*Example 32*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Ax(Lx->Cx)->Ex(Lx/\Fx) : If all law students are cheerful, then some law students are festive.
+|
+~~~
+
+<br>
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Building-blocks of formulas of predicate logic
+
+For future reference, we include the following summary of the components of the formulas of predicate logic:
+
+<table style="width:100%">
+  <tr>
+    <th>Component</th>
+    <th>Notation</th>
+    <th>Further notation</th>
+    <th>Used to translate</th>
+  </tr>
+  <tr>
+    <td>Constant symbols</td>
+    <td>Lower-case Latin letters $a-r$: `a`, `b`, `c`, . . . , `r` </td>
+    <td>Subscripted versions: `c_1`, `c_2`, `c_3`, . . . </td>
+    <td>Objects: people, places, times</td>
+  </tr>
+  <tr>
+    <td>Relation symbols</td>
+    <td>Upper-case Latin letters $A-Z$: `A`, `B`, `C`, . . . </td>
+    <td>Subscripted versions: `P_1`, `P_2`, . . . </td>
+    <td>Properties or relations</td>
+  </tr>
+  <tr>
+    <td>Identity symbol</td>
+    <td>Identity symbol `=` </td>
+    <td>Note $a\neq b$ is typed `~a=b` </td>
+    <td>Identity between two objects</td>
+  </tr>
+  <tr>
+    <td>Variables</td>
+    <td>Lower-case Latin letters `s`, `t`, `u`, `v`, `w`, `x,` `y`, `z` </td>
+    <td>Subscripted versions: `x_1`, `x_2`, `x_3`, . . .  </td>
+    <td>Quantified statements</td>
+  </tr>
+  <tr>
+    <td>Quantifiers</td>
+    <td>Existential $\exists$ (typed `E`) </td>
+    <td>Universal $\forall$ (typed `A`)</td>
+    <td>Quantified statements</td>
+  </tr>
+</table>
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+
+[^3]: which is:

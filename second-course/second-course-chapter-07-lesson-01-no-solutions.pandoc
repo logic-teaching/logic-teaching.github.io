@@ -1,0 +1,203 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 7, Lecture 1, Intuitionistic logic
+
+We define intuitionistic logic and classical logic. And we practice with more complicated proofs, in intuitionistic logic. Finally, we discuss one traditional philosophical interpretation of intuitionistic logic.
+
+- [Intuitionistic vs classical logic](#intuitionistic-vs-classical-logic)
+- [Multiple negations in intuitionistic logic](#multiple-negations-in-intuitionistic-logic)
+- [Intuitionistic logic and BHK](#intuitionistic-logic-and-bhk)
+- [Legacy of BHK](#legacy-of-bhk)
+- [BHK and EFSQ](#bhk-and-efsq)
+
+<br>
+
+## Intuitionistic vs classical logic
+
+<br>
+
+The deductive system that we have learned so far is called *intuitionistic logic*. It does not prove either law of the excluded middle or double-negation:
+
+- *Law of excluded middle*: $\phi\vee \neg \phi$
+- *The law of double-negation*: $\phi\leftrightarrow \neg \neg \phi$.
+
+The logic that results by adding these two intuitionsitic logic is called *classical logic*. Next week we will start working exclusively in classical logic. This week, we further explore intuitionistic logic.
+
+<br>
+
+## Multiple negations in intuitionistic logic
+
+<br>
+
+One half of double-negation is provable in intuitionistic logic.
+
+*Example 1*. $\vdash \phi\rightarrow \neg \neg \phi$
+
+This holds for any $\phi$ of predicate logic. It is thus the other direction of double-negation which is not provable in intuitionstic logic.
+
+We illustrate with respect to the atomic $Fa$:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ :|-: Fa->~~Fa
+```
+
+<br>
+
+If one takes Example 1 and considers the case where $\phi$ is $\neg \psi$, one sees that intuitionistic logic also proves
+
+*Example 2*. $\vdash \neg \psi \rightarrow \neg \neg \neg \psi$
+
+We illustrate again with $\psi$ being the atomic $Fa$.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ :|-: ~Fa->~~~Fa
+```
+
+<br>
+
+The converse of the previous example also holds in intuitionistic logic. Hence, intuitionistic logic holds that $\neg \phi$ and $\neg\neg\neg \phi$ are equivalent, despite the fact that intuitionistic logic does not prove the law of double-negation.
+
+*Example 3*. $\vdash \neg \neg \neg \psi\rightarrow \neg \psi$
+
+This holds for again for any $\psi$ of predicate logic. And we again illustrate with $\psi$ being the atomic $Fa$.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ :|-: ~~~Fa->~Fa
+```
+
+<br>
+
+We also get the following, from which it further follows that double-negation implies law of the excluded middle:
+
+*Example 4*. $\vdash \neg \neg (\phi \vee \neg \phi)$
+
+This holds for all $\phi$ of predicate logic. We illustrate again with $Fa$.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ :|-: ~~(Fa\/~Fa)
+```
+
+<br>
+
+This shows that law of excluded middle implies double-negation:
+
+*Example 5*. $\phi \vee \neg \phi \vdash \neg\neg  \phi\rightarrow \phi$.
+
+This holds for all $\phi$ of predicate logic. We illustrate again with $Fa$.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa\/~Fa :|-: ~~Fa->Fa
+|Fa\/~Fa :as
+```
+
+<br>
+
+## Intuitionistic logic and BHK
+
+<br>
+
+ One traditional motivation for intuitionistic logic is called the *Brouwer-Heyting-Kolmogorov (BHK) interpretation*. This logic was developed in the 1920s and 1930s by Brouwer and Heyting, with Kolmogorov writing one early paper suggesting very similar ideas.[^1] The key idea of BHK is that it says, of each logical connective, when a statement with that logical connective as its main connective can be asserted. Here is the traditional statement of BHK, due to Heyting in his short 1956 book *Intuitionism*:[^2]
+
+- "The *conjunction* $\wedge$ gives no difficulty. $p \wedge q$ can be asserted if and only if both $p$ and $q$ can be asserted.
+
+- $p \vee q$ can be asserted if and only if at least one of the propositions $p$ and $q$ can be asserted.
+
+- The *implication* $p\rightarrow q$ can be asserted, if and only if we possess a construction $r$, which, joined to any construction proving $p$ (supposing that the latter be effected), would automatically effect a construction proving $q$.
+
+- $\neg p$ can be asserted if and only if we possess a construction which from the supposition that a construction $p$ were carried out, leads to a contradiction.
+
+- Let $\phi(x)$ be a predicate of one variable $x$, this variable ranging over a given mathematical species $D$ [i.e. a set $D$]. Then $\vdash \forall x\; \phi(x)$ means that $\phi(x)$ is true for every $x$ in $D$; in other words, we possess a general method of construction which, if any element $a$ of $D$ is chosen, yields by specialization the construction $\phi(a)$.
+
+- The existential quantifier will be interpreted in a strong way. $\exists x\; \phi(x)$ will be true if and only if an element $a$ of $D$ for which $\phi(a)$ is true has actually been constructed."
+
+[^1]: [Kolmogorov, A. N. 1998. “On the Interpretation of Intuitionistic Logic.” In From Brouwer to Hilbert: The Debate on the Foundations of Mathematics in the 1920s, edited by Paolo Mancosu, 328–34. New York: Oxford University Press](https://logic-teaching.github.io/philos-132-winter-23/texts/Kolmogorov%201998%20-%20On%20the%20Interpretation%20of%20Intuitionistic%20Logic.pdf). The original version is: [Kolmogorov, A. N. 1932. “Zur Deutung Der Intuitionistischen Logik.” Mathematische Zeitschrift, 58–65](https://logic-teaching.github.io/philos-132-winter-23/texts/Kolmogorov%201932%20-%20Zur%20Deutung%20der%20intuitionistischen%20Logik.pdf).
+
+[^2]: This is from pp. 102-107 of [Heyting, Arend. 1956. Intuitionism. An Introduction. Amsterdam: North-Holland](https://logic-teaching.github.io/philos-132-winter-23/texts/Heyting%201956%20-%20Intuitionism%20-%20An%20Introduction%20-%20Chapters%201,%207,%208.pdf). He used 'Q' for the set, where I used 'D'; he used $p(x)$ where I used $\phi(x)$. Heyting had originally developed these ideas in the 1930s, in publications such as: Heyting Sur La Logique Intuitionniste.” Académie Royale de Belgique, Bulletin de La Classe. Heyting, Arend. 1930. “Die Formalen Regeln Der Intuitionistichen Logik.” Sitzungsberichte Der Koniglichen Preussischen Akademie Der Wissenschaften, 42–56. [Heyting, Arend. 1931. “Die Intuitionistische Grundlegung Der Mathematik.” Erkenntnis. An International Journal of Analytic Philosophy 2: 106–15](https://logic-teaching.github.io/philos-132-winter-23/texts/Heyting%201931%20-%20Die%20Intuitionistische%20Grundlegung%20Der%20Mathematik.pdf).
+
+The clause for negation again makes vivid that in intuitionistic logic, $\neg \phi$ is interpreted as $\phi\rightarrow \bot$. In particular, $\neg \phi$ is equivalent to $\phi\rightarrow \bot$ in intuitionistic logic.
+
+Traditionally, BHK does not endorse all instances of law of the excluded middle $\phi \vee \neg \phi$. In particular, BHK predicts that this will not hold in situations where-- for whatever reason-- we cannot assert either of the disjuncts. Brouwer himself thought that there were mathematical counterexamples to the law of the excluded middle, such as the $\phi$ that says "in the decimal expansion of $\pi=3.14159265359\ldots$ there is a ten digit block of numbers $0123456789$." The thinking seems to be that we cannot assert $\phi$ because no one has yet found such a block. And we cannot assert $\neg \phi$ because no one has yet proven that the supposition of $\phi$ leads to an absurdity.[^3] Brouwer's example is characteristic, in that the instance of law of excluded middle which he is denying features quantifiers and has the form $\exists \; x \; \psi(x) \vee \neg \exists \; x \; \psi(x)$. Namely, he denies this instance of law of the excluded middle for the case where $\psi(x)$ says that "$x$ is the location in the decimal expansion of $\pi$ where a ten digit block of numbers of the form 0123456789 occurs."
+
+[^3]: This is Brouwer's example on p. 6 of [Brouwer, L. E. J. 1981. Brouwer’s Cambridge Lectures on Intuitionism. Cambridge University Press, Cambridge-New York](https://logic-teaching.github.io/philos-132-winter-23/texts/Brouwer1981BrouwersCambridgeLecturesonIntuitionismLecture1-redeux.pdf).; and on p. 21 of: Brouwer, L. E. J. 1992. Intuitionismus. Edited by Dirk van Dalen. Mannheim: Wissenschaftsverlag. These are lectures which he gave in Berlin in Cambridge after the war and in Berlin in 1927. The ideas in them were made well-known, at the time, in the intuitionism chapter of Fraenkel's 1927 book: Fraenkel, Adolf. 1927. Zehn Vorlesungen Über Die Grundlegung Der Mengenlehre: Gehalten in Kiel Auf Einladung Der Kant-Gesellschaft, Ortsgruppe Kiel, Vom 8.--12. Juni 1925. Leipzig and Berlin: Teubner.
+
+Likewise, BHK will not endorse double-negation. In particular, it will not endorse $\neg\neg\phi\rightarrow \phi$. For, for the intuitionist, $\neg \neg \phi$ is equivalent to $(\phi\rightarrow \bot)\rightarrow \bot$. A proof of the latter is, according to BHK, a way to transform "any transformation of a proof of $\phi$ to absurdity" itself to absurdity. That is, $\neg \neg \phi$ requires, according to BHK, that one have a way of refuting any refutation of $\phi$. And having such a way does not by itself give a reason to assert $\phi$.
+
+<br>
+
+## Legacy of BHK
+
+<br>
+
+In philosophy, BHK was given center stage in Dummett's philosophy of language, developed in the 1960s-1970s. Dummett thought that [Tarski's definition of truth](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model) gave prominence to truth-conditions and reference in a theory of meaning. By contrast, he saw in BHK an alternative way of thinking about meaning, in which truth-conditions are replaced by proof-conditions, or more generally assertibility conditions[^4]:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Dummett%201959%20-%20Truth%20p%20160.png" alt="Dummett on BHK" width="500"/>
+
+[^4]: [Dummett, Michael. 1959. “Truth.” Proceedings of the Aristotelian Society 59: 141–62](https://logic-teaching.github.io/philos-132-winter-23/texts/Dummett%201959%20-%20Truth.pdf). Reprinted in: M. Dummett. *Truth and Other Enigmas*. Harvard University Press, Cambridge, 1978.
+
+Dummett paired this with a semantic characterisation of realism and anti-realism. To be a realist about a kind of phenomena is to unrestrictedly endorse law of the excluded middle with respect to all statements involving that phenomena,[^5] and particularly to all quantified statements involving that phenomena. Dummett then conceives of realism less as a doctrine which endorses the reality of a certain kind of object and more a doctrine that endorses the objectivity of a certain class of statements.
+
+[^5]: See p. 157 of Dummett's 1959 "Truth" article (p. 14 of the reprint in *Truth and Other Enigmas*). In the body of the lecture notes, I have characterized realism in terms of law of the excluded middle. In Dummett's own text, he prefers to render it in terms of claims about (reasons for) a statement or its negation being true. See discussion of law of the excluded middle and the principle of bivalence on p. xix of *Truth and Other Enigmas*.
+
+Like [Quine](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-02.pandoc#quine-and-bound-variables-and-ontological-commitment), Dummett urged that certain traditional questions in philosophy be rephrased in the language of predicate logic. But whereas Quine's ultimate inclination was to promote naturalism within philosophical theorizing, Dummett sought to make room and space for anti-realism. While Dummett was influential in his time, his purposeful blending of questions of meaning and questions of justifications tends to run against the currents of philosophy today, in which philosophy of language and epistemology are viewed as two core but separate areas of philosophy.
+
+A distinct legacy of BHK pertains to the idea that proofs are often closely tied to certain kinds of constructions. Perhaps the experience of building proofs in the last weeks speaks to the plausibility of the thought that a proof is a procedure to get from the premises to the conclusion. One way to make the relevant notion of procedure more formal is through the typed lambda-calculus, where the procedure for "add five to x then multiply by 2" would be formalized by $\lambda x. 2(x+5)$. The close connection to be found between intuitionistic propositional logic and proofs qua lambda terms then finds expression in the  Curry-Howard correspondence.[^6] We will explore one implementation of this idea in the next lecture.
+
+[^6]: For more on this, see: [Gallier, Jean. 1995. “On the Correspondence between Proofs and λ-Terms.” In The Curry-Howard Isomorphism, edited by Ph de Groote, 8:55–138. Cahiers Du Centre de Logique. Louvain: Academia-Erasme](https://logic-teaching.github.io/prop/texts/Gallier%201995%20-%20On%20the%20correspondence%20between%20proofs%20and%20lambda-terms.pdf), and [Sørensen, M. H., and Pawel Urzyczyn. 2006. Lectures on the Curry-Howard Isomorphism. Vol. 149. Studies in Logic and the Foundations of Mathematics. New York: Elsevier](https://scholar.google.com/scholar?cluster=2266409716850034366&hl=en&as_sdt=0,5).
+
+<br>
+
+## BHK and EFSQ
+
+<br>
+
+For the remainder of today, let's look at BHK a bit more and practice more with proofs. To that end, let's look at whether BHK actually compels EFSQ, and do a couple more proofs involving EFSQ. Consider the following application of EFSQ:
+
+*Example 6*. $\neg Pa \vdash Pa\rightarrow Qa$.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~Pa :|-: Pa->Qa
+|~Pa :assumption
+```
+This is what Heyting says about the propositional variant of this inference:
+
+- "Your remember that $p\rightarrow q$ can be asserted if and only if we possess a construction which, joined to the construction of $p$, would prove $q$. Now suppose that $\vdash \neg p$, that is, we have deduced a contradiction from the supposition that $p$ were carried out. Then, in a sense, this can be considered as a construction, which, joined to a proof of $p$ (which cannot exist) leads to a proof of $q$."
+
+The idea here seems to be that "from a contradiction follows anything" because "a proof of contradiction can be considered to be a proof of anything." But one might find that wanting since we are not told more about how or why it "can be so considered."
+
+Perhaps a better case for EFSQ could be made simply by thinking about what BHK would say about other paradigmatic inferences which can be formally justified by EFSQ.
+
+Consider the following formal proof, which goes through EFSQ:
+
+*Example 7*. $Pa\vee Qa, \neg Pa \vdash Qa$.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Pa\/Qa, ~Pa :|-: Qa
+|Pa\/Qa :assumption
+|~Pa :assumption
+```
+
+Now that we have done the formal proof, consider just the statement of the result itself, and think about how BHK would conceive of why this argument was justified. Suppose that one can assert $Pa\vee Qa$. Then according to BHK, one can assert $Pa$ or one can assert $Qa$, and moreover one knows which one. If one can assert $Qa$, then we are done. Suppose alternatively that one could assert $Pa$. Then since one can assert $\neg Pa$, one already knows a construction for how to convert evidence for $Pa$ into a contradiction. That is a reason to think that one could not have actually been in a position to assert $Pa$ in the first place, and hence rather one must have been in a position to assert $Qa$. If this is right, then BHK can justify some paradigmatic applications of EFSQ even if it cannot justify EFSQ itself.
+
+<br>
+
+
+
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^7]
+
+[^7]: which is:
+

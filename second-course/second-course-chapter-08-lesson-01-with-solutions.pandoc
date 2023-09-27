@@ -1,0 +1,604 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 8, Lecture 1, Classical predicate logic *with solutions*
+
+<br>
+
+- [Classical logic](#classical-logic)
+- [DeMorgan and some other rules](#demorgan-and-some-other-rules)
+- [Adding identity](#adding-identity)
+- [Frege and Aristotle on the laws of logic](#frege-and-aristotle-on-the-laws-of-logic)
+- [Summary of rules](#summary-of-rules)
+
+<br>
+
+## Classical logic
+
+<br>
+
+Recall the following two principles, which are equivalent in intuitionistic logic:
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>Law of excluded middle</td>
+    <td>`LEM`</td>
+    <td>$\phi\vee \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>The law of double-negation</td>
+    <td>`DN`</td>
+    <td>$\phi$ is equivalent to $\neg \neg \phi$</td>
+  </tr>
+</table>
+
+<br>
+
+We now add these to our deductive system, and the resulting system is called *classical logic*. One can just put any instance of law of the excluded middle on a line and justify it with `LEM`, citing no other line. And if one has $\phi$ on a line, one can put $\neg \neg \phi$ on any subsequent line and justify it with `DN`, citing the previous line. Likewise, if one has $\neg \neg \phi$ on a line, one can put $\phi$ on any subsequent line and justify it with `DN`, citing the previous line.
+
+Finally, recall that another similar looking principle, namely law of non-contradiction, is actually provable in intuitionistic logic:
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>Law of non-contradiction</td>
+    <td>`LNC`</td>
+    <td>$\neg (\phi\wedge \neg \phi)$</td>
+  </tr>
+</table>
+
+<br>
+
+But we include it as a primitive rule so that we do not have to keep repeating the proof. Hence, one can just put any instance of law of non-contradiction on a line and justify it with `LNC`, citing no other line.
+
+<br>
+
+## DeMorgan and some other rules
+
+In classical logic one can prove both of the DeMorgan laws:
+
+- *DeMorgan*: $\neg \forall \;x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$.
+- *DeMorgan*: $\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$.
+
+The second one is in fact provable in intuitionistic logic. As for the first one, the backward direction follows in intuitionistic logic, while the forward direction requires classical logic. Hence we focus on the forward direction:
+
+*Example 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~AxFx  :|-: Ex~Fx
+|~AxFx :assumption
+| ~Ex~Fx :assumption
+|  ~Fc :assumption
+|  Ex~Fx :IE3
+|  ⊥ :E~2,4
+| ~~Fc :I~3-5
+| Fc :DN6
+| AxFx :IA7
+| ⊥ :E~1,8
+|~~Ex~Fx :I~2-9
+|Ex~Fx :DN10
+```
+
+In order not to continually have to be repeating this proof, we include DeMorgan as rules. The abbreviations for the rules come from the connective featuring on the right-hand side, which since we're writing from left-to-right is what we end on.
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMSOME`</td>
+    <td>$\neg \forall \; x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMALL`</td>
+    <td>$\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMOR`</td>
+    <td>$\neg (\phi\wedge \psi)$ is equivalent to $\neg \phi \vee \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMAND`</td>
+    <td>$\neg (\phi\vee \psi)$ is equivalent to $\neg \phi \wedge \neg \psi$</td>
+  </tr>
+</table>
+
+<br>
+
+Those problems that use only these DeMorgan rules are then more or less identical to the problems we were doing by hand [earlier in the course](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#demorgan-for-the-quantifiers).
+
+*Example 2*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~AxEyAz(Rxy/\Sxz) :|-: ExAyEz(~Rxy\/~Sxz)
+|~AxEyAz(Rxy/\Sxz) :assumption
+|Ex~EyAz(Rxy/\Sxz) :DMSOME 1
+|ExAy~Az(Rxy/\Sxz) :DMALL 2
+|ExAyEz~(Rxy/\Sxz) :DMSOME 3
+|ExAyEz(~Rxy\/~Sxz) :DMOR 4
+```
+
+To get some more interesting examples of DeMorgan, it is useful to add on primitive rules for the following disjunctive syllogisms. While these are both provable in intuitionistic logic, it is useful to not have to repeat their proofs over and over:
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>(Positive) Disjunctive syllogism</td>
+    <td>`PDS`</td>
+    <td>$\phi\vee \psi, \neg \phi \vdash \psi$</td>
+  </tr>
+  <tr>
+    <td>(Negative) disjunctive syllogism</td>
+    <td>`NDS`</td>
+    <td>$\neg (\phi\wedge \psi), \phi \vdash \neg \psi$</td>
+  </tr>
+</table>
+
+<br>
+
+*Example 3*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxFx\/AxGx, Ex~Fx :|-: AxGx
+|AxFx\/AxGx :assumption
+|Ex~Fx :assumption
+|~AxFx :DMSOME2
+|AxGx :PDS 1,3
+```
+
+<br>
+
+*Example 4*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~(ExFx/\ExGx), Fa :|-: Ax~Gx
+|~(ExFx/\ExGx) :assumption
+|Fa :assumption
+|ExFx :IE2
+|~ExGx :NDS1,3
+|Ax~Gx :DMALL4
+```
+<br>
+
+
+We also add on rules derivable in classical logic which provide equivalents of arrow statements:
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>Negated conditionals and conjunctive statements</td>
+    <td>`NC`</td>
+    <td>$\neg (\phi \rightarrow \psi)$ is equivalent to $\phi \wedge \neg \psi$</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Conditionals and disjunctive statements</td>
+    <td>`DC`</td>
+    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \phi \vee \psi$</td>
+  </tr>
+  <tr>
+    <td>Contraposition</td>
+    <td>`CP`</td>
+    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \psi\rightarrow \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Modus tollens</td>
+    <td>`MT`</td>
+    <td> $\phi\rightarrow \psi, \neg \psi \vdash \neg \phi$</td>
+  </tr>
+</table>
+
+<br>
+
+*Example 5*
+
+In this example, we use `DC` to give a short proof of statements involving disjunction by first translating them into arrow statements and then using simple arrow inferences:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(~Fx\/Gx), Ax(~Gx\/Hx) :|-: Ax(~Fx\/Hx)
+|Ax(~Fx\/Gx) :assumption
+|Ax(~Gx\/Hx) :assumption
+|Ax(Fx->Gx) :DC1
+|Ax(Gx->Hx) :DC2
+|Ax(Fx->Hx) :Ba3,4
+|Ax(~Fx\/Hx) :DC5
+```
+
+*Example 6*
+
+In this example, we use `DC` to translate an arrow statement into a disjunctive statement and then use disjunctive syllogism:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax~Rxx->AxSxx, ~ExRxx :|-: AxSxx
+|Ax~Rxx->AxSxx :assumption
+|~ExRxx :assumption
+|~Ax~Rxx\/AxSxx :DC1
+|Ex~~Rxx\/AxSxx :DMSOME3
+|ExRxx\/AxSxx :DN4
+|AxSxx :PDS2,5
+```
+
+Finally, we add simple propositional equivalences to make life simpler:
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>Law of commutativity for conjunction</td>
+    <td>`LCC`</td>
+    <td>$\phi\wedge \psi$ is equivalent to $\psi\wedge \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of commutativity for disjunction</td>
+    <td>`LCD`</td>
+    <td>$\phi\vee \psi$ is equivalent to $\psi\vee \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of associativity for conjunction</td>
+    <td>`LAC`</td>
+    <td> $(\phi\wedge \psi)\wedge \xi$ is equivalent to $\phi\wedge (\psi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of associativity for disjunction</td>
+    <td>`LAD`</td>
+    <td>$(\phi\vee \psi)\vee \xi$ is equivalent to $\phi\vee (\psi\vee \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of distribution for conjunction</td>
+    <td>`LDC`</td>
+    <td>$\phi\wedge (\psi\vee \xi)$ is equivalent to $(\phi\wedge \psi)\vee (\phi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of distribution for disjunction</td>
+    <td>`LDD`</td>
+    <td>$\phi\vee (\psi\wedge \xi)$ is equivalent to $(\phi\vee \psi)\wedge (\phi\vee \xi)$</td>
+  </tr>
+</table>
+
+
+<br>
+
+*Example 7*
+
+As an example, here is a proof showing that we can (again) derive law of excluded middle from the principle of non-contradiction, which is made simpler using `LCC` along with `DN` and `DMOR`:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~(Fa/\~Fa) :|-: Fa\/~Fa
+|~(Fa/\~Fa) :assumption
+|~(~Fa/\Fa) :LCC 1
+|~(~Fa/\~~Fa) :DN2
+|~~(Fa\/~Fa) :DMOR3
+|Fa\/~Fa :DN4
+```
+
+<br>
+
+## Adding identity
+
+<br>
+
+We add identity to our deductive system by formulating introduction and elimination rules.
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>Introduction rule for identity</td>
+    <td>`I=`</td>
+    <td>$a=a$</td>
+  </tr>
+  <tr>
+    <td>Elimination rule for identity</td>
+    <td>`E=`</td>
+    <td> $a=b, \phi(a) \vdash \phi(b)$</td>
+  </tr>
+</table>
+
+<br>
+
+These rules also work for any other choices of constants besides $a,b$.  The introduction rule is just reflexivity of the identity relation. The elimination rule is sometimes called the *indiscernibility of identicals*, and is expressive of the idea that if two things are identical then they share all the same properties.
+
+<br>
+
+*Example 8*
+
+Here is an example where we use the introduction rule:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ AxAy(x=y->Rxy) :|-: AxRxx
+|AxAy(x=y->Rxy) :assumption
+|Ay(a=y->Ray) :EA1
+|a=a->Raa :EA2
+|a=a :I=
+|Raa :E->3,4
+|AxRxx :IA5
+```
+
+<br>
+
+*Example 9*
+
+Note that only some of the instances of the one constant symbol need to be replaced when applying identity elimination:
+
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa/\Ga, a=b :|-: Fa/\Gb
+|Fa/\Ga :assumption
+|a=b :assumption
+|Fa/\Gb :E=1,2
+```
+
+<br>
+
+*Example 10*
+
+Here is an example where we work with a negated version of identity. Note that usually we would write a negated identity as e.g. $a\neq b$. However, our proof-checker prefers us to write this as `~a=b`.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa, ~Fb :|-: ~a=b
+|Fa :assumption
+|~Fb :assumption
+| a=b :assumption
+| Fb :E=1,3
+| !? :E~2,4
+|~a=b :I~3-5
+```
+
+We also add on some rules for the description operator.
+
+
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>Introduction rule for $\iota$</td>
+    <td>`Ii`</td>
+    <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))\vdash F\iota x Fx$</td>
+  </tr>
+  <tr>
+    <td>Elimination rule for $\iota$</td>
+    <td>`Ei`</td>
+    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))$</td>
+  </tr>
+</table>
+
+<br>
+
+The introduction rule says that from "there is exactly one F", one can infer the Fregean translation of "The F is F". The elimination rule says that from "the F is not equal to the falsum", then "there is exactly one F".
+
+<br>
+
+*Example 11*
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+ Fa/\Ga, Ay(Fy->y=a) :|-: GixFx
+|Fa/\Ga :assumption
+|Ay(Fy->y=a) :assumption
+|Fa :E/\1
+|Fa/\Ay(Fy->y=a) :I/\2,3
+|Ex(Fx/\Ay(Fy->y=x)) :IE4
+|FixFx :Ii5
+|FixFx->ixFx=a :EA2
+|ixFx=a :E->6,7
+|Ga :E/\1
+|GixFx :E=8,9
+```
+
+<br>
+
+## Frege and Aristotle on the laws of logic
+
+<br>
+
+Why believe double-negation and law of the excluded middle? These rules do not seem to follow from the introduction rules or elimination rules for any symbol, and as we have seen they do not follow [from BHK](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-with-solutions.pandoc#intuitionistic-logic-and-bhk). Maybe rather double-negation and law of the excluded middle are simply describing the contours of some notion we are already interested in.
+
+But that would push the question back to why we are interested in the notion as described by double-negation and law of the excluded middle. One easy answer is simply that they follow rather trivially from the truth-tables for negation (and disjunction), as well as the associated clauses in Tarski's definition of truth in a model. But perhaps that answer is too easy, since maybe these are just semantic restatements of double-negation and law of excluded middle.
+
+The classical predicate logic we have defined today was first articulated by Frege, in his 1879 work *Begriffschrift*, whose title loosely translates as "Concept writing." Here is Frege's idea of the purpose of a proof-system:[^1]
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Frege%201967%20-%20Begriffsschrift%20-%20Preface%20quotation%20p.%206.png
+" alt="Frege on proofs" width="700"/>
+
+[^1]: p. 6 of: [Frege, Gottlob. 1967. "Begriffsschrift." In From Frege to Gödel: A Source Book in Mathematical Logic, 1879-1931, edited by Jean Van Heijenoort, 1–83. Harvard University Press.](https://logic-teaching.github.io/philos-132-winter-23/texts/Frege%201967%20-%20Begriffsschrift.pdf). The original is: [Frege, Gottlob. 1879. Begriffsschrift, Eine Der Arithmetischen Nachgebildete Formelsprache Des Reinen Denkens. Halle: Nebert.](https://logic-teaching.github.io/philos-132-winter-23/texts/Frege%201879%20-%20Begriffsschrift,%20eine%20der%20arithmetischen%20nachgebildete%20Formelsprache%20des%20reinen%20Denkens.pdf) It is noting that Frege was working in a higher-order classical predicate logic, whereas what we have defined today is a first-order classical predicate logic.
+
+Frege goes onto suggest that a deductive system is to reasoning what a microscope is to vision: it helps one zoom in and see details of the derivation which one might not have otherwise been able to see. Frege's general picture is that the value of the proofs produced lied in the fact that they are gapless, and one does not need to worry that other premises, besides the ones explicitly cited, have crept into one's proof. As to what makes a logical law a logical law, Frege has a rather quietest attitude towards this question: while we can say things like logical laws make demands on us and have maximally wide applicability and are not mere records of our inferential dispositions, perhaps there is nothing informative that one can ultimately say about why something rather than another thing is a logical law.[^2]
+
+[^2]: See pp. 12, 15 of: [Frege, Gottlob. 1964. "Introduction and Sections 1-33." In The Basic Laws of Arithmetic: Exposition of the System. University of California Press.](https://logic-teaching.github.io/philos-132-winter-23/texts/Frege%201964%20-%20Introduction%20and%20sections%201-33.pdf)
+
+Aristotle is an interesting contrast. His discussion of law of the excluded middle takes place in his *Metaphysics* (Book IV, Chapter 7). He thinks of the law of the excluded middle as being expressive of their only being two truth-values. Hence, he takes someone who denies law of the excluded middle as being committed to at least three truth-values. He thinks that this will conflict with some of our ordinary ways of expressing disagreement. When you say that the house is red and I deny it, then we ordinarily take me to be saying that the house is some other color. But if there is genuinely a third intermediary truth-value, then my denying the house is red could just be me saying that "the house is red" has the intermediary truth-value.[^3]
+
+Aristotle precedes this discussion with a discussion of the principle of non-contradiction in the prior chapters of the *Metaphysics* (namely Book IV, Chapters 3-6). Like Frege, Aristotle thinks that what we call basic validities are distinctive in that they are maximally general in their scope. Aristotle also thinks that it will not be possible to demonstrate them, since this would be lead to an infinite regress. But Aristotle argues that someone who denies a principle of logic will be in a poor dialectical position. For in the midst of a debate, someone who confidently says both $Fa$ and $\neg Fa$ appears to have misunderstood either the meaning of negation or the meaning of the basic terms $F$ and $a$. And given ex falso, it is not obvious why such a person wouldn't thereby be committed to inferring anything from this contradiction, and in the context of a debate we could press them on this.
+
+These discussion of Frege and Aristotle point to some of the issues that arise when one tries to justify rules and principles with a maximally wide scope of applicability. In contemporary philosophy of logic, usually debates about logical laws are made simpler by both (1) a narrowing of scope and (2) the presence of a specific alternative to classical logic. For instance, Kripke used a three-valued logic in his response to the liar paradox, and his idea is that classical logic is fine for most reasoning, but when reasoning about the liar paradox a three valued logic is required. That is, we have hence narrowed the scope (i.e. restrict attention to liar-like phenomena), and we have presented a salient alternative (a specific three-valued logic), and then we just debate whether that alternative works well or better than others with respect to the narrow class of phenomena.
+
+
+[^3]: Other of Aristotle's arguments for the law of the excluded middle go through considerations of change: if change involves something switching from being $F$ to not $F$, then it is unclear what exactly "not $F$" means in the three-valued setting. See Chapter 7 pp. 57-58 of [Aristotle. 2014. “Metaphysics, Book IV.” In Complete Works of Aristotle, Volume 2: The Revised Oxford Translation, 42–59. Princeton University Press.](https://logic-teaching.github.io/philos-132-winter-23/texts/Aristotle%202014%20-%20Metaphysics,%20Book%20IV.pdf)
+
+<br>
+
+## Summary of rules
+
+Here is a summary of all the rules available in our system of classical predicate logic:
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>Law of excluded middle</td>
+    <td>`LEM`</td>
+    <td>$\phi\vee \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>The law of double-negation</td>
+    <td>`DN`</td>
+    <td>$\phi$ is equivalent to $\neg \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of non-contradiction</td>
+    <td>`LNC`</td>
+    <td>$\neg (\phi\wedge \neg \phi)$</td>
+  </tr>
+ <tr>
+    <td>DeMorgan</td>
+    <td>`DMSOME`</td>
+    <td>$\neg \forall \; x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMALL`</td>
+    <td>$\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMOR`</td>
+    <td>$\neg (\phi\wedge \psi)$ is equivalent to $\neg \phi \vee \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMAND`</td>
+    <td>$\neg (\phi\vee \psi)$ is equivalent to $\neg \phi \wedge \neg \psi$</td>
+  </tr>
+ <tr>
+    <td>(Positive) Disjunctive syllogism</td>
+    <td>`PDS`</td>
+    <td>$\phi\vee \psi, \neg \phi \vdash \psi$</td>
+  </tr>
+  <tr>
+    <td>(Negative) disjunctive syllogism</td>
+    <td>`NDS`</td>
+    <td>$\neg (\phi\wedge \psi), \phi \vdash \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>Negated conditionals and conjunctive statements</td>
+    <td>`NC`</td>
+    <td>$\neg (\phi \rightarrow \psi)$ is equivalent to $\phi \wedge \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>Conditionals and disjunctive statements</td>
+    <td>`DC`</td>
+    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \phi \vee \psi$</td>
+  </tr>
+  <tr>
+    <td>Contraposition</td>
+    <td>`CP`</td>
+    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \psi\rightarrow \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Modus tollens</td>
+    <td>`MT`</td>
+    <td>$\phi\rightarrow \psi, \neg \psi \vdash \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of commutativity for conjunction</td>
+    <td>`LCC`</td>
+    <td>$\phi\wedge \psi$ is equivalent to $\psi\wedge \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of commutativity for disjunction</td>
+    <td>`LCD`</td>
+    <td>$\phi\vee \psi$ is equivalent to $\psi\vee \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of associativity for conjunction</td>
+    <td>`LAC`</td>
+    <td> $(\phi\wedge \psi)\wedge \xi$ is equivalent to $\phi\wedge (\psi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of associativity for disjunction</td>
+    <td>`LAD`</td>
+    <td>$(\phi\vee \psi)\vee \xi$ is equivalent to $\phi\vee (\psi\vee \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of distribution for conjunction</td>
+    <td>`LDC`</td>
+    <td>$\phi\wedge (\psi\vee \xi)$ is equivalent to $(\phi\wedge \psi)\vee (\phi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of distribution for disjunction</td>
+    <td>`LDD`</td>
+    <td>$\phi\vee (\psi\wedge \xi)$ is equivalent to $(\phi\vee \psi)\wedge (\phi\vee \xi)$</td>
+  </tr>
+ <tr>
+    <td>Introduction rule for identity</td>
+    <td>`I=`</td>
+    <td>$a=a$</td>
+  </tr>
+  <tr>
+    <td>Elimination rule for identity</td>
+    <td>`E=`</td>
+    <td> $a=b, \phi(a) \vdash \phi(b)$</td>
+  </tr>
+  <tr>
+    <td>Introduction rule for $\iota$</td>
+    <td>`Ii`</td>
+    <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))\vdash F\iota x Fx$</td>
+  </tr>
+  <tr>
+    <td>Elimination rule for $\iota$</td>
+    <td>`Ei`</td>
+    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))$</td>
+  </tr>
+</table>
+
+<br>
+
+On the final exam, we will give you this table for reference, since our main aim is to learn to do proofs, and since the abbreviations for these rules are less established and a little more of a matter of convention. However, that said, it might be useful to memorize this table, since it helps one go faster and is usually a good way to reinforce learning. (We will still ask that you memorize the introduction and elimination rules for the propositional connectives and quantifiers, along with ex falso).
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:

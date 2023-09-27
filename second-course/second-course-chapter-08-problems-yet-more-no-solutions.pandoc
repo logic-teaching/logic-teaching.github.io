@@ -1,0 +1,421 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+
+# Week 8 Tutoring
+
+<br>
+
+- [Problems with just equivalences](#problems-with-just-equivalences)
+- [Problems with tautologies and disjunctive syllogism](#problems-with-tautologies-and-disjunctive-syllogism)
+- [Problems with identity](#problems-with-identity)
+- [Normal forms and resolution](#normal-forms-and-resolution)
+
+<br>
+
+
+<br>
+
+
+## Problems with just equivalences
+
+<br>
+
+*Problem 1*
+
+For this one, try DeMorgan and `NC`.
+
+```{.ProofChecker .GamutNDPlus  submission="none"}
+08.01 ~(Ax(~Sxb->EzRxz)\/ExSxx) :|-: ~Sbb
+|~(Ax(~Sxb->EzRxz)\/ExSxx) :assumption
+```
+
+<br>
+
+*Problem 2*
+
+For this one, think about using some distribution and double negation to the antecedent coming immediately after the universal quantifier. And before you begin, sketch out how the proof of $\forall \; x \; ((\phi(x)\vee \psi(x))\rightarrow \xi(x))\vdash \forall \; x \; (\phi(x)\rightarrow \xi(x))$ goes.
+
+```{.ProofChecker .GamutNDPlus  submission="none"}
+08.02 Fa/\Ga, ExFx->Ax(((Gx\/Hx)/\(Gx\/~~Jx))->EyRxy) :|-: Ax(Gx->EyRxy)
+|Fa/\Ga :assumption
+|ExFx->Ax(((Gx\/Hx)/\(Gx\/~~Jx))->EyRxy) :assumption
+```
+
+<br>
+
+*Problem 3*
+
+For this one, think about using associativity to put yourself in a position to combine the first two premises in an arrow elimination. Tidy things up with some double-negation.
+
+```{.ProofChecker .GamutNDPlus  submission="none"}
+08.03 Ax(Rax\/(Rxb\/Rxc)), Ax((Rxb\/Rax)\/Rxc)->~AxEy~Rxy :|-: ExAyRxy\/EzFz
+|Ax(Rax\/(Rxb\/Rxc)) :assumption
+|Ax((Rxb\/Rax)\/Rxc)->~AxEy~Rxy :assumption
+```
+
+<br>
+
+*Problem 4*
+
+Despite having a lot of arrows in it, this one can be proved just with `DC` and `NC` and some distribution.
+
+```{.ProofChecker .GamutNDPlus  submission="none"}
+08.04 Fa->~(Fb->Fc) :|-: (Fa->Fb)/\(Fa->~Fc)
+|Fa->~(Fb->Fc) :assumption
+```
+
+<br>
+
+*Problem 5*
+
+Despite having a quantifier in it, this one can be done without using the rules for the quantifiers. Just try out some of the new propositional rules, like propositional DeMorgan etc.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.05 Ax(~~Fx->Ey(Gy/\~(Rxy/\Sxy))) :|-: Ax(~Fx\/Ey((Gy/\~Rxy)\/(Gy/\~Sxy)))
+|Ax(~~Fx->Ey(Gy/\~(Rxy/\Sxy))) :assumption
+```
+
+<br>
+
+## Problems with tautologies and disjunctive syllogism
+
+<br>
+
+*Problem 6*
+
+For this one, one can do it with just DeMorgan and some disjunctive syllogism.
+
+```{.ProofChecker .GamutNDPlus  submission="none"}
+08.06 ExAy~Rxy, AxEyRxy\/AxEy~Rxy :|-: ~AyRay
+|ExAy~Rxy :assumption
+|AxEyRxy\/AxEy~Rxy :assumption
+```
+
+<br>
+
+*Problem 7*
+
+This one has both a positive disjunctive syllogism and a negative disjunctive syllogism. This problem also illustrates one limitation of our deductive system, namely that the order matters in the disjunctive syllogisms (copied below), that is, in `PDS` it is important that in the second premise you are negating the *first* disjunct in the first premise, and in `NDS` it is important that in the second premise you are affirming the first conjunct. This isn't a big deal since you can use commutativity (`LCC` and `LCD`) to switch the order in conjuncts and disjuncts.
+
+<br>
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>(Positive) Disjunctive syllogism</td>
+    <td>`PDS`</td>
+    <td>$\phi\vee \psi, \neg \phi \vdash \psi$</td>
+  </tr>
+  <tr>
+    <td>(Negative) disjunctive syllogism</td>
+    <td>`NDS`</td>
+    <td>$\neg (\phi\wedge \psi), \phi \vdash \neg \psi$</td>
+  </tr>
+</table>
+
+<br>
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.07 AxAyAz((~Rxy\/~Ryz)\/Rxz), ~Rac, Rbc :|-: ~Rab
+|AxAyAz((~Rxy\/~Ryz)\/Rxz) :assumption
+|~Rac :assumption
+|Rbc :assumption
+```
+
+<br>
+
+*Problem 8*
+
+This one is called Pierce's law. It is a statement about arrows which cannot be proved without double-negation. There are lots of ways to prove this result in the system we have. The most straight-forward "arrow" proof does a bracket starting at `((Fa->Fb)->Fa)` and ends at `Fa` goes through getting a second-to-last line in the bracket right above `Fa` which is `~~Fa`. And then there will be further bracket(s) within the big bracket.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.08  :|-: ((Fa->Fb)->Fa)->Fa
+```
+
+<br>
+
+*Problem 9*
+
+For this one, get started by introducing an existential and do some modus tollens. It involves some DeMorgan along the way, and it ends in a nice existential elimination.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.09 AxEyRxy->AxEySxy, AxEySxy->AxEyTxy, Ay~Tay :|-: Ey~Rya
+|AxEyRxy->AxEySxy :assumption
+|AxEySxy->AxEyTxy :assumption
+|Ay~Tay :assumption
+```
+
+
+<br>
+
+*Problem 10*
+
+This one can involves a disjunctive syllogism. Try to use existential introduction at the very end.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.10 ~ExRxb\/~EyRay, Rcb :|-: ExEy~Rxy
+|~ExRxb\/~EyRay :assumption
+|Rcb :assumption
+```
+
+<br>
+
+## Problems with identity
+
+<br>
+
+In for the next couple of problems, [recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations) that $R$ is an *equivalence relation* if it is reflexive, symmetric, and transitive, where these are defined by:
+
+<table style="width:100%">
+  <tr>
+    <th>Property</th>
+    <th>Formula</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>$R$ is reflexive</td>
+    <td>$\forall \; x \; Rxx$</td>
+    <td>`AxRxx`</td>
+  </tr>
+  <tr>
+    <td>$R$ is symmetric</td>
+    <td>$\forall x \; \forall \; y \; (Rxy\rightarrow Ryx)$</td>
+    <td>`AxAy(Rxy->Ryx)`</td>
+  </tr>
+  <tr>
+    <td>$R$ is transitive </td>
+    <td>$\forall x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$</td>
+    <td>`AxAyAz((Rxy/\Ryz)->Rxz)`</td>
+  </tr>
+</table>
+
+<br>
+
+
+*Problem 11*
+
+In the following three proofs, we prove that identity is an equivalence relation:
+
+<br>
+
+*Reflexivity of identity*:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.11.1  :|-: Ax x=x
+|a=a :I=
+```
+
+*Symmetry of identity*:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.11.2  :|-: AxAy(x=y->y=x)
+```
+
+*Transitivity of identity*:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.11.3  :|-: AxAyAz((x=y/\y=z)->x=z)
+```
+
+<br>
+
+*Problem 12*
+
+Often in proofs about identity one ends up replicating the steps of the previous problems. For instance, in the following, we replicate the proof of symmetry twice over:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.12 Ax(x=a\/x=b)  :|-: a=c\/b=c
+|Ax(x=a\/x=b) :assumption
+```
+
+<br>
+
+*Problem 13*
+
+Here is a proof that identity is the smallest equivalence relation. Before you begin this one, think about what a proof ending in $\forall \; x \; \forall \; y \; \phi(x,y)$ looks like if it ends in two application of universal introduction.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.13 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAy(x=y->Rxy)
+|AxRxx :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+```
+
+<br>
+
+*Problem 14*
+
+Consider an equivalence relation $R$. Suppose that `~Rab`. This problem asks one to show that `~Ey(Ray/\Rby)`.
+
+One way to do this is as follows: introduce the negation at the end, and hence go from `Ey(Ray/\Rby)` to falsum inside a bracket. To get rid of the existential, you'll have to do existential elimination, and hence go from `Rac/\Rbc` to falsum inside a second bracket.
+
+Another way to do this is follows: first prove `Ax(Ray->~Rby)`, and then use double-negation and DeMorgan and the principle relating conditionals to negation (`NC`) to go from this to `Ey(Ray/\Rby)`.
+
+In each of these proofs strategies, one ends up applying symmetry and transitivity to go from `Rac` and `Rbc` to `Rac` and `Rcb` (via symmetry), and then to `Rab` (via transitivity).
+
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.14.1 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~Rab :|-: ~Ey(Ray/\Rby)
+|AxRxx :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+|~Rab :assumption
+```
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.14.2 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~Rab :|-: ~Ey(Ray/\Rby)
+|AxRxx :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+|~Rab :assumption
+```
+
+<br>
+
+*Problem 15*
+
+This one says that if there is exactly one F, and there is something which is both F and G, then the F is G. Try to eliminate the existential in the second premise. The associated arrow statement should feature a new constant `a` in the antecedent and the conclusion in the consequent. In the subproof for the arrow statement, try to argue that both the F and the G are identical to a. You'll need to eliminate the existential from the first premise in order to do that.
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+08.15 Ex(Fx/\Ay(Fy->y=x)), Ex(Fx/\Gx) :|-: GixFx
+|Ex(Fx/\Ay(Fy->y=x)) :assumption
+|Ex(Fx/\Gx) :assumption
+|FixFx :Ii1
+```
+
+<br>
+
+## Normal forms and resolution
+
+<br>
+
+
+*Problem 16*
+
+~~~{.Translate .FOL system="gamutND" tests="DNF" submission="none"}
+08.16 (~Fa\/Fb)->(Fc/\(Fd\/Fe)) : Put (~Fa\/Fb)->(Fc/\(Fd\/Fe)) into disjunctive normal form
+|
+~~~
+
+
+<br>
+
+*Problem 17*
+
+~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
+08.17 Ax(Fx->Ey(Gy/\Rxy))->Ax(Fx->Ey(Gy/\Sxy)) : Put  ∀x(Fx->∃y(Gy/\Rxy))->∀x(Fx->∃y(Gy/\Sxy)) into prenex normal form
+|
+~~~
+
+<br>
+
+*Problem 18*
+
+Give a resolution proof of:
+
+$Fa\rightarrow (Fb\rightarrow Fc), Fa\rightarrow Fb, Fa \vdash Fc$
+
+(There's nothing to enter in carnap.io here-- just do the proof by hand).
+
+
+<br>
+
+*Problem 19*
+
+Imagine you are trying to plan a road trip from the west coast to one of four midwest states, and you only want to travel from one state to the other by going east (and west on the way back). The following prolog program contains information about what states are on the west coast and the four midwest states, and information about what states are immediately to the east of a given state, e.g. Arizona is immediately to the east of California.
+
+```
+westcoast(california).
+westcoast(oregon).
+westcoast(washington).
+midwest(iowa).
+midwest(missouri).
+midwest(illinois).
+midwest(minnesota).
+
+step_east(california,arizona).
+step_east(california,nevada).
+step_east(oregon,idaho).
+step_east(washington,idaho).
+step_east(idaho,montana).
+step_east(idaho,wyoming).
+step_east(wyoming, nebraksa).
+step_east(wyoming, southdakota).
+step_east(nebraksa, iowa).
+step_east(iowa, illinois).
+step_east(montana,northdakota).
+step_east(nevada, utah).
+step_east(utah,colorado).
+step_east(colorado,nebraksa).
+step_east(colorado,kansas).
+step_east(kansas,missouri).
+step_east(nebraska,missouri).
+step_east(arizona,newmexico).
+step_east(newmexico,texas).
+step_east(texas, lousiana).
+step_east(northdakota, minnesota).
+step_east(minnesota, wisconsin).
+step_east(washington,oregon).
+step_east(washington,oregon).
+step_east(arizona,newmexico).
+
+step_west(Y, X) :-
+  step_east(X, Y).
+
+route_east(X, Y) :-
+  step_east(X, Y).
+
+route_east(X,Z) :-
+  step_east(X,Y),
+  route_east(Y,Z).
+
+route_west(X, Y) :-
+  step_west(X, Y).
+
+route_west(X,Z) :-
+  step_west(X,Y),
+  route_west(Y,Z).
+```
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+08.19 How would you write the first conditional in predicate logic?
+| ∀ x ∀ y (step_east(x, y) -> step_east(x, y))
+| ∀ x ∀ y (step_west(x, y) -> step_west(y, x))
+|* ∀ x ∀ y (step_east(x, y) -> step_west(y, x))
+| ∀ x ∀ y (step_west(x, y) -> step_east(y, x))
+```
+
+<br>
+
+*Problem 20*
+
+Go to [this prolog site](https://swish.swi-prolog.org/), click 'create a program' and then input the aforementioned code in the box. Then write a query which tells you if there is a route from California to a midwest state.
+
+```{.QualitativeProblem .Numerical options="check" submission="none"}
+08.20 3 : How many such midwest states are there?
+|
+```
+
+*Hint*: just get the list by figuring out the appropriate query to run, by looking at the example queries. After you run it, click the '10' button to get the first ten answers. Then count.
+
+*Remark*: the point of this problem is to reinforce that simple databases can be be viewed as premises of an argument, and search in the database can be implemented via proof.
+
+*Remark*: try to think through how you would prove that there was a route from California to a specific midwest state in predicate logic using our traditional non-resolution proof system.

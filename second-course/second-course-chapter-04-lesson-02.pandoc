@@ -1,0 +1,258 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 4, Lecture 2, Variables and variable assignments
+
+Thus far we know how to assess atomic formulas like $Fa$ and $Rab$ for truth or falsity relative to a model. But we do not yet have a method for assessing atomic formulas like $Fx$ and $Rxy$ for truth or falsity. It is useful to do so for a number of reasons, and it requires that we distinguish between free and bound occurrences of variables and it requires that we introduce variable assignments into the semantics.
+
+- [Free and bound occurrences of variables](#free-and-bound-occurrences-of-variables)
+- [Variable assignments](#variable-assignments)
+- [Definition of truth in a model relative to a variable assignment](#definition-of-truth-in-a-model-relative-to-a-variable-assignment)
+- [Quine and bound variables and ontological commitment](#quine-and-bound-variables-and-ontological-commitment)
+- [Other uses of variable assignments](#other-uses-of-variable-assignments)
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Free and bound occurrences of variables
+
+This is a distinction best explained by way of example.
+
+<br>
+
+*Example 1*
+
+$\forall \; y \; (Rxy \rightarrow \forall \; x \; Rxx)$
+
+There are three occurrences of $x$ in this formula-- we do not count the one right after the quantifier. We say that the first occurrence of $x$ in formula is free, while the second and third occurrences are bound.
+
+<br>
+
+*Example 2*
+
+$\exists \; x \; (Rxy\wedge \forall \; y\; Rxy)$
+
+There are two occurrences of $x$ in this formula. Both are bound, and both by the existential quantifier at the outset.
+
+There are two occurrences of $y$ in this formula. The first is free, and the second is bound by the universal quantifier.
+
+<br>
+
+*Example 3*
+
+$x=y\rightarrow \exists \; y \; y=x$
+
+There are two occurrences of $x$ in this formula. Both are free.
+
+There are two occurrences of $y$ in this formula. The first is free, and the second is bound by the existential quantifier.
+
+<br>
+
+The general idea is as follows:
+
+- when one goes from the subformula $\phi$ to the formula $\exists \; x \; \phi$, every free occurrence of $x$ in $\phi$ becomes bound by the existential quantifier in $\exists \; x \; \phi$.
+
+- when goes from the subformula $\phi$ to the formula $\forall \; x \; \phi$, every free occurrence of $x$ in $\phi$ becomes bound by the universal quantifier in $\forall \; x \; \phi$.
+
+Technically to implement the general idea one must revise the previous [definition of well-formed formula](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc#the-well-formed-formulas-of-predicate-logic) and one build-in the aforementioned idea as one goes along. Experience suggests that this technicality should be brushed over on one's first pass, but we include it here for reference. The italicized parts are those that have been added:
+
+- All the atomic formulas are well-formed formulas and the main connective is the predicate symbol (or the identity symbol if it is an identity), and *all variable occurrences within atomic formula are free*.
+- If $\phi$ is a well-formed formula, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$, and *the free variable occurrences within $\neg \phi$ are precisely those of $\phi$*.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \wedge \psi)$ is a well-formed formula and its main connective is the conjunction symbol $\wedge$, and *the free variable occurrences within $\phi \wedge \psi$ are precisely those of $\phi$ together with those of $\psi$*.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \vee \psi)$ is a well-formed formula and its main connective is the disjunction symbol $\vee$, and *the free variable occurrences within $\phi \vee \psi$ are precisely those of $\phi$ together with those of $\psi$*.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \rightarrow \psi)$ is a well-formed formula and its main connective is the conditional symbol $\rightarrow$, and *the free variable occurrences within $\phi \rightarrow \psi$ are precisely those of $\phi$ together with those of $\psi$*.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \leftrightarrow \psi)$ is a well-formed formula and its main connective is the biconditional symbol $\leftrightarrow$, and *the free variable occurrences within $\phi \leftrightarrow \psi$ are precisely those of $\phi$ together with those of $\psi$*.
+- *If $\phi$ is a well-formed formula then $\exists \; x \; \phi$ is a well-formed formula, and the free variable occurrences within $\exists \; x \; \phi$ are precisely those of $\phi$ minus all the free occurrences of $x$ in $\phi$*.
+- *If $\phi$ is a well-formed formula then $\forall \; x \; \phi$ is a well-formed formula, and the free variable occurrences within $\forall \; x \; \phi$ are precisely those of $\phi$ minus all the free occurrences of $x$ in $\phi$*.
+
+Nothing else is a well-formed formula besides what can be generated in the way described above. This defines what a free occurrence of a variable is. A variable occurrence which is not free is *bound*.
+
+The first clause counts $Fx$ and $Rxy$ and $x=y$ as atomics, along with any filling in of the variable spots by constants, such as $Fa$ and $Ray$ and $x=b$.
+
+In the last two clauses of the definition, one might write $\phi(x)$ instead of $\phi$ to highlight to one's reader the presence, or potential presence, of $x$ as occurring freely in $\phi$.
+
+With this definition, things like $Fx$ and $Rxy$ are now formulas. To explain how they can be true or false on a model, we need to add on variable assignments.
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Variable assignments
+
+This too is an idea best explained by way of example.
+
+For the sake of simplicity, suppose that the only variables we care about are the three $x,y,z$.
+
+<br>
+
+*Example 4*
+
+We say $\mathcal{M}\models Fx$ iff whatever we assigned $x$ to happens to be in $F^{\mathcal{M}}$. To make it more concrete, suppose we assigned $x$ to Allison and $F$ stands for French major in our model. Then $\mathcal{M}\models Fx$ iff Allison is a French major.
+
+<br>
+
+*Example 5*
+
+We say $\mathcal{M}\models Ryz$ iff the ordered pair $\langle$ whatever we assigned $y$ to, whatever we assigned $z$ to$\rangle$ is in $R^{\mathcal{M}}$. To make it more concrete, suppose we assign $y$ to Allison and $z$ to Brianna, and suppose that $R$ stands for respects in our model. Then $\mathcal{M}\models Ryz$ iff Allison respects Brianna.
+
+The general definition of variable assignment is relative to a model. Given a model, a variable assignment relative to the model is a function that sends the variables in question-- namely $x$, $y$, $z$-- to elements of the underlying domain of the model. If the model is people, then it sends the variables to people. If the model is numbers, then it sends the variables to number. If the model is cities, then it sends the variables to cities.
+
+Our [intuitive idea of a function](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#graphs-of-functions-and-predicate-logic) $g:X\rightarrow Y$ is an operation which sends inputs from the domain $X$ to outputs from the codomain $Y$. Hence a variable assignment is just a function which sends inputs from the domain of variable symbols to the outputs from the codomain of the underlying domain of the model. In contrast to the ordinary functions we encounter in arithmetic, the functions at play in variable assignments don't usually come equipped with any natural operation. Usually the "operation" in question is just a matter of convenience and happenstance. That is, we assigned $y$ to Allison and $z$ to Brianna because of uninteresting things like: we encountered Allison first and Brianna second.
+
+Suppose, again, for simplicity that we have only three variables in question $x,y,z$ and we have only two people Allison and Brianna in the domain of our model. Then the following are all examples of variable assignments:
+
+- $g(x)$=Allison, $g(y)$=Allison, $g(z)$=Allison.
+- $h(x)$=Allison, $h(y)$=Brianna, $h(z)$=Allison.
+- $k(x)$=Allison, $k(y)$=Brianna, $k(z)$=Brianna.
+- $\ell(x)$=Brianna, $\ell(y)$=Brianna, $\ell(z)$=Brianna.
+
+Since our domain has only two people in it and we are considering three variables, there will always be some repetitions. As the first and last example illustrates, we can even have cases where the outputs are all the same. It is traditional to use $g,h$ and superscripted and supscripted versions thereof for variable assignments (we use $k, \ell$ here since markdown does not display superscripts very well).
+
+
+Suppose again that we are only interested in three variables $x,y,z$.
+Then we say that two variable assignments are $x$-*variants* of one another if they agree on $y,z$ but may disagree on $x$. The intention is that $x$-*variants* is supposed to make you think: they may vary from one another only at $x$. Likewise, we say that two variable assignments are *$y$-variants* of one another if they agree on $x,z$ but may disagree on $y$. For instance, consider our four examples up above: $g,h,k, \ell$. We have:
+
+- $g,h$ are $y$-variants of one another, since they disagree on $y$ but agree on everything else.
+- $h,k$ are $z$-variants of one another, since they disagree on $z$ but agree on everything else.
+- $k, \ell$ are $x$-variants of one another, since they disagree on $x$ but agree on everything else.
+
+(A final, technical point: for any variable $x$, we have that $g$ is always a $x$-variant of $g$. This is kind of a degenerate case, but it is allowed by our definition).
+
+There is a *notational warning* when dealing with variable assignments. In contexts outside of logic, we use variables to 'present' the operation of functions. For instance, in a math class, I might draw your attention to the function $f:\mathbb{N}\rightarrow \mathbb{Z}$ given by $f(x)=x^2-10$. When I do so, you are primed by experience to start plugging numbers into this, and say things like $f(5)=15$ and $f(6)=26$. However, when dealing with variable assignments in a logic class, if someone says that $g(x)=$Allison, they are intending to convey that the variable assignment assigns input $x$ to output Allison, and they are not intending to draw your attention to the function which always outputs Allison.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Definition of truth in a model relative to a variable assignment
+
+We now revise [Tarski's definition of truth in a model](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model) to make it relative to variable assignments. Hence instead of defining $\mathcal{M}\models \varphi$, we will define $\mathcal{M},g\models \varphi$, where $g$ is a variable assignment relative to the model.
+
+For *atomics*, if $F$ is a one-place predicate, then we define $\mathcal{M},g\models Fx$ iff $g(x)$ is in $F^{\mathcal{M}}$. If $R$ is a two-place predicate, then we define $\mathcal{M},g\models Rxy$ iff $\langle g(x),g(y)\rangle$ is in $R^{\mathcal{M}}$. We also still keep the old clauses for e.g. $\mathcal{M},g\models Fa$ and $\mathcal{M},g\models Rab$; and for mixed cases like $\mathcal{M},g\models Rxb$ we do the obivous thing.
+
+The clauses for the propositional connectives are the same as before.
+
+The clauses for the quantifiers are defined as follows:
+
+- *Existential Quantifier*: $\mathcal{M},g\models \exists \; x \; \phi$ if and only if there is an $x$-variant $h$ of $g$ such that $\mathcal{M},h\models \phi$.
+
+- *Universal Quantifier*: $\mathcal{M},g\models \forall \; x \; \phi$ if and only if for all $x$-variants $h$ of $g$ one has  $\mathcal{M},h\models \phi$.
+
+<br>
+
+On the notational front, it is worth noting that if $\psi$ has no free variables, then given any two variable assignments $g,h$ one has  $\mathcal{M},g\models \psi$ iff $\mathcal{M},h\models \psi$. Hence, when $\psi$ has no free variables, we just agree conventionally to write $\mathcal{M}\models \varphi$ as an abbreviation for $\mathcal{M},g\models \varphi$ for any (equivalently, some) variable assigment $g$. Since axioms usually do not have free variables, often in certain parts of mathematical logic we do not display the variable assignments.
+
+
+<br>
+
+Here are some simple examples:
+
+*Example 5*
+
+Suppose that our model consists just of Allison and Brianna and $Rxy$ picks out respects and Allison respects Brianna and no other respects facts are true in this model.
+
+Suppose we are only dealing with variables $x,y,z$. Suppose that $g,h$ are the following variable assignments:
+
+- $g(x)$=Allison, $g(y)$=Allison, $g(z)$=Allison.
+- $h(x)$=Allison, $h(y)$=Brianna, $h(z)$=Allison.
+
+Then we have:
+
+- $\mathcal{M},g\nvDash Rxy$ since Allison does not respect Allison.
+- $\mathcal{M},h\vDash Rxy$ since Allison respects Brianna
+- $\mathcal{M},g\vDash \exists \; y \; Rxy$ since $h$ is a $y$-variant of $g$ and $\mathcal{M},h\vDash Rxy$
+
+
+<br>
+
+*Example 6*
+
+Suppose that our model has underlying domain $M=\{0,1,2,3,4,5\}$ and that $R^{\mathcal{M}}$ just interprets the ordinary strict $<$ relation on natural numbers.  Suppose we are only dealing with variables $x,y,z$. Suppose that $g,h$ are the following variable assignments:
+
+- $g(x)$=5, $g(y)$=4, $g(z)$=3.
+- $h(x)$=5, $h(y)$=4, $h(z)$=5.
+
+Then we have:
+
+- $\mathcal{M},g\nvDash Ryz$ since $4\nless 3$
+- $\mathcal{M},h\vDash Ryz$ since $4<5$
+- $\mathcal{M},g\vDash \exists \; z \; Ryz$ since $h$ is a $z$-variant of $g$ and $\mathcal{M},h\vDash Ryz$
+
+<br>
+
+<p style="page-break-before: always">
+
+## Quine and bound variables and ontological commitment
+
+Quine was an influential philosopher from the late 1940s to 1970s. He did a lot to argue for the centrality of first-order predicate logic within philosophy. One place he did so was in his 1948 "On what there is."[^1]
+
+[^1]: [Quine, Willard V. 1948. “On What There Is.” The Review of Metaphysics 2 (1): 21–38.](https://logic-teaching.github.io/philos-132-winter-23/texts/Quine%201948%20-%20On%20what%20there%20is.pdf)
+
+Some traditional debates in metaphysics (also called ontology) concern topics questions like "whether abstract objects like numbers exist." Quine argued that such existence questions should be treated like simple existential quantifiers, like $\exists \; x \; Nx$, where $N$ stands for numbers. The simple formula he came up with was "To be is to be the value of a variable," which has the sense of: the only important and legitimate notion of existence which we should be using is that provided by the existential quantifier. And after what we have done today, hopefully we see the connection to the 'value of a variable': $\mathcal{M},g\models \exists \; x \; Nx$ iff there is an $x$-variant $h$ of $g$ such that $\mathcal{M},h\models Nx$, and this latter happens iff what $h$ assigns $x$ to is a number, which happens only if numbers are among the values of the $x$-variable.
+
+Hence, Quine shifts the question of existence back to the question of what is in the underlying domain of the model. He thought that the models in question were representing a certain kind of theorizing, which would result in say theory $\phi_1, \ldots, \phi_n$ which was true on the model. His view was:
+
+&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/quine-on-what-there-is-quote.png" alt="Quine on ontological commitment" width="600"/>
+
+Hence, to figure out whether numbers exist, one formalizes one's best theory of the world, call it $\phi_1, \ldots, \phi_n$, and ask whether numbers *have to be* in the underlying domain in order for the theory $\phi_1, \ldots, \phi_n$ to be true.
+
+This methodology was influential and is today not undisputed.[^3] Taken literally, it is not clear that the methodology is compatible with Quine's resistance to modality. For, today we often understand such statements of "must" and "have to be" in terms of some universal quantifier over a range of possiblities. (That is, we today are like a tempered version of the Wyman character whom Quine is arguing against in 'On what there is'.)
+
+But one place where we can see at least the *primae facie* sense of Quine's approach is in the case of properties (also called "universals"). We have seen that $\mathcal{M}\models Fa$ implies $\mathcal{M}\models \exists \; x \; Fx$. But we don't have to accept, or even accept as intelligible, the inference from $\mathcal{M}\models Fa$ to $\mathcal{M}\models \exists \; X \; Xa$. That is, we can sensibly assert the truth of claims that "Allison is a French major" without asserting the existence of the property of being a French major, since it is, after all, not among the values of the variables needed to make our best theory of Allison and her major true. But a subtle point here is what we should say about the metatheory we work with, with seems replete with lots and lots of sets, which don't seem completely distinct from the intuitive notion of property.[^4]
+
+[^3]: It tends to get developed in disparate literatures. In philosophy of mathematics, this position of Quine's gets discussed today under the heading of [the indispensability arguments](https://plato.stanford.edu/entries/mathphil-indis/). For a position in contemporary metaphysics quite at odd with Quine's, see [Thomasson, Amie L. 2014. Ontology Made Easy. Oxford University Press](https://global.oup.com/academic/product/ontology-made-easy-9780190878665?cc=ca&lang=en&).
+
+[^4]: Another issue is that there does seem to be some evidence for something like property quantification in natural language. This discussion goes under the heading of [plural quantification](https://plato.stanford.edu/entries/plural-quant/).
+
+
+<br>
+
+<p style="page-break-before: always">
+
+
+## Other uses of variable assignments
+
+Another philosophical reason why variable assignments are important has to do with *compositionality*.[^5] This, roughly, is the contention that the semantic values assigned to an expression should systematically depend on the semantic values of their subexpressions. If one thought that semantic value was the core aspect of meaning, this would be then be to say that the meaning of the whole depends on the meaning of the parts. Variable assignments let you say how the truth of the part $Fx$, relative to an assignment, helps determine the truth of the whole $\exists \; x \; Fx$, relative to a closely related assignment, namely a $x$-variant.
+
+[^5]: The history of the principle of compositionality is studied by [Janssen, Theo M. V. 2012. “Compositionality: Its Historic Context.” In Oxford Handbook of Compositionality, edited by Wolfram Hinzen, Edouard Machery, and Markus Werning, 19–46.](http://logic-teaching.github.io/prop/texts/Janssen%202012%20-%20Compositionality%20-%20its%20historic%20context.pdf)
+
+Variable assignments are also the basic tools one uses to handle so-called donkey sentences. These are sentences of the following form, where it appears that one should use a variable to translate a pronoun like "her" at the end of this sentence:
+
+~~~{.Translate .FOL system="goldfarbAltND" submission="none"}
+ Ax(Ey(Gy/\Rxy)->Txy) : Everyone who respects a Geography major trusts her.
+|Ax(Ey(Gy/\Rxy)->Txy)
+~~~
+
+Note that the last $y$ is free, and is not bound by the existential quantifier, and hence the truth of the consequent is going to be unrelated to the truth of the antecedent. The tradition of dynamic semantics solves this problem by changing the semantics for first-order predicate logic so that one is updating the variable assignments as one goes along in the sentence, so that by the end of it one is working with a $y$-variant of the original variable assignment which stores a value for the relevant geography major.[^6] More generally, examples like this confirm the impression that free variables in logic act kind of like pronouns do in natural language.
+
+[^6]: [Dekker, Paul J. E. 2012. Dynamic Semantics. Springer.](https://link.springer.com/book/10.1007/978-94-007-4869-9)
+
+The more practical reason why variable assignments are important is that in settings where the possible semantic values are a little richer, it is natural to think of semantic evaluation as the evaluation of a functional expression, like when we move left-to-right across the identities to evaluate $5^2-3=25-3=22$. For instance, compare the first line (our way in this course) to the second line:
+
+-  Since $g(x)$ is in $F^{\mathcal{M}}$, we have $\mathcal{M},g\models Fx$.
+- $\llbracket Fx\rrbracket_{\mathcal{M},g} = \llbracket F\rrbracket_{\mathcal{M},g}\;(\llbracket x\rrbracket_{\mathcal{M},g})= F^{\mathcal{M}}(g(x)) = 1$.
+
+It is common in disciplines which use lambda calculus (like computer science and linguistics), to work more directly with variable assignments in this fashion. And in these settings, the notation $\llbracket\phi\rrbracket_{\mathcal{M},g}=1$ is preferred to our notation $\mathcal{M},g\models \phi$.
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^7]
+
+
+[^7]: which is:
+
+<br>

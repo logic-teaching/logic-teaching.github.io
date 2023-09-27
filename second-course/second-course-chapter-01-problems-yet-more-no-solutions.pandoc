@@ -1,0 +1,262 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 1 Tutoring session
+
+The problems in this set fall into four groups:
+
+- [Finding the main connectives](#finding-the-main-connectives)
+
+- [Truth-tables](#truth-tables)
+
+- [A more local view on truth tables](#a-more-local-view-on-truth-tables)
+
+- [Aristotle and the third figure](#aristotle-and-the-third-figure)
+
+
+<br>
+
+## Finding the main connectives
+
+In the following problems we successively find the main connectives of the formulas, starting with the big formulas and breaking them into smaller parts. Press **return** after you have entered in the main connective to get to the next level.
+
+If you need a refresher on how to type the symbols, see [here](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-01.pandoc#the-propositional-connectives).
+
+<br>
+
+```{.SynChecker .Match system="gamutPND"  submission="none"}
+1.01 (p->q)\/(q->p)
+```
+
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+1.02 p->(q->p)
+```
+
+```{.SynChecker .Match system="gamutPND"  submission="none"}
+1.03 p<->(~q/\r)
+```
+
+```{.SynChecker .Match system="gamutPND"  submission="none"}
+1.04 ~p->(q<->~(p/\r))
+```
+
+
+```{.SynChecker .Match system="gamutPND"  submission="none"}
+1.05 (p<->q)->~r
+```
+
+
+<br>
+
+## Truth-tables
+
+Just fill in the truth-table. If you need a refresher on the rules for the connectives, see [here](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-01.pandoc#truth-tables).
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"  submission="none"}
+1.06 (p->q)\/(q->p)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"  submission="none"}
+1.07 p->(q->p)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"  submission="none"}
+1.08 p<->(~q/\r)
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"  submission="none"}
+1.09 ~p->(q<->~(p/\r))
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms"  submission="none"}
+1.10 (p<->q)->~r
+~~~
+
+
+<br>
+
+## A more local view on truth-tables
+
+These problems relate to [the more local view on truth-tables](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-01.pandoc#a-more-local-view-on-truth-tables).
+
+Consider the truth-table that you did in problem 1.10 for the formula `(p<->q)->~r`. Let $V_i$ be the $i$-th row of the table, so that e.g. $V_1$ is the first row, $V_2$ is the second row, etc. In what follows, there are two short paragraphs relating to these rows. The problems ask you to fill in the blank using the multiple choice question.
+
+<br>
+
+In $V_1$, one has that $V_1\models p$ and $V_1\models q$ and $V_1\models r$ by the clause of Tarski's definition of truth for atomics. From the first two of these things, one has that (i) $V_1\models p\leftrightarrow q$ by the clause of Tarski's definition of truth for the _____________________. From $V_1\models r$ and the clause of Tarski's definition of truth for negation, one has that (ii) it is not the case that $V_1\models \neg r$. Then from (i)-(ii) and  the clause of Tarski's definition of truth for _____________________, one has that it is not the case that $V_1\models (p\leftrightarrow q)\rightarrow \neg r$.
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+1.11 What should you put in the first blank in the above paragraph?
+| conjunction
+| disjunction
+| conditional
+| *biconditional
+```
+
+```{.QualitativeProblem .MultipleChoice  options="check"  submission="none"}
+1.12 What should you put in the second blank in the above paragraph?
+| conjunction
+| disjunction
+| *conditional
+| biconditional
+```
+
+In $V_4$ one has that $V_4\models p$ and it is not the case that $V_4\models q$ and it is not the case that $V_4\models r$. Then by the clause of Tarski's definition of truth for _____________________ one has that (i) $V_4\models \neg r$. And by the clause of Tarski's definition of truth for biconditional one has that (ii) _____________________ $V_4\models p\leftrightarrow q$. Then by (i)-(ii) and the clause of Tarski's definition of truth for _____________________ one has that $V_4\models (p\leftrightarrow q)\rightarrow \neg r$.
+
+```{.QualitativeProblem .MultipleChoice  options="check"  submission="none"}
+1.13 What should you put in the first blank in the above paragraph?
+| conjunction
+| disjunction
+| *negation
+| double-negation
+```
+
+```{.QualitativeProblem .MultipleChoice  options="check"  submission="none"}
+1.14 What should you put in the second blank in the above paragraph?
+| it is the case that
+| *it is not the case that
+| negation
+| conjunction
+```
+
+```{.QualitativeProblem .MultipleChoice  options="check"  submission="none"}
+1.15 What should you put in the third blank in the above paragraph?
+| conjunction
+| disjunction
+| *conditional
+| biconditional
+```
+
+
+
+<br>
+
+## Aristotle and the third figure
+
+These problems relate to [The Aristotelian Syllogisms](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc#summary-of-conversions-and-first-figure).
+
+In Book 1, Chapter 6 of his *Prior Analytics*, Aristotle identifies the following valid arguments, which we list below along with their traditional names. This set of valid arguments are collectively referred to as the "third figure":
+
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Valid argument</th>
+  </tr>
+  <tr>
+    <td>Darapti</td>
+    <td>All M are L, All M are S $\vDash$ Some S are L</td>
+  </tr>
+  <tr>
+    <td>Felapton</td>
+    <td>No M are L, All M are S $\vDash$ Some S are not L</td>
+  <tr>
+    <td>Disamis</td>
+    <td>Some M are L, All M are S $\vDash$ Some S are L</td>
+  </tr>
+  <tr>
+    <td>Datisi</td>
+    <td>All M are L, Some M are S $\vDash$ Some S are L</td>
+  </tr>
+  <tr>
+    <td>Bocardo</td>
+    <td>Some M are not L, All M are S $\vDash$ Some S are not L</td>
+  </tr>
+  <tr>
+    <td>Ferison</td>
+    <td>No M are L, Some M are S $\vDash$ Some S are not L</td>
+  </tr>
+</table>
+
+<br>
+
+Like with the second figure, Aristotle derives the third figure from the first figure and the conversions. For these, see again the [Summary of conversions and first figure](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc#summary-of-conversions-and-first-figure) and [here for a standalone page](https://drive.google.com/file/d/1AZpaIS2Hgb19QozBo2XsKhzsv9taxvd8/view?usp=share_link).
+
+In the following, some proofs of the third figure are presented with some blank spots and you are asked to fill them in using the multiple choice questions.
+
+Proof of Darapti: All M are L, All M are S $\vDash$ Some S are L
+
+1. All M are L :assumption
+2. All M are S :assumption
+3. Some M are L :Fourth Conversion 1
+4. Some L are M :_____________ 3
+5. Some L are S :_____________ 2,4
+6. Some S are L :First Conversion 5
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+1.16 What should you put in the blank in line 4?
+| *First Conversion
+| Second Conversion
+| Third Conversion
+| Fourth Conversion
+```
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+1.17 What should you put in the blank in line 5?
+| Barbara
+| Celarent
+| *Darii
+| Ferio
+```
+
+<br>
+
+Proof of Felapton: No M are L, All M are S $\vDash$ Some S are not L
+
+1. No M are L :assumption
+2. All M are S :assumption
+3. All M are not L :_________ 1
+4. Some S are not L :Darapti 3,2
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+1.18 What should you put in the blank in line 3?
+| First Conversion
+| Second Conversion
+| *Third Conversion
+| Fourth Conversion
+```
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+1.19 Why can we appeal to Darapti at line 4?
+| Darapti is in the second figure.
+| We have already proven Felapton.
+| Darapti is in the first figure.
+| *We have already proven Darapti.
+```
+
+<br>
+
+Proof of Bocardo: Some M are not L, All M are S $\vDash$ Some S are not L
+
+1. Some M are not L :assumption
+2. All M are S :assumption
+3. Some not L are M :_______
+4. Some not L are S :Darii 2,3
+5. Some S are not L :First Conversion 4
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+1.20 What should you put in the blank in line 3?
+| *First Conversion 1
+| First Conversion 2
+| Third Conversion 2
+| Fourth Conversion 2
+```
+
+
+<br>
+<br>
+

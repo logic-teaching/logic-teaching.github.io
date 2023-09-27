@@ -1,0 +1,429 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 8, Section
+
+We practice with problems in classical logic. There's a lot of problems here, and so in section we will need to be selective about which ones we do. Take the others as opportunities for further practice.
+
+- [General remarks about proof checkers and classical proofs](#general-remarks-about-proof-checkers-and-classical-proofs)
+- [Summary of rules](#summary-of-rules)
+- [Problems with no quantifiers](#problems-with-no-quantifiers)
+- [Problems with just equivalences](#problems-with-just-equivalences)
+- [Problems with tautologies and disjunctive syllogism](#problems-with-tautologies-and-disjunctive-syllogism)
+- [Problems with identity](#problems-with-identity)
+
+<br>
+
+## General remarks about proof checkers and classical proofs
+
+In future logic courses, and in all future applications of logic, you will be expected to do proofs like those in this practice problem set *without a proof-checker*, and in a setting where *many many* steps can be skipped, and where often justifications are simply omitted since they are regarded as obvious. It is hard to say apriori how many steps can be skipped in more advanced settings: in those settings, you just have to follow the examples set by the textbooks and the instructor and the relevant literature.  The use of a proof-checker in a course like this is designed to give you some instant feedback, and working with it is a way to ensure that you could, in principle, write out all the steps.
+
+Except for very simple problems, it is still advisable to sketch out by hand, at least in outline, the proof before you turn to the proof-checker. In classical logic the role of doing it by hand has a slightly different purpose than in intuitionistic logic. In intuitionistic logic, there are a lot of subproofs (i.e. brackets, and brackets within brackets), and each rule is keyed to a connective, and so writing it out serves to hone your attention in on the connectives and make plain that the aim is to "meet in the middle." In classical logic, there are in general fewer subproofs, in part because we have added the most frequently used "subproof routines" in as rules (e.g. the disjunctive syllogisms and DeMorgan), and looking at the connectives is no longer a particularly reliable guide as to which rule to apply.
+
+Each of the problems comes with a hint about what rules to apply. Try to write out by hand, at least in a sketch, how you would deploy those rules in the given setting. E.g. if the hint is to apply positive disjunctive syllogism and there is not a disjunction sitting in a premise, then you know that you will have to prove a disjunction. And outside of disjunction introduction, you know that one way to acquire disjunctions is with some propositional DeMorgan. This is the kind of strategizing one does in these problems in classical predicate logic: the rules now contain a lot of "subproof routines" as primitive rules, and the art and strategy that you delploy is how to put them together.
+
+<br>
+
+## Summary of rules
+
+We [repeat](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-01-solutions.pandoc#summary-of-rules) for reference a summary of all the additional rules available in our system of classical predicate logic:
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>Law of excluded middle</td>
+    <td>`LEM`</td>
+    <td>$\phi\vee \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>The law of double-negation</td>
+    <td>`DN`</td>
+    <td>$\phi$ is equivalent to $\neg \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of non-contradiction</td>
+    <td>`LNC`</td>
+    <td>$\neg (\phi\wedge \neg \phi)$</td>
+  </tr>
+ <tr>
+    <td>DeMorgan</td>
+    <td>`DMSOME`</td>
+    <td>$\neg \forall \; x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMALL`</td>
+    <td>$\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMOR`</td>
+    <td>$\neg (\phi\wedge \psi)$ is equivalent to $\neg \phi \vee \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMAND`</td>
+    <td>$\neg (\phi\vee \psi)$ is equivalent to $\neg \phi \wedge \neg \psi$</td>
+  </tr>
+ <tr>
+    <td>(Positive) Disjunctive syllogism</td>
+    <td>`PDS`</td>
+    <td>$\phi\vee \psi, \neg \phi \vdash \psi$</td>
+  </tr>
+  <tr>
+    <td>(Negative) disjunctive syllogism</td>
+    <td>`NDS`</td>
+    <td>$\neg (\phi\wedge \psi), \phi \vdash \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>Negated conditionals and conjunctive statements</td>
+    <td>`NC`</td>
+    <td>$\neg (\phi \rightarrow \psi)$ is equivalent to $\phi \wedge \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>Conditionals and disjunctive statements</td>
+    <td>`DC`</td>
+    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \phi \vee \psi$</td>
+  </tr>
+  <tr>
+    <td>Contraposition</td>
+    <td>`CP`</td>
+    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \psi\rightarrow \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Modus tollens</td>
+    <td>`MT`</td>
+    <td>$\phi\rightarrow \psi, \neg \psi \vdash \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of commutativity for conjunction</td>
+    <td>`LCC`</td>
+    <td>$\phi\wedge \psi$ is equivalent to $\psi\wedge \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of commutativity for disjunction</td>
+    <td>`LCD`</td>
+    <td>$\phi\vee \psi$ is equivalent to $\psi\vee \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of associativity for conjunction</td>
+    <td>`LAC`</td>
+    <td> $(\phi\wedge \psi)\wedge \xi$ is equivalent to $\phi\wedge (\psi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of associativity for disjunction</td>
+    <td>`LAD`</td>
+    <td>$(\phi\vee \psi)\vee \xi$ is equivalent to $\phi\vee (\psi\vee \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of distribution for conjunction</td>
+    <td>`LDC`</td>
+    <td>$\phi\wedge (\psi\vee \xi)$ is equivalent to $(\phi\wedge \psi)\vee (\phi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of distribution for disjunction</td>
+    <td>`LDD`</td>
+    <td>$\phi\vee (\psi\wedge \xi)$ is equivalent to $(\phi\vee \psi)\wedge (\phi\vee \xi)$</td>
+  </tr>
+ <tr>
+    <td>Introduction rule for identity</td>
+    <td>`I=`</td>
+    <td>$a=a$</td>
+  </tr>
+  <tr>
+    <td>Elimination rule for identity</td>
+    <td>`E=`</td>
+    <td> $a=b, \phi(a) \vdash \phi(b)$</td>
+  </tr>
+  <tr>
+    <td>Introduction rule for $\iota$</td>
+    <td>`Ii`</td>
+    <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))\vdash F\iota x Fx$</td>
+  </tr>
+  <tr>
+    <td>Elimination rule for $\iota$</td>
+    <td>`Ei`</td>
+    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))$</td>
+  </tr>
+</table>
+
+<br>
+
+On the final exam, we will give you this table for reference, since our main aim is to learn to do proofs, and since the abbreviations for these rules are less established and a little more of a matter of convention, in part since in more advanced settings justifications are simply omitted. However, that said, it might be useful to memorize this table, since it helps one go faster and is usually a good way to reinforce learning and get a sense of how to combine these rules together in strategies. (While we will give this table for reference on the final exam, we will still ask that you memorize the introduction and elimination rules for the propositional connectives and quantifiers, along with ex falso).
+
+<br>
+
+## Problems with no quantifiers
+
+<br>
+
+*Problem 1*.
+
+This first one is just practice applying commutativity of conjunction to a part of the given formula. There is a  proof of this one using commutativity which is a total of two lines.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.01 Fa/\(Fb/\Fc)  :|-: Fa/\(Fc/\Fb)
+|Fa/\(Fb/\Fc) :assumption
+```
+
+<br>
+
+*Problem 2*.
+
+This next one extends the previous one by adding on an application of associativity and commutativity at the end.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.02 Fa/\(Fb/\Fc)  :|-: (Fc/\Fa)/\Fb
+|Fa/\(Fb/\Fc) :assumption
+```
+
+<br>
+
+*Problem 3*.
+
+This one is a slightly different combination of commutativity and associativity than the previous one.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.03 Fa/\((Fb/\Fc)/\Fd)  :|-: (Fb/\Fa)/\(Fd/\Fc)
+|Fa/\((Fb/\Fc)/\Fd) :assumption
+```
+
+<br>
+
+*Problem 4*.
+
+This one is just an application of distribution followed by two applications of commutativity. Don't let the presence of negations throw you-- just view the ~Fa, ~Fb, ~Fc as formulas in and of themselves.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.04 ~Fa/\(~Fb\/~Fc) :|-: (~Fb/\~Fa)\/(~Fc/\~Fa)
+|~Fa/\(~Fb\/~Fc) :assumption
+```
+
+<br>
+
+*Problem 5*.
+
+This one is just like the previous one. Don't let the presence of the arrow distract you-- just start modifying the antecedent just like you did in the previous problem. *This then illustrates that the equivalences in our system can be applied to subformulas as well as to the main formula.*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.05 (~Fa/\(~Fb\/~Fc))->Fd :|-: ((~Fb/\~Fa)\/(~Fc/\~Fa))->Fd
+|(~Fa/\(~Fb\/~Fc))->Fd :assumption
+```
+
+<br>
+
+## Problems with just equivalences
+
+<br>
+
+
+*Problem 6*
+
+This one is practice with DeMorgan plus a little bit of distribution. Compared to our [earlier](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#demorgan-for-the-quantifiers) by-hand work with DeMorgan, it will seem painfully slow to have to justify each line with the appropriate instance of DeMorgan. The place where you are presently at with DeMorgan on the basis of our earlier work is the place you are trying to get to with all of the rules we have added to our classical logic.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.06 ~AxEyAz(~Fx\/(~Gx/\~Hx)) :|-: ExAyEz((Fx/\Gx)\/(Fx/\Hx))
+|~AxEyAz(~Fx\/(~Gx/\~Hx)) :assumption
+```
+
+<br>
+
+*Problem 7*
+
+For this one, think about using distribution and DeMorgan. And before you begin, sketch out how the proof of $(\forall \; x \; \phi(x)\wedge \psi(x))\vdash \forall \; x \; \phi(x)$ goes.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.07 Ax((Fx/\Gx)\/(Fx/\Hx)), AxFx->~AxEyRxy  :|-: ExAy~Rxy
+|Ax((Fx/\Gx)\/(Fx/\Hx)) :assumption
+|AxFx->~AxEyRxy :assumption
+```
+
+<br>
+
+*Problem 8*
+
+For this one, think about using some double-negation and DeMorgan and associativity. Before you begin, sketch out how the proof of $\exists \; x \; \phi(x)\vdash \exists \; x \; \exists \; y \; (\phi(x)\vee \phi(y))$ goes.
+
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.08 ~~ExFx, ExEy(Fx\/Fy)->(Ga/\(~~Gb/\Gc)) :|-: (Ga/\Gb)/\Gc
+|~~ExFx :assumption
+|ExEy(Fx\/Fy)->(Ga/\(~~Gb/\Gc)) :assumption
+```
+
+<br>
+
+*Problem 9*
+
+For this one, try to start out with some elimination of universal, turn to introduction of conjunction, and then think about the other distribution rule, and try to finish it off with some introduction of existential. There's some commutativity of disjunction that gets deployed in the middle of the proof as well.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.09 AxFx, (Fa/\(Fb/\Fc))->((Ga\/Gb)/\(Gc\/Ga)) :|-:ExEyEz(Gx\/(Gy/\Gz))
+|AxFx :assumption
+|(Fa/\(Fb/\Fc))->((Ga\/Gb)/\(Gc\/Ga)) :assumption
+```
+
+<br>
+
+*Problem 10*
+
+Despite having a lot of quantifiers in it, this one can be done without using the rules for the quantifiers. Rather, one can just use DeMorgan together with distribution.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.10 ~ExEyEz(Gx\/(Gy/\Gz)) :|-: AxAyAz(~(Gx\/Gy)\/~(Gx\/Gz))
+|~ExEyEz(Gx\/(Gy/\Gz)) :assumption
+```
+
+<br>
+
+
+
+<br>
+
+## Problems with tautologies and disjunctive syllogism
+
+<br>
+
+*Problem 11*
+
+This one is practice with DeMorgan and positive disjunctive syllogism. The last part of it is an exercise in existential elimination. For this part, consider sketching out the proof of $\exists \; y \; Say, \forall \; x \; \forall \; y \; (Sxy\rightarrow Rxc)\vdash Rac$ before beginning.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.11 AxEyRxy\/AxEySxy, ExAy~Rxy, AxAy(Sxy->Rxc) :|-: Rac
+|AxEyRxy\/AxEySxy :assumption
+|ExAy~Rxy :assumption
+|AxAy(Sxy->Rxc) :assumption
+```
+
+<br>
+
+*Problem 12*
+
+This one begins with a negative disjunctive syllogism, and then one has to end with an existential elimination. For this last part, consider sketching out the proof of $\exists \; y \; (Fb\vee Rby), \neg Fb \vdash \exists \; y \; Rby$ first; note that the bracket will require another disjunctive syllogism.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.12 ~(Fa/\ExAy~(Fx\/Rxy)), Fa, ~Fb :|-: EyRby
+|~(Fa/\ExAy~(Fx\/Rxy)) :assumption
+|Fa :assumption
+|~Fb :assumption
+```
+
+<br>
+
+*Problem 13*
+
+For this one use law of excluded middle and DeMorgan to get the antecedent of the first assumption. Then wrap it up with some modus tollens.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.13 (Ax(~Fx\/~Gx)\/Ex(Fx/\Gx))->(Fa->Fb), ~Fb :|-: ~Fa
+|(Ax(~Fx\/~Gx)\/Ex(Fx/\Gx))->(Fa->Fb) :assumption
+|~Fb :assumption
+```
+
+<br>
+
+*Problem 14*
+
+For this one, try some repeated modus tollens and then positive disjunctive syllogism.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.14 Raa->Rbb, Rbb->Rcc, Rcc->Rdd, ~Rdd, AxRxx\/AxSxx:|-: Saa
+|Raa->Rbb :assumption
+|Rbb->Rcc :assumption
+|Rcc->Rdd :assumption
+|~Rdd :assumption
+|AxRxx\/AxSxx :assumption
+```
+
+
+<br>
+
+*Problem 15*
+
+For this one, just use the principle of non-contradiction to get the antecedent.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.15 AxAy(~(Rxx/\~Rxx)->Ryy) :|-: AyRyy
+|AxAy(~(Rxx/\~Rxx)->Ryy) :assumption
+```
+
+<br>
+
+## Problems with identity
+
+<br>
+
+*Problem 16*
+
+This one involves the elimination rule for identity plus a little disjunction elimination.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.16 Fa, Gb, Ax(x=a\/x=b)  :|-: Ax(Fx\/Gx)
+|Fa :assumption
+|Gb :assumption
+|Ax(x=a\/x=b) :assumption
+```
+
+<br>
+
+*Problem 17*
+
+This one involves the introduction rule for identity together with a little distribution `LDC`.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+08.17 AxAy(x=y->(Fx\/Gy))  :|-: AxAy(((Fx\/Gx)/\Fy)\/((Fx\/Gx)/\Gy))
+|AxAy(x=y->(Fx\/Gy)) :assumption
+```
+
+<br>
+
+*Problem 18*
+
+Once you unpack a little, the premises of this one tell you that there is exactly one F. Start by isolating those parts to let you introduce "the F".
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+08.18 Fa/\Ga, Ay(Fy->y=a) :|-: GixFx
+|Fa/\Ga :assumption
+|Ay(Fy->y=a) :assumption
+```
+
+<br>
+
+*Problem 19*
+
+This is just a proof that shows that if "the F" is not "the [insert contradiction]", and if "the F is identical to a", then "Fa".
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+08.19 ~ixFx=ix⊥, a=ixFx :|-: Fa
+|~ixFx=ix⊥ :assumption
+|a=ixFx :assumption
+```
+
+<br>
+
+*Problem 20*
+
+For this one, you should be able to take your proof of the previous and simply replace `Fx` by `Fx/\Gx`. While mechanical, there will be some steps in this simple proof that become challenging to parse.
+
+```{.ProofChecker .GamutNDDesc submission="none"}
+08.20 ~ix(Fx/\Gx)=ix⊥, a=ix(Fx/\Gx) :|-: Fa/\Ga
+|~ix(Fx/\Gx)=ix⊥ :assumption
+|a=ix(Fx/\Gx) :assumption
+```

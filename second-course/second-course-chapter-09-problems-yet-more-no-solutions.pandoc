@@ -1,0 +1,449 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+
+# Week 9 Tutoring
+
+<br>
+
+- [Proof or countermodel](#proof-or-countermodel)
+- [Proof or countermodel with equivalence relations](#proof-or-countermodel-with-equivalence-relations)
+- [Second-order logic](#second-order-logic)
+
+
+<br>
+
+
+## Proof or countermodel
+
+<br>
+
+*Problem 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.01 Ex(Fx\/Gx), Ex(Fx\/~Gx) :|-: Ex(~Fx\/Gx)
+|Ex(Fx\/Gx) :assumption
+|Ex(Fx\/~Gx) :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
+09.01 Ex(Fx\/Gx), Ex(Fx\/~Gx) :|-: Ex(~Fx\/Gx)
+|Domain:
+|F(_):
+|G(_):
+```
+
+<br>
+
+*Problem 2*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.02 Fa->AxGx, Ex(~Gx/\Fx)  :|-: ~Fa
+|Fa->AxGx :assumption
+|Ex(~Gx/\Fx) :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
+09.02 Fa->AxGx, Ex(~Gx/\Fx)  :|-: ~Fa
+|Domain:
+|F(_):
+|G(_):
+|a:
+```
+
+<br>
+
+*Problem 3*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.03  Ex(Fx\/~Gx), Ax(Fx->Hx) :|-: Ex(Hx/\~Gx)
+|Ex(Fx\/~Gx :assumption
+|Ax(Fx->Hx) :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
+09.03 Ex(Fx\/~Gx), Ax(Fx->Hx) :|-: Ex(Hx/\~Gx)
+|Domain:
+|F(_):
+|G(_):
+|H(_):
+```
+
+<br>
+
+*Problem 4*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.04 Ax(~Fx->Gx), Ax(Fx->Gx) :|-: Ax((~Fx/\Gx)\/(Fx/\~Gx))
+|Ax(~Fx->Gx) :assumption
+|Ax(Fx->Gx) :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
+09.04  Ax(~Fx->Gx), Ax(Fx->Gx) :|-: Ax((~Fx/\Gx)\/(Fx/\~Gx))
+|Domain:
+|F(_):
+|G(_):
+```
+
+<br>
+
+*Problem 5*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.05 (Fa->Fb)->(Fc->Fd) :|-: Fb->(Fc->Fd)
+|(Fa->Fb)->(Fc->Fd) :asssumption
+| Fb :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
+09.05  (Fa->Fb)->(Fc->Fd) :|-: Fb->(Fc->Fd)
+|Domain:
+|F(_):
+|a:
+|b:
+|c:
+|d:
+```
+
+<br>
+
+## Proof or countermodel with equivalence relations
+
+Before starting this section, consider reviewing the definition of equivalence relation from [the Week 4 tutoring document](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations). The basic idea is that an equivalence relation is a notion of similarity among objects which acts like identity in a lot of ways: I am similar to myself (reflexivity), if I am similar to you, then you are similar to me (symmetry), if I am similar to you, and you are simliar to a third person, then I am similar to this third person (transitivity). Hence, use your intuitions about similarity to help guide you through the problems. Another fact about equivalence relations to keep in mind is: they partition the domain into disjoint classes (called equivalence classes). For instance, assuming double-majors are not allowed, then "sameness of major" would partition the students into disjoint groups, namely the majors.
+
+
+<br>
+
+*Problem 6*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.06 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~a=b, Rab, ~c=d, Rcd :|-: Rac
+|AxRxx :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+|~a=b :assumption
+|Rab :assumption
+|~c=d :assumption
+|Rcd :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
+09.06 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~a=b, Rab, ~c=d, Rcd :|-: Rac
+|Domain:
+|R(_,_):
+|a:
+|b:
+|c:
+|d:
+```
+
+<br>
+
+*Problem 7*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.07 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~a=b, Rab, ~c=b, Rcb  :|-: Rac
+|AxRxx :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+|~a=b :assumption
+|Rab :assumption
+|~c=b :assumption
+|Rcb :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
+09.07 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~a=b, Rab, ~c=d, Rcb  :|-: Rac
+|Domain:
+|R(_,_):
+|a:
+|b:
+|c:
+```
+
+<br>
+
+*Problem 8*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.08 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ExEy(Rxy/\~x=y) :|-: ExEy(Ryx/\~x=y)
+|AxRxx :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+|ExEy(Rxy/\~x=y) :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
+09.08 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ExEy(Rxy/\~x=y) :|-: ExEy(Ryx/\~x=y)
+|Domain:
+|R(_,_):
+```
+
+<br>
+
+*Problem 9*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.09 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ExEy(Rxy/\~x=y) :|-: ExEy(~Ryx/\~x=y)
+|AxRxx :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+|ExEy(Rxy/\~x=y) :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
+09.09  AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ExEy(Rxy/\~x=y) :|-: ExEy(~Ryx/\~x=y)
+|Domain:
+|R(_,_):
+```
+
+<br>
+
+*Example 10*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.10 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~Rab, ~Rbc :|-: ~Rac
+|AxRxx :assumption
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+|~Rab :assumption
+|~Rbc :assumption
+```
+
+```{.CounterModeler .Validity system="gamutND" options="negated-double-turnstile" submission="none"}
+09.10 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~Rab, ~Rbc :|-: ~Rac
+|Domain:
+|R(_,_):
+|a:
+|b:
+|c:
+```
+
+<br>
+
+## Second-order logic
+
+
+<br>
+
+*Problem 11*
+
+This problem has two parts, where we use the key:
+
+| F = French-major
+| H = Happy
+| a = Ashley
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+09.11.1 Ax(Hx->Fx)->Fa : If all the happy people are French majors, then Ashley is a French major.
+|
+~~~
+
+For this one, just replace `Fx` in your previous answer by `X1x`, and replace `Fa` in your previous answer by `X1a`, and put a universal quantifier out front:
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+09.11.2 AX1(Ax(Hx->X1x)->X1a) : For all properties that are entailed by being happy, Ashley has that property.
+|
+~~~
+
+More colloquially, we might say: "Ashley has all the properties entailed by being happy."
+
+
+<br>
+
+*Problem 12*
+
+In lecture, we just worked with second-order quantifiers over one-place properties, whose variables were `X1`, `Y1`, `Z1` etc. We can also do the same thing for two-place properties, whose variables are `X2`, `Y2`, `Z2`
+
+This problem has two parts, where we use the key:
+
+| T = trusts
+| a = Ashley
+| b = Brian
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+09.12.1 (Tab/\~Tba)->Ey(Tay/\~Tya) : If Ashley trusts Brian but Brian does not trust Ashley, then someone is such that Ashley trusts them but they do not trust Ashley.
+|
+~~~
+
+For this next one, take the antecedent and form the consequent by replacing `T` by `X2` and then add an existential quantifier over `X2` at the front:
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+09.12.2 (Tab/\~Tba)->EX2(X2ab/\~X2ba) : If Ashley trusts Brian but Brian does not trust Ashley, then some two-place relation is such that Ashely and Brian stand in it but Brian and Ashely do not.
+|
+~~~
+
+<br>
+
+*Problem 13*
+
+This problem has two parts, both which are practice with `IE1` (that is, introduction of existential for properties). Note that there is `1` at the end of `IE1` to indicate that we are concerned with one-place properties. Hence, the justifications will look like `:IE1 n`, where `n` is the line number. That is, note that there are now two numbers showing up in the justifications.
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+09.13.1 Fa/\Ga :|-: EX1EY1(X1a/\Y1a)
+|Fa/\Ga :assumption
+```
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+09.13.2 Rab->Rac :|-: EX1(X1b->X1c)
+|Rab->Rac :assumption
+```
+<br>
+
+
+*Problem 14*
+
+This problem asks you to verify that if we define identity as "sharing of properties", then identity is reflexive and symmetric. In the homework, we ask you to prove that it is transitive.
+
+
+The proof of reflexivity is not so bad. One just has to "work from the bottom." The last line is going to be justified by `IA n` where `n` is the number of the second-to-last line, and the second-to-last line is going to be justified by `IA1 n-1`. Then it is just a matter of getting an arrow statement.
+
+and the second to last
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+09.14.1 :|-: AxAX1(X1x->X1x)
+```
+
+The proof of symmetry is harder. Conceptually, the proof goes like this. Suppose $b$ has all of $a$'s properties. To show that $a$ has all of $b$'s properties, consider a property $Y$ such that $Yb$ (i.e. $b$ has it). Then $b$ does not have $\neg Y$, i.e. $\neg\neg Yb$. Then $a$ does not have $\neg Y$, since if $a$ had $\neg Y$, then too $b$ would have to have $\neg Y$. Hence, since $a$ does not have $\neg Y$, it follows that $\neg\neg Ya$, which is the same as $Ya$. To implement this proof idea in our system, one has to think hard about how one "names" the property $\neg Y$ in our system.
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+09.14.2 AX1(X1a->X1b) :|-: AY1(Y1b->Y1a)
+|AX1(X1a->X1b) :assumption
+```
+
+<br>
+
+*Problem 15*
+
+This is a follow-up to Problem 12. As mentioned there, in lecture, we just worked with second-order quantifiers over one-place properties, whose variables were `X1`, `Y1`, `Z1` etc. We can also do the same thing for two-place properties, whose variables are `X2`, `Y2`, `Z2`. To do proofs with this, we need to specify the deductive rules:
+
+<table style="width:125%">
+  <tr>
+    <th>Name</th>
+    <th>Rule</th>
+    <th>Rule, typed</th>
+    <th>Abbreviation</th>
+  </tr>
+  <tr>
+    <td>Application</td>
+    <td>$\lambda x \lambda y. [ϕ(x,y)]ab \vdash ϕ(a,b)$</td>
+    <td>`\x\y[ϕ(x,y)]ab ⊢ ϕ(a,b)` or `λxλy[ϕ(x,y)]a ⊢ ϕ(a,b)` </td>
+    <td>`APP2`</td>
+  </tr>
+  <tr>
+    <td>Abstraction</td>
+    <td>$ϕ(a,b) \vdash \lambda x. \lambda y.[ϕ(x,y)]ab$</td>
+    <td>`ϕ(a,b) ⊢ \x\y[ϕ(x,y)]ab` or `ϕ(a,b) ⊢ λxλy[ϕ(x,y)]ab` </td>
+    <td>`ABS2`</td>
+  </tr>
+  <tr>
+    <td>Introduction of second-order existential</td>
+    <td>$\psi(\lambda x.\lambda y. [ϕ(x,y)]) \ldots \vdash \exists \; X \; \psi(X)$</td>
+    <td>`ψ(\x\y[ϕ(x,y)]) ⊢ EX2 ψ(X2)` or `ψ(λxλy[ϕ(x,y)]) ⊢ EX2 ψ(X2)` </td>
+    <td>`IE2`</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>or `ψ(λxλy[ϕ(x,y)]) ⊢ EX2 ψ(X2)` </td>
+    <td>
+  </tr>
+  <tr>
+    <td>Elimination of second-order universal</td>
+    <td>$\forall \; X \; \psi(X) \vdash \psi(\lambda x \lambda y. [ϕ(x,y)])$</td>
+    <td>`AX2 ψ(X2) ⊢ ψ(\x\y[ϕ(x,y)])` or `AX2 ψ(X2) ⊢ ψ(λxλy[ϕ(x,y)])` </td>
+    <td>`EA2`</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>or `AX2 ψ(X2) ⊢ ψ(λxλy[ϕ(x,y)])` </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Introduction of second-order universal</td>
+    <td>$\psi(Y) \vdash \forall \; X \; \psi(X)$</td>
+    <td>`ψ(Y2) ⊢ AX2 ψ(X2)` </td>
+    <td>`IA2`</td>
+  </tr>
+  <tr>
+    <td>Elimination of second-order existential</td>
+    <td>$\exists \; X \; \psi(X), \psi(Y)\rightarrow \xi \vdash \xi$</td>
+    <td>`EX2 ψ(X2), ψ(Y2)->ξ ⊢ ξ` </td>
+    <td>`EE2`</td>
+  </tr>
+</table>
+
+
+<br>
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+09.15 Rab, ~Rcd :|-: EX2(X2ab/\~X2cd)
+|Rab :assumption
+|~Rcd :assumption
+```
+
+<br>
+
+*Problem 16*
+
+This too is a problem with two-place properties. It will involve an ordinary first-order `IE n`, where `n` is the relevant line number. Note that since we are working in second-order logic, it prefers that this be written as `IE n` (with a space), rather than as `IEn` (since it confuses that with n-place property existential introduction).
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+ ~Rac, AX2(EzX2az->EzX2bz) :|-: Ez~Rbz
+|~Rac :assumption
+|AX2(EzX2az->EzX2bz) :assumption
+```
+
+<br>
+
+*Problem 17*
+
+The point of introducing the lambda-terms is as names for properties, so that we do not have to do a bunch of existential elimination to deal with the comprehension schema in our proofs. (In settings where one is constructing less formally rigorous proofs, one often just works with the comprehension schema directly). This problem asks you to show that some instances of the comprehension schema is valid in our logic. *Hint*: organize the proof so that the last line is justified by `IE1 n`, where n is the second-to-last line, and where the second-to-last line reads `Ax((Fx->\y[Fy]x)/\(\y[Fy]x->Fx))`.
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+09.17 :|-: EX1Ax((Fx->X1x)/\(X1x->Fx))
+```
+
+<br>
+
+*Problem 18*
+
+This is the contrapositive of the identity of indiscernbiles. *Hint*: the second-to-last line should be `\x[a=x]a/\~\x[a=x]b`. And remember the canonical way to get a negation is with negation introduction, which involves a bracket.
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+09.18 ~a=b :|-: EX1(X1a/\~X1b)
+|~a=b :assumption
+```
+
+<br>
+
+*Problem 19*
+
+Suppose that one's theory is $(Fa->Ga)\wedge Fa$. Suppose that $F$ is the theoretical vocabulary and $G,a$ are the observational vocabulary.
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+09.19 EX1((X1a->Ga)/\X1a) : What is the Ramsey sentence of the theory?
+|
+~~~
+
+<br>
+
+*Problem 20*
+
+The key feature of the Ramsey sentence of a theory is that it has the same observational consequences as the theory. In the example from Problem 19, an obvious observational consequence is that $Ga$. Show that this can be derived from the Ramsey sentence for the theory. (To get started, put your answer from Problem 19 in as the assumption).
+
+~~~{.Playground .GamutNDSOL}
+~~~

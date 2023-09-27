@@ -1,0 +1,454 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 4, Lecture 1, Consequence
+
+We define consequence and look at several examples of valid and invalid arguments.
+
+- [Valid arguments](#valid-arguments)
+- [Universal Elimination and Existential Introduction](#universal-elimination-and-existential-introduction)
+- [Tautologies and equivalences from propositional logic](#tautologies-and-equivalences-from-propositional-logic)
+- [DeMorgan for the quantifiers](#demorgan-for-the-quantifiers)
+- [Tarski on consequence](#tarski-on-consequence)
+- [Graphs of functions and predicate logic](#graphs-of-functions-and-predicate-logic)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Valid arguments
+
+Intuitively, an argument is valid if whenever its premises are true, its conclusion is true. In this, an *argument* is understood to be a list of premises $\phi_1, \ldots, \phi_n$ together we a conclusion $\phi$. Now that we have [defined truth in a model following Tarski](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model), we can present a formal definition of validity.
+
+We define an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ to be *valid* if for any model $\mathcal{M}$ which interprets all of the constants and relation symbols in the argument, one has that if $\mathcal{M}\models \phi_1, \ldots, \mathcal{M}\models \phi_n$, then $\mathcal{M}\models \phi$. Models are our representations of situations or circumstances or "how things stand in some region or part of the world, at some scale." Hence, a valid argument is one such that in any situation in which the premises are all true, the conclusion is also true.
+
+We use the consequence relation $\vDash$ to symbolize that an argument is valid. We do this by writing the premises to the left of the symbol and the conclusion to the right of the symbol. That is, $\phi_1, \ldots, \phi_n\vDash \phi$ is just another way of saying that "the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ is valid." One sometimes says this out loud as "$\phi_1, \ldots, \phi_n$ validly implies $\phi$" or "$\phi_1, \ldots, \phi_n$ entails $\phi$," or "$\phi$ is a consequence of $\phi_1, \ldots, \phi_n$" or "$\phi$ is a logical consequence of $\phi_1, \ldots, \phi_n$."
+
+Recall that the consequence relation $\vDash$ is negated by putting a vertical stroke though it like this $\nvDash$. Hence, $\phi_1, \ldots, \phi_n\nvDash \phi$ means that there is a model $\mathcal{M}$ such that $\mathcal{M}\models \phi_1$, . . ., $\mathcal{M}\models \phi_n$, and in addition $\mathcal{M}\models \neg \phi$. One says $\phi_1, \ldots, \phi_n\nvDash \phi$ out loud as "the argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ is not valid" or "$\phi_1, \ldots, \phi_n$ does not validly imply $\phi$" or "$\phi_1, \ldots, \phi_n$ does not entail $\phi$", or "$\phi$ is not a consequence of $\phi_1, \ldots, \phi_n$", or "$\phi$ is not a logical consequence of $\phi_1, \ldots, \phi_n$." [^1]
+
+[^1]: In the body of the lecture, we worked with a finite set of premises $\phi_1, \ldots, \phi_n$. This was inessential, and sometimes it is natural to work with infinite set of premises $\phi_1, \ldots, \phi_n, \ldots$, where the intended interpretation is that this list of $\phi_n$'s just keeps going as far as there are natural numbers. It will not come up too much in this course, and so we do not thematize it. A natural example of a premise set which isinfinite is the set: "there is at least one F", "there are at least two F's", "there are at least three F's", etc.
+
+Note that validity is a *universal* claim about models, while invalidity is a *existential* claim about models. That is, to say that an argument is valid is to endorse a claim about *all* models, while to say that an argument is invalid is to endorse a claim about *some* models. While we are using validity and invalidity to teach ourselves important features of predicate logic, it cannot escape notice that we are using core features of predicate logic, namely the universal and existential quantifiers, in order to define validity and invalidity. This is a kind of circle, and it is hard-- even for those ensconced in the philosophy of logic-- to say more about what kind of circle it is. For the moment, we can say: it is quite similar to how one had to already have some inkling of conjunction in order to apply the truth-table for conjunction in filling out truth-tables, and yet one still learned something about conjunction -- perhaps something about its larger place in our reasoning-- by learning about how it acts in truth-tables.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Universal Elimination and Existential Introduction
+
+<br>
+
+Here are the simplest examples of valid arguments:
+
+<br>
+
+*Example 1*: $\forall x \; Fx\vDash Fa$.
+
+For, suppose that $\mathcal{M}$ is a model interpreting all the constant and relation symbols in the premise and conclusion, and suppose that the premise is true in $\mathcal{M}$, i.e. suppose that  $\mathcal{M}\models \forall \; x \; Fx$. Then by the universal clause [in Tarski's definition of truth](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model), we have $\mathcal{M}\models Fc$ for all constant symbols $c$ in the signature. The signature of the model includes $a$ since this constant symbol features in the conclusion of the argument. Then $\mathcal{M}\models Fa$.
+
+<br>
+
+*Example 2*: $\forall x \; Rxa\vDash Raa$.
+
+For, suppose that $\mathcal{M}$ is a model interpreting all the constant and relation symbols in the premise and conclusion, and suppose that the premise is true in $\mathcal{M}$, i.e. suppose that $\mathcal{M}\models \forall \; x \; Rxa$. Then by the universal clause in Tarski's definition of truth, we have $\mathcal{M}\models Rca$ for all constant symbols $c$ in the signature. The signature of the model includes $a$ since this constant symbol features in the conclusion of the argument. Then $\mathcal{M}\models Raa$.
+
+<br>
+
+What these two previous examples have in common is this:
+
+*Example 3* (Universal Elimination): $\forall \; x \; \phi(x)\vDash \phi(a)$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
+
+For, suppose that $\mathcal{M}$ is a model interpreting all the constant and relation symbols in the premise and conclusion, and suppose that the premise is true in $\mathcal{M}$, i.e. suppose that $\mathcal{M}\models \forall \; x \; \phi(x)$. Then by the universal clause in Tarski's definition of truth, we have $\mathcal{M}\models \phi(c)$ for all constant symbols $c$ in the signature, where $\phi(c)$ results from $\phi(x)$ by replacing all instances of $x$ by $c$. The signature of the model includes $a$ since this constant symbol features in the conclusion of the argument. Then $\mathcal{M}\models \phi(a)$.
+
+<br>
+
+In the three previous examples, we explicitly said that the model "inteprets all the constant and relation symbols in the premises and conclusion." This gets tiresome to say again and again, so we just drop it from the proofs in what follows, although it is presupposed that the model can handle any of the symbols showing up.
+
+<br>
+
+*Example 4*: $Fa\vDash \exists \; x \; Fx$.
+
+For, suppose that $\mathcal{M}\models Fa$. Then by the existential clause in Tarski's definition of truth, we have that $\mathcal{M}\models \exists \; x \; Fx$.
+
+<br>
+
+*Example 5*: $Raa\vDash \exists \; x \; Rxa$.
+
+For, suppose that $\mathcal{M}\models Raa$. Then by the existential clause in Tarski's definition of truth, we have that $\mathcal{M}\models \exists \; x \; Rxa$, since $Raa$ results from $Rxa$ by replacing all instances of $x$ by $a$.
+
+<br>
+
+What these two previous examples have in common is this:
+
+*Example 6* (Existential Introduction): $\phi(a)\vDash \exists \; x \; \phi(x)$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
+
+For, suppose that $\mathcal{M}\models \phi(a)$. Then by the existential clause in Tarski's definition of truth, we have that $\mathcal{M}\models \exists \; x \; \phi(x)$.
+
+<br>
+
+It is clear that the converse these examples does not hold. We illustrate this with respect to the simplest ones:
+
+<br>
+
+*Example 7*:
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ Fa :|-: AxFx
+|Domain:0,1
+|F(_):0
+|a:0
+```
+
+<br>
+
+*Example 8*:
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ ExFx :|-: Fa
+|Domain:0,1
+|F(_):1
+|a:0
+```
+
+<br>
+
+*Example 9*: $\forall \; x \; \forall \; y \; Rxy\vDash \forall \; x \; Rxx$.
+
+Suppose that $\mathcal{M}\models \; \forall \; x \; \forall \; y \; Rxy$. To show $\mathcal{M}\models \; \forall \; x \; Rxx$, suppose that $c$ is a constant symbol. We must show that $\mathcal{M}\models Rcc$. But by the premise and universal elimination, we have that $\mathcal{M}\models \; \forall \; y \; Rxc$. Then by universal elimination again, we have that $\mathcal{M}\models Rcc$.
+
+<br>
+
+*Example 10*: $\exists \; y \; Ray$, $\forall \; y \; (Ray\rightarrow Rby)$ $\vDash$ $\exists \; y \; Rby$.
+
+For, suppose that $\mathcal{M}\models \exists \; y \; Ray$ and $\mathcal{M}\models \forall \; y \; (Ray\rightarrow Rby)$. By the first premise and the clause of Tarski's definition of truth for existentials, choose constant $c$ such that $\mathcal{M}\models Rac$. By the second premise and universal elimination, one has $\mathcal{M}\models Rab\rightarrow Rbc$. Then by the clause of Tarski's definition of truth for the conditional, one has $\mathcal{M}\models Rbc$. By existential introduction, one has $\mathcal{M}\models \exists \; y \; Rby$.
+
+<br>
+
+There are duals to universal elimination and existential introduction, namely universal introduction and existential elimination. We will explore these this week in homework sets and thematize them more explicitly when we turn to deductive systems.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Tautologies and equivalences from propositional logic
+
+A *tautology* is simply a formula $\phi$ which is always true, in the sense that for all models $\mathcal{M}$ one has that $\mathcal{M}\models \phi$. Hence, a tautology is the same thing as a valid argument with no premises.
+
+Two formulas $\phi, \psi$ are *equivalent* if $\phi\leftrightarrow \psi$ is a tautology. That is, for all models $\mathcal{M}$, one has $\mathcal{M}\models \phi$ if and only if $\mathcal{M}\models \psi$. Intuitively, equivalent formulas are true in exactly the same situations.
+
+All of [the tautologies and equivalences of propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-section-no-solutions.pandoc#list-of-named-tautologies-and-equivalences) are also tautologies and equivalences of predicate logic:
+
+1. *Law of excluded middle*: $\phi\vee \neg \phi$ is a tautology.
+2. *Law of non-contradiction*: $\neg (\phi\wedge \neg \phi)$ is a tautology.
+3. *The law of double-negation*: $\phi$ is equivalent to $\neg \neg \phi$.
+4. *Law of commutativity for conjunction*: $\phi\wedge \psi$ is equivalent to $\psi\wedge \phi$.
+5. *Law of commutativity for disjunction*: $\phi\vee \psi$ is equivalent to $\psi\vee \phi$.
+5. *Law of associativity for conjunction*: $(\phi\wedge \psi)\wedge \xi$ is equivalent to $\phi\wedge (\psi\wedge \xi)$.
+6. *Law of associativity for disjunction*: $(\phi\vee \psi)\vee \xi$ is equivalent to $\phi\vee (\psi\vee \xi)$.
+7. *Law of distribution for conjunction*: $\phi\wedge (\psi\vee \xi)$ is equivalent to $(\phi\wedge \psi)\vee (\phi\wedge \xi)$.
+8. *Law of distribution for disjunction*: $\phi\vee (\psi\wedge \xi)$ is equivalent to $(\phi\vee \psi)\wedge (\phi\vee \xi)$.
+
+In propositional logic, these are verified via truth-tables. For instance, the following table verifies that the law of the excluded middle is a tautology:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms" submission="none"}
+ p\/~p
+| TTFT
+| FTTF
+~~~
+
+In predicate logic, one can argue as follows to show that
+$\phi \vee \neg \phi$ is a tautology of predicate logic. Suppose $\mathcal{M}$ is a model. If $\mathcal{M}\models \phi$ then as in the first row of the truth-table we have $\mathcal{M}\models \phi \vee \neg \phi$. If $\mathcal{M}\models \neg \phi$ then as in the second row of the truth-table we have $\mathcal{M}\models \phi \vee \neg \phi$.
+
+The arguments for the other named tautologies and equivalences are similar: one does a truth-table for the propositional variants and then one simply follows the truth-table to verify the relevant claim about every model. This works because the propositional clauses in Tarski's definition of truth are the same as the rules enshrined in the truth-tables.
+
+But to give a sense of the expanded application of these tautologies and equivalences, note that the following are all instances of law of the excluded middle, in that we can get them from the law of the excluded middle by replacing $\phi$ by the specified formula:
+
+- $Rab\vee \neg Rab$
+- $\exists \; y \; Ray \vee \neg \exists \; y\; Ray$
+- $\forall \; x \; \exists \; y \; Rxy \vee \neg \forall \; x \; \exists \; y \; Rxy$.
+
+<br>
+
+<p style="page-break-before: always">
+
+## DeMorgan for the quantifiers
+
+We also have the following version of DeMorgan for the quantifiers:
+
+- *DeMorgan*: $\neg \forall \;x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$.
+- *DeMorgan*: $\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$.
+
+A helpful way to remember these involves thinking about writing them out from left to right on the page. One imagines the negation sign moving from left to right across the quantifier and affixing to the symbol to the immediate right of the quantifier, whilst switching the universal quantifier to an existential quantifier and vice-versa. (To the extent that images can help one remember, maybe think about the negation sign moving so fast from left to right that it "flips" the quantifiers).
+
+These can be iterated as follows, where we slowly write out the applications of DeMorgan one-by-one:
+
+<br>
+
+*Example 11*:
+
+Use DeMorgan to find an equivalent of $\neg \forall \;x \; \exists \; y \; Rxy$ in which the negation occurs after the quantifiers.
+
+<video controls width="500" src="https://logic-teaching.github.io/philos-132-winter-23/vid/demorgan-q1.mp4"/> </video>
+
+<br>
+
+If you didn't have the video, you could check that you got it right by writing it in the box (this is how the homework problems will be organized):
+
+~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
+4.11 ExAy~Rxy :
+|
+~~~
+
+<br>
+
+*Example 12*:
+
+Use DeMorgan to find an equivalent of $\neg \exists \;x \; \forall \; y \; Rxy$ in which the negation occurs after the quantifiers.
+
+<video controls width="500" src="https://logic-teaching.github.io/philos-132-winter-23/vid/demorgan-q2.mp4"/> </video>
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
+4.12 AxEy~Rxy :
+|
+~~~
+
+<br>
+
+*Example 13*:
+
+Use DeMorgan to find an equivalent of $\neg \forall \;x \; \exists \; y \; \forall \; z \; (Rxy\wedge Ryz)$ in which the negation occurs after the quantifiers.
+
+<video controls width="500" src="https://logic-teaching.github.io/philos-132-winter-23/vid/demorgan-q3.mp4"/> </video>
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
+4.13 ExAyEz(~Rxy\/~Ryz) :
+|
+~~~
+
+<br>
+
+*Example 14*:
+
+Use DeMorgan to find an equivalent of $\neg \exists \;x \; \forall \; y \; \exists \; z \; (Rxy\wedge Ryz)$ in which the negation occurs after the quantifiers.
+
+<video controls width="500" src="https://logic-teaching.github.io/philos-132-winter-23/vid/demorgan-q4.mp4"/> </video>
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
+4.14 AxEyAz(~Rxy\/~Ryz) :
+|
+~~~
+
+<br>
+
+<p style="page-break-before: always">
+
+
+## Tarski on consequence
+
+Recall [Aristotle's characterization](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc#the-subject-matter-of-logic) of the intuitive notion of the conclusion of an argument following from the premises:
+
+&nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20deduction-v2.png" alt="Aristotle on deduction" width="700"/>
+
+Tarski thought that the formal notion $\phi_1, \ldots, \phi_n\vDash \phi$ was a successful conceptual analysis of the intuitive notion of the conclusion following from the premises:[^2]
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Tarski%201956%20-%20On%20the%20Concept%20of%20Logical%20Consequence%20p.%20417.png" alt="Tarski on consequence" width="500"/>
+
+[^2]: From p. 417 of: [Tarski, Alfred. 1956. “On the Concept of Logical Consequence.” In Logic, Semantics, Metamathematics: Papers from 1923 to 1938, edited by J. H. Woodger, 409–20. Oxford: Clarendon Press.](https://logic-teaching.github.io/philos-132-winter-23/texts/Tarski%201956%20-%20On%20the%20Concept%20of%20Logical%20Consequence.pdf)
+
+
+One traditional criticism of Tarski pertains to arguments that are invalid only due to their being sufficiently large sets:
+
+<br>
+
+*Example 15*: $\forall \; x \; \neg Rxx, \forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)\nvDash \neg \exists \; x \; \exists \; y \; Rxy$
+
+
+(In section this week, we will call the first premise $\forall \; x \; \neg Rxx$ *anti-reflexivity* and the second premise $\forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$ *transitivity*. The conclusion does not have a standard name, but one might colloquially express it as "there is no $R$-chain of length 2").
+
+To see that the premises do not imply the conclusion, we need to find a model of the premises together with  $\exists \;x  \; \exists \; y \; Rxy$. But a simple arrow model can be found, as illustrated below:
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/simple-number-model.png" alt="Simple arrow model 1" width="300"/>
+
+And using this diagram we can quickly formalize the argument's invalidity as follows:
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: ~ExEyRxy
+|Domain:0,1
+|R(_,_):[0,1]
+```
+
+<br>
+
+Note however, that the invalidity of this argument could not be established with a model with one element:
+
+*Example 16*: For all models $\mathcal{M}$, if $\mathcal{M}\vDash\forall \; x \; \neg Rxx$ and $\mathcal{M}\vDash \forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$ and $\mathcal{M}$ has exactly one element, then $\mathcal{M}\models \neg \exists \; x \; \exists \; y \; Rxy$.
+
+For, if there are fewer than two elements, and there are $x,y$ with $Rxy$, then since there is just one element these two objects have to be the same, and so $Rxx$, contradicting the first premise (of anti-reflexivity).
+
+<br>
+
+We can iterate this as follows:
+
+*Example 17*: $\forall \; x \; \neg Rxx, \forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)\nvDash \neg \exists \; x \; \exists \; y\; \exists \; z \; (Rxy\wedge Ryz)$
+
+(The conclusion here does not have a traditional name, but it might be colloquially expressed as "there is no $R$-chain of of length 3").
+
+But again a simple arrow model can be found:
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/simple-number-model-2.png" alt="Simple arrow model 2" width="400"/>
+
+And using this diagram we can quickly formalize the arguments invalidity as follows:
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: ~ExEyEz(Rxy/\Ryz)
+|Domain:0,1,2
+|R(_,_):[0,1],[1,2],[0,2]
+```
+
+And again, it was necessary that we have at least three elements in this domain:
+
+*Example 18*: For all models $\mathcal{M}$, if $\mathcal{M}\models \forall \; x \; \neg Rxx$ and $\mathcal{M}\models \forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$ and $\mathcal{M}$ has fewer than three elements, one has that $\mathcal{M}\models \neg \exists \; x \; \exists \; y\; \exists \; z \; (Rxy\wedge  Ryz)$.
+
+For, if there were fewer than three elements, and there are $x,y,z$ with $Rxy\wedge Ryz$, then at least two of those three will be the same. If $x$ and $y$ are the same, then we violate the first premise (of anti-reflexivity), and similarly if $y$ and $z$ are the same. If $x,z$ are the same, then by the second premise (of transitivity) and $Rxy\wedge Ryz$ we have $Rxz$, and we again violate the first premise (of anti-reflexvitity).
+
+<br>
+
+One can further iterate examples like this, and for each $n\geq 2$ one can find a sentence $\phi_n$ which is not a consequence of the two premises above (namely, anti-reflexivity and transitivty), but which does hold on all models with $< n$ elements. Namely, one just takes $\phi_n$ to say that "there is no $R$-chain of length $n$".
+
+<br>
+
+These kinds of examples were the basis of Etchemendy's criticism of Tarski's claim that his formal definition of consequence explicated well the intuitive notion of consequence. For, examples like these suggest that Tarski's assessment of the validity of arguments is "dependent on a nonlogical feature of the world, the size of the universe."[^3] How many elements in the world there are is an empirical and non-logical fact. It is, for instance, an empirical fact that there are fewer than 50 billion people on the planet. And whether or not an argument is valid in a logical sense should not depend on empirical facts. And yet, as we have seen, there is such a dependence, and we have found an argument that is invalid but would be valid if there were only a specified number of finite objects out of which we could build our models.
+
+[^3]: p. 115 of: [Etchemendy, John. 1999. “Substantive Generalizations.” In The Concept of Logical Consequence, 107–24. Cambridge University Press.](https://logic-teaching.github.io/philos-132-winter-23/texts/Etchemendy%201999%20-%20Substantive%20Generalizations.pdf)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Graphs of functions and predicate logic
+
+We can use the familiar notion of function, which is ubiquitous in the other parts of our intellectual life, to practice more with validity and invalidity, and to practice with some sentences which are slightly more complicated.[^4]
+
+[^4]: It is also natural to add function symbols to signatures, alongside constant symbols and relation symbols. We will not do that in this course, and keep the functions themselves out in the metatheory.
+
+Suppose that $X,Y$ are two sets. Then a *function* $f:X\rightarrow Y$ is simply any operation which given an input $x$ from $X$ returns an output $y=f(x)$ from $Y$. In this context, $X$ is called the *domain* of the function $f$ and $Y$ is called *the codomain* of the function $f$. A synonym for "function" is "map." The associated set of ordered pairs $\{\langle x,y\rangle \in X\times Y: f(x)=y\}$ is called the *graph* of the function. Intuitively, the graph is the collection of "inputs and outputs" generated by applying the operation underlying the function. We tend to use 'R' for the graph of the function since models interept binary relations as sets of ordered pairs.
+
+<br>
+
+*Example 19*
+
+Suppose that $X=\{1,2,3\}$ and $Y=\{5,10,15\}$ and $f:X\rightarrow Y$ with $f(x)=5\cdot x$. Then $f(1)=5$ and $f(2)=10$ and $f(3)=15$. Hence the graph of the function $f$ is $R=\{\langle 1,5\rangle, \langle 2,10\rangle, \langle 3,15\rangle\}$. We can depict this example as follows:
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/function-ex-19.png" alt="Example 19" width="600"/>
+
+<br>
+
+*Example 20*
+
+Suppose that $X=\{1,2,3\}$ and $Y=\{-3,-2,-1\}$ and $f:X\rightarrow Y$ by $f(x)=-x$. Then $f(1)=-1$ and $f(2)=-2$ and $f(3)=-3$. The graph of the function is $R=\{\langle 1,-1\rangle, \langle 2,-2\rangle, \langle 3,-3\rangle\}$.  We can depict this example as follows:
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/function-ex-20.png" alt="Example 20" width="400"/>
+
+
+<br>
+
+If $R$ is the graph of a function $f:X\rightarrow Y$, then $R$ is a subset of $X\times Y$. The key additional feature which distinguishes the graph of a function from arbitrary interpretations of binary relations is *functionality*, which simply formalizes in predicate logic that the function outputs a unique element in the codomain for each input in the domain:
+
+<table style="width:100%">
+  <tr>
+    <th>Expression</th>
+    <th>Formula</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td> $R$ is a binary relation which is a subset of $X\times Y$ </td>
+    <td> $\forall \;x \; \forall \; y \; (Rxy\rightarrow (Xx\wedge Yy))$ </td>
+    <td> `AxAy(Rxy->(Xx/\Yy))`
+  </tr>
+  <tr>
+    <td>$R$ is functional from $X$ to $Y$</td>
+    <td>$\forall \; x \; (Xx\rightarrow \exists \; y \; ((Yy\wedge Rxy)\wedge \forall \; z \; ((Yz\wedge Rxz)\rightarrow y=z)))$</td>
+    <td>`Ax(Xx->Ey((Yy/\Rxy)/\Az((Yz/\Rxz)->y=z)))`</td>
+  </tr>
+  <tr>
+    <td>$R$ is injective</td>
+    <td>$\forall \; x \; \forall \; y \; \forall \; z \; ((Rxz\wedge Ryz)\rightarrow x=y)$</td>
+    <td>`AxAyAz((Rxz/\Ryz)->x=y)`
+  </tr>
+  <tr>
+    <td>$R$ is surjective from $X$ to $Y$</td>
+    <td>$\forall \; y \; (Yy\rightarrow \exists \; x \;(Xx\wedge Rxy))$</td>
+    <td>`Ay(Yy->Ex(Xx/\Rxy))`
+  </tr>
+</table>
+
+<br>
+
+*Bijective* just means both *injective* and *surjective*.
+
+Injectivity and surjectivity are two properties that functions can have, and hence graphs of functions can have. Intuitively, a function is injective if it never sends two distinct inputs from the domain to the same output from the codomain, and a function is surjective if every element of the codomain is the output of some input from the domain.
+
+Examples 19 and 20 are both injective and surjective (and hence bijective).
+
+These next two examples show that $R$ being a subset of $X\times Y$ and being functional from $X$ to $Y$ does not imply either injectivity or surjectivity, and these in turn do not imply each other.
+
+<br>
+
+*Example 21*
+
+This provides an example of a function which is surjective but not injective. In the diagram we highlight in red the part which shows it is not injective: it looks like two points from the domain pointing toward the same point in the codomain, and hence it looks like two arrows pointing towards the same point.
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/function-ex-21.png" alt="Exampel 21" width="400"/>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ AxAy(Rxy->(Xx/\Yy)), Ax(Xx->Ey((Yy/\Rxy)/\Az((Yz/\Rxz)->y=z))), Ay(Yy->Ex(Xx/\Rxy)) :|-: AxAyAz((Rxz/\Ryz)->x=y)
+|Domain:0,1,2,3,4
+|R(_,_):[0,3],[1,3],[2,4]
+|X(_):0,1,2
+|Y(_):3,4
+```
+
+<br>
+
+*Example 22*
+
+This provides an example of a function which is injective but not surjective. In the diagram we highlight in red the part which shows it is not surjective: it is the part in the codomain which is not 'pointed to' by any point from the domain, and hence it looks like a point in the codomain with no arrow going to it.
+
+ <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/function-ex-22.png" alt="Exampel 22" width="400"/>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+ AxAy(Rxy->(Xx/\Yy)), Ax(Xx->Ey((Yy/\Rxy)/\Az((Yz/\Rxz)->y=z))), AxAyAz((Rxz/\Ryz)->x=y) :|-: Ay(Yy->Ex(Xx/\Rxy))
+|Domain:0,1,2,3,4
+|R(_,_):[0,2],[1,3]
+|X(_):0,1
+|Y(_):2,3,4
+```
+
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>

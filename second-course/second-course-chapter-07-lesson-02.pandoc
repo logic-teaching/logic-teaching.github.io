@@ -1,0 +1,237 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 7, Lecture 2, Lambda calculus and intuitionistic logic
+
+We introduce lambda notation, a succinct notation for functions. We describe the Curry-Howard isomorphism on the implicational fragment. We gesture to how it is extended to the entire fragment of intuitionistic predicate logic, and how this is implemented in modern proof and program verification.
+
+
+- [Lambda notation for functions](#lambda-notation-for-functions)
+- [Functions applied to functions](#functions-applied-to-functions)
+- [A fragment of the simply typed lambda calculus](#a-fragment-of-the-simply-typed-lambda-calculus)
+- [The Curry-Howard Isomorphism](#the-curry-howard-isomorphism)
+- [Proof and program verification](#proof-and-program-verification)
+
+<br>
+
+## Lambda notation for functions
+
+[Recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#graphs-of-functions-and-predicate-logic) that a function $f:X\rightarrow Y$ is simply any operation which given an input $x$ from $X$ returns an output $y=f(x)$ from $Y$. And recall that $X$ is called the domain of the function $f$ and $Y$ is called the codomain of the function $f$. Here are some simple examples of functions:
+
+- $f:\mathbb{N}\rightarrow \mathbb{N}$ given by $f(u)=2u+5$
+- $g:\mathbb{Z}\rightarrow \mathbb{N}$ given by $g(v)=\left|v\right|$
+- $h:\mathbb{N}\rightarrow \mathbb{Z}$ given by $h(w)=-w$
+
+The letter $\lambda$ is "lambda," the analogue of lower case "L" in the Greek alphabet. We use it as an alternative notational systems for describing the operations associated to functions:
+
+- $f:\mathbb{N}\rightarrow \mathbb{N}$ is $\lambda u:\mathbb{N} . \;2u+5$
+- $g:\mathbb{Z}\rightarrow \mathbb{N}$ is $\lambda v: \mathbb{Z}. \;\left|v\right|$
+- $h:\mathbb{N}\rightarrow \mathbb{Z}$ is $\lambda w:\mathbb{N}. \;-w$
+
+If context supplies information about what kind of things the outputs are, we can even just redescribe these three functions as:
+
+- $f = \lambda u:\mathbb{N} . \;2u+5$
+- $g = \lambda v: \mathbb{Z}. \;\left|v\right|$
+- $h = \lambda w:\mathbb{N}. \;-w$
+
+In fact, lambda notation contains enough information that you can just dispense with the labels $f,g,h$ and work instead with the lambda terms themselves.
+
+We can illustrate this by doing some evaluations:
+
+- $f(3)=2\cdot 3+5 =6+5=11$. Equivalently, we can write $(\lambda u:\mathbb{N} .\; 2u+5)(3) = 2\cdot 3+5 = 6+5=11$.
+- $g(-4)=\left|-4\right|=4$. Equivalently, we can write $(\lambda v: \mathbb{Z}. \;\left|v\right|)(-4)= \left|-4\right|=4$.
+- $h(7)=-7$. Equivalently, we can write $(\lambda w:\mathbb{N}.\; -w)(7) = -7$.
+
+The general form of a lambda term is $\lambda x: X . \;M$, where $M$ is an expression for an operation which features free input variable $x$ from domain $X$ and where the corresponding output is of type $Y$. The lambda term $\lambda x: X . \;M$ then denotes a function from $X$ to $Y$. In our three examples, the $M$'s were respectively:
+
+- $2u+5$
+- $\left|v\right|$
+- $-w$
+
+Since it denotes a function, whenever you have an input $c$ from $X$, you can evaluate $(\lambda x: X . \;M)c$ by replacing all free instances of $x$ in by $c$. In more formal treatments of lambda notation, such a single application of replacement is called a $\beta$-reduction (it was second in an influential set of rules, and hence it gets the name $\beta$, the second letter of the Greek alphabet). We were doing $\beta$-reduction in our simple examples.
+
+
+<br>
+
+## Functions applied to functions
+
+<br>
+
+Part of the usefulness of the lambda notation for functions is that it gives a succinct way of describing the action of functions on other functions. For instance, suppose we are interested in functions from natural numbers to integers. Given any such function $f:\mathbb{N}\rightarrow \mathbb{Z}$, we can build another function by further subtracting 5. That is, we could consider the function $g:\mathbb{N}\rightarrow \mathbb{Z}$ given by $g(v) = f(v)-5$. This operation of "further subtract 5" takes $f:\mathbb{N}\rightarrow \mathbb{Z}$ to $g:\mathbb{N}\rightarrow \mathbb{Z}$ and is hence also a function, namely a function from functions to functions. We can denote it in lambda notation as follows:
+
+- $\lambda f:\mathbb{N}\rightarrow \mathbb{Z} \; \lambda v:\mathbb{N} . \; f(v)-5$.
+
+Call this function $H$, as an abbreviation for "furt$h$er subtract 5". There are two lambda expressions in our notation for $H$. It is saying that if you feed $H$ an input of a function $f:\mathbb{N}\rightarrow \mathbb{Z}$, you get the output $\lambda v:\mathbb{N} . \; f(v)-5$. And this output is itself a function. We say that $H:(\mathbb{N}\rightarrow \mathbb{Z})\rightarrow (\mathbb{N}\rightarrow \mathbb{Z})$ since it takes functions $f:\mathbb{N}\rightarrow \mathbb{Z}$ as input and outputs functions $g:\mathbb{N}\rightarrow \mathbb{Z}$. (If you like to think in terms of sets, the domain of $H$ is the set of all functions from $\mathbb{N}$ to $\mathbb{Z}$, and its codomain is likewise the set of all functions from $\mathbb{N}$ to $\mathbb{Z}$.)
+
+To take another example, suppose that $f:\mathbb{N}\rightarrow \mathbb{N}$ is a function, and we want to consider the function $g(v)=f(f(f(v)))$, that is "apply $f$ three times." This "apply three times" operation is an operation which takes functions $f:\mathbb{N}\rightarrow \mathbb{N}$ as inputs and outputs functions $g:\mathbb{N}\rightarrow \mathbb{N}$. We can denote the "apply three times" function in lambda notation as follows:
+
+- $\lambda f:\mathbb{N}\rightarrow \mathbb{Z} \; \lambda v:\mathbb{N} . \;f(f(f(v)))$.
+
+Call this function $T$, as an abbreviation for "apply $t$hree $t$imes." There are two lambda expressions in our notation for $T$. It is saying that if you feed $T$ an input of a function $f:\mathbb{N}\rightarrow \mathbb{N}$, you get the output $\lambda v:\mathbb{N} . \;f(f(f(v)))$. And this output is itself a function. We say that $T:(\mathbb{N}\rightarrow \mathbb{N})\rightarrow (\mathbb{N}\rightarrow \mathbb{N})$ since it takes functions $f:\mathbb{N}\rightarrow \mathbb{N}$ as input and outputs functions $g:\mathbb{N}\rightarrow \mathbb{N}$.
+
+
+<br>
+
+## A fragment of the simply typed lambda calculus
+
+
+<br>
+
+Just as a "logic" refers to some formulas in some extension of propositional logic along with a semantics and/or deductive system, so "lambda calculus" refers to some formulas in some extension of lambda notation along with a semantics and/or deductive system. In this section we define a simple deductive system for lambda notation, which is hence a very elementary lambda calculus.
+
+As a *first* observation, note that functional application looks a lot like an application of arrow elmination (or modus ponens), perhaps supplemented by the arrow clauses of Tarski's definition of truth in a model:
+
+- *Lambda calculus*: If $M:P\rightarrow Q$ and $N$ is in $P$, then $M(N)$ is in $Q$.
+
+- *Logic*: If $P\rightarrow Q$ is true and $P$ is true, then $Q$ is true.
+
+Presumably the sense of "true" in the second is something like "true in the model," where the relevant model is determined by context. If we want to further deemphasize the semantic notions, we could just remove "is true" and it seems to have the same sense. Likewise, if we want to deemphasize the set-theoretic notions in the first of these, we can write $N:P$ instead of "$N$ is in $P$", and we can write $M(N):Q$ instead of "$M(N)$ is in $Q$". In the lambda notation, we drop parentheses when no ambiguity arises, and we do that here and write $MN$ instead of $M(N)$. If we rewrite in this way, we get two rules which are more ostensibly bereft of semantic and set-theoretic notions, and where the second is literally arrow elimination:
+
+- *Lambda calculus*: If $M:P\rightarrow Q$ and $N:P$, then $MN:Q$.
+
+- *Logic*: If $P\rightarrow Q$ and $P$, then $Q$.
+
+We can write these two rules side by side in our more familiar proof format as follows:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-calculus-elim-rules-2.png" alt="Elimination rules" width="800"/>
+
+<br>
+
+A *second* observation is that a natural way to introduce lambda terms looks a lot like arrow introduction, again perhaps in some partially thematized semantic setting:
+
+- *Lambda calculus*: If from $x$ being in $P$ it follows that $M$ is in $Q$, then $f=\lambda x : P . M$ is a function $f:P\rightarrow Q$.
+
+- *Logic*: If from $P$ being true it follows that $Q$ is true, then $P\rightarrow Q$ is true.
+
+In the first, the $M$ is just supposed to be some expression in which $x$ is paradigmatically free, and where like above, $M$ returns a value in $Q$ when given a specific value of $x$ in $P$. If we remove the set theory and the semantics as above, we get the following, where the second is literally just arrow introduction:
+
+- *Lambda calculus*: If from $x:P$ it follows that $M: Q$, then $\lambda x : P .\; M\; : P\rightarrow Q$
+
+- *Logic*: If from $P$ it follows that $Q$, then $P\rightarrow Q$.
+
+We can write these two rules side by side in our more familiar proof format as follows:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-calculus-intro-rules-2.png" alt="Elimination rules" width="800"/>
+
+The introduction and elimination rules for the lambda calculus give the deductive system for the implicational fragment of *the simply-typed lambda calculus*, just as the introduction and elimination rules on the logic side give the deductive system for the implicational fragment of *propositional logic*. (Since we are working in a linear system, we also add the repeat rule to our fragments).
+
+<br>
+
+## The Curry-Howard Isomorphism
+
+<br>
+
+Let's use $\vdash_{\lambda} \;M:\phi$ to denote that $M:\phi$ is derivable in our fragment of the simply typed lambda calculus. One has for $\phi$ in the implicational fragment:[^1]
+
+- *The Curry-Howard Isomorphism*: $\vdash \phi$ iff there is lambda term $M$ such that $\vdash_{\lambda} \;M:\phi$.
+
+[^1]: For more information and more on the rich history, see: [Gallier, Jean. 1995. “On the Correspondence between Proofs and λ-Terms.” In The Curry-Howard Isomorphism, edited by Ph de Groote, 8:55–138. Cahiers Du Centre de Logique. Louvain: Academia-Erasme](https://logic-teaching.github.io/prop/texts/Gallier%201995%20-%20On%20the%20correspondence%20between%20proofs%20and%20lambda-terms.pdf), and [Sørensen, M. H., and Pawel Urzyczyn. 2006. Lectures on the Curry-Howard Isomorphism. Vol. 149. Studies in Logic and the Foundations of Mathematics. New York: Elsevier](https://scholar.google.com/scholar?cluster=2266409716850034366&hl=en&as_sdt=0,5).
+
+
+In the backwards direction, this says that anytime you prove $\vdash_{\lambda} \;M:\phi$, you already know that $\vdash \phi$. Hence, the process of "assigning types" to lambda terms is the same thing as doing proofs in our natural deduction system. The formulas of propositional logic (in the implicational fragment) just are types.
+
+In the forward direction, this says that anytime you have a proof $\vdash \phi$ in the implicational fragment of our natural deduction system for propositional logic, you can "decorate" the proof with lambda terms. Intuitively, we think of these lambda terms as "proof terms", that is, as *objects* of a certain kind that represent crucial features of the proof.
+
+We illustrate this with three examples.
+
+<br>
+
+*Example 1*
+
+```{.ProofChecker .GamutMPND submission="none"}
+ :|-: p->p
+| p :assumption
+| p :rep 1
+|p->p :I->1-2
+```
+
+We don't have a way of inputting proofs in the simply typed lambda calculus into our proof checker, and so we do it by hand:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-I-example.png" alt="I combinator example" width="700"/>
+
+
+Hence, the proof term for $p\rightarrow p$ is just the identity map. This makes a certain sense [in light of BHK](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-with-solutions.pandoc#intuitionistic-logic-and-bhk):
+
+- The *implication* $p\rightarrow q$ can be asserted, if and only if we possess a construction $r$, which, joined to any construction proving $p$ (supposing that the latter be effected), would automatically effect a construction proving $q$.
+
+What is the construction that allows you to assert $p\rightarrow p$? It is just the construction that takes one from any reason $x$ for asserting $p$, to $x$ itself. Hence, it is just the identity map, and $\lambda x:p . \; x$ is just a name for that.
+
+
+<br>
+
+*Example 2*
+
+```{.ProofChecker .GamutMPND submission="none"}
+ :|-: p->(q->p)
+| p :assumption
+|  q :assumption
+|  p :rep 1
+| q->p :I->2-3
+|p->(q->p) :I->1-4
+```
+
+To find the proof term, we just decorate our above proof with lambda-terms:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-K-example.png" alt="K combinator example" width="700"/>
+
+What is the construction that allows you to assert $p\rightarrow(q\rightarrow p)$? It is just the construction that takes one from any reason $u$ for asserting $p$, to the map which takes any reason $v$ for asserting $q$, and returns $u$, a reason for asserting $p$. The lambda term is just a name for this function.
+
+<br>
+
+*Example 3*
+
+```{.ProofChecker .GamutMPND submission="none"}
+ :|-: (r->(p->q))->((r->p)->(r->q))
+| r->(p->q) :as
+|  r->p :as
+|   r :as
+|   p :E->2,3
+|   p->q :E->1,3
+|   q :E->4,5
+|  r->q :I->3-6
+| (r->p)->(r->q) :I->2-7
+|(r->(p->q))->((r->p)->(r->q)) :I->1-8
+```
+
+To find the proof term, we just decorate our above proof with lambda-terms:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-S-example.png" alt="S combinator example" width="700"/>
+
+
+What is the construction that allows you to assert $(r\rightarrow (p\rightarrow q))\rightarrow((r\rightarrow p)\rightarrow (r\rightarrow q))$? It is just the construction that takes one from any reason $f$ for asserting $r\rightarrow (p\rightarrow q)$, to the map which takes any reason $g$ for asserting $r\rightarrow p$, and returns the construction which sends a reason $u$ to $(f(u))(g(u))$. The lambda term is just a name for this function.
+
+<br>
+
+## Proof and program verification
+
+<br>
+
+One of the original aims of logic, as it developed in the late 19th and early 20th century, was to provide a way to argue rigorously about mathematics and the kinds of set theory or type theory that it seems to necessarily involve. The chief means of achieving this was to develop deductive systems very much like what we are learning in this course, and to train people in them. At the end of this training, the ideal outcome was to be able to do proofs effortlessly and without really thinking about the deductive system too much, just like one reads words on the page effortlessly and without really thinking about the underlying phonetics too much.
+
+There are two problems with this. First, the deductive system we were learning last week, and in Lecture 1 of this week, does not have any set theory (or type theory) built into it, and so one has to learn this separately and undergo a kind of second training (if one's goal is proofs in mathematics). Second, this kind of rigor does not help with the kind of error that we tend to be worried about in mathematics today. Today the worry tends to be mathematical proofs are so big and the product of so many hands and so many generations, that error will creep in not by a lapse in rigor by one individual hand as by miscommunications and mismatches in the hand-off of one mathematician to another.
+
+For these reasons, people have been interested in tools for the mechanical verification of proofs. It needs to be like our little carnap.io proof-checker, but it needs to have some set theory or type-theory built in. And it needs to be responsive to the social nature of mathematics: I need to be able to take your proof and apply it to my setting, ideally without having to recapitulate the proof line by line for my specific purpose. Of course, in traditional mathematics, I just believe your proof or I check it myself, but if we want to mechanically verify then we need to do something else.
+
+Many important proof verification systems, like [Coq](https://coq.inria.fr/) and [Lean](https://leanprover.github.io/) and [Agda](https://agda.readthedocs.io/en/v2.6.3/getting-started/what-is-agda.html), are built on extensions of the simply typed lambda calculus, extensions which go beyond the implicational fragment. They have the type theory built-in, which handles the need for some set theory or type theory. And since they are built on the kind of intimations of BHK which we have described today, the proofs come with a built-in way to "apply it" to any setting. E.g. if you prove $p\rightarrow q$, then your proof-term is a way to go from any proof of $p$ to a proof of $q$. And then I can just apply that proof-term to my proof of $p$.
+
+These systems are built on intuitionsitic logic rather than classical logic. We have suggested that $p\rightarrow q$ is to be thought of as all the functions which take you from proofs of $p$ to proof of $q$. And it is not too hard to see that $p\wedge q$ is going to consist of pairs of proofs, one of $p$ and one of $q$. And $p\vee q$ is going to consist of proofs of either $p$ or $q$ along with a specification of which. And $\bot$ is going to be the empty set or some uninstantiated type. But then it is not obvious that $p\vee (p\rightarrow \bot)$ should consist of all the proofs: after all, there are going to be proofs that aren't proofs of $p$ and aren't refutations of $p$. Hence, in short, these approaches are all intuitionistic since on all the obvious interpretations of the propositional connectives as set-like entities, it's not clear that $p\vee (p\rightarrow \bot)$ is going to have the same status as tautology for which most anything will count as a proof.
+
+A final reason that these proof assistants are being developed nowadays is that $M:P$ can be interpreted both as "M is a proof of P", as well as "M is a program that accomplishes P." While we can't say more about the theory of computation in this course, this should not be too surprising, given all the BHK-like talk of constructions we had today. Hence, in a word, these systems are simultaneously ways of verifying that programs, in a certain functional programming language, do what they say they are going to do.
+
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^7]
+
+[^7]: which is:

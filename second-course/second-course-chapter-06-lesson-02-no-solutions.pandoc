@@ -1,0 +1,473 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 6 Lecture 2
+
+We continue with our presentation of the natural deduction proof system, focusing on the rules for the existential quantifier and disjunction. We illustrate these rules by deriving the conversion rules and the first figure from the Aristotelian syllogisms.
+
+- [The introduction rule for existential](#the-introduction-rule-for-existential)
+- [The elimination rule for existential](#the-elimination-rule-for-existential)
+- [Adding rules for the Aristotelian syllogism](#adding-rules-for-the-aristotelian-syllogism)
+- [The introduction rule for disjunction](#the-introduction-rule-for-disjunction)
+- [The elimination rule for disjunction](#the-elimination-rule-for-disjunction)
+- [Ex falso](#ex-falso)
+- [Repeat rule](#repeat-rule)
+- [Justifying the rules via soundness](#justifying-the-rules-via-soundness)
+- [Justifying the rules via truth by virtue of meaning](#justifying-the-rules-via-truth-by-virtue-of-meaning)
+- [Summary of all rules](#summary-of-all-rules)
+
+
+<br>
+<br>
+
+## The introduction rule for existential
+
+The rule is: if you have $\phi(a)$ on line $\ell_1$, then you can write $\exists \; x \; \phi(x)$ on any subsequent line $\ell$, where $\phi(a)$ results from $\phi(x)$ by replacing all instances of $x$ by $a$.
+
+<video controls width="600" src="https://logic-teaching.github.io/philos-132-winter-23/vid/ND-IE-v2.mp4"/> </video>
+
+<br>
+
+Here are two simple examples of this rule:
+
+*Example 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Rab :|-: ExEyRxy
+|Rab :assumption
+```
+
+<br>
+
+*Example 2 (Third Conversion)*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~Ex(Fx/\Gx) :|-: Ax(Fx->~Gx)
+|~Ex(Fx/\Gx) :assumption
+```
+
+
+<br>
+
+
+
+## The elimination rule for existential
+
+The rule is: if you have $\exists \; x \; \phi(x)$ on line $\ell_1$, and you have $\phi(c)\rightarrow \psi$ on line $\ell_2$ where $c$ does not occur in $\psi$ or in any open assumption, then you may write $\psi$ on any subsequent line $\ell>\ell_1, \ell_2$.
+
+<video controls width="600" src="https://logic-teaching.github.io/philos-132-winter-23/vid/ND-EE.mp4"/> </video>
+
+<br>
+
+Note that since the application of this rule requires you to get a conditional statement, you will usually have to apply arrow introduction to get the conditional.
+
+<br>
+
+*Example 3 (Darii)*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Gx), Ex(Hx/\Fx)  :|-: Ex(Hx/\Gx)
+|Ax(Fx->Gx) :assumption
+|Ex(Hx/\Fx) :assumption
+```
+
+<br>
+
+*Example 4 (Ferio)*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~Ex(Fx/\Gx), Ex(Hx/\Fx)  :|-: Ex(Hx/\~Gx)
+|~Ex(Fx/\Gx) :assumption
+|Ex(Hx/\Fx) :assumption
+```
+
+<br>
+
+*Example 5 (First Conversion)*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ex(Fx/\Gx)  :|-: Ex(Gx/\Fx)
+|Ex(Fx/\Gx) :assumption
+```
+
+<br>
+
+*Example 6 (Second Conversion)*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~Ex(Fx/\Gx)  :|-: ~Ex(Gx/\Fx)
+|~Ex(Fx/\Gx) :assumption
+```
+
+<br>
+
+*Example 7 (Third Conversion)*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->~Gx) :|-: ~Ex(Fx/\Gx)
+|Ax(Fx->~Gx) :assumption
+```
+
+<br>
+
+*Example 8 (Fourth Conversion, with Existential Premise)*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Gx), ExFx :|-: Ex(Gx/\Fx)
+|Ax(Fx->Gx) :assumption
+|ExFx :assumption
+```
+
+<br>
+
+*Example 9 (Celarent)*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~Ex(Fx/\Gx), Ax(Hx->Fx) :|-: ~Ex(Hx/\Gx)
+|~Ex(Fx/\Gx) :assumption
+|Ax(Hx->Fx) :assumption
+```
+
+<br>
+
+## Adding rules for the Aristotelian syllogism
+
+We just showed that we can derive all of [the conversions and the first figure](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc#summary-of-conversions-and-first-figure) from the  Aristotelian syllogisms in our system. So that we do not have to repeat these proofs over and over again, we add them as primitive rules:
+
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Typed</th>
+    <th>Validity</th>
+  </tr>
+  <tr>
+    <td>First Conversion</td>
+    <td>`CV1`</td>
+    <td>$\exists \; x \; (Fx\wedge Gx)\vdash \exists \; x \; (Gx\wedge Fx)$</td>
+  </tr>
+    <td>Second Conversion</td>
+    <td>`CV2`</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx) \vdash \neg \exists \; x \; (Gx\wedge Fx)$</td>
+  <tr>
+    <td>Third Conversion</td>
+    <td>`CV3`</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx) \vdash \forall \; x\; (Fx\rightarrow \neg Gx)$</td>
+  </tr>
+    <td>Fourth Conversion (with Existential Premise)</td>
+    <td>`CV4`</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx), \exists \; x \; Fx \vdash \exists \; x \; (Fx\wedge Gx)$</td>
+  <tr>
+    <td>Barbara</td>
+    <td>`Ba`</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx), \forall \; x \; (Gx\rightarrow Hx) \vdash \forall \; x \; (Fx\rightarrow Hx)$</td>
+  </tr>
+  <tr>
+    <td>Celarent</td>
+    <td>`Ce`</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx), \forall \; x \; (Hx\rightarrow Fx) \vdash \neg \exists \; x \; (Hx\wedge Gx)$</td>
+  <tr>
+    <td>Darii</td>
+    <td>`Da`</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx), \exists \; x \; (Hx \wedge Fx) \vdash \exists \; x \; (Hx \wedge Gx)$</td>
+  </tr>
+  <tr>
+    <td>Ferio</td>
+    <td>`Fe`</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx), \exists \; x \; (Hx\wedge Fx) \vdash \exists \; x \; (Hx\wedge \neg Gx)$</td>
+  </tr>
+</table>
+
+<br>
+
+*Example 10*
+
+This example combines Darri and Ferio:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ax(Fx->Gx), Ex(Hx/\Fx), ~Ex(Gx/\Jx) :|-: Ex(Hx/\~Jx)
+|Ax(Fx->Gx) :assumption
+|Ex(Hx/\Fx) :assumption
+|~Ex(Gx/\Jx) :assumption
+```
+
+<br>
+
+*Example 11*
+
+This example does Celarent and the third conversion on a complex property:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~Ex(Rxa/\Rxb), Ax(Rxc->Rxa), Rcc :|-: ~Rcb
+|~Ex(Rxa/\Rxb) :assumption
+|Ax(Rxc->Rxa) :assumption
+|Rcc :assumption
+```
+
+<br>
+
+## The introduction rule for disjunction
+
+The rule is: if you have $\phi$ on line $\ell_1$, then you may write $\phi\vee \psi$ on any subsequent line $\ell>\ell_1$. Likewise, if you have $\phi$ on line $\ell_1$, then you may write $\psi\vee \phi$ on any subsequent line $\ell>\ell_1$.
+
+In terms of a picture, the rule is either of the following:
+
+<video controls width="400" src="https://logic-teaching.github.io/prop/vid/natural_deduction_or_intro1.mp4"/> </video><video controls width="400" src="https://logic-teaching.github.io/prop/vid/natural_deduction_or_intro2.mp4"/> </video>
+<br>
+
+
+Note that the rule does **not** require that $\psi$ appear on any previous line. In many ways, this is what gives $I\vee$ its strength.
+
+The following examples illustrate the similarity between the disjunction and existential introduction:
+
+<br>
+
+*Example 12*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa :|-: Fa\/Fb
+|Fa :assumption
+```
+
+<br>
+
+*Example 13*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa :|-: ExFx
+|Fa :assumption
+```
+
+
+<br>
+
+## The elimination rule for disjunction
+
+The rule is: if you have $\phi\vee \psi$ on line $\ell_1$, and you have $\phi\rightarrow \xi$ on line $\ell_2$, and you have $\psi\rightarrow \xi$ on line $\ell_3$, then you may write $\xi$ on any subsequent line $\ell>\ell_1, \ell_2, \ell_3$.
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_or_elim.mp4"/> </video>
+<br>
+
+<br>
+
+*Example 14*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Fa\/Fb, Fa->Gd, Fb->Gd, Ax(Gx->Hx)  :|-: Hd
+|Fa\/Fb :assumption
+|Fa->Gd :assumption
+|Fb->Gd :assumption
+|Ax(Gx->Hx) :assumption
+```
+
+<br>
+
+*Example 15*
+
+This example and the previous highlight the similarity between the existential and disjunction:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ExFx, Ax(Fx->Gd), Ax(Gx->Hx)  :|-: Hd
+|ExFx :assumption
+|Ax(Fx->Gd) :assumption
+|Ax(Gx->Hx) :assumption
+```
+<br>
+
+## Ex falso
+
+The Latin phrase *ex falso sequitur quodlibet* just means "from a contradiction anything follows." The rule ex falso or *EFSQ* in natural deduction simply is a rule associated to this. Formally, it says that if you have a line with ⊥ on it, then on any subsequent line you may write anything you like. In a picture, it is the following:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_EFSQ.mp4"/> </video>
+
+<br>
+
+*Example 16*
+
+This rule allows us to prove the following:
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ ~ExFx  :|-: Ax(Fx->Gx)
+|~ExFx :assumption
+|Ax(Fx->Gx) :IA6
+```
+<br>
+
+## Repeat rule
+
+The repeat rule simply says that if you have $\phi$ on a line $\ell_1$, then you can write $\phi$ on any subsequent line $\ell>\ell_1$:
+
+<video controls width="700" src="https://logic-teaching.github.io/prop/vid/natural_deduction_repeat_rule_redeuxb.mp4"/> </video>
+
+<br>
+
+Note that we are abbreviating repeat by *rep*. In the proof-checker, we just type `rep`.
+
+This rule is useful for producing proofs of $\phi\rightarrow \phi$, which can otherwise be cumbersome. For instance, consider the following two proofs, where in the first we don't use repeat rule and in the second we use repeat rule:
+
+*Example 17*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ :|-: ExFx->ExFx
+```
+
+<br>
+
+*Example 18*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ :|-: ExFx->ExFx
+```
+
+<br>
+
+## Justifying the rules via soundness
+
+One reason to accept the rules presented here is that they preserve truth: if $\phi_1, \ldots, \phi_n\vdash \phi$, then $\phi_1, \ldots, \phi_n\vDash \phi$.
+
+To illustrate, consider the natural proof of $\phi_1\wedge \phi_2\vdash \phi_1$ via the conjunction elimination rule. One also has $\phi_1\wedge \phi_2 \vDash \phi_1$. For, suppose that $\mathcal{M}$ is a model with $\mathcal{M}\models \phi_1 \wedge \phi_2$. Then by Tarski's definition of truth in a model, one has $\mathcal{M}\models \phi_1$ and $\mathcal{M}\models \phi_2$. Then one concludes that $\mathcal{M}\models \phi_1$.
+
+One can indeed prove that all of the rules presented here preserve truth. This is called *soundness* and we will revisit it later. However, one should temper the sense in which soundness provides a justification of the rules, since in some sense one is presupposing these rules out in the metatheory where one deals with models. For instance, the last paragraph was supposed to give us a reason to accept conjunction elimination. But it looks like the last line of the last paragraph just flatly presupposes conjunction elimination, in that it presupposes that one can go from "$\mathcal{M}\models \phi_1$ and $\mathcal{M}\models \phi_2$" to $\mathcal{M}\models \phi_1$.
+
+Perhaps a better way to think about soundness is as showing that two concepts that one might have thought were distinct, namely provability and validity, are in fact closely related to one another. That is a "justification" in a weak sense, namely a kind of motivation or a kind of "wisdom in coordination."
+
+<br>
+
+## Justifying the rules via truth by virtue of meaning
+
+But if one wanted a more robust sense of justification, perhaps one could proceed in a different way than soundness. Perhaps one might think that the rules are kinds of definitions, and hence they are true by virtue of meaning, in the unproblematic sense of a stipulation about how to use words. Prior suggested this was one way to think about the introduction and elimination rules:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/pred/texts/Prior%201960%20-%20The%20runabout%20inference-ticket-again.png
+" alt="Prior on the rules" width="500"/>
+
+Prior's famous counterexample to this proposal was an imaginary connective he called *tonk*, which has an introduction rule like disjunction and an elimination rule like conjunction.[^1] The problem with saying that the validity of these inferences is given simply by the meaning of "tonk" is, in Prior's view, that from these rules one can derive anything. For instance, here is the a derivation that $Fa\vdash Ga$:
+
+1. Fa :assumption
+2. Fa tonk Ga :I tonk 1.
+3. Ga :E tonk 2
+
+(The step from 1 to 2 holds because "tonk" has an introduction rule like disjunction, and the step from 2 to 3 holds because "tonk" has an elimination rule like conjunction). There are obviously some properties $F,G$ and objects $a$ such that we want to say that we can infer from $Fa$ to $Ga$, but we certainly do not want to be committed to this in general.
+
+[^1]: [Prior, Arthur N. 1960. “The Runabout Inference-Ticket.” Analysis 21 (2): 38–39.](https://logic-teaching.github.io/pred/texts/Prior%201960%20-%20The%20runabout%20inference-ticket.pdf).
+
+An obvious reaction to Prior's counterexample is that the introduction and elimination rules for "tonk" are mismatched in a way in which the introduction and elimination rules for the propositional connectives and quantifiers are not. But it is challenging to say more about what this "mismatch" amounts to.
+
+<br>
+
+## Summary of all rules
+
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Typed</th>
+    <th>Discussion</th>
+    <th># of Prior Lines</th>
+  </tr>
+  <tr>
+    <td>Introduction of universal</td>
+    <td>`I∀` or `IA`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-universal)</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Elimination of universal</td>
+    <td>`E∀` or `EA`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-universal)</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Introduction of existential</td>
+    <td>`I∃` or `IE`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#introduction-rule-for-existential)</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Elimination of existential</td>
+    <td>`E∃` or `EE`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#elimination-rule-for-existential)</td>
+    <td>2</td>
+ </tr>
+  <tr>
+    <td>Introduction of conjunction</td>
+    <td>`I∧` or `I/\`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-conjunction)</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Elimination of conjunction</td>
+    <td>`E∧` or `E/\`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-conjunction)</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Introduction of disjunction</td>
+    <td>`I∨` or `I\/`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#introduction-rule-for-disjunction)</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Elimination of disjunction</td>
+    <td>`E∨` or `E\/`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#elimination-rule-for-disjunction)</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>Introduction of arrow</td>
+    <td>`I→` or `I->`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-implication)</td>
+    <td>$\geq 2$</td>
+  </tr>
+  <tr>
+    <td>Elimination of arrow</td>
+    <td>`E→` or `E->`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-implication)</td>
+    <td>$2$</td>
+  </tr>
+  <tr>
+    <td>Introduction of negation</td>
+    <td>`I¬` or `I~`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-negation)</td>
+    <td>$\geq 2$</td>
+  </tr>
+  <tr>
+    <td>Elimination of negation</td>
+    <td>`E¬` or `E~`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-negation)</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Ex Falso</td>
+    <td>`EFSQ`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#ex-falso)</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Repeat</td>
+    <td>`rep`</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#repeat-rule)</td>
+    <td>1</td>
+  </tr>
+</table>
+
+<br>
+
+And of course for [the rules for the Aristotelian syllogisms, see the above discussion](#adding-rules-for-the-aristotelian-syllogism).
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+
+[^3]: which is:

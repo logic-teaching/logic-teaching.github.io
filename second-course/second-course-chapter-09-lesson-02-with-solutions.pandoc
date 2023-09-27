@@ -1,0 +1,542 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+
+<br>
+
+# Week 9, Lecture 2, Second-order logic with solutions
+
+<br>
+
+We introduce second-order logic and look at some of its philosophical applications.
+
+- [Motivation by way of translations](#motivation-by-way-of-translations)
+- [The comprehension schema and lambda-terms as names of properties](#the-comprehension-schema-and-lambda-terms-as-names-of-properties)
+- [Deductive system and examples](#deductive-system-and-examples)
+- [The identity of indiscernibles](#the-identity-of-indiscernibles)
+- [The definition of identity](#the-definition-of-identity)
+- [Ramsey sentences](#ramsey-sentences)
+
+<br>
+
+## Motivation by way of translations
+
+<br>
+
+One way to motivate second-order logic is to look at simple translations, and note that when faced with $Fa$ it seems just as natural to quantify out the predicate $F$ as it seems to quantify out the individual $a$.
+
+<br>
+
+In the next couple of examples, we use the key:
+
+| $a$ = Allison
+| $b$ = Brianna
+| $W$ = is wise
+| $K$ = is kind
+| $R$ = respects
+| $T$ = trusts
+
+<br>
+
+*Example 1*
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+ (Wa->ExWx) : If Allison is wise, then someone is wise.
+|Wa->ExWx
+~~~
+
+<br>
+
+*Example 2*
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+ (Wa/\Wb)->EX1(X1a/\X1b) : If Allison is wise and Brianna is wise, then Allison has some property which Brianna also has.
+|(Wa/\Wb)->EX1(X1a/\X1b)
+~~~
+
+<br>
+
+*Example 3*
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+ Ka->Ex(~x=b/\Kx) : If Allison is kind, then someone besides Brianna is kind.
+|Ka->Ex(~x=b/\Kx)
+~~~
+
+<br>
+
+*Example 4*
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+ Ka->EX1(X1a/\~Ay(Wy->X1y)) : If Allison is kind, then Allison has some property which not all wise people have.
+|Ka->EX1(X1a/\~Ay(Wy->X1y))
+~~~
+
+<br>
+
+In some ways the central philosophical question about second-order logic is: "what are these properties that one is now quantifying over?" Today we are not going to tackle that question head-on, but rather just gain some familiarity with second-order logic qua logic. Hence, we will call the new things we quantify over "properties" or "predicates" or "relations" and not say much today about what they are, but rather focus on what we can do with this new resource. We will return next week to the question of what they are.
+
+<br>
+
+As you can see from these examples, in our computer system we have to write the number 1 next to the `X` since that tells us how many places it takes. This is kind of like parentheses: people drop them when writing it out by hand since it is usually clear from context. We will be dropping them in what follows, except when we need to write them in the computer system.
+
+<br>
+
+## The comprehension schema and lambda-terms as names of properties
+
+<br>
+
+Our conception of "property" is fairly broad, and so we also want all the following to be valid:
+
+<table style="width:125%">
+  <tr>
+    <th>Intuitive</th>
+    <th>Handwritten</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>There is a property of being $F$ and $G$</td>
+    <td>$\exists \; X \; \forall \; x \; (Xx\leftrightarrow (Fx\wedge Gx))$</td>
+    <td>`EX1Ax((X1x->(Fx/\Gx))/\((Fx/\Gx)->X1x))`</td>
+  </tr>
+  <tr>
+    <td>There is a property of being $F$ or $G$</td>
+    <td>$\exists \; X \; \forall \; x \; (Xx\leftrightarrow (Fx\vee Gx))$</td>
+    <td>`EX1Ax((X1x->(Fx\/Gx))/\((Fx\/Gx)->X1x))`</td>
+  </tr>
+  <tr>
+    <td>There is a property of being $F$ and not $G$</td>
+    <td>$\exists \; X \; \forall \; x \; (Xx\leftrightarrow (Fx\wedge \neg Gx))$</td>
+    <td>`EX1Ax((X1x->(Fx/\~Gx))/\((Fx/\~Gx)->X1x))`</td>
+  </tr>
+  <tr>
+    <td>There is a property of being equal to $a$</td>
+    <td>$\exists \; X \; \forall \; x \; (Xx\leftrightarrow x=a)$</td>
+    <td>`EX1Ax((X1x->x=a)/\(x=a->X1x))`</td>
+  </tr>
+</table>
+
+<br>
+
+These properties correspond, respectively, to the set-theoretic operations of intersection, union, and relative difference, and the operation of going from an individual $a$ to the set $\{a\}$ consisting just of $a$. That is, just as there are lots of sets, so there are lots of properties. In more ways than one, our "properties" are very much like one "layer" of sets on top of the individuals.
+
+It seems hard to say what these properties have in common, other than that what is on the right-hand side of these biconditionals is a formula $\phi(x)$ of predicate logic. Hence, we want all instances of the following *comprehension schema* in our deductive system:[^1]
+
+<br>
+
+
+*The comprehension schema*:
+
+<table style="width:125%">
+  <tr>
+    <th>Intuitive</th>
+    <th>Handwritten</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>There is a property of being $\phi(x)$</td>
+    <td>$\exists \; X \; \forall \; x \; (Xx\leftrightarrow \phi(x))$</td>
+    <td>`EX1Ax((X1x->ϕ(x))/\(ϕ(x)->X1x))`</td>
+  </tr>
+</table>
+
+<br>
+
+Note that the comprehension schema is an infinite set of axioms, one for each formula $\phi(x)$. In some presentations of second-order logic, the infinitely many instances of the comprehension schema would be the only non-logical axiom of second-order logic.
+
+<br>
+
+A disadvantage of working just with the comprehension schema is that its instances are bare existentials. Hence, if we merely had the comprehension schema, then whenever we wanted to apply it we would have to do an existential elimination. Moreover, it seems like a particularly inefficient use of an existential, since we "know" what property we are talking about: we are talking about the property corresponding to a specific formula $\phi(x)$.
+
+[^1]: One also has to require, in the comprehension schema, that $X$ is not free in $\phi(x)$. Otherwise one could let $\phi(x)$ be $\neg Xx$ and one would get $\exists \; X \; \forall \; x \; Xx\leftrightarrow \neg Xx$.
+
+Hence, we make working with our second-order logic a little nicer by using some lambda notation, so as to be able to explicitly  "name" properties:
+
+<table style="width:125%">
+  <tr>
+    <th>Property</th>
+    <th>Formula</th>
+    <th>Lambda term, handwritten</th>
+    <th>Lambda term, typed</th>
+  </tr>
+  <tr>
+    <td>Being $F$ and $G$</td>
+    <td>$Fx\wedge Gx$</td>
+    <td>$\lambda x . (Fx\wedge Gx)$</td>
+    <td>`\x[Fx/\Gx]` or `λx[Fx/\Gx]`</td>
+  </tr>
+  <tr>
+    <td>Being $F$ or $G$</td>
+    <td>$Fx\vee Gx$</td>
+    <td>$\lambda x . (Fx\vee Gx)$</td>
+    <td>`\x[Fx\/Gx]` or `λx[Fx\/Gx]`</td>
+  </tr>
+  <tr>
+    <td>Being $F$ and not $G$</td>
+    <td>$Fx\wedge \neg Gx$</td>
+    <td>$\lambda x . (Fx\wedge \neg Gx)$</td>
+    <td>`\x[Fx/\~Gx]` or `λx[Fx/\~Gx]`</td>
+  </tr>
+  <tr>
+    <td>Being equal to $a$</td>
+    <td>$x=a$</td>
+    <td>$\lambda x . (x=a)$</td>
+    <td>`\x[x=a]` or `λx[x=a]`</td>
+  </tr>
+</table>
+
+<br>
+
+Unlike our prior exposure to lambda-terms in the setting of [the Curry-Howard isomorphism](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-02.pandoc#the-curry-howard-isomorphism), we are *not* including the typing. This is because they all have the same type: they are all functions $f:D\rightarrow \{0,1\}$, where $1$ is true and $0$ is false, and where $D$ is the domain of quantification.[^2] This basically because we are restricting ourselves today to "second-order logic", rather than "third-order logic, fourth-order logic, etc."
+
+[^2]: In the notation of formal semantics which we mentioned, they are all functions $f:D_e\rightarrow D_t$, which is abbreviated as $f:D_{et}$.
+
+<br>
+
+## Deductive system and examples
+
+<br>
+
+Since we only have lambda terms that correspond to properties, the evaluation process is very simple and is separated into the following components (which are sometimes collectively called *Axiom $\beta$* in more developed versions of the lambda calculus):
+
+<table style="width:125%">
+  <tr>
+    <th>Name</th>
+    <th>Rule</th>
+    <th>Rule, typed</th>
+    <th>Abbreviation</th>
+  </tr>
+  <tr>
+    <td>Application</td>
+    <td>$\lambda x. [ϕ(x)]a \vdash ϕ(a)$</td>
+    <td>`\x[ϕ(x)]a ⊢ ϕ(a)` or `λx[ϕ(x)]a ⊢ ϕ(a)` </td>
+    <td>`APP1`</td>
+  </tr>
+  <tr>
+    <td>Abstraction</td>
+    <td>$ϕ(a) \vdash \lambda x. [ϕ(x)]a$</td>
+    <td>`ϕ(a) ⊢ \x[ϕ(x)]a` or `ϕ(a) ⊢ λx[ϕ(x)]a` </td>
+    <td>`ABS1`</td>
+  </tr>
+</table>
+
+<br>
+
+As for the quantifier rules, they are pretty much just like with the first-order part. The introduction rule for the second-order existential works just like before, but one replaces a lambda-term by a variable bound by an existential quantifier. Likewise, elimination rule for the second-order universal works just like before, but one removes the universal quantifier and replaces the variable by a lambda-term. The introduction rule for universals and the elimination rule for existentials work just like before, but they use fresh higher-order variables instead of lambda-terms or constants.
+
+<br>
+
+<table style="width:125%">
+  <tr>
+    <th>Name</th>
+    <th>Rule</th>
+    <th>Rule, typed</th>
+    <th>Abbreviation</th>
+  </tr>
+  <tr>
+    <td>Introduction of second-order existential</td>
+    <td>$\psi(\lambda x. [ϕ(x)]) \ldots \vdash \exists \; X \; \psi(X)$</td>
+    <td>`ψ(\x[ϕ(x)]) ⊢ EX1 ψ(X1)` or `ψ(λx[ϕ(x)]) ⊢ EX1 ψ(X1)` </td>
+    <td>`IE1`</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>or `ψ(λx[ϕ(x)]) ⊢ EX1 ψ(X1)` </td>
+    <td>
+  </tr>
+  <tr>
+    <td>Elimination of second-order universal</td>
+    <td>$\forall \; X \; \psi(X) \vdash \psi(\lambda x. [ϕ(x)])$</td>
+    <td>`AX1 ψ(X1) ⊢ ψ(\x[ϕ(x)])` or `AX1 ψ(X1) ⊢ ψ(λx[ϕ(x)])` </td>
+    <td>`EA1`</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>or `AX1 ψ(X1) ⊢ ψ(λx[ϕ(x)])` </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Introduction of second-order universal</td>
+    <td>$\psi(Y) \vdash \forall \; X \; \psi(X)$</td>
+    <td>`ψ(Y1) ⊢ AX1 ψ(X1)` </td>
+    <td>`IA1`</td>
+  </tr>
+  <tr>
+    <td>Elimination of second-order existential</td>
+    <td>$\exists \; X \; \psi(X), \psi(Y)\rightarrow \xi \vdash \xi$</td>
+    <td>`EX1 ψ(X1), ψ(Y1)->ξ ⊢ ξ` </td>
+    <td>`EE1`</td>
+  </tr>
+</table>
+
+<br>
+
+For the last two rules, one has to choose the new variable `Y` to be fresh. A good bet is usually just to choose `X` itself.
+
+<br>
+
+*Example 5*
+
+$\neg Fa, Gb, \forall \; x \; (Gx\rightarrow Fx) \vdash \exists \; X \; (Xa\wedge \neg Xb)$
+
+The idea of the proof, of course, is that $a$ has the property of being "not F", but $b$ does not have this property (since $b$ is $F$).
+
+The naive proof looks like the following:
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+ ~Fa, Gb, Ax(Gx->Fx) :|-: EX1(X1a/\~X1b)
+|~Fa :assumption
+|Gb :assumption
+|Ax(Gx->Fx) :assumption
+|Gb->Fb :EA 3
+|Fb :E->2,4
+|~~Fb :DN5
+|~Fa/\~~Fb :I/\1,6
+|EX1(X1a/\~X1b) :IE1 7
+```
+
+It breaks down because the proof-checker needs some indication in line 7 for whether the property that witnesses the existential in line 8 is supposed to be the `~Fx` in line 7 or the further embedded `Fx` in line 7. That's what we do in the next proof:
+
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+ ~Fa, Gb, Ax(Gx->Fx) :|-: EX1(X1a/\~X1b)
+|~Fa :assumption
+|Gb :assumption
+|Ax(Gx->Fx) :assumption
+|\x[~Fx]a :ABS1 1
+| \x[~Fx]b :assumption
+| ~Fb :APP1 5
+| Gb->Fb :EA 3
+| Fb :E->2,7
+| !? :E~6,8
+|~\x[~Fx]b :I~5-9
+|\x[~Fx]a/\~\x[~Fx]b :I/\4,10
+|EX1(X1a/\~X1b) :IE1 11
+```
+
+<br>
+
+## The identity of indiscernibles
+
+<br>
+
+One famous principle expressible with second-order logic is *the identity of indiscernibles*. It says that any two objects which share all the same properties are identical.
+
+Since our proof system has identity built in, identity of indiscernibles is provable in our system. This is because if $a,b$ are two objects which share all properties, and if $a$ has the property "$a$ is equal to it", so $b$ has the property "$a$ is equal to it."
+
+<br>
+
+*Example 6*
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+  :|-: AxAy(AX1(X1x->X1y)->x=y)
+| AX1(X1a->X1b) :assumption
+| a=a :I=
+| \x[a=x]a->\x[a=x]b :EA1 1
+| \x[a=x]a :ABS1 2
+| \x[a=x]b :E->3,4
+| a=b :APP1 5
+|AX1(X1a->X1b)->a=b :I->1-6
+|Ay(AX1(X1a->X1y)->a=y) :IA 7
+|AxAy(AX1(X1x->X1y)->x=y) :IA 8
+```
+
+Often when identity of indiscernibles is being debated within philosophy, one is in a setting where there is a less expansive notion of property in play. After all, the idea of the comprehension schema is that there are lots of properties in our system, one for each formula. But when the identity of indiscernibles is being debated in philosophy, we are rather interested in *qualitative* properties like "blue" or "red" which can be explicated without recourse to identity. The question of whether the identity of indiscernibles holds in this kind of setting is the question of whether any two objects which satisfy all of the same qualitative properties are identical. This is clear in Leibniz's original discussion:
+
+> . . . in Nature no two things can be perfectly alike; between any two things a difference can be found that is internal-- i.e. based on what each is like in its own nature [...].[^3]
+
+[^3]: Section 9 of [Leibniz, G. W. 1714. The Principles of Philosophy Known as Monadology.](https://www.earlymoderntexts.com/assets/pdfs/leibniz1714b.pdf). It is also clear in e.g. Black's famous example of the two spheres. [Black, Max. 1952. “The Identity of Indiscernibles.” Mind; a Quarterly Review of Psychology and Philosophy 61 (242): 153–64.](https://www.jstor.org/stable/2252291)
+
+<br>
+
+## The definition of identity
+
+<br>
+
+Another application of second-order logic is that with it, one can define an identity-like notion that satisfies [the introduction and elimination rules for identity](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-01-with-solutions.pandoc#adding-identity), and hence will be indistinguishable from identity, as far as proofs in our system go.
+
+The idea is just to define identity as "sharing all properties". That is, we could define $a=b$ as $\forall \; X \; (Xa \rightarrow Xb)$. The next two proofs show that if we take this as the definition, then we could derive [the introduction and elimination rules for identity](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-01-with-solutions.pandoc#adding-identity).
+
+<br>
+
+*Example 7*
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+ :|-: AX1(X1a->X1a)
+| X1a :assumption
+| X1a :rep1
+|X1a->X1a :I->1-2
+|AX1(X1a->X1a) :IA1 3
+```
+
+<br>
+
+*Example 8*
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+ Fa, AX1(X1a->X1b) :|-: Fb
+|Fa :assumption
+|AX1(X1a->X1b) :assumption
+|λx[Fx]a->λx[Fx]b :EA1 2
+|λx[Fx]a :ABS1 1
+|λx[Fx]b :E->3,4
+|Fb :APP1 5
+```
+
+<br>
+
+## Ramsey sentences
+
+
+Suppose that one has a physical theory with theoretical one-place predicates $F, G$, two empirical one-place predicates $P,Q$ and one empirical two-place relation $R$. Suppose that one's theory consists of the following premises:
+
+&nbsp; &nbsp; &nbsp; $\exists \; x \; (Fx\wedge Gx)$
+
+&nbsp; &nbsp; &nbsp; $\forall \; x \; (Fx\rightarrow \exists \; y \; ((Py\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y)))$
+
+&nbsp; &nbsp; &nbsp; $\forall \; x \; (Gx\rightarrow \exists \; y \; ((Qy\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y)))$
+
+Then the *Ramsey sentence* of the theory is formed by existentially quantifying out the theoretical predicates (in this case $F,G$):
+
+&nbsp; $\exists \; X \; \exists \; Y \;$
+
+&nbsp; &nbsp; &nbsp; $\exists \; x \; (Xx\wedge Yx)$
+
+&nbsp; &nbsp; &nbsp; $\wedge \forall \; x \; (Xx\rightarrow \exists \; y \; ((Py\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y)))$
+
+&nbsp; &nbsp; &nbsp; $\wedge \forall \; x \; (Yx\rightarrow \exists \; y \; ((Qy\wedge Rxy)\wedge \forall \; z \; (Rxz\rightarrow z=y)))$
+
+The key feature of the Ramsey sentence of a theory is that:[^4]
+
+[^4]: [Ramsey, Frank Plumpton. 1931. “Theories.” In The Foundations of Mathematics and Other Logical Essays, edited by R. B. Braithwaite, 212–36. London: Routledge and Kegan Paul.](https://logic-teaching.github.io/philos-132-winter-23/texts/Ramsey%201931%20-%20Theories.pdf)
+
+- The Ramsey sentence of a theory has the same observational consequences as the theory itself. In this "observational consequence" just means "consequence expressible by means of the observational predicates."
+
+In one direction, this is clear since the theory proves its Ramsey sentence by existential introduction. In the other direction, one just has to use existential elimination of the higher-order quantifiers.
+
+This can be illustrated by means of the above example. It is not too hard to see that the above theory implies that something is both $P$ and $Q$. Here is a proof:
+
+<br>
+
+*Example 9*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+ Ex(Fx/\Gx), Ax(Fx->Ey((Py/\Rxy)/\Az(Rxz->z=y))), Ax(Gx->Ey((Qy/\Rxy)/\Az(Rxz->z=y))) :|-: Ez(Pz/\Qz)
+|Ex(Fx/\Gx) :assumption
+|Ax(Fx->Ey((Py/\Rxy)/\Az(Rxz->z=y))) :assumption
+|Ax(Gx->Ey((Qy/\Rxy)/\Az(Rxz->z=y))) :assumption
+| Fa/\Ga :assumption
+| Fa :E/\4
+| Ga :E/\4
+| Fa->Ey((Py/\Ray)/\Az(Raz->z=y)) :EA2
+| Ga->Ey((Qy/\Ray)/\Az(Raz->z=y)) :EA3
+| Ey((Py/\Ray)/\Az(Raz->z=y)) :E->7,5
+| Ey((Qy/\Ray)/\Az(Raz->z=y)) :E->6,8
+|  (Pb/\Rab)/\Az(Raz->z=b) :assumption
+|  Pb/\Rab :E/\11
+|  Pb :E/\12
+|  Rab :E/\12
+|  Az(Raz->z=b) :E/\11
+|   (Qc/\Rac)/\Az(Raz->z=c) :assumption
+|   Qc/\Rac :E/\16
+|   Qc :E/\17
+|   Rac :E/\17
+|   Rac->c=b :EA15
+|   c=b :E->19,20
+|   Qb :E=18,21
+|   Pb/\Qb :I/\13,22
+|   Ez(Pz/\Qz) :IE23
+|  ((Qc/\Rac)/\Az(Raz->z=c))->Ez(Pz/\Qz) :I->16-24
+|  Ez(Pz/\Qz) :EE 10, 25
+| ((Pb/\Rab)/\Az(Raz->z=b))->Ez(Pz/\Qz) :I->11-26
+| Ez(Pz/\Qz) :EE 9,27
+|(Fa/\Ga)->Ez(Pz/\Qz) :I->4-28
+|Ez(Pz/\Qz) :EE 29,1
+```
+
+The claim that "there is something which is both $P$ and $Q$" is observational, and so should be provable from the Ramsey sentence as well. Here is the proof, which contains the previous proof on lines 4-30 with `F,G` replaced by `X1, Y1`, and otherwise is a bunch of existential elimination of the higher-order quantifiers:
+
+<br>
+
+*Example 10*
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+ EX1EY1(Ex(X1x/\Y1x)/\(Ax(X1x->Ey((Py/\Rxy)/\Az(Rxz->z=y)))/\Ax(Y1x->Ey((Qy/\Rxy)/\Az(Rxz->z=y))))) :|-: Ez(Pz/\Qz)
+|EX1EY1(Ex(X1x/\Y1x)/\(Ax(X1x->Ey((Py/\Rxy)/\Az(Rxz->z=y)))/\Ax(Y1x->Ey((Qy/\Rxy)/\Az(Rxz->z=y))))) :assumption
+| EY1(Ex(X1x/\Y1x)/\(Ax(X1x->Ey((Py/\Rxy)/\Az(Rxz->z=y)))/\Ax(Y1x->Ey((Qy/\Rxy)/\Az(Rxz->z=y))))) :assumption
+|  Ex(X1x/\Y1x)/\(Ax(X1x->Ey((Py/\Rxy)/\Az(Rxz->z=y)))/\Ax(Y1x->Ey((Qy/\Rxy)/\Az(Rxz->z=y)))) :assumption
+|  Ex(X1x/\Y1x) :E/\3
+|  Ax(X1x->Ey((Py/\Rxy)/\Az(Rxz->z=y)))/\Ax(Y1x->Ey((Qy/\Rxy)/\Az(Rxz->z=y))) :E/\3
+|  Ax(X1x->Ey((Py/\Rxy)/\Az(Rxz->z=y))) :E/\5
+|  Ax(Y1x->Ey((Qy/\Rxy)/\Az(Rxz->z=y))) :E/\5
+|   X1a/\Y1a :assumption
+|   X1a :E/\8
+|   Y1a :E/\8
+|   X1a->Ey((Py/\Ray)/\Az(Raz->z=y)) :EA 6
+|   Y1a->Ey((Qy/\Ray)/\Az(Raz->z=y)) :EA 7
+|   Ey((Py/\Ray)/\Az(Raz->z=y)) :E->9,11
+|   Ey((Qy/\Ray)/\Az(Raz->z=y)) :E->10,12
+|    (Pb/\Rab)/\Az(Raz->z=b) :assumption
+|    Pb/\Rab :E/\15
+|    Pb :E/\16
+|    Rab :E/\16
+|    Az(Raz->z=b) :E/\15
+|     (Qc/\Rac)/\Az(Raz->z=c) :assumption
+|     Qc/\Rac :E/\20
+|     Qc :E/\21
+|     Rac :E/\21
+|     Rac->c=b :EA 19
+|     c=b :E->23,24
+|     Qb :E=22,25
+|     Pb/\Qb :I/\17,26
+|     Ez(Pz/\Qz) :IE 27
+|    ((Qc/\Rac)/\Az(Raz->z=c))->Ez(Pz/\Qz) :I->20-28
+|    Ez(Pz/\Qz) :EE 14,29
+|   ((Pb/\Rab)/\Az(Raz->z=b))->Ez(Pz/\Qz) :I->15-30
+|   Ez(Pz/\Qz) :EE 13,31
+|  (X1a/\Y1a)->Ez(Pz/\Qz) :I->8-32
+|  Ez(Pz/\Qz) :EE 4,33
+| (Ex(X1x/\Y1x)/\(Ax(X1x->Ey((Py/\Rxy)/\Az(Rxz->z=y)))/\Ax(Y1x->Ey((Qy/\Rxy)/\Az(Rxz->z=y)))))->Ez(Pz/\Qz) :I->3-34
+| Ez(Pz/\Qz) :EE1 2,35
+|EY1(Ex(X1x/\Y1x)/\(Ax(X1x->Ey((Py/\Rxy)/\Az(Rxz->z=y)))/\Ax(Y1x->Ey((Qy/\Rxy)/\Az(Rxz->z=y)))))->Ez(Pz/\Qz) :I->2-36
+|Ez(Pz/\Qz) :EE1 1,37
+```
+
+<br>
+
+As for its broader significance, Carnap thought that the Ramsey sentence was an attractive way to be a scientific realist:[^5]:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Carnap%201966%20-%20The%20Ramsey%20Sentence%20p.%20252.png" alt="Carnap on Ramsey sentences" width="600"/>
+
+[^5]: p. 153 of [Carnap, Rudolf. 1966. “The Ramsey Sentence.” In Philosophical Foundations of Physics, 247–56. Basic Books, Incorporated](https://logic-teaching.github.io/philos-132-winter-23/texts/Carnap%201966%20-%20The%20Ramsey%20Sentence.pdf).
+
+<br>
+
+That is, Carnap thinks that endorsement of *the Ramsey sentence of a theory* rather than *the theory itself*
+
+- is a kind of realism since one is asserting that there are properties that act just like the theoretical predicates of the theory.
+
+- frees one of the obligation of saying what the exact referent of theoretical predicates is and how that is connected to our more familiar ways of latching onto the referent of words.
+
+There is a lot to say about how successful Carnap is in carving out a space for this kind of tempered realism. A couple of observations can help to sharpen the picture:[^6]
+
+- Suppose that the empirical predicates contained one over-arching "empirical predicate" $Ox$ for "$x$ is observable". Then $\exists \; x \; \neg Ox$ is expressible purely in terms of the observational vocabulary. Hence if the original theory implies this, then so too does the Ramsey sentence. Hence the tempered realist cannot be someone who denies the existence of unobservables.
+
+- If second-order sentences in the observational vocabulary count as "observational consequences" as well, then proving the Ramsey sentence of a theory is just equivalent to proving all of its observational consequences. And realists often want to be something more than mere advocates of empirical adequacy.
+
+<br>
+
+[^6]: These points are made in more detail in Sections 3.6-3.7 of [Button, Tim, and Sean Walsh. 2018. Philosophy and Model Theory. Oxford University Press](https://logic-teaching.github.io/philos-132-winter-23/texts/Button%20and%20Walsh%202018%20-%20Philosophy%20and%20Model%20Theory%20Chapter%203.pdf).

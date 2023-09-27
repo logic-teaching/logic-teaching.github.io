@@ -1,0 +1,264 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 10, Lecture 1, Second-order logic continued
+
+<br>
+
+We continue our discussion of second-order logic.
+
+- [The need to go beyond first-order logic](#the-need-to-go-beyond-first-order-logic)
+- [The standard semantics for second-order logic](#the-standard-semantics-for-second-order-logic)
+- [The plural interpretation of second-order logic](#the-plural-interpretation-of-second-order-logic)
+
+<br>
+
+## The need to go beyond first-order logic
+
+<br>
+
+Last time we talked about some of the applications of second-order logic: Ramsey sentences are formulated using second-order logic, and second-order logic can be used to express the identity of indiscernibles. Those seem interesting and worthy of study, but seem to speak more to *an interest in* rather than *a need to go beyond* first-order logic. Here are a couple of examples that suggest that there are things we say all the time which cannot be handled by first-order logic.
+
+<br>
+
+*Example 1*
+
+Consider the following example, known as the Geach-Kaplan sentence:
+
+- "Some critics admire only one another."
+
+How should we symbolize this in first order logic? Let's use the following key:
+
+| $C$ = is a critic
+| $R$ = admires
+
+Here's a first pass:
+
+- $\exists \; x \; (Cx\wedge \forall \; y \; (Rxy\rightarrow (Cy\wedge x\neq y))$
+
+This expresses that some critics admire only other critics. And that is certainly a *part* of what the Geach-Kaplan sentence is saying. But there's also something still left out from the intended reading: that among the general group of critics, there is a secondary, more exclusive group of them who do not admire anyone outside of the group (and membership in this group is not necessarily just defined by being a critic). So the above symbolization is not quite right. (Note: such a scenario is compatible with our first attempt, but it's not required in order to make the sentence true, and hence not its inherent meaning).
+
+So how can we bake this idea of an exclusive group into a first order symbolization? We might try:
+
+- $\exists \; x \; \exists \; y \; (Cx\wedge Cy\wedge x\neq y \wedge \forall\; z\; (Rxz\rightarrow (Cz\wedge z= y))\wedge (Ryz\rightarrow (Cz\wedge z= x))$.
+
+But this doesn't fare much better. For, we've just taken the first sentence and required that the size of the group be at least two. But, there's still only one group being spoken about here, and that is just the general group of critics.
+
+Continuing to expand the size of the group won't help. At this stage it might occur to one that it would be really nice to be able to say something like the following
+
+- $\exists \; x_1 \; (Gx_1 \wedge \forall \; y (Myx_1 \rightarrow Cy)\wedge \exists \; y \; Myx_1\wedge \forall \; y \; \forall \; z \; ((Myx_1\wedge Ryz)\rightarrow (Mzx_1\wedge z\neq y))$.
+
+where it is understood that
+
+| Gx = x is a group
+| Mxy = x is a member of y
+
+Hence the sentence reads "There is some (non-empty) group whose members are all critics, and if any member of the group admires someone, the person they admire is also a member of the group."
+
+Now on this attempt we're capturing the full meaning of the Geach-Kaplan sentence. However, this sentence is not actually interpretable by the semantics of first-order logic. For, suppose that this sentence was true on our model $\mathcal{M}$. Then there would be a [variable assignment](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-02.pandoc#definition-of-truth-in-a-model-relative-to-a-variable-assignment) $g$ that made the following true:
+
+- $\mathcal{M},g\models (Gx_1 \wedge \forall \; y (Myx_1 \rightarrow Cy)\wedge \exists \; y \; Myx_1\wedge \forall \; y \; \forall \; z \; ((Myx_1\wedge Ryz)\rightarrow (Mzx_1\wedge z\neq y))$
+
+But in first-order logic, any variable assignment $g$ will have to send $x_1$ to an element of the model's underlying domain. But, given the meaning of the sentence, $x_1$ is not the kind of thing that can be interpreted as an individual or basic element of the underlying domain $M$ of the model $\mathcal{M}$. Rather on our intended reading, $x_1$ is a group or a collection, which is comprised of basic individuals or elements. It is not itself a basic element of $M$, but rather something of a higher order. So in order to express the Geach-Kaplan sentence, we need to expand first-order predicate logic into a new language that can accommodate such higher order entities.[^1] As we have seen, one such expansion is second-order logic.
+
+[^1]: For a proof Geach-Kaplan cannot be formalized in first-order logic, see the footnote on p. 433 of: [Boolos, George. 1984. "To Be Is to Be a Value of a Variable (or to Be Some Values of Some Variables)." The Journal of Philosophy 81 (8): 430](https://www.jstor.org/stable/2026308). Note that the proof is there credited to Kaplan.
+
+Here's how we notate the Geach-Kaplan sentence in second-order logic:
+
+- $\exists \; X \; (\exists \; x \; Xx \wedge \forall \; x (Xx\rightarrow Cx)\wedge \forall \; x \; \forall \; y \; ((Xx\wedge Rxy)\rightarrow (Xy\wedge x\neq y))$.
+
+Like in the last lecture, we use the capital variables to signal when we are quantifying over and referring to second-order entities, and we simultaneously allow these second-order entities to continue playing the syntactic role of first-order predicates, e.g. we now write $Xx$ just like we have been writing $Fx$ since the beginning of the course.
+
+<br>
+
+*Example 2*
+
+Consider "Most Geography majors are happy." This has the same surface structure as "Some Geography majors are happy" and "All Geography majors are happy". Hence, one might think that it has a translation into first-order predicate logic.
+
+Note that "Most G's are H" seems to be saying ">50% of the G's are H's". For instance, the following should seem right:
+
+- If there are 300 G's and 200 of are H, then it's true that "most G's are H's".
+- If there are 100 G's and 5 of them are H, then it's false that "most G's are H's".
+
+While these cases seem clear, perhaps there is some gray area once we get very close to 50%. But assuming for the moment that the cut off is sharply at 50%, we can ask whether this concept is expressible in first-order predicate logic.
+
+It is not obvious that is so expressible. Using the [exact numerical quantifiers](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-with-solutions.pandoc#exact-numerical-quantifiers), one could say something like "there are exactly 300 G's and at least 151 of them are H". But this seems to artificially restrict our attention to specific numbers, whereas the statement of natural language appears to be making no such restrictions and would be perfectly intelligble regardless of how large the relevant classes of objects got.
+
+In [the tutoring document for last week](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-tutoring-with-solutions.pandoc#second-order-logic) (Problem 12, Problem 15), we introduced two-place property quantifiers. And we have seen earlier that [graphs of functions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#graphs-of-functions-and-predicate-logic) can be described with binary relations. And sizes of sets $X,Y$ can be compared by saying that there is a bijection from the $X$ to $Y$, and likewise a set $X$ can be viewed as smaller than $Y$ if there is an injection from $X$ to $Y$ but no bijection from $X$ to $Y$. Hence, one can express
+
+- Most G's are H's iff there is an injection but not a bijection from $G\setminus H$ to $G\cap H$.
+
+This is just a fancy way of saying  "the G's which are not H are fewer in number than the G's which are H".  Hence, it looks like "most" can also be expressed in second-order logic, albeit in a slightly roundabout way.[^2]
+
+[^2]: Like with Geach-Kaplan, it turns out that "most G's are H's" is demonstrably not expressible with any first-order sentence. See p. 214 of: [Barwise, Jon, and Robin Cooper. 1981. "Generalized Quantifiers and Natural Language." Linguistics and Philosophy 4 (2): 159–219.](https://www.jstor.org/stable/25001052) Note that they credit Kaplan with the proof.
+
+<br>
+
+## The standard semantics for second-order logic
+
+The standard semantics for second-order predicate logic just expands the semantics for first-order predicate logic by interpreting the second-order one-place quantifiers as ranging over all subsets of the domain. That is, this semantics is organized so that the one-place properties are interpreted as the subsets of the first-order domain. In the interests of time, we will illustrate it by way of example rather than formally define it.
+
+<br>
+
+*Example 3*
+
+Consider the following arrow model with domain $\{0,1,2,3,4\}$, where as usual $Rab$ iff there is a drawn arrow from $a$ to $b$ in the diagram:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/second-order-ex1.png" alt="Graph with two connected components" width="400"/>
+
+This is a model of the following long but simple sentence, which *says* just what you *see* when you look at the model, namely that it is split into two disjoint parts:
+
+$\exists \; X \; \exists \; Y \; \forall \; x \; (Xx\vee Yx) \; \wedge \exists \; x\; Xx \; \exists \; Y \; Yy \wedge \neg \exists \; x \; (Xx\wedge Yx)$
+
+&nbsp; $\wedge \forall \; x \; \forall \; y\; ((Xx\wedge Xy)\rightarrow Rxy) \wedge \forall \; x \; \forall \; y\; ((Xx\wedge Rxy)\rightarrow Xy)$
+
+&nbsp; $\wedge \forall \; x \; \forall \; y\; ((Yx\wedge Yy)\rightarrow Rxy) \wedge \forall \; x \; \forall \; y\; ((Yx\wedge Rxy)\rightarrow Yy)$
+
+More literally, it says that there are two non-empty subsets of the domain that partition the domain  such that for each of these two sets, all the points in the set arrow one another, and they only arrow points in that same set. This sentence is true in the model since one can take $X$ to be $\{0,1,2\}$ and $Y$ to be $\{3,4\}$ (or vice-versa).
+
+<br>
+
+*Example 4*
+
+Suppose that we use the following key:
+
+| $a$ = Allison
+| $b$ = Brianna
+| $W$ = is wise
+| $K$ = is kind
+
+
+Consider the following sentence of second-order sentence:
+
+- $\forall \; X \; (Xa\rightarrow Xb)$
+
+This is false in the following model:
+
+- $M = \{$Allison,Brianna$\}$ and $a^{\mathcal{M}}=$Allison and $b^{\mathcal{M}}=$Brianna
+
+- $W^{\mathcal{M}} =\{$Allison,Brianna$\}$ and $K^{\mathcal{M}} = \{$Allison$\}$
+
+For, the sentence says that Brianna has every property that Allison has. But if we inspect various properties we find:
+
+- We have $\mathcal{M}\models Wa\wedge Wb$ and hence $\mathcal{M}\vDash Wa\rightarrow Wb$. So far so good!
+
+- But we have $\mathcal{M}\models Ka\wedge \neg Kb$, since Allison is kind while Brianna is not.  Hence $\mathcal{M} \nvDash Ka\rightarrow Kb$. Hence any variable assignment $g$ which assigned $X$ to $K^{\mathcal{M}}$ would result in $\mathcal{M}, g \nvDash Xa\rightarrow Xb$.
+
+<br>
+
+*Example 5*
+
+Let's write $Rab$ for $a<b$ on numbers. Then the following sentence of second-order logic is true on the integers $\mathbb{Z}$ and on the rationals $\mathbb{Q}$:
+
+$\exists \; X \; (\exists \; x \; Xx) \; \wedge (\exists \; x \; \neg Xx) \wedge \forall \; x \; (Xx\rightarrow \; \exists \; y \; (Xy\wedge Ryx))$
+
+To see that this sentence is true on the integers $\mathbb{Z}$, one can just take the set $X$ to be all the negative integers (the yellow in the below diagram):
+
+- this set $X$ is non-empty and not all the integers
+
+- this set is such that for everything $x$ in $X$, there is something $y<x$ in $X$, namely $y=x-1$ (the blue arrows in the below diagram).
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/well-order-not-integers-ex.png" alt="Integers are not a well-order" width="500"/>
+
+To see that this sentence is true on the rationals $\mathbb{Q}$, one can just take the set $X$ to be all the rationals which are strictly greater than zero (the yellow in the below diagram):
+
+- this set $X$ is non-empty and not all the rationals
+
+- this set is such that for everything $x$ in $X$, there is something $y<x$ in $X$, namely $y=x/2$ (the blue arrows in the below diagram).
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/well-order-not-rationals-ex.png" alt="Rationals are not a well-order" width="500"/>
+
+However, this sentence is *not* true on the natural numbers. For, suppose it was, and suppose that $X$ was the witness. Then choose some element $n_0$ in $X$. By repeatedly applying the closure condition, one gets an infinite decreasing sequence $n_0>n_1>n_2>\cdots$ in $X$. And this is impossible since if e.g. $n_0=5$, then this would say that there are infinitely many natural numbers below $5$.
+
+<br>
+
+While the standard semantics are very natural, it turns out that they there is no Completeness Theorem for them, and hence there is no way of crafting a deductive system that matches up exactly with this semantics. There is an alternative semantics called the *Henkin semantics*, for which there is a Completeness Theorem. The basic idea of the Henkin semantics is to have the second-order quantifiers range over just enough of the subsets of the first-order domain to make the Comprehension Schema come out true.
+
+<br>
+
+## The plural interpretation of second-order logic
+
+<br>
+
+But what are the entities over which our second-order quantifiers range? The answer *suggested* by the semantics described above would be: they are subsets of the underlying domain of the model. Once context tells us what model we are dealing with and what its underlying domain is (e.g. people, cities, etc.), it is settled what the second-order quantifiers are ranging over, namely subsets of the underlying domain of the model (e.g. subsets of the people, subsets of the cities, etc).
+
+There is some reason to be dissatisfied with this response. First, consider how we used Tarski's definition of truth in a model to generate instances of [the T-schema](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-field-on-truth-and-physicalism), as in:
+
+- "Allison is a French major" is true if and only if Allison is a French major.
+
+- "There is a French major" is true if and only if there is something in the underlying domain which is a French major
+
+Following the answer suggested by the above semantics we would have:
+
+- "Some critics admire only one another" is true if and only if there is a non-empty subset of the underlying domain such that everything in that set is a critic and such that everything in that set which admires someone is such that that someone is also in the set.
+
+One concern you might have is that the right-hand side of this instance of T-schema seems to involve sets in a way that the others did not. This might be concerning if you had the idea that the right-hand side of the T-schema is supposed to be "about the world": do you really think that sets are in the world in addition to Allison, French majors, and critics?
+
+Second, consider the [Quinean doctrine of ontological commitment](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-02.pandoc#quine-and-bound-variables-and-ontological-commitment). If we decided that only way to make sentences like Geach-Kaplan true was to admit that there are sets in the part of the domain of quantification reserved for the second-order quantifiers, then it seems like the Quinean doctrine would require that everyday sentences like Geach-Kaplan *alone* were sufficient to push us to admit some kind of elaborate mathematics in our ontology. Even if one accepted Quine's approach to ontological commitment, one might think that was this was the *wrong kind of reason* for thinking that certain kinds of mathematical abstracta exist (e.g. there being certain funny groups of people seems like an odd reason to believe in mathematical abstracta).
+
+<br>
+
+Boolos proposed instead the "plural interpretation of second-order logic":
+
+> Abandon, if one ever had it, the idea that use of plural forms must always be understood to commit one to the existence of sets (or "classes", "collections", or "totalities") of those things to which the corresponding singular forms apply. [.... Rather] using the plural forms that are available in one's mother tongue, translate the formulas into that tongue and see that the resulting English (or whatever) sentences express true statements.[^3]
+
+[^3]: p. 442 of [Boolos, George. 1984. "To Be Is to Be a Value of a Variable (or to Be Some Values of Some Variables)." The Journal of Philosophy 81 (8): 430](https://www.jstor.org/stable/2026308).
+
+That is, the idea is: if you want an answer to the question "What does $\exists \; X \; (Xa\wedge \ldots)$ mean?," just translate it into the natural language you speak as "There are some things such that $a$ is among them and . . . "  (The name "plural interpretation" comes from the fact that it is "some thing$s$" (plural) rather than "something" (singular)).
+
+To be sure, this does not literally answer the question "what are the entities over which our second-order quantifiers range?" But if the only answers we have to this question result in bad outcomes, maybe we are asking too much, and we should just ask "how do we understand sentences featuring second-order quantifiers?" And Boolos's answer was: for intelligibility one need look no further than to our ordinary usage of plurals and quantification over them. In other writings, Boolos notes that this response can be interleaved with a modification of Tarksi's definition of truth, for second-order languages, so that there is a natural-language plural quantifier on the right-hand side.[^4] With respect to Geach-Kaplan it would look like the following (if you are having trouble "seeing it", just replace the italicized phrases by $X$):
+
+[^4]: p. 335 of [Boolos, George. 1985. "Nominalist Platonism." The Philosophical Review 94 (3): 327.](http://www.jstor.com/stable/2185003)
+
+- "Some critics admire only one another" is true if and only if there are *some things* from the underlying domain such that everything among *those things* is a critic and such that everything among *those things* which admires someone is such that that someone is also among *those things*.
+
+<br>
+
+Boolos' conception suggests that plural quantification in English and second-order quantification in second-order logic are mirror images of one another. But pressure can be put on this by showing that plurals in natural language act differently than do the second-order variables in second-order logic.
+Consider the following kinds of examples, due to Yi:[^5]
+
+[^5]: pp. 467-468 [Yi, Byeong-Uk. 2006. "The Logic and Meaning of Plurals. Part I." Journal of Philosophical Logic 34 (5-6): 459–506](https://link.springer.com/article/10.1007/s10992-005-0560-9).
+
+1. Allison and Brianna lifted the piano
+2. Allison and Brianna and Claire lifted the piano
+3. Thor lifted the piano
+4. He lifted the piano
+5. They lifted the piano
+
+If we use $L$ for "lift the piano", then it seems that we would want to translate these respectively as follows:
+
+1. $Lab$
+2. $Labc$
+3. $Lt$
+4. $Lx$
+5. $LX$
+
+This seems to require that $L$ have a little more flexibility than what we have allowed thus far. And various reductive strategies seem to encounter hurdles:[^6]
+
+[^6]: For the first point, see Yi, discussion spanning pp. 467-468. For the second point, see p. 474. Yi's own solution involves organizing matters so that one can fit both $x$ and $X$ into the lift predicate. See his discussion of neutrality on pp. 480-481.
+
+- If one tried to prioritize $Lx$, one might try to translate 1 as $La\wedge Lb$. But this incorrectly suggests that Allison and Brianna's lifting comes down to their each having individually lifted, which is false since what they did they only could do together.
+- If one tried to prioritize $LX$, one has to say something about why one writes that "into the grammar" for "lift the piano" but presumably not for "lift the pencil."
+
+Considerations like these then suggest that there is more to say about plurals than is captured by our second-order logic. We leave you with one other similar consideration. Consider the following three conditionals:[^7]
+
+[^7]: The third item is from p. 249, p. 136 (item 3) of [Oliver, Alex, and Timothy Smiley. 2013. Plural Logic: Revised and Enlarged. OUP Oxford](https://books.google.com/books?id=oDmdDwAAQBAJ&lpg=PP1&ots=v4gfiksqVi&dq=Oliver%2C%20Alex%2C%20and%20Timothy%20Smiley&lr&pg=PP1#v=onepage&q=Oliver,%20Alex,%20and%20Timothy%20Smiley&f=false).
+
+- $Lt\rightarrow \exists \; x \; Lx$
+- $Lt\rightarrow \exists \; X \; Xt$
+- $Lt\rightarrow \exists \; X \; LX$.
+
+We have encountered the first two these before. But our discussion is suggestive of the third as well, where the idea is that it follows since one can take $X$ to consist only of little $t$. And it too seems to suggest that we will need to have a bit more flexibility in handling predicates involving plurals than second-order logic itself gives.

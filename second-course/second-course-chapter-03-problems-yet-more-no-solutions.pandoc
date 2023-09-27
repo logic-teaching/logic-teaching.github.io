@@ -1,0 +1,403 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 3 Tutoring session
+
+The problems in this set fall into four groups:
+
+- [Arrow diagrams and binary relations](#arrow-diagrams-and-binary-relations)
+- [Translations with many quantifiers](#translations-with-many-quantifiers)
+- [Definite descriptions](#definite-descriptions)
+- [Building models that make formulas true](#building-models-that-make-formulas-true)
+- [Truth and many quantifiers](#truth-and-many-quantifiers)
+
+<br>
+
+
+## Arrow diagrams and binary relations
+
+Consider the following four arrow diagrams I,II,III, and IV:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/tutoring-many-arrrows.png" alt="Six point models" width="700"/>
+
+Recall the convention in arrow diagrams for binary relations: $Ruv$ corresponds to a drawn arrow from $u$ to $v$.
+
+Consider the following four sentences:
+
+- $\exists \; x \; \forall \; y \; Rxy$, which in the diagram means: something points to everything.
+
+- $\exists \; x \; \forall \; y \; Ryx$, which in the diagram means: something is pointed at by everything.
+
+- $\forall \; x \; \exists \; y \; Ryx$, which in the diagram means: everything is pointed at by something.
+
+- $\forall\; x \; \exists\; y \; Rxy$, which in the diagram means: everything points to something
+
+Each of the four diagrams makes true at least one of the four sentences. We make it a little more challenging than [what we did in section](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-section-with-solutions.pandoc#arrow-diagrams-and-binary-relations) in that we draw several 'extraneous' arrows in the diagrams which are irrelevant to the four sentences at hand.
+
+<br>
+
+For ease of reference, we repeat the relevant diagram before the problem.
+
+<br>
+
+*Problem 1*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/tutoring-many-arrrows-I.png" alt="Six point model" width="400"/>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+3.01 Which of the following is true in diagram I?
+|* ∃ x ∀ y Rxy
+| ∃ x ∀ y Ryx
+|* ∀ x ∃ y Ryx
+| ∀ x ∃ y Rxy
+```
+
+<br>
+
+*Problem 2*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/tutoring-many-arrrows-II.png" alt="Six point model" width="400"/>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+3.02 Which of the following is true in diagram II?
+| ∃ x ∀ y Rxy
+| ∃ x ∀ y Ryx
+|* ∀ x ∃ y Ryx
+| ∀ x ∃ y Rxy
+```
+
+
+<br>
+
+*Problem 3*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/tutoring-many-arrrows-III.png" alt="Six point model" width="400"/>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+3.03 Which of the following is true in diagram III?
+| ∃ x ∀ y Rxy
+| ∃ x ∀ y Ryx
+| ∀ x ∃ y Ryx
+|* ∀ x ∃ y Rxy
+```
+
+<br>
+
+*Problem 4*
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid2/tutoring-many-arrrows-IV.png" alt="Six point model" width="400"/>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+3.04 Which of the following is true in diagram IV?
+| ∃ x ∀ y Rxy
+|* ∃ x ∀ y Ryx
+| ∀ x ∃ y Ryx
+|* ∀ x ∃ y Rxy
+```
+
+<br>
+
+
+<p style="page-break-before: always">
+
+<br>
+
+## Translations with many quantifiers
+
+In these problems we use the
+
+<p style="margin-left: 40px"> $Gx$ = $x$ is a French major </p>
+<p style="margin-left: 40px"> $Hx$ = $x$ is a History major </p>
+<p style="margin-left: 40px"> $Rxy$ = $x$ is more well-read than $y$  </p>
+<p style="margin-left: 40px"> $Txy$ = $x$ is more well-traveled than $y$  </p>
+
+
+<br>
+
+*Example 5*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+3.05 ExAyRxy : Someone is more well-read than everyone.
+|
+~~~
+
+*Example 6*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+3.06 ExAy(Fy->Rxy) : Someone is more well-read than all French majors.
+|
+~~~
+
+<br>
+
+*Example 7*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+3.07 Ex(Hx/\Ay(Fy->Rxy)) : Some History major is more well-read than all French majors.
+|
+~~~
+
+
+<br>
+
+*Example 8*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+3.08 Ax(Fx->Ey(Hy/\Txy)) : Every French major is more well-traveled than some History major.
+|
+~~~
+
+<br>
+
+*Example 9*
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+3.09 Ax(Ey(Fy/\Rxy)->Ey(Hy/\Txy)) : Everyone who is more well-read than some French major is more well-traveled than some History major.
+|
+~~~
+
+<p style="page-break-before: always">
+
+<br>
+
+
+## Definite descriptions
+
+*Problem 10*
+
+Here is the key:
+
+<p style="margin-left: 40px"> $Lx$ = $x$ is a lawyer </p>
+<p style="margin-left: 40px"> $Dx$ = $x$ is a doctor </p>
+<p style="margin-left: 40px"> $Txy$ = $x$ trusts $y$
+
+First give the *Russellian translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+03.10.1 Ex(Dx/\(Ay(Dy->y=x)/\Eu(Lu/\(Av(Lv->v=u)/\~Txu)))) : The doctor does not trust the lawyer
+|
+~~~
+
+Second give the *Fregean translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+03.10.2 ~TixDxiuLu : The doctor does not trust the lawyer
+|
+~~~
+
+<br>
+
+*Problem 11*
+
+Here is the key for these problems-- evidently, we are talking about campuses:
+
+<p style="margin-left: 40px"> $b$ = UC Berkeley </p>
+<p style="margin-left: 40px"> $Sxy$ = $x$ is smaller than $y$  </p>
+<p style="margin-left: 40px"> $Nx$ = $x$ is new  </p>
+
+First give the *Russellian translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+03.11.1 Ex(Nx/\(Ay(Ny->y=x)/\Sxb)) : The new campus is smaller than UC Berkeley
+|
+~~~
+
+Second give the *Fregean translation*:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+03.11.2 SixNxb : The new campus is smaller than UC Berkeley
+|
+~~~
+
+<p style="page-break-before: always">
+
+<br>
+
+
+
+
+## Building models that make formulas true
+
+<br>
+
+These problems do not arise until [Example 11 of Lecture 2 of this week](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#examples-of-truth-in-a-model). The idea is that you are building a model whose domain is a subset of natural numbers, and whose constant symbols are interpreted as natural numbers, and whose unary relations are subsets of natural numbers, and whose binary relations are ordered pairs of natural numbers. Hence:
+
+- For the `Domain`, enter in a subset of natural numbers, separated by commas.
+
+- For the constants `a`, `b`, etc., enter in a natural number from the domain.
+
+- For the unary predicates `F`, `G`, etc. enter in a subset of natural numbers from the domain, just by listing the natural numbers separated by commas (a form of the unordered list notation).
+
+- For the binary predicates `R`, `T` etc. enter in an ordered pair of natural numbers from the domain. Recall from our discussion of [set theory](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#summary-of-set-theory-notation) that we type the ordered list notation using `<,,,>` or `[,,,]`.
+
+Of course what is difficult in these problems is that one must make these choices so that the indicated formulas all come out true.
+
+
+<br>
+
+*Example 12*
+
+Find a model which makes $\forall \; x \; \exists \; y \; (Rxy \wedge Txy)$, and which has two constants $a,b$ in it and which interprets $R$ and $T$ differently (this is what the second formula requires).
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.12 AxEy(Rxy/\Txy), (Rab/\~Tab)
+|Domain:
+|R(_,_):
+|T(_,_):
+|a:
+|b:
+```
+
+<br>
+
+*Example 13*
+
+Find a model where the following is true:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.13 (Fa/\~Ga), (~Fb/\Gb), (Rab/\~Rba)
+|Domain:
+|F(_):
+|G(_):
+|R(_,_):
+|a:
+|b:
+```
+
+<br>
+
+*Example 14*
+
+Find a model where the following is true:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.14 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Rxy/\~Ryx)))
+|Domain:
+|F(_):
+|G(_):
+|R(_,_):
+|a:
+|b:
+```
+
+<br>
+
+*Example 15*
+
+Find a model where the following is true:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.15 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Ryx/\~Rxy)))
+|Domain:
+|F(_):
+|G(_):
+|R(_,_):
+```
+
+<br>
+
+*Example 16*
+
+Find a model where the following is true:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.16 ExEy((Fx/\~Gx)/\((~Fy/\Gy)/\(Ryx/\~Rxy)))
+|Domain:
+|F(_):
+|G(_):
+|R(_,_):
+```
+
+
+<p style="page-break-before: always">
+
+<br>
+
+
+## Truth and many quantifiers
+
+These problems just ask you to find models where all the displayed sentences are true. They all begin with the formulas $a\neq b$, $b\neq c, a\neq c$. This requires one to build models with at least three elements.
+
+
+<br>
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.17 ~a=b, ~b=c, ~a=c, (Raa/\Rab), Ey(~y=a/\(AxRax->AxRyx))
+|Domain:
+|R(_,_):
+|a:
+|b:
+|c:
+```
+
+<br>
+
+*Example 18*
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.18 ~a=b, ~b=c, ~a=c, AxRax, Ay(~y=a->~AxRyx)
+|Domain:
+|R(_,_):
+|a:
+|b:
+|c:
+```
+
+
+<br>
+
+*Example 19*
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.19 Ax(Ey(Fy/\Rxy)->Ey(Gy/\Ryx))
+|Domain:
+|F(_):
+|G(_):
+|R(_,_):
+|a:
+|b:
+|c:
+```
+
+<br>
+
+*Example 20*
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+03.20 ~a=b, ~b=c, ~a=c, EyEz(AxRxy/\Ax~Rxz)
+|Domain:
+|R(_,_):
+|a:
+|b:
+|c:
+```
+
+<br>
+
+These are practice problems written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:
+
+<br>

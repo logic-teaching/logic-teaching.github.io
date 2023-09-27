@@ -1,0 +1,405 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Tarski's definition of truth
+
+We discuss Tarski's definition of truth of a well-formed formula in a model. Prior to that we must formally define models. Since models are relative to a choice of signature, we must begin with signature.
+
+- [Signatures and examples thereof](#signatures-and-examples-thereof)
+- [Models and examples thereof](#models-and-examples-thereof)
+- [Tarski and his definition of truth in a model](#tarski-and-his-definition-of-truth-in-a-model)
+- [Examples of truth in a model](#examples-of-truth-in-a-model)
+- [Tarski and Field on truth and physicalism](#tarski-and-field-on-truth-and-physicalism)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Signatures and examples thereof
+
+A *signature* is just a collection of constant and relation symbols. Before we give examples, [recall our conventions on constant and relation symbols](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc#building-blocks-of-formulas-of-predicate-logic):
+
+- The lower-case Latin letters $a-r$ stand for objects, and we call these symbols the *constant symbols*. We also allow ourselves to put subscripts on them e.g. $b_1, b_2, b_3, \ldots, c_1, c_2, c_3, \ldots$.
+- The upper-case Latin letters A-Z stand for properties, and we call these symbols the *relation symbols*, and we can put natural number subscripts on these as well, e.g. $B_1, B_2, B_3, \ldots, C_1, C_2, C_3, \ldots$.
+
+Since a signature is just a collection of constant and relation symbols, there are lots of signatures. Some authors use the word *language* instead of *signature*.
+
+One way that signatures are given to is in translation problems. For instance, consider the following translation problem:
+
+<br>
+
+*Example 1*:
+
+<p style="margin-left: 40px"> $a$ = Allison </p>
+<p style="margin-left: 40px"> $b$ = Brianna </p>
+<p style="margin-left: 40px"> $F$ = is a French major  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Fa->Fb : If Allison is a French major then Brianna is a French major
+|
+~~~
+
+This translation problem uses the signature $a, b, F$. In this, $a,b$ are constant symbols and $F$ is a one-place relation symbol.
+
+Further, consider the following:
+
+*Example 2*:
+
+<p style="margin-left: 40px"> $c_1$ = first city </p>
+<p style="margin-left: 40px"> $c_2$ = second city </p>
+<p style="margin-left: 40px"> $R$ = has more people than  </p>
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+ Rc_1c_2 : first city has more people than second city
+|
+~~~
+
+In the signature $c_1, c_2, R$, one has that $c_1$ and $c_2$ are constant symbols and $R$ is a two-place relation symbol.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Models and examples thereof
+
+Suppose that a signature has been fixed. Then a *model* $\mathcal{M}$ in that signature is given by three pieces of information:
+
+1. A non-empty set $M$, called the *underlying domain* of the model.
+2. For each constant symbol $c$, an element $c^{\mathcal{M}}$ of $M$, called the *interpretation of $c$ in $\mathcal{M}$*.
+3. For each $n\geq 1$ and each $n$-place relation symbol $R$, a subset $R^{\mathcal{M}}$ of $M^n$, called *the interpretation of $R$ in $\mathcal{M}$*.
+
+The way to think about this is as follows: the items in the signature are bits of language, like words on a page or words in spoken language. The elements of the model are the objects that we are trying to describe with those words. Hence, if we start with a constant symbol $c$, we are working with a piece of language, like a name for a person, and then when we move to $c^{\mathcal{M}}$ we are talking about the flesh-and-blood person picked out by this piece of language. Likewise, if we start with a one-place relation symbol $F$, we are working with a piece of language like "French major," but then we work with $F^{\mathcal{M}}$ this is the collection of French majors provided by the model $\mathcal{M}$.
+
+Notationally, for models we use cursive letters $\mathcal{M}, \mathcal{N}$ and subscripted versions thereof $\mathcal{M}_0, \mathcal{M}_1, \mathcal{M}_2, \ldots \mathcal{N}_1, \mathcal{N}_2, \mathcal{N}_3,\ldots$. The convention is that the corresponding capital Latin letter is used for the underlying domain. Hence, the underlying domain of $\mathcal{N}$ is $N$, and the underlying domain of $\mathcal{M}_2$ is $M_2$.
+
+<br>
+
+*Example 3*.
+
+Consider the signature $a, b, F$ from Example 1. We could consider the model $\mathcal{M}_1$ in this signature with underlying domain $M_1=\{\mbox{Allison}, \mbox{Brianna}\}$, that is the set which contains just flesh-and-blood Allison and Brianna and nothing else. We could finish specifying the model $\mathcal{M}_1$ as follows:
+
+<p style="margin-left: 40px"> $M_1=\{\mbox{Allison}, \mbox{Brianna}\}$ </p>
+<p style="margin-left: 40px"> $a^{\mathcal{M}_1}$ = Allison </p>
+<p style="margin-left: 40px"> $b^{\mathcal{M}_1}$ = Brianna </p>
+<p style="margin-left: 40px"> $F^{\mathcal{M}_1}=\{x\in M_1: x \mbox{ is a French major }\}$ </p>
+
+As one can see, this is just a set-theoretic way of specifying what we usually specify when we give a translation problem. Now, we do not apriori know who is a French major and who is not in this model. Let us suppose for the sake of definitness that Brianna was a French major and Allison was not. Then we could write the last line as:
+
+<p style="margin-left: 40px"> $F^{\mathcal{M}_1}=\{\mbox{Brianna}\}$ </p>
+
+In the context where it is understood that $F$ stands for French major, this is just a way of saying that it is Brianna and only Brianna who is the French major.
+
+After seeing a worked out example of a model like this, one might ask what the reason is for the set-theoretic notion. In part, it is because we want to consider general ways of associating parts of language to items in the world, and not just natural ways.
+
+<br>
+
+*Example 4*
+
+Consider the signature $a,b,F$ from Example 1. Consider the following model $\mathcal{M}_2$ in this signature:
+
+<p style="margin-left: 40px"> $M_2=\{0,1\}$ </p>
+<p style="margin-left: 40px"> $a^{\mathcal{M}_2}$ = 0 </p>
+<p style="margin-left: 40px"> $b^{\mathcal{M}_2}$ = 0 </p>
+<p style="margin-left: 40px"> $F^{\mathcal{M}_2}=\{1\}$ </p>
+
+The way in which the constant symbols $a,b$ are respectively associated to zero here is rather arbitrary: it is not dictated by anything in the symbols $a,b$ themselves, and it is not dictated by any of our past usage of these symbols or by any relevant convention.
+
+Other features of this model bears mentioning. Unlike in Example 3, here in Example 4 not every element of the underlying domain is interpreted by a constant symbol. In particular, $1$ is not interpreted by a constant symbol. And finally one cannot help but notice that zero is picked out by two distinct constant symbols.
+<br>
+
+*Example 5*
+
+Consider the signature $c_1, c_2, R$ from Example 2. We can specify a model $\mathcal{N}_1$ in this signature as follows:
+
+<p style="margin-left: 40px"> $N_1 = \{\mbox{New York},\mbox{Los Angeles}\}$ </p>
+<p style="margin-left: 40px"> $c_1^{\mathcal{N}_1}$ = New York </p>
+<p style="margin-left: 40px"> $c_2^{\mathcal{N}_1}$ = Los Angeles </p>
+<p style="margin-left: 40px"> $R^{\mathcal{N}_1} = \{\langle \mbox{New York}, \mbox{Los Angeles}\rangle\}$  </p>
+
+In the last line, we are deploying the ordered pair notation from our [set-theory notation](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#summary-of-set-theory-notation). We could also write the last line as follows using the alternative notation for ordered pairs:
+
+<p style="margin-left: 40px"> $R^{\mathcal{N}_1} = \{[ \mbox{New York}, \mbox{Los Angeles}]\}$  </p>
+
+Of course, since we know that New York has more people than Los Angeles, we could also write the last line as
+
+<p style="margin-left: 40px"> $R^{\mathcal{N}_1} = \{\langle x, y\rangle\in N_1^2: x \mbox{ has more people than } y\}$  </p>
+
+This might seem natural since we had initially in Example 2 used the binary relation symbol $R$ to translate "has more people than." But of course all that matters for the identity of sets is their members, and so the same model would be specified by:
+
+<p style="margin-left: 40px"> $R^{\mathcal{N}_1} = \{\langle x, y\rangle\in N_1^2: x \mbox{ has the Yankees and } y \mbox{ has the Lakers}\}$  </p>
+
+This shows that models qua set-theoretic constructs capture something less than the "intended interpretations" of our words.
+
+<br>
+
+*Example 6*
+
+Consider a different model that one can build in the same signature $c_1, c_2, R$:
+
+<p style="margin-left: 40px"> $N_2 = \{0,1,2\}$ </p>
+<p style="margin-left: 40px"> $c_1^{\mathcal{N}_2}$ = 2 </p>
+<p style="margin-left: 40px"> $c_2^{\mathcal{N}_2}$ = 0 </p>
+<p style="margin-left: 40px"> $R^{\mathcal{N}_2} = \{\langle 0,1\rangle, \langle 1,2\rangle, \langle 0,2\rangle\}$  </p>
+
+This example illustrates well the arbitrary nature of models: this model interprets $c_1$ and the number two, and $c_2$ as the number zero. Nothing said about the model explains why this is the case: a model just is a way of assigning set-like things to bits of language, and this is one such assignment. However, as one can see, the model $\mathcal{N}_2$ interprets the binary relation $R$ as something natural, namely less-than $<$ on numbers. Hence, we could also write the last line as:
+
+<p style="margin-left: 40px"> $R^{\mathcal{N}_2} = \{\langle x,y\rangle\in N_2^2: x<y\}$  </p>
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Tarski and his definition of truth in a model
+
+Now we define truth in a model:[^6]
+
+[^6]: This definition is from [Tarski, Alfred. 1956. “The Concept of Truth in Formalized Languages.” In Logic, Semantics, Metamathematics: Papers from 1923 to 1938, edited by J. H. Woodger, 152–278. Oxford: Clarendon Press.](https://logic-teaching.github.io/pred/texts/Tarski%201956%20-%20The%20Concept%20of%20Truth%20in%20Formalized%20Languages.pdf) Tarski was not using set-theory per se, but rather type-theory, and his paper is thus a little harder for us to read nowadays.
+
+Suppose that $\mathcal{M}$ is a model in a signature, and assume that every element of the underlying domain is interpreted by some constant symbol. Then for a well-formed formula $\phi$ we define $\mathcal{M}\models \phi$ as follows:
+
+- *Atomics*: If $F$ is a one-place relation symbol and $a$ is a constant symbol, then $\mathcal{M}\models Fa$ if and only if $a^{\mathcal{M}}$ is in $F^{\mathcal{M}}$. If $R$ is a two-place relation symbol and $a,b$ are constant symbols, then $\mathcal{M}\models Rab$ if and only if $\langle a^{\mathcal{M}}, b^{\mathcal{M}}\rangle$ is in $R^{\mathcal{M}}$. In general, if $R$ is $n$-place relation symbol and $a_1, \ldots, a_n$ are constant symbols then $\mathcal{M}\models Ra_1, \ldots, a_n$ if and only if $\langle a_1^{\mathcal{M}}, \ldots, a_n^{\mathcal{M}}\rangle$ is in $R^{\mathcal{M}}$.
+
+- *Identity*: If $a,b$ are constants, then $\mathcal{M}\models a=b$ if and only if $a^{\mathcal{M}}=b^{\mathcal{M}}$
+
+- *Conjunction*: $\mathcal{M}\models \phi\wedge \psi$ if and only if $\mathcal{M}\models \phi$ and $\mathcal{M}\models \psi$.
+
+- *Disjunction*: $\mathcal{M}\models \phi \vee \psi$ if and only if $\mathcal{M}\models \phi$ or $\mathcal{M}\models \psi$.
+
+- *Negation*: $\mathcal{M}\models \neg \phi$ if and only if it is not the case that $\mathcal{M}\models \phi$.
+
+- *Conditional*: $\mathcal{M}\models \phi\rightarrow \psi$ if and only if: if $\mathcal{M}\models \phi$ then $\mathcal{M}\models \psi$.
+
+- *Biconditional*: $\mathcal{M}\models \phi\leftrightarrow \psi$ if and only if: $\mathcal{M}\models \phi$ if and only if $\mathcal{M}\models \psi$.
+
+- *Existential Quantifier*: $\mathcal{M}\models \exists \; x \; \phi(x)$ if and only if there is at least one constant symbol $c$ in the signature such that $\mathcal{M}\models \varphi(c)$. In this, $\varphi(c)$ results from $\varphi(x)$ by replacing all instances of $x$ by $c$.
+
+- *Universal Quantifier*: $\mathcal{M}\models \forall \; x \; \phi(x)$ if and only if for all constant symbols $c$ in the signature, one has $\mathcal{M}\models \varphi(c)$. In this, $\varphi(c)$ again results from $\varphi(x)$ by replacing all instances of $x$ by $c$.
+
+The relation $\models$ is called the *satisfaction relation* or *modeling relation*, and one pronounces $\mathcal{M}\models \phi$ as "$\mathcal{M}$ *satisfies* $\phi$" or "$\mathcal{M}$ *models* $\phi$." Just as often, one pronounces $\mathcal{M}\models \phi$ as "$\phi$ is *true* in $\mathcal{M}$" or "$\mathcal{M}$ makes $\phi$ true."
+
+The satisfaction relation $\models$ is negated by writing a vertical cross through it as $\nvDash$. Hence, one can rewrite the clause for negation as follows:
+
+- *Negation*: $\mathcal{M}\models \neg \phi$ if and only if $\mathcal{M}\nvDash \phi$.
+
+In the clause for atomics, the "in" has the sense of our membership relation $\in$ from [our set-theory notation](https://carnap.io/shared/walsh@g.ucla.edu/book-pred-sets.pandoc#summary-of-set-theory-notation). Hence we could also write this clause as follows:
+
+- *Atomics*: If $F$ is a one-place relation symbol, then $\mathcal{M}\models Fa$ if and only if $a^{\mathcal{M}}\in F^{\mathcal{M}}$. If $R$ is a two-place relation symbol, then $\mathcal{M}\models Rab$ if and only if $\langle a^{\mathcal{M}}, b^{\mathcal{M}}\rangle\in R^{\mathcal{M}}$. In general, if $R$ is $n$-place relation symbol then $\mathcal{M}\models Ra_1, \ldots, a_n$ if and only if $\langle a_1^{\mathcal{M}}, \ldots, a_n^{\mathcal{M}}\rangle\in R^{\mathcal{M}}$.
+
+We likewise negate membership $\in$ by putting a vertical line through it $\notin$. Hence, by negating both sides of the biconditionals in the above, we get:
+
+- *Atomics (both sides negated)*: If $F$ is a one-place relation symbol, then $\mathcal{M}\nvDash Fa$ if and only if $a^{\mathcal{M}}\notin F^{\mathcal{M}}$. If $R$ is a two-place relation symbol, then $\mathcal{M}\nvDash Rab$ if and only if $\langle a^{\mathcal{M}}, b^{\mathcal{M}}\rangle\notin R^{\mathcal{M}}$. In general, if $R$ is $n$-place relation symbol then $\mathcal{M}\nvDash Ra_1, \ldots, a_n$ if and only if $\langle a_1^{\mathcal{M}}, \ldots, a_n^{\mathcal{M}}\rangle\notin R^{\mathcal{M}}$.
+
+Finally, note that the definition of truth in a model is only operative under the presupposition that every element of the underlying domain is interpreted by some constant symbol. That is, it presupposes that for every element $a$ of $M$ there is a constant symbol $c$ with $c^{\mathcal{M}}=a$. This condition was met in Example 3 and Example 5 up above, but it was not met in Example 4 and Example 6 up above. For these latter cases, one simply expands the language by new constant symbols that ensure that every element is picked out by a constant symbol. The reason why we need this condition is the clauses for the quantifiers go through the constant symbols.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Examples of truth in a model
+
+*Example 7*
+
+We show that $\mathcal{M}_1\models Fa\rightarrow Fb$.
+
+This is the sentence $Fa\rightarrow Fb$ from *Example 1* and the model $\mathcal{M}_1$ from Example 3 which we recopy here:
+
+<p style="margin-left: 40px"> $M_1=\{\mbox{Allison}, \mbox{Brianna}\}$ </p>
+<p style="margin-left: 40px"> $a^{\mathcal{M}_1}$ = Allison </p>
+<p style="margin-left: 40px"> $b^{\mathcal{M}_1}$ = Brianna </p>
+<p style="margin-left: 40px"> $F^{\mathcal{M}_1}=\{\mbox{Brianna}\}$. </p>
+
+To show that $\mathcal{M}_1\models Fa\rightarrow Fb$, first note that $b^{\mathcal{M}_1} =$ Brianna and $F^{\mathcal{M}_1}=\{\mbox{Brianna}\}$ and hence $b^{\mathcal{M}_1}\in F^{\mathcal{M}_1}$ and hence by the clause for atomics we have $\mathcal{M}_1\models Fb$.
+
+Then by the clause for conditional, we have that $\mathcal{M}_1\models  Fa\rightarrow Fb$ since a conditional statement with true consequent cannot be false.
+
+<br>
+
+*Example 8*
+
+We show that  $\mathcal{M}_1\models \exists \; x \; Fx \; \wedge \; \exists \; y \; \neg Fy$.
+
+As we showed above, $\mathcal{M}_1\models Fb$. Then by the clause for the existential quantifier, we have $\mathcal{M}_1\models \exists \; x \; Fx$. For, $Fb$ results from $Fx$ by replacing $x$ by $b$.
+
+Note that $a^{\mathcal{M}_1} =$ Allison and $F^{\mathcal{M}_1}=\{\mbox{Brianna}\}$ and hence $a^{\mathcal{M}_1}\notin F^{\mathcal{M}_1}$. Then by the clause for atomics (using the version with both sides negated), we have $\mathcal{M}_1\nvDash Fa$ and then by the clause for negation we have that $\mathcal{M}_1\models \neg Fa$. Then by the clause for the existential quantifier we have $\mathcal{M}_1\models \exists \; y \; \neg Fy$. For, $\neg Fa$ results from $\neg Fy$ by replacing $y$ by $a$.
+
+<br>
+
+*Example 9*
+
+We show that $\mathcal{M}_2\models \exists \; y \; Fy$.
+
+The model $\mathcal{M}_2$ is the following model from Example 4:
+
+<p style="margin-left: 40px"> $M_2=\{0,1\}$ </p>
+<p style="margin-left: 40px"> $a^{\mathcal{M}_2}$ = 0 </p>
+<p style="margin-left: 40px"> $b^{\mathcal{M}_2}$ = 0 </p>
+<p style="margin-left: 40px"> $F^{\mathcal{M}_2}=\{1\}$ </p>
+
+As we noted above, not every element is denoted by a constant symbol in this model. Hence, to apply our definition of truth in a model, we have to expand to a signature in which this is the case. Hence we expand $\mathcal{M}_2$ so that the following now holds, where $c$ is a new constant symbol not featured in the original signature of the model:
+
+<p style="margin-left: 40px"> $c^{\mathcal{M}_2}$ = 1 </p>
+
+If we were being very formal, we would develop some special notation for this expansion of the model. But for ease of readability, we just continue to denote it by $\mathcal{M}_2$. Using this we can then show that $\mathcal{M}_2\models \exists \; y \; Fy$.
+
+First note that the set-theoretic fact $1\in \{1\}$ in conjunction with the interpretation provided by the model yields $c^{\mathcal{M}_2} = 1\in \{1\}=F^{\mathcal{M}_2}$. That is to say, $c^{\mathcal{M}_2} \in F^{\mathcal{M}_2}$. Then by the clause for atomics we have $\mathcal{M}_2\models Fc$. Then by the clause for the existential quantifier we have $\mathcal{M}_2\models \exists \; x \; Fx$. For, $Fc$ results from $Fx$ by replacing $x$ by $c$.
+
+<br>
+
+*Example 10*
+
+We show that $\mathcal{N}_1\models \exists \; x \; Rxc_2 \wedge \exists \; y \; Rc_1 y$.
+
+In this, $\mathcal{N}_1$ is the model from Example 5, which we recall here:
+
+<p style="margin-left: 40px"> $N_1 = \{\mbox{New York},\mbox{Los Angeles}\}$ </p>
+<p style="margin-left: 40px"> $c_1^{\mathcal{N}_1}$ = New York </p>
+<p style="margin-left: 40px"> $c_2^{\mathcal{N}_1}$ = Los Angeles </p>
+<p style="margin-left: 40px"> $R^{\mathcal{N}_1} = \{\langle \mbox{New York}, \mbox{Los Angeles}\rangle\}$  </p>
+
+Since $c_1^{\mathcal{N}_1}$ =  New York and $c_2^{\mathcal{N}_1}$ = Los Angeles, we have that $\langle c_1^{\mathcal{N}_1}, c_2^{\mathcal{N}_1}\rangle$ is in $R^{\mathcal{N}_1}$. Then by the clause for atomics, we have $\mathcal{N}_1\models Rc_1c_2$.
+
+Suppose that we write $R(c_1, c_2)$ as $\phi(c_1, c_2)$, so that $\mathcal{N}_1\models \phi(c_1, c_2)$. Then by the clause for the existential quantifier, we have $\mathcal{N}_1\models \exists \; x \; \phi(x, c_2)$. This is because $\mathcal{N}_1\models \phi(c_1, c_2)$ and because $\phi(c_1, c_2)$ results from replacing $x$ by $c_1$ in $\phi(x, c_2)$.
+
+Likewise, $\mathcal{N}_1\models \exists \; y \; \phi(c_1, y)$. This is because $\mathcal{N}_1\models \phi(c_1, c_2)$ and because $\phi(c_1, c_2)$ results from replacing $y$ by $c_2$ in $\phi(c_1, y)$.
+
+Since we have $\mathcal{N}_1\models \exists \; x \; \phi(x, c_2)$ and $\mathcal{N}_1\models \exists \; y \; \phi(c_1, y)$, this implies by the clause for conjunction that $\mathcal{N}_1\models \exists \; x \; \phi(x, c_2)\wedge \exists \; y \; \phi(c_1, y)$. Given how we defined $\phi$ in terms of $R$, we then have that $\mathcal{N}_1\models \exists \; x \; Rxc_2 \wedge \exists \; y \; Rc_1 y$.
+
+<br>
+
+*Example 11*
+
+The above examples started with a model and a formula and asked one to check whether the formula was true on the model using Tarski's definition of truth. One can also give problems by starting with a formula and asking for a model on which it is true.
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+ (Gb/\~Gc)/\(Ex(Rbx/\~Gx)/\Ex(Rbx/\Gx))
+```
+
+One is being asked to define a model which makes the formula  true. These problems always presuppose that the domain is a set of natural numbers, and usually a small set of numbers suffices. Here is a model $\mathcal{M}_3$ which works:
+
+<p style="margin-left: 40px"> $M_3=\{0,1,2,3\}$ </p>
+<p style="margin-left: 40px"> $G^{\mathcal{M}_3} = \{0,2\}$</p>
+<p style="margin-left: 40px"> $R^{\mathcal{M}_3}=\{[0,1],[0,2]\}$ </p>
+<p style="margin-left: 40px"> $b^{\mathcal{M}_3}=0$</p>
+<p style="margin-left: 40px"> $c^{\mathcal{M}_3}=1$</p>
+
+To argue for this through Tarski's definition of truth, one proceeds as follows. First, we add a new constants $d,e$ to name the elements $2,3$ respectively which are not named by constants in the original model. That is, we add $d^{\mathcal{M}_3}=2$ and $e^{\mathcal{M}_3}=3$. After this, we can proceed mechanically as follows:
+
+1. We have $\mathcal{M}_3\models Gb$ because $b^{\mathcal{M}_3}=0\in \{0,2\}=G^{\mathcal{M}_3}$.
+2. We have $\mathcal{M}_3\models \neg Gc$ because $c^{\mathcal{M}_3}=1\notin \{0,2\}=G^{\mathcal{M}_3}$.
+3. We have $\mathcal{M}_3\models Rbc\wedge \neg Gc$ because $c^{\mathcal{M}_3}=1\notin \{0,2\}=G^{\mathcal{M}_3}$ and $[b^{\mathcal{M}_3}, c^{\mathcal{M}_3}]=[0,1]\in R^{\mathcal{M}_3}$. Then $\mathcal{M}_3\models \exists \; x \; Rbx\wedge \neg Gx$. This is because $Rbc\wedge \neg Gc$ results from $Rbx\wedge \neg Gx$ by replacing $x$ by $c$.
+4. We have $\mathcal{M}_3\models Rbd\wedge Gd$ because $d^{\mathcal{M}_3}=2\in \{0,2\}=G^{\mathcal{M}_3}$ and $[b^{\mathcal{M}_3}, d^{\mathcal{M}_3}]=[0,2]\in R^{\mathcal{M}_3}$. Then $\mathcal{M}_3\models \exists \; x \; Rbx\wedge Gx$. This is because $Rbd\wedge Gd$ results from $Rbx\wedge Gx$ by replacing $x$ by $d$.
+
+After one works through several examples like this, one can quickly just skip over the steps 1-4. We include them here just to show how the derivation from the clauses of Tarski's definition of truth works.
+
+Characteristic of problems like this is that many other models would work as well. That is, there are many different models which make any one sentence true. Here are a couple of different solutions, with the first being the one we just did:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+ (Gb/\~Gc)/\(Ex(Rbx/\~Gx)/\Ex(Rbx/\Gx))
+|Domain:0,1,2,3
+|G(_):0,2
+|R(_,_):[0,1],[0,2]
+|b:0
+|c:1
+```
+
+The below solution just changes the interpretation of G slightly and makes 2 not have G but makes 1 have G, and then compensates by moving c back out of the interpretation of the G-predicate. That this should work corresponds to the fact that we did not appeal to 2 not having G in our derivation up above.
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+ (Gb/\~Gc)/\(Ex(Rbx/\~Gx)/\Ex(Rbx/\Gx))
+|Domain:0,1,2
+|G(_):0,1
+|R(_,_):[0,1],[0,2]
+|b:0
+|c:2
+```
+
+Here is a rather different answer:
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+ (Gb/\~Gc)/\(Ex(Rbx/\~Gx)/\Ex(Rbx/\Gx))
+|Domain:0,1,2,3,4,5
+|G(_):2,3,5
+|R(_,_):[2,4],[2,2], [2,5]
+|b:2
+|c:4
+```
+
+This answer is ostensibly a little less efficient than the earlier answers: one made the domain a little bigger than one needed to get the truth of the formula. While we might have intuitions about "minimal examples" in these cases of simple formulas, for more complex formulas there is little hope in identifying a notion of "minimality."
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Tarski and Field on truth and physicalism
+
+Let's return to the model $M_1$ from Example 3:
+
+<p style="margin-left: 40px"> $M_1=\{\mbox{Allison}, \mbox{Brianna}\}$ </p>
+<p style="margin-left: 40px"> $a^{\mathcal{M}_1}$ = Allison </p>
+<p style="margin-left: 40px"> $b^{\mathcal{M}_1}$ = Brianna </p>
+<p style="margin-left: 40px"> $F^{\mathcal{M}_1}=\{x\in M_1: x \mbox{ is a French major }\}$ </p>
+
+Using the clauses for atomics and our rules about sets, one can deduce from this that
+
+- $\mathcal{M}_1\models Fa$ if and only if $a^{\mathcal{M}}\in F^{\mathcal{M}}$, which happens if and only if $a^{\mathcal{M}}$ is a French major, which happens if and only if Allison is a French major.
+
+Given our conventions, we say $\mathcal{M}_1\models Fa$ out loud as "$Fa$ is true in $\mathcal{M}_1$." And since $Fa$ is our translation of "Allison is a French major," we then have:
+
+- "Allison is a French major" is true in $\mathcal{M}_1$ if and only if Allison is a French major
+
+If one thought of $\mathcal{M}_1$ as being supplied by context, one would then have:
+
+- "Allison is a French major" is true if and only if Allison is a French major.
+
+Sentences like these are known, since the work of Tarski, as the *T-schemas* or as *Convention T*, where 'T' stands for 'truth'. Tarski's own favorite go-to example was:
+
+- "Snow is white" is true if and only if snow is white.
+
+When we first look at the T-schemas, it is hard to see their significance, since the two sides of the biconditional look so similar. One way to discern the difference is by thinking about their topic. The topic of the left-hand side of the biconditional is the ascription of truth to words. The topic of the right-hand side of the biconditional is snow and color, as in literal physical snow and its specific hue and shade. The T-schema is hence saying that these two things line up exactly.
+
+Since these T-schemas follow from the definition of truth and how our words pick out objects and properties, Tarski suggested that what his definition of truth accomplished was a reduction of truth to set-theoretic and physical notions.[^2] To the extent that one views set-theory just as "logical" in character, this would presumably result in a reduction of truth to physical notions. This would then be significant because it would amount to a thoroughly scientific explication of truth.
+
+[^2]: The strongest textual evidence comes from the brief aside about "physical concepts" on p. 406 of the following (perhaps the title also helps make the case): [Tarski, Alfred. 1956. “The Establishment of Scientific Semantics.” In Logic, Semantics, Metamathematics: Papers from 1923 to 1938, edited by J. H. Woodger, 401–8. Oxford: Clarendon Press.](https://logic-teaching.github.io/pred/texts/Tarski%201956%20-%20The%20Establishment%20of%20Scientific%20Semantics.pdf) For some reasonable doubts about the veracity of this popular description of Tarski, see [Frost-Arnold, Greg. 2004. “Was Tarski’s Theory of Truth Motivated by Physicalism?” History and Philosophy of Logic 25 (4): 265–80](https://logic-teaching.github.io/pred/texts/Frost-Arnold%202004%20-%20Was%20Tarski's%20Theory%20of%20Truth%20Motivated%20by%20Physicalism.pdf).
+
+However, Field has noted that one has to be careful about this, since often we demand from scientific explanations both predictive power and answers to "why"-questions.[^3] And one can quickly see that mere enumerations T-schemas like the following have, in and of themselves, little predictive power and say, by themselves, little about why they hold:
+
+[^3]: [Field, Hartry. 1972. “Tarski’s Theory of Truth.” Journal of Philosophy 69 (13): 347–75.](https://logic-teaching.github.io/pred/texts/Field%201972%20-%20Tarski's%20Theory%20of%20Truth.pdf)
+
+- "Snow is white" is true if and only if snow is white.
+- "Snow is green" is true if and only if snow is green.
+- "Trees are green" is true if and only if trees are green.
+- "Trees are white" is true if and only if trees are white.
+
+One can enhance this sense of the non-explanatory character of the T-schema itself by pointing out that the left-hand side is again ascribing truth to words, and these words need not be words in the natural language we use, but rather words in a formal language, or words in another natural language like German:
+
+- "Schnee ist weiss" is true if and only if snow is white.
+- "Schnee ist grün" is true if and only if snow is green.
+- "Bäume sind grün" is true if and only if trees are green.
+- "Bäume sind weiss" is true if and only if trees are white.
+
+Hence, if there is going to be much by way of scientific explanation offered by Tarski's derivation of the T-schemas, Field stresses that the constituent notion of model is going to have to be amenable to scientific explication or physical reduction. And what is the notion of model $\mathcal{M}$? Well, it is what in philosophy of language we sometimes call "reference": the relation of a name $c$ picking out a person $c^{\mathcal{M}}$, or the relation of a predicate word $F$ picking out a collection of objects $F^{\mathcal{M}}$. It is only if this relation can be explicated in physical terms that one can say in good faith that truth has been so explicated. There is much work on this in contemporary philosophy of language and mind, and it lies outside of logic proper.[^4]
+
+[^4]: For a helpful survey, see [Neander, Karen. 2006. “Naturalistic Theories of Reference.” In The Blackwell Guide to the Philosophy of Language, edited by &. R. Hanley M. Devitt, 374–91. Wiley Online Library.](https://logic-teaching.github.io/pred/texts/Neander%202006%20-%20Naturalistic%20theories%20of%20reference.pdf)
+
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
+
+[^5]: which is:

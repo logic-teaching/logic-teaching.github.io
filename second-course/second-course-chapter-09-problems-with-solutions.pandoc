@@ -1,0 +1,455 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 9, Section Solutions
+
+We play many "proof or countermodel" games. Since this is the *solution* document, we include a proof when the argument is valid, and we include a counterexample when the argument is invalid. Do *not* look at the solutions in advance of trying the problems yourself: not playing the game is, in this case, tantamount to not learning the material.
+
+- [Structure of proof or countermodel games and strategies for them](#structure-of-proof-or-countermodel-games-and-strategies-for-them)
+- [Elementary proof or countermodel](#elementary-proof-or-countermodel)
+- [Advanced proof or countermodel](#advanced-proof-or-countermodel)
+- [Proof or countermodel with identity](#proof-or-countermodel-with-identity)
+- [Proof or countermodel with exact numerical quantifiers](#proof-or-countermodel-with-exact-numerical-quantifiers)
+
+<br>
+
+## Structure of proof or countermodel games and strategies for them
+
+For each problem, one is given an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$. And one is asked to determine whether it is valid or not. If it is valid, one is required to produce a proof. If it is invalid, one is required to produce a counterexample. Part of the difficulty of the game is that one is not told which. This matches the situation we are often in, namely of trying to figure out whether an argument is valid or not.
+
+Producing proofs and producing counterexamples might seem like distinct skills, but as one goes along, try to see how they are really complementary:
+
+- seeing why a proof does not work is often the beginning of seeing how to produce a counterexample.
+
+- seeing why it is hard to produce a counterexample is often the beginning of seeing how to do the proof.
+
+Further, try to get flexible at switching back and forth between the "proof search" and "counterexample search": devote a few minutes to a search for a proof, and if that fails switch to a search for counterexamples, and vice-versa, and then repeat switching as often as needed.
+
+It is useful to begin each problem by reading slowly the premises and the conclusion. It is also useful to begin by negating the conclusion and using DeMorgan and double-negation and other equivalences to simplify, since this might help one see what a counterexample looks like if there is a counterexample.
+
+Then, as a third step, try drawing a diagram of the premises and seeing if it is also a diagram of the conclusion:
+
+- if it is a diagram of the conclusion, then reflecting on how one "saw that" usually is the beginnings of a proof.
+
+- if it is not a diagram of the conclusion, then inspecting the diagram usually gives one a sense of how to construct an arithmetic counterexample.
+
+Remember that we deploy Venn diagrams to represent problems with only unary relations, and we deploy arrow diagrams to represent problems with binary relations. If a problem has both unary relations and binary relations, draw an arrow diagram and use colors for the unary relations, or e.g. draw circles or squares or diamonds around the dots to represent unary relations.
+
+This third step can be complemented by, or replaced by, translating the formal sentences into English:
+
+- if it seems that anyone who accepts the premises must accept the conclusion, then thinking through their reasons is usually a way to begin to produce the proof.
+
+- if it is seems that someone can reasonably accept the premises while denying the conclusion, then thinking the type of example they would be thinking of usually gives one a sense of how to construct an arithmetic counterexample.
+
+When doing translation, consider using majors ("French," "Geography") for the unary predicates and "respects" and/or "trusts" for the binary predicates. This is useful because we in general think that one's major is independent of dispositions to trust, be trusted, respect, be respected, and their contraries (and likewise, we think that these four dispositions are independent of one another, at least if we vary the ambient domains of people sufficiently much). Hence, if there is an intuitive entailment in the natural language argument, it is most likely due to the underlying logical content rather than what content we associate to various majors and the human relations of trust and respect. Likewise, if there is a counterexample, then majors and respect and trust are such a pervasive aspect of our everyday campus life that we can easily imagine many different arrangements and situations from which one can construct counterexamples.
+
+<br>
+
+## Elementary proof or countermodel
+
+<br>
+
+For the proofs, we provide the box for carnap.io's proof-checker in our natural deduction system for classical logic. In the exam context, you should feel free to apply the resolution method if it is applicable (quantifier-free settings with no identity or description operator, or settings where the premises have at most a universal quantifier out front and where the conclusion has at most an existential quantifier out front and where there is no identity or description operator anywhere). In the solutions, we also provide resolution proofs where applicable. In this practice problem set, the resolution method is *only* applicable to problems 1-5, since the other problems have either lots of quantifiers or lots of identity in them.
+
+<br>
+
+*Problem 1*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.01 Fa, ~Fb->~Fa, ~Fc->~Fb :|-: Fc
+|Fa :assumption
+|~Fb->~Fa :assumption
+|~Fc->~Fb :assumption
+|~~Fa :DN1
+|~~Fb :MT2,4
+|~~Fc :MT3,5
+|Fc :DN6
+```
+
+This proof can also be done in a resolution system:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-7.png" alt="Resolution example" width="800"/>
+
+
+<br>
+
+*Problem 2*
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+09.02 Fc, Fa->Fb, Fb->(Fc\/Fd) :|-: Fa\/Fb
+|Domain: 0,1,2,3
+|F(_):2
+|a:0
+|b:1
+|c:2
+|d:3
+```
+
+<br>
+
+*Problem 3*
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+09.03 AxAy(Rxy->Txy), AxTxx, Rab, Raa  :|-: AxRxx
+|Domain: 0,1,2
+|R(_,_): [0,0], [0,1]
+|T(_,_): [0,0], [0,1], [1,1], [2,2]
+|a: 0
+|b: 1
+```
+
+<br>
+
+*Problem 4*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.04 AxAy(Rxy->Txy), AxTxx, AxAy(~Rxy->~Rxx), ~Tab :|-: ~Raa
+|AxAy(Rxy->Txy) :assumption
+|AxTxx :assumption
+|AxAy(~Rxy->~Rxx) :assumption
+|~Tab :assumption
+|Ay(Ray->Tay) :EA1
+|Rab->Tab :EA5
+|~Rab :MT6,4
+|Ay(~Ray->~Raa) :EA3
+|~Rab->~Raa :EA8
+|~Raa :E->7,9
+```
+
+This proof can also be done in a resolution system:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-8.png" alt="Resolution example" width="800"/>
+
+<br>
+
+*Problem 5*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.05 AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), Rab/\~Gc, Rbc/\Gc  :|-: Ez(Raz/\Gz)
+|AxAy(Rxy->Ryx) :assumption
+|AxAyAz((Rxy/\Ryz)->Rxz) :assumption
+|Rab/\~Gc :assumption
+|Rbc/\Gc :assumption
+|Rab :E/\3
+|Rbc :E/\4
+|Rab/\Rbc :I/\5,6
+|AyAz((Ray/\Ryz)->Raz) :EA2
+|Az((Rab/\Rbz)->Raz) :EA8
+|(Rab/\Rbc)->Rac :EA9
+|Rac :E->7,10
+|Gc :E/\4
+|Rac/\Gc :I/\11,12
+|Ez(Raz/\Gz) :IE13
+```
+
+This proof can also be done in a resolution system. Note that when you do so, since the conclusion $\phi$ is an existential, you have to view it as equivalent to $\neg \neg \phi$, and then put $\neg \phi$ over to the premise side, and try to derive falsum instead. Further, use DeMorgan to write $\neg \phi$ as a universal.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/resolution-example-9.png" alt="Resolution example" width="800"/>
+
+<br>
+
+## Advanced proof or countermodel
+
+<br>
+
+*Problem 6*
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+09.06 ExFx, ExGx, Ax(Fx->Hx), Ax(Gx->Hx) :|-: Ex(Fx/\Gx)
+|Domain:0,1,2
+|F(_):0
+|G(_):1
+|H(_):0,1
+```
+
+<br>
+
+*Problem 7*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.07 ExAy(Fx/\Rxy)\/ExAy(Fx/\Txy) :|-: AyEx(Fx/\(Rxy\/Txy))
+|ExAy(Fx/\Rxy)\/ExAy(Fx/\Txy) :assumption
+| ExAy(Fx/\Rxy) :assumption
+|  Ay(Fa/\Ray) :assumption
+|  Fa/\Rab :EA3
+|  (Fa/\Rab)\/(Fa/\Tab) :I\/4
+|  Fa/\(Rab\/Tab) :LDC5
+|  Ex(Fx/\(Rxb\/Txb)) :IE6
+|  AyEx(Fx/\(Rxy\/Txy)) :IA7
+| Ay(Fa/\Ray)->AyEx(Fx/\(Rxy\/Txy)) :I->3-8
+| AyEx(Fx/\(Rxy\/Txy)) :EE2,9
+|ExAy(Fx/\Rxy)->AyEx(Fx/\(Rxy\/Txy)) :I->2-10
+| ExAy(Fx/\Txy) :assumption
+|  Ay(Fa/\Tay) :assumption
+|  Fa/\Tab :EA13
+|  (Fa/\Rab)\/(Fa/\Tab) :I\/14
+|  Fa/\(Rab\/Tab) :LDC15
+|  Ex(Fx/\(Rxb\/Txb)) :IE16
+|  AyEx(Fx/\(Rxy\/Txy)) :IA17
+| Ay(Fa/\Tay)->AyEx(Fx/\(Rxy\/Txy)) :I->13-18
+| AyEx(Fx/\(Rxy\/Txy)) :EE12,19
+|ExAy(Fx/\Txy)->AyEx(Fx/\(Rxy\/Txy)) :I->12-20
+|AyEx(Fx/\(Rxy\/Txy)) :E\/1,11,21
+```
+
+
+<br>
+
+*Problem 8*
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+09.08 AxAy(Rxy->Ez(Rxy/\Ryz)), AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAy(Rxy\/Ryx)
+|Domain:0,1,2
+|R(_,_):[0,1],[0,2],[0,0],[1,1],[2,2]
+```
+
+<br>
+
+*Problem 9*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.09 AuEvAx(Rxv->Rxu) :|-: AuAxEv(Rxv->Rxu)
+|AuEvAx(Rxv->Rxu) :assumption
+|EvAx(Rxv->Rxa) :EA1
+| Ax(Rxb->Rxa) :assumption
+| Rcb->Rca :EA3
+| Ev(Rcv->Rca) :IE4
+| AxEv(Rxv->Rxa) :IA5
+|Ax(Rxb->Rxa)->AxEv(Rxv->Rxa) :I->3-6
+|AxEv(Rxv->Rxa) :EE2,7
+|AuAxEv(Rxv->Rxu) :IA8
+```
+
+<br>
+
+*Problem 10*
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+09.10 AxAy(Rxy->Txy), AxRxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAyAz((Txy/\Tyz)->Txz)
+|Domain:0,1,2
+|R(_,_):[0,0],[1,1],[2,2],[0,1],[1,2],[0,2]
+|T(_,_):[0,0],[1,1],[2,2],[0,1],[1,2],[0,2], [2,1],[1,0]
+```
+
+<br>
+
+## Proof or countermodel with identity
+
+<br>
+
+*Problem 11*
+
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.11 Ax((x=a\/x=b)\/(x=c\/x=d)), (Fa/\Fb)/\(Fc/\~Fd), (~Ga/\Gb)/\(Gc/\Gd) :|-: ~b=d
+|Ax((x=a\/x=b)\/(x=c\/x=d)) :assumption
+|(Fa/\Fb)/\(Fc/\~Fd) :assumption
+|(~Ga/\Gb)/\(Gc/\Gd) :assumption
+| b=d :assumption
+| Fa/\Fb :E/\2
+| Fb :E/\5
+| Fc/\~Fd :E/\2
+| ~Fd :E/\7
+| ~Fb :E=4,8
+| !? :E~6,9
+|~b=d :I~4-10
+```
+
+<br>
+
+
+*Problem 12*
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+09.12 Ax((x=a\/x=b)\/(x=c\/x=d)), (Fa/\Fb)/\(Fc/\~Fd), (~Ga/\Gb)/\(Gc/\Gd) :|-: ~b=c
+|Domain:0,1,2
+|F(_):0,1
+|G(_):1,2
+|a:0
+|b:1
+|c:1
+|d:2
+```
+
+<br>
+
+
+*Problem 13*
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+09.13 AyRyy, Ay(Rby->Ray), Ay(y=c->Rby) :|-: AuAv((Rbu/\Rbv)->u=v)
+|Domain:0,1,2
+|R(_,_):[0,1],[0,2],[0,0],[1,1],[2,2],[1,2],[1,0]
+|b:0
+|a:0
+|c:2
+```
+
+<br>
+
+
+*Problem 14*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.14 AyRyy, Ay(Ray->Rby), Ay(Rby->y=c) :|-: a=c
+|AyRyy :assumption
+|Ay(Ray->Rby) :assumption
+|Ay(Rby->y=c) :assumption
+|Raa :EA1
+|Raa->Rba :EA2
+|Rba :E->4,5
+|Rba->a=c :EA3
+|a=c :E->6,7
+```
+
+<br>
+
+
+
+*Problem 15*
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+09.15 Ax(Fx->Ey(Fy/\~x=y)), Ax(Gx->Ey(Gy/\~x=y)), ~Ez(Fz/\Gz), Fa, Gb  :|-: Au(u=a\/u=b)
+|Domain:0,1,2,3
+|F(_):0,1
+|G(_):2,3
+|a:0
+|b:2
+```
+
+<br>
+
+## Proof or countermodel with exact numerical quantifiers
+
+<br>
+
+For these five problems, consider reviewing [the exact numerical quantifiers](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-with-solutions.pandoc#exact-numerical-quantifiers) before beginning. In particular, prior to trying each problem, pronounce the premises and conclusion out loud using the locutions "at least . . ." and "at most . . ." and "exactly" featured in the the exact numerical quantifiers. In an exam context, if we ask about exact numerical quantifiers, we will provide the table at the above link.
+
+<br>
+
+*Problem 16*
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+09.16 Ex_1Ex_2Ay(Fy->(y=x_1\/y=x_2)) :|-: Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2)
+|Domain:0,1
+|F(_):0
+```
+
+<br>
+
+
+*Problem 17*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.17 Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2) :|-: Ex_1 Fx_1
+|Ex_1Ex_2((Fx_1/\Fx_2)/\~x_1=x_2) :assumption
+| Ex_2((Fc/\Fx_2)/\~c=x_2) :assumption
+|  (Fc/\Fd)/\~c=d :assumption
+|  Fc/\Fd :E/\3
+|  Fc :E/\4
+|  Ex_1Fx_1 :IE5
+| ((Fc/\Fd)/\~c=d)->Ex_1Fx_1 :I->3-6
+| Ex_1Fx_1 :EE2,7
+|Ex_2((Fc/\Fx_2)/\~c=x_2)->Ex_1Fx_1 :I->2-8
+|Ex_1Fx_1 :EE1,9
+```
+
+
+<br>
+
+*Problem 18*
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+09.18 Ex_1Ex_2(((Fx_1\/Gx_1)/\(Fx_2\/Gx_2))/\~x_1=x_2) :|-: Ex_1Ex_2(((Fx_1/\Gx_1)/\(Fx_2/\Gx_2))/\~x_1=x_2)
+|Domain:0,1
+|F(_):0
+|G(_):1
+```
+
+<br>
+
+*Problem 19*
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+09.19 Ex_1Ex_2Ay(Fy->(y=x_1\/y=x_2)), Ax(Fx->Gx) :|-: Ex_1Ex_2Ay(Gy->(y=x_1\/y=x_2))
+|Domain:0,1,2
+|F(_):0,1
+|G(_):0,1,2
+```
+
+<br>
+
+
+*Problem 20*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+09.20 Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2))), Fa/\Ga, Fb/\~Gb :|-: Ax(Fx->(x=a\/x=b))
+|Ex_1Ex_2(((Fx_1/\Fx_2)/\~x_1=x_2)/\Ay(Fy->(y=x_1\/y=x_2))) :assumption
+|Fa/\Ga :assumption
+|Fb/\~Gb :assumption
+|Fa :E/\2
+|Ga :E/\2
+|Fb :E/\3
+|~Gb :E/\3
+| Ex_2(((Fc/\Fx_2)/\~c=x_2)/\Ay(Fy->(y=c\/y=x_2))) :assumption
+|  ((Fc/\Fd)/\~c=d)/\Ay(Fy->(y=c\/y=d)) :assumption
+|  (Fc/\Fd)/\~c=d :E/\9
+|  Ay(Fy->(y=c\/y=d)) :E/\9
+|  Fa->(a=c\/a=d) :EA11
+|  a=c\/a=d :E->4,12
+|  Fb->(b=c\/b=d) :EA11
+|  b=c\/b=d :E->14,6
+|   a=c :assumption
+|    b=c :assumption
+|    Gc :E=5,16
+|    ~Gc :E=7,17
+|    !? :E~18,19
+|   ~b=c :I~17-20
+|   b=d :PDS15,21
+|   Fe->(e=c\/e=d) :EA11
+|   Fe->(e=a\/e=d) :E=16,23
+|   Fe->(e=a\/e=b) :E=22,24
+|   Ax(Fx->(x=a\/x=b)) :IA25
+|  a=c->Ax(Fx->(x=a\/x=b)) :I->16-26
+|   a=d :assumption
+|    b=d :assumption
+|    Gd :E=5,28
+|    ~Gd :E=7,29
+|    !? :E~30,31
+|   ~b=d :I~29-32
+|   b=d\/b=c :LCD15
+|   b=c :PDS33,34
+|   Fe->(e=c\/e=d) :EA11
+|   Fe->(e=b\/e=d) :E=35,36
+|   Fe->(e=b\/e=a) :E=37,28
+|   Fe->(e=a\/e=b) :LCD38
+|   Ax(Fx->(x=a\/x=b)) :IA39
+|  a=d->Ax(Fx->(x=a\/x=b)) :I->28-40
+|  Ax(Fx->(x=a\/x=b)) :E\/13,27,41
+| (((Fc/\Fd)/\~c=d)/\Ay(Fy->(y=c\/y=d)))->Ax(Fx->(x=a\/x=b)) :I->9-42
+| Ax(Fx->(x=a\/x=b)) :EE8, 43
+|Ex_2(((Fc/\Fx_2)/\~c=x_2)/\Ay(Fy->(y=c\/y=x_2)))->Ax(Fx->(x=a\/x=b)) :I->8-44
+|Ax(Fx->(x=a\/x=b)) :EE1,45
+```
+

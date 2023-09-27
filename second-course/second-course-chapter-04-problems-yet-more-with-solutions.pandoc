@@ -1,0 +1,480 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 4 Tutoring session, with solutions
+
+The problems in this set fall into four groups:
+
+- [Propositional tautologies and predicate logic](#propositional-tautologies-and-predicate-logic)
+- [Validity and invalidity with combinations of quantifiers and propositional connectives](#Validity and invalidity-with-combinations-of-quantifiers-and-propositional-connectives)
+- [Validity and invalidity with orders and equivalence relations](#validity-and-invalidity-with-orders-and-equivalence-relations)
+- [Free and bound variables and variable assignments](#free-and-bound-variables-and-variable-assignments)
+
+<br>
+
+<p style="page-break-before: always">
+
+## Propositional tautologies and predicate logic
+
+<br>
+
+Recall from [lecture 1 this week](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#tautologies-and-equivalences-from-propositional-logic) that all of [the tautologies and equivalences of propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-section-no-solutions.pandoc#list-of-named-tautologies-and-equivalences) are in fact tautologies and equivalences of predicate logic. We repeat them here for ease of reference:
+
+1. *Law of excluded middle*: $\phi\vee \neg \phi$ is a tautology.
+2. *Law of non-contradiction*: $\neg (\phi\wedge \neg \phi)$ is a tautology.
+3. *The law of double-negation*: $\phi$ is equivalent to $\neg \neg \phi$.
+4. *Law of commutativity for conjunction*: $\phi\wedge \psi$ is equivalent to $\psi\wedge \phi$.
+5. *Law of commutativity for disjunction*: $\phi\vee \psi$ is equivalent to $\psi\vee \phi$.
+5. *Law of associativity for conjunction*: $(\phi\wedge \psi)\wedge \xi$ is equivalent to $\phi\wedge (\psi\wedge \xi)$.
+6. *Law of associativity for disjunction*: $(\phi\vee \psi)\vee \xi$ is equivalent to $\phi\vee (\psi\vee \xi)$.
+7. *Law of distribution for conjunction*: $\phi\wedge (\psi\vee \xi)$ is equivalent to $(\phi\wedge \psi)\vee (\phi\wedge \xi)$.
+8. *Law of distribution for disjunction*: $\phi\vee (\psi\wedge \xi)$ is equivalent to $(\phi\vee \psi)\wedge (\phi\vee \xi)$.
+
+<br>
+
+Each of the next problems give you one of these tautologies or equivalences and ask you to determine which of the four formulas of predicate logic is an instance of these.
+
+<br>
+
+*Example 1*
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.01 Which of the following is an instance of law of the excluded middle?
+| ∃ x Rxb ∨ ∃ x ¬ Rxb
+| ∃ x Rxb ∨ ∀ x Rxb
+|+ ∃ x Rxb ∨ ¬ ∃ x Rxb
+| ∃ x (Rxb ∨ ¬ Rxb)
+```
+
+<br>
+
+*Example 2*
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.02 Which of the following is an instance of law of commutativity for conjunction?
+| ∃ x ∀ y Rxy ∧ ∃ x ∃ v ¬Rxv is equivalent to ∃ x ∀ y Ryx ∧ ∃ x ∃ v ¬Rvx
+|+ ∃ x ∀ y Rxy ∧ ∃ x ∃ v ¬Rxv is equivalent to ∃ x ∃ v ¬Rxv ∧ ∃ x ∀ y Rxy
+| ∃ x ∀ y Rxy ∧ ∃ x ∃ v ¬Rxv is equivalent to ∃ x ( ∀ y Rxy ∧ ∃ v ¬Rxv)
+| ∃ x ∀ y Rxy ∧ ∃ x ∃ v ¬Rxv is equivalent to ∀ y ∃ x ∃ v (Rxy ∧ ¬Rxv)
+```
+
+<br>
+
+*Example 3*
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.03 Which of the following is an instance of law of double-negation? (There is no use of DeMorgan in this problem).
+| (∃ y ¬Ray) → Rab is equivalent to (∃ y ¬Ray) → ¬¬Rab
+| (∃ y ¬Ray) → Rab is equivalent to ¬¬(∃ y ¬Ray) → Rab
+| (∃ y ¬Ray) → Rab is equivalent to ¬((∃ y ¬Ray) → ¬Rab)
+|+ (∃ y ¬Ray) → Rab is equivalent to ¬¬ ((∃ y ¬Ray) → Rab)
+```
+
+<br>
+
+*Example 4*
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.04 Which of the following is an instance of law of distribution for conjunction?
+|+ Rab ∧ (Raa ∨ Rbb) is equivalent to  (Rab ∧ Raa) ∨ (Rab ∧ Rbb).
+| Rab ∧ (Raa ∨ Rbb) is equivalent to  (Rba ∧ Raa) ∨ (Rba ∧ Rbb).
+| Rab ∧ (Raa ∨ Rbb) is equivalent to  (Rbb ∧ Raa) ∨ (Rbb ∧ Raa).
+| Rab ∧ (Raa ∨ Rbb) is equivalent to  (Rab ∨ Raa) ∧ (Rab ∨ Rbb).
+```
+
+<br>
+
+*Example 5*
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.05 Which of the following is an instance of law of associativity for disjunction:
+| ((Fa ∧ Fb)) ∨ Gc) ∨ ∃ x Hx  is equivalent to (Fa ∨ Fb) ∨ ( Gc ∨ ∃ x Hx)
+| ((Fa ∧ Fb)) ∨ Gc) ∨ ∃ x Hx  is equivalent to ∃ x ((Fa ∧ Fb) ∨ ( Gc ∨ ∃ x Hx))
+|+ ((Fa ∧ Fb)) ∨ Gc) ∨ ∃ x Hx  is equivalent to (Fa ∧ Fb) ∨ ( Gc ∨ ∃ x Hx)
+| ((Fa ∧ Fb)) ∨ Gc) ∨ ∃ x Hx  is equivalent to ((Fa ∨ Gc) ∧ (Fb ∨ Gc)) ∨ ∃ x Hx
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+## Validity and invalidity with combinations of quantifiers and propositional connectives
+
+In this section, we go over some well-known validites and invalidities connecting quantifiers and propositional connectives.
+
+<br>
+
+*Example 6*
+
+One has $(\forall \; x \; Fx)\vee (\forall \; x \; Gx)\vDash \forall \; x (Fx\vee Gx)$. However, the converse does not hold:
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+04.06 Ax(Fx\/Gx) :|-: AxFx\/AxGx
+|Domain:0,1,2,3
+|F(_): 0,1
+|G(_): 2,3
+```
+
+<br>
+
+*Example 7*
+
+One has $\exists \; x \; (Fx\wedge Gx)\vDash \exists \; x \; Fx \wedge \; \exists \; x\; Gx$. However, the converse does not hold:
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+04.07 ExFx/\ExGx :|-: Ex(Fx/\Gx)
+|Domain:0,1,2,3
+|F(_): 0,1
+|G(_): 2,3
+```
+
+
+<br>
+
+*Example 8*
+
+One has $\forall \; x \; (Fx\rightarrow Gx)\models \forall \; x \; Fx\rightarrow \forall \; x\; Gx$. However, the converse does not hold:
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+04.08 AxFx->AxGx :|-: Ax(Fx->Gx)
+|Domain:0,1,2,3
+|F(_): 2,3
+|G(_): 0,1
+```
+
+<br>
+
+*Example 9*
+
+One has $\forall \; x \; (Fx\rightarrow Gx)\models \forall \; x \; (\neg Gx\rightarrow \neg Fx)$. By contrast:
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+04.09 Ax(Fx->Gx) :|-: Ax(~Fx->~Gx)
+|Domain:0,1,2,3
+|F(_): 0,1
+|G(_): 0,1,2
+```
+
+<br>
+
+*Example 10*
+
+One has $\forall \; x \; (Fx\rightarrow Gx),\forall \; x \; (Gx\rightarrow Hx) \models \forall \; x \; (Fx\rightarrow Hx)$. By contrast:
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+04.10 Ax(Fx->Gx), Ax(Gx->Hx) :|-: Ax(Hx->Fx)
+|Domain:0,1,2,3,4
+|F(_): 0,1
+|G(_): 0,1,2
+|H(_): 0,1,2,3,4
+```
+
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Validity and invalidity with orders and equivalence relations
+
+In these examples, we are thinking of $Rxy$ like $x<y$ or $x\leq y$ on the number systems, as opposed to a relation between people or a graph of a function. Here are some basic properties that orders may have. We have seen some of these before:
+
+<table style="width:100%">
+  <tr>
+    <th>Property</th>
+    <th>Formula</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>$R$ is reflexive</td>
+    <td>$\forall \; x \; Rxx$</td>
+    <td>`AxRxx`</td>
+  </tr>
+  <tr>
+    <td>$R$ is anti-reflexive</td>
+    <td>$\forall \; x \; \neg Rxx$</td>
+    <td>`~AxRxx`</td>
+  </tr>
+  <tr>
+    <td>$R$ is symmetric</td>
+    <td>$\forall x \; \forall \; y \; (Rxy\rightarrow Ryx)$</td>
+    <td>`AxAy(Rxy->Ryx)`</td>
+  </tr>
+  <tr>
+    <td>$R$ is anti-symmetric</td>
+    <td>$\forall \; x \; \forall \; y \; ((Rxy\wedge Ryx)\rightarrow x=y)$</td>
+    <td>`AxAy((Rxy/\Ryx)->x=y)`</td>
+  </tr>
+  <tr>
+    <td>$R$ is transitive </td>
+    <td>$\forall x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$</td>
+    <td>`AxAyAz((Rxy/\Ryz)->Rxz)`</td>
+  </tr>
+  <tr>
+    <td>$R$ is linear </td>
+    <td>$\forall \; x \; \forall \; y \; ((Rxy\vee Ryx)\vee x=y)$</td>
+    <td>`AxAy((Rxy\/Ryx)\/x=y)`</td>
+  </tr>
+  <tr>
+    <td>$R$ has least element </td>
+    <td>$\exists \; x \; \forall \; y \; (Rxy\vee x=y)$</td>
+    <td>`ExAy(Rxy\/x=y)`</td>
+  </tr>
+  <tr>
+    <td>$R$ has greatest element </td>
+    <td>$\exists \; x \; \forall \; y \; (Ryx\vee y=x)$</td>
+    <td>`ExAy(Ryx\/y=x)`</td>
+  </tr>
+</table>
+
+<br>
+
+Some subsets of these properties have names:
+
+- $R$ is a *partial order* order if it is reflexive, anti-symmetric, and transitive.
+
+- $R$ is a *linear order* order if it is reflexive, anti-symmetric,  transitive, and linear.
+
+- $R$ is an *equivalence relation* if it is reflexive, symmetric, and transitive.
+
+- $R$ is a *strict partial order* order if it is anti-reflexive and transitive.
+
+- $R$ is a *strict linear order* order if it is anti-reflexive, transitive, and linear.
+
+The following table gives some examples of models which satisfy these axioms:
+
+<table style="width:100%">
+  <tr>
+    <th>Underlying Domain</th>
+    <th>Interpretation of binary relation</th>
+    <th>Satisfies axioms</th>
+  </tr>
+  <tr>
+    <td>The natural numbers $\mathbb{N}$</td>
+    <td>$\leq$</td>
+    <td>linear order with least element but no greatest element</td>
+  </tr>
+  <tr>
+    <td>The natural numbers $\mathbb{N}$</td>
+    <td>$<$</td>
+    <td>strict linear order with least element but no greatest element</td>
+  </tr>
+  <tr>
+    <td>The integers $\mathbb{Z}$</td>
+    <td>$\leq$</td>
+    <td>linear order with least element but no greatest element</td>
+  </tr>
+  <tr>
+    <td>The integers $\mathbb{Z}$</td>
+    <td>$<$</td>
+    <td>strict linear order with no least element and no greatest element</td>
+  </tr>
+  <tr>
+    <td>A non-empty set $M$</td>
+    <td>$=$</td>
+    <td>equivalence relation</td>
+  </tr>
+  <tr>
+    <td>$\{Y: Y\subseteq X\}$, where $X$ is non-empty</td>
+    <td>$\subseteq$</td>
+    <td>partial order, and if $X$ has more at least one element, then $X$ is not a linear order</td>
+  </tr>
+</table>
+
+<br>
+
+*Example 11*
+
+This example shows that strict partial orders need not be linear. It asks you to build one that has exactly three elements.
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+04.11 Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz), Ax(x=a\/(x=b\/x=c)), ~a=b, ~b=c, ~a=c :|-: AxAy((Rxy\/Ryx)\/x=y)
+|Domain:0,1,2
+|R(_,_):[0,1],[0,2]
+|a:0
+|b:1
+|c:2
+```
+
+<br>
+
+*Example 12*
+
+This example shows that partial orders need not be linear. It again asks you to build one that has exactly three elements.
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+04.12 AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz), Ax(x=a\/(x=b\/x=c)), ~a=b, ~b=c, ~a=c :|-: AxAy((Rxy\/Ryx)\/x=y)
+|Domain:0,1,2
+|R(_,_):[0,1],[0,2], [0,0], [1,1], [2,2]
+|a:0
+|b:1
+|c:2
+```
+
+<br>
+
+*Example 13*
+
+This problem asks for an example of a equivalence relation which is different from identity.
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+04.13 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAy(Rxy->x=y)
+|Domain:0,1,2,10,11,12
+|R(_,_):[0,10],[10,0],[1,11],[11,1],[2,12],[12,2], [0,0],[1,1],[2,2],[10,10], [11,11], [12,12],
+```
+
+<br>
+
+*Example 14*
+
+This problem asks for an example of a strict linear order which has a least element and has at least four elements.
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+04.14 Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz), ~a=b, ~a=c, ~a=d, ~b=c, ~b=d, ~c=d :|-: ~ExAy(Rxy\/x=y)
+|Domain:0,1,2,3
+|R(_,_):[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]
+|a:0
+|b:1
+|c:2
+|d:3
+```
+
+
+<br>
+
+*Example 15*
+
+This problem asks for an example of a binary relation which is reflexive and symmetric but not transitive. To make it interesting, we also ask for a model which has at least three elements in it.
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+04.15 AxRxx, AxAy(Rxy->Ryx),~a=b, ~b=c, ~a=c :|-: AxAyAz((Rxy/\Ryz)->Rxz)
+|Domain:0,1,2
+|R(_,_):[0,1],[1,0],[0,0],[1,1],[1,2],[2,1],[1,1],[2,2]
+|a:0
+|b:1
+|c:2
+```
+
+<br>
+
+
+<p style="page-break-before: always">
+
+## Free and bound variables and variable assignments
+
+In lecture 2 this week, we went over free and bound variables and variable assignments.
+
+<br>
+
+*Example 16*
+
+Consider the formula $\forall \; x \; (Rxy\rightarrow \exists \; y \; Ryx)$.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.16 Which of the following is true of this sentence?
+| The first and last instance of `y` are both free
+| The first instance of `y` is bound and the last instance of `y` is free
+|+ The first instance of `y` is free and the last instance of `y` is bound
+| The first and last instance of `y` are both bound
+```
+
+<br>
+
+*Example 17*
+
+Consider the formula $\forall \; x \; (Fx\rightarrow Gx) \wedge \exists \; x \; Rax$, whose main connective is the conjunction.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.17 Consider the last instance of `x` in the formula. Which of the following is true:
+| It is bound by the universal quantifer
+|+ It is bound by the existential quantifer
+| It is not bound
+| It is bound by the both quantifiers
+```
+
+
+<br>
+
+*Example 18*
+
+Consider the formula $(\forall \; x \; \exists \; y \; Rxy) \rightarrow \exists \; x \; Rax$.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.17 Consider the last instance of `x` in the formula. Which of the following is true:
+| It is bound by the universal quantifer
+|+ It is bound by the existential quantifer
+| It is not bound
+| It is bound by the both quantifiers
+```
+
+
+<br>
+
+*Example 19*
+
+Suppose that the underlying domain consists of natural numbers, and suppose that $g$ is a variable assignment which assigns $g(x)=5$ and $g(y)=10$ and $g(z)=15$. Suppose that $h$ is a variable assignment.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.19 Which assignments would make h a y-variant of g?
+| h(x)=4, h(y)=10, h(z)=15
+| h(x)=5, h(y)=10, h(z)=14
+|+ h(x)=5, h(y)=9, h(z)=15
+| h(x)=4, h(y)=9, h(z)=15
+```
+
+<br>
+
+*Example 20*
+
+Suppose that the underlying domain consists of four people Allison, Brianna, Carlos, and David, and suppose that $g$ is a variable assignment which assigns $g(x)=$ Allison and $g(y)=$ Brianna and $g(z)=$ Carlos. Suppose that $h$ is a variable assignment.
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+4.20 Which assignments would make h an x-variant of g?
+| h(x)=David, h(y)=Brianna, h(z)=Brianna
+| h(x)=Allison, h(y)=David, h(z)=David
+|+ h(x)=Brianna, h(y)=Brianna, h(z)=Carlos
+| h(x)=Brianna, h(y)=Allison, h(z)=Carlos
+```

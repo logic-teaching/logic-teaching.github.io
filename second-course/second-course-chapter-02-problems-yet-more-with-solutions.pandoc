@@ -1,0 +1,748 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 2 Tutoring session with solutions
+
+The problems in this set fall into four groups:
+
+- [Unordered list notation and set-theoretic operations](#unordered-list-notation-and-set-theoretic-operations)
+- [Ordered list notation and Cartesian products](#ordered-list-notation-and-cartesian-products)
+- [Venn diagrams and Aristotelian propositions](#venn-diagrams-and-aristotelian-propositions)
+- [Translations with quantifiers](#translations-with-quantifiers)
+
+
+
+<br>
+
+## Unordered list notation and set‐theoretic operations
+
+In problems 1‐5, consider the following sets of integers ([recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#basic-number-systems) that the integers $\mathbb{Z}$ are the positive and negative whole numbers):
+
+<p style="margin‐left: 40px">  $A=\{‐9,‐8,‐7,‐6,‐5,‐4,4,5,6,7,8,9\}$   </p>
+
+<p style="margin‐left: 40px">  $B=\{‐5,‐4,‐3,‐2,‐1,0,1,2,3,4,5\}$   </p>
+
+<p style="margin‐left: 40px">  $C=\{‐9,‐7,‐5,‐3,‐1,1,3,5,7,9\}$   </p>
+
+<p style="margin‐left: 40px">  $D=\{‐9,‐8,‐7,‐6,‐5,‐4,‐3,‐2,‐1,0,1,2,3,4,5,6,7,8,9\}$   </p>
+
+That is, $D$ is the set of integers between $‐9$ and $9$ (including both $‐9$ and $9$), $A$ is a subset of $D$ which is missing an interval in the middle, $B$ is a subset of $D$ which is missing two intervals at either end, and $C$ is the subset of $D$ which contains only the integers whose absolute value is odd (recall that zero is not odd).
+
+(In some sense, this example is just a variant on the example from the practice with [Unordered list notation and set‐theoretic operations](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-section-with-solutions.pandoc#unordered-list-notation-and-set-theoretic-operations), in that it just adds a "mirror image" in the negative numbers. But if one is just beginning, it can be good to practice with minor variants. And since we made, in this example, the set $C$ be the odd numbers, we have that zero is not in $C$, and this introduces a slight asymmetry).
+
+The first four problems ask about information contained in the following table. To solve these problems you will only need to fill in a small part of the table. Take the rest of the table as an opportunity to practice.
+
+<table style="width:100%">
+  <tr>
+    <th>Set</th>
+    <th>Elements, in unordered list notation</th>
+    <th>Least element (if non‐empty)</th>
+    <th>Size</th>
+  </tr>
+  <tr>
+    <td>$A\cap B$</td>
+    <td>$\{‐5,‐4,4,5\}$</td>
+    <td>‐5</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>$A\cup B$</td>
+    <td>$\{‐9,‐8,‐7,‐6,‐5,‐4,‐3,‐2,‐1,0,1,2,3,4,5,6,7,8,9\}$</td>
+    <td>‐9</td>
+    <td>19</td>
+  </tr>
+  <tr>
+    <td>$A\setminus B$</td>
+    <td>$\{‐ 9,  ‐ 8,  ‐ 7,  ‐ 6, 6, 7, 8, 9\}$</td>
+    <td>‐9</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>$B\setminus A$</td>
+    <td>$\{‐ 3,  ‐ 2,  ‐ 1, 0, 1, 2, 3\}$</td>
+    <td>‐3</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>$A\cap C$</td>
+    <td>$\{‐9,‐7,‐5,5,7,9\}$</td>
+    <td>‐9</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>$A\cup C$</td>
+    <td>$\{‐9,‐8,‐7,‐6,‐5,‐4,‐3,‐1,1,3,4,5,6,7,8,9\}$</td>
+    <td>‐9</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>$A\setminus C$</td>
+    <td>$\{‐8,‐6,‐4,4,6,8\}$</td>
+    <td>‐8</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>$C\setminus A$</td>
+    <td>$\{‐3,‐1,1,3\}$</td>
+    <td>‐3</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>$C\cap B$</td>
+    <td>$\{‐5,‐3,‐1,1,3,5\}$</td>
+    <td>‐5</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>$C\cup B$</td>
+    <td>$\{‐9,‐7,‐5,‐4,‐3,‐2,‐1,0,1,2,3,4,5,7,9\}$</td>
+    <td>‐9</td>
+    <td>15</td>
+  </tr>
+  <tr>
+    <td>$C\setminus B$</td>
+    <td>$\{‐9,‐7,7,9\}$</td>
+    <td>‐9</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>$B\setminus C$</td>
+    <td>$\{‐4,‐2,0,2,4\}$</td>
+    <td>‐4</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>$A\cup (B\cap C)$</td>
+    <td>$\{‐9,‐8,‐7,‐6,‐5,‐4,‐3,‐1,1,3,4,5,6,7,8,9\}$</td>
+    <td>‐9</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>$A\cap (B\cup C)$</td>
+    <td>$\{‐9,‐7,‐5,‐4,4,5,7,9\}$</td>
+    <td>‐9</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>$A\setminus (B\cup C)$</td>
+    <td>$\{‐8,‐6,6,8\}$</td>
+    <td>‐8</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>$(A\cap B)\setminus C$</td>
+    <td>$\{‐4,4\}$</td>
+    <td>‐4</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>$A^c$</td>
+    <td>$\{‐3,‐2,‐1,0,1,2,3\}$</td>
+    <td>‐3</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>$B^c$</td>
+    <td>$\{‐9,‐8,‐7,‐6,6,7,8,9\}$</td>
+    <td>‐9</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>$C^c$</td>
+    <td>$\{‐8,‐6,‐4,‐2,0,2,4,6,8\}$</td>
+    <td>‐8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>$D^c$</td>
+    <td>$\emptyset$</td>
+    <td>na</td>
+    <td>0</td>
+  </tr>
+</table>
+
+
+<br>
+
+
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.01 What is the least element of B\A ?
+|  ‐2
+| + ‐3
+|  ‐4
+|  ‐5
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.02 What is the size of A \ C?
+| +6
+| 7
+| 8
+| 9
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.03 What is the size of C \ A?
+| 5
+| +4
+| 3
+| 2
+```
+
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.04 What is the size of A \ (B∪C)?
+| +4
+| 5
+| 6
+| 7
+```
+
+<br>
+
+## Ordered list notation and Cartesian products
+
+*Problem 6*
+
+Consider the following set, noting the strict inequalities $<$ in the definition:
+
+<p style="margin‐left: 40px"> $X=\{\langle x,y\rangle\in \mathbb{Z}^2: ‐2<x<2, ‐3<y<3\}$. </p>
+
+<br>
+
+
+([Recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#basic-number-systems) that the integers $\mathbb{Z}$ are the positive and negative whole numbers).
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.06 Which of the following is not in the set X?
+| <‐1,‐1>
+| <‐1,‐2>
+| +<‐2,‐2>
+| <0,‐1>
+```
+
+One can also ask other questions about this set to probe one's understanding, such as
+
+How many elements does it have in it? *Note*: there are 15 elements, since one has $X=\{‐1,0,1\}\times \{‐2,‐1,0,1,2\}$, and the set $\{‐1,0,1\}$ has three elements, and the set $\{‐2,‐1,0,1,2\}$ has five elements, and $3\cdot 5=15$. In general, if $A$ has $n$ elements and $B$ has $m$ elements, then $A\times B$ has $n\cdot m$ elements.
+
+How would one draw it as a subset of the Euclidean plane? *Note* see the below diagram:
+
+<img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-relation-as-subset-of-plane.png" alt="Subset of plane" width="700"/>
+
+
+<br>
+
+*Problem 7*
+
+Consider the set $\{\langle x,y\rangle \in \mathbb{N}^2: x\leq 4 \wedge y\leq 4 \wedge ((x=y)\vee x=y+1)\}$.
+
+Before you begin, try to write out some elements that are in this set. For instance, ask yourself: is $\langle x,y\rangle=\langle 1,1\rangle$ in the set? Is $\langle x,y\rangle=\langle 1,2\rangle$ in the set? Is $\langle x,y\rangle=\langle 2,1\rangle$ in the set?
+
+Then, consider the following four arrow diagrams:
+
+<img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-arrows-1.png" alt="Arrow diagrams" width="700"/>
+
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.07 Which of these four diagrams represents the set?
+| R
+| S
+| +T
+| U
+```
+
+(Recall that for a subset of $A\times A$, we draw the subset by first drawing the points of $A$ as points, and then by drawing an arrow from $x$ to $y$ iff $\langle x,y\rangle$ is in the subset.)
+
+To further practice, you can try to write out the four sets $R,S,T,U$ using the unordered set notation.
+
+*Note*: one would write them out as follows:
+
+$R=\{\langle 0,0\rangle, \langle 1,2\rangle, \langle 2,2\rangle, \langle 3,4\rangle, \langle 4,4\rangle\}$
+
+$S=\{\langle 0,0\rangle, \langle 1,1\rangle, \langle 2,2\rangle, \langle 3,3\rangle, \langle 4,4\rangle, \langle 0,1\rangle, \langle 1,2\rangle, \langle 2,3\rangle, \langle 3,4\rangle\}$
+
+$T=\{\langle 0,0\rangle, \langle 1,1\rangle, \langle 2,2\rangle, \langle 3,3\rangle, \langle 4,4\rangle, \langle 1,0\rangle, \langle 2,1\rangle, \langle 3,2\rangle, \langle 4,3\rangle\}$
+
+$U=\{\langle 0,0\rangle, \langle 4,4\rangle, \langle 0,1\rangle, \langle 1,2\rangle, \langle 2,3\rangle, \langle 4,3\rangle\}$
+
+<br>
+
+## Venn diagrams and Aristotelian propositions
+
+<br>
+
+*Problems 7,8*
+
+Consider the following Venn diagram:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-venn-5.png" alt="Large Venn diagram" width="700"/>
+
+Consider the following table, which has some blanks:
+
+<table style="width:120%">
+  <tr>
+    <th>Diagrammatic relation</th>
+    <th>Set‐theoretic relation</th>
+    <th>Aristotelian proposition</th>
+  </tr>
+  <tr>
+    <td> $A$ and $F$ overlap </td>
+    <td> $A\cap F\neq \emptyset$ </td>
+    <td> Some $A$ are $F$ </td>
+  </tr>
+  <tr>
+    <td> $F$ is contained inside $G$ </td>
+    <td> $F\subseteq G$ </td>
+    <td> All $F$ are $G$ </td>
+  </tr>
+  <tr>
+    <td> $F$ is entirely outside $B$ </td>
+    <td> $F\subseteq B^c$ (equivalently: $F\subseteq D\setminus B$) </td>
+    <td> ________________ </td>
+  </tr>
+  <tr>
+    <td> $A$ is partially outside $H$ </td>
+    <td> ________________ </td>
+    <td> Some $A$ are not $H$ </td>
+  </tr>
+  <tr>
+    <td> $A$ and $B$ do not overlap </td>
+    <td> $A\cap B=\emptyset$ </td>
+    <td> No $A$ are $B$ </td>
+  </tr>
+</table>
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.07 What should you put in the blank in the third row?
+| Some F are not B
+| All F are B
+| +All F are not B
+| Some B are not F
+```
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check"}
+2.08 What should you put in the blank in the fourth row?
+| A ∩ H^c = ∅
+| A ∩ H ≠ ∅
+| A ∩ H = ∅
+| +A ∩ H^c ≠ ∅
+```
+
+<br>
+
+*Problems 9, 10*
+
+Consider the following Venn diagram featuring sets $A,B,C$, namely, the three large circles. It further contains seven numbered smaller shapes, 1‐7. The intended interpretation is that a number represents the smallest shape in which the number fits inside. For instance, $7$ represents the very small curved triangle‐like shape at the center of the diagram.
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-venn-1.png" alt="Cartesian product example" width="700"/>
+
+<br>
+
+This is essentially an exercise in understanding how to take a finite number of sets, and "carve them up" into the smallest parts that can be expressed with the set‐theoretic operations of intersection, union, difference, and relative complement. A helpful tool to keep in mind while working is the following *DeMorgan rules* for sets, [which correspond to the DeMorgan rules in propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-section-no-solutions.pandoc#further-connections-between-set-theory-and-propositional-logic):
+
+&nbsp; &nbsp; &nbsp; $(A\cup B)^c = A^c\cap B^c$
+
+&nbsp; &nbsp; &nbsp; $(A\cap B)^c = A^c\cup B^c$
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.09 What shape corresponds to B \ (A∪C)?
+| 1
+| +2
+| 3
+| 4
+```
+
+To generate more problems like this, just try to find expressions for the other numbers in terms of $A,B,C$ and difference and union. See [this diagram](https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-venn-3.png) for solutions.
+
+<br>
+
+```{.QualitativeProblem .MultipleChoice submission="none" options="check" }
+2.10 What shape corresponds to A ∩ B^c ∩ C?
+| 4
+| +5
+| 6
+| 7
+```
+
+To generate more problems like this, just try to find expressions for the other numbers in terms of $A,B,C$ and intersection and relative complement. See [this diagram](https://logic-teaching.github.io/philos-132-winter-23/vid/sets-tutoring-venn-2.png) for solutions.
+
+<br>
+
+
+## Translations with quantifiers
+
+In the following problems, we use the key:
+
+| $a$  =  "Angel"
+| $b$  = "Briana"
+| $c$  = "Cynthia"
+| $d$  =  "Daniela"
+| $B$  = is busy
+| $H$  = is happy
+| $T$  = is tired
+| $L$  = is a law student
+| $M$  = is a medical student
+
+<br>
+
+In these translation problems, there are really only 10 problems, namely problems 11 to 20. But we break them up into smaller pieces, so that one "builds up" to the correct answer. Hence, when working in e.g. problem 15, "save" your work before getting to the end of problem 15 (for instance, don't refresh the browser when you are in the middle of problem 15, and if you are taking a break, take it after you've finished all of problem 15).
+
+<br>
+
+
+Also, experience suggests that at the beginning, problems when they arise are usually related to parentheses. [Recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc#building-blocks-of-formulas-of-predicate-logic) the notes on typing quantifiers in the computer system:
+
+1. Do *not* put parentheses immediately outside quantifiers when the quantifier is the main connective. For example, write `AxPx` and not `(AxPx)`. But write `(AxPx/\AxQx)->Ax(Px/\Qx)` and not `AxPx/\AxQx->Ax(Px/\Qx)` since the latter is ambiguous between the former and `AxPx/\(AxQx->Ax(Px/\Qx))`.
+
+2. Put parentheses immediately inside a quantifier only if the main connective of that inner formula is a two-place propositional connective. For example, write `Ex(Px/\Rx)` and not `ExPx/\Rx`. But write `ExPx` and not `Ex(Px)`. And write `Ex~Px` and not `Ex(~Px)`.
+
+
+<br>
+
+For these translation problems, **press return** to check your work.
+
+<br>
+
+*Problem 11*
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.11.1 Ha/\~Ta : Angel is happy and Angel is not tired.
+| Ha/\~Ta
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.11.2 Ex(Hx/\~Tx) : Someone is both happy and not tired.
+| Ex(Hx/\~Tx)
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.11.3 (Ha/\~Ta)->Ex(Hx/\~Tx) : If Angel is happy and Angel is not tired, then someone is both happy and not tired.
+| (Ha/\~Ta)->Ex(Hx/\~Tx)
+~~~
+
+<br>
+
+*Problem 12*
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.12.1 AxTx : Everyone is tired.
+| AxTx
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.12.2 AxBx : Everyone is busy.
+| AxBx
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.12.3 ~AxBx : Not everyone is busy.
+| ~AxBx
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.12.4 AxTx/\~AxBx : Everyone is tired but not everyone is busy.
+| AxTx/\~AxBx
+~~~
+
+<br>
+
+*Problem 13*
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.13.1 AxBx/\AxTx : Everyone is busy and everyone is tired.
+| AxBx/\AxTx
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.13.2 Ax~Hx : Everyone is not happy.
+| Ax~Hx
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.13.3 (AxBx/\AxTx)->Ax~Hx : If everyone is busy and everyone is tired, then everyone is not happy.
+| (AxBx/\AxTx)->Ax~Hx
+~~~
+
+<br>
+
+*Problem 14*
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.14.1 ~Bd/\AxTx : Daniela is not busy and everyone is tired.
+| ~Bd/\AxTx
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.14.2 Ex(Tx/\~Bx) : Someone is tired but not busy.
+| Ex(Tx/\~Bx)
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.14.3 (~Bd/\AxTx)->Ex(Tx/\~Bx) : If Daniela is not busy and everyone is tired, then someone is tired but not busy.
+| (~Bd/\AxTx)->Ex(Tx/\~Bx)
+~~~
+
+<br>
+
+*Problem 15*
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.15.1 Ax(Bx\/Tx) : Everyone is busy or tired.
+| Ax(Bx\/Tx)
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.15.2 ~AxBx/\~AxTx : Not everyone is busy and not everyone is tired.
+| ~AxBx/\~AxTx
+~~~
+
+<br>
+
+This next one just puts together the previous ones, but note that for conjunctions $p\wedge q\wedge r$, the translation‐checker requires that you put parentheses in, and write it either as $(p\wedge q)\wedge r$ or $p\wedge (q\wedge r)$.
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+2.15.3 Ax(Bx\/Tx)/\(~AxBx/\~AxTx) : Everyone is busy or tired, but not everyone is busy and not everyone is tired.
+| Ax(Bx\/Tx)/\(~AxBx/\~AxTx)
+~~~
+
+<br>
+
+*Problem 16*
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.16.1 ~c=a/\~c=b : Cynthia is not Angel and Cynthia is not Briana.
+| ~c=a/\~c=b
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.16.2 (~c=a/\~c=b)->Tc : If Cynthia is not Angel and Cynthia is not Briana, then Cynthia is tired.
+| (~c=a/\~c=b)->Tc
+~~~
+
+<br>
+
+For the next one, note that it includes a "except" whereas the previous ones did not. But "everyone except $a$,$b$ has property $P$" involves the truth conditions for the big conjunction of "if $x$ is not $a$ and $x$ is not $b$, then $x$ has property $P$", where $x$ ranges over the people under consideration. Hence, take your answer to the previous problem, replace the `c` by an `x`, and insert the appropriate quantifier.
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.16.3 Ax((~x=a/\~x=b)->Tx) : Everyone except Angel and Briana is tired.
+| Ax((~x=a/\~x=b)->Tx)
+~~~
+
+<br>
+
+*Problem 17*
+
+<br>
+
+For the next one, "besides" works like "except". Hence, you'll want to use negated identity statements to translate.
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.17.1 Ex(~x=a/\Hx) : Someone besides Angel is happy.
+| Ex(~x=a/\Hx)
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.17.2 Ex(~x=a/\Tx) : Someone besides Angel is tired.
+| Ex(~x=a/\Tx)
+~~~
+
+<br>
+
+For the next one, it has the overall form of $\neg (p\wedge q)$, where the $p$ and the $q$ are from the two previous problems.
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.17.3 ~(Ex(~x=a/\Hx)/\Ex(~x=a/\Tx)) : It is not the case that both someone besides Angel is happy and someone besides Angel is tired.
+| ~(Ex(~x=a/\Hx)/\Ex(~x=a/\Tx))
+~~~
+
+<br>
+
+This next one has the overall form of $(p\vee q)\vee \neg (p\wedge q)$, where $p, q$ are from 02.17.2 and 02.17.3.
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.17.4 (Ex(~x=a/\Hx)\/Ex(~x=a/\Tx))/\~(Ex(~x=a/\Hx)/\Ex(~x=a/\Tx)) : Someone besides Angel is happy or someone besides Angel is tired, but not both.
+| (Ex(~x=a/\Hx)\/Ex(~x=a/\Tx))/\~(Ex(~x=a/\Hx)/\Ex(~x=a/\Tx))
+~~~
+
+<br>
+
+*Problem 18*
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.18.1 ~Ex(Lx/\Mx) : No law student is a medical student.
+| ~Ex(Lx/\Mx)
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.18.2 Ex(Lx/\~Hx) : Some law student is not happy.
+| Ex(Lx/\~Hx)
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.18.3 Ex(Mx/\Tx) : Some medical student is tired.
+| Ex(Mx/\Tx)
+~~~
+
+
+<br>
+
+This next one just puts together the previous ones, but note that for conjunctions $p\wedge q\wedge r$, the translation‐checker requires that you put parentheses in, and write it either as $(p\wedge q)\wedge r$ or $p\wedge (q\wedge r)$.
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.18.4 ~Ex(Lx/\Mx)/\(Ex(Lx/\~Hx)/\Ex(Mx/\Tx)) : No law student is a medical student, but some law student is not happy, and some medical student is tired.
+| ~Ex(Lx/\Mx)/\(Ex(Lx/\~Hx)/\Ex(Mx/\Tx))
+~~~
+
+<br>
+
+*Problem 19*
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.19.1 Ax(Mx->Tx) : Every medical student is tired.
+| Ax(Mx->Tx)
+~~~
+
+<br>
+
+*Note*: for the next one, the "person" in "tired person" is left untranslated, since we are assuming that we are dealing with people.
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.19.2 Ex(Tx/\Hx) : Some tired person is happy.
+| Ex(Tx/\Hx)
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.19.3 Ex(Mx/\(Tx/\Hx)) : Some medical student is tired and happy.
+| Ex(Mx/\(Tx/\Hx))
+~~~
+
+<br>
+
+*Note*: this next one has the overall form $(p\wedge q)\rightarrow r$, where the $p,q,r$ come from the previous problems. Be sure to watch out for the parentheses.
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.19.4 (Ax(Mx->Tx)/\Ex(Tx/\Hx))->Ex(Mx/\(Tx/\Hx)) : If every medical student is tired and some tired person is happy, then some medical student is tired and happy.
+| (Ax(Mx->Tx)/\Ex(Tx/\Hx))->Ex(Mx/\(Tx/\Hx))
+~~~
+
+<br>
+
+*Problem 20*
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.20.1 Ax((Lx/\~x=a)->Tx) : Every law student besides Angel is tired.
+| Ax((Lx/\~x=a)->Tx)
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.20.2 Ex((Lx/\~x=a)/\~Hx) : Some law student besides Angel is not happy.
+| Ex((Lx/\~x=a)/\~Hx)
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.20.3 Ex((Lx/\~x=a)/\(~Hx/\Tx)) : Some law student besides Angel is not happy and is tired.
+| Ex((Lx/\~x=a)/\(~Hx/\Tx))
+~~~
+
+<br>
+
+~~~{.Translate .FOL system="gamutND" submission="none" options="check"}
+02.20.4 (Ax((Lx/\~x=a)->Tx)/\Ex((Lx/\~x=a)/\~Hx))->Ex((Lx/\~x=a)/\(~Hx/\Tx)) : If every law student besides Angel is tired, and if some law student besides Angel is not happy, then some law student besides Angel is not happy and is tired.
+| (Ax((Lx/\~x=a)->Tx)/\Ex((Lx/\~x=a)/\~Hx))->Ex((Lx/\~x=a)/\(~Hx/\Tx))
+~~~
+
+<br>
+
+
+

@@ -1,0 +1,802 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+
+# Week 10, Section
+
+We practice for the final exam.
+
+- [Famous Proofs](#famous-proofs)
+- [Proof or countermodel](#proof-or-countermodel)
+- [Week 6 problems](#week-6-problems)
+- [Week 7 problems](#week-7-problems)
+- [Week 8 problems](#week-8-problems)
+- [Week 9 problems](#week-9-problems)
+- [Summary of rules of classical predicate logic](#summary-of-rules-of-classical-predicate-logic)
+
+
+This is practice for the final. In particular, it is practice with parts I, II, III of the final.
+
+- It is *strongly advised* that you work it out by hand, since that it what we will be doing on the final.
+
+- And again, the reason we are doing this is because the aim of the second half of this course is for you to learn to write proofs, with the goal of being able to do so without the aid of a proof checker, since there no proof checkers in later parts of logic or in later applications of logic.
+
+- A pdf is provided on the bruinlearn site for convenience.
+
+- You can check your answers by looking at the solution document, or by typing your answers directly into this.
+
+- The formatting of this page may look a little different, but that is because it is designed to be printed.
+
+- Keep in mind that there are many good proofs of one and the same result, and keep in mind that partial credit will be available on the proofs in the final.
+
+<br>
+
+<p style="page-break-before: always">
+
+## Famous proofs
+
+<br>
+
+*Problem 1*
+
+This is the famous proof that intuitionistic logic proves the double-negation of law of the excluded middle. (From [Week 7, Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-with-solutions.pandoc) Example 4).
+
+For this problem, use only the introduction and elimination rules, along with ex falso and repeat rule. That is, this proof is a proof in intuitionistic predicate logic.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.01 :|-: ~~(Rab\/~Rab)
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 2*
+
+This is the famous proof that classical logic proves the hard part of DeMorgan. (From [Week 8, Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-01-with-solutions.pandoc) Example 1).
+
+
+For this problem, use only the introduction and elimination rules, along with ex falso and repeat rule, as well as *double-negation*.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.02 ~AxRxd  :|-: Ex~Rxd
+|~AxRxd :assumption
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+## Proof or countermodel
+
+<br>
+
+*Problem 3*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.03 Ax(Fx->Gx), ~Fa, ~Ga, Ax(x=a\/x=b) :|-: Ax(~Fx->~Gx)
+|Ax(Fx->Gx) :assumption
+|~Fa :assumption
+|~Ga :assumption
+|Ax(x=a\/x=b) :assumption
+```
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+10.03 Ax(Fx->Gx), ~Fa, ~Ga, Ax(x=a\/x=b) :|-: Ax(~Fx->~Gx)
+|Domain:
+|F(_):
+|G(_):
+|a:
+|b:
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 4*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.04 AxAy(Fx->Gy) :|-: AxFx->AyGy
+|AxAy(Fx->Gy) :assumption
+```
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+10.04 AxAy(Fx->Gy)  :|-: AxFx->AyGy
+|Domain:
+|F(_):
+|G(_):
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 5*
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.05 Fb\/Fc, Fb->AxRxb, Fc->AxRxc  :|-: Rbc\/Rcb
+|Fb\/Fc :assumption
+|Fb->AxRxb :assumption
+|Fc->AxRxc :assumption
+```
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+10.05 Fb\/Fc, Fb->AxRxb, Fc->AxRxc  :|-: Rbc\/Rcb
+|Domain:
+|F(_):
+|R(_,_):
+|b:
+|c:
+```
+
+<p style="page-break-before: always">
+
+*Problem 6*
+
+<br>
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.06 Fb\/Fc, Fb->ExRxb, Fc->ExRxc  :|-: Rbc\/Rcb
+|Fb\/Fc :assumption
+|Fb->ExRxb :assumption
+|Fc->ExRxc :assumption
+```
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+
+```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
+10.06  Fb\/Fc, Fb->ExRxb, Fc->ExRxc  :|-: Rbc\/Rcb
+|Domain:
+|F(_):
+|R(_,_):
+|b:
+|c:
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+## Week 6 problems
+
+<br>
+
+For these problems, use only the introduction and elimination rules, along with ex falso and repeat rule. That is, these proofs are proofs in intuitionistic predicate logic.
+
+<br>
+
+*Problem 7*
+
+This problem is an exercise with the arrow and conjunction rules.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+10.07 Rac->Tac, Rbc->Tab :|-: Rbc->(Rac->(Tac/\Tab))
+|Rac->Tac :assumption
+|Rbc->Tab :assumption
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 8*
+
+The following is a nearly complete proof of Celerant in intuitionistic logic. Fill in the missing justifications marked with questions marks.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.08 ~Ex(Fx/\Gx), Ax(Hx->Fx) :|-: ~Ex(Hx/\Gx)
+|~Ex(Fx/\Gx) :assumption
+|Ax(Hx->Fx) :assumption
+| Ex(Hx/\Gx) :assumption
+|  Hc/\Gc :assumption
+|  Hc :E/\4
+|  Gc :E/\4
+|  Hc->Fc :EA2
+|  Fc :E->5,7
+|  Fc/\Gc :I/\6,8
+|  Ex(Fx/\Gx) :????
+|  ⊥ :E~1,10
+| (Hc/\Gc)->⊥ :I->4-11
+| ⊥ :????
+|~Ex(Hx/\Gx) :I~3-13
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 9*
+
+For this one, solve it using the Aristotelian syllogisms (which we showed were all derivable in intuitionistic predicate logic). For reference, we recopy the Aristotelian syllogisms here.
+
+<table style="width:120%">
+  <tr>
+    <th>Name</th>
+    <th>Typed</th>
+    <th>Validity</th>
+  </tr>
+  <tr>
+    <td>First Conversion</td>
+    <td>`CV1`</td>
+    <td>$\exists \; x \; (Fx\wedge Gx)\vdash \exists \; x \; (Gx\wedge Fx)$</td>
+  </tr>
+    <td>Second Conversion</td>
+    <td>`CV2`</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx) \vdash \neg \exists \; x \; (Gx\wedge Fx)$</td>
+  <tr>
+    <td>Third Conversion</td>
+    <td>`CV3`</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx) \vdash \forall \; x\; (Fx\rightarrow \neg Gx)$</td>
+  </tr>
+    <td>Fourth Conversion (with Existential Premise)</td>
+    <td>`CV4`</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx), \exists \; x \; Fx \vdash \exists \; x \; (Fx\wedge Gx)$</td>
+  <tr>
+    <td>Barbara</td>
+    <td>`Ba`</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx), \forall \; x \; (Gx\rightarrow Hx) \vdash \forall \; x \; (Fx\rightarrow Hx)$</td>
+  </tr>
+  <tr>
+    <td>Celarent</td>
+    <td>`Ce`</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx), \forall \; x \; (Hx\rightarrow Fx) \vdash \neg \exists \; x \; (Hx\wedge Gx)$</td>
+  <tr>
+    <td>Darii</td>
+    <td>`Da`</td>
+    <td>$\forall \; x \; (Fx\rightarrow Gx), \exists \; x \; (Hx \wedge Fx) \vdash \exists \; x \; (Hx \wedge Gx)$</td>
+  </tr>
+  <tr>
+    <td>Ferio</td>
+    <td>`Fe`</td>
+    <td>$\neg \exists \; x \; (Fx\wedge Gx), \exists \; x \; (Hx\wedge Fx) \vdash \exists \; x \; (Hx\wedge \neg Gx)$</td>
+  </tr>
+</table>
+
+<br>
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+10.09 Ax(Rax->Tax), Ex(Tbx/\Rax), ~Ex(Tax/\Sax) :|-: Ex(Tbx/\~Sax)
+|Ax(Rax->Tax) :assumption
+|Ex(Tbx/\Rax) :assumption
+|~Ex(Tax/\Sax) :assumption
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+## Week 7 problems
+
+<br>
+
+*Problem 10*
+
+For this problem, use only the introduction and elimination rules, along with ex falso and repeat rule. That is, this proof is a proof in intuitionistic predicate logic.
+
+This problem is an exercise in ex falso.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.10 Fa\/Fb, ~Fa :|-: Fb
+|Fa\/Fb :assumption
+|~Fa :assumption
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 11*
+
+Consider the following proof in intuitionistic propositional logic:
+
+```{.ProofChecker .GamutMPND submission="none"}
+ :|-: q->(p->((p->(q->r))->r))
+| q :assumption
+|  p :assumption
+|   p->(q->r) :assumption
+|   q->r :E->2,3
+|   r :E->1,4
+|  (p->(q->r))->r :I->3-5
+| p->((p->(q->r))->r) :I->2-6
+|q->(p->((p->(q->r))->r)) :I->1-7
+```
+
+<br>
+
+Suppose that you decorate the first three assumptions with $u:q$, $v:p$ and $f:p\rightarrow (q\rightarrow r)$. After decorating the rest of the proof, what lambda term do you get? *Hint*: you may need to recopy the above proof and add the lambda terms as you go. There are some extra blank pages below which give you space to do that. The introduction and elimination rules for arrow in the lambda calculus are also recopied for reference in the next pages.
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+10.11 After decorating the rest of the proof, what lambda term do you get on the last line?
+| λv:p λu:q λf:p->(q->r) . (fv)u
+| λu:q λv:p λf:p->(q->r) . (fu)v
+|* λu:q λv:p λf:p->(q->r) . (fv)u
+| λv:p λu:q λf:p->(q->r) . (fu)v
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+[extra page for scratch work for previous problem]
+
+
+
+<p style="page-break-before: always">
+
+This page is *merely* for reference, and includes the introduction and elimination rules for arrow for our lambda calculus:
+
+Elimination rules for arrow:
+
+- *Lambda calculus*: If $M:P\rightarrow Q$ and $N:P$, then $MN:Q$.
+
+- *Logic*: If $P\rightarrow Q$ and $P$, then $Q$.
+
+We can write these two rules side by side in our more familiar proof format as follows:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-calculus-elim-rules-2.png" alt="Elimination rules" width="800"/>
+
+<br>
+
+Introduction rules for arrow:
+
+- *Lambda calculus*: If from $x:P$ it follows that $M: Q$, then $\lambda x : P .\; M\; : P\rightarrow Q$
+
+- *Logic*: If from $P$ it follows that $Q$, then $P\rightarrow Q$.
+
+We can write these two rules side by side in our more familiar proof format as follows:
+
+&nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-calculus-intro-rules-2.png" alt="Elimination rules" width="800"/>
+
+<p style="page-break-before: always">
+
+*Problem 12*
+
+This is a problem in inferring types. *Hint*: think about the types as propositions in propositional logic, and try to think about what the proof would be which ends with this lambda term.
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+10.12 What is the type of λf : ℤ->ℚ  λu : ℤ . u-f(u) ?
+| ((ℤ->ℚ)->ℤ)->ℚ
+|* (ℤ->ℚ)->(ℤ->ℚ)
+| ℤ->(ℚ->(ℤ->ℚ))
+| ℤ->((ℚ->ℤ)->ℚ)
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+## Week 8 problems
+
+<br>
+
+For these problems, one can use any of the rules of classical predicate logic. See [Summary of rules of classical predicate logic](#summary-of-rules-of-classical-predicate-logic) for reference.
+
+<br>
+
+*Problem 13*
+
+While this problem can be solved in many ways, it has one comparatively simple proof which features prominently the disjunctive syllogisms.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.13 AxAy(Rxy->Ryx), Ga, ~(Ga/\Fa), Fa\/~Rdc :|-: ~Rcd
+|AxAy(Rxy->Ryx) :assumption
+|Ga :assumption
+|~(Ga/\Fa) :assumption
+|Fa\/~Rdc :assumption
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 14*
+
+This is a version of Pierce's law, a statement about arrows which is only provable in classical logic. While there are many proofs of it, one simple one treats it like a normal arrow statement going from `((Rac->Rbc)->Rac)` to `Rac` in a bracket, and derives the last line of the bracket `Rac` from `~~Rac` via double-negation.
+
+```{.ProofChecker .GamutNDPlus submission="none"}
+10.14  :|-: ((Rac->Rbc)->Rac)->Rac
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 15*
+
+Give a resolution proof of
+
+$\forall \; x \; \forall \; y \; (Rxy\rightarrow Ryx), \forall \; x \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz), Rba, Rbc \vdash Rac$
+
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+<br>
+
+
+<br>
+
+
+<br>
+
+<p style="page-break-before: always">
+
+## Week 9 problems
+
+<br>
+
+*Problem 16*
+
+Consider the statement $\exists \; x \; Fx \wedge \exists \; x \; Gx \nvdash \exists \;x \;(Fx\wedge Gx)$.
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+10.16 What is this a claim about?
+| Some proofs
+|* All proofs
+| Some models
+| All models
+```
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 17*
+
+This problem has two parts, where we use the key:
+
+| F = French major
+| G = Geography major
+| a = Ashley
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+10.17.1 (Fa/\~Ga)->Ex(Fx/\~Gx) : If Ashley is a French major but not a Geography major, then someone is a French major but not a Geography major.
+|
+~~~
+
+<br>
+
+<br>
+
+<br>
+
+
+<br>
+
+~~~{.Translate .Exact system="gamutNDSOL" submission="none"}
+10.17.2 (Fa/\~Ga)->EX1(X1a/\~Ey(X1y/\Gy)), (Fa/\~Ga)->EX1(X1a/\~Ey(Gy/\X1y)), (Fa/\~Ga)->EX1(X1a/\Ay(X1y->~Gy)), (Fa/\~Ga)->EX1(X1a/\Ay(Gy->~X1y)) : If Ashley is a French major but not a Geography major, then Ashley has some property which no Geography major has.
+|
+~~~
+
+<br>
+
+<p style="page-break-before: always">
+
+*Problem 18*
+
+This is a problem in the deductive system for second-order logic. For reference, we recopy the rules  on the next page.
+
+Note that this is an instance of the comprehension schema, and hence is evidence that our lambda terms do indeed provide enough names for the properties to validiate the comprehension schema.
+
+```{.ProofChecker .GamutNDSOL submission="none"}
+10.18 :|-: EX1Ax(((Fx/\Gx)->X1x)/\(X1x->(Fx/\Gx)))
+```
+
+
+
+<p style="page-break-before: always">
+
+These are the rules for our second-order deductive system. They are included only for reference.
+
+<table style="width:125%">
+  <tr>
+    <th>Name</th>
+    <th>Rule</th>
+    <th>Rule, typed</th>
+    <th>Abbreviation</th>
+  </tr>
+  <tr>
+    <td>Application</td>
+    <td>$\lambda x. [ϕ(x)]a \vdash ϕ(a)$</td>
+    <td>`\x[ϕ(x)]a ⊢ ϕ(a)` or `λx[ϕ(x)]a ⊢ ϕ(a)` </td>
+    <td>`APP1`</td>
+  </tr>
+  <tr>
+    <td>Abstraction</td>
+    <td>$ϕ(a) \vdash \lambda x. [ϕ(x)]a$</td>
+    <td>`ϕ(a) ⊢ \x[ϕ(x)]a` or `ϕ(a) ⊢ λx[ϕ(x)]a` </td>
+    <td>`ABS1`</td>
+  </tr>
+  <tr>
+    <td>Introduction of second-order existential</td>
+    <td>$\psi(\lambda x. [ϕ(x)]) \ldots \vdash \exists \; X \; \psi(X)$</td>
+    <td>`ψ(\x[ϕ(x)]) ⊢ EX1 ψ(X1)` or `ψ(λx[ϕ(x)]) ⊢ EX1 ψ(X1)` </td>
+    <td>`IE1`</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>or `ψ(λx[ϕ(x)]) ⊢ EX1 ψ(X1)` </td>
+    <td>
+  </tr>
+  <tr>
+    <td>Elimination of second-order universal</td>
+    <td>$\forall \; X \; \psi(X) \vdash \psi(\lambda x. [ϕ(x)])$</td>
+    <td>`AX1 ψ(X1) ⊢ ψ(\x[ϕ(x)])` or `AX1 ψ(X1) ⊢ ψ(λx[ϕ(x)])` </td>
+    <td>`EA1`</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>or `AX1 ψ(X1) ⊢ ψ(λx[ϕ(x)])` </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Introduction of second-order universal</td>
+    <td>$\psi(Y) \vdash \forall \; X \; \psi(X)$</td>
+    <td>`ψ(Y1) ⊢ AX1 ψ(X1)` </td>
+    <td>`IA1`</td>
+  </tr>
+  <tr>
+    <td>Elimination of second-order existential</td>
+    <td>$\exists \; X \; \psi(X), \psi(Y)\rightarrow \xi \vdash \xi$</td>
+    <td>`EX1 ψ(X1), ψ(Y1)->ξ ⊢ ξ` </td>
+    <td>`EE1`</td>
+  </tr>
+</table>
+
+<br>
+
+<p style="page-break-before: always">
+
+[blank page for scratch work]
+
+<p style="page-break-before: always">
+
+[blank page for scratch work]
+
+<p style="page-break-before: always">
+
+<p style="page-break-before: always">
+
+[blank page for scratch work]
+
+<p style="page-break-before: always">
+
+[blank page for scratch work]
+
+<br>
+
+<p style="page-break-before: always">
+
+## Summary of rules of classical predicate logic
+
+For reference, here is a summary of all the rules available in our system of classical predicate logic, i.e. the Week 8 system.
+
+<table style="width:100%">
+  <tr>
+    <th>Rule</th>
+    <th>Abbreviation</th>
+    <th>Statement</th>
+  </tr>
+  <tr>
+    <td>Law of excluded middle</td>
+    <td>`LEM`</td>
+    <td>$\phi\vee \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>The law of double-negation</td>
+    <td>`DN`</td>
+    <td>$\phi$ is equivalent to $\neg \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of non-contradiction</td>
+    <td>`LNC`</td>
+    <td>$\neg (\phi\wedge \neg \phi)$</td>
+  </tr>
+ <tr>
+    <td>DeMorgan</td>
+    <td>`DMSOME`</td>
+    <td>$\neg \forall \; x \; \phi(x)$ is equivalent to $\exists \; x \; \neg \phi(x)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMALL`</td>
+    <td>$\neg \exists \; x \; \phi(x)$ is equivalent to $\forall \; x \; \neg \phi(x)$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMOR`</td>
+    <td>$\neg (\phi\wedge \psi)$ is equivalent to $\neg \phi \vee \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>DeMorgan</td>
+    <td>`DMAND`</td>
+    <td>$\neg (\phi\vee \psi)$ is equivalent to $\neg \phi \wedge \neg \psi$</td>
+  </tr>
+ <tr>
+    <td>(Positive) Disjunctive syllogism</td>
+    <td>`PDS`</td>
+    <td>$\phi\vee \psi, \neg \phi \vdash \psi$</td>
+  </tr>
+  <tr>
+    <td>(Negative) disjunctive syllogism</td>
+    <td>`NDS`</td>
+    <td>$\neg (\phi\wedge \psi), \phi \vdash \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>Negated conditionals and conjunctive statements</td>
+    <td>`NC`</td>
+    <td>$\neg (\phi \rightarrow \psi)$ is equivalent to $\phi \wedge \neg \psi$</td>
+  </tr>
+  <tr>
+    <td>Conditionals and disjunctive statements</td>
+    <td>`DC`</td>
+    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \phi \vee \psi$</td>
+  </tr>
+  <tr>
+    <td>Contraposition</td>
+    <td>`CP`</td>
+    <td>$\phi\rightarrow \psi$ is equivalent to $\neg \psi\rightarrow \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Modus tollens</td>
+    <td>`MT`</td>
+    <td>$\phi\rightarrow \psi, \neg \psi \vdash \neg \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of commutativity for conjunction</td>
+    <td>`LCC`</td>
+    <td>$\phi\wedge \psi$ is equivalent to $\psi\wedge \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of commutativity for disjunction</td>
+    <td>`LCD`</td>
+    <td>$\phi\vee \psi$ is equivalent to $\psi\vee \phi$</td>
+  </tr>
+  <tr>
+    <td>Law of associativity for conjunction</td>
+    <td>`LAC`</td>
+    <td> $(\phi\wedge \psi)\wedge \xi$ is equivalent to $\phi\wedge (\psi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of associativity for disjunction</td>
+    <td>`LAD`</td>
+    <td>$(\phi\vee \psi)\vee \xi$ is equivalent to $\phi\vee (\psi\vee \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of distribution for conjunction</td>
+    <td>`LDC`</td>
+    <td>$\phi\wedge (\psi\vee \xi)$ is equivalent to $(\phi\wedge \psi)\vee (\phi\wedge \xi)$</td>
+  </tr>
+  <tr>
+    <td>Law of distribution for disjunction</td>
+    <td>`LDD`</td>
+    <td>$\phi\vee (\psi\wedge \xi)$ is equivalent to $(\phi\vee \psi)\wedge (\phi\vee \xi)$</td>
+  </tr>
+ <tr>
+    <td>Introduction rule for identity</td>
+    <td>`I=`</td>
+    <td>$a=a$</td>
+  </tr>
+  <tr>
+    <td>Elimination rule for identity</td>
+    <td>`E=`</td>
+    <td> $a=b, \phi(a) \vdash \phi(b)$</td>
+  </tr>
+  <tr>
+    <td>Introduction rule for $\iota$</td>
+    <td>`Ii`</td>
+    <td>$\exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))\vdash F\iota x Fx$</td>
+  </tr>
+  <tr>
+    <td>Elimination rule for $\iota$</td>
+    <td>`Ei`</td>
+    <td>$\iota x Fx\neq \iota x \bot \vdash \exists \; x \; (Fx\wedge \forall \; y \; (Fy\rightarrow y=x))$</td>
+  </tr>
+</table>
+
+<br>

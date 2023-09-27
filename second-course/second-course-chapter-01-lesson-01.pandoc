@@ -1,0 +1,284 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Review of propositional connectives
+
+We begin with a simple review of the propositional connectives: conjunction, disjunction, negation, conditional, biconditional.
+
+- [The propositional connectives](#the-propositional-connectives)
+- [Translating with propositional connectives](#translating-with-propositional-connectives)
+- [The well-formed formulas](#the-well-formed-formulas)
+- [Truth-tables](#truth-tables)
+- [A more local view on truth-tables](#a-more-local-view-on-truth-tables)
+
+This is not intended to be one's first logic course. But it is useful to begin with a review of some of the basics from a first logic course. This is, in part, due to the fact that logic textbooks vary slightly in notation. Hence, in reviewing the basics at the outset, we can simultaneously fix notation.
+
+
+## The propositional connectives
+
+<table style="width:100%">
+  <tr>
+    <th>Connective</th>
+    <th>Translates</th>
+    <th>Symbol handwritten</th>
+    <th>Symbol typeset</th>
+    <th>How to type on keyboard</th>
+  </tr>
+  <tr>
+    <td>Conjunction</td>
+    <td>"and"</td>
+    <td><video autoplay muted width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-conj.mp4"/> </video>
+</td>
+    <td>$\wedge$</td>
+    <td>`/\`</td>
+  </tr>
+  <tr>
+    <td>Disjunction</td>
+    <td>"or"</td>
+    <td><video autoplay muted width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-disj.mp4"/> </video>
+</td>
+    <td>$\vee$</td>
+    <td>`\/`</td>
+  </tr>
+  <tr>
+    <td>Negation</td>
+    <td>"not"</td>
+    <td><video autoplay muted width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-neg.mp4"/> </video>
+</td>
+    <td>$\neg$</td>
+    <td>`~`</td>
+  </tr>
+  <tr>
+    <td>Conditional / Arrow </td>
+    <td>"if . . . then . . . "</td>
+    <td><video autoplay muted width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-conditional.mp4"/> </video>
+</td>
+    <td>$\rightarrow$</td>
+    <td>`->`</td>
+  </tr>
+  <tr>
+    <td>Biconditional</td>
+    <td>". . . if and only if . . ."</td>
+    <td><video autoplay muted width="100" src="https://logic-teaching.github.io/pred/vid/prop-review-biconditional.mp4"/> </video>
+</td>
+    <td>$\leftrightarrow$</td>
+    <td>`<->`</td>
+  </tr>
+</table>
+
+<br>
+
+Note that when you are typing e.g. conjunction `/\`, you are typing two keys on the keyboard, namely first the key `/` followed by the key `\`.  Here is a video of how to type these characters on a standard US keyboard. The keys being pressed are highlighted in colors in the keyboard to the left:
+
+<video controls width="700" src="https://logic-teaching.github.io/pred/vid/prop-review-typev2.mp4"/> </video>
+
+<br>
+
+## Translating with propositional connectives
+
+In propositional logic, we take some propositions as basic, such as the following:
+
+<p style="margin-left: 40px"> $a$ = Anthony attends </p>
+<p style="margin-left: 40px"> $b$ = Briana attends </p>
+<p style="margin-left: 40px"> $c$ = Cynthia attends </p>
+<p style="margin-left: 40px"> $d$ = Dylan attends </p>
+
+In predicate logic we will subject these propositions to further analysis. But the idea in propositional logic is to not subject them to any further analysis, and to just translate them by a single propositional letter. The following examples help us to practice this.
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a\/b)->(c/\d) : If Anthony attends or Briana attends then Cynthia attends and Dylan attends.
+|
+~~~
+
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a/\b)->(c\/d) : If Anthony attends and Briana attends then Cynthia attends or Dylan attends.
+|
+~~~
+
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a->b)/\(c->d) : If Anthony attends then Briana attends, and if Claire attends then Dylan attends.
+|
+~~~
+
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (~a->b): If Anthony does not attend then Briana attends.
+|
+~~~
+
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ ~(a->b) : It is not the case that if Anthony attends then Briana attends.
+|
+~~~
+
+
+~~~{.Translate .Prop system="gamutPND" submission="none"}
+ (a<->~b) : Anthony attends if and only if Briana does not attend.
+|
+~~~
+
+<br>
+
+## The well-formed formulas
+
+The above translations seem intuitive, but this raises the question of what exactly counts as a possible translation and what exactly the rules are on how to build more complex formulas. For instance, there does not seem to be an exact analogue of parentheses in natural language, and one would want to know what the rules are for when to put these in.
+
+To this end, let us define the well-formed formulas of propositional logic. Part of the reason for recalling this definition is that since we want to study predicate logic in this course, we will eventually want to define the well-formed formulas of predicate logic.
+
+To define the well-formed formulas of propositional logic, we start with the basic things that can be true or false, namely the propositional formulas $a,b,c, \ldots, p,q,r, \ldots$.
+
+Then we give some rules how to generate more complex well-formed formulas from simpler well-formed formulas, and we say what the *main connective* is of the complex well-formed formula:
+
+- If $\phi$ is a well-formed formula, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \wedge \psi)$ is a well-formed formula and its main connective is the conjunction symbol $\wedge$.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \vee \psi)$ is a well-formed formula and its main connective is the disjunction symbol $\vee$.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \rightarrow \psi)$ is a well-formed formula and its main connective is the conditional symbol $\rightarrow$.
+- If $\phi$ and $\psi$ are well-formed formulas, then $(\phi \leftrightarrow \psi)$ is a well-formed formula and its main connective is the biconditional symbol $\leftrightarrow$.
+
+Finally, we say that nothing else is a well-formed formula besides what can be generated in the way described above. (Obviously the phrase "well-formed formula" is cumbersome. Hence, as a synonym, one will find people saying shorter things like: "formula", "proposition", or "wff".)
+
+Here are some *examples* of complex well-formed formulas. The syntax checker shows how the well-formed formula was built up out of the smaller parts. Press return after you have entered in the main connective to get to the next level. (If you get a popup, you can click the 'escape' key to make it go away).
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p/\q)->(~q\/r)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ q->((~p\/r)/\s)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+ (p/\~q)\/(q<->r)
+```
+
+```{.SynChecker .Match system="gamutPND" submission="none"}
+  ((~p/\q)->(q\/r))<->r
+```
+Here are some *non-examples* of well-formed formulas:
+
+- $p \vee q \wedge r$, because there are no parentheses. There are two well-formed formulas closely related to this one, namely $(p \vee q) \wedge r$ and $p \vee (q \wedge r)$. Since these two end up having different truth-conditions, we say that $p \vee q \wedge r$ is ambiguous between the two.
+
+- $(pqp\rightarrow \rightarrow q)$, because what occurs on either side of an arrow must be a well-formed formula, and $\rightarrow q$ is not a formula, because arrows must have something on each side.
+
+Finally, some brief remarks on parentheses:
+
+- We always allow ourselves to drop outermost parentheses. For instance, we can write just $p\wedge q$ instead of $(p\wedge q)$. Likewise, we can just write $p\wedge (q\vee r)$ instead of $(p\wedge (q\vee r))$. However, we cannot drop inner parentheses, since e.g $p\wedge q\vee r$ is ambiguous in exactly the way we are trying to avoid. We maintain the convention of allowing ourselves to drop outermost parentheses throughout this course.
+
+- Negation adheres to the well-formed formula to its immediate right. For instance:
+
+  - $\neg p\vee r$ is a disjunction formed from $\neg p$ and $r$.
+
+  - $\neg (p\vee r)$ is the negation of $p\vee r$.
+
+  - $\neg p\vee \neg r$ is the disjunction of $\neg p$ and $\neg r$
+
+  - $\neg (p\vee \neg r)$ is the negation of the disjunction $p\vee \neg r$.
+
+- The usage of parentheses in logic borrows the usage in algebra. For instance, the way we write $(4+x)\times (1+y)$ indicates the order in which one is to do the operations, if one knew the values of the variables $x,y$. Likewise $(p\wedge q)\vee(r\rightarrow s)$ indicates the order in which one is to evaluate the truth of the formula if one knew the truth-value of the propositional letters $p,q,r,s$.
+
+<br>
+
+## Truth-tables
+
+We calculate the truth-values of complex well-formed formulas in terms of the simpler ones according to the following rules:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p/\q
+| TTT
+| TFF
+| FFT
+| FFF
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p\/q
+| TTT
+| TTF
+| FTT
+| FFF
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ ~p
+| FT
+| TF
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p->q
+| TTT
+| TFF
+| FTT
+| FTF
+~~~
+
+~~~{.TruthTable .Simple system="gamutPND" options="nocounterexample autoAtoms immutable nocheck" submission="none"}
+ p<->q
+| TTT
+| TFF
+| FFT
+| FTF
+~~~
+
+To see how to apply these five rules, consider the following formula:
+
+~~~{.TruthTable .Simple system="gamutPND" options="nodash nocounterexample autoAtoms" submission="none"}
+ ((~p/\q)->(q\/r))<->r
+~~~
+
+<br>
+
+## A more local view on truth-tables
+
+If there are many propositional letters, or if the formulas are complex, then writing out the entire truth-table becomes infeasible. But if one already knows what row one is interested in and what formula one is interested in, there is a more local way to proceed.
+
+Suppose that $V$ is a row of the truth-table, and so makes decisions about the truth or falsity of the basic propositional letters (the letter $V$ is traditional since it stands for *valuation*). Then another way to state the rules for truth-tables is as follows:
+
+- *Atomics*: $V\models p$ if and only if the row $V$ contains a $T$ under the $p$ column. (And similarly for other basic propositional letters).
+
+- *Conjunction*: $V\models \phi\wedge \psi$ if and only if $V\models \phi$ and $V\models \psi$.
+
+- *Disjunction*: $V\models \phi \vee \psi$ if and only if $V\models \phi$ or $V\models \psi$.
+
+- *Negation*: $V\models \neg \phi$ if and only if it is not the case that $V\models \phi$.
+
+- *Conditional*: $V\models \phi\rightarrow \psi$ if and only if: if $V\models \phi$ then $V\models \psi$.
+
+- *Biconditional*: $V\models \phi\leftrightarrow \psi$ if and only if: $V\models \phi$ if and only if $V\models \psi$.
+
+These definitions are sometimes called *Tarski's definition of truth.* Since the English words for the connectives appear on the right-hand side, it tacitly presupposes that one understands how to operate with these, just in the same way that the truth-tables tacitly presuppose that one understands instructions like "if $\phi$ is true at a row and $\psi$ is true at a row, then $\phi\wedge \psi$ is true at row."
+
+The symbol $\models$ is sometimes called the *satisfaction symbol*. We pronounce $V\models \phi$ out loud as "$V$ satisfies $\phi$" or "$\phi$ is true in $V$." Likewise, we say $V\models \neg \phi$ out loud as "$V$ does not satsify $\phi$" or "$\phi$ is false in $V$."[^2]
+
+[^2]: The satisfaction relation $\models$ is also used to indicatee the consequence relation $\models\phi$ which we use to indicate that $\phi$ is a tautology, i.e. is true in all rows. Namely $\models \phi$ if and only if for all rows $V$ one has $V\models \phi$.
+
+To illustrate, consider the row $V_1$ which makes all three letters $p,q,r$ true. We calculated up above that the truth-table for $((\neg p\wedge q)\rightarrow (q\vee r))\leftrightarrow r$ was true in this row. Let's show how to determine that using the clauses of Tarski's definition of truth. By the clause for atomics, we know that $V_1\models p$ and $V_1\models q$ and $V_1\models r$. Then by the clause for disjunction, we know that $V_1\models q\vee r$. And by clause for the conditional, we know that $V_1\models (\neg p\wedge q)\rightarrow (q\vee r)$ (this we know because we know that conditionals with true consequents are true). Finally, by the clause for biconditional, we know that $V_1\models ((\neg p\wedge q)\rightarrow (q\vee r))\leftrightarrow r$.
+
+Likewise, consider the row $V_2$ which makes $p,q$ true and $r$ false. Up above, we calculated that the truth-table for $((\neg p\wedge q)\rightarrow (q\vee r))\leftrightarrow r$ was false in this row. Let's show how to determine this using the clauses of Tarski's definition of truth. By the clause for atomics, we know that $V_2\models p$ and $V_2\models q$ and it is not the case that $V_2\models r$. Then by the clause for disjunction, we know that $V_2\models q\vee r$. Then by the clause for the conditional, we know that $V_2\models (\neg p\wedge q)\rightarrow (q\vee r)$ (this we know because we know that conditionals with true consequents are true). But since it is not the case that $V_2\models r$, we have that it is not the case that $V_1\models ((\neg p\wedge q)\rightarrow (q\vee r))\leftrightarrow r$, since the left-hand side of the formula is satisfied in $V_1$ but the right-hand side is not.
+
+We will revisit Tarksi's definition of truth in the setting of predicate logic. But it is helpful to introduce it now in the more familiar setting of propositional logic. Again, it is just a way to "zoom in" on a specific row and formula in a truth-table, and it is useful since sometimes the truth-tables are too big to draw or write in their entirety.
+
+<br>
+
+<br>
+
+These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^3]
+
+[^3]: which is:

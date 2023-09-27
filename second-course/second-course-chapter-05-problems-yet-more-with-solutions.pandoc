@@ -1,0 +1,478 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 5 Tutoring session, with solutions
+
+<br>
+
+<p style="page-break-before: always">
+
+
+<br>
+
+*Problem 1*
+
+In the following problem we successively find the main connectives of the formulas, starting with the big formulas and breaking them into smaller parts. Press **return** after you have entered in the main connective to get to the next level.
+
+(On the midterm, the analogous problem would ask you to draw the little tree).
+
+```{.SynChecker .Match system="gamutPND"  submission="none"}
+5.01 ~p<->(~q->~(r/\~s))
+```
+
+<br>
+
+
+*Problem 2*
+
+Consider the following sets of ordered pairs.
+
+<p style="margin‐left: 40px"> $X=\{\langle x,y\rangle\in \mathbb{N}^2: 10\leq x<15, 10\leq y<16\}$. </p>
+
+<p style="margin‐left: 40px"> $Y=\{\langle x,y\rangle\in \mathbb{N}^2: 10\leq x<13, 10\leq y<14\}$. </p>
+
+<p style="margin‐left: 40px"> $Z=\{\langle 100,300\rangle, \langle 100,100\rangle\}$. </p>
+
+
+<br>
+
+```{.QualitativeProblem .Numerical  submission="none" options="check"}
+5.02 20 : How many elements are in (X\Y)∪Z?
+|20
+```
+
+*Hint 1*: Recall that if a set $A$ has exactly $n$ elements and a set $B$ has exactly $m$ elements, then $A\times B$ has exactly $n\times m$ elements. Also recall that if $C$ is a set with exactly $m$ elements and $D$ is a set with exactly $n$ elements and $C\subseteq D$, then $D\setminus C$ has exactly $n-m$ elements.
+
+*Hint 2*: write $X$ as $X=A\times B$ for some sets $A,B\subseteq \mathbb{N}$. Then do the same for Y.
+
+<br>
+
+*Problem 3*
+
+Consider the following Venn diagram, with four circles A,B,C,D and one rectangle E. The circle B is entirely inside the circle A. The circle C is entirely inside the circle D.
+
+<img src="https://logic-teaching.github.io/philos-132-winter-23/vid/venn-blue-shaded-2.png" alt="Arrow diagrams" width="800"/>
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+5.03.1 What is the Aristotelian proposition corresponding to the drawn relation between B and E?
+| Some B is E
+|+ No B is E
+| No B is not E
+| All B is E
+```
+
+```{.QualitativeProblem .MultipleChoice  options="check" submission="none"}
+5.03.2 Which of the following describes the blue shaded part?
+| ((A\B)∩(C\D))∪E
+| ((B\A)∪(D\C))∩E
+| ((B\A)∩(D\C))∪E
+|+ ((A\B)∪(C\D)∪E)
+```
+
+
+<br>
+
+*Problem 4*
+
+Consider the following key, related to the World cup:
+
+| $a$  = Argentina
+| $b$  = Brazil
+| $c$  = Croatia
+| $S$  = $s$cored more goals than
+| $T$  = a$t$tempted more goals than
+
+
+(Also, please accept my apologies -- I didn't watch much of the recent world cup, and so these sentences may not contain entirely true sports facts).
+
+Remember to press return to check your work.
+
+~~~{.Translate .FOL system="gamutND"  options="check" submission="none"}
+5.04.1 Ax(~x=a->Sxc)/\Ax(Txb->Sxb) : Every team except Argentina scored more goals than Croatia, and every team who attempted more goals than Brazil scored more goals than Brazil.
+|Ax(~x=a->Sxc)/\Ax(Txb->Sxb)
+~~~
+
+~~~{.Translate .FOL system="gamutND"  options="check" submission="none"}
+5.04.2 Ex(Sxb/\Txa)/\~Ex(Sxb/\Tcx) : Some team who scored more goals than Brazil attempted more goals than Argentia, but no team who scored more goals than Brazil was such that Croatia attempted more goals than them.
+|Ex(Sxb/\Txa)/\~Ex(Sxb/\Tcx)
+~~~
+
+<br>
+
+*Problem 5*
+
+We use a familiar key
+
+| $F$  = is a French major
+| $G$  = is a Geography major
+| $R$  =  respects
+| $T$  =  trusts
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+5.05.1 EyAxRxy->AxEyRxy : If someone is respected by everyone, then everyone respects someone
+|EyAxRxy->AxEyRxy
+~~~
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+5.05.2 Ay(Ax(Fx->Rxy)->~Ex(Txy/\Gx)) : Everyone is such that if they are respected by every French major, then they are trusted by no Geography major
+|Ay(Ax(Fx->Rxy)->~Ex(Txy/\Gx))
+~~~
+
+<br>
+
+*Problem 6*
+
+Let's use the key for Problem 5, and so continue to use the familiar key. But let us practice with definite descriptions.
+
+First give the Fregean translation:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+5.06.1 ~Ez(Fz/\TiyAx(Gx->Txy)z) : The person trusted by every Geography major trusts no French major
+|~Ez(Fz/\TiyAx(Gx->Txy)z)
+~~~
+
+*Hint*: first think to yourself how Frege translates "the $P$ is $Q$", and ask yourself whether for Frege, $P$ comes first or $Q$ comes first. In this case, $Qv$ corresponds to "$v$ trusts no French major.
+
+Second give the Russellian translation:
+
+~~~{.Translate .Desc system="gamutNDDesc" submission="none"}
+5.06.2 Eu((Ax(Gx->Txu)/\Av(Ax(Gx->Txu)->v=u))/\~Ez(Fz/\Tuz)) : The person trusted by every Geography major trusts no French major
+|Eu((Ax(Gx->Txu)/\Av(Ax(Gx->Txu)->v=u))/\~Ez(Fz/\Tuz))
+~~~
+
+
+<br>
+
+*Problem 7*
+
+We use the key:
+
+| $P$  =  pegasizes
+| $G$ = $g$oes really fast
+
+```{.CounterModeler .Validity system="gamutNDDesc" options="negated-double-turnstile" submission="none"}
+5.07 ~Ex(Px/\(Ay(Py->y=x)/\Gx)), ExEyEz((Gx/\(Gy/\Gz))/\(~x=y/\(~x=z/\~y=z))) :|-: ExPx
+|Domain: 0,1,2
+|P(_):
+|G(_): 0,1,2
+```
+*Remark*: this is Quine's example from 'On what there is'. The moral is: denying "the P is G" does not require that you believe that there are P's. To make it a little more interesting, we put require that there are some things in the model (this is the second premise).
+
+<br>
+
+*Problem 8*
+
+This is a simple model construction problem. The two parts illustrate the differences between the existential and universal quantifier.
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+5.08.01 ExRxa, Ex(~x=b/\(Rbx/\~Rxx))
+|Domain: 0,1,2
+|R(_,_): [0,1], [2,0]
+|a:1
+|b:2
+```
+
+```{.CounterModeler .Simple system="gamutND" submission="none"}
+5.08.02 AxRxx, AxAy(Rxa->Rxy)
+|Domain: 0,1,2
+|R(_,_): [0,0],[1,1],[2,2], [2,0], [2,1], [2,2]
+|a: 2
+```
+
+
+<br>
+
+*Problem 9*:
+
+Use DeMorgan to find an equivalence of this sentence in which the negations are all the way inside, in such a way that there are no negations in the final formula.
+
+$\neg \forall\; u \; \exists\; v \; \exists \; w \; \exists \; x \; \forall \; y \; \forall \; z \; ((\neg Rvu\vee \neg Rwx)\vee (\neg Rwy\vee \neg Ryz))$
+
+You should write it out by hand first. But to speed things when inputting, we type the original formula here:
+
+`~AuEvEwExAyAz((~Rvu\/~Rwx)\/(~Rwy\/~Ryz))`
+
+Remember to press return to check your work.
+
+~~~{.Translate .FOL system="gamutND" tests="maxNeg:0" submission="none"}
+5.09 EuAvAwAxEyEz((Rvu/\Rwx)/\(Rwy/\Ryz)) :
+|EuAvAwAxEyEz((Rvu/\Rwx)/\(Rwy/\Ryz))
+~~~
+
+<br>
+
+*Problem 10*
+
+First use DeMorgan to write $\neg \forall \; x \; (Fx\rightarrow (Gx\wedge Hx))$ in an equivalent way with the negation(s) affixed to the atomics. Keep in mind that $\neg (p\rightarrow q)$ is equivalent to $p\wedge \neg q$.
+
+~~~{.Translate .FOL system="gamutND" tests="PNF" submission="none"}
+5.10.1 Ex(Fx/\(~Gx\/~Hx)) :
+|Ex(Fx/\(~Gx\/~Hx))
+~~~
+
+Use this to help you solve the following invalidity problem:
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile" submission="none"}
+5.10.2 Ax(Fx->Gx) :|-: Ax(Fx->(Gx/\Hx))
+|Domain:0,1,2,3
+|F(_):0,1
+|G(_):0,1,2
+|H(_):1,2,3
+```
+
+<br>
+
+*Problem 11*
+
+First use DeMorgan and law of double-negation to write $\neg \exists \; x \; (\neg Fx\wedge \neg Hx)$ in a way that contains no negations.
+
+~~~{.Translate .FOL system="gamutND" tests="maxNeg:1" submission="none"}
+5.11.1 Ax(Fx\/Hx) :
+|Ax(Fx\/Hx)
+~~~
+
+Use this to help you solve the following invalidity problem:
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile" submission="none"}
+5.11.2 Ex(~Fx/\~Gx),Ex(~Gx/\~Hx) :|-: Ex(~Fx/\~Hx)
+|Domain:0,1,2,3,4
+|F(_):0,1
+|G(_):3,4
+|H(_):2,3,4
+```
+
+*Hint*: this is also an invalidity if you remove all the negation symbols. In that case, you could probably solve the problem very easily by thinking about a simple Venn diagram where the F,G shape overlap, the G,H shape overlap, but the F, H shape do not overlap. The solution to this problem corresponds to a Venn diagram where the ~F,~G shape overlap, the ~G,~H shape overlap, but the ~F,~H shape do not overlap. Experience suggests that multiple negations cause us (humans) great confusion. The previous part of the problem uses DeMorgan to help you write the negation of the conclusion in a way that does not include any negations.
+
+<br>
+
+*Problem 12*
+
+These are some simple invalidity problems involving multiple quantifiers.
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile" submission="none"}
+5.12.1 AxEyEz(~y=z/\(Rxy/\Rxz)) :|-: EyAxRxy
+|Domain:0,1,2
+|R(_,_):[0,1],[0,0],[1,1],[1,2],[2,0],[2,2]
+```
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile" submission="none"}
+5.12.2 Ax(Rxc->Ey(~y=c/\Txy)), Rac, Rbc,~Rcc, ~a=b, ~b=c, ~a=c :|-: EyAxRxy
+|Domain:0,1,2
+|R(_,_): [0,2], [1,2]
+|T(_,_): [0,1], [1,0]
+|a:0
+|b:1
+|c:2
+```
+
+<br>
+
+*Problem 13*
+
+
+[Recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-no-solutions.pandoc#validity-and-invalidity-with-orders) that $R$ is an *equivalence relation* if it is reflexive, symmetric, and transitive:
+
+<table style="width:100%">
+  <tr>
+    <th>Property</th>
+    <th>Formula</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>$R$ is reflexive</td>
+    <td>$\forall \; x \; Rxx$</td>
+    <td>`AxRxx`</td>
+  </tr>
+  <tr>
+    <td>$R$ is symmetric</td>
+    <td>$\forall x \; \forall \; y \; (Rxy\rightarrow Ryx)$</td>
+    <td>`AxAy(Rxy->Ryx)`</td>
+  </tr>
+  <tr>
+    <td>$R$ is transitive </td>
+    <td>$\forall x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$</td>
+    <td>`AxAyAz((Rxy/\Ryz)->Rxz)`</td>
+  </tr>
+</table>
+
+<br>
+
+Recall also that the paradigmatic example of an equivalence relation  is the identity relation on a set. All equivalence relations are the result of splitting a set into disjoint subsets-- this is called a *partition*. These disjoint subsets are called *equivalence classes*.
+
+In the below picture, we have partitioned the set $\{0,1,2,3,4\}$ into two parts: the equivalence class in blue, and the equivalence class in fuchsia.
+
+<img src="https://logic-teaching.github.io/philos-132-winter-23/vid/equivalence-relation-1.png" alt="An equivalence relation" width="700"/>
+
+
+The intended interpretation is
+
+ - everything in the blue bears the $R$-relation to everything in the blue, including itself.
+ - everything in the fuchsia bears the $R$-relation to everything in the fuchsia, including itself.
+ - nothing in the blue bears the $R$-relation to anything in the fuchsia
+ - nothing in the fuchsia bears the $R$-relation to anything in the blue
+
+Obviously, saying all of these things is cumbersome, and if one literally wanted to mark all of this in the diagram, it would be as follows:
+
+<img src="https://logic-teaching.github.io/philos-132-winter-23/vid/equivalence-relation-2.png" alt="An equivalence relation with all arrows drawn" width="700"/>
+
+Hence, in practice, one simply says "an equivalence relation partitions the underlying set into disjoint equivalence classes" and one proceeds by describing the classes, rather than by drawing all of the (many) arrows.
+
+But when one is beginning, it can be good to do at least one example where you "write it all out". Hence, to solve this problem just take the above arrow diagram and input it in.
+
+
+```{.CounterModeler .Simple system="gamutND"  submission="none"}
+5.13 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ExEy(Rxy/\~x=y), ExEyEz((Rxy/\Rxz)/\(~x=y/\(~x=z/\~y=z)))
+|Domain:0,1,2,3,4
+|R(_,_):[0,0],[1,1],[2,2],[3,3],[4,4], [0,2],[2,0],[0,4],[4,0],[2,4],[4,2],[1,3],[3,1]
+```
+
+
+<br>
+
+*Problem 14-15*
+
+[Recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-no-solutions.pandoc#validity-and-invalidity-with-orders) that $R$ is a *partial-order* if it is reflexive, anti-symmetric, and transitive:
+
+<table style="width:100%">
+  <tr>
+    <th>Property</th>
+    <th>Formula</th>
+    <th>Typed</th>
+  </tr>
+  <tr>
+    <td>$R$ is reflexive</td>
+    <td>$\forall \; x \; Rxx$</td>
+    <td>`AxRxx`</td>
+  </tr>
+  <tr>
+    <td>$R$ is anti-symmetric</td>
+    <td>$\forall \; x \; \forall \; y \; ((Rxy\wedge Ryx)\rightarrow x=y)$</td>
+    <td>`AxAy((Rxy/\Ryx)->x=y)`</td>
+  </tr>
+  <tr>
+    <td>$R$ is transitive </td>
+    <td>$\forall x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$</td>
+    <td>`AxAyAz((Rxy/\Ryz)->Rxz)`</td>
+  </tr>
+</table>
+
+<br>
+
+These two problems ask you to find examples of equivalence relations which are not partial orders, and to find examples of partial orders which are not equivalence relations. If you remember what the paradigmatic examples of each are, you should be able to solve it quickly.
+
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile" submission="none"}
+5.14 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAy((Rxy/\Ryx)->x=y)
+|Domain:0,1,2
+|R(_,_):[0,0],[1,1],[2,2],[0,1],[1,0]
+```
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile" submission="none"}
+5.15 AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz) :|-: AxAy(Rxy->Ryx)
+|Domain:0,1,2
+|R(_,_):[0,0],[1,1],[2,2],[0,1],[1,2],[0,2]
+```
+
+*Hint*: the paradigmatic example of an equivalence relation are identity and partitions, and the paradigmatic example of a partial order are $\leq$ from the number systems and $\subseteq$ on the subsets of a given set.
+
+<br>
+
+*Problem 16*
+
+This example shows that anything which is an equivalence relation and a partial order is just the identity relation.
+
+```{.CounterModeler .Validity system="gamutND"  options="negated-double-turnstile"  submission="none"}
+5.16 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), AxAy((Rxy/\Ryx)->x=y) :|-: ExEy(Rxy/\~x=y)
+|Domain: 0,1,2
+|R(_,_): [0,0],[1,1],[2,2]
+```
+
+<br>
+
+*Problem 17*
+
+Another paradigmatic example of an equivalence relation is clock arithmetic. Suppose that one has a clock with 24 faces $D=\{0,1,2,\ldots, 22,23\}$ corresponding to the 24 hours of the day. Define $Rxy$ iff $x,y$ are the same number when you convert from a 24 hour clock to a 12 hour clock.
+
+```{.QualitativeProblem .Numerical  submission="none" options="check"}
+5.17.1 11 : What number in D besides 23 is equivalent to 23?
+|11
+```
+
+```{.QualitativeProblem .Numerical  submission="none" options="check"}
+5.17.2 2 : How many numbers total in D are equivalent to 23
+|2
+```
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+5.17.3 How would you describe the partition into equivalence classes induced by this equivalence relation?
+| It partitions D into two 12-element equivalence classes
+| It partitions D into two two-element equivalence classes
+|+ It partitions D into 12 two-element equivalence classes
+| It partitions D into 12 12-element equivalence classes
+```
+
+*Note*: this example is closely related to modular arithmetic, which is at the basis of elementary number theory.
+
+<br>
+
+*Problem 18*
+
+Suppose that the underlying domain consists of four teams Hawks, Lakers, Knicks, Warriors, and suppose that $g$ is a variable assignment which assigns $g(x)=$ Hawks and $g(y)=$ Lakers and $g(z)=$ Knicks. Suppose that $h$ is a variable assignment which agrees with $g$ on all variables except perhaps $x,y,z$.
+
+```{.QualitativeProblem .MultipleChoice options="check" submission="none"}
+5.18 Which assignments would make h an x-variant of g?
+| h(x)=Hawks, h(y)=Knicks, h(z)=Knicks
+| h(x)=Warriors, h(y)=Hawks, h(z)=Knicks
+|+ h(x)=Warriors, h(y)=Lakers, h(z)=Knicks
+| h(x)=Knicks, h(y)=Hawks, h(z)=Lakers
+```
+
+<br>
+
+*Problems 19-20*
+
+We use a familiar key
+
+| $F$  = is a French major
+| $R$  =  respects
+| $T$  =  trusts
+
+For the next three, use `x` to translate "her" and "she". (Hence, don't use `x` for the bound variables).
+
+~~~{.Translate .FOL system="goldfarbAltND" submission="none"}
+5.19.1 Ay(Fy->Txy) : Every French major is trusted by her.
+|Ay(Fy->Txy)
+~~~
+
+~~~{.Translate .FOL system="goldfarbAltND" submission="none"}
+5.19.2 Ay(Fy->Txy) : She trusts every French major.
+|Ay(Fy->Txy)
+~~~
+
+~~~{.Translate .FOL system="goldfarbAltND" submission="none"}
+5.20.1 Ay(Rxy->Txy) : She trusts everyone who she respects.
+|Ay(Rxy->Txy)
+~~~
+
+For the last part, take your translation from the previous one and add a negation followed by an existential quantifier:
+
+~~~{.Translate .FOL system="gamutND" submission="none"}
+5.20.4 ~ExAy(Rxy->Txy) : No one trusts everyone who they respect.
+|~ExAy(Rxy->Txy)
+~~~
+
+<br>

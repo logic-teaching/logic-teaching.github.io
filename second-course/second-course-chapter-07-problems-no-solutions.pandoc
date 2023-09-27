@@ -1,0 +1,110 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<br>
+<br>
+
+# Week 7, Section
+
+We do a couple paradigmatic predicate logic proofs.
+
+There are only seven problems, since they take longer. But since they are longer we still might not have time to do all of them in section. Take the others as further opportunities for practice.
+
+
+- [Russell paradox revisited](#russell-paradox-revisited)
+- [Multiple quantifiers revisited](#multiple-quantifiers-revisited)
+
+<br>
+
+## Russell paradox revisited
+
+<br>
+
+*Problem 1*
+
+The following is a variant on Russell's paradox [from Week 2](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#the-russell-paradox). The premise describes the version of law of excluded middle which featured prominently in our proof in Week 2. If one reads $Ruw$ as $u\in w$ and if one appeals to [extensionality](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#extensionality), then the conclusion says that it is not the case that $c$ is such that $c=\{x: x\notin x\}$.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.01 Rcc\/~Rcc :|-: ~(Ax(Rxc->~Rxx)/\Ax(~Rxx->Rxc))
+|Rcc\/~Rcc :assumption
+```
+
+<br>
+
+*Problem 2*
+
+The following illustrates that, even without law of the excluded middle, we can derive $\neg ((\phi\rightarrow \neg \phi)\wedge (\neg \phi\rightarrow \phi))$. That is, even without law of the excluded middle, we can derive "it is not the case that $\phi$ is equivalent to its own negation," for any $\phi$ of predicate logic.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.02 :|-: ~((Fa->~Fa)/\(~Fa->Fa))
+```
+
+<br>
+
+*Problem 3*
+
+We now update our proof of Problem 1 using the technique from Problem 2. Again, if one reads $Ruw$ as $u\in w$ and if one appeals to [extensionality](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#extensionality), then the conclusion says that it is not the case that $c$ is such that $c=\{x: x\notin x\}$.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.03 :|-: ~(Ax(Rxc->~Rxx)/\Ax(~Rxx->Rxc))
+```
+
+<br>
+
+*Problem 4*
+
+The following is much closer to Russell's paradox [from Week 2](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#the-russell-paradox). Again, if one reads $Ruw$ as $u\in w$ and if one appeals to [extensionality](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#extensionality), then the premises say that $c = \{x\in d : x\notin x\}$. And if one reads $Ruw$ as $u\in w$, then the conclusion says that "d does not contain all elements".
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.04  Ax(Rxc->(Rxd/\~Rxx)), Ax((Rxd/\~Rxx)->Rxc) :|-: ~AxRxd
+|Ax(Rxc->(Rxd/\~Rxx)) :assumption
+|Ax((Rxd/\~Rxx)->Rxc) :assumption
+```
+
+<br>
+
+## Multiple quantifiers revisited
+
+<br>
+
+*Problem 5*
+
+In [Week 3 Section](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-section-with-solutions.pandoc), we learned that $\forall \; x \; \exists \; y \; Rxy \nvDash \exists \; y \; \forall \; x \; Rxy$. However, the converse is provable (and hence the converse is valid, by soundness):
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.05 EyAxRxy  :|-: AxEyRxy
+|EyAxRxy :assumption
+```
+
+<br>
+
+*Problem 6*
+
+This one is a minor variation on the previous one.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.06 Ey(Gy/\Ax(Fx->Rxy))  :|-: Ax(Fx->Ey(Gy/\Rxy))
+|Ey(Gy/\Ax(Fx->Rxy)) :assumption
+```
+
+<br>
+
+*Problem 7*
+
+This interleaves Problem 5 with some disjunction arguments. While there are many equally good proofs of one and the same problem, this proof should require circa 25 lines.
+
+```{.ProofChecker .GamutNDPlus submission="none" }
+07.07 EyAx(Gy/\Rxy)\/EyAx(Gy/\Sxy)  :|-: AxEy(Gy/\(Rxy\/Sxy))
+|EyAx(Gy/\Rxy)\/EyAx(Gy/\Sxy) :assumption
+```
