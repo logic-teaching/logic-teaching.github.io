@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 6 Lecture 2
+# Chapter 6, Lesson 2, Natural deduction continued
 
 We continue with our presentation of the natural deduction proof system, focusing on the rules for the existential quantifier and disjunction. We illustrate these rules by deriving the conversion rules and the first figure from the Aristotelian syllogisms.
 
@@ -146,7 +146,7 @@ Note that since the application of this rule requires you to get a conditional s
 
 ## Adding rules for the Aristotelian syllogism
 
-We just showed that we can derive all of [the conversions and the first figure](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc#summary-of-conversions-and-first-figure) from the  Aristotelian syllogisms in our system. So that we do not have to repeat these proofs over and over again, we add them as primitive rules:
+We just showed that we can derive all of [the conversions and the first figure](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-lesson-02.pandoc#summary-of-conversions-and-first-figure) from the  Aristotelian syllogisms in our system. So that we do not have to repeat these proofs over and over again, we add them as primitive rules:
 
 <table style="width:120%">
   <tr>
@@ -379,85 +379,85 @@ An obvious reaction to Prior's counterexample is that the introduction and elimi
   <tr>
     <td>Introduction of universal</td>
     <td>`I∀` or `IA`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-universal)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#introduction-rule-for-universal)</td>
     <td>1</td>
   </tr>
   <tr>
     <td>Elimination of universal</td>
     <td>`E∀` or `EA`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-universal)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#elimination-rule-for-universal)</td>
     <td>1</td>
   </tr>
   <tr>
     <td>Introduction of existential</td>
     <td>`I∃` or `IE`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#introduction-rule-for-existential)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-02-with-solutions.pandoc#introduction-rule-for-existential)</td>
     <td>1</td>
   </tr>
   <tr>
     <td>Elimination of existential</td>
     <td>`E∃` or `EE`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#elimination-rule-for-existential)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-02-with-solutions.pandoc#elimination-rule-for-existential)</td>
     <td>2</td>
  </tr>
   <tr>
     <td>Introduction of conjunction</td>
     <td>`I∧` or `I/\`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-conjunction)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#introduction-rule-for-conjunction)</td>
     <td>2</td>
   </tr>
   <tr>
     <td>Elimination of conjunction</td>
     <td>`E∧` or `E/\`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-conjunction)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#elimination-rule-for-conjunction)</td>
     <td>1</td>
   </tr>
   <tr>
     <td>Introduction of disjunction</td>
     <td>`I∨` or `I\/`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#introduction-rule-for-disjunction)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-02-with-solutions.pandoc#introduction-rule-for-disjunction)</td>
     <td>1</td>
   </tr>
   <tr>
     <td>Elimination of disjunction</td>
     <td>`E∨` or `E\/`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#elimination-rule-for-disjunction)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-02-with-solutions.pandoc#elimination-rule-for-disjunction)</td>
     <td>3</td>
   </tr>
   <tr>
     <td>Introduction of arrow</td>
     <td>`I→` or `I->`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-implication)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#introduction-rule-for-implication)</td>
     <td>$\geq 2$</td>
   </tr>
   <tr>
     <td>Elimination of arrow</td>
     <td>`E→` or `E->`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-implication)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#elimination-rule-for-implication)</td>
     <td>$2$</td>
   </tr>
   <tr>
     <td>Introduction of negation</td>
     <td>`I¬` or `I~`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-negation)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#introduction-rule-for-negation)</td>
     <td>$\geq 2$</td>
   </tr>
   <tr>
     <td>Elimination of negation</td>
     <td>`E¬` or `E~`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-negation)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#elimination-rule-for-negation)</td>
     <td>2</td>
   </tr>
   <tr>
     <td>Ex Falso</td>
     <td>`EFSQ`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#ex-falso)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-02-with-solutions.pandoc#ex-falso)</td>
     <td>1</td>
   </tr>
   <tr>
     <td>Repeat</td>
     <td>`rep`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-02-with-solutions.pandoc#repeat-rule)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-02-with-solutions.pandoc#repeat-rule)</td>
     <td>1</td>
   </tr>
 </table>

@@ -1,6 +1,6 @@
 <br>
 
-# Week 9, Lecture 1, Soundness and Completeness
+# Chapter 9, Lesson 1, Soundness and Completeness
 
 We state and discuss the Soundness and Completeness Theorems.
 
@@ -16,7 +16,7 @@ We state and discuss the Soundness and Completeness Theorems.
 ## Provability and validity
 
 
-Recall that [provability](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-no-solutions.pandoc#the-provability-symbol) is defined as follows: $\phi_1, \ldots, \phi_n\vdash \phi$ means that there is a proof in our natural deduction system for classical logic with premises among $\phi_1, \ldots, \phi_n$ and with conclusion $\phi$. The symbol $\vdash$ is the provability or derivability symbol. It indicates the existence of a proof, and hence it is an *existential* claim. We negate it by writing $\nvdash$, which indicates that there is no proof. Here are some familiar examples, where 5-8 differ from 1-4 just by replacing all the atomics by the associated negated atomics:
+Recall that [provability](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-no-solutions.pandoc#the-provability-symbol) is defined as follows: $\phi_1, \ldots, \phi_n\vdash \phi$ means that there is a proof in our natural deduction system for classical logic with premises among $\phi_1, \ldots, \phi_n$ and with conclusion $\phi$. The symbol $\vdash$ is the provability or derivability symbol. It indicates the existence of a proof, and hence it is an *existential* claim. We negate it by writing $\nvdash$, which indicates that there is no proof. Here are some familiar examples, where 5-8 differ from 1-4 just by replacing all the atomics by the associated negated atomics:
 
 1. $\forall \; x \; Fx \vdash Fa$
 2. $Fa, Fa\rightarrow Fb\vdash Fb$
@@ -31,7 +31,7 @@ For instance, 1 and 5 are just universal elimination. And 2 and 6 are just arrow
 
 As these examples suggest, one has to carefully distinguish $\phi_1, \ldots, \phi_n \nvdash \phi$ from $\phi_1, \ldots, \phi_n \vdash \neg \phi$. For instance, $\phi_1, \ldots, \phi_n \nvdash \phi$ is a universal claim that every proof is not a proof of $\phi$ from $\phi_1, \ldots, \phi_n$. But $\phi_1, \ldots, \phi_n \vdash \neg \phi$ is an existential claim that there is a proof of $\neg \phi$ from $\phi_1, \ldots, \phi_n$.
 
-Further [recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#valid-arguments) that validity is defined as follows: $\phi_1, \ldots, \phi_n \vDash \phi$ means that any model which interprets all of the symbols in these formulas is such that if $\phi_1, \ldots, \phi_n$ are true on the model, then $\phi$ is true on the model. Often in what follows we omit the clause "which interprets all of the symbols in these formulas" since it is cumbersome, and since in any applied setting it is clear from context. The symbol $\vDash$ is the consequence symbol. It indicates a claim about what happens with the premises and conclusions in all models, and hence it is a *universal* claim. We negate it by writing $\nvDash$, which indicates that there is a model of the premises which is not a model of the conclusion. On the basis of these definitions, the following should all seem right, where again 5-8 differ from 1-4 just by replacing all the atomics by the associated negated atomics:
+Further [recall](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc#valid-arguments) that validity is defined as follows: $\phi_1, \ldots, \phi_n \vDash \phi$ means that any model which interprets all of the symbols in these formulas is such that if $\phi_1, \ldots, \phi_n$ are true on the model, then $\phi$ is true on the model. Often in what follows we omit the clause "which interprets all of the symbols in these formulas" since it is cumbersome, and since in any applied setting it is clear from context. The symbol $\vDash$ is the consequence symbol. It indicates a claim about what happens with the premises and conclusions in all models, and hence it is a *universal* claim. We negate it by writing $\nvDash$, which indicates that there is a model of the premises which is not a model of the conclusion. On the basis of these definitions, the following should all seem right, where again 5-8 differ from 1-4 just by replacing all the atomics by the associated negated atomics:
 
 1. $\forall \; x \; Fx \vDash Fa$
 2. $Fa, Fa\rightarrow Fb\vDash Fb$
@@ -42,7 +42,7 @@ Further [recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-wee
 7. $\neg Fa\nvDash \forall \; x \; \neg Fx$
 8. $\neg Fb, \neg Fa\rightarrow \neg Fb\nvDash \neg Fa$
 
-The reasons for these just follow from some simple observations about models and [Tarski's definition of truth in a model](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model). For instance, 1 and 5 just follow from the universal clause in Tarski's definition of truth in a model. And 2 and 6 just follow from the truth-table for arrow embedded in the clause for arrow in Tarski's definition of truth in a model. And likewise 3 and 7 do not follow since a model can make an instance true without making the universal true. And finally 4 and 8 do not follow since a model can make an arrow statement true and the consequent true without making the antecedent true, by making the antecedent false. This too comes just from the truth-table for arrow built into the definition of Tarski's definition of truth in a model.
+The reasons for these just follow from some simple observations about models and [Tarski's definition of truth in a model](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-02.pandoc#tarski-and-his-definition-of-truth-in-a-model). For instance, 1 and 5 just follow from the universal clause in Tarski's definition of truth in a model. And 2 and 6 just follow from the truth-table for arrow embedded in the clause for arrow in Tarski's definition of truth in a model. And likewise 3 and 7 do not follow since a model can make an instance true without making the universal true. And finally 4 and 8 do not follow since a model can make an arrow statement true and the consequent true without making the antecedent true, by making the antecedent false. This too comes just from the truth-table for arrow built into the definition of Tarski's definition of truth in a model.
 
 These examples likewise suggest that one needs to exercise great care in distinguishing $\phi_1, \ldots, \phi_n \nvDash \phi$ from $\phi_1, \ldots, \phi_n \vDash \neg \phi$. For, $\phi_1, \ldots, \phi_n \nvDash \phi$ is an existential claim that some model is a model of both $\phi_1, \ldots, \phi_n$ and $\neg \phi$. But $\phi_1, \ldots, \phi_n \vdash \neg \phi$ is a universal claim that that any model of $\phi_1, \ldots, \phi_n$ is a model of $\neg \phi$.
 
@@ -217,7 +217,7 @@ If this is right, then the role that The Completeness Theorem plays is showing u
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Kreisel%201967%20-%20Informal%20Rigour%20and%20Completeness%20Proofs%20[with%20Discussion]%20p.%20153%20v2.png" alt="Kreisel on completeness" width="600"/>
 
-Kreisel's Squeezing Argument is viewed today as an argument that the formal notions of provability and validity are successful conceptual analyses of the pre-theoretic notion of validity.[^3] As we saw we initially introduced the formal concept, [this was one of Tarski's goals](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#tarski-on-consequence), and so Kreisel can be seen as giving a new argument for it, that goes through the Completeness Theorem.
+Kreisel's Squeezing Argument is viewed today as an argument that the formal notions of provability and validity are successful conceptual analyses of the pre-theoretic notion of validity.[^3] As we saw we initially introduced the formal concept, [this was one of Tarski's goals](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc#tarski-on-consequence), and so Kreisel can be seen as giving a new argument for it, that goes through the Completeness Theorem.
 
 <br>
 

@@ -15,13 +15,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 5 Section, with solutions
+# Chapter 5, Practice Problems
 
 <br>
 
-This is review for the midterm exam. This problem set approximates fairly well the length and distribution of problems that will be on part I of the midterm exam. The distribution is better between the four weeks (better than we attained in the Week 5 Homework and Week 5 Tutoring document), and the number of problems is about the maximum of what we can expect one to be able to do in a short period of time.
-
-In section we will selectively talk through certain aspects of some of these problems. But you can use this document as practice for part I of the exam on your own.
+These problems review the previous chapters. 
 
 <br>
 
@@ -34,9 +32,9 @@ In section we will selectively talk through certain aspects of some of these pro
 
 In the following problem we successively find the main connectives of the subformulas, starting with the big formula and breaking it into smaller parts. Press **return** after you have entered in the main connective to get to the next level.
 
-(On the midterm, the analogous problem would ask you to draw the little tree).
 
-```{.SynChecker .Match system="gamutPND"  submission="none"}
+
+```{.SynChecker .Match system="gamutPND"  sbmission="none"}
 5.01 (p->~q)->~(q->~r)
 ```
 

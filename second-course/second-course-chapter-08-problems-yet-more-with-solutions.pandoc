@@ -13,7 +13,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 
 
-# Week 8 Tutoring Solutions
+# Chapter 8, More Practice Problems, with solutions
 
 <br>
 
@@ -261,7 +261,7 @@ This one can involves a disjunctive syllogism. Try to use existential introducti
 
 <br>
 
-In for the next couple of problems, [recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations) that $R$ is an *equivalence relation* if it is reflexive, symmetric, and transitive, where these are defined by:
+In for the next couple of problems, [recall](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-yet-more-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations) that $R$ is an *equivalence relation* if it is reflexive, symmetric, and transitive, where these are defined by:
 
 <table style="width:100%">
   <tr>

@@ -14,32 +14,19 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 10 Lecture 2 Practice for the final exam with solutions
+# Chapter 10, Lesson 2, Review, with solutions
 
 
-We practice for the final exam.
+We review the previous chapters
 
 - [Famous Proofs](#famous-proofs)
 - [Proof or countermodel](#proof-or-countermodel)
-- [Week 6 problems](#week-6-problems)
-- [Week 7 problems](#week-7-problems)
-- [Week 8 problems](#week-8-problems)
-- [Week 9 problems](#week-9-problems)
+- [Chapter 6 problems](#chapter-6-problems)
+- [Chapter 7 problems](#chapter-7-problems)
+- [Chapter 8 problems](#chapter-8-problems)
+- [Chapter 9 problems](#chapter-9-problems)
 - [Summary of rules of classical predicate logic](#summary-of-rules-of-classical-predicate-logic)
 
-This is practice for the final. In particular, it is practice with parts I, II, III of the final.
-
-- It is *strongly advised* that you work it out by hand, since that it what we will be doing on the final.
-
-- And again, the reason we are doing this is because the aim of the second half of this course is for you to learn to write proofs, with the goal of being able to do so without the aid of a proof checker, since there no proof checkers in later parts of logic or in later applications of logic.
-
-- You can check your answers by looking at this solution document, or by typing your answers directly into the version without solutions.
-
-- The formatting of this page may look a little different, but that is because it is designed to be printed.
-
-- Keep in mind that there are many good proofs of one and the same result, and keep in mind that partial credit will be available on the proofs in the final.
-
-<br>
 
 <p style="page-break-before: always">
 
@@ -49,7 +36,7 @@ This is practice for the final. In particular, it is practice with parts I, II, 
 
 *Problem 1*
 
-This is the famous proof that intuitionistic logic proves the one validity among the basic statements formed from a single binary relation and two distinct quantifiers (see [Week 7 Section](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-section-with-solutions.pandoc) Problem 5).
+This is the famous proof that intuitionistic logic proves the one validity among the basic statements formed from a single binary relation and two distinct quantifiers (see [Chapter 7 Practice Problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-problems-with-solutions.pandoc) Problem 5).
 
 For this problem, use only the introduction and elimination rules, along with ex falso and repeat rule. That is, this proof is a proof in intuitionistic predicate logic.
 
@@ -68,7 +55,7 @@ For this problem, use only the introduction and elimination rules, along with ex
 
 *Problem 2*
 
-This is the famous proof that classical logic proves the hard part of DeMorgan. (From [Week 8, Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-01-with-solutions.pandoc) Example 1).
+This is the famous proof that classical logic proves the hard part of DeMorgan. (From [Chapter 8, Lesson 1](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-01-with-solutions.pandoc) Example 1).
 
 For this problem, use only the introduction and elimination rules, along with ex falso and repeat rule, as well as *double-negation*.
 
@@ -141,7 +128,7 @@ For this problem, use only the introduction and elimination rules, along with ex
 
 *Problem 4*
 
-The first three axioms are the axioms of [equivalence relations](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations).
+The first three axioms are the axioms of [equivalence relations](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-yet-more-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations).
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 10.04 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), Rab, ~Rbc :|-: ~Rac
@@ -225,7 +212,7 @@ This one is an exercise with the Russellian and Fregean translations of the defi
 
 <br>
 
-The first four axioms are the axioms of [linear orders](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations). These are axioms that describe $\leq$ on the natural numbers, integers, and rationals. The linearity axiom (the fourth axiom) says that given $x,y$ one either has $x\leq y$ or $y\leq x$ or $x=y$. Use your intuitions about lines to guide yourself through the problem.
+The first four axioms are the axioms of [linear orders](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-yet-more-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations). These are axioms that describe $\leq$ on the natural numbers, integers, and rationals. The linearity axiom (the fourth axiom) says that given $x,y$ one either has $x\leq y$ or $y\leq x$ or $x=y$. Use your intuitions about lines to guide yourself through the problem.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 10.06 AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz), AxAy((Rxy\/Ryx)\/x=y), Rab, Rbc, ~a=b, ~b=c, ~a=c :|-: Ax(Rxc->(Rxb\/x=b))
@@ -261,7 +248,7 @@ The first four axioms are the axioms of [linear orders](https://carnap.io/shared
 
 <p style="page-break-before: always">
 
-## Week 6 problems
+## Chapter 6 problems
 
 <br>
 
@@ -316,7 +303,7 @@ Prove the following in intuitionistic logic, i.e. using only the introduction an
 
 <p style="page-break-before: always">
 
-## Week 7 problems
+## Chapter 7 problems
 
 <p style="page-break-before: always">
 
@@ -418,7 +405,7 @@ We can write these two rules side by side in our more familiar proof format as f
 
 <p style="page-break-before: always">
 
-## Week 8 problems
+## Chapter 8 problems
 
 <br>
 
@@ -463,7 +450,7 @@ $\neg Fa\rightarrow (Fb\vee Fc), \forall \; x \; (Fx\rightarrow (Gx\vee Hx)), \n
 
 <p style="page-break-before: always">
 
-## Week 9 problems
+## Chapter 9 problems
 
 
 <br>
@@ -508,7 +495,7 @@ This problem has two parts, where we use the key:
 
 This is a problem in the deductive system for second-order logic. For reference, we recopy the rules  on the next page.
 
-This is practice with with `IE1` (that is, introduction of existential for properties). Note that there is `1` at the end of `IE1` to indicate that we are concerned with one-place properties. Hence, the justifications will look like `:IE1 n`, where `n` is the line number. That is, note that there are now two numbers showing up in the justifications. This problem is very much like Problem 13 Part 1 from the [Week 9 tutoring document](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-tutoring-with-solutions.pandoc#second-order-logic).
+This is practice with with `IE1` (that is, introduction of existential for properties). Note that there is `1` at the end of `IE1` to indicate that we are concerned with one-place properties. Hence, the justifications will look like `:IE1 n`, where `n` is the line number. That is, note that there are now two numbers showing up in the justifications. This problem is very much like Problem 13 Part 1 from the [Chapter 9 More Practice Problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-problems-yet-more-with-solutions.pandoc#second-order-logic).
 
 ```{.ProofChecker .GamutNDSOL submission="none"}
 10.14 Fa\/Gb :|-: EX1EY1(X1a\/Y1b)
@@ -613,7 +600,7 @@ These are the rules for our second-order deductive system. They are included onl
 
 ## Summary of rules of classical predicate logic
 
-For reference, here is a summary of all the rules available in our system of classical predicate logic, i.e. the Week 8 system.
+For reference, here is a summary of all the rules available in our system of classical predicate logic, i.e. the Chapter 8 system.
 
 <table style="width:100%">
   <tr>

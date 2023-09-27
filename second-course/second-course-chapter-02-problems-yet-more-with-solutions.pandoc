@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 2 Tutoring session with solutions
+# Chapter 2, More Practice Problems, with solutions
 
 The problems in this set fall into four groups:
 
@@ -30,7 +30,7 @@ The problems in this set fall into four groups:
 
 ## Unordered list notation and set‐theoretic operations
 
-In problems 1‐5, consider the following sets of integers ([recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#basic-number-systems) that the integers $\mathbb{Z}$ are the positive and negative whole numbers):
+In problems 1‐5, consider the following sets of integers ([recall](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc#basic-number-systems) that the integers $\mathbb{Z}$ are the positive and negative whole numbers):
 
 <p style="margin‐left: 40px">  $A=\{‐9,‐8,‐7,‐6,‐5,‐4,4,5,6,7,8,9\}$   </p>
 
@@ -42,7 +42,7 @@ In problems 1‐5, consider the following sets of integers ([recall](https://car
 
 That is, $D$ is the set of integers between $‐9$ and $9$ (including both $‐9$ and $9$), $A$ is a subset of $D$ which is missing an interval in the middle, $B$ is a subset of $D$ which is missing two intervals at either end, and $C$ is the subset of $D$ which contains only the integers whose absolute value is odd (recall that zero is not odd).
 
-(In some sense, this example is just a variant on the example from the practice with [Unordered list notation and set‐theoretic operations](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-section-with-solutions.pandoc#unordered-list-notation-and-set-theoretic-operations), in that it just adds a "mirror image" in the negative numbers. But if one is just beginning, it can be good to practice with minor variants. And since we made, in this example, the set $C$ be the odd numbers, we have that zero is not in $C$, and this introduces a slight asymmetry).
+(In some sense, this example is just a variant on the example from the practice with [Unordered list notation and set‐theoretic operations](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-problems-with-solutions.pandoc#unordered-list-notation-and-set-theoretic-operations), in that it just adds a "mirror image" in the negative numbers. But if one is just beginning, it can be good to practice with minor variants. And since we made, in this example, the set $C$ be the odd numbers, we have that zero is not in $C$, and this introduces a slight asymmetry).
 
 The first four problems ask about information contained in the following table. To solve these problems you will only need to fill in a small part of the table. Take the rest of the table as an opportunity to practice.
 
@@ -226,7 +226,7 @@ Consider the following set, noting the strict inequalities $<$ in the definition
 <br>
 
 
-([Recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#basic-number-systems) that the integers $\mathbb{Z}$ are the positive and negative whole numbers).
+([Recall](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc#basic-number-systems) that the integers $\mathbb{Z}$ are the positive and negative whole numbers).
 
 <br>
 
@@ -359,7 +359,7 @@ Consider the following Venn diagram featuring sets $A,B,C$, namely, the three la
 
 <br>
 
-This is essentially an exercise in understanding how to take a finite number of sets, and "carve them up" into the smallest parts that can be expressed with the set‐theoretic operations of intersection, union, difference, and relative complement. A helpful tool to keep in mind while working is the following *DeMorgan rules* for sets, [which correspond to the DeMorgan rules in propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-section-no-solutions.pandoc#further-connections-between-set-theory-and-propositional-logic):
+This is essentially an exercise in understanding how to take a finite number of sets, and "carve them up" into the smallest parts that can be expressed with the set‐theoretic operations of intersection, union, difference, and relative complement. A helpful tool to keep in mind while working is the following *DeMorgan rules* for sets, [which correspond to the DeMorgan rules in propositional logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-problems-no-solutions.pandoc#further-connections-between-set-theory-and-propositional-logic):
 
 &nbsp; &nbsp; &nbsp; $(A\cup B)^c = A^c\cap B^c$
 
@@ -413,7 +413,7 @@ In these translation problems, there are really only 10 problems, namely problem
 <br>
 
 
-Also, experience suggests that at the beginning, problems when they arise are usually related to parentheses. [Recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc#building-blocks-of-formulas-of-predicate-logic) the notes on typing quantifiers in the computer system:
+Also, experience suggests that at the beginning, problems when they arise are usually related to parentheses. [Recall](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-02-no-solutions.pandoc#building-blocks-of-formulas-of-predicate-logic) the notes on typing quantifiers in the computer system:
 
 1. Do *not* put parentheses immediately outside quantifiers when the quantifier is the main connective. For example, write `AxPx` and not `(AxPx)`. But write `(AxPx/\AxQx)->Ax(Px/\Qx)` and not `AxPx/\AxQx->Ax(Px/\Qx)` since the latter is ambiguous between the former and `AxPx/\(AxQx->Ax(Px/\Qx))`.
 

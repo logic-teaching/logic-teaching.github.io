@@ -15,11 +15,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 7, Section
+# Chapter 7, Practice Problems
 
 We do a couple paradigmatic predicate logic proofs.
-
-There are only seven problems, since they take longer. But since they are longer we still might not have time to do all of them in section. Take the others as further opportunities for practice.
 
 
 - [Russell paradox revisited](#russell-paradox-revisited)
@@ -33,7 +31,7 @@ There are only seven problems, since they take longer. But since they are longer
 
 *Problem 1*
 
-The following is a variant on Russell's paradox [from Week 2](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#the-russell-paradox). The premise describes the version of law of excluded middle which featured prominently in our proof in Week 2. If one reads $Ruw$ as $u\in w$ and if one appeals to [extensionality](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#extensionality), then the conclusion says that it is not the case that $c$ is such that $c=\{x: x\notin x\}$.
+The following is a variant on Russell's paradox [from Chapter 2](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc#the-russell-paradox). The premise describes the version of law of excluded middle which featured prominently in our proof in Chapter 2. If one reads $Ruw$ as $u\in w$ and if one appeals to [extensionality](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc#extensionality), then the conclusion says that it is not the case that $c$ is such that $c=\{x: x\notin x\}$.
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.01 Rcc\/~Rcc :|-: ~(Ax(Rxc->~Rxx)/\Ax(~Rxx->Rxc))
@@ -54,7 +52,7 @@ The following illustrates that, even without law of the excluded middle, we can 
 
 *Problem 3*
 
-We now update our proof of Problem 1 using the technique from Problem 2. Again, if one reads $Ruw$ as $u\in w$ and if one appeals to [extensionality](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#extensionality), then the conclusion says that it is not the case that $c$ is such that $c=\{x: x\notin x\}$.
+We now update our proof of Problem 1 using the technique from Problem 2. Again, if one reads $Ruw$ as $u\in w$ and if one appeals to [extensionality](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc#extensionality), then the conclusion says that it is not the case that $c$ is such that $c=\{x: x\notin x\}$.
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.03 :|-: ~(Ax(Rxc->~Rxx)/\Ax(~Rxx->Rxc))
@@ -64,7 +62,7 @@ We now update our proof of Problem 1 using the technique from Problem 2. Again, 
 
 *Problem 4*
 
-The following is much closer to Russell's paradox [from Week 2](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#the-russell-paradox). Again, if one reads $Ruw$ as $u\in w$ and if one appeals to [extensionality](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#extensionality), then the premises say that $c = \{x\in d : x\notin x\}$. And if one reads $Ruw$ as $u\in w$, then the conclusion says that "d does not contain all elements".
+The following is much closer to Russell's paradox [from Chapter 2](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc#the-russell-paradox). Again, if one reads $Ruw$ as $u\in w$ and if one appeals to [extensionality](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc#extensionality), then the premises say that $c = \{x\in d : x\notin x\}$. And if one reads $Ruw$ as $u\in w$, then the conclusion says that "d does not contain all elements".
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.04  Ax(Rxc->(Rxd/\~Rxx)), Ax((Rxd/\~Rxx)->Rxc) :|-: ~AxRxd
@@ -80,7 +78,7 @@ The following is much closer to Russell's paradox [from Week 2](https://carnap.i
 
 *Problem 5*
 
-In [Week 3 Section](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-section-with-solutions.pandoc), we learned that $\forall \; x \; \exists \; y \; Rxy \nvDash \exists \; y \; \forall \; x \; Rxy$. However, the converse is provable (and hence the converse is valid, by soundness):
+In [Chapter 3 Practice Problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-problems-with-solutions.pandoc), we learned that $\forall \; x \; \exists \; y \; Rxy \nvDash \exists \; y \; \forall \; x \; Rxy$. However, the converse is provable (and hence the converse is valid, by soundness):
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.05 EyAxRxy  :|-: AxEyRxy

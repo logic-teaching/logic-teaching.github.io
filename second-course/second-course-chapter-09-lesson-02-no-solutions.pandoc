@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 9, Lecture 2, Second-order logic
+# Chapter 9, Lesson 2, Second-order logic
 
 <br>
 
@@ -85,7 +85,7 @@ In the next couple of examples, we use the key:
 
 <br>
 
-In some ways the central philosophical question about second-order logic is: "what are these properties that one is now quantifying over?" Today we are not going to tackle that question head-on, but rather just gain some familiarity with second-order logic qua logic. Hence, we will call the new things we quantify over "properties" or "predicates" or "relations" and not say much today about what they are, but rather focus on what we can do with this new resource. We will return next week to the question of what they are.
+In some ways the central philosophical question about second-order logic is: "what are these properties that one is now quantifying over?" Today we are not going to tackle that question head-on, but rather just gain some familiarity with second-order logic qua logic. Hence, we will call the new things we quantify over "properties" or "predicates" or "relations" and not say much today about what they are, but rather focus on what we can do with this new resource. We will return next chapter to the question of what they are.
 
 <br>
 
@@ -198,7 +198,7 @@ Hence, we make working with our second-order logic a little nicer by using some 
 
 <br>
 
-Unlike our prior exposure to lambda-terms in the setting of [the Curry-Howard isomorphism](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-02.pandoc#the-curry-howard-isomorphism), we are *not* including the typing. This is because they all have the same type: they are all functions $f:D\rightarrow \{0,1\}$, where $1$ is true and $0$ is false, and where $D$ is the domain of quantification.[^2] This basically because we are restricting ourselves today to "second-order logic", rather than "third-order logic, fourth-order logic, etc."
+Unlike our prior exposure to lambda-terms in the setting of [the Curry-Howard isomorphism](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-02.pandoc#the-curry-howard-isomorphism), we are *not* including the typing. This is because they all have the same type: they are all functions $f:D\rightarrow \{0,1\}$, where $1$ is true and $0$ is false, and where $D$ is the domain of quantification.[^2] This basically because we are restricting ourselves today to "second-order logic", rather than "third-order logic, fourth-order logic, etc."
 
 [^2]: In the notation of formal semantics which we mentioned, they are all functions $f:D_e\rightarrow D_t$, which is abbreviated as $f:D_{et}$.
 
@@ -348,9 +348,9 @@ Often when identity of indiscernibles is being debated within philosophy, one is
 
 <br>
 
-Another application of second-order logic is that with it, one can define an identity-like notion that satisfies [the introduction and elimination rules for identity](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-01-with-solutions.pandoc#adding-identity), and hence will be indistinguishable from identity, as far as proofs in our system go.
+Another application of second-order logic is that with it, one can define an identity-like notion that satisfies [the introduction and elimination rules for identity](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-lesson-01-with-solutions.pandoc#adding-identity), and hence will be indistinguishable from identity, as far as proofs in our system go.
 
-The idea is just to define identity as "sharing all properties". That is, we could define $a=b$ as $\forall \; X \; (Xa \rightarrow Xb)$. The next two proofs show that if we take this as the definition, then we could derive [the introduction and elimination rules for identity](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-01-with-solutions.pandoc#adding-identity).
+The idea is just to define identity as "sharing all properties". That is, we could define $a=b$ as $\forall \; X \; (Xa \rightarrow Xb)$. The next two proofs show that if we take this as the definition, then we could derive [the introduction and elimination rules for identity](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-01-with-solutions.pandoc#adding-identity).
 
 <br>
 

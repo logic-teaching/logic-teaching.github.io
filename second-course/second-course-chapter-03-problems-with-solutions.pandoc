@@ -15,11 +15,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 3 Section, Practice with binary relations and multiple quantifiers, with solutions
+# Chapter 3, Practice problems, Practice with binary relations and multiple quantifiers, with solutions
 
-This section meeting is an opportunity to practice more with binary relations and multiple quantifiers.
-
-There are probably more problems here than we can do in an hour, and so in section we will be selective with what problems we do. Take the problems we don't get to in section as an opportunity for further practice later on, on your own.
+This problem set is an opportunity to practice more with binary relations and multiple quantifiers.
 
 - [Arrow diagrams and binary relations](#arrow-diagrams-and-binary-relations)
 - [Translations with binary relations and multiple quantifiers](#translations-with-binary-relations-and-multiple-quantifiers)
@@ -154,7 +152,7 @@ Hence, whenever we replace $x$ by any of $a,b,c$, we get $\exists \; y \; Ryx$.
 
 ## Translations with binary relations and multiple quantifiers
 
-Prior to doing these problems, consider reviewing [Translations with binary relations](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-with-solutions.pandoc#translations-with-binary-relations).
+Prior to doing these problems, consider reviewing [Translations with binary relations](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-01-with-solutions.pandoc#translations-with-binary-relations).
 
 In these problems, we use the following key:
 

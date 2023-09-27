@@ -14,7 +14,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 7, Lecture 2, Lambda calculus and intuitionistic logic
+# Chapter 7, Lesson 2, Lambda calculus and intuitionistic logic
 
 We introduce lambda notation, a succinct notation for functions. We describe the Curry-Howard isomorphism on the implicational fragment. We gesture to how it is extended to the entire fragment of intuitionistic predicate logic, and how this is implemented in modern proof and program verification.
 
@@ -29,7 +29,7 @@ We introduce lambda notation, a succinct notation for functions. We describe the
 
 ## Lambda notation for functions
 
-[Recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#graphs-of-functions-and-predicate-logic) that a function $f:X\rightarrow Y$ is simply any operation which given an input $x$ from $X$ returns an output $y=f(x)$ from $Y$. And recall that $X$ is called the domain of the function $f$ and $Y$ is called the codomain of the function $f$. Here are some simple examples of functions:
+[Recall](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc#graphs-of-functions-and-predicate-logic) that a function $f:X\rightarrow Y$ is simply any operation which given an input $x$ from $X$ returns an output $y=f(x)$ from $Y$. And recall that $X$ is called the domain of the function $f$ and $Y$ is called the codomain of the function $f$. Here are some simple examples of functions:
 
 - $f:\mathbb{N}\rightarrow \mathbb{N}$ given by $f(u)=2u+5$
 - $g:\mathbb{Z}\rightarrow \mathbb{N}$ given by $g(v)=\left|v\right|$
@@ -163,7 +163,7 @@ We don't have a way of inputting proofs in the simply typed lambda calculus into
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/lambda-I-example.png" alt="I combinator example" width="700"/>
 
 
-Hence, the proof term for $p\rightarrow p$ is just the identity map. This makes a certain sense [in light of BHK](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-with-solutions.pandoc#intuitionistic-logic-and-bhk):
+Hence, the proof term for $p\rightarrow p$ is just the identity map. This makes a certain sense [in light of BHK](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-01-with-solutions.pandoc#intuitionistic-logic-and-bhk):
 
 - The *implication* $p\rightarrow q$ can be asserted, if and only if we possess a construction $r$, which, joined to any construction proving $p$ (supposing that the latter be effected), would automatically effect a construction proving $q$.
 
@@ -221,7 +221,7 @@ What is the construction that allows you to assert $(r\rightarrow (p\rightarrow 
 
 One of the original aims of logic, as it developed in the late 19th and early 20th century, was to provide a way to argue rigorously about mathematics and the kinds of set theory or type theory that it seems to necessarily involve. The chief means of achieving this was to develop deductive systems very much like what we are learning in this course, and to train people in them. At the end of this training, the ideal outcome was to be able to do proofs effortlessly and without really thinking about the deductive system too much, just like one reads words on the page effortlessly and without really thinking about the underlying phonetics too much.
 
-There are two problems with this. First, the deductive system we were learning last week, and in Lecture 1 of this week, does not have any set theory (or type theory) built into it, and so one has to learn this separately and undergo a kind of second training (if one's goal is proofs in mathematics). Second, this kind of rigor does not help with the kind of error that we tend to be worried about in mathematics today. Today the worry tends to be mathematical proofs are so big and the product of so many hands and so many generations, that error will creep in not by a lapse in rigor by one individual hand as by miscommunications and mismatches in the hand-off of one mathematician to another.
+There are two problems with this. First, the deductive system we were learning last chapter, and in Lesson 1 of this chapter, does not have any set theory (or type theory) built into it, and so one has to learn this separately and undergo a kind of second training (if one's goal is proofs in mathematics). Second, this kind of rigor does not help with the kind of error that we tend to be worried about in mathematics today. Today the worry tends to be mathematical proofs are so big and the product of so many hands and so many generations, that error will creep in not by a lapse in rigor by one individual hand as by miscommunications and mismatches in the hand-off of one mathematician to another.
 
 For these reasons, people have been interested in tools for the mechanical verification of proofs. It needs to be like our little carnap.io proof-checker, but it needs to have some set theory or type-theory built in. And it needs to be responsive to the social nature of mathematics: I need to be able to take your proof and apply it to my setting, ideally without having to recapitulate the proof line by line for my specific purpose. Of course, in traditional mathematics, I just believe your proof or I check it myself, but if we want to mechanically verify then we need to do something else.
 

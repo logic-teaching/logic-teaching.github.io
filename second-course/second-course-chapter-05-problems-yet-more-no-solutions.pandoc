@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 5 Tutoring session
+# Chapter 5, More Practice Problems
 
 <br>
 
@@ -258,7 +258,7 @@ These are some simple invalidity problems involving multiple quantifiers.
 *Problem 13*
 
 
-[Recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-no-solutions.pandoc#validity-and-invalidity-with-orders) that $R$ is an *equivalence relation* if it is reflexive, symmetric, and transitive:
+[Recall](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-yet-more-no-solutions.pandoc#validity-and-invalidity-with-orders) that $R$ is an *equivalence relation* if it is reflexive, symmetric, and transitive:
 
 <table style="width:100%">
   <tr>
@@ -317,7 +317,7 @@ But when one is beginning, it can be good to do at least one example where you "
 
 *Problem 14-15*
 
-[Recall](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-no-solutions.pandoc#validity-and-invalidity-with-orders) that $R$ is a *partial-order* if it is reflexive, anti-symmetric, and transitive:
+[Recall](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-yet-more-no-solutions.pandoc#validity-and-invalidity-with-orders) that $R$ is a *partial-order* if it is reflexive, anti-symmetric, and transitive:
 
 <table style="width:100%">
   <tr>

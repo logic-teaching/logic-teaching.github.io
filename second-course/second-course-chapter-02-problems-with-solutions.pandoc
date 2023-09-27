@@ -15,11 +15,10 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 2 Section, Practice with sets, with solutions
+# Chapter 2, Practice Problems, Practice with sets, with solutions
 
-This section meeting is an opportunity to practice more with sets. After the summary, the next two parts of this document are just straightforward practice with the material from lecture. The last two parts of this document help you integrate sets further with concepts like Venn diagrams and propositional logic.
+This is an opportunity to practice more with sets. After the summary, the next two parts of this document are just straightforward practice with the material from the lessons. The last two parts of this document help you integrate sets further with concepts like Venn diagrams and propositional logic.
 
-There are probably more problems here than we can do in an hour, and so in section we will be selective with what problems we do. Take the problems we don't get to in section as an opportunity for further practice later on, on your own.
 
 - [Summary of set theory notation](#summary-of-set-theory-notation)
 - [Unordered list notation and set-theoretic operations](#unordered-list-notation-and-set-theoretic-operations)
@@ -34,7 +33,7 @@ There are probably more problems here than we can do in an hour, and so in secti
 
 ## Summary of set theory notation
 
-Here is a repeat of [the summary of our set-theory notation](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#summary-of-set-theory-notation):
+Here is a repeat of [the summary of our set-theory notation](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc#summary-of-set-theory-notation):
 
 <table style="width:100%">
   <tr>
@@ -122,7 +121,7 @@ The only set theory symbols we will have to type frequently are the unordered li
 
 <br>
 
-These problems combine [the unordered list notation](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#unordered-list-notation-and-membership) and [the set-theoretic operations](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc) associated to the propositional connectives.
+These problems combine [the unordered list notation](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc#unordered-list-notation-and-membership) and [the set-theoretic operations](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc) associated to the propositional connectives.
 
 Consider the following four sets:
 
@@ -585,7 +584,7 @@ Consider the following table, which has some blanks in it:
 
 Since the set-theoretic operations are defined in terms of the propositional connectives, it might be natural to anticipate a tight connection between the two.
 
-It turns out that any equivalence that involves just the propositional connectives $\wedge, \vee, \neg$ corresponds to an identity between sets formed similarly from the operators $\cap,\cup, \mbox{}^c$. Likewise, if all the sets in question are a subset of a set $D$ (our standing mnemonic for 'domain'), then any tautology corresponds to an identity between $D$ and the set similarly formed from the operators $\cap,\cup, \mbox{}^c$. Earlier, we had [a list of named tautologies and equivalences](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-section-no-solutions.pandoc#list-of-named-tautologies-and-equivalences). We recopy these here with the associated set-theoretic identities. In this list, when we encounter a tautology, we are assuming that the sets in question are all subsets of the set $D$.
+It turns out that any equivalence that involves just the propositional connectives $\wedge, \vee, \neg$ corresponds to an identity between sets formed similarly from the operators $\cap,\cup, \mbox{}^c$. Likewise, if all the sets in question are a subset of a set $D$ (our standing mnemonic for 'domain'), then any tautology corresponds to an identity between $D$ and the set similarly formed from the operators $\cap,\cup, \mbox{}^c$. Earlier, we had [a list of named tautologies and equivalences](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-problems-no-solutions.pandoc#list-of-named-tautologies-and-equivalences). We recopy these here with the associated set-theoretic identities. In this list, when we encounter a tautology, we are assuming that the sets in question are all subsets of the set $D$.
 
 <table style="width:100%">
   <tr>

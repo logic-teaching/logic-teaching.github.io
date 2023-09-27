@@ -14,7 +14,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 10, Lecture 1, Second-order logic continued
+# Chapter 10, Lesson 1, Second-order logic continued[^0]
+
+[^0]: This lecture was written with Tristen Cardwell. 
 
 <br>
 
@@ -68,7 +70,7 @@ where it is understood that
 
 Hence the sentence reads "There is some (non-empty) group whose members are all critics, and if any member of the group admires someone, the person they admire is also a member of the group."
 
-Now on this attempt we're capturing the full meaning of the Geach-Kaplan sentence. However, this sentence is not actually interpretable by the semantics of first-order logic. For, suppose that this sentence was true on our model $\mathcal{M}$. Then there would be a [variable assignment](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-02.pandoc#definition-of-truth-in-a-model-relative-to-a-variable-assignment) $g$ that made the following true:
+Now on this attempt we're capturing the full meaning of the Geach-Kaplan sentence. However, this sentence is not actually interpretable by the semantics of first-order logic. For, suppose that this sentence was true on our model $\mathcal{M}$. Then there would be a [variable assignment](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-02.pandoc#definition-of-truth-in-a-model-relative-to-a-variable-assignment) $g$ that made the following true:
 
 - $\mathcal{M},g\models (Gx_1 \wedge \forall \; y (Myx_1 \rightarrow Cy)\wedge \exists \; y \; Myx_1\wedge \forall \; y \; \forall \; z \; ((Myx_1\wedge Ryz)\rightarrow (Mzx_1\wedge z\neq y))$
 
@@ -95,9 +97,9 @@ Note that "Most G's are H" seems to be saying ">50% of the G's are H's". For ins
 
 While these cases seem clear, perhaps there is some gray area once we get very close to 50%. But assuming for the moment that the cut off is sharply at 50%, we can ask whether this concept is expressible in first-order predicate logic.
 
-It is not obvious that is so expressible. Using the [exact numerical quantifiers](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-with-solutions.pandoc#exact-numerical-quantifiers), one could say something like "there are exactly 300 G's and at least 151 of them are H". But this seems to artificially restrict our attention to specific numbers, whereas the statement of natural language appears to be making no such restrictions and would be perfectly intelligble regardless of how large the relevant classes of objects got.
+It is not obvious that is so expressible. Using the [exact numerical quantifiers](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-01-with-solutions.pandoc#exact-numerical-quantifiers), one could say something like "there are exactly 300 G's and at least 151 of them are H". But this seems to artificially restrict our attention to specific numbers, whereas the statement of natural language appears to be making no such restrictions and would be perfectly intelligble regardless of how large the relevant classes of objects got.
 
-In [the tutoring document for last week](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-tutoring-with-solutions.pandoc#second-order-logic) (Problem 12, Problem 15), we introduced two-place property quantifiers. And we have seen earlier that [graphs of functions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#graphs-of-functions-and-predicate-logic) can be described with binary relations. And sizes of sets $X,Y$ can be compared by saying that there is a bijection from the $X$ to $Y$, and likewise a set $X$ can be viewed as smaller than $Y$ if there is an injection from $X$ to $Y$ but no bijection from $X$ to $Y$. Hence, one can express
+In [More Practice Problems from last chapter](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-problems-yet-more-with-solutions.pandoc#second-order-logic) (Problem 12, Problem 15), we introduced two-place property quantifiers. And we have seen earlier that [graphs of functions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc#graphs-of-functions-and-predicate-logic) can be described with binary relations. And sizes of sets $X,Y$ can be compared by saying that there is a bijection from the $X$ to $Y$, and likewise a set $X$ can be viewed as smaller than $Y$ if there is an injection from $X$ to $Y$ but no bijection from $X$ to $Y$. Hence, one can express
 
 - Most G's are H's iff there is an injection but not a bijection from $G\setminus H$ to $G\cap H$.
 
@@ -195,7 +197,7 @@ While the standard semantics are very natural, it turns out that they there is n
 
 But what are the entities over which our second-order quantifiers range? The answer *suggested* by the semantics described above would be: they are subsets of the underlying domain of the model. Once context tells us what model we are dealing with and what its underlying domain is (e.g. people, cities, etc.), it is settled what the second-order quantifiers are ranging over, namely subsets of the underlying domain of the model (e.g. subsets of the people, subsets of the cities, etc).
 
-There is some reason to be dissatisfied with this response. First, consider how we used Tarski's definition of truth in a model to generate instances of [the T-schema](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-field-on-truth-and-physicalism), as in:
+There is some reason to be dissatisfied with this response. First, consider how we used Tarski's definition of truth in a model to generate instances of [the T-schema](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-02.pandoc#tarski-and-field-on-truth-and-physicalism), as in:
 
 - "Allison is a French major" is true if and only if Allison is a French major.
 
@@ -207,7 +209,7 @@ Following the answer suggested by the above semantics we would have:
 
 One concern you might have is that the right-hand side of this instance of T-schema seems to involve sets in a way that the others did not. This might be concerning if you had the idea that the right-hand side of the T-schema is supposed to be "about the world": do you really think that sets are in the world in addition to Allison, French majors, and critics?
 
-Second, consider the [Quinean doctrine of ontological commitment](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-02.pandoc#quine-and-bound-variables-and-ontological-commitment). If we decided that only way to make sentences like Geach-Kaplan true was to admit that there are sets in the part of the domain of quantification reserved for the second-order quantifiers, then it seems like the Quinean doctrine would require that everyday sentences like Geach-Kaplan *alone* were sufficient to push us to admit some kind of elaborate mathematics in our ontology. Even if one accepted Quine's approach to ontological commitment, one might think that was this was the *wrong kind of reason* for thinking that certain kinds of mathematical abstracta exist (e.g. there being certain funny groups of people seems like an odd reason to believe in mathematical abstracta).
+Second, consider the [Quinean doctrine of ontological commitment](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-02.pandoc#quine-and-bound-variables-and-ontological-commitment). If we decided that only way to make sentences like Geach-Kaplan true was to admit that there are sets in the part of the domain of quantification reserved for the second-order quantifiers, then it seems like the Quinean doctrine would require that everyday sentences like Geach-Kaplan *alone* were sufficient to push us to admit some kind of elaborate mathematics in our ontology. Even if one accepted Quine's approach to ontological commitment, one might think that was this was the *wrong kind of reason* for thinking that certain kinds of mathematical abstracta exist (e.g. there being certain funny groups of people seems like an odd reason to believe in mathematical abstracta).
 
 <br>
 

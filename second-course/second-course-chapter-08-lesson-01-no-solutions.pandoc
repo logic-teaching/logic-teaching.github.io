@@ -14,7 +14,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 8, Lecture 1, Classical predicate logic
+# Chapter 8, Lesson 1, Classical predicate logic
 
 <br>
 
@@ -123,7 +123,7 @@ In order not to continually have to be repeating this proof, we include DeMorgan
 
 <br>
 
-Those problems that use only these DeMorgan rules are then more or less identical to the problems we were doing by hand [earlier in the course](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#demorgan-for-the-quantifiers).
+Those problems that use only these DeMorgan rules are then more or less identical to the problems we were doing by hand [earlier in the course](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc#demorgan-for-the-quantifiers).
 
 *Example 2*
 
@@ -391,7 +391,7 @@ The introduction rule says that from "there is exactly one F", one can infer the
 
 <br>
 
-Why believe double-negation and law of the excluded middle? These rules do not seem to follow from the introduction rules or elimination rules for any symbol, and as we have seen they do not follow [from BHK](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-with-solutions.pandoc#intuitionistic-logic-and-bhk). Maybe rather double-negation and law of the excluded middle are simply describing the contours of some notion we are already interested in.
+Why believe double-negation and law of the excluded middle? These rules do not seem to follow from the introduction rules or elimination rules for any symbol, and as we have seen they do not follow [from BHK](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-01-with-solutions.pandoc#intuitionistic-logic-and-bhk). Maybe rather double-negation and law of the excluded middle are simply describing the contours of some notion we are already interested in.
 
 But that would push the question back to why we are interested in the notion as described by double-negation and law of the excluded middle. One easy answer is simply that they follow rather trivially from the truth-tables for negation (and disjunction), as well as the associated clauses in Tarski's definition of truth in a model. But perhaps that answer is too easy, since maybe these are just semantic restatements of double-negation and law of excluded middle.
 
@@ -546,9 +546,6 @@ Here is a summary of all the rules available in our system of classical predicat
 
 <br>
 
-On the final exam, we will give you this table for reference, since our main aim is to learn to do proofs, and since the abbreviations for these rules are less established and a little more of a matter of convention. However, that said, it might be useful to memorize this table, since it helps one go faster and is usually a good way to reinforce learning. (We will still ask that you memorize the introduction and elimination rules for the propositional connectives and quantifiers, along with ex falso).
-
-<br>
 
 These are lecture notes written by Sean Walsh. They are run on [carnap.io](http://www.carnap.io).[^5]
 

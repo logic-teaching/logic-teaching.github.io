@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 2 Lecture 2, The quantifiers and well-formed formulas
+# Chapter 2, Lesson 2, The quantifiers and well-formed formulas
 
 We slowly describe the constituent components of the definition of the well-formed formulas of predicate logic.
 
@@ -33,7 +33,7 @@ We slowly describe the constituent components of the definition of the well-form
 
 ## Atomic formulas
 
-In [the Aristotelian syllogism](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc), the propositions featuring in the premises and conclusions relate subjects to predicates, either in a universal or particular way. One of the ideas of contemporary predicate logic is to assume that universal and particular statements about subjects and predicates can be reduced down to simpler statements about objects and properties. The relevant sense of "object" is "basic, smallest type of entity" and the relevant sense of "property" is something like "collection of objects." Some examples will help to get the idea across:
+In [the Aristotelian syllogism](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-lesson-02.pandoc), the propositions featuring in the premises and conclusions relate subjects to predicates, either in a universal or particular way. One of the ideas of contemporary predicate logic is to assume that universal and particular statements about subjects and predicates can be reduced down to simpler statements about objects and properties. The relevant sense of "object" is "basic, smallest type of entity" and the relevant sense of "property" is something like "collection of objects." Some examples will help to get the idea across:
 
 - If we are talking about people, then the objects would be particular people like Allison, Brianna, Carlos, and Daniel and the properties would be things like "is in Debate club" or "is a history major."
 - If we are talking about cities, then the objects would be particular cities like Atlanta, Boston, Charlotte, Denver and the properties would be things like "is on the East Coast" and "has more than 5 million people."
@@ -368,7 +368,7 @@ These examples show that identity can be used to give truth-conditions for expre
 
 ## The well-formed formulas of predicate logic
 
-In parallel to [the earlier definition of well-formed formula of propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-01.pandoc#the-well-formed-formulas), we can now formally define the well-formed formulas of predicate logic:
+In parallel to [the earlier definition of well-formed formula of propositional logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-lesson-01.pandoc#the-well-formed-formulas), we can now formally define the well-formed formulas of predicate logic:
 
 - All the atomic formulas are well-formed formulas and the main connective is the predicate symbol (or the identity symbol if it is an identity).
 - If $\phi$ is a well-formed formula, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$.
@@ -399,7 +399,7 @@ See the section [Building-blocks of formulas of predicate logic](#building-block
 
 ## Translating the Aristotelian propositions
 
-Here are some common translation schemas that can be used to translate [the Aristotelian syllogism](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc) into predicate logic:
+Here are some common translation schemas that can be used to translate [the Aristotelian syllogism](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-lesson-02.pandoc) into predicate logic:
 
 <table style="width:100%">
   <tr>

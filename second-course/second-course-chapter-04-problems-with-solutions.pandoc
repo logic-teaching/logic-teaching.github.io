@@ -14,7 +14,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 4 Section, Practice with validity and invalidity, with solutions
+# Chapter 4, Practice Problems, Practice with validity and invalidity, with solutions
 
 This section meeting is an opportunity to practice more with validity and invalidity. This is simultaneously practice with working with formulas that are longer and more complicated.
 
@@ -92,7 +92,7 @@ This one takes the conclusion of Example 1 and notes that one cannot assume mere
 
 *Example 5*:
 
-This is a variant of the problems from lecture in the discussion of [Tarski on logical conequence](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#tarski-on-consequence). Ostensibly this just increments Example 17 from that discussion by one additional point. But how many more entries did you have to put in the interpretation of the binary relation?
+This is a variant of the problems from lecture in the discussion of [Tarski on logical conequence](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc#tarski-on-consequence). Ostensibly this just increments Example 17 from that discussion by one additional point. But how many more entries did you have to put in the interpretation of the binary relation?
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
  Ax~Rxx, AxAyAz((Rxy/\Ryz)->Rxz) :|-: ~EwExEyEz(Rwx/\(Rxy/\Ryz))
@@ -104,7 +104,7 @@ This is a variant of the problems from lecture in the discussion of [Tarski on l
 
 *Example 6*:
 
-As mentioned in the discussion of [conversions and existential import](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc#conversions-and-existential-import), Aristotle seemed to presume  that all the F's and G's he was working with were instantiated.
+As mentioned in the discussion of [conversions and existential import](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-lesson-02.pandoc#conversions-and-existential-import), Aristotle seemed to presume  that all the F's and G's he was working with were instantiated.
 
 This assumption is behind his Fourth Conversion, which we can quickly check is invalid by the lights of modern logic. The trick is just to not put anything in the F box:
 
@@ -121,7 +121,7 @@ Of course, we can easily remedy this invaldity by adding on another premise of t
 
 *Example 7*:
 
-At the moment, we are just practicing with invalidities. Hence, let's note that Aristotle's Darapti is also invalid by the lights of our contemporary predicate logic (recall that [Aristotle's proof of Darapti goes through the Fourth Conversion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-tutoring-with-solutions.pandoc#aristotle-and-the-third-figure)). We make it slightly more interesting by making sure that the domain has at least three elements and that the two predicates L, S in the consequents are instantiated.
+At the moment, we are just practicing with invalidities. Hence, let's note that Aristotle's Darapti is also invalid by the lights of our contemporary predicate logic (recall that [Aristotle's proof of Darapti goes through the Fourth Conversion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-problems-yet-more-with-solutions.pandoc#aristotle-and-the-third-figure)). We make it slightly more interesting by making sure that the domain has at least three elements and that the two predicates L, S in the consequents are instantiated.
 
 ```{.CounterModeler .Validity system="gamutND" submission="none" options="negated-double-turnstile"}
 4.07 ~a=b, ~b=c, ~a=c, La, Sc, Ax(Mx->Lx),Ax(Mx->Sx)  :|-: Ex(Sx/\Lx)
@@ -208,7 +208,7 @@ $\forall \; x \; \exists \; y \; \forall \; z \; (Rxy\wedge Ryz) \rightarrow \ne
 
 ## Russellian and Fregean semantics for definite descriptions
 
-At the beginning of Week 3, [we did the Russellian and Fregean translations of the definite descriptions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-01-no-solutions.pandoc#definite-descriptions). At the end of Week 3, we did [Tarski's definition of truth in a model](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model). Using that, one can determine whether a Russellian definite description statement is true or false in a model. However, we have not said what the semantics of the Fregean definite description are. We do that now.
+At the beginning of Week 3, [we did the Russellian and Fregean translations of the definite descriptions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-01-no-solutions.pandoc#definite-descriptions). At the end of Week 3, we did [Tarski's definition of truth in a model](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-02.pandoc#tarski-and-his-definition-of-truth-in-a-model). Using that, one can determine whether a Russellian definite description statement is true or false in a model. However, we have not said what the semantics of the Fregean definite description are. We do that now.
 
 Frege thought that when there was exactly one $F$, then "The F is G" just gets interpreted as saying that this object has $G$. And Frege
  simply designated a fixed element of the model as the referent of "the F" when there was not exactly one F. In our model-checkers, this individual is always zero.

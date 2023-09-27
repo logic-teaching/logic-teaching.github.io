@@ -14,30 +14,17 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 10 Tutoring
+# Chapter 10, More Practice Problems
 
-
-We practice for the final exam.
+We practice more. 
 
 - [Famous Proofs](#famous-proofs)
 - [Proof or countermodel](#proof-or-countermodel)
-- [Week 6 problems](#week-6-problems)
-- [Week 7 problems](#week-7-problems)
-- [Week 8 problems](#week-8-problems)
-- [Week 9 problems](#week-9-problems)
+- [Chapter 6 problems](#chapter-6-problems)
+- [Chapter 7 problems](#chapter-7-problems)
+- [Chapter 8 problems](#chapter-8-problems)
+- [Chapter 9 problems](#chapter-9-problems)
 - [Summary of rules of classical predicate logic](#summary-of-rules-of-classical-predicate-logic)
-
-This is practice for the final. In particular, it is practice with parts I, II, III of the final.
-
-- It is *strongly advised* that you work it out by hand, since that it what we will be doing on the final.
-
-- And again, the reason we are doing this is because the aim of the second half of this course is for you to learn to write proofs, with the goal of being able to do so without the aid of a proof checker, since there no proof checkers in later parts of logic or in later applications of logic.
-
-- You can check your answers by looking at this solution document, or by typing your answers directly into the version without solutions.
-
-- The formatting of this page may look a little different, but that is because it is designed to be printed.
-
-- Keep in mind that there are many good proofs of one and the same result, and keep in mind that partial credit will be available on the proofs in the final.
 
 <br>
 
@@ -49,7 +36,7 @@ This is practice for the final. In particular, it is practice with parts I, II, 
 
 *Problem 1*
 
-Give the famous proof of the double-negation of law of excluded middle from [Week 7 Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-with-solutions.pandoc#multiple-negations-in-intuitionistic-logic) Problem 4.
+Give the famous proof of the double-negation of law of excluded middle from [Chapter 7 Lesson 1](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-01-with-solutions.pandoc#multiple-negations-in-intuitionistic-logic) Problem 4.
 
 For this problem, use only the introduction and elimination rules, along with ex falso and repeat rule. That is, this proof is a proof in intuitionistic predicate logic.
 
@@ -63,7 +50,7 @@ For this problem, use only the introduction and elimination rules, along with ex
 
 *Problem 2*
 
-Give the famous proof of the identity of indiscernibles from [Week 9 Lecture 2](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-lecture-02-with-solutions.pandoc#the-identity-of-indiscernibles) Example 6.
+Give the famous proof of the identity of indiscernibles from [Chapter 9 Lesson 2](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-lesson-02-with-solutions.pandoc#the-identity-of-indiscernibles) Example 6.
 
 This proof is a deduction in our system for second-order logic. See below (Problem 18) for a reminder of what these rules are.
 
@@ -111,7 +98,7 @@ This proof is a deduction in our system for second-order logic. See below (Probl
 
 *Problem 4*
 
-The first three axioms are the axioms of [equivalence relations](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations). The basic idea is that an equivalence relation is a notion of similarity among objects which acts like identity in a lot of ways: I am similar to myself (reflexivity), if I am similar to you, then you are similar to me (symmetry), if I am similar to you, and you are simliar to a third person, then I am similar to this third person (transitivity). Hence, use your intuitions about similarity to help guide you through the problems. Another fact about equivalence relations to keep in mind is: they partition the domain into disjoint classes (called equivalence classes). For instance, assuming double-majors are not allowed, then "sameness of major" would partition the students into disjoint groups, namely the majors.
+The first three axioms are the axioms of [equivalence relations](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-yet-more-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations). The basic idea is that an equivalence relation is a notion of similarity among objects which acts like identity in a lot of ways: I am similar to myself (reflexivity), if I am similar to you, then you are similar to me (symmetry), if I am similar to you, and you are simliar to a third person, then I am similar to this third person (transitivity). Hence, use your intuitions about similarity to help guide you through the problems. Another fact about equivalence relations to keep in mind is: they partition the domain into disjoint classes (called equivalence classes). For instance, assuming double-majors are not allowed, then "sameness of major" would partition the students into disjoint groups, namely the majors.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 10.04 AxRxx, AxAy(Rxy->Ryx), AxAyAz((Rxy/\Ryz)->Rxz), ~Rab, ~Rbc, ~Rcd :|-: ~Rad
@@ -189,7 +176,7 @@ This one is an exercise with the Russellian and Fregean translations of the defi
 
 <br>
 
-The first four axioms are the axioms of [linear orders](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations). These are axioms that describe $\leq$ on the natural numbers, integers, and rationals. The linearity axiom (the fourth axiom) says that given $x,y$ one either has $x\leq y$ or $y\leq x$ or $x=y$. Use your intuitions about lines to guide yourself through the problem.
+The first four axioms are the axioms of [linear orders](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-yet-more-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations). These are axioms that describe $\leq$ on the natural numbers, integers, and rationals. The linearity axiom (the fourth axiom) says that given $x,y$ one either has $x\leq y$ or $y\leq x$ or $x=y$. Use your intuitions about lines to guide yourself through the problem.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 10.06 AxRxx, AxAy((Rxy/\Ryx)->x=y), AxAyAz((Rxy/\Ryz)->Rxz), AxAy((Rxy\/Ryx)\/x=y), AyRay  :|-:  Ax(Rxa->x=a)
@@ -223,7 +210,7 @@ The first four axioms are the axioms of [linear orders](https://carnap.io/shared
 
 <p style="page-break-before: always">
 
-## Week 6 problems
+## Chapter 6 problems
 
 <br>
 
@@ -321,7 +308,7 @@ Prove the following (this is just Darapti again).
 
 <p style="page-break-before: always">
 
-## Week 7 problems
+## Chapter 7 problems
 
 <br>
 
@@ -428,7 +415,7 @@ This is a problem in inferring types. We use $D_e$ as our domain of basic indivi
 
 <p style="page-break-before: always">
 
-## Week 8 problems
+## Chapter 8 problems
 
 <br>
 
@@ -451,7 +438,7 @@ This argument is called *Harrop's rule*. There is no proof of it in intuitionist
 
 *Problem 14*
 
-This is a classic problem with identity, which involves a disjunction elimination. Prior to trying this one, review the proof of the symmetry of identity ([Week 8 Tutoring](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-tutoring-with-solutions.pandoc#problems-with-identity) Problems 11-12).
+This is a classic problem with identity, which involves a disjunction elimination. Prior to trying this one, review the proof of the symmetry of identity ([Chapter More Practice Problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-problems-yet-more-with-solutions.pandoc#problems-with-identity) Problems 11-12).
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 10.14 Ax(x=a\/x=b) :|-: Ax(a=x\/b=x)
@@ -472,7 +459,7 @@ $\forall \; x \; \forall \; y \; (Fx\wedge \neg Gx \wedge Rxy)\rightarrow (Fy\we
 
 <p style="page-break-before: always">
 
-## Week 9 problems
+## Chapter 9 problems
 
 <br>
 
@@ -531,7 +518,7 @@ This problem has two parts, where we use the key:
 
 *Problem 18*
 
-This is a problem in the deductive system for second-order logic. For reference, we recopy the rules  on the next page. This is very much like Problem 14 from the [Week 9 tutoring document](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-09-tutoring-with-solutions.pandoc#second-order-logic) showing that "sharing all properties" is reflexive.
+This is a problem in the deductive system for second-order logic. For reference, we recopy the rules  on the next page. This is very much like Problem 14 from the [Chapter 9 tutoring document](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-problems-yet-more-with-solutions.pandoc#second-order-logic) showing that "sharing all properties" is reflexive.
 
 ```{.ProofChecker .GamutNDSOL submission="none"}
 10.18 :|-: AxAX1(~X1x->(~X1x\/Fx))
@@ -626,7 +613,7 @@ These are the rules for our second-order deductive system. They are included onl
 
 ## Summary of rules of classical predicate logic
 
-For reference, here is a summary of all the rules available in our system of classical predicate logic, i.e. the Week 8 system.
+For reference, here is a summary of all the rules available in our system of classical predicate logic, i.e. the Chapter 8 system.
 
 <table style="width:100%">
   <tr>

@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 7, Tutoring
+# Chapter 7, More Practice Problems
 
 <br>
 
@@ -44,7 +44,7 @@ This one is a very simple application of EFSQ.
 
 *Problem 2*
 
-The following is a paradigmatic example of EFSQ. Before beginning, compare to *Example 7* from [Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-with-solutions.pandoc#bhk-and-efsq).
+The following is a paradigmatic example of EFSQ. Before beginning, compare to *Example 7* from [Lesson 1](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-01-with-solutions.pandoc#bhk-and-efsq).
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 07.02 Raa\/Rab, Ax~Rxx :|-: Rab
@@ -210,7 +210,7 @@ If you decorate your answer to Problem 18 with proof terms using variables $f,g,
 
 <br>
 
-In [Week 4 when we were talking about functions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#graphs-of-functions-and-predicate-logic), we often visually depicted their graphs. Consider the function $f:\{4,5,6\}\rightarrow \{7,8,9\}$ depicted in blue, and the function $g:\{1,2,3\}\rightarrow \{4,5,6\}$ depicted in green. Let $h:\{1,2,3\}\rightarrow \{7,8,9\}$ given by $g$ followed by $f$. The function $h$ is usually called the composition of $f$ and $g$. How would you describe $h$ in the terminology of lambda-terms? (By so doing, you are showing how compositions can be described in terms of the lambda-calculus).
+In [Chapter 4 when we were talking about functions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc#graphs-of-functions-and-predicate-logic), we often visually depicted their graphs. Consider the function $f:\{4,5,6\}\rightarrow \{7,8,9\}$ depicted in blue, and the function $g:\{1,2,3\}\rightarrow \{4,5,6\}$ depicted in green. Let $h:\{1,2,3\}\rightarrow \{7,8,9\}$ given by $g$ followed by $f$. The function $h$ is usually called the composition of $f$ and $g$. How would you describe $h$ in the terminology of lambda-terms? (By so doing, you are showing how compositions can be described in terms of the lambda-calculus).
 
  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/simple-composition-diagram.png" alt="Simple composition diagram" width="500"/>
 

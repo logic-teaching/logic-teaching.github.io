@@ -14,7 +14,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 7, Lecture 1, Intuitionistic logic
+# Chapter 7, Lesson 1, Intuitionistic logic
 
 We define intuitionistic logic and classical logic. And we practice with more complicated proofs, in intuitionistic logic. Finally, we discuss one traditional philosophical interpretation of intuitionistic logic.
 
@@ -35,7 +35,7 @@ The deductive system that we have learned so far is called *intuitionistic logic
 - *Law of excluded middle*: $\phi\vee \neg \phi$
 - *The law of double-negation*: $\phi\leftrightarrow \neg \neg \phi$.
 
-The logic that results by adding these two intuitionsitic logic is called *classical logic*. Next week we will start working exclusively in classical logic. This week, we further explore intuitionistic logic.
+The logic that results by adding these two intuitionsitic logic is called *classical logic*. Next chapter we will start working exclusively in classical logic. This chapter, we further explore intuitionistic logic.
 
 <br>
 
@@ -142,7 +142,7 @@ Likewise, BHK will not endorse double-negation. In particular, it will not endor
 
 <br>
 
-In philosophy, BHK was given center stage in Dummett's philosophy of language, developed in the 1960s-1970s. Dummett thought that [Tarski's definition of truth](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model) gave prominence to truth-conditions and reference in a theory of meaning. By contrast, he saw in BHK an alternative way of thinking about meaning, in which truth-conditions are replaced by proof-conditions, or more generally assertibility conditions[^4]:
+In philosophy, BHK was given center stage in Dummett's philosophy of language, developed in the 1960s-1970s. Dummett thought that [Tarski's definition of truth](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-02.pandoc#tarski-and-his-definition-of-truth-in-a-model) gave prominence to truth-conditions and reference in a theory of meaning. By contrast, he saw in BHK an alternative way of thinking about meaning, in which truth-conditions are replaced by proof-conditions, or more generally assertibility conditions[^4]:
 
 &nbsp; &nbsp; &nbsp;  <img src="https://logic-teaching.github.io/philos-132-winter-23/texts/Dummett%201959%20-%20Truth%20p%20160.png" alt="Dummett on BHK" width="500"/>
 
@@ -152,9 +152,9 @@ Dummett paired this with a semantic characterisation of realism and anti-realism
 
 [^5]: See p. 157 of Dummett's 1959 "Truth" article (p. 14 of the reprint in *Truth and Other Enigmas*). In the body of the lecture notes, I have characterized realism in terms of law of the excluded middle. In Dummett's own text, he prefers to render it in terms of claims about (reasons for) a statement or its negation being true. See discussion of law of the excluded middle and the principle of bivalence on p. xix of *Truth and Other Enigmas*.
 
-Like [Quine](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-02.pandoc#quine-and-bound-variables-and-ontological-commitment), Dummett urged that certain traditional questions in philosophy be rephrased in the language of predicate logic. But whereas Quine's ultimate inclination was to promote naturalism within philosophical theorizing, Dummett sought to make room and space for anti-realism. While Dummett was influential in his time, his purposeful blending of questions of meaning and questions of justifications tends to run against the currents of philosophy today, in which philosophy of language and epistemology are viewed as two core but separate areas of philosophy.
+Like [Quine](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-02.pandoc#quine-and-bound-variables-and-ontological-commitment), Dummett urged that certain traditional questions in philosophy be rephrased in the language of predicate logic. But whereas Quine's ultimate inclination was to promote naturalism within philosophical theorizing, Dummett sought to make room and space for anti-realism. While Dummett was influential in his time, his purposeful blending of questions of meaning and questions of justifications tends to run against the currents of philosophy today, in which philosophy of language and epistemology are viewed as two core but separate areas of philosophy.
 
-A distinct legacy of BHK pertains to the idea that proofs are often closely tied to certain kinds of constructions. Perhaps the experience of building proofs in the last weeks speaks to the plausibility of the thought that a proof is a procedure to get from the premises to the conclusion. One way to make the relevant notion of procedure more formal is through the typed lambda-calculus, where the procedure for "add five to x then multiply by 2" would be formalized by $\lambda x. 2(x+5)$. The close connection to be found between intuitionistic propositional logic and proofs qua lambda terms then finds expression in the  Curry-Howard correspondence.[^6] We will explore one implementation of this idea in the next lecture.
+A distinct legacy of BHK pertains to the idea that proofs are often closely tied to certain kinds of constructions. Perhaps the experience of building proofs in the last chapters speaks to the plausibility of the thought that a proof is a procedure to get from the premises to the conclusion. One way to make the relevant notion of procedure more formal is through the typed lambda-calculus, where the procedure for "add five to x then multiply by 2" would be formalized by $\lambda x. 2(x+5)$. The close connection to be found between intuitionistic propositional logic and proofs qua lambda terms then finds expression in the  Curry-Howard correspondence.[^6] We will explore one implementation of this idea in the next lecture.
 
 [^6]: For more on this, see: [Gallier, Jean. 1995. “On the Correspondence between Proofs and λ-Terms.” In The Curry-Howard Isomorphism, edited by Ph de Groote, 8:55–138. Cahiers Du Centre de Logique. Louvain: Academia-Erasme](https://logic-teaching.github.io/prop/texts/Gallier%201995%20-%20On%20the%20correspondence%20between%20proofs%20and%20lambda-terms.pdf), and [Sørensen, M. H., and Pawel Urzyczyn. 2006. Lectures on the Curry-Howard Isomorphism. Vol. 149. Studies in Logic and the Foundations of Mathematics. New York: Elsevier](https://scholar.google.com/scholar?cluster=2266409716850034366&hl=en&as_sdt=0,5).
 

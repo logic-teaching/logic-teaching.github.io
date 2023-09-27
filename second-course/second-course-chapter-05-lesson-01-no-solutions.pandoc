@@ -15,11 +15,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 5 Lecture 1
+# Chapter 5, Lesson 1, Review
 
 <br>
 
-This is review for the midterm exam. This problem set approximates fairly well the length and distribution of problems that will be on part I of the midterm exam. The distribution is better between the four weeks (better than we attained in the Week 5 Homework and Week 5 Tutoring document), and the number of problems is about the maximum of what we can expect one to be able to do in a short period of time.
+This chapter is review of the previous chapters. 
 
 
 <br>
@@ -31,7 +31,7 @@ This is review for the midterm exam. This problem set approximates fairly well t
 
 *Problem 1*
 
-Recall from [Week 4 Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#tautologies-and-equivalences-from-propositional-logic) that all of [the tautologies and equivalences of propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-section-no-solutions.pandoc#list-of-named-tautologies-and-equivalences) are in fact tautologies and equivalences of predicate logic. We repeat them here for ease of reference:
+Recall from [Chapter 4 Lesson 1](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc#tautologies-and-equivalences-from-propositional-logic) that all of [the tautologies and equivalences of propositional logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-problems-no-solutions.pandoc#list-of-named-tautologies-and-equivalences) are in fact tautologies and equivalences of predicate logic. We repeat them here for ease of reference:
 
 1. *Law of excluded middle*: $\phi\vee \neg \phi$ is a tautology.
 2. *Law of non-contradiction*: $\neg (\phi\wedge \neg \phi)$ is a tautology.

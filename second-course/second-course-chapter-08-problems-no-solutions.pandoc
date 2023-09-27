@@ -14,9 +14,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 8, Section
+# Chapter 8, Practice problems
 
-We practice with problems in classical logic. There's a lot of problems here, and so in section we will need to be selective about which ones we do. Take the others as opportunities for further practice.
+We practice with problems in classical logic.
 
 - [General remarks about proof checkers and classical proofs](#general-remarks-about-proof-checkers-and-classical-proofs)
 - [Summary of rules](#summary-of-rules)
@@ -39,7 +39,7 @@ Each of the problems comes with a hint about what rules to apply. Try to write o
 
 ## Summary of rules
 
-We [repeat](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-01-solutions.pandoc#summary-of-rules) for reference a summary of all the additional rules available in our system of classical predicate logic:
+We [repeat](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-01-no-solutions.pandoc#summary-of-rules) for reference a summary of all the additional rules available in our system of classical predicate logic:
 
 <table style="width:100%">
   <tr>
@@ -164,9 +164,6 @@ We [repeat](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-
   </tr>
 </table>
 
-<br>
-
-On the final exam, we will give you this table for reference, since our main aim is to learn to do proofs, and since the abbreviations for these rules are less established and a little more of a matter of convention, in part since in more advanced settings justifications are simply omitted. However, that said, it might be useful to memorize this table, since it helps one go faster and is usually a good way to reinforce learning and get a sense of how to combine these rules together in strategies. (While we will give this table for reference on the final exam, we will still ask that you memorize the introduction and elimination rules for the propositional connectives and quantifiers, along with ex falso).
 
 <br>
 
@@ -236,7 +233,7 @@ This one is just like the previous one. Don't let the presence of the arrow dist
 
 *Problem 6*
 
-This one is practice with DeMorgan plus a little bit of distribution. Compared to our [earlier](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#demorgan-for-the-quantifiers) by-hand work with DeMorgan, it will seem painfully slow to have to justify each line with the appropriate instance of DeMorgan. The place where you are presently at with DeMorgan on the basis of our earlier work is the place you are trying to get to with all of the rules we have added to our classical logic.
+This one is practice with DeMorgan plus a little bit of distribution. Compared to our [earlier](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc#demorgan-for-the-quantifiers) by-hand work with DeMorgan, it will seem painfully slow to have to justify each line with the appropriate instance of DeMorgan. The place where you are presently at with DeMorgan on the basis of our earlier work is the place you are trying to get to with all of the rules we have added to our classical logic.
 
 ```{.ProofChecker .GamutNDPlus submission="none"}
 08.06 ~AxEyAz(~Fx\/(~Gx/\~Hx)) :|-: ExAyEz((Fx/\Gx)\/(Fx/\Hx))

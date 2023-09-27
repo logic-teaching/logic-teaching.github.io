@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Tarski's definition of truth
+# Chapter 3, Lesson 2, Tarski's definition of truth
 
 We discuss Tarski's definition of truth of a well-formed formula in a model. Prior to that we must formally define models. Since models are relative to a choice of signature, we must begin with signature.
 
@@ -31,7 +31,7 @@ We discuss Tarski's definition of truth of a well-formed formula in a model. Pri
 
 ## Signatures and examples thereof
 
-A *signature* is just a collection of constant and relation symbols. Before we give examples, [recall our conventions on constant and relation symbols](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc#building-blocks-of-formulas-of-predicate-logic):
+A *signature* is just a collection of constant and relation symbols. Before we give examples, [recall our conventions on constant and relation symbols](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-02-no-solutions.pandoc#building-blocks-of-formulas-of-predicate-logic):
 
 - The lower-case Latin letters $a-r$ stand for objects, and we call these symbols the *constant symbols*. We also allow ourselves to put subscripts on them e.g. $b_1, b_2, b_3, \ldots, c_1, c_2, c_3, \ldots$.
 - The upper-case Latin letters A-Z stand for properties, and we call these symbols the *relation symbols*, and we can put natural number subscripts on these as well, e.g. $B_1, B_2, B_3, \ldots, C_1, C_2, C_3, \ldots$.
@@ -130,7 +130,7 @@ Consider the signature $c_1, c_2, R$ from Example 2. We can specify a model $\ma
 <p style="margin-left: 40px"> $c_2^{\mathcal{N}_1}$ = Los Angeles </p>
 <p style="margin-left: 40px"> $R^{\mathcal{N}_1} = \{\langle \mbox{New York}, \mbox{Los Angeles}\rangle\}$  </p>
 
-In the last line, we are deploying the ordered pair notation from our [set-theory notation](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#summary-of-set-theory-notation). We could also write the last line as follows using the alternative notation for ordered pairs:
+In the last line, we are deploying the ordered pair notation from our [set-theory notation](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc#summary-of-set-theory-notation). We could also write the last line as follows using the alternative notation for ordered pairs:
 
 <p style="margin-left: 40px"> $R^{\mathcal{N}_1} = \{[ \mbox{New York}, \mbox{Los Angeles}]\}$  </p>
 

@@ -6,7 +6,7 @@
 
 ### By [Sean Walsh](https://philosophy.ucla.edu/person/sean-walsh/)[^2]
 
-[^1]: *Acknowledgements*: Many thanks to Graham Leach-Krouse for his work in developing [carnap.io](http://carnap.io) and for many helpful conversations about it. Likewise thanks to Ian Boon and Tristen Cardwell and Zeynep Yıldız for talking through this material in the course of teaching it with me the first couple of times around. Thanks to the wonderful tutors Yasmine Ardehali, Lauren August, Scott Blomgren, Rocky Klein, Jordan Nakdimon, Elsa Servantez, Declan Trudel, and Quinton Wood for working through the tutoring documents with students.
+[^1]: *Acknowledgements*: Many thanks to Graham Leach-Krouse for his work in developing [carnap.io](http://carnap.io) and for many helpful conversations about it. Likewise thanks to Ian Boon and Tristen Cardwell and Zeynep Yıldız for talking through this material in the course of teaching it with me the first couple of times around. Thanks to the wonderful tutors Yasmine Ardehali, Lauren August, Scott Blomgren, Rocky Klein, Jordan Nakdimon, Elsa Servantez, Declan Trudel, and Quinton Wood for working through the "more practice problems" documents with students.
 
 
 [^2]: <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A second course in logic</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://carnap.io/shared/walsh@g.ucla.edu/book-mainpage.pandoc" property="cc:attributionName" rel="cc:attributionURL">Sean Walsh</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/logic-teaching/logic-teaching.github.io/tree/master/second-course" rel="dct:source">https://github.com/logic-teaching/logic-teaching.github.io/tree/master/second-course</a>. Much of it is based off of [my previous materials](https://carnap.io/shared/logiclogiclogic/book-mainpage.pandoc) when I did both the first and second logic course in adjacent terms.
@@ -30,9 +30,9 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Review of propositional connectives](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-lesson-01.pandoc)
+- [Lesson 1, Review of propositional connectives](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-lesson-01.pandoc)
 - [Practice problems, review of propositional logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-problems-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-problems-with-solutions.pandoc).
-- [The Aristotelian Syllogisms](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-lesson-02.pandoc)
+- [Lesson 2, The Aristotelian Syllogisms](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-lesson-02.pandoc)
 - [More practice problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-problems-yet-more-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-problems-yet-more-with-solutions.pandoc)
 
 <br>
@@ -41,9 +41,9 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Sets](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc)
+- [Lesson 1, Sets](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc)
 - [Practice problems, sets](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-problems-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-problems-with-solutions.pandoc).
-- [The quantifiers and well-formed formulas](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-02-with-solutions.pandoc)
+- [Lesson 2, The quantifiers and well-formed formulas](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-02-with-solutions.pandoc)
 - [More practice problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-problems-yet-more-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-problems-yet-more-with-solutions.pandoc)
 
 <br>
@@ -52,9 +52,9 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Binary relations and multiple quantifiers](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-01-with-solutions.pandoc)
+- [Lesson 1, Binary relations and multiple quantifiers](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-01-with-solutions.pandoc)
 - [Practice problems, with binary relations and multiple quantifiers](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-problems-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-problems-with-solutions.pandoc).
-- [Tarski's definition of truth](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-02.pandoc)
+- [Lesson 2, Tarski's definition of truth](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-02.pandoc)
 - [More practice problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-problems-yet-more-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-problems-yet-more-with-solutions.pandoc)
 
 <br>
@@ -63,9 +63,9 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Consequence](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc)
+- [Lesson 1, Consequence](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc)
 - [Practice problems, with validity and invalidity](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-with-solutions.pandoc).
-- [Variables and variable assignments](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-02.pandoc)
+- [Lesson 2, Variables and variable assignments](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-02.pandoc)
 - [More practice problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-yet-more-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-yet-more-with-solutions.pandoc)
 
 
@@ -75,7 +75,7 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Review](https://carnap.io/shared/logiclogiclogic/second-course-chapter-05-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-05-lesson-01-with-solutions.pandoc)
+- [Lesson 1, Review](https://carnap.io/shared/logiclogiclogic/second-course-chapter-05-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-05-lesson-01-with-solutions.pandoc)
 - [Practice problems, review](https://carnap.io/shared/logiclogiclogic/second-course-chapter-05-problems-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-05-problems-with-solutions.pandoc).
 - [More practice problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-05-problems-yet-more-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-05-problems-yet-more-with-solutions.pandoc)
 
@@ -85,9 +85,9 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Natural deduction](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc)
+- [Lesson 1, Natural deduction](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc)
 - [Practice problems, with natural deduction](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-problems-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-problems-with-solutions.pandoc).
-- [Natural deduction continued](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-02-with-solutions.pandoc)
+- [Lesson 2, Natural deduction continued](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-02-with-solutions.pandoc)
 - [More practice problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-problems-yet-more-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-problems-yet-more-with-solutions.pandoc)
 
 
@@ -97,9 +97,9 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Intuitionistic logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-01-with-solutions.pandoc)
+- [Lesson 1, Intuitionistic logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-01-with-solutions.pandoc)
 - [Practice problems, paradigmatic predicate logic proofs](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-problems-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-problems-with-solutions.pandoc).
-- [Lambda calculus and intuitionistic logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-02.pandoc)
+- [Lesson 2, Lambda calculus and intuitionistic logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-02.pandoc)
 - [More practice problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-problems-yet-more-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-problems-yet-more-with-solutions.pandoc)
 
 
@@ -109,9 +109,9 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Classical logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-01-with-solutions.pandoc)
+- [Lesson 1, Classical logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-01-with-solutions.pandoc)
 - [Practice problems, with proofs in classical logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-problems-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-problems-with-solutions.pandoc).
-- [Normal forms and resolution](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-02-with-solutions.pandoc)
+- [Lesson 2, Normal forms and resolution](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-02-with-solutions.pandoc)
 - [More practice problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-problems-yet-more-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-problems-yet-more-with-solutions.pandoc)
 
 <br>
@@ -120,10 +120,19 @@ Please report typos and suggest improvements at [this google form](https://forms
 
 <br>
 
-- [Soundness and completeness](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-lesson-01-with-solutions.pandoc)
+- [Lesson 1, Soundness and completeness](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-lesson-01-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-lesson-01-with-solutions.pandoc)
 - [Practice problems, proof or countermodel](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-problems-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-problems-with-solutions.pandoc).
-- [Second-order logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-lesson-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-lesson-02-with-solutions.pandoc)
+- [Lesson 2, Second-order logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-lesson-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-lesson-02-with-solutions.pandoc)
 - [More practice problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-problems-yet-more-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-09-problems-yet-more-with-solutions.pandoc)
+
+## Chapter 10
+
+<br>
+
+- [Lesson 1, Second-order logic continued](https://carnap.io/shared/logiclogiclogic/second-course-chapter-10-lesson-01.pandoc)
+- [Practice problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-10-problems-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-10-problems-with-solutions.pandoc).
+- [Lesson 2, Review](https://carnap.io/shared/logiclogiclogic/second-course-chapter-10-lesson-02-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-10-lesson-02-with-solutions.pandoc)
+- [More practice problems](https://carnap.io/shared/logiclogiclogic/second-course-chapter-10-problems-yet-more-no-solutions.pandoc) and [solutions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-10-problems-yet-more-with-solutions.pandoc)
 
 <br>
 

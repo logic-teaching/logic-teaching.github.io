@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 3 Tutoring session with solutions
+# Chapter 3, More practice problems, with solutions
 
 The problems in this set fall into four groups:
 
@@ -47,7 +47,7 @@ Consider the following four sentences:
 
 - $\forall\; x \; \exists\; y \; Rxy$, which in the diagram means: everything points to something
 
-Each of the four diagrams makes true at least one of the four sentences. We make it a little more challenging than [what we did in section](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-section-with-solutions.pandoc#arrow-diagrams-and-binary-relations) in that we draw several 'extraneous' arrows in the diagrams which are irrelevant to the four sentences at hand.
+Each of the four diagrams makes true at least one of the four sentences. We make it a little more challenging than [what we did in section](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-problems-with-solutions.pandoc#arrow-diagrams-and-binary-relations) in that we draw several 'extraneous' arrows in the diagrams which are irrelevant to the four sentences at hand.
 
 <br>
 
@@ -69,7 +69,7 @@ For ease of reference, we repeat the relevant diagram before the problem.
 | ∀ x ∃ y Rxy
 ```
 
-*Note*: $\exists \; x \; \forall \; y \; Rxy$ is true because $4$ points to every number, and hence one can take $x=4$. It is also true that $\forall \; u \; \exists \; v \; Rvu$, since for each $u=1,2,3,4,5,6$ one can take $v=4$ to make $Rvu$ true. And $\forall \; u \; \exists \; v \; Rvu$ iff $\forall \; x \; \exists \; y \; Ryx$ (we will go over 'change of bound variables' in a future week).
+*Note*: $\exists \; x \; \forall \; y \; Rxy$ is true because $4$ points to every number, and hence one can take $x=4$. It is also true that $\forall \; u \; \exists \; v \; Rvu$, since for each $u=1,2,3,4,5,6$ one can take $v=4$ to make $Rvu$ true. And $\forall \; u \; \exists \; v \; Rvu$ iff $\forall \; x \; \exists \; y \; Ryx$ (we will go over 'change of bound variables' in a future chapter).
 
 <br>
 
@@ -251,7 +251,7 @@ Second give the *Fregean translation*:
 
 <br>
 
-These problems do not arise until [Example 11 of Lecture 2 of this week](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#examples-of-truth-in-a-model). The idea is that you are building a model whose domain is a subset of natural numbers, and whose constant symbols are interpreted as natural numbers, and whose unary relations are subsets of natural numbers, and whose binary relations are ordered pairs of natural numbers. Hence:
+These problems do not arise until [Example 11 of Lesson 2 of this Chapter](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-02.pandoc#examples-of-truth-in-a-model). The idea is that you are building a model whose domain is a subset of natural numbers, and whose constant symbols are interpreted as natural numbers, and whose unary relations are subsets of natural numbers, and whose binary relations are ordered pairs of natural numbers. Hence:
 
 - For the `Domain`, enter in a subset of natural numbers, separated by commas.
 
@@ -259,7 +259,7 @@ These problems do not arise until [Example 11 of Lecture 2 of this week](https:/
 
 - For the unary predicates `F`, `G`, etc. enter in a subset of natural numbers from the domain, just by listing the natural numbers separated by commas (a form of the unordered list notation).
 
-- For the binary predicates `R`, `T` etc. enter in an ordered pair of natural numbers from the domain. Recall from our discussion of [set theory](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-01.pandoc#summary-of-set-theory-notation) that we type the ordered list notation using `<,,,>` or `[,,,]`.
+- For the binary predicates `R`, `T` etc. enter in an ordered pair of natural numbers from the domain. Recall from our discussion of [set theory](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-01.pandoc#summary-of-set-theory-notation) that we type the ordered list notation using `<,,,>` or `[,,,]`.
 
 Of course what is difficult in these problems is that one must make these choices so that the indicated formulas all come out true.
 

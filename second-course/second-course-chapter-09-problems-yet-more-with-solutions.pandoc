@@ -13,7 +13,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 
 
-# Week 9 Tutoring with solutions
+# Chapter 9, More Practice Problems, with solutions
 
 <br>
 
@@ -136,7 +136,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 ## Proof or countermodel with equivalence relations
 
-Before starting this section, consider reviewing the definition of equivalence relation from [the Week 4 tutoring document](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-tutoring-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations). The basic idea is that an equivalence relation is a notion of similarity among objects which acts like identity in a lot of ways: I am similar to myself (reflexivity), if I am similar to you, then you are similar to me (symmetry), if I am similar to you, and you are simliar to a third person, then I am similar to this third person (transitivity). Hence, use your intuitions about similarity to help guide you through the problems. Another fact about equivalence relations to keep in mind is: they partition the domain into disjoint classes (called equivalence classes). For instance, assuming double-majors are not allowed, then "sameness of major" would partition the students into disjoint groups, namely the majors.
+Before starting this section, consider reviewing the definition of equivalence relation from [the Chapter 4 More Practice Problems document](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-problems-yet-more-with-solutions.pandoc#validity-and-invalidity-with-orders-and-equivalence-relations). The basic idea is that an equivalence relation is a notion of similarity among objects which acts like identity in a lot of ways: I am similar to myself (reflexivity), if I am similar to you, then you are similar to me (symmetry), if I am similar to you, and you are simliar to a third person, then I am similar to this third person (transitivity). Hence, use your intuitions about similarity to help guide you through the problems. Another fact about equivalence relations to keep in mind is: they partition the domain into disjoint classes (called equivalence classes). For instance, assuming double-majors are not allowed, then "sameness of major" would partition the students into disjoint groups, namely the majors.
 
 
 <br>

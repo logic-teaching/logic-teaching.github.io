@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 3, Lecture 1: Binary relations and multiple quantifiers, with solutions
+# Chapter 3, Lesson 1: Binary relations and multiple quantifiers, with solutions
 
 We extend what we have learned so far to the case of binary relations and to formulas that involve binary relations and multiple quantifiers.
 
@@ -61,7 +61,7 @@ The following diagram represents $Rac\wedge (Rca\wedge Rbd)$:
 
 <br>
 
-Note that the use of "arrow" in "arrow diagrams" is distinct from the arrows that we use to formalize conditional statements. This rarely causes confusion because if e.g. one looked at the above diagram and saw the arrow from $b$ to $d$, one would not read this as $b\rightarrow d$, since [per our conventions](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc#building-blocks-of-formulas-of-predicate-logic), the lower-case Latin letters in the first two-thirds of the Latin alphabet are reserved for constant symbols, which pick out objects and not propositions.
+Note that the use of "arrow" in "arrow diagrams" is distinct from the arrows that we use to formalize conditional statements. This rarely causes confusion because if e.g. one looked at the above diagram and saw the arrow from $b$ to $d$, one would not read this as $b\rightarrow d$, since [per our conventions](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-02-no-solutions.pandoc#building-blocks-of-formulas-of-predicate-logic), the lower-case Latin letters in the first two-thirds of the Latin alphabet are reserved for constant symbols, which pick out objects and not propositions.
 
 <br>
 
@@ -389,7 +389,7 @@ One can then do translations with these. It might be advisable to proceed by doi
 
 ## Definite Descriptions
 
-We [already know](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc#translating-the-aristotelian-propositions) how to best translate "All F are G" and "Some F are G". How should we translate "The F is G"? It turns a lot on how to translate "the F", which is sometimes called a *definite description*, since the presence of the predicate F makes it descriptive and since the definite article "the" indicates a certain kind of definiteness.
+We [already know](https://carnap.io/shared/second-course-chapter-02-lesson-02-no-solutions.pandoc#translating-the-aristotelian-propositions) how to best translate "All F are G" and "Some F are G". How should we translate "The F is G"? It turns a lot on how to translate "the F", which is sometimes called a *definite description*, since the presence of the predicate F makes it descriptive and since the definite article "the" indicates a certain kind of definiteness.
 
 One option, due to Russell, is to translate it as "There is exactly one F and she is G" where the former gets translated via the exact numerical quantifier:[^1]
 

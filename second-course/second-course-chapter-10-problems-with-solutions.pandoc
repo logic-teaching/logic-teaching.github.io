@@ -14,31 +14,18 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 10, Section Solutions
+# Chapter 10, Practice Problems, with solutions
 
-We practice for the final exam.
+We practice the previous chapters.
 
 - [Famous Proofs](#famous-proofs)
 - [Proof or countermodel](#proof-or-countermodel)
-- [Week 6 problems](#week-6-problems)
-- [Week 7 problems](#week-7-problems)
-- [Week 8 problems](#week-8-problems)
-- [Week 9 problems](#week-9-problems)
+- [Chapter 6 problems](#chapter-6-problems)
+- [Chapter 7 problems](#chapter-7-problems)
+- [Chapter 8 problems](#chapter-8-problems)
+- [Chapter 9 problems](#chapter-9-problems)
 - [Summary of rules of classical predicate logic](#summary-of-rules-of-classical-predicate-logic)
 
-This is practice for the final. In particular, it is practice with parts I, II, III of the final.
-
-- It is *strongly advised* that you work it out by hand, since that it what we will be doing on the final.
-
-- And again, the reason we are doing this is because the aim of the second half of this course is for you to learn to write proofs, with the goal of being able to do so without the aid of a proof checker, since there no proof checkers in later parts of logic or in later applications of logic.
-
-- You can check your answers by looking at this solution document, or by typing your answers directly into the version without solutions.
-
-- The formatting of this page may look a little different, but that is because it is designed to be printed.
-
-- Keep in mind that there are many good proofs of one and the same result, and keep in mind that partial credit will be available on the proofs in the final.
-
-<br>
 
 <p style="page-break-before: always">
 
@@ -48,7 +35,7 @@ This is practice for the final. In particular, it is practice with parts I, II, 
 
 *Problem 1*
 
-This is the famous proof that intuitionistic logic proves the double-negation of law of the excluded middle. (From [Week 7, Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-07-lecture-01-with-solutions.pandoc) Example 4).
+This is the famous proof that intuitionistic logic proves the double-negation of law of the excluded middle. (From [Chapter 7, Lesson 1](https://carnap.io/shared/logiclogiclogic/second-course-chapter-07-lesson-01-with-solutions.pandoc) Example 4).
 
 For this problem, use only the introduction and elimination rules, along with ex falso and repeat rule. That is, this proof is a proof in intuitionistic predicate logic.
 
@@ -70,7 +57,7 @@ For this problem, use only the introduction and elimination rules, along with ex
 
 *Problem 2*
 
-This is the famous proof that classical logic proves the hard part of DeMorgan. (From [Week 8, Lecture 1](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-08-lecture-01-with-solutions.pandoc) Example 1).
+This is the famous proof that classical logic proves the hard part of DeMorgan. (From [Chapter 8, Lesson 1](https://carnap.io/shared/logiclogiclogic/second-course-chapter-08-lesson-01-with-solutions.pandoc) Example 1).
 
 
 For this problem, use only the introduction and elimination rules, along with ex falso and repeat rule, as well as *double-negation*.
@@ -235,7 +222,7 @@ For this problem, use only the introduction and elimination rules, along with ex
 
 <p style="page-break-before: always">
 
-## Week 6 problems
+## Chapter 6 problems
 
 <br>
 
@@ -352,7 +339,7 @@ For this one, solve it using the Aristotelian syllogisms (which we showed were a
 
 <p style="page-break-before: always">
 
-## Week 7 problems
+## Chapter 7 problems
 
 <br>
 
@@ -460,7 +447,7 @@ This is a problem in inferring types. *Hint*: think about the types as propositi
 
 <p style="page-break-before: always">
 
-## Week 8 problems
+## Chapter 8 problems
 
 <br>
 
@@ -524,7 +511,7 @@ $\forall \; x \; \forall \; y \; (Rxy\rightarrow Ryx), \forall \; x \forall \; y
 
 <p style="page-break-before: always">
 
-## Week 9 problems
+## Chapter 9 problems
 
 <br>
 
@@ -683,7 +670,7 @@ These are the rules for our second-order deductive system. They are included onl
 
 ## Summary of rules of classical predicate logic
 
-For reference, here is a summary of all the rules available in our system of classical predicate logic, i.e. the Week 8 system.
+For reference, here is a summary of all the rules available in our system of classical predicate logic, i.e. the Chapter 8 system.
 
 <table style="width:100%">
   <tr>

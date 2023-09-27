@@ -15,11 +15,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 6, Section with solutions
+# Chapter 6, Practice Problems, with solutions
 
 We practice with the rules learned thus far.
-
-There's 20 problems. We'll have to be selective about what ones to do together. Take the others as more practice, or something to talk about in office hours.
 
 - [Rules learned thus far](#rules-learned-thus-far)
 - [Proofs with arrows and nested arrows](#proofs-with-arrows-and-nested-arrows)
@@ -49,49 +47,49 @@ This version has **the solutions** filled in. Please keep in mind that there are
   <tr>
     <td>Introduction of universal</td>
     <td>`I∀` or `IA`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-universal)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#introduction-rule-for-universal)</td>
     <td>1</td>
   </tr>
   <tr>
     <td>Elimination of universal</td>
     <td>`E∀` or `EA`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-universal)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#elimination-rule-for-universal)</td>
     <td>1</td>
   </tr>
   <tr>
     <td>Introduction of conjunction</td>
     <td>`I∧` or `I/\`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-conjunction)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#introduction-rule-for-conjunction)</td>
     <td>2</td>
   </tr>
   <tr>
     <td>Elimination of conjunction</td>
     <td>`E∧` or `E/\`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-conjunction)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#elimination-rule-for-conjunction)</td>
     <td>1</td>
   </tr>
   <tr>
     <td>Introduction of arrow</td>
     <td>`I→` or `I->`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-implication)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#introduction-rule-for-implication)</td>
     <td>$\geq 2$</td>
   </tr>
   <tr>
     <td>Elimination of arrow</td>
     <td>`E→` or `E->`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-implication)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#elimination-rule-for-implication)</td>
     <td>$2$</td>
   </tr>
   <tr>
     <td>Introduction of negation</td>
     <td>`I¬` or `I~`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-negation)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#introduction-rule-for-negation)</td>
     <td>$\geq 2$</td>
   </tr>
   <tr>
     <td>Elimination of negation</td>
     <td>`E¬` or `E~`</td>
-    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#elimination-rule-for-negation)</td>
+    <td>[Discussion](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#elimination-rule-for-negation)</td>
     <td>2</td>
   </tr>
 </table>
@@ -381,7 +379,7 @@ This one is a good example of negation elimination plus "first try applying elim
 
 *Problem 16*
 
-On this problem, you need to work from the bottom and realize that to get the conclusion `AxFx->AxHx` you'll need to do an arrow introduction going from `AxFx` down to `AxHx` in a bracket. Then the proof should emulate the proof Barbara from lecture (it is [Example 7 under the introduction rule for universal](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-06-lecture-01-with-solutions.pandoc#introduction-rule-for-universal)).
+On this problem, you need to work from the bottom and realize that to get the conclusion `AxFx->AxHx` you'll need to do an arrow introduction going from `AxFx` down to `AxHx` in a bracket. Then the proof should emulate the proof Barbara from lecture (it is [Example 7 under the introduction rule for universal](https://carnap.io/shared/logiclogiclogic/second-course-chapter-06-lesson-01-with-solutions.pandoc#introduction-rule-for-universal)).
 
 ```{.ProofChecker .GamutNDPlus submission="none" }
 06.16 Ax(Fx->Gx), Ax(Gx->Hx) :|-: AxFx->AxHx

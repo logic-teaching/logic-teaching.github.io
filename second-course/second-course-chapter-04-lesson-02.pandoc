@@ -14,7 +14,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <br>
 
-# Week 4, Lecture 2, Variables and variable assignments
+# Chapter 4, Lesson 2, Variables and variable assignments
 
 Thus far we know how to assess atomic formulas like $Fa$ and $Rab$ for truth or falsity relative to a model. But we do not yet have a method for assessing atomic formulas like $Fx$ and $Rxy$ for truth or falsity. It is useful to do so for a number of reasons, and it requires that we distinguish between free and bound occurrences of variables and it requires that we introduce variable assignments into the semantics.
 
@@ -69,7 +69,7 @@ The general idea is as follows:
 
 - when goes from the subformula $\phi$ to the formula $\forall \; x \; \phi$, every free occurrence of $x$ in $\phi$ becomes bound by the universal quantifier in $\forall \; x \; \phi$.
 
-Technically to implement the general idea one must revise the previous [definition of well-formed formula](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-02-lecture-02-no-solutions.pandoc#the-well-formed-formulas-of-predicate-logic) and one build-in the aforementioned idea as one goes along. Experience suggests that this technicality should be brushed over on one's first pass, but we include it here for reference. The italicized parts are those that have been added:
+Technically to implement the general idea one must revise the previous [definition of well-formed formula](https://carnap.io/shared/logiclogiclogic/second-course-chapter-02-lesson-02-no-solutions.pandoc#the-well-formed-formulas-of-predicate-logic) and one build-in the aforementioned idea as one goes along. Experience suggests that this technicality should be brushed over on one's first pass, but we include it here for reference. The italicized parts are those that have been added:
 
 - All the atomic formulas are well-formed formulas and the main connective is the predicate symbol (or the identity symbol if it is an identity), and *all variable occurrences within atomic formula are free*.
 - If $\phi$ is a well-formed formula, then $\neg \phi$ is a well-formed formula and its main connective is the negation symbol $\neg$, and *the free variable occurrences within $\neg \phi$ are precisely those of $\phi$*.
@@ -113,7 +113,7 @@ We say $\mathcal{M}\models Ryz$ iff the ordered pair $\langle$ whatever we assig
 
 The general definition of variable assignment is relative to a model. Given a model, a variable assignment relative to the model is a function that sends the variables in question-- namely $x$, $y$, $z$-- to elements of the underlying domain of the model. If the model is people, then it sends the variables to people. If the model is numbers, then it sends the variables to number. If the model is cities, then it sends the variables to cities.
 
-Our [intuitive idea of a function](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-04-lecture-01.pandoc#graphs-of-functions-and-predicate-logic) $g:X\rightarrow Y$ is an operation which sends inputs from the domain $X$ to outputs from the codomain $Y$. Hence a variable assignment is just a function which sends inputs from the domain of variable symbols to the outputs from the codomain of the underlying domain of the model. In contrast to the ordinary functions we encounter in arithmetic, the functions at play in variable assignments don't usually come equipped with any natural operation. Usually the "operation" in question is just a matter of convenience and happenstance. That is, we assigned $y$ to Allison and $z$ to Brianna because of uninteresting things like: we encountered Allison first and Brianna second.
+Our [intuitive idea of a function](https://carnap.io/shared/logiclogiclogic/second-course-chapter-04-lesson-01.pandoc#graphs-of-functions-and-predicate-logic) $g:X\rightarrow Y$ is an operation which sends inputs from the domain $X$ to outputs from the codomain $Y$. Hence a variable assignment is just a function which sends inputs from the domain of variable symbols to the outputs from the codomain of the underlying domain of the model. In contrast to the ordinary functions we encounter in arithmetic, the functions at play in variable assignments don't usually come equipped with any natural operation. Usually the "operation" in question is just a matter of convenience and happenstance. That is, we assigned $y$ to Allison and $z$ to Brianna because of uninteresting things like: we encountered Allison first and Brianna second.
 
 Suppose, again, for simplicity that we have only three variables in question $x,y,z$ and we have only two people Allison and Brianna in the domain of our model. Then the following are all examples of variable assignments:
 
@@ -142,7 +142,7 @@ There is a *notational warning* when dealing with variable assignments. In conte
 
 ## Definition of truth in a model relative to a variable assignment
 
-We now revise [Tarski's definition of truth in a model](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model) to make it relative to variable assignments. Hence instead of defining $\mathcal{M}\models \varphi$, we will define $\mathcal{M},g\models \varphi$, where $g$ is a variable assignment relative to the model.
+We now revise [Tarski's definition of truth in a model](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-02.pandoc#tarski-and-his-definition-of-truth-in-a-model) to make it relative to variable assignments. Hence instead of defining $\mathcal{M}\models \varphi$, we will define $\mathcal{M},g\models \varphi$, where $g$ is a variable assignment relative to the model.
 
 For *atomics*, if $F$ is a one-place predicate, then we define $\mathcal{M},g\models Fx$ iff $g(x)$ is in $F^{\mathcal{M}}$. If $R$ is a two-place predicate, then we define $\mathcal{M},g\models Rxy$ iff $\langle g(x),g(y)\rangle$ is in $R^{\mathcal{M}}$. We also still keep the old clauses for e.g. $\mathcal{M},g\models Fa$ and $\mathcal{M},g\models Rab$; and for mixed cases like $\mathcal{M},g\models Rxb$ we do the obivous thing.
 

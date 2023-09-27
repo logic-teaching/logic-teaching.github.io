@@ -15,7 +15,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <br>
 <br>
 
-# Week 4, Lecture 1, Consequence
+# Chapter 4, Lesson 1, Consequence
 
 We define consequence and look at several examples of valid and invalid arguments.
 
@@ -32,7 +32,7 @@ We define consequence and look at several examples of valid and invalid argument
 
 ## Valid arguments
 
-Intuitively, an argument is valid if whenever its premises are true, its conclusion is true. In this, an *argument* is understood to be a list of premises $\phi_1, \ldots, \phi_n$ together we a conclusion $\phi$. Now that we have [defined truth in a model following Tarski](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model), we can present a formal definition of validity.
+Intuitively, an argument is valid if whenever its premises are true, its conclusion is true. In this, an *argument* is understood to be a list of premises $\phi_1, \ldots, \phi_n$ together we a conclusion $\phi$. Now that we have [defined truth in a model following Tarski](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-02.pandoc#tarski-and-his-definition-of-truth-in-a-model), we can present a formal definition of validity.
 
 We define an argument with premises $\phi_1, \ldots, \phi_n$ and conclusion $\phi$ to be *valid* if for any model $\mathcal{M}$ which interprets all of the constants and relation symbols in the argument, one has that if $\mathcal{M}\models \phi_1, \ldots, \mathcal{M}\models \phi_n$, then $\mathcal{M}\models \phi$. Models are our representations of situations or circumstances or "how things stand in some region or part of the world, at some scale." Hence, a valid argument is one such that in any situation in which the premises are all true, the conclusion is also true.
 
@@ -58,7 +58,7 @@ Here are the simplest examples of valid arguments:
 
 *Example 1*: $\forall x \; Fx\vDash Fa$.
 
-For, suppose that $\mathcal{M}$ is a model interpreting all the constant and relation symbols in the premise and conclusion, and suppose that the premise is true in $\mathcal{M}$, i.e. suppose that  $\mathcal{M}\models \forall \; x \; Fx$. Then by the universal clause [in Tarski's definition of truth](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-03-lecture-02.pandoc#tarski-and-his-definition-of-truth-in-a-model), we have $\mathcal{M}\models Fc$ for all constant symbols $c$ in the signature. The signature of the model includes $a$ since this constant symbol features in the conclusion of the argument. Then $\mathcal{M}\models Fa$.
+For, suppose that $\mathcal{M}$ is a model interpreting all the constant and relation symbols in the premise and conclusion, and suppose that the premise is true in $\mathcal{M}$, i.e. suppose that  $\mathcal{M}\models \forall \; x \; Fx$. Then by the universal clause [in Tarski's definition of truth](https://carnap.io/shared/logiclogiclogic/second-course-chapter-03-lesson-02.pandoc#tarski-and-his-definition-of-truth-in-a-model), we have $\mathcal{M}\models Fc$ for all constant symbols $c$ in the signature. The signature of the model includes $a$ since this constant symbol features in the conclusion of the argument. Then $\mathcal{M}\models Fa$.
 
 <br>
 
@@ -138,7 +138,7 @@ For, suppose that $\mathcal{M}\models \exists \; y \; Ray$ and $\mathcal{M}\mode
 
 <br>
 
-There are duals to universal elimination and existential introduction, namely universal introduction and existential elimination. We will explore these this week in homework sets and thematize them more explicitly when we turn to deductive systems.
+There are duals to universal elimination and existential introduction, namely universal introduction and existential elimination. We will explore these in homework sets and thematize them more explicitly when we turn to deductive systems.
 
 <br>
 
@@ -150,7 +150,7 @@ A *tautology* is simply a formula $\phi$ which is always true, in the sense that
 
 Two formulas $\phi, \psi$ are *equivalent* if $\phi\leftrightarrow \psi$ is a tautology. That is, for all models $\mathcal{M}$, one has $\mathcal{M}\models \phi$ if and only if $\mathcal{M}\models \psi$. Intuitively, equivalent formulas are true in exactly the same situations.
 
-All of [the tautologies and equivalences of propositional logic](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-section-no-solutions.pandoc#list-of-named-tautologies-and-equivalences) are also tautologies and equivalences of predicate logic:
+All of [the tautologies and equivalences of propositional logic](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-problems-no-solutions.pandoc#list-of-named-tautologies-and-equivalences) are also tautologies and equivalences of predicate logic:
 
 1. *Law of excluded middle*: $\phi\vee \neg \phi$ is a tautology.
 2. *Law of non-contradiction*: $\neg (\phi\wedge \neg \phi)$ is a tautology.
@@ -265,7 +265,7 @@ Use DeMorgan to find an equivalent of $\neg \exists \;x \; \forall \; y \; \exis
 
 ## Tarski on consequence
 
-Recall [Aristotle's characterization](https://carnap.io/shared/logiclogiclogic/philos132-winter23-week-01-lecture-02.pandoc#the-subject-matter-of-logic) of the intuitive notion of the conclusion of an argument following from the premises:
+Recall [Aristotle's characterization](https://carnap.io/shared/logiclogiclogic/second-course-chapter-01-lesson-02.pandoc#the-subject-matter-of-logic) of the intuitive notion of the conclusion of an argument following from the premises:
 
 &nbsp; &nbsp; &nbsp; <img src="https://logic-teaching.github.io/pred/texts/Aristotle%202014%20-%20Prior%20Analytics%20Book%20I%20Chapters%201-12%20deduction-v2.png" alt="Aristotle on deduction" width="700"/>
 
@@ -283,7 +283,7 @@ One traditional criticism of Tarski pertains to arguments that are invalid only 
 *Example 15*: $\forall \; x \; \neg Rxx, \forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)\nvDash \neg \exists \; x \; \exists \; y \; Rxy$
 
 
-(In section this week, we will call the first premise $\forall \; x \; \neg Rxx$ *anti-reflexivity* and the second premise $\forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$ *transitivity*. The conclusion does not have a standard name, but one might colloquially express it as "there is no $R$-chain of length 2").
+(In pratice problems in this chapter, we will call the first premise $\forall \; x \; \neg Rxx$ *anti-reflexivity* and the second premise $\forall \; x \; \forall \; y \; \forall \; z \; ((Rxy\wedge Ryz)\rightarrow Rxz)$ *transitivity*. The conclusion does not have a standard name, but one might colloquially express it as "there is no $R$-chain of length 2").
 
 To see that the premises do not imply the conclusion, we need to find a model of the premises together with  $\exists \;x  \; \exists \; y \; Rxy$. But a simple arrow model can be found, as illustrated below:
 
